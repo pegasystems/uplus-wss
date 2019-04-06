@@ -1,0 +1,247 @@
+/*************************************************/
+/* Responsive behavior */
+/*************************************************/
+body {
+  min-width: 400px;
+}
+
+@media screen and (max-width: 1023px) {
+  header ul.flex li {
+    margin-right: 4vw;
+  }
+
+  h1.hero {
+    font-size: 50rem;
+  }
+
+  .front header {
+    height: 500rem;
+  }
+
+  h2,
+  .col-2 h3 {
+    font-size: 20rem;
+  }
+
+  p {
+    font-size: 16rem;
+  }
+
+  body,
+  button,
+  footer ul.flex li {
+    font-size: 14rem;
+  }
+
+  footer ul.flex li {
+    margin-right: 3vw;
+  }
+
+  .pi.product-icon {
+    width: 40rem;
+    height: 40rem;
+    font-size: 20rem;
+    line-height: 35rem;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .col-1 {
+    width: 100%;
+    margin-bottom: 30rem;
+  }
+
+  .col-2 {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 0;
+    display: flex;
+  }
+
+  .secondary-card {
+    width: 50%;
+  }
+
+  .offer-card-col {
+    margin-right: 8rem;
+  }
+
+  .secondary-card.container {
+    margin-left: 8rem;
+  }
+
+  footer ul.flex>a {
+    margin-right: 8rem;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  h1.hero {
+    font-size: 30rem;
+  }
+
+  .front header {
+    height: 300rem;
+  }
+
+  .launch-login {
+    display: none;
+  }
+
+  .menu {
+    display: block;
+  }
+
+  header ul.flex li {
+    display: none;
+  }
+
+  header ul.flex li:first-child {
+    display: block;
+  }
+
+  .flex-col-3>div {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .flex-col-3 {
+    flex-wrap: wrap;
+  }
+
+  .layout-inline-grid-double>div {
+    width: calc(100%);
+    margin-right: 0;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+
+  /* Force table to not be like tables anymore */
+  table.responsive,
+  .responsive thead,
+  .responsive tbody,
+  .responsive th,
+  .responsive td,
+  .responsive tr {
+    display: block;
+  }
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  .responsive thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  .responsive tr {
+    border: 1px solid #ccc;
+  }
+
+  .responsive td {
+    border: none;
+    position: relative;
+    white-space: normal;
+    text-align: left;
+    padding: 3rem 0 3rem 60%;
+  }
+
+  .responsive td:before {
+    position: absolute;
+    left: 8rem;
+    padding-right: 8rem;
+    text-align: left;
+    font-weight: bold;
+  }
+
+  .responsive td:before {
+    content: attr(data-title);
+  }
+}
+
+@media screen and (max-width: 567px) {
+  h1.hero {
+    font-size: 20rem;
+  }
+
+  .primary-options,
+  .secondary-options .wrap {
+    flex-flow: column nowrap;
+  }
+
+  .primary-options .front-option {
+    flex-flow: row nowrap;
+    display: flex;
+    border-bottom: 1px solid #dfdfdf;
+    align-items: center;
+  }
+
+  .primary-options .front-option>img {
+    width: 140px;
+  }
+
+  .primary-options .front-option>.details {
+    flex: 1;
+    text-align: left;
+    padding-left: 14rem;
+  }
+
+  .wrap {
+    margin: 0;
+  }
+
+  .front header {
+    margin-bottom: 0;
+    height: 300rem;
+  }
+
+  button {
+    min-width: 0;
+  }
+
+  .secondary-options .front-option::after {
+    height: 40rem;
+    width: 40rem;
+    background-size: 20rem auto;
+    margin-left: -17rem;
+  }
+
+  .secondary-options .front-option:first-child::after {
+    top: -20rem;
+  }
+
+  .secondary-options .wrap {
+    margin-top: -150rem;
+    padding: 0 10vw;
+    filter: drop-shadow(0 3rem 7rem rgba(0, 0, 0, 0.5));
+    margin-bottom: 14rem;
+  }
+
+  .secondary-options .front-option {
+    background: #fff;
+    padding-top: 40rem;
+  }
+
+  .copyright {
+    display: none;
+  }
+
+  .fatlist>li {
+    flex-wrap: wrap;
+  }
+
+  footer nav {
+    width: 100%;
+  }
+
+  footer nav>ul {
+    flex-flow: column;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .menu-overlay {
+    right: 0;
+    left: 0;
+  }
+}

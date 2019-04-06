@@ -1,0 +1,86 @@
+var langEN = {
+  hero_text: "Stay",
+  hero_span: "connected",
+  learnmore: "Learn more",
+  contactus: "Contact us",
+  secondary1_title: "We're here to help.",
+  secondary1_msg: "Be involved with your community.",
+  secondary2_title: "Go paperless",
+  secondary2_msg: "A safe and secure way to stay organized.",
+  primary1_title: "Education.",
+  primary1_msg: "Find all the schools in your town.",
+  primary2_title: "Services.",
+  primary2_msg: "Use our mobile app to access to the town services.",
+  primary3_title: "Plan your future.",
+  primary3_msg: "Scholarships available in your town.",
+  menu1: 'Your gouvernment',
+  menu2: 'Town services',
+  menu3: 'Town projects',
+  menu4: 'Our community',
+  login: 'Log in',
+  logout: 'Log out',
+  invalidLogin: 'Invalid credentials',
+  aboutus: "About us",
+  reviews: "Reviews",
+  privacy: "Privacy",
+  termsandconditions: "Terms & Conditions",
+  copyright: "© 2018 Pegasystems",
+  settings: "Settings",
+  username: "Username",
+  password: "Password",
+  signin: "Sign in",
+  lang_en: "English",
+  lang_fr: "French",
+  change_language: "Change language",
+  accountpicker1_title: "Town Taxes",
+  accountpicker1_desc: "Due in 5 days",
+  accountpicker2_title: "Excise Tax",
+  accountpicker2_desc: "Ford Fiesta 4567VV",
+  accountpicker3_title: "Water Bill",
+  accountpicker3_desc: "Due in 2 months",
+  youraccount: "Your accounts",
+  accountoverview: "Account overview",
+  billpay: "Bill pay",
+  amountdue: "Amount due",
+  paynow: "Pay now",
+  billdue: "Your tax town bill is due on",
+  viewbill: "View Bill",
+  autopay: "Autopay: ",
+  off: "Off",
+  on: "On",
+  autopay_enroll: "Enroll in autopay",
+  recentactivity: "Recent activity",
+  recentactivity1_msg: "Your last town tax bill is ready to view",
+  recentactivity2_msg: "Your tax tax has been processed",
+  recentactivity3_msg: "Your water bill #4345656 has been processed",
+  recentactivity4_msg: "Your water bill #4345656 has been received",
+  viewmore: "View more",
+  offer1_title: "Annual Flu Vaccine",
+  offer1_msg: "Flu season has begun and the Board of Health has vaccines.",
+  offerforyou: "Offer for you",
+  quicklinks: "Quick links",
+};
+
+var dateFormatEN = {
+  short: {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric'
+  },
+  long: {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    weekday: 'short',
+    hour: 'numeric',
+    minute: 'numeric'
+  }
+}
+
+var numberFormatEN = {
+  currency: {
+    style: 'currency',
+    currency: 'USD',
+    currencyDisplay: 'symbol'
+  }
+}

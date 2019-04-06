@@ -1,0 +1,59 @@
+/* Color and decoration. */
+body,
+.form {
+        background: #F7F7F7;
+}
+
+body.front,
+body.offer {
+        background: #fff;
+}
+
+a,
+a:visited {
+        color: #295ED9;
+}
+
+a.decorated,
+a.decorated:visited {
+        border-bottom-color: #295ED9;
+}
+
+a:hover,
+a:focus,
+a:active {
+        text-decoration: underline;
+}
+
+.content-card {
+        background: #fff;
+        border: 1rem solid #d5d5d5;
+        border-radius: 4rem;
+}
+
+.content-card span {
+        color: #939393;
+}
+
+.primary-card {
+        background: #fff;
+        box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.2);
+        border-radius: 8rem;
+}
+
+.secondary-card {
+        background: #fff;
+        border: 1px solid #FFF;
+        border-radius: 8rem;
+}
+
+.content-card.fatlist,
+.content-card.offer-card {
+        padding: 0;
+}
+
+.error {
+        color: #ff0900e6;
+        font-size: 18rem;
+        font-weight: 700;
+}
