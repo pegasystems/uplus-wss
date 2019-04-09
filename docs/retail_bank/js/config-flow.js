@@ -83,5 +83,85 @@ var app = {
     {
       title: 'menu4'
     }
-  ]
+  ],
+    offer: {
+    header: {
+      title: 'offer_header_title',
+      promotions: [{
+        icon: 'pi-chevron-solid',
+        message: 'offer_header_promotion1'
+      }, {
+        icon: 'pi-chevron-solid',
+        message: 'offer_header_promotion2'
+      }, {
+        icon: 'pi-chevron-solid',
+        message: 'offer_header_promotion3'
+      }]
+    },
+    main_form: {
+      title: 'offer_main_form_title',
+      button_label: 'offer_main_form_button_label',
+      data: [{
+        label: 'offer_main_form_data1_label'
+      }, {
+        label: 'offer_main_form_data2_label'
+      }, {
+        icon: 'pi-chevron-solid',
+        label: 'offer_main_form_data3_label'
+      }, ]
+    },
+    cards: {
+      title: 'offer_cards_title',
+      data: [{
+        icon: 'pi-chevron-solid',
+        title: 'offer_cards_data1_title',
+        message: 'offer_cards_data1_message'
+      }, {
+        icon: 'pi-triangle-solid',
+        title: 'offer_cards_data2_title',
+        message: 'offer_cards_data2_message'
+      }, {
+        icon: 'pi-bolt-solid',
+        title: 'offer_cards_data3_title',
+        message: 'offer_cards_data3_message'
+      }]
+    },
+    details: [{
+        title: 'offer_details1_title',
+        message: 'offer_details1_message',
+        image: 'offer-detail-1.png'
+      },
+      {
+        title: 'offer_details2_title',
+        message: 'offer_details2_message',
+        image: 'offer-detail-2.png'
+      }
+    ],
+    benefits: {
+      title: 'offer_benefits_title',
+      data: [{
+        icon: 'pi-passbook',
+        message: 'offer_benefits_data1_message'
+      }, {
+        icon: 'pi-information-solid',
+        message: 'offer_benefits_data2_message'
+      }, {
+        icon: 'pi-receipt',
+        message: 'offer_benefits_data3_message'
+      }, {
+        icon: 'pi-bolt',
+        message: 'offer_benefits_data4_message'
+      }, {
+        icon: 'pi-disc-stack',
+        message: 'offer_benefits_data5_message'
+      }, {
+        icon: 'pi-bolt',
+        message: 'offer_benefits_data6_message'
+      }]
+    },
+    footer: {
+      title: 'offer_footer_title',
+      button_label: 'offer_footer_button_label'
+    }
+  }
 };

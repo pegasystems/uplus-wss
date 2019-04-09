@@ -365,6 +365,51 @@ footer ul.flex {
 	margin-top: 90rem;
 }
 
+/* Implementation of the floating label on the stacked layout */
+.layout-stacked>.field-item {
+	margin: 16rem 0 8rem 0;
+	position: relative;
+}
+
+.layout-stacked>.field-item>label {
+	position: absolute;
+	top: 0;
+	opacity: 0.5;
+	transition: all .3s ease;
+	padding: 0;
+	margin: 10rem 0 0 0;
+	pointer-events: none;
+}
+
+.layout-stacked>.field-item>input:focus,
+.layout-stacked>.field-item>input:hover,
+.layout-stacked>.field-item>input:active,
+.layout-stacked>.field-item>input {
+	transition: all .3s linear;
+	border: none;
+	border-bottom: 1rem solid #D1D2D3;
+	outline: none;
+	color: #000;
+	line-height: 40rem;
+	padding: 10rem 0 3rem 0;
+	height: 40rem;
+}
+
+.layout-stacked>.field-item>input::placeholder {
+	opacity: 0;
+	color: transparent;
+	font-size: 0;
+}
+
+.layout-stacked>.field-item>input:active+label,
+.layout-stacked>.field-item>input:focus+label,
+.layout-stacked>.field-item>input:not(:placeholder-shown)+label {
+	font-size: 75%;
+	transform: translate3d(0, -100%, 0);
+	opacity: 1;
+}
+
+/* label left layout */
 .layout-labels-left>.field-item {
 	display: flex;
 	flex-flow: row nowrap;
@@ -382,6 +427,7 @@ footer ul.flex {
 	flex-grow: 1;
 }
 
+/* inline grid double with responsive behavior */
 .layout-inline-grid-double {
 	display: flex;
 	flex-flow: row wrap;
@@ -392,6 +438,7 @@ footer ul.flex {
 	margin-right: 16rem;
 }
 
+/* helper classes */
 .padding-2x {
 	padding: 16rem;
 }
@@ -400,12 +447,20 @@ footer ul.flex {
 	margin-right: 16rem;
 }
 
+.margin-t-2x {
+	margin-top: 16rem;
+}
+
 .padding-t-2x {
 	padding-top: 16rem;
 }
 
 .float-r {
 	float: right;
+}
+
+.width-100-pct {
+	width: 100%;
 }
 
 div.inline-middle>button {
@@ -420,6 +475,7 @@ div[data-pega-gadgetname] {
 	width: 100%;
 }
 
+/* tab layout */
 [role="tablist"] li {
 	display: inline-block;
 	list-style: none;

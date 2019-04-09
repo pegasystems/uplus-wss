@@ -1,14 +1,27 @@
 <template>
-  <div id="app">OFFER PAGE</div>
+  <div id="app" class="form offer">
+    <Header/>
+    <Main/>
+    <Footer/>
+  </div>
 </template>
 
 <script>
 import { mainconfig } from "./global";
 
+import Header from "./components/offer/Header.vue";
+import Main from "./components/offer/Main.vue";
+import Footer from "./components/offer/Footer.vue";
+
 export default {
   name: "app",
   data: function() {
     return mainconfig;
+  },
+  components: {
+    Header,
+    Main,
+    Footer
   }
 };
 </script>
@@ -22,5 +35,6 @@ export default {
 @import url("./css/_controls.css");
 @import url("./css/_color.css");
 @import url("./css/_icons.css");
+@import url("./css/_offer.css");
 @import url("./css/_responsive.css");
 </style>

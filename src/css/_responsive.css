@@ -113,6 +113,21 @@ body {
     width: calc(100%);
     margin-right: 0;
   }
+
+  .offer-cards>div,
+  .offer-request {
+    flex-flow: column;
+    align-items: center;
+  }
+
+  .offer .offer-cards {
+    margin-top: 0;
+  }
+
+  .offer-cards>div>.flex {
+    margin-bottom: 16rem;
+  }
+
 }
 
 @media only screen and (max-width: 700px) {
@@ -236,6 +251,15 @@ body {
 
   footer nav>ul {
     flex-flow: column;
+  }
+
+  .offer-details .image {
+    display: none;
+  }
+
+  .offer .offer-details>div>.details {
+    width: 100%;
+    padding: 21rem 35rem;
   }
 }
 

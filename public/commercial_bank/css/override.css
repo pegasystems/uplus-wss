@@ -1,8 +1,13 @@
 header,
+.background-brand,
 .product-icon,
 main .secondary-options .front-option::after,
 .benefits li::after {
  background-color: #3C8712;
+}
+
+body .color-brand {
+	color: #3C8712;
 }
 
 .front header,

@@ -1,20 +1,24 @@
-/* Manufacturing */
-
 header,
+.background-brand,
 .product-icon,
 main .secondary-options .front-option::after,
 .benefits li::after {
- background-color: #D31D36;
+	background-color: #D31D36;
 }
 
-.front header {
+body .color-brand {
+	color: #D31D36;
+}
+
+.front header,
+.offer-hero header {
 	background-image: url('../img/hero-1.jpg');
- }
- 
- .front.logged-in header {
+}
+
+.front.logged-in header {
 	background-image: url('../img/hero-1.jpg');
- }
- 
-  .form > header {
- background-image: url('../img/hero-1.jpg');
+}
+
+.form>header {
+	background-image: url('../img/hero-1.jpg');
 }

@@ -1,20 +1,24 @@
-/* INSURANCE */
-
 header,
+.background-brand,
 .product-icon,
 main .secondary-options .front-option::after,
 .benefits li::after {
- background-color:  #DF3603;
+	background-color: #DF3603;
 }
 
-.front header {
+body .color-brand {
+	color: #DF3603;
+}
+
+.front header,
+.offer-hero header {
 	background-image: url('../img/hero-1.jpg');
- }
- 
- .front.logged-in header {
+}
+
+.front.logged-in header {
 	background-image: url('../img/hero-2.jpg');
- }
- 
-  .form > header {
- background-image: url('../img/hero-2.jpg');
+}
+
+.form>header {
+	background-image: url('../img/hero-2.jpg');
 }

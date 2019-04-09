@@ -185,6 +185,7 @@
  	height: 40rem;
  	min-width: 140rem;
  	border-radius: 3rem;
+ 	cursor: pointer;
  }
 
  header button.more {
@@ -203,7 +204,6 @@
  	font-size: 16rem;
  	border: none;
  }
-
 
  button:hover,
  .button:hover {
@@ -224,7 +224,7 @@
 
  button.secondary,
  .button.secondary {
- 	border: 2rem solid currentColor;
+ 	border: 1rem solid currentColor;
  	background: #fff;
  }
 
