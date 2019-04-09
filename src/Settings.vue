@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <SettingsHeader/>
+    <Header/>
     <main class="padding-2x flex flex-col">
-      <SettingsMain/>
+      <Main/>
     </main>
   </div>
 </template>
@@ -10,8 +10,8 @@
 <script>
 import { mainconfig } from "./global";
 
-import SettingsHeader from "./components/settings/SettingsHeader.vue";
-import SettingsMain from "./components/settings/SettingsMain.vue";
+import Header from "./components/settings/Header.vue";
+import Main from "./components/settings/Main.vue";
 
 export default {
   name: "app",
@@ -19,8 +19,8 @@ export default {
     return mainconfig;
   },
   components: {
-    SettingsHeader,
-    SettingsMain
+    Header,
+    Main
   }
 };
 </script>

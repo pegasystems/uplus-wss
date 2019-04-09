@@ -8,19 +8,22 @@
       <tab name="Quick Links" :selected="true">
         <QuickLinksSettings/>
       </tab>
-      <tab v-if="typeof settings.billpay != 'undefined'" name="Bill Pay">
+      <tab v-if="typeof settings.billpay != 'undefined' && !isMobilePhone" name="Bill Pay">
         <BillPaySettings/>
       </tab>
-      <tab name="Home Hero Action">
+      <tab v-if="!isMobilePhone" name="Home Hero Action">
         <HomeHeroActionSettings/>
       </tab>
       <tab name="Users">
         <UsersSettings/>
       </tab>
-      <tab v-if="typeof settings.pega_chat != 'undefined'" name="Pega Chat">
+      <tab v-if="typeof settings.pega_chat != 'undefined' && !isMobilePhone" name="Pega Chat">
         <ChatSettings/>
       </tab>
-      <tab v-if="typeof settings.pega_marketing != 'undefined'" name="Pega Marketing">
+      <tab
+        v-if="typeof settings.pega_marketing != 'undefined' && !isMobilePhone"
+        name="Pega Marketing"
+      >
         <NBAMSettings/>
       </tab>
     </tabs>

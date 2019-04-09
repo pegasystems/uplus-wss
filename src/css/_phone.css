@@ -1,0 +1,165 @@
+.phone {
+  height: 100%;
+}
+
+.phone>aside {
+  display: none;
+}
+
+.phone>aside>.panel {
+  position: fixed;
+  width: 300rem;
+  height: 100%;
+  transform: translateX(-300rem);
+  animation: all .3s ease-in-out;
+}
+
+.phone>aside.show {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, .5);
+  display: block;
+  z-index: 2
+}
+
+.phone>aside.show>.panel {
+  transform: translateX(0);
+}
+
+.phone>aside header {
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #FFF;
+  margin-bottom: 0;
+  height: 50rem;
+  padding: 10rem;
+}
+
+.phone>aside nav {
+  padding: 16rem;
+}
+
+.phone>aside nav>li>a,
+.phone>aside nav>li>a:visited,
+.phone>aside nav>li>a:hover,
+.phone>aside nav>li>a:focus,
+.phone>aside nav>li>a:active {
+  color: #FFF;
+  font-size: 18rem;
+}
+
+.phone>header {
+  height: 50rem;
+  display: flex;
+  flex-flow: row nowrap;
+  margin-bottom: 0;
+}
+
+.phone>header button.nav-button {
+  color: #FFF;
+  font-size: 30rem;
+  height: 50px;
+  padding-left: 8rem;
+  border: none;
+  background: transparent;
+  min-width: auto;
+}
+
+.phone>header a {
+  flex: 1;
+  text-align: center;
+}
+
+.phone>header a>img {
+  padding: 10rem 0;
+  height: 50rem;
+}
+
+.phone .home-promo>div {
+  width: 50%;
+}
+
+.phone .home-promo>.details {
+  padding: 16rem;
+}
+
+.phone .image {
+  background-position: 25% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 200rem;
+}
+
+.phone .primary-card {
+  padding: 0;
+  margin: 8rem 21rem;
+}
+
+.phone h1 {
+  text-align: center;
+  font-size: 22rem;
+  margin: 16rem 0;
+  color: #414949;
+  font-weight: 700;
+}
+
+.phone .home>h1 {
+  font-size: 30rem;
+  padding: 30rem 16rem 50rem;
+  margin: 0 0 -30rem 0;
+  color: #FFF;
+}
+
+.phone .main-actions {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.phone .main-actions>button {
+  border: 1px solid #ececec;
+  padding: 0 8rem;
+  height: 140rem;
+  flex-grow: 1;
+  color: #000;
+  font-size: 18rem;
+}
+
+.phone .main-actions>button>i {
+  display: block;
+  font-size: 1.4em;
+  margin: 0 0 16rem 0;
+}
+
+.phone .top-nav {
+  padding: 5rem 16rem;
+  box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.2);
+  margin-bottom: 16rem;
+}
+
+.phone .top-nav button>.pi {
+  font-weight: 800 !important;
+  font-size: 18rem;
+}
+
+.phone footer ul.flex {
+  margin: 8rem;
+}
+
+.phone footer ul.flex>a,
+.phone button.nav-button {
+  color: #FFF;
+}
+
+.phone .quick-links {
+  text-align: center;
+}
+
+.phone .avatar {
+  width: 40rem;
+  height: 40rem;
+  margin: 5rem 8rem 5rem 0;
+}

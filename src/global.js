@@ -63,6 +63,8 @@ var mainconfig = Object.assign({}, {
   app: app,
   isMobilePhone: isMobilePhone,
   isAuthenticated: false,
+  isSidePanelVisible: false,
+  phonePageName: "home",
   userId: -1,
   quickLinkId: -1,
   viewBill: -1,

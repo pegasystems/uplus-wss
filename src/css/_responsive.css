@@ -1,10 +1,6 @@
 /*************************************************/
 /* Responsive behavior */
 /*************************************************/
-body {
-  min-width: 400px;
-}
-
 @media screen and (max-width: 1023px) {
   header ul.flex li {
     margin-right: 4vw;
@@ -245,11 +241,11 @@ body {
     flex-wrap: wrap;
   }
 
-  footer nav {
+  :not(.phone)>footer nav {
     width: 100%;
   }
 
-  footer nav>ul {
+  :not(.phone)>footer nav>ul {
     flex-flow: column;
   }
 

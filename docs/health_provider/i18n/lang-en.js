@@ -78,7 +78,15 @@ var langEN = {
   offer_benefits_data5_message: "Secure online banking",
   offer_benefits_data6_message: "No anual fees",
   offer_footer_title: "Simplify your banking and start earning more.",
-  offer_footer_button_label: "Apply Now"
+  offer_footer_button_label: "Apply Now",
+  phone_home_page_title: "How can we help you today?",
+  phone_home_page_actions1_title: "Get a quote",
+  phone_home_page_actions2_title: "File a claim",
+  phone_home_page_actions3_title: "Pay my bill",
+  phone_home_page_promo_message: "Enhance your mobile experience. Always have access to your policy and cards on the go",
+  phone_home_page_promo_action: "Download now",
+  phone_login_title: "Log into your policy",
+  phone_quick_links_title: "What type of claims are you filing?"
 
 };
 

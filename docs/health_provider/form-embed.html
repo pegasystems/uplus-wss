@@ -1,95 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="favicon.ico">
-    <title>Mashup</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i,800" rel="stylesheet" />
-    <style>
-*,
-:after,
-:before {
-  box-sizing: border-box;
-}
 
-html,
-body {
-  height: 100%;
-  font: 16px/1.43 'Open Sans', sans-serif;
-  color:#000;
-  overflow:hidden;
-}
-h1 {
-  font-size:30px;
-  color:#FFF;
-}
-.content-card {
- padding: 35px;
- background:#FFF;
- display: flex;
- flex-flow: column nowrap;
- -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
- box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
- border-radius: 8px;
-}
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="../favicon.ico">
+  <title>Mashup</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i,800" rel="stylesheet" />
+  <script>
+    if (window.frameElement.classList.contains("phone")) {
+      document.documentElement.className = 'phone';
+    } else {
+      document.documentElement.className = 'desktop';
+    }
+  </script>
+  <style>
+    *,
+    :after,
+    :before {
+      box-sizing: border-box;
+    }
 
-.field-item {
- margin-bottom:16px;
- width:100%;
- display:flex;
- flex-flow:column nowrap;
-}
+    html,
+    body {
+      height: 100%;
+      font: 16px/1.43 'Open Sans', sans-serif;
+      color: #000;
+      overflow: hidden;
+    }
 
-input {
-height:35px;
-}
+    h1 {
+      font-size: 30px;
+      color: #FFF;
+    }
 
-label {
- color:#939393;;
-}
+    .phone h1 {
+      color: #000;
+    }
 
-button {
-    background: #295ED9;
-    border: 1px solid #295ED9;
-    box-sizing: border-box;
-    display: inline-block;
-    font-weight: 700;
-    height: 40px;
-    min-width: 140px;
-    border-radius: 3px;
-    color:#FFF;
-    font-size: 18px;
-    margin-left: auto;
- }
-    </style>
+    .content-card {
+      padding: 35px;
+      background: #FFF;
+      display: flex;
+      flex-flow: column nowrap;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+    }
+
+    .field-item {
+      margin-bottom: 16px;
+      width: 100%;
+      display: flex;
+      flex-flow: column nowrap;
+    }
+
+    input {
+      height: 35px;
+    }
+
+    label {
+      color: #939393;
+    }
+
+    button {
+      background: #295ED9;
+      border: 1px solid #295ED9;
+      box-sizing: border-box;
+      display: inline-block;
+      font-weight: 700;
+      height: 40px;
+      min-width: 140px;
+      border-radius: 3px;
+      color: #FFF;
+      font-size: 18px;
+      margin-left: auto;
+    }
+  </style>
 </head>
 
 <body>
-    <h1>Mashup placeholder</h1>
-    <div class='content-card'>
-       <div class='field-item'>
-        <label>First name</label>
-        <input>
-       </div>     
-       <div class='field-item'>
-        <label>Last name</label>
-        <input>
-       </div>     
-       <div class='field-item'>
-        <label>Address</label>
-        <input>
-       </div>     
-       <div class='field-item'>
-        <label>Town</label>
-        <input>
-       </div>     
-       <div class='field-item'>
-        <label>City</label>
-        <input>
-       </div>     
-       <button>Submit</button>
-     </div>
+  <h1></h1>
+  <div class='content-card'>
+    <div class='field-item'>
+      <label>First name</label>
+      <input>
+    </div>
+    <div class='field-item'>
+      <label>Last name</label>
+      <input>
+    </div>
+    <div class='field-item'>
+      <label>Address</label>
+      <input>
+    </div>
+    <div class='field-item'>
+      <label>Town</label>
+      <input>
+    </div>
+    <div class='field-item'>
+      <label>City</label>
+      <input>
+    </div>
+    <button>Submit</button>
+  </div>
+  <script>
+    var title = window.frameElement.getAttribute("data-attr-title");
+    Array.prototype.forEach.call(document.getElementsByTagName("h1"), function (el, i) {
+      el.innerHTML = title;
+    });
+  </script>
 </body>
+
 </html>

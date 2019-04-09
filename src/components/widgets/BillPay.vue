@@ -28,7 +28,6 @@
 import { mainconfig } from "../../global";
 
 export default {
-  name: "",
   data: function() {
     return Object.assign({}, mainconfig, {
       isBillPayActive: false

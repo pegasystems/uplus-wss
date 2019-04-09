@@ -1,9 +1,5 @@
 <template>
-  <div v-if="isMobilePhone" class="phone">
-    <PhoneHeader/>
-    <PhoneMain/>
-  </div>
-  <div v-else-if="homeHeroAction==1" class="form">
+  <div v-if="homeHeroAction==1" class="form">
     <MainHeader/>
     <MashupMainArea></MashupMainArea>
     <MainFooter/>
@@ -25,16 +21,12 @@ import MainFooter from "./MainFooter.vue";
 import FrontMainArea from "./FrontMainArea.vue";
 import FrontSecondaryArea from "./FrontSecondaryArea.vue";
 import MashupMainArea from "./MashupMainArea.vue";
-import PhoneHeader from "./phone/PhoneHeader.vue";
-import PhoneMain from "./phone/PhoneMain.vue";
 
 export default {
   data: function() {
     return mainconfig;
   },
   components: {
-    PhoneHeader,
-    PhoneMain,
     MainHeader,
     FrontMainArea,
     MashupMainArea,

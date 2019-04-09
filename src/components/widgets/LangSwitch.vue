@@ -9,7 +9,6 @@
 <script>
 import { mainconfig, i18n } from "../../global";
 export default {
-  name: "",
   data: function() {
     return Object.assign({}, mainconfig, {
       currentLocale: i18n.locale

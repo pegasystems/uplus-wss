@@ -9,6 +9,7 @@ html {
 }
 
 html,
-body {
+body,
+body>#app {
   height: 100%;
 }

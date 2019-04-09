@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <AccountPage v-if="isAuthenticated"/>
+    <PhonePage v-if="isMobilePhone"/>
+    <AccountPage v-else-if="isAuthenticated"/>
     <FrontPage v-else/>
   </div>
 </template>
@@ -8,6 +9,7 @@
 <script>
 import { mainconfig } from "./global";
 
+import PhonePage from "./components/phone/PhonePage.vue";
 import FrontPage from "./components/FrontPage.vue";
 import AccountPage from "./components/accounts/AccountPage.vue";
 
@@ -18,7 +20,8 @@ export default {
   },
   components: {
     FrontPage,
-    AccountPage
+    AccountPage,
+    PhonePage
   }
 };
 </script>
@@ -33,5 +36,6 @@ export default {
 @import url("./css/_color.css");
 @import url("./css/_icons.css");
 @import url("./css/_chat.css");
+@import url("./css/_phone.css");
 @import url("./css/_responsive.css");
 </style>

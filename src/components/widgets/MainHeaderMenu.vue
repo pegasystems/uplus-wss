@@ -20,7 +20,6 @@
 import MenuItem from "../controls/MenuItem.vue";
 import { mainconfig } from "../../global";
 export default {
-  name: "",
   data: function() {
     return Object.assign({}, mainconfig, {
       isActive: false

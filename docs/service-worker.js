@@ -14,10 +14,12 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "./precache-manifest.bbaa557f35763afa490d0a1d7326df0b.js"
+  "./precache-manifest.8ad76f4a42d011abda7d16b576951c85.js"
 );
 
-workbox.core.setCacheNameDetails({prefix: "upluswss"});
+workbox.core.setCacheNameDetails({
+  prefix: "upluswss"
+});
 
 /**
  * The workboxSW.precacheAndRoute() method efficiently caches and responds to

@@ -23,7 +23,6 @@
 <script>
 import { mainconfig } from "../../global";
 export default {
-  name: "",
   data: function() {
     return Object.assign({}, mainconfig, {
       isActive: false
@@ -47,8 +46,8 @@ export default {
   computed: {
     isNamePresent: function() {
       if (
-        this.settings.users[userId].name === "" ||
-        this.settings.users[userId].company_name === ""
+        mainconfig.settings.users[mainconfig.userId].name === "" ||
+        mainconfig.settings.users[mainconfig.userId].company_name === ""
       ) {
         return false;
       }

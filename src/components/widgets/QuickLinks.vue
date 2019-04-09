@@ -18,7 +18,6 @@
 import { mainconfig } from "../../global";
 
 export default {
-  name: "",
   data: function() {
     return mainconfig;
   },

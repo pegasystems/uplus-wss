@@ -35,6 +35,7 @@ export default {
 @import url("./css/_controls.css");
 @import url("./css/_color.css");
 @import url("./css/_icons.css");
+@import url("./css/_chat.css");
 @import url("./css/_offer.css");
 @import url("./css/_responsive.css");
 </style>

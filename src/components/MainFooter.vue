@@ -1,11 +1,11 @@
 <template>
-  <footer>
+  <footer :class="isMobilePhone ? 'background-brand':''">
     <div class="wrap flex">
       <nav>
         <ul class="flex">
-          <a href="#">{{ $t('message.aboutus') }}</a>
-          <a href="#">{{ $t('message.reviews') }}</a>
-          <a href="#">{{ $t('message.privacy') }}</a>
+          <a>{{ $t('message.aboutus') }}</a>
+          <a v-if="!isMobilePhone">{{ $t('message.reviews') }}</a>
+          <a v-if="!isMobilePhone">{{ $t('message.privacy') }}</a>
           <a href="./settings.html">{{ $t('message.settings') }}</a>
         </ul>
       </nav>

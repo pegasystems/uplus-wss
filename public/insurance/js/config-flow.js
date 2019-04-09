@@ -166,5 +166,29 @@ var app = {
       title: 'offer_footer_title',
       button_label: 'offer_footer_button_label'
     }
+  },
+  phone: {
+    home_page: {
+      title: 'phone_home_page_title',
+      promo: {
+        image: 'option-2.jpg'
+      },
+      actions: [{
+          icon: 'pi-calculator',
+          page: 'home',
+          title: 'phone_home_page_actions1_title'
+        },
+        {
+          icon: 'pi-document-data',
+          page: 'quicklinks',
+          title: 'phone_home_page_actions2_title'
+        },
+        {
+          icon: 'pi-dollar-sign',
+          page: 'home',
+          title: 'phone_home_page_actions3_title'
+        }
+      ]
+    }
   }
 };

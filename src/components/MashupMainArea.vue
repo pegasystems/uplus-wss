@@ -1,30 +1,30 @@
 <template>
-  <main class="flex flex-col">
-    <div class="wrap cols flex flex-wrap">
-      <div
-        v-if="isMashupInitialized"
-        data-pega-gadgetname="PegaGadget"
-        data-pega-action="createNewWork"
-        :data-pega-action-param-classname="objClass"
-        :data-pega-action-param-flowname="startCase"
-        data-pega-isdeferloaded="false"
-        :data-pega-applicationname="appName"
-        :data-pega-threadname="threadName"
-        data-pega-resizetype="stretch"
-        :data-pega-url="serverUrl"
-        :data-pega-action-param-parameters="actionParam"
-      ></div>
-      <iframe
-        v-else
-        class="pega"
-        src="form-embed.html"
-        style="overflow: hidden; height: 570px"
-        width="100%"
-        height="100%"
-        border="0"
-        frameborder="0"
-      ></iframe>
-    </div>
+  <main class="flex flex-col" :class="isMobilePhone ? '': 'wrap'">
+    <div
+      v-if="isMashupInitialized"
+      data-pega-gadgetname="PegaGadget"
+      data-pega-action="createNewWork"
+      :data-pega-action-param-classname="objClass"
+      :data-pega-action-param-flowname="startCase"
+      data-pega-isdeferloaded="false"
+      :data-pega-applicationname="appName"
+      :data-pega-threadname="threadName"
+      data-pega-resizetype="stretch"
+      :data-pega-url="serverUrl"
+      :data-pega-action-param-parameters="actionParam"
+    ></div>
+    <iframe
+      v-else
+      class="pega"
+      :class="isMobilePhone ? 'phone': 'desktop'"
+      :data-attr-title="caseTitle"
+      src="form-embed.html"
+      style="overflow: hidden; height: 570px"
+      width="100%"
+      height="100%"
+      border="0"
+      frameborder="0"
+    ></iframe>
   </main>
 </template>
 
@@ -41,7 +41,8 @@ export default {
       startCase: "",
       threadName: "",
       appName: "",
-      actionParam: ""
+      actionParam: "",
+      caseTitle: ""
     });
   },
   created: function() {
@@ -51,18 +52,23 @@ export default {
       this.objClass = this.settings.quicklinks[this.quickLinkId].objclass;
       this.startCase = this.settings.quicklinks[this.quickLinkId].startcase;
       this.appName = this.settings.quicklinks[this.quickLinkId].application;
+      this.caseTitle = this.settings.quicklinks[this.quickLinkId].title[
+        this.currentLocale
+      ];
     }
     if (this.viewBill !== -1) {
       this.serverUrl = this.settings.billpay.url;
       this.objClass = this.settings.billpay.objclass;
       this.startCase = this.settings.billpay.startcase;
       this.appName = this.settings.billpay.application;
+      this.caseTitle = this.settings.billpay.title[this.currentLocale];
     }
     if (this.homeHeroAction !== -1) {
       this.serverUrl = this.settings.homeheroaction.url;
       this.objClass = this.settings.homeheroaction.objclass;
       this.startCase = this.settings.homeheroaction.startcase;
       this.appName = this.settings.homeheroaction.application;
+      this.caseTitle = this.settings.homeheroaction.title[this.currentLocale];
     }
     if (this.serverUrl === "" || this.objClass === "" || this.startCase === "")
       return;
@@ -117,8 +123,8 @@ export default {
     _initMashup();
   },
   beforeDestroy() {
-    pega = {};
-    document.head.removeChild(this.mashupScript);
+    if (typeof pega !== "undefined") pega = {};
+    if (this.mashupScript != "") document.head.removeChild(this.mashupScript);
   }
 };
 </script>
