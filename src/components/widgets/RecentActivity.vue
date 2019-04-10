@@ -5,7 +5,7 @@
       <li v-for="(item,index) in app.recentactivity" :key="item.message" class="flex">
         <time class="fatlist-item">{{ $d(getdate(index), 'short') }}</time>
         <p class="fatlist-item activity">{{ $t("message." + item.message) }}</p>
-        <a href="#" class="fatlist-item flex-align-r">{{ $t("message.viewmore") }}</a>
+        <a class="fatlist-item flex-align-r">{{ $t("message.viewmore") }}</a>
       </li>
     </ul>
   </section>

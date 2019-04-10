@@ -9,7 +9,7 @@
       <ul>
         <MenuItem v-for="item in app.menuitems" v-bind:key="item.title" v-bind:title="item.title"></MenuItem>
         <li v-if="!isAuthenticated">
-          <a href="#" v-on:click="showlogin" class="launch-login-overlay">{{ $t('message.login')}}</a>
+          <a v-on:click="showlogin" class="launch-login-overlay">{{ $t('message.login')}}</a>
         </li>
       </ul>
     </div>

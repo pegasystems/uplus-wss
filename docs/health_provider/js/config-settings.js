@@ -52,6 +52,9 @@ var settings = {
     },
   ],
   homeheroaction: {
+    title: {
+      "en": "Personalize your service",
+    },
     objclass: "",
     url: "",
     startcase: "pyStartCase",

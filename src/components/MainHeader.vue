@@ -3,7 +3,7 @@
     <nav class="wrap header flex flex-mid-align">
       <ul class="flex flex-mid-align">
         <li>
-          <a href="#">
+          <a>
             <img v-on:click="goHomePage" class="logo" :src="('./img/u+-logo.svg')" alt="U+">
           </a>
         </li>

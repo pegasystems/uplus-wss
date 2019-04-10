@@ -10,7 +10,7 @@
       <div class="list-box">
         <h3>{{ $t("message.billdue") }}</h3>
         <p>{{ $d(getDueBillDate(), 'short') }}</p>
-        <a v-on:click="openBill()" href="#">{{ $t("message.viewbill") }}</a>
+        <a v-on:click="openBill()">{{ $t("message.viewbill") }}</a>
       </div>
       <div class="flex flex-nowrap">
         <i class="pi pi-cancel pi-3x pi-grey"></i>

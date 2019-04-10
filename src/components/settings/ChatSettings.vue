@@ -2,28 +2,28 @@
   <div class="layout-inline-grid-double">
     <div class="layout-labels-left secondary-card">
       <div class="field-item">
-        <label for="WCBConfigName">WCBConfigName</label>
-        <input id="WCBConfigName" type="text" v-model="settings.pega_chat.WCBConfigName">
+        <label for="chat-WCBConfigName">WCBConfigName</label>
+        <input id="chat-WCBConfigName" type="text" v-model="settings.pega_chat.WCBConfigName">
       </div>
       <div class="field-item">
-        <label for="WebChatBotID">WebChatBotID</label>
-        <input id="WebChatBotID" type="text" v-model="settings.pega_chat.WebChatBotID">
+        <label for="chat-WebChatBotID">WebChatBotID</label>
+        <input id="chat-WebChatBotID" type="text" v-model="settings.pega_chat.WebChatBotID">
       </div>
       <div class="field-item">
-        <label for="ApplicationName">ApplicationName</label>
-        <input id="ApplicationName" type="text" v-model="settings.pega_chat.ApplicationName">
+        <label for="chat-ApplicationName">ApplicationName</label>
+        <input id="chat-ApplicationName" type="text" v-model="settings.pega_chat.ApplicationName">
       </div>
       <div class="field-item">
-        <label for="MashupURL">URL</label>
-        <input id="MashupURL" type="text" v-model="settings.pega_chat.MashupURL">
+        <label for="chat-MashupURL">URL</label>
+        <input id="chat-MashupURL" type="text" v-model="settings.pega_chat.MashupURL">
       </div>
       <div class="field-item">
-        <label for="ContactID">ContactID</label>
-        <input id="ContactID" type="text" v-model="settings.pega_chat.ContactID">
+        <label for="chat-ContactID">ContactID</label>
+        <input id="chat-ContactID" type="text" v-model="settings.pega_chat.ContactID">
       </div>
       <div class="field-item">
-        <label for="AccountNumber">AccountNumber</label>
-        <input id="AccountNumber" type="text" v-model="settings.pega_chat.AccountNumber">
+        <label for="chat-AccountNumber">AccountNumber</label>
+        <input id="chat-AccountNumber" type="text" v-model="settings.pega_chat.AccountNumber">
       </div>
       <div class="field-item">
         <label for="UserName">UserName</label>

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build && find docs -name 'service-worker.js' -exec sed -i '' s/..\\\\\/precache-manifest/.\\\\\/precache-manifest/g {} + && find docs -name 'precache-manifest.*' -exec sed -i '' 's/\\: \\\"../\\: \\\"./g' {} +"
   },
   "dependencies": {
     "register-service-worker": "^1.6.2",

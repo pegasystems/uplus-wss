@@ -57,12 +57,20 @@ var settings = {
     },
   ],
   billpay: {
+    title: {
+      "en": "Bill pay",
+      "fr": "Payer votre facture",
+    },
     objclass: "",
     url: "",
     startcase: "pyStartCase",
     application: ""
   },
   homeheroaction: {
+    title: {
+      "en": "Personalize your service",
+      "fr": "Personaliser l'offer",
+    },
     objclass: "",
     url: "",
     startcase: "pyStartCase",

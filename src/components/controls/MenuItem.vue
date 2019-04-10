@@ -1,6 +1,6 @@
 <template>
   <li>
-    <a href="#">{{ $t("message." + title) }}</a>
+    <a>{{ $t("message." + title) }}</a>
   </li>
 </template>
 

@@ -10,7 +10,7 @@
       >
         <h2 class="option-header">{{ $t("message." + item.title) }}</h2>
         <p>{{ $t("message." + item.message) }}</p>
-        <a href="#">{{ $t("message." + item.link) }}</a>
+        <a>{{ $t("message." + item.link) }}</a>
       </section>
     </div>
   </div>

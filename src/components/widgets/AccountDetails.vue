@@ -22,7 +22,7 @@
           v-bind:title="item.id"
         >
           <td data-title="Account number">
-            <a href="#">{{ item.number }}</a>
+            <a>{{ item.number }}</a>
           </td>
           <td data-title="Name">{{ item.name }}</td>
           <td data-title="ID">{{ item.id }}</td>

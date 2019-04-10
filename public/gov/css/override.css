@@ -6,6 +6,13 @@ main .secondary-options .front-option::after,
 	background-color: #0076DE;
 }
 
+header .menu-overlay a:hover,
+header .menu-overlay a:active,
+header .menu-overlay a:focus {
+	background-color: #0076DE;
+	color: #FFF;
+}
+
 body .color-brand {
 	color: #0076DE;
 }

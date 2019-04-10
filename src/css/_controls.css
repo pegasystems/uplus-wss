@@ -353,13 +353,6 @@
  	display: block;
  }
 
- header .menu-overlay a:hover,
- header .menu-overlay a:active,
- header .menu-overlay a:focus {
- 	background-color: #8dc63f;
- 	color: #FFF;
- }
-
  .fatlist>li {
  	border-bottom: 1rem solid #E6E7E8;
  	padding: 20rem;

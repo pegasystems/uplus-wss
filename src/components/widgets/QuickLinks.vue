@@ -4,10 +4,7 @@
     <nav>
       <ul class="quick-links">
         <li v-for="(item,index) in settings.quicklinks" :key="index">
-          <a
-            v-on:click="selectLink(index)"
-            href="#"
-          >{{ settings.quicklinks[index].title[currentLocale] }}</a>
+          <a v-on:click="selectLink(index)">{{ settings.quicklinks[index].title[currentLocale] }}</a>
         </li>
       </ul>
     </nav>
