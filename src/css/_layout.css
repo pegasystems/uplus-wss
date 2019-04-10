@@ -27,7 +27,6 @@
 	justify-content: flex-start;
 	padding: 14rem;
 	height: 400rem;
-	background-color: transparent;
 }
 
 .flex {
@@ -133,6 +132,7 @@ header {
 header.settings {
 	margin-bottom: 0;
 	padding: 0 16rem;
+	flex-flow: row wrap;
 }
 
 header.settings>h1 {
@@ -142,7 +142,7 @@ header.settings>h1 {
 }
 
 header ul.flex li {
-	margin-right: 63rem;
+	margin-right: 30rem;
 }
 
 .embedded-content>body {
@@ -425,6 +425,8 @@ footer ul.flex {
 .layout-labels-left>.field-item>input[type='text'],
 .layout-labels-left>.field-item>input[type='password'] {
 	flex-grow: 1;
+	width: 100%;
+	min-width: 0;
 }
 
 /* inline grid double with responsive behavior */
@@ -453,6 +455,10 @@ footer ul.flex {
 
 .padding-t-2x {
 	padding-top: 16rem;
+}
+
+.flex-grow-1 {
+	flex-grow: 1;
 }
 
 .float-r {

@@ -1,5 +1,5 @@
 <template>
-  <div class="login flex-align-r">
+  <div class="login">
     <button v-on:click="showLoginOverlay" class="launch-login">{{ $t('message.login')}}</button>
     <div
       v-clickoutside="{ handler: 'onClickOutLoginOverlay'}"

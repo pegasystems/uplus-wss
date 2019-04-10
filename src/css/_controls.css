@@ -8,6 +8,7 @@
  .logo {
  	height: 28rem;
  	vertical-align: middle;
+ 	margin-right: 16rem;
  }
 
  label {
@@ -31,9 +32,6 @@
  	font-size: inherit;
  	line-height: 50rem;
  	width: 305rem;
- 	/* Should probably be EM based instead, as character count is important to accessibility */
- 	width: 20em;
- 	/* Comes in about 350px */
  	max-width: 100%;
  	display: block;
  	padding: 0 14rem;
@@ -130,17 +128,15 @@
  	background-color: #ECEFF8;
  }
 
-
-
  /* Misc */
-
-
  .hidden {
  	opacity: 0;
+ 	display: none;
  }
 
  .show {
  	opacity: 1;
+ 	display: block;
  }
 
  .overlay {
@@ -203,6 +199,7 @@
  	background: transparent;
  	font-size: 16rem;
  	border: none;
+ 	min-width: 100rem;
  }
 
  button:hover,

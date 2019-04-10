@@ -3,7 +3,9 @@
 /*************************************************/
 @media screen and (max-width: 1023px) {
   header ul.flex li {
-    margin-right: 4vw;
+    margin-right: 16rem;
+    text-align: center;
+    flex: 1;
   }
 
   h1.hero {
@@ -88,12 +90,12 @@
     display: block;
   }
 
-  header ul.flex li {
+  header nav>ul.flex {
     display: none;
   }
 
-  header ul.flex li:first-child {
-    display: block;
+  header>.header {
+    flex-wrap: wrap;
   }
 
   .flex-col-3>div {
@@ -171,9 +173,6 @@
 }
 
 @media screen and (max-width: 567px) {
-  h1.hero {
-    font-size: 20rem;
-  }
 
   .primary-options,
   .secondary-options .wrap {

@@ -1,5 +1,5 @@
 <template>
-  <div class="menu flex-align-r">
+  <div class="menu">
     <button v-on:click="showMenuOverlay" class="launch-menu">Menu</button>
     <div
       v-clickoutside="{ handler: 'onClickOutMenuOverlay' }"

@@ -150,6 +150,7 @@
 }
 
 .phone footer ul.flex>a,
+.phone footer button.simple,
 .phone button.nav-button {
   color: #FFF;
 }
@@ -162,4 +163,13 @@
   width: 40rem;
   height: 40rem;
   margin: 5rem 8rem 5rem 0;
+}
+
+.phone .overlay {
+  right: 8rem;
+  top: 70rem;
+}
+
+.phone .overlay:after {
+  right: 16rem;
 }
