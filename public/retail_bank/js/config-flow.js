@@ -84,7 +84,7 @@ var app = {
       title: 'menu4'
     }
   ],
-  offer: {
+  landing: {
     header: {
       title: 'offer_header_title',
       promotions: [{

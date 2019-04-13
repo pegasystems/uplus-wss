@@ -2,7 +2,7 @@
 .form main {
 	color: #FFF;
 	min-height: calc(100vh - 214rem);
-	margin-top: -300px;
+	margin-top: -300rem;
 }
 
 .form footer {
@@ -162,7 +162,7 @@ header ul.flex li {
 
 .embedded-content .col-2 {
 	margin: 0 0 0 35rem;
-	min-width: 200px;
+	min-width: 200rem;
 }
 
 .embedded-content .col-2 h3 {
@@ -354,7 +354,7 @@ footer ul.flex {
 }
 
 .circle {
-	border-radius: 999px;
+	border-radius: 999rem;
 }
 
 .menu {

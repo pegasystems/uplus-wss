@@ -1,18 +1,30 @@
 <template>
   <main class="flex flex-col">
-    <TopNav previousPage="home"/>
-    <div class="flex flex-col padding-2x">
+    <TopNav previousPage="home">
+      <button v-on:click="signIn" class="sign-in">{{$t('message.signin')}}</button>
+    </TopNav>
+    <div class="layout-stacked padding-2x">
       <h1>{{ $t('message.phone_login_title')}}</h1>
-      <div class="field flex flex-col username">
-        <input id="username" type="text" v-model="username">
+      <div class="field-item">
+        <input id="username" type="text" v-model="username" :placeholder="$t('message.username')">
         <label for="username">{{$t('message.username')}}</label>
       </div>
-      <div class="field flex flex-col password">
-        <input id="password" type="password" v-model="password">
+      <div class="field-item">
+        <input
+          id="password"
+          type="password"
+          v-model="password"
+          :placeholder="$t('message.password')"
+        >
         <label for="password">{{$t('message.password')}}</label>
       </div>
-      <button v-on:click="signIn" class="sign-in">{{$t('message.signin')}}</button>
       <span class="error" v-if="hasErrorMsg">{{$t('message.invalidLogin')}}</span>
+    </div>
+    <div class="bottom-banner">
+      <a>
+        <i class="pi pi-phone-out"/>
+        {{ $t("message.phone_login_speak_agent")}}
+      </a>
     </div>
   </main>
 </template>

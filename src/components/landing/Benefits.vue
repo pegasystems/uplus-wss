@@ -1,8 +1,8 @@
 <template>
-  <div class="offer-benefits promo">
-    <h4>{{ $t('message.' + app.offer.benefits.title)}}</h4>
+  <div class="landing-benefits promo">
+    <h4>{{ $t('message.' + app.landing.benefits.title)}}</h4>
     <div class="flex">
-      <div v-for="(item,index) in app.offer.benefits.data" v-bind:key="index">
+      <div v-for="(item,index) in app.landing.benefits.data" v-bind:key="index">
         <i :class="'pi ' + item.icon"></i>
         <span>{{ $t('message.' + item.message)}}</span>
       </div>

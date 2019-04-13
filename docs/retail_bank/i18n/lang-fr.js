@@ -92,7 +92,13 @@ var langFR = {
   phone_home_page_promo_message: "Améliorez votre expérience avec l'application mobile. Ayez toujours accès à votre contract d'assurance meme en déplacement",
   phone_home_page_promo_action: "Télécharger maintenant",
   phone_login_title: "Se connecter",
-  phone_quick_links_title: "Quel type de sinistre reportez vous?"
+  phone_login_speak_agent: "Parler a un agent",
+  phone_quick_links_title: "Quel type de sinistre reportez vous?",
+  phone_quick_links_intro_title: "Desole, vous avez eu un accident!",
+  phone_quick_links_intro_msg: "Remplir une declaration d'accident est tres simple et ne prends pas plus de 5 minutes.",
+  phone_quick_links_intro_action: "Commencez la declaration",
+  phone_quick_links_intro_banner_msg: "Vous avez besoin d'une urgence medicale?",
+  phone_quick_links_intro_banner_action: "Appelez des secours immediatement."
 };
 
 var dateFormatFR = {

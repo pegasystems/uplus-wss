@@ -51,11 +51,11 @@
   height: 80rem;
   border-radius: 50%;
   display: inline-block;
-  border: 1px solid #dedede;
+  border: 1rem solid #dedede;
 }
 
 .offer-cards p {
-  font-size: 18px;
+  font-size: 18rem;
   font-weight: 800;
   color: #414949;
 }
@@ -81,7 +81,7 @@
 }
 
 .offer .promo h4 {
-  font-size: 28px;
+  font-size: 28rem;
   font-weight: 600;
   margin-top: 0;
 }
@@ -125,7 +125,7 @@
 .offer-details>div {
   flex-flow: row nowrap;
   align-items: center;
-  max-width: 1300px;
+  max-width: 1300rem;
   margin: 0 auto;
   width: 100%;
 }
@@ -139,13 +139,13 @@
 }
 
 .offer-details h4 {
-  font-size: 20px;
+  font-size: 20rem;
   font-weight: 800;
   margin: 0;
 }
 
 .offer-details span {
-  font-size: 14px;
+  font-size: 14rem;
 }
 
 .offer-details .line {

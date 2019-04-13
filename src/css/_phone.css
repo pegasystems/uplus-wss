@@ -1,12 +1,21 @@
-.phone {
+.phone body {
+  overflow: hidden;
+}
+
+.phone main {
+  overflow: auto;
+  align-items: center;
+}
+
+.phone #app>div {
   height: 100%;
 }
 
-.phone>aside {
+.phone aside {
   display: none;
 }
 
-.phone>aside>.panel {
+.phone aside>.panel {
   position: fixed;
   width: 300rem;
   height: 100%;
@@ -14,7 +23,7 @@
   animation: all .3s ease-in-out;
 }
 
-.phone>aside.show {
+.phone aside.show {
   position: absolute;
   overflow: hidden;
   top: 0;
@@ -26,11 +35,11 @@
   z-index: 2
 }
 
-.phone>aside.show>.panel {
+.phone aside.show>.panel {
   transform: translateX(0);
 }
 
-.phone>aside header {
+.phone aside header {
   width: 100%;
   text-align: center;
   border-bottom: 1px solid #FFF;
@@ -39,27 +48,27 @@
   padding: 10rem;
 }
 
-.phone>aside nav {
+.phone aside nav {
   padding: 16rem;
 }
 
-.phone>aside nav>li>a,
-.phone>aside nav>li>a:visited,
-.phone>aside nav>li>a:hover,
-.phone>aside nav>li>a:focus,
-.phone>aside nav>li>a:active {
+.phone aside nav>li>a,
+.phone aside nav>li>a:visited,
+.phone aside nav>li>a:hover,
+.phone aside nav>li>a:focus,
+.phone aside nav>li>a:active {
   color: #FFF;
   font-size: 18rem;
 }
 
-.phone>header {
+.phone header {
   height: 50rem;
   display: flex;
   flex-flow: row nowrap;
   margin-bottom: 0;
 }
 
-.phone>header button.nav-button {
+.phone header button.nav-button {
   color: #FFF;
   font-size: 30rem;
   height: 50px;
@@ -69,12 +78,12 @@
   min-width: auto;
 }
 
-.phone>header a {
+.phone header a {
   flex: 1;
   text-align: center;
 }
 
-.phone>header a>img {
+.phone header a>img {
   padding: 10rem 0;
   height: 50rem;
 }
@@ -138,6 +147,8 @@
   padding: 5rem 16rem;
   box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.2);
   margin-bottom: 16rem;
+  background: #FFF;
+  width: 100%;
 }
 
 .phone .top-nav button>.pi {
@@ -172,4 +183,22 @@
 
 .phone .overlay:after {
   right: 16rem;
+}
+
+.phone .intro-quicklinks {
+  background: #ececec;
+  text-align: center;
+}
+
+.phone .intro-quicklinks p {
+  padding: 16rem;
+  color: #000;
+}
+
+.phone .bottom-banner {
+  margin-top: auto;
+  padding: 16rem;
+  text-align: center;
+  background: #ededed;
+  width: 100%;
 }

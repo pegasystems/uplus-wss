@@ -19,14 +19,14 @@ body .color-brand {
 
 .front header,
 .offer-hero header {
-	background-image: url('../img/hero-2.png');
+	background-image: url('../img/hero-2.jpg');
 }
 
 .front.logged-in header {
-	background-image: url('../img/hero-2.png');
+	background-image: url('../img/hero-2.jpg');
 }
 
 
 .form>header {
-	background-image: url('../img/hero-2.png');
+	background-image: url('../img/hero-2.jpg');
 }

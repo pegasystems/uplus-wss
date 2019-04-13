@@ -58,6 +58,10 @@ var isMobilePhone = false;
 if (/iPhone/.test(navigator.userAgent) || /Android/.test(navigator.userAgent)) {
   var isMobilePhone = true;
 }
+
+if (isMobilePhone) {
+  document.documentElement.className = "phone";
+}
 var mainconfig = Object.assign({}, {
   settings: settings,
   app: app,
@@ -100,7 +104,8 @@ var PegaCSWSS = {
 
 window.PegaCSWSS = PegaCSWSS;
 
-if (typeof mainconfig.settings.pega_chat !== "undefined" && mainconfig.settings.pega_chat.MashupURL !== "" && !("" + window.location).endsWith("settings.html")) {
+// We don't show chat and CoBrowse on the settings page and on a mobile phone
+if (typeof mainconfig.settings.pega_chat !== "undefined" && mainconfig.settings.pega_chat.MashupURL !== "" && !isMobilePhone && !("" + window.location).endsWith("settings.html")) {
   document.write('<script src="../js/jquery.min.js"><\/script>');
   document.write('<script src="../js/PegaHelperExtension.js"><\/script>');
   document.write('<script src="../js/PegaHelper.js"><\/script>');

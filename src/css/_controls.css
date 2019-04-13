@@ -6,9 +6,10 @@
  }
 
  .logo {
- 	height: 28rem;
+ 	height: 50rem;
  	vertical-align: middle;
- 	margin-right: 16rem;
+ 	margin-right: 35rem;
+ 	padding: 10rem 0;
  }
 
  label {
@@ -238,6 +239,21 @@
  	padding: 0;
  }
 
+ button.light {
+ 	background: none;
+ 	border-color: #FFF;
+ 	color: #FFF;
+ 	min-width: 40rem;
+ 	padding: 8rem;
+ 	opacity: 0.85;
+ }
+
+ button.light:hover,
+ button.light:focus,
+ button.light:active {
+ 	opacity: 1;
+ }
+
  button.secondary,
  .button.secondary,
  button.secondary:hover,
@@ -406,7 +422,8 @@
  	border: 1px solid #FFF;
  	display: inline-block;
  	cursor: pointer;
- 	opacity: 0.7;
+ 	opacity: 0.85;
+ 	height: 40rem;
  }
 
  .inputfile:hover+label,

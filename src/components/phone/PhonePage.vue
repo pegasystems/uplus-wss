@@ -1,9 +1,9 @@
 <template>
-  <div class="flex flex-col phone">
+  <div class="flex flex-col">
     <Aside/>
     <Header/>
     <Main/>
-    <MainFooter/>
+    <MainFooter v-if="phonePageName=='home'"/>
   </div>
 </template>
 

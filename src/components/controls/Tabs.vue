@@ -21,7 +21,6 @@
 </template>
 
 <script>
-import Tab from "./Tab.vue";
 export default {
   data() {
     return { tabs: [] };
@@ -35,9 +34,6 @@ export default {
         tab.isActive = tab.name == selectedTab.name;
       });
     }
-  },
-  components: {
-    Tab
   }
 };
 </script>

@@ -1,9 +1,7 @@
 <template>
   <div class="col col-1 primary-card">
     <AccountPicker/>
-    <div v-if="typeof settings.billpay != 'undefined'">
-      <BillPay/>
-    </div>
+    <BillPay v-if="typeof settings.billpay != 'undefined'"/>
     <RecentActivity/>
   </div>
 </template>

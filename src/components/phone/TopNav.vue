@@ -1,8 +1,11 @@
 <template>
-  <div class="top-nav">
+  <div class="flex top-nav">
     <button v-on:click="goBack" class="simple">
       <i class="pi pi-caret-left"></i>
     </button>
+    <div class="flex-align-r">
+      <slot></slot>
+    </div>
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-col offer-details">
-    <div class="flex flex-nowrap" v-for="(item,index) in app.offer.details" v-bind:key="index">
+  <div class="flex flex-col landing-details">
+    <div class="flex flex-nowrap" v-for="(item,index) in app.landing.details" v-bind:key="index">
       <div
         class="image"
         v-bind:style="{ backgroundImage: 'url(./img/' + item.image + ')', 'order': '' + (index%2) }"

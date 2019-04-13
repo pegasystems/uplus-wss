@@ -95,8 +95,13 @@ var langEN = {
   phone_home_page_promo_message: "Enhance your mobile experience. Always have access to your policy and cards on the go",
   phone_home_page_promo_action: "Download now",
   phone_login_title: "Log into your policy",
-  phone_quick_links_title: "What type of claims are you filing?"
-
+  phone_login_speak_agent: "Speak to an agent",
+  phone_quick_links_title: "What type of claims are you filing?",
+  phone_quick_links_intro_title: "Sorry you've had an accident!",
+  phone_quick_links_intro_msg: "Completing a mobile claim is simple. The process will only take 5 minutes and can be updated at any time.",
+  phone_quick_links_intro_action: "Get started",
+  phone_quick_links_intro_banner_msg: "Have a medical emergency?",
+  phone_quick_links_intro_banner_action: "Get help immediately."
 };
 
 var dateFormatEN = {

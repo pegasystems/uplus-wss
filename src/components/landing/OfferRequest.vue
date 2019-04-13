@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col wrap">
-    <div class="flex offer-request">
+    <div class="flex landing-request">
       <Highlight/>
       <OfferForm/>
     </div>

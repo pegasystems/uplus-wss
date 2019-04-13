@@ -3,6 +3,7 @@ import VueI18n from 'vue-i18n'
 import App from './App.vue'
 import OfferDetail from './OfferDetail.vue'
 import Settings from './Settings.vue'
+import LandingPage from './LandingPage.vue'
 import './registerServiceWorker'
 import {
   mainconfig,
@@ -18,6 +19,7 @@ const app = new Vue({
   computed: {
     ViewComponent() {
       if (this.currentRoute.endsWith("offer.html")) return OfferDetail;
+      else if (this.currentRoute.endsWith("landingpage.html")) return LandingPage;
       else if (this.currentRoute.endsWith("settings.html")) return Settings;
       return App;
     }

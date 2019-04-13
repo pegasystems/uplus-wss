@@ -1,7 +1,16 @@
 <template>
   <span>
-    <input type="file" @change="onFileChange" name="file" id="file" class="inputfile">
-    <label for="file">Upload configuration</label>
+    <input
+      type="file"
+      @change="onFileChange"
+      name="file"
+      id="file"
+      class="inputfile"
+      title="Upload configuration"
+    >
+    <label for="file" title="Upload configuration">
+      <i class="pi pi-document-upload-solid"/>
+    </label>
   </span>
 </template>
 
@@ -23,6 +32,7 @@ export default {
             "config_" + mainconfig.app.industry,
             JSON.stringify(mainconfig)
           );
+          alert("The file was successfully uploaded.");
         } catch (e) {
           alert("Error when trying to parse the configuration file - " + e);
           console.error(e);

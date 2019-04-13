@@ -1,0 +1,164 @@
+/* Special styling for the offer page */
+.landing>header {
+  height: 600rem;
+  padding-top: 50rem;
+}
+
+.landing>main {
+  margin-top: -500rem;
+  color: #414949;
+}
+
+.landing h1 {
+  font-size: 32rem;
+  text-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.1);
+  font-weight: 600;
+}
+
+.landing-intro li {
+  margin-bottom: 16rem;
+  font-size: 18rem;
+  color: #FFF;
+}
+
+.landing-request {
+  margin: 0 auto;
+}
+
+.landing-cards {
+  margin-top: 110rem;
+}
+
+.landing-intro .pi {
+  font-size: 26rem;
+  background: #FFF;
+  width: 50rem;
+  height: 50rem;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.landing-intro .pi:before {
+  text-align: center;
+  width: 50rem;
+  line-height: 50rem;
+}
+
+.landing-cards .pi {
+  font-size: 40rem;
+  background: #FFF;
+  width: 80rem;
+  height: 80rem;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1rem solid #dedede;
+}
+
+.landing-cards p {
+  font-size: 18rem;
+  font-weight: 800;
+  color: #414949;
+}
+
+.landing-cards .pi:before {
+  text-align: center;
+  width: 80rem;
+  line-height: 80rem;
+}
+
+.landing-request>div {
+  max-width: 400rem;
+}
+
+.landing .primary-card h3 {
+  font-size: 14rem;
+  font-weight: 800;
+}
+
+.landing .promo {
+  text-align: center;
+  padding: 55rem 16rem;
+}
+
+.landing .promo h4 {
+  font-size: 28rem;
+  font-weight: 600;
+  margin-top: 0;
+}
+
+.landing-footer,
+.landing-footer footer ul.flex>a,
+.landing-footer p {
+  color: #FFF;
+}
+
+.landing-benefits {
+  background: #ececec;
+}
+
+.landing-cards>div,
+.landing-benefits>div {
+  max-width: 780rem;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.landing-cards>.flex>div,
+.landing-benefits>.flex>div {
+  width: 260rem;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  padding: 0 18rem;
+}
+
+.landing-cards>.flex>div {
+  align-items: center;
+}
+
+.landing .landing-benefits span {
+  text-align: left;
+  margin: 8rem 0 16rem 0;
+}
+
+.landing-details>div {
+  flex-flow: row nowrap;
+  align-items: center;
+  max-width: 1300rem;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.landing-details>div>div {
+  width: 50%;
+}
+
+.landing-details>div>.details {
+  padding: 0 30rem;
+}
+
+.landing-details h4 {
+  font-size: 20rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.landing-details span {
+  font-size: 14rem;
+}
+
+.landing-details .line {
+  width: 81rem;
+  height: 5rem;
+  border-radius: 5rem;
+  display: block;
+  margin: 8rem 0 21rem 0;
+}
+
+.landing-details .image {
+  background-position: 25% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 300rem;
+}

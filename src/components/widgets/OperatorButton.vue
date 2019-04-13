@@ -46,6 +46,7 @@ export default {
   computed: {
     isNamePresent: function() {
       if (
+        mainconfig.isMobilePhone ||
         mainconfig.settings.users[mainconfig.userId].name === "" ||
         mainconfig.settings.users[mainconfig.userId].company_name === ""
       ) {
