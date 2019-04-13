@@ -25,7 +25,14 @@ module.exports = {
       title: 'U+ Commercial Bank',
       chunks: ['chunk-vendors', 'chunk-common', 'commercial_bank']
     },
-     retail_bank: {
+    commercial_banklanding: {
+      entry: 'src/landing.js',
+      template: 'public/commercial_bank/index.html',
+      filename: 'commercial_bank/landingpage.html',
+      title: 'U+ Commercial Bank',
+      chunks: ['chunk-vendors', 'chunk-common', 'commercial_bank']
+    },
+    retail_bank: {
       entry: 'src/main.js',
       template: 'public/retail_bank/index.html',
       filename: 'retail_bank/index.html',
@@ -43,6 +50,13 @@ module.exports = {
       entry: 'src/offer.js',
       template: 'public/retail_bank/index.html',
       filename: 'retail_bank/offer.html',
+      title: 'U+ Retail Bank',
+      chunks: ['chunk-vendors', 'chunk-common', 'retail_bank']
+    },
+    retail_banklanding: {
+      entry: 'src/landing.js',
+      template: 'public/retail_bank/index.html',
+      filename: 'retail_bank/landingpage.html',
       title: 'U+ Retail Bank',
       chunks: ['chunk-vendors', 'chunk-common', 'retail_bank']
     },
@@ -67,6 +81,13 @@ module.exports = {
       title: 'U+ Comms',
       chunks: ['chunk-vendors', 'chunk-common', 'comms']
     },
+    commslanding: {
+      entry: 'src/landing.js',
+      template: 'public/comms/index.html',
+      filename: 'comms/landingpage.html',
+      title: 'U+ Comms',
+      chunks: ['chunk-vendors', 'chunk-common', 'comms']
+    },
     health_consumer: {
       entry: 'src/main.js',
       template: 'public/health_consumer/index.html',
@@ -85,6 +106,13 @@ module.exports = {
       entry: 'src/offer.js',
       template: 'public/health_consumer/index.html',
       filename: 'health_consumer/offer.html',
+      title: 'U+ Health',
+      chunks: ['chunk-vendors', 'chunk-common', 'health_consumer']
+    },
+    health_consumer_landing: {
+      entry: 'src/landing.js',
+      template: 'public/health_consumer/index.html',
+      filename: 'health_consumer/landingpage.html',
       title: 'U+ Health',
       chunks: ['chunk-vendors', 'chunk-common', 'health_consumer']
     },
@@ -109,6 +137,13 @@ module.exports = {
       title: 'U+ Health',
       chunks: ['chunk-vendors', 'chunk-common', 'health_provider']
     },
+    health_provider_landing: {
+      entry: 'src/landing.js',
+      template: 'public/health_provider/index.html',
+      filename: 'health_provider/landingpage.html',
+      title: 'U+ Health',
+      chunks: ['chunk-vendors', 'chunk-common', 'health_provider']
+    },
     gov: {
       entry: 'src/main.js',
       template: 'public/gov/index.html',
@@ -127,6 +162,13 @@ module.exports = {
       entry: 'src/offer.js',
       template: 'public/gov/index.html',
       filename: 'gov/offer.html',
+      title: 'U+ Gov',
+      chunks: ['chunk-vendors', 'chunk-common', 'gov']
+    },
+    govlanding: {
+      entry: 'src/landing.js',
+      template: 'public/gov/index.html',
+      filename: 'gov/landingpage.html',
       title: 'U+ Gov',
       chunks: ['chunk-vendors', 'chunk-common', 'gov']
     },
@@ -151,6 +193,13 @@ module.exports = {
       title: 'U+ Insurance',
       chunks: ['chunk-vendors', 'chunk-common', 'insurance']
     },
+    insurancelanding: {
+      entry: 'src/landing.js',
+      template: 'public/insurance/index.html',
+      filename: 'insurance/landingpage.html',
+      title: 'U+ Insurance',
+      chunks: ['chunk-vendors', 'chunk-common', 'insurance']
+    },
     manufacturing: {
       entry: 'src/main.js',
       template: 'public/manufacturing/index.html',
@@ -172,5 +221,12 @@ module.exports = {
       title: 'U+ Manufacturing',
       chunks: ['chunk-vendors', 'chunk-common', 'manufacturing']
     },
+    manufacturinglanding: {
+      entry: 'src/landing.js',
+      template: 'public/manufacturing/index.html',
+      filename: 'manufacturing/landingpage.html',
+      title: 'U+ Manufacturing',
+      chunks: ['chunk-vendors', 'chunk-common', 'manufacturing']
+    }
   }
 }

@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build && find docs -name 'service-worker.js' -exec sed -i '' s/..\\\\\/precache-manifest/.\\\\\/precache-manifest/g {} + && find docs -name 'precache-manifest.*' -exec sed -i '' 's/\\: \\\"../\\: \\\"./g' {} +"
+    "build": "vue-cli-service build && find docs -name 'service-worker.js' -exec sed -i '' s/..\\\\/precache-manifest/.\\\\/precache-manifest/g {} + && find docs -name 'precache-manifest.*' -exec sed -i '' 's/\\: \\\"../\\: \\\"./g' {} +"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.4.3",
+    "core-js": "^2.6.5",
     "register-service-worker": "^1.6.2",
     "vue": "^2.6.6",
     "vue-i18n": "^8.9.0"
@@ -15,7 +17,6 @@
     "@vue/cli-plugin-babel": "^3.5.5",
     "@vue/cli-plugin-pwa": "^3.5.0",
     "@vue/cli-service": "^3.5.0",
-    "core-js": "^3.0.1",
     "vue-template-compiler": "^2.5.21"
   },
   "postcss": {
