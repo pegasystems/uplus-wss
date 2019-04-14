@@ -1,9 +1,13 @@
 <template>
   <form id="settings" @submit="processForm">
-    <div class="inline-middle float-r">
+    <div v-if="!isMobilePhone" class="inline-middle float-r">
       <button v-on:click="clearAll" class="simple">Reset to default</button>
       <button type="submit">Submit</button>
     </div>
+    <TopNav v-else previousPage="index.html">
+      <button v-on:click="clearAll" class="simple margin-r-2x">Reset to default</button>
+      <button type="submit">Submit</button>
+    </TopNav>
     <tabs>
       <tab name="Quick Links" :selected="true">
         <QuickLinksSettings/>
@@ -41,6 +45,7 @@ import HomeHeroActionSettings from "./HomeHeroActionSettings.vue";
 import UsersSettings from "./UsersSettings.vue";
 import ChatSettings from "./ChatSettings.vue";
 import NBAMSettings from "./NBAMSettings.vue";
+import TopNav from "../phone/TopNav.vue";
 
 export default {
   data: function() {
@@ -71,7 +76,8 @@ export default {
     UsersSettings,
     ChatSettings,
     NBAMSettings,
-    FileUpload
+    FileUpload,
+    TopNav
   }
 };
 </script>

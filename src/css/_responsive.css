@@ -75,7 +75,7 @@
 
 @media screen and (max-width: 850px) {
   h1.hero {
-    font-size: 30rem;
+    font-size: 40rem;
   }
 
   .front header {
@@ -112,17 +112,17 @@
     margin-right: 0;
   }
 
-  .offer-cards>div,
-  .offer-request {
+  .landing-cards>div,
+  .landing-request {
     flex-flow: column;
     align-items: center;
   }
 
-  .offer .offer-cards {
+  .landing .landing-cards {
     margin-top: 0;
   }
 
-  .offer-cards>div>.flex {
+  .landing-cards>div>.flex {
     margin-bottom: 16rem;
   }
 
@@ -248,11 +248,11 @@
     flex-flow: column;
   }
 
-  .offer-details .image {
+  .landing-details .image {
     display: none;
   }
 
-  .offer .offer-details>div>.details {
+  .landing .landing-details>div>.details {
     width: 100%;
     padding: 21rem 35rem;
   }

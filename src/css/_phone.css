@@ -48,6 +48,10 @@
   padding: 10rem;
 }
 
+.phone aside header .logo {
+  height: 38rem;
+}
+
 .phone aside nav {
   padding: 16rem;
 }
@@ -84,8 +88,11 @@
 }
 
 .phone header a>img {
-  padding: 10rem 0;
-  height: 50rem;
+  margin-right: 16rem;
+}
+
+.phone header h1 {
+  color: #FFF;
 }
 
 .phone .home-promo>div {
@@ -151,9 +158,10 @@
   width: 100%;
 }
 
-.phone .top-nav button>.pi {
+.phone .top-nav .pi {
   font-weight: 800 !important;
   font-size: 18rem;
+  line-height: 30rem;
 }
 
 .phone footer ul.flex {

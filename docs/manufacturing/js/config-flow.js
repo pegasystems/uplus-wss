@@ -89,77 +89,129 @@ var app = {
   ],
   landing: {
     header: {
-      title: 'offer_header_title',
+      title: 'landing_header_title',
       promotions: [{
         icon: 'pi-chevron-solid',
-        message: 'offer_header_promotion1'
+        message: 'landing_header_promotion1'
       }, {
         icon: 'pi-chevron-solid',
-        message: 'offer_header_promotion2'
+        message: 'landing_header_promotion2'
       }, {
         icon: 'pi-chevron-solid',
-        message: 'offer_header_promotion3'
+        message: 'landing_header_promotion3'
       }]
     },
     main_form: {
-      title: 'offer_main_form_title',
-      button_label: 'offer_main_form_button_label',
+      title: 'landing_main_form_title',
+      button_label: 'landing_main_form_button_label',
       data: [{
-        label: 'offer_main_form_data1_label'
+        label: 'landing_main_form_data1_label'
       }, {
-        label: 'offer_main_form_data2_label'
+        label: 'landing_main_form_data2_label'
       }, {
         icon: 'pi-chevron-solid',
-        label: 'offer_main_form_data3_label'
+        label: 'landing_main_form_data3_label'
       }, ]
+    },
+    cards: {
+      title: 'landing_cards_title',
+      data: [{
+        icon: 'pi-chevron-solid',
+        title: 'landing_cards_data1_title',
+        message: 'landing_cards_data1_message'
+      }, {
+        icon: 'pi-triangle-solid',
+        title: 'landing_cards_data2_title',
+        message: 'landing_cards_data2_message'
+      }, {
+        icon: 'pi-bolt-solid',
+        title: 'landing_cards_data3_title',
+        message: 'landing_cards_data3_message'
+      }]
+    },
+    details: [{
+        title: 'landing_details1_title',
+        message: 'landing_details1_message',
+        image: 'landing-detail-1.png'
+      },
+      {
+        title: 'landing_details2_title',
+        message: 'landing_details2_message',
+        image: 'landing-detail-2.png'
+      }
+    ],
+    benefits: {
+      title: 'landing_benefits_title',
+      data: [{
+        icon: 'pi-passbook',
+        message: 'landing_benefits_data1_message'
+      }, {
+        icon: 'pi-information-solid',
+        message: 'landing_benefits_data2_message'
+      }, {
+        icon: 'pi-receipt',
+        message: 'landing_benefits_data3_message'
+      }, {
+        icon: 'pi-bolt',
+        message: 'landing_benefits_data4_message'
+      }, {
+        icon: 'pi-disc-stack',
+        message: 'landing_benefits_data5_message'
+      }, {
+        icon: 'pi-bolt',
+        message: 'landing_benefits_data6_message'
+      }]
+    },
+    footer: {
+      title: 'landing_footer_title',
+      button_label: 'landing_footer_button_label'
+    }
+  },
+  offer: {
+    header: {
+      title: 'offer_header_title',
+      msg: 'offer_header_msg',
+    },
+    main_offer: {
+      title: 'offer_main_offer_title',
+      message: 'offer_main_offer_msg',
+      button_label: 'offer_main_offer_button_label',
+      image: 'offer-main.jpg'
     },
     cards: {
       title: 'offer_cards_title',
       data: [{
-        icon: 'pi-chevron-solid',
         title: 'offer_cards_data1_title',
-        message: 'offer_cards_data1_message'
+        message: 'offer_cards_data1_msg',
+        highlight: 'offer_cards_data1_highlight'
       }, {
-        icon: 'pi-triangle-solid',
         title: 'offer_cards_data2_title',
-        message: 'offer_cards_data2_message'
+        message: 'offer_cards_data2_msg',
+        highlight: 'offer_cards_data2_highlight'
       }, {
-        icon: 'pi-bolt-solid',
         title: 'offer_cards_data3_title',
-        message: 'offer_cards_data3_message'
+        message: 'offer_cards_data3_msg',
+        highlight: 'offer_cards_data3_highlight'
       }]
     },
     details: [{
-        title: 'offer_details1_title',
-        message: 'offer_details1_message',
-        image: 'offer-detail-1.png'
-      },
-      {
-        title: 'offer_details2_title',
-        message: 'offer_details2_message',
-        image: 'offer-detail-2.png'
-      }
-    ],
-    benefits: {
-      title: 'offer_benefits_title',
+      title: 'offer_details1_title',
+      message: 'offer_details1_msg',
+      image: 'offer-promo-1.jpg'
+    }],
+    highlights: {
       data: [{
-        icon: 'pi-passbook',
-        message: 'offer_benefits_data1_message'
+        icon: 'pi-chevron-solid',
+        title: 'offer_highlights_data1_title',
+        message: 'offer_highlights_data1_msg'
       }, {
-        icon: 'pi-information-solid',
-        message: 'offer_benefits_data2_message'
+        icon: 'pi-triangle-solid',
+        title: 'offer_highlights_data2_title',
+        message: 'offer_highlights_data2_msg'
       }, {
-        icon: 'pi-receipt',
-        message: 'offer_benefits_data3_message'
-      }, {
-        icon: 'pi-bolt',
-        message: 'offer_benefits_data4_message'
-      }, {
-        icon: 'pi-disc-stack',
-        message: 'offer_benefits_data5_message'
-      }, {
-        icon: 'pi-bolt',
-        message: 'offer_benefits_data6_message'
+        icon: 'pi-bolt-solid',
+        title: 'offer_highlights_data3_title',
+        message: 'offer_highlights_data3_msg'
       }]
     },
     footer: {

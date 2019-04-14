@@ -17,6 +17,9 @@ body .color-brand {
 	color: #3C8712;
 }
 
+.border-brand {
+	border-color: #3C8712;
+}
 
 .front header,
 .offer-hero header {

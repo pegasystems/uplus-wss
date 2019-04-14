@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header/>
-    <main class="padding-2x flex flex-col">
+    <main class="flex flex-col">
       <Main/>
     </main>
   </div>

@@ -3,7 +3,7 @@
     <a href="./index.html">
       <img class="logo" :src="('./img/u+-logo.svg')" alt="U+">
     </a>
-    <h1>{{ $t('message.settings') }}</h1>
+    <h1 v-if="!isMobilePhone">{{ $t('message.settings') }}</h1>
     <FileDownload/>
     <FileUpload/>
   </header>

@@ -1,4 +1,9 @@
-/* Special styling for the offer page */
+/* Special styling for the landing page */
+body>#app.form.landing {
+  background: #FFF;
+  height: auto;
+}
+
 .landing>header {
   height: 600rem;
   padding-top: 50rem;

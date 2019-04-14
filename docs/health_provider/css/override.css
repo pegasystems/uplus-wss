@@ -17,6 +17,10 @@ body .color-brand {
 	color: #0C8487;
 }
 
+.border-brand {
+	border-color: #0C8487;
+}
+
 .front header,
 .offer-hero header {
 	background-image: url('../img/hero-2.jpg');
