@@ -1,6 +1,6 @@
 <template>
   <main class="home flex flex-col">
-    <h1 class="background-brand">{{ $t('message.' + app.phone.home_page.title)}}</h1>
+    <div class='hero background-brand'><h1>{{ $t('message.' + app.phone.home_page.title)}}</h1></div>
     <div class="main-actions primary-card">
       <button
         v-on:click="showPage(item.page)"

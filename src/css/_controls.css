@@ -241,11 +241,12 @@
 
  button.light {
  	background: none;
- 	border-color: #FFF;
+ 	border:none;
  	color: #FFF;
  	min-width: 40rem;
- 	padding: 8rem;
- 	opacity: 0.85;
+ 	padding: 5rem;
+	 opacity: 0.85;
+	 font-size:18rem;
  }
 
  button.light:hover,
@@ -414,12 +415,12 @@
  }
 
  .inputfile+label {
- 	font-size: 1.25em;
+ 	font-size: 18rem;
  	font-weight: 700;
- 	padding: 5rem 8rem;
+ 	padding: 8rem;
  	margin-bottom: 0;
  	color: #FFF;
- 	border: 1px solid #FFF;
+ 	border: none;
  	display: inline-block;
  	cursor: pointer;
  	opacity: 0.85;

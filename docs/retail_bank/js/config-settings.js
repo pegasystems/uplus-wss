@@ -13,7 +13,8 @@ var settings = {
       objclass: "",
       url: "",
       startcase: "pyStartCase",
-      application: ""
+      application: "",
+      icon: ""
     },
     {
       title: {
@@ -23,7 +24,8 @@ var settings = {
       objclass: "",
       url: "",
       startcase: "pyStartCase",
-      application: ""
+      application: "",
+      icon: ""
     },
     {
       title: {
@@ -33,7 +35,8 @@ var settings = {
       objclass: "",
       url: "",
       startcase: "pyStartCase",
-      application: ""
+      application: "",
+      icon: ""
     },
     {
       title: {
@@ -43,7 +46,8 @@ var settings = {
       objclass: "",
       url: "",
       startcase: "pyStartCase",
-      application: ""
+      application: "",
+      icon: ""
     },
     {
       title: {
@@ -53,7 +57,8 @@ var settings = {
       objclass: "",
       url: "",
       startcase: "pyStartCase",
-      application: ""
+      application: "",
+      icon: ""
     },
   ],
   billpay: {

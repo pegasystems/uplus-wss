@@ -66,7 +66,7 @@
 }
 
 .phone header {
-  height: 50rem;
+  height: 40rem;
   display: flex;
   flex-flow: row nowrap;
   margin-bottom: 0;
@@ -74,8 +74,8 @@
 
 .phone header button.nav-button {
   color: #FFF;
-  font-size: 30rem;
-  height: 50px;
+  font-size: 21rem;
+  height: 40px;
   padding-left: 8rem;
   border: none;
   background: transparent;
@@ -89,6 +89,7 @@
 
 .phone header a>img {
   margin-right: 16rem;
+  height: 35rem;
 }
 
 .phone header h1 {
@@ -111,28 +112,42 @@
 }
 
 .phone .primary-card {
-  padding: 0;
-  margin: 8rem 21rem;
+  padding:30rem;
+  margin: 16rem;
+  width: calc(100% - 32rem);
+}
+
+.phone h1.small {
+  font-size: 18rem;
+  font-weight:700;
 }
 
 .phone h1 {
   text-align: center;
-  font-size: 22rem;
+  font-size: 24rem;
   margin: 16rem 0;
   color: #414949;
-  font-weight: 700;
+  font-weight: 800;
+  margin:30rem 0 50rem 0;
 }
 
-.phone .home>h1 {
-  font-size: 30rem;
-  padding: 30rem 16rem 50rem;
-  margin: 0 0 -30rem 0;
+.phone .home > .hero {
+  width:100%;
+}
+
+.phone .home > .hero > h1 {
+  max-width:247rem;
+  font-size: 24rem;
+  padding: 30rem 0 100rem 0;
+  margin: 0 auto;
   color: #FFF;
 }
 
 .phone .main-actions {
   display: flex;
   flex-flow: row nowrap;
+  margin-top:-70rem;
+  padding:0;
 }
 
 .phone .main-actions>button {
@@ -153,19 +168,23 @@
 .phone .top-nav {
   padding: 5rem 16rem;
   box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.2);
-  margin-bottom: 16rem;
   background: #FFF;
   width: 100%;
+  height: 40px;
 }
 
+.phone .top-nav button {
+  height: 30px;
+}
 .phone .top-nav .pi {
   font-weight: 800 !important;
   font-size: 18rem;
-  line-height: 30rem;
 }
 
 .phone footer ul.flex {
   margin: 8rem;
+  flex-flow: row;
+  justify-content: space-around;
 }
 
 .phone footer ul.flex>a,
@@ -179,9 +198,9 @@
 }
 
 .phone .avatar {
-  width: 40rem;
-  height: 40rem;
-  margin: 5rem 8rem 5rem 0;
+  width: 30rem;
+  height: 30rem;
+  margin: 5rem 8rem 0 0;
 }
 
 .phone .overlay {
@@ -204,9 +223,50 @@
 }
 
 .phone .bottom-banner {
-  margin-top: auto;
   padding: 16rem;
   text-align: center;
-  background: #ededed;
   width: 100%;
+}
+.phone  .layout-stacked>.field-item>input {
+  height: 46rem;
+  border-radius: 2rem;
+  border-bottom: solid 1px #8a8a8a;
+  background-color: #e8e8e8;
+  padding: 10rem 8rem 0 8rem;
+}
+
+.phone .top-icon {
+  font-size:20rem;
+  text-align:center;  
+}
+
+.phone .tabs-details{
+  height: calc(100vh - 123rem);
+  overflow-y: auto;
+}
+
+.phone .quick-links a {
+  color: #414949;
+    font-weight: normal;
+    font-size: 16rem;
+    margin-left:16rem;
+}
+
+.phone .quick-links li {
+  padding:16rem;
+  border:1px solid #ccc;
+  border-radius:4rem;
+  margin-bottom: 8rem;
+  text-align: left;
+}
+.phone .quick-links li > i {
+  border-radius: 50%;
+  height: 32rem;
+  width: 32rem;
+  line-height: 26rem;
+  font-size: 16rem;
+  color: #FFF;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
 }

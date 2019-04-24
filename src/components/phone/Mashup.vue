@@ -1,5 +1,8 @@
 <template>
-  <MashupMainArea/>
+  <div class="flex flex-col">
+    <TopNav style="display:none" previousPage="quicklinks1"/>
+    <MashupMainArea/>
+  </div>
 </template>
 
 <script>
@@ -14,11 +17,6 @@ export default {
   components: {
     TopNav,
     MashupMainArea
-  },
-  methods: {
-    selectLink: function(index) {
-      this.quickLinkId = index;
-    }
-  }
+  } 
 };
 </script>

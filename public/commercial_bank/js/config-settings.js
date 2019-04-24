@@ -13,8 +13,8 @@ var settings = {
       objclass: "",
       url: "",
       startcase: "pyStartCase",
-      application: ""
-    },
+      application: "",
+      icon: ""
     {
       title: {
         "en": "Make a payment",
@@ -23,7 +23,8 @@ var settings = {
       objclass: "",
       url: "",
       startcase: "pyStartCase",
-      application: ""
+      application: "",
+      icon: ""
     },
     {
       title: {
@@ -33,7 +34,8 @@ var settings = {
       objclass: "",
       url: "",
       startcase: "pyStartCase",
-      application: ""
+      application: "",
+      icon: ""
     },
     {
       title: {
@@ -43,7 +45,8 @@ var settings = {
       objclass: "",
       url: "",
       startcase: "pyStartCase",
-      application: ""
+      application: "",
+      icon: ""
     },
     {
       title: {
@@ -53,7 +56,8 @@ var settings = {
       objclass: "",
       url: "",
       startcase: "pyStartCase",
-      application: ""
+      application: "",
+      icon: ""
     },
   ],
   billpay: {

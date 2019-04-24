@@ -111,6 +111,10 @@ if (typeof mainconfig.settings.pega_chat !== "undefined" && mainconfig.settings.
   document.write('<script src="../js/PegaHelper.js"><\/script>');
 }
 
+window.pegaMashupNavigateBack = function() {
+  document.getElementsByClassName("pi-caret-left")[0].click();
+}
+
 export {
   mainconfig,
   i18n

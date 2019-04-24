@@ -124,7 +124,7 @@ export default {
   },
   beforeDestroy() {
     if (typeof pega !== "undefined") pega = {};
-    if (this.mashupScript != "") document.head.removeChild(this.mashupScript);
+    if (this.mashupScript != "" && this.mashupScript.parentElement!=null) document.head.removeChild(this.mashupScript);
   }
 };
 </script>

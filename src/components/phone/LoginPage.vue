@@ -3,8 +3,8 @@
     <TopNav previousPage="home">
       <button v-on:click="signIn" class="sign-in">{{$t('message.signin')}}</button>
     </TopNav>
-    <div class="layout-stacked padding-2x">
-      <h1>{{ $t('message.phone_login_title')}}</h1>
+    <div class="layout-stacked primary-card">
+      <h1 class='small'>{{ $t('message.phone_login_title')}}</h1>
       <div class="field-item">
         <input id="username" type="text" v-model="username" :placeholder="$t('message.username')">
         <label for="username">{{$t('message.username')}}</label>

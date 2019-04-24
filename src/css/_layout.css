@@ -374,11 +374,13 @@ footer ul.flex {
 .layout-stacked>.field-item>label {
 	position: absolute;
 	top: 0;
-	opacity: 0.5;
+	left:8rem;
 	transition: all .3s ease;
 	padding: 0;
 	margin: 10rem 0 0 0;
 	pointer-events: none;
+	font-size:16rem;
+	color:#414949;
 }
 
 .layout-stacked>.field-item>input:focus,
@@ -393,10 +395,10 @@ footer ul.flex {
 	line-height: 40rem;
 	padding: 10rem 0 3rem 0;
 	height: 40rem;
+	font-weight:300;
 }
 
 .layout-stacked>.field-item>input::placeholder {
-	opacity: 0;
 	color: transparent;
 	font-size: 0;
 }
@@ -406,7 +408,7 @@ footer ul.flex {
 .layout-stacked>.field-item>input:not(:placeholder-shown)+label {
 	font-size: 75%;
 	transform: translate3d(0, -100%, 0);
-	opacity: 1;
+	margin-top: 16rem;
 }
 
 /* label left layout */

@@ -25,6 +25,10 @@
         <label :for="'quicklinks-' + index + '-application'">Application name</label>
         <input :id="'quicklinks-' + index + '-application'" type="text" v-model="item.application">
       </div>
+      <div class="field-item">
+        <label :for="'quicklinks-' + index + '-icon'">Icon</label>
+        <input :id="'quicklinks-' + index + '-icon'" type="text" v-model="item.icon">
+      </div>
     </div>
   </div>
 </template>

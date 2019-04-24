@@ -2,10 +2,12 @@
   <main class="flex flex-col">
     <TopNav previousPage="quicklinks"/>
     <div class="flex flex-col primary-card">
-      <h1>{{ $t('message.phone_quick_links_title')}}</h1>
+      <i class="top-icon pi pi-document-data color-brand"></i>
+      <h1 class='small'>{{ $t('message.phone_quick_links_title')}}</h1>
       <nav>
         <ul class="quick-links">
           <li v-for="(item,index) in settings.quicklinks" :key="index">
+            <i :class="'pi background-brand ' + (item.icon==''? 'pi-document-data': item.icon)"></i>
             <a v-on:click="selectLink(index)">{{ settings.quicklinks[index].title[currentLocale] }}</a>
           </li>
         </ul>
