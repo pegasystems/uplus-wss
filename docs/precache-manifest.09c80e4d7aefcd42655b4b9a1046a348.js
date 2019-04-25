@@ -140,12 +140,12 @@ self.__precacheManifest = [
     "url": "./js/retail_banksettings.a68f8046.js"
   },
   {
-    "revision": ".b3f3e21fae06fae9dd11b9f65b173d",
-    "url": "./img/checkmark-w.71b3f3e2.svg"
-  },
-  {
     "revision": ".a3bcc30bfb7390bd168c6d644d46f2",
     "url": "./img/contact.e5a3bcc3.svg"
+  },
+  {
+    "revision": ".b3f3e21fae06fae9dd11b9f65b173d",
+    "url": "./img/checkmark-w.71b3f3e2.svg"
   },
   {
     "revision": ".c6b63072760f2685267ff8f787787d",
@@ -324,7 +324,7 @@ self.__precacheManifest = [
     "url": "./commercial_bank/js/config-flow.js"
   },
   {
-    "revision": ".20fafa45c55b033d81111f8bf66ead",
+    "revision": ".2c11a60366af241e91a63dff2807b1",
     "url": "./commercial_bank/js/config-settings.js"
   },
   {
@@ -432,12 +432,12 @@ self.__precacheManifest = [
     "url": "./index.html"
   },
   {
-    "revision": ".3b99c4acc22dfa7e7d4afa529cc62e",
-    "url": "./insurance/css/override.css"
-  },
-  {
     "revision": ".5503fc5477458b8f1330e0da127042",
     "url": "./insurance/form-embed.html"
+  },
+  {
+    "revision": ".3b99c4acc22dfa7e7d4afa529cc62e",
+    "url": "./insurance/css/override.css"
   },
   {
     "revision": ".72f8236a02bea06baa114f31e02337",
@@ -652,12 +652,12 @@ self.__precacheManifest = [
     "url": "./retail_bank/img/option-1.jpg"
   },
   {
-    "revision": ".923443a2ce259c54130675a12ac1c9",
-    "url": "./commercial_bank/img/offer-promo-1.jpg"
-  },
-  {
     "revision": ".dca478f7e1438b51328510a565cef4",
     "url": "./insurance/img/option-3.jpg"
+  },
+  {
+    "revision": ".923443a2ce259c54130675a12ac1c9",
+    "url": "./commercial_bank/img/offer-promo-1.jpg"
   },
   {
     "revision": ".a4df0eb3e2f7eb1c2ca66531228b95",
@@ -829,11 +829,11 @@ self.__precacheManifest = [
   },
   {
     "revision": ".460ac04cf49434f58e331fd6ea52f9",
-    "url": "./health_consumer/img/offer-main.jpg"
+    "url": "./gov/img/offer-main.jpg"
   },
   {
     "revision": ".460ac04cf49434f58e331fd6ea52f9",
-    "url": "./gov/img/offer-main.jpg"
+    "url": "./health_consumer/img/offer-main.jpg"
   },
   {
     "revision": ".460ac04cf49434f58e331fd6ea52f9",

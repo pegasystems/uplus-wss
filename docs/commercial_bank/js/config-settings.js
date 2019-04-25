@@ -15,6 +15,7 @@ var settings = {
       startcase: "pyStartCase",
       application: "",
       icon: ""
+    },
     {
       title: {
         "en": "Make a payment",
