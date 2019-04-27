@@ -1,10 +1,11 @@
 <template>
   <div class="flex">
     <div v-if="isNamePresent" class="flex flex-col">
-      <span>{{ settings.users[userId].name }}</span>
-      <span>{{ settings.users[userId].company_name }}</span>
+      <span v-if="settings.users[userId]">{{ settings.users[userId].name }}</span>
+      <span v-if="settings.users[userId]">{{ settings.users[userId].company_name }}</span>
     </div>
     <img
+      v-if="userId!=-1"
       v-on:click="showOverlay"
       class="avatar"
       :src="'../img/' + settings.users[userId].img"
@@ -47,9 +48,10 @@ export default {
   computed: {
     isNamePresent() {
       if (
-        mainconfig.isMobilePhone
-        || mainconfig.settings.users[mainconfig.userId].name === ''
-        || mainconfig.settings.users[mainconfig.userId].company_name === ''
+        mainconfig.isMobilePhone ||
+        mainconfig.userId === -1 ||
+        mainconfig.settings.users[mainconfig.userId].name === '' ||
+        mainconfig.settings.users[mainconfig.userId].company_name === ''
       ) {
         return false;
       }

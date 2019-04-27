@@ -1,4 +1,4 @@
-import { shallowMount } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 import '../../public/gov/js/config-settings';
 import '../../public/gov/js/config-flow';
 import '../../public/gov/i18n/lang-en';
@@ -6,28 +6,45 @@ import { mainconfig } from '@/global';
 import App from '@/App.vue';
 
 describe('Gov App on Desktop', () => {
-  it('renders on load', () => {
-    const wrapper = shallowMount(App);
-    expect(wrapper.html()).toMatch(
-      '<div id="app"><frontpage-stub></frontpage-stub></div>',
-    );
+  it('renders home page on load', () => {
+    const wrapper = mount(App, {
+      mocks: {
+        $t: msg => msg,
+        $n: msg => msg,
+        $d: msg => msg,
+      },
+    });
+    expect(wrapper.find('h1').text()).toContain('message.hero_text');
   });
 
-  it('when authenticated', () => {
+  it('renders account page when authenticated', () => {
     mainconfig.isAuthenticated = true;
-    const wrapper = shallowMount(App);
-    expect(wrapper.html()).toMatch(
-      '<div id="app"><accountpage-stub></accountpage-stub></div>',
-    );
+    mainconfig.userId = 0;
+    const wrapper = mount(App, {
+      mocks: {
+        $t: msg => msg,
+        $n: msg => msg,
+        $d: msg => msg,
+      },
+    });
+    expect(wrapper.find('h1').text()).toContain('message.accountoverview');
   });
 });
 
 describe('Gov App on Mobile', () => {
-  it('renders on load', () => {
+  it('renders home page on load', () => {
     mainconfig.isMobilePhone = true;
-    const wrapper = shallowMount(App);
-    expect(wrapper.html()).toMatch(
-      '<div id="app"><phonepage-stub></phonepage-stub></div>',
+    mainconfig.isAuthenticated = false;
+    mainconfig.userId = -1;
+    const wrapper = mount(App, {
+      mocks: {
+        $t: msg => msg,
+        $n: msg => msg,
+        $d: msg => msg,
+      },
+    });
+    expect(wrapper.find('h1').text()).toContain(
+      'message.phone_home_page_title',
     );
   });
 });

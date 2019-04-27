@@ -5,7 +5,7 @@
       <input type="text" class="filter" placeholder="Search past services">
       <i class="pi pi-search"></i>
     </div>
-    <table class="content responsive">
+    <table v-if="userId!=-1" class="content responsive">
       <thead>
         <tr>
           <th>Account number</th>

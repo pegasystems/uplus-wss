@@ -3,7 +3,11 @@
     <main-header/>
     <main v-if="quickLinkId === -1 && viewBill === -1" class="flex flex-col">
       <div v-if="app.industry  === 'commercial_bank'">
-        <h1 class="wrap">{{ $t("message.hello") }} {{ settings.users[userId].name }}</h1>
+        <h1
+          v-if="userId!=-1"
+          class="wrap"
+        >{{ $t("message.hello") }} {{ settings.users[userId].name }}</h1>
+        <h1 v-else class="wrap">{{ $t("message.hello") }}</h1>
         <div class="wrap cols flex flex-wrap">
           <BankAccountMainArea/>
           <AccountSecondaryArea/>
