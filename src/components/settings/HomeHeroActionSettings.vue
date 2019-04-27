@@ -2,6 +2,26 @@
   <div class="layout-inline-grid-double">
     <div class="layout-labels-left secondary-card">
       <div class="field-item">
+        <label for="hero-action-action">Action</label>
+        <select id="hero-action-action" v-model="settings.homeheroaction.action">
+          <option>createNewWork</option>
+          <option>display</option>
+          <option>getNextWork</option>
+          <option>openAssignment</option>
+          <option>openWorkItem</option>
+          <option>openWorkByHandle</option>
+          <option>createNewWork</option>
+        </select>
+      </div>
+      <div class="field-item">
+        <label for="hero-action-actionparam">Action parameter</label>
+        <input
+          id="hero-action-actionparam"
+          type="text"
+          v-model="settings.homeheroaction.actionparam"
+        >
+      </div>
+      <div class="field-item">
         <label for="hero-action-url">URL</label>
         <input id="hero-action-url" type="text" v-model="settings.homeheroaction.url">
       </div>

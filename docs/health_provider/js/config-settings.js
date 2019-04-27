@@ -11,6 +11,8 @@ window.settings = {
       title: {
         en: 'View Member Benefits',
       },
+      action: 'createNewWork',
+      actionparam: '',
       objclass: '',
       url: '',
       startcase: 'pyStartCase',
@@ -21,6 +23,8 @@ window.settings = {
       title: {
         en: 'Update Panel Status',
       },
+      action: 'createNewWork',
+      actionparam: '',
       objclass: '',
       url: '',
       startcase: 'pyStartCase',
@@ -31,6 +35,8 @@ window.settings = {
       title: {
         en: 'Check claims',
       },
+      action: 'createNewWork',
+      actionparam: '',
       objclass: '',
       url: '',
       startcase: 'pyStartCase',
@@ -41,6 +47,8 @@ window.settings = {
       title: {
         en: 'Patient Eligibility',
       },
+      action: 'createNewWork',
+      actionparam: '',
       objclass: '',
       url: '',
       startcase: 'pyStartCase',
@@ -51,6 +59,8 @@ window.settings = {
       title: {
         en: 'Update your profile',
       },
+      action: 'createNewWork',
+      actionparam: '',
       objclass: '',
       url: '',
       startcase: 'pyStartCase',
@@ -59,12 +69,16 @@ window.settings = {
     },
   ],
   todo: {
+    action: 'createNewWork',
+    actionparam: '',
     objclass: '',
     url: '',
     startcase: 'pyStartCase',
     application: '',
   },
   homeheroaction: {
+    action: 'createNewWork',
+    actionparam: '',
     objclass: '',
     url: '',
     startcase: 'pyStartCase',

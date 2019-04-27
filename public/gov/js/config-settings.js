@@ -11,6 +11,8 @@ window.settings = {
       title: {
         en: 'Request service',
       },
+      action: 'createNewWork',
+      actionparam: '',
       objclass: '',
       url: '',
       startcase: 'pyStartCase',
@@ -21,6 +23,8 @@ window.settings = {
       title: {
         en: 'Make a payment',
       },
+      action: 'createNewWork',
+      actionparam: '',
       objclass: '',
       url: '',
       startcase: 'pyStartCase',
@@ -31,6 +35,8 @@ window.settings = {
       title: {
         en: 'Update billing',
       },
+      action: 'createNewWork',
+      actionparam: '',
       objclass: '',
       url: '',
       startcase: 'pyStartCase',
@@ -41,6 +47,8 @@ window.settings = {
       title: {
         en: 'Pay your Excise Taxe',
       },
+      action: 'createNewWork',
+      actionparam: '',
       objclass: '',
       url: '',
       startcase: 'pyStartCase',
@@ -51,6 +59,8 @@ window.settings = {
       title: {
         en: 'Update your profile',
       },
+      action: 'createNewWork',
+      actionparam: '',
       objclass: '',
       url: '',
       startcase: 'pyStartCase',
@@ -59,18 +69,24 @@ window.settings = {
     },
   ],
   billpay: {
+    action: 'createNewWork',
+    actionparam: '',
     objclass: '',
     url: '',
     startcase: 'pyStartCase',
     application: '',
   },
   todo: {
+    action: 'createNewWork',
+    actionparam: '',
     objclass: '',
     url: '',
     startcase: 'pyStartCase',
     application: '',
   },
   homeheroaction: {
+    action: 'createNewWork',
+    actionparam: '',
     objclass: '',
     url: '',
     startcase: 'pyStartCase',

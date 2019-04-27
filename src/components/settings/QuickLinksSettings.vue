@@ -10,6 +10,22 @@
         <input :id="'quicklinks-' + index + '-' + titlel" type="text" v-model="item.title[titlel]">
       </div>
       <div class="field-item">
+        <label :for="'quicklinks-' + index + '-action'">Action</label>
+        <select :id="'quicklinks-' + index + '-action'" v-model="item.action">
+          <option>createNewWork</option>
+          <option>display</option>
+          <option>getNextWork</option>
+          <option>openAssignment</option>
+          <option>openWorkItem</option>
+          <option>openWorkByHandle</option>
+          <option>createNewWork</option>
+        </select>
+      </div>
+      <div class="field-item">
+        <label :for="'quicklinks-' + index + '-actionparam'">Action parameter</label>
+        <input :id="'quicklinks-' + index + '-actionparam'" type="text" v-model="item.actionparam">
+      </div>
+      <div class="field-item">
         <label :for="'quicklinks-' + index + '-url'">URL</label>
         <input :id="'quicklinks-' + index + '-url'" type="text" v-model="item.url">
       </div>

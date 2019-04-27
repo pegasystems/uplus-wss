@@ -80,6 +80,7 @@ let mainconfigTmp = Object.assign(
     userId: -1,
     quickLinkId: -1,
     viewBill: -1,
+    toDo: -1,
     homeHeroAction: -1,
     currentLocale: settings.i18n.defaultlocale,
   },

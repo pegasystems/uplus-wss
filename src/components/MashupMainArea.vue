@@ -1,18 +1,92 @@
 <template>
-  <main class="flex flex-col" :class="isMobilePhone ? '': 'wrap'">
-    <div
-      v-if="isMashupInitialized"
-      data-pega-gadgetname="PegaGadget"
-      data-pega-action="createNewWork"
-      :data-pega-action-param-classname="objClass"
-      :data-pega-action-param-flowname="startCase"
-      data-pega-isdeferloaded="false"
-      :data-pega-applicationname="appName"
-      :data-pega-threadname="threadName"
-      data-pega-resizetype="stretch"
-      :data-pega-url="serverUrl"
-      :data-pega-action-param-parameters="actionParam"
-    ></div>
+  <main class="flex flex-col" :class="(isMobilePhone || todo == 1 ) ? '': 'wrap'">
+    <div v-if="isMashupInitialized">
+      <div
+        v-if="actionName == 'createNewWork'"
+        data-pega-gadgetname="PegaGadget"
+        :data-pega-action="actionName"
+        :data-pega-action-param-classname="objClass"
+        :data-pega-action-param-flowname="startCase"
+        data-pega-isdeferloaded="false"
+        :data-pega-applicationname="appName"
+        :data-pega-threadname="threadName"
+        data-pega-resizetype="stretch"
+        :data-pega-url="serverUrl"
+        :data-pega-action-param-parameters="actionParam"
+      ></div>
+      <div
+        v-else-if="actionName == 'display'"
+        data-pega-gadgetname="PegaGadget"
+        :data-pega-action="actionName"
+        :data-pega-action-param-harnessname="actionNameParam"
+        :data-pega-action-param-classname="objClass"
+        data-pega-isdeferloaded="false"
+        :data-pega-applicationname="appName"
+        :data-pega-threadname="threadName"
+        data-pega-resizetype="stretch"
+        :data-pega-url="serverUrl"
+        :data-pega-action-param-parameters="actionParam"
+      ></div>
+      <div
+        v-else-if="actionName == 'getNextWork'"
+        data-pega-gadgetname="PegaGadget"
+        :data-pega-action="actionName"
+        data-pega-isdeferloaded="false"
+        :data-pega-applicationname="appName"
+        :data-pega-threadname="threadName"
+        data-pega-resizetype="stretch"
+        :data-pega-url="serverUrl"
+        :data-pega-action-param-parameters="actionParam"
+      ></div>
+      <div
+        v-else-if="actionName == 'openAssignment'"
+        data-pega-gadgetname="PegaGadget"
+        :data-pega-action="actionName"
+        :data-pega-action-param-key="actionNameParam"
+        data-pega-isdeferloaded="false"
+        :data-pega-applicationname="appName"
+        :data-pega-threadname="threadName"
+        data-pega-resizetype="stretch"
+        :data-pega-url="serverUrl"
+        :data-pega-action-param-parameters="actionParam"
+      ></div>
+      <div
+        v-else-if="actionName == 'openWorkByHandle'"
+        data-pega-gadgetname="PegaGadget"
+        :data-pega-action="actionName"
+        :data-pega-action-param-key="actionNameParam"
+        data-pega-isdeferloaded="false"
+        :data-pega-applicationname="appName"
+        :data-pega-threadname="threadName"
+        data-pega-resizetype="stretch"
+        :data-pega-url="serverUrl"
+        :data-pega-action-param-parameters="actionParam"
+      ></div>
+      <div
+        v-else-if="actionName == 'openWorkItem'"
+        data-pega-gadgetname="PegaGadget"
+        :data-pega-action="actionName"
+        :data-pega-action-param-workid="actionNameParam"
+        data-pega-isdeferloaded="false"
+        :data-pega-applicationname="appName"
+        :data-pega-threadname="threadName"
+        data-pega-resizetype="stretch"
+        :data-pega-url="serverUrl"
+        :data-pega-action-param-parameters="actionParam"
+      ></div>
+      <div
+        v-else-if="actionName == 'openWorkByURL'"
+        data-pega-gadgetname="PegaGadget"
+        :data-pega-action="actionName"
+        :data-pega-action-param-query="actionNameParam"
+        data-pega-isdeferloaded="false"
+        :data-pega-applicationname="appName"
+        :data-pega-threadname="threadName"
+        data-pega-resizetype="stretch"
+        :data-pega-url="serverUrl"
+        :data-pega-action-param-parameters="actionParam"
+      ></div>
+    </div>
     <iframe
       v-else
       class="pega"
@@ -38,6 +112,8 @@ export default {
       mashupScript: '',
       isMashupInitialized: false,
       serverUrl: '',
+      actionName: '',
+      actionNameParam: '',
       objClass: '',
       startCase: '',
       threadName: '',
@@ -48,7 +124,12 @@ export default {
   },
   created() {
     this.mashupScript = document.createElement('script');
+    this.todo = -1;
     if (this.quickLinkId !== -1) {
+      this.actionName = this.settings.quicklinks[this.quickLinkId].action;
+      this.actionNameParam = this.settings.quicklinks[
+        this.quickLinkId
+      ].actionparam;
       this.serverUrl = this.settings.quicklinks[this.quickLinkId].url;
       this.objClass = this.settings.quicklinks[this.quickLinkId].objclass;
       this.startCase = this.settings.quicklinks[this.quickLinkId].startcase;
@@ -56,22 +137,33 @@ export default {
       this.caseTitle = this.settings.quicklinks[this.quickLinkId].title[
         this.currentLocale
       ];
-    }
-    if (this.viewBill !== -1) {
+    } else if (this.viewBill !== -1) {
+      this.actionName = this.settings.billpay.action;
+      this.actionNameParam = this.settings.billpay.actionparam;
       this.serverUrl = this.settings.billpay.url;
       this.objClass = this.settings.billpay.objclass;
       this.startCase = this.settings.billpay.startcase;
       this.appName = this.settings.billpay.application;
-      this.caseTitle = this.settings.billpay.title[this.currentLocale];
-    }
-    if (this.homeHeroAction !== -1) {
+    } else if (this.homeHeroAction !== -1) {
+      this.actionName = this.settings.homeheroaction.action;
+      this.actionNameParam = this.settings.homeheroaction.actionparam;
       this.serverUrl = this.settings.homeheroaction.url;
       this.objClass = this.settings.homeheroaction.objclass;
       this.startCase = this.settings.homeheroaction.startcase;
       this.appName = this.settings.homeheroaction.application;
       this.caseTitle = this.settings.homeheroaction.title[this.currentLocale];
+    } else {
+      this.todo = 1;
+      this.actionName = this.settings.todo.action;
+      this.actionNameParam = this.settings.todo.actionparam;
+      this.serverUrl = this.settings.todo.url;
+      this.objClass = this.settings.todo.objclass;
+      this.startCase = this.settings.todo.startcase;
+      this.appName = this.settings.todo.application;
     }
-    if (this.serverUrl === '' || this.objClass === '' || this.startCase === '') return;
+    if (this.serverUrl === '') {
+      return;
+    }
     this.threadName = this.objClass.replace(/-/g, '');
     this.mashupScript.setAttribute(
       'src',
@@ -84,8 +176,8 @@ export default {
     } else if (this.app.industry === 'gov' || this.app.industry === 'health') {
       tmpActionParam.pzSkinName = 'ClaritySkin_Keppel';
     } else if (
-      this.app.industry === 'retail_bank'
-      || this.app.industry === 'commercial_bank'
+      this.app.industry === 'retail_bank' ||
+      this.app.industry === 'commercial_bank'
     ) {
       tmpActionParam.pzSkinName = 'ClaritySkin_Mantis';
     } else if (this.app.industry === 'insurance') {
@@ -124,7 +216,9 @@ export default {
   },
   beforeDestroy() {
     if (typeof pega !== 'undefined') pega = {};
-    if (this.mashupScript !== '' && this.mashupScript.parentElement !== null) document.head.removeChild(this.mashupScript);
+    if (this.mashupScript !== '' && this.mashupScript.parentElement !== null) {
+      document.head.removeChild(this.mashupScript);
+    }
   },
 };
 </script>

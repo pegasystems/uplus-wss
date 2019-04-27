@@ -2,6 +2,22 @@
   <div class="layout-inline-grid-double">
     <div class="layout-labels-left secondary-card">
       <div class="field-item">
+        <label for="bill-pay-action">Action</label>
+        <select id="bill-pay-action" v-model="settings.billpay.action">
+          <option>createNewWork</option>
+          <option>display</option>
+          <option>getNextWork</option>
+          <option>openAssignment</option>
+          <option>openWorkItem</option>
+          <option>openWorkByHandle</option>
+          <option>createNewWork</option>
+        </select>
+      </div>
+      <div class="field-item">
+        <label for="bill-pay-actionparam">Action parameter</label>
+        <input id="bill-pay-actionparam" type="text" v-model="settings.billpay.actionparam">
+      </div>
+      <div class="field-item">
         <label for="bill-pay-url">URL</label>
         <input id="bill-pay-url" type="text" v-model="settings.billpay.url">
       </div>
