@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "./precache-manifest.09c80e4d7aefcd42655b4b9a1046a348.js"
+  "./precache-manifest.7feca5d5a505e8d4124526d8ba44e17b.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "upluswss"});

@@ -15,6 +15,9 @@
       <tab v-if="typeof settings.billpay != 'undefined' && !isMobilePhone" name="Bill Pay">
         <BillPaySettings/>
       </tab>
+      <tab v-if="typeof settings.todo != 'undefined' && !isMobilePhone" name="To Do">
+        <ToDoSettings/>
+      </tab>
       <tab v-if="!isMobilePhone" name="Home Hero Action">
         <HomeHeroActionSettings/>
       </tab>
@@ -35,49 +38,49 @@
 </template>
 
 <script>
-import { mainconfig } from "../../global";
-import Tab from "../controls/Tab.vue";
-import Tabs from "../controls/Tabs.vue";
-import FileUpload from "../widgets/FileUpload.vue";
-import QuickLinksSettings from "./QuickLinksSettings.vue";
-import BillPaySettings from "./BillPaySettings.vue";
-import HomeHeroActionSettings from "./HomeHeroActionSettings.vue";
-import UsersSettings from "./UsersSettings.vue";
-import ChatSettings from "./ChatSettings.vue";
-import NBAMSettings from "./NBAMSettings.vue";
-import TopNav from "../phone/TopNav.vue";
+import { mainconfig } from '../../global';
+import Tab from '../controls/Tab.vue';
+import Tabs from '../controls/Tabs.vue';
+import QuickLinksSettings from './QuickLinksSettings.vue';
+import BillPaySettings from './BillPaySettings.vue';
+import ToDoSettings from './ToDoSettings.vue';
+import HomeHeroActionSettings from './HomeHeroActionSettings.vue';
+import UsersSettings from './UsersSettings.vue';
+import ChatSettings from './ChatSettings.vue';
+import NBAMSettings from './NBAMSettings.vue';
+import TopNav from '../phone/TopNav.vue';
 
 export default {
-  data: function() {
+  data() {
     return Object.assign({}, mainconfig, {
-      isClearAll: false
+      isClearAll: false,
     });
   },
   methods: {
-    processForm: function() {
+    processForm() {
       if (!this.isClearAll) {
         localStorage.setItem(
-          "config_" + this.app.industry,
-          JSON.stringify(mainconfig)
+          `config_${this.app.industry}`,
+          JSON.stringify(mainconfig),
         );
       }
     },
-    clearAll: function() {
+    clearAll() {
       localStorage.clear();
       this.isClearAll = true;
-    }
+    },
   },
   components: {
     Tabs,
     Tab,
     QuickLinksSettings,
     BillPaySettings,
+    ToDoSettings,
     HomeHeroActionSettings,
     UsersSettings,
     ChatSettings,
     NBAMSettings,
-    FileUpload,
-    TopNav
-  }
+    TopNav,
+  },
 };
 </script>

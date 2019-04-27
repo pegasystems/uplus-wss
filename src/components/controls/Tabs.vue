@@ -30,10 +30,10 @@ export default {
   },
   methods: {
     selectTab(selectedTab) {
-      this.tabs.forEach(tab => {
-        tab.isActive = tab.name == selectedTab.name;
+      this.tabs.forEach((tab) => {
+        tab.isActive = tab.name === selectedTab.name;
       });
-    }
-  }
+    },
+  },
 };
 </script>

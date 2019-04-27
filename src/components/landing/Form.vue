@@ -25,12 +25,11 @@
 </template>
 
 <script>
-import { mainconfig } from "../../global";
+import { mainconfig } from '../../global';
 
 export default {
-  data: function() {
+  data() {
     return mainconfig;
-  }
+  },
 };
 </script>
-

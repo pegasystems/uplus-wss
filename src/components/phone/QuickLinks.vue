@@ -17,19 +17,20 @@
 </template>
 
 <script>
-import { mainconfig } from "../../global";
-import TopNav from "./TopNav.vue";
+import { mainconfig } from '../../global';
+import TopNav from './TopNav.vue';
+
 export default {
-  data: function() {
+  data() {
     return mainconfig;
   },
   components: {
-    TopNav
+    TopNav,
   },
   methods: {
-    selectLink: function(index) {
+    selectLink(index) {
       this.quickLinkId = index;
-    }
-  }
+    },
+  },
 };
 </script>

@@ -8,20 +8,21 @@
 </template>
 
 <script>
-import { mainconfig } from "../../global";
-import MainOffer from "./MainOffer.vue";
-import Cards from "./Cards.vue";
-import Details from "./Details.vue";
-import Highlight from "./Highlight.vue";
+import { mainconfig } from '../../global';
+import MainOffer from './MainOffer.vue';
+import Cards from './Cards.vue';
+import Details from './Details.vue';
+import Highlight from './Highlight.vue';
+
 export default {
-  data: function() {
+  data() {
     return mainconfig;
   },
   components: {
     MainOffer,
     Cards,
     Details,
-    Highlight
-  }
+    Highlight,
+  },
 };
 </script>

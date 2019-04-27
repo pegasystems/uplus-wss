@@ -13,21 +13,20 @@
 export default {
   props: {
     name: { required: true },
-    selected: { default: false }
+    selected: { default: false },
   },
   data() {
     return {
-      isActive: false
+      isActive: false,
     };
   },
   computed: {
     href() {
-      return "#" + this.name.toLowerCase().replace(/ /g, "-");
-    }
+      return `#${this.name.toLowerCase().replace(/ /g, '-')}`;
+    },
   },
   mounted() {
     this.isActive = this.selected;
-  }
+  },
 };
 </script>
-

@@ -12,19 +12,20 @@
 </template>
 
 <script>
-import { mainconfig } from "../../global";
-import MenuItem from "../controls/MenuItem.vue";
+import { mainconfig } from '../../global';
+import MenuItem from '../controls/MenuItem.vue';
+
 export default {
-  data: function() {
+  data() {
     return mainconfig;
   },
   methods: {
-    hideSidePanel: function(event) {
+    hideSidePanel() {
       this.isSidePanelVisible = false;
-    }
+    },
   },
   components: {
-    MenuItem
-  }
+    MenuItem,
+  },
 };
 </script>

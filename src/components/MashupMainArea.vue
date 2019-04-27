@@ -29,24 +29,25 @@
 </template>
 
 <script>
-import { mainconfig } from "../global";
+/* global pega:true _initAllPegaObjects  */
+import { mainconfig } from '../global';
 
 export default {
-  data: function() {
+  data() {
     return Object.assign({}, mainconfig, {
-      mashupScript: "",
+      mashupScript: '',
       isMashupInitialized: false,
-      serverUrl: "",
-      objClass: "",
-      startCase: "",
-      threadName: "",
-      appName: "",
-      actionParam: "",
-      caseTitle: ""
+      serverUrl: '',
+      objClass: '',
+      startCase: '',
+      threadName: '',
+      appName: '',
+      actionParam: '',
+      caseTitle: '',
     });
   },
-  created: function() {
-    this.mashupScript = document.createElement("script");
+  created() {
+    this.mashupScript = document.createElement('script');
     if (this.quickLinkId !== -1) {
       this.serverUrl = this.settings.quicklinks[this.quickLinkId].url;
       this.objClass = this.settings.quicklinks[this.quickLinkId].objclass;
@@ -70,61 +71,60 @@ export default {
       this.appName = this.settings.homeheroaction.application;
       this.caseTitle = this.settings.homeheroaction.title[this.currentLocale];
     }
-    if (this.serverUrl === "" || this.objClass === "" || this.startCase === "")
-      return;
-    this.threadName = this.objClass.replace(/-/g, "");
+    if (this.serverUrl === '' || this.objClass === '' || this.startCase === '') return;
+    this.threadName = this.objClass.replace(/-/g, '');
     this.mashupScript.setAttribute(
-      "src",
-      this.serverUrl + "?pyActivity=pzIncludeMashupScripts"
+      'src',
+      `${this.serverUrl}?pyActivity=pzIncludeMashupScripts`,
     );
-    var tmpActionParam = {};
-    tmpActionParam.pzSkinName = "ClaritySkin";
-    if (app.industry === "comms") {
-      tmpActionParam.pzSkinName = "ClaritySkin_HoneyFlower";
-    } else if (app.industry === "gov" || app.industry === "health") {
-      tmpActionParam.pzSkinName = "ClaritySkin_Keppel";
+    const tmpActionParam = {};
+    tmpActionParam.pzSkinName = 'ClaritySkin';
+    if (this.app.industry === 'comms') {
+      tmpActionParam.pzSkinName = 'ClaritySkin_HoneyFlower';
+    } else if (this.app.industry === 'gov' || this.app.industry === 'health') {
+      tmpActionParam.pzSkinName = 'ClaritySkin_Keppel';
     } else if (
-      app.industry === "retail_bank" ||
-      app.industry === "commercial_bank"
+      this.app.industry === 'retail_bank'
+      || this.app.industry === 'commercial_bank'
     ) {
-      tmpActionParam.pzSkinName = "ClaritySkin_Mantis";
-    } else if (app.industry === "insurance") {
-      tmpActionParam.pzSkinName = "ClaritySkin_Flame";
-    } else if (app.industry === "manufacturing") {
-      tmpActionParam.pzSkinName = "ClaritySkin_TulipTree";
+      tmpActionParam.pzSkinName = 'ClaritySkin_Mantis';
+    } else if (this.app.industry === 'insurance') {
+      tmpActionParam.pzSkinName = 'ClaritySkin_Flame';
+    } else if (this.app.industry === 'manufacturing') {
+      tmpActionParam.pzSkinName = 'ClaritySkin_TulipTree';
     }
-    tmpActionParam.pyMashupSkeletonName = "pyDefaultMashupSkeleton";
+    tmpActionParam.pyMashupSkeletonName = 'pyDefaultMashupSkeleton';
     if (this.userId !== -1) {
       tmpActionParam.UserIdentifier = this.settings.users[
         this.userId
       ].pega_userid;
       tmpActionParam.Password = encodeURI(
-        btoa(this.settings.users[this.userId].pega_pwd)
+        btoa(this.settings.users[this.userId].pega_pwd),
       );
     } else if (this.homeHeroAction !== -1) {
       tmpActionParam.UserIdentifier = this.settings.homeheroaction.pega_userid;
       tmpActionParam.Password = encodeURI(
-        btoa(this.settings.homeheroaction.pega_pwd)
+        btoa(this.settings.homeheroaction.pega_pwd),
       );
     }
     this.actionParam = JSON.stringify(tmpActionParam);
     document.head.appendChild(this.mashupScript);
     this.isMashupInitialized = true;
   },
-  mounted: function() {
-    var _initMashup = function() {
-      if (typeof pega !== "undefined" && typeof pega.Mashup !== "undefined") {
+  mounted() {
+    const initMashup = function initMashup() {
+      if (typeof pega !== 'undefined' && typeof pega.Mashup !== 'undefined') {
         pega.Mashup.Communicator.register(pega.Mashup.hostActionsProcessor);
         _initAllPegaObjects();
       } else {
-        setTimeout(_initMashup, 200);
+        setTimeout(initMashup, 200);
       }
     };
-    _initMashup();
+    initMashup();
   },
   beforeDestroy() {
-    if (typeof pega !== "undefined") pega = {};
-    if (this.mashupScript != "" && this.mashupScript.parentElement!=null) document.head.removeChild(this.mashupScript);
-  }
+    if (typeof pega !== 'undefined') pega = {};
+    if (this.mashupScript !== '' && this.mashupScript.parentElement !== null) document.head.removeChild(this.mashupScript);
+  },
 };
 </script>

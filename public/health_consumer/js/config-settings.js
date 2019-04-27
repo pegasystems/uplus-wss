@@ -1,114 +1,116 @@
-var settings = {
+window.settings = {
   i18n: {
-    defaultlocale: "en",
+    defaultlocale: 'en',
     /* Set to 'browser' to use browser locale */
-    languages: ["en"],
-    showLangSwitch: false /* set to true to show the language switcher */
+    languages: ['en'],
+    showLangSwitch: false,
+    /* set to true to show the language switcher */
   },
-  quicklinks: [{
+  quicklinks: [
+    {
       title: {
-        "en": "Find Plans",
+        en: 'Find Plans',
       },
-      objclass: "",
-      url: "",
-      startcase: "pyStartCase",
-      application: "",
-      icon: ""
+      objclass: '',
+      url: '',
+      startcase: 'pyStartCase',
+      application: '',
+      icon: '',
     },
     {
       title: {
-        "en": "Make a payment",
+        en: 'Make a payment',
       },
-      objclass: "",
-      url: "",
-      startcase: "pyStartCase",
-      application: "",
-      icon: ""
+      objclass: '',
+      url: '',
+      startcase: 'pyStartCase',
+      application: '',
+      icon: '',
     },
     {
       title: {
-        "en": "Update billing",
+        en: 'Update billing',
       },
-      objclass: "",
-      url: "",
-      startcase: "pyStartCase",
-      application: "",
-      icon: ""
+      objclass: '',
+      url: '',
+      startcase: 'pyStartCase',
+      application: '',
+      icon: '',
     },
     {
       title: {
-        "en": "Proof of insurance",
+        en: 'Proof of insurance',
       },
-      objclass: "",
-      url: "",
-      startcase: "pyStartCase",
-      application: "",
-      icon: ""
+      objclass: '',
+      url: '',
+      startcase: 'pyStartCase',
+      application: '',
+      icon: '',
     },
     {
       title: {
-        "en": "Update your profile",
+        en: 'Update your profile',
       },
-      objclass: "",
-      url: "",
-      startcase: "pyStartCase",
-      application: "",
-      icon: ""
+      objclass: '',
+      url: '',
+      startcase: 'pyStartCase',
+      application: '',
+      icon: '',
     },
   ],
   billpay: {
-    title: {
-      "en": "Bill pay",
-    },
-    objclass: "",
-    url: "",
-    startcase: "pyStartCase",
-    application: ""
+    objclass: '',
+    url: '',
+    startcase: 'pyStartCase',
+    application: '',
+  },
+  todo: {
+    objclass: '',
+    url: '',
+    startcase: 'pyStartCase',
+    application: '',
   },
   homeheroaction: {
-    title: {
-      "en": "Personalize your service",
-    },
-    objclass: "",
-    url: "",
-    startcase: "pyStartCase",
-    application: "",
-    pega_userid: "",
-    pega_pwd: "",
+    objclass: '',
+    url: '',
+    startcase: 'pyStartCase',
+    application: '',
+    pega_userid: '',
+    pega_pwd: '',
   },
-  users: [{
-      username: "joe@pegasystems.com",
-      password: "rules",
-      img: "avatar-1.jpg",
-      company_name: "",
-      name: "",
-      pega_userid: "jsmith",
-      pega_pwd: "rules",
-      load_by_default: true
+  users: [
+    {
+      username: 'joe@pegasystems.com',
+      password: 'rules',
+      img: 'avatar-1.jpg',
+      company_name: '',
+      name: '',
+      pega_userid: 'jsmith',
+      pega_pwd: 'rules',
+      load_by_default: true,
     },
     {
-      username: "mary@pegasystems.com",
-      password: "rules",
-      img: "avatar-2.jpg",
-      company_name: "",
-      name: "",
-      pega_userid: "mtaylor",
-      pega_pwd: "rules",
-      load_by_default: false
+      username: 'mary@pegasystems.com',
+      password: 'rules',
+      img: 'avatar-2.jpg',
+      company_name: '',
+      name: '',
+      pega_userid: 'mtaylor',
+      pega_pwd: 'rules',
+      load_by_default: false,
     },
-
   ],
   pega_chat: {
-    WCBConfigName: "",
-    WebChatBotID: "",
-    ApplicationName: "",
-    MashupURL: "",
-    ContactID: "",
-    AccountNumber: "",
-    UserName: "",
+    WCBConfigName: '',
+    WebChatBotID: '',
+    ApplicationName: '',
+    MashupURL: '',
+    ContactID: '',
+    AccountNumber: '',
+    UserName: '',
   },
   pega_marketing: {
-    Host: "",
-    Port: ""
-  }
+    Host: '',
+    Port: '',
+  },
 };

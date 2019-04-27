@@ -1,10 +1,6 @@
 <template>
   <div class="layout-inline-grid-double">
     <div class="layout-labels-left secondary-card">
-      <div v-for="titlel in settings.i18n.languages" v-bind:key="titlel" class="field-item">
-        <label :for="'bill-pay-' + titlel">Case name in '{{ titlel }}'</label>
-        <input :id="'bill-pay-' + titlel" type="text" v-model="settings.billpay.title[titlel]">
-      </div>
       <div class="field-item">
         <label for="bill-pay-url">URL</label>
         <input id="bill-pay-url" type="text" v-model="settings.billpay.url">
@@ -26,11 +22,11 @@
 </template>
 
 <script>
-import { mainconfig } from "../../global";
+import { mainconfig } from '../../global';
 
 export default {
-  data: function() {
+  data() {
     return mainconfig;
-  }
+  },
 };
 </script>

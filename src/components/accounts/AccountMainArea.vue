@@ -7,19 +7,19 @@
 </template>
 
 <script>
-import AccountPicker from "../widgets/AccountPicker.vue";
-import BillPay from "../widgets/BillPay.vue";
-import RecentActivity from "../widgets/RecentActivity.vue";
-import { mainconfig } from "../../global";
+import AccountPicker from '../widgets/AccountPicker.vue';
+import BillPay from '../widgets/BillPay.vue';
+import RecentActivity from '../widgets/RecentActivity.vue';
+import { mainconfig } from '../../global';
 
 export default {
-  data: function() {
+  data() {
     return mainconfig;
   },
   components: {
     AccountPicker,
     BillPay,
-    RecentActivity
-  }
+    RecentActivity,
+  },
 };
 </script>

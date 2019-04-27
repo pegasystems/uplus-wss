@@ -17,44 +17,45 @@
 </template>
 
 <script>
-import MenuItem from "../controls/MenuItem.vue";
-import { mainconfig } from "../../global";
+import MenuItem from '../controls/MenuItem.vue';
+import { mainconfig } from '../../global';
+
 export default {
-  data: function() {
+  data() {
     return Object.assign({}, mainconfig, {
-      isActive: false
+      isActive: false,
     });
   },
   methods: {
-    showlogin: function(event) {
+    showlogin() {
       this.isActive = false;
       this.toggleLoginOverlay(true);
     },
-    toggleLoginOverlay: function(bShow) {
-      var elements = document.getElementsByClassName("launch-login");
-      Array.prototype.forEach.call(elements, function(el, i) {
+    toggleLoginOverlay(bShow) {
+      const elements = document.getElementsByClassName('launch-login');
+      Array.prototype.forEach.call(elements, (el) => {
         if (
-          (bShow && el.nextElementSibling.classList.contains("hidden")) ||
-          (!bShow && el.nextElementSibling.classList.contains("show"))
+          (bShow && el.nextElementSibling.classList.contains('hidden'))
+          || (!bShow && el.nextElementSibling.classList.contains('show'))
         ) {
           el.click();
         }
       });
     },
-    showMenuOverlay: function(event) {
+    showMenuOverlay() {
       this.isActive = !this.isActive;
       if (this.isActive === true) {
         this.toggleLoginOverlay(false);
       }
     },
-    onClickOutMenuOverlay: function(event) {
-      if (!event.target.classList.contains("launch-menu")) {
+    onClickOutMenuOverlay(event) {
+      if (!event.target.classList.contains('launch-menu')) {
         this.isActive = false;
       }
-    }
+    },
   },
   components: {
-    MenuItem
-  }
+    MenuItem,
+  },
 };
 </script>

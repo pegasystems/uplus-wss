@@ -6,17 +6,17 @@
 </template>
 
 <script>
-import { mainconfig } from "../../global";
-import TopNav from "./TopNav.vue";
-import MashupMainArea from "../MashupMainArea.vue";
+import { mainconfig } from '../../global';
+import TopNav from './TopNav.vue';
+import MashupMainArea from '../MashupMainArea.vue';
 
 export default {
-  data: function() {
+  data() {
     return mainconfig;
   },
   components: {
     TopNav,
-    MashupMainArea
-  } 
+    MashupMainArea,
+  },
 };
 </script>

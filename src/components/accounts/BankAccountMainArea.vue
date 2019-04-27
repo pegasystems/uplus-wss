@@ -9,15 +9,16 @@
 </template>
 
 <script>
-import { mainconfig } from "../../global";
+import { mainconfig } from '../../global';
 
-import AccountDetails from "../widgets/AccountDetails.vue";
+import AccountDetails from '../widgets/AccountDetails.vue';
+
 export default {
-  data: function() {
+  data() {
     return mainconfig;
   },
   components: {
-    AccountDetails
-  }
+    AccountDetails,
+  },
 };
 </script>

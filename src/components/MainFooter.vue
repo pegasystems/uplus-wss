@@ -16,15 +16,15 @@
 </template>
 
 <script>
-import { mainconfig } from "../global";
-import LangSwitch from "./widgets/LangSwitch.vue";
+import { mainconfig } from '../global';
+import LangSwitch from './widgets/LangSwitch.vue';
+
 export default {
-  data: function() {
+  data() {
     return mainconfig;
   },
   components: {
-    LangSwitch
-  }
+    LangSwitch,
+  },
 };
 </script>
-

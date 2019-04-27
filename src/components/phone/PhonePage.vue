@@ -8,21 +8,21 @@
 </template>
 
 <script>
-import { mainconfig } from "../../global";
-import MainFooter from "../MainFooter.vue";
-import Aside from "./Aside.vue";
-import Header from "./Header.vue";
-import Main from "./Main.vue";
+import { mainconfig } from '../../global';
+import MainFooter from '../MainFooter.vue';
+import Aside from './Aside.vue';
+import Header from './Header.vue';
+import Main from './Main.vue';
 
 export default {
-  data: function() {
+  data() {
     return mainconfig;
   },
   components: {
     Header,
     Main,
     Aside,
-    MainFooter
-  }
+    MainFooter,
+  },
 };
 </script>

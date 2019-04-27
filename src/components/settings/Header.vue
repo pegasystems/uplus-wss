@@ -10,17 +10,17 @@
 </template>
 
 <script>
-import { mainconfig } from "../../global";
-import FileUpload from "../widgets/FileUpload.vue";
-import FileDownload from "../widgets/FileDownload.vue";
+import { mainconfig } from '../../global';
+import FileUpload from '../widgets/FileUpload.vue';
+import FileDownload from '../widgets/FileDownload.vue';
 
 export default {
-  data: function() {
+  data() {
     return mainconfig;
   },
   components: {
     FileUpload,
-    FileDownload
-  }
+    FileDownload,
+  },
 };
 </script>

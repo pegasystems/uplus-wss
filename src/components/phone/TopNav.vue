@@ -13,19 +13,20 @@
 </template>
 
 <script>
-import { mainconfig } from "../../global";
+import { mainconfig } from '../../global';
+
 export default {
   props: {
-    previousPage: { required: true }
+    previousPage: { required: true },
   },
-  data: function() {
+  data() {
     return mainconfig;
   },
   methods: {
-    goBack: function(event) {
+    goBack() {
       mainconfig.phonePageName = this.previousPage;
       mainconfig.quickLinkId = -1;
-    }
-  }
+    },
+  },
 };
 </script>

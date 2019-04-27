@@ -7,22 +7,21 @@
 </template>
 
 <script>
-import { mainconfig } from "./global";
-
-import PhonePage from "./components/phone/PhonePage.vue";
-import FrontPage from "./components/FrontPage.vue";
-import AccountPage from "./components/accounts/AccountPage.vue";
+import { mainconfig } from './global';
+import PhonePage from './components/phone/PhonePage.vue';
+import FrontPage from './components/FrontPage.vue';
+import AccountPage from './components/accounts/AccountPage.vue';
 
 export default {
-  name: "app",
-  data: function() {
+  name: 'app',
+  data() {
     return mainconfig;
   },
   components: {
     FrontPage,
     AccountPage,
-    PhonePage
-  }
+    PhonePage,
+  },
 };
 </script>
 

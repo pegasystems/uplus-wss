@@ -12,17 +12,17 @@
 </template>
 
 <script>
-import Offer from "../controls/Offer.vue";
-import QuickLinks from "../widgets/QuickLinks.vue";
-import { mainconfig } from "../../global";
+import Offer from '../controls/Offer.vue';
+import QuickLinks from '../widgets/QuickLinks.vue';
+import { mainconfig } from '../../global';
 
 export default {
-  data: function() {
+  data() {
     return mainconfig;
   },
   components: {
     Offer,
-    QuickLinks
-  }
+    QuickLinks,
+  },
 };
 </script>

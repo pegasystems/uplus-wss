@@ -21,39 +21,40 @@
 </template>
 
 <script>
-import { mainconfig } from "../../global";
+import { mainconfig } from '../../global';
+
 export default {
-  data: function() {
+  data() {
     return Object.assign({}, mainconfig, {
-      isActive: false
+      isActive: false,
     });
   },
   methods: {
-    showOverlay: function(event) {
+    showOverlay() {
       this.isActive = !this.isActive;
     },
-    onClickOutOverlay: function(event) {
-      if (!event.target.classList.contains("avatar")) {
+    onClickOutOverlay(event) {
+      if (!event.target.classList.contains('avatar')) {
         this.isActive = false;
       }
     },
-    logOut: function(event) {
+    logOut() {
       mainconfig.isAuthenticated = false;
       mainconfig.userId = -1;
       mainconfig.quickLinkId = -1;
-    }
+    },
   },
   computed: {
-    isNamePresent: function() {
+    isNamePresent() {
       if (
-        mainconfig.isMobilePhone ||
-        mainconfig.settings.users[mainconfig.userId].name === "" ||
-        mainconfig.settings.users[mainconfig.userId].company_name === ""
+        mainconfig.isMobilePhone
+        || mainconfig.settings.users[mainconfig.userId].name === ''
+        || mainconfig.settings.users[mainconfig.userId].company_name === ''
       ) {
         return false;
       }
       return true;
-    }
-  }
+    },
+  },
 };
 </script>

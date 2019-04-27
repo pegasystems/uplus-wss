@@ -9,20 +9,19 @@
 </template>
 
 <script>
-import { mainconfig } from "../../global";
-import Cards from "./Cards.vue";
-import OfferForm from "./Form.vue";
-import Highlight from "./Highlight.vue";
+import { mainconfig } from '../../global';
+import Cards from './Cards.vue';
+import OfferForm from './Form.vue';
+import Highlight from './Highlight.vue';
 
 export default {
-  data: function() {
+  data() {
     return mainconfig;
   },
   components: {
     Highlight,
     Cards,
-    OfferForm
-  }
+    OfferForm,
+  },
 };
 </script>
-

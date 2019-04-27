@@ -1,14 +1,6 @@
 <template>
   <div class="layout-inline-grid-double">
     <div class="layout-labels-left secondary-card">
-      <div v-for="titlel in settings.i18n.languages" v-bind:key="titlel" class="field-item">
-        <label :for="'hero-action-' + titlel">Case name in '{{ titlel }}'</label>
-        <input
-          :id="'hero-action-' + titlel"
-          type="text"
-          v-model="settings.homeheroaction.title[titlel]"
-        >
-      </div>
       <div class="field-item">
         <label for="hero-action-url">URL</label>
         <input id="hero-action-url" type="text" v-model="settings.homeheroaction.url">
@@ -46,11 +38,11 @@
 </template>
 
 <script>
-import { mainconfig } from "../../global";
+import { mainconfig } from '../../global';
 
 export default {
-  data: function() {
+  data() {
     return mainconfig;
-  }
+  },
 };
 </script>

@@ -30,30 +30,31 @@
 </template>
 
 <script>
-import MenuItem from "./controls/MenuItem.vue";
-import MainHeaderMenu from "./widgets/MainHeaderMenu.vue";
-import OperatorButton from "./widgets/OperatorButton.vue";
-import LoginButton from "./widgets/LoginButton.vue";
-import { mainconfig } from "../global";
+import MenuItem from './controls/MenuItem.vue';
+import MainHeaderMenu from './widgets/MainHeaderMenu.vue';
+import OperatorButton from './widgets/OperatorButton.vue';
+import LoginButton from './widgets/LoginButton.vue';
+import { mainconfig } from '../global';
+
 export default {
-  data: function() {
+  data() {
     return mainconfig;
   },
   methods: {
-    goHomePage: function(event) {
+    goHomePage() {
       mainconfig.quickLinkId = -1;
       mainconfig.viewBill = -1;
       mainconfig.homeHeroAction = -1;
     },
-    applyHeroAction: function(event) {
+    applyHeroAction() {
       mainconfig.homeHeroAction = 1;
-    }
+    },
   },
   components: {
     MenuItem,
     LoginButton,
     OperatorButton,
-    MainHeaderMenu
-  }
+    MainHeaderMenu,
+  },
 };
 </script>

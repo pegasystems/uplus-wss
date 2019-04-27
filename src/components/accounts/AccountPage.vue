@@ -23,16 +23,16 @@
 </template>
 
 <script>
-import { mainconfig } from "../../global";
-import MainHeader from "../MainHeader.vue";
-import MainFooter from "../MainFooter.vue";
-import MashupMainArea from "../MashupMainArea.vue";
-import AccountMainArea from "./AccountMainArea.vue";
-import BankAccountMainArea from "./BankAccountMainArea.vue";
-import AccountSecondaryArea from "./AccountSecondaryArea.vue";
+import { mainconfig } from '../../global';
+import MainHeader from '../MainHeader.vue';
+import MainFooter from '../MainFooter.vue';
+import MashupMainArea from '../MashupMainArea.vue';
+import AccountMainArea from './AccountMainArea.vue';
+import BankAccountMainArea from './BankAccountMainArea.vue';
+import AccountSecondaryArea from './AccountSecondaryArea.vue';
 
 export default {
-  data: function() {
+  data() {
     return mainconfig;
   },
   components: {
@@ -41,7 +41,7 @@ export default {
     BankAccountMainArea,
     AccountSecondaryArea,
     MashupMainArea,
-    MainFooter
-  }
+    MainFooter,
+  },
 };
 </script>

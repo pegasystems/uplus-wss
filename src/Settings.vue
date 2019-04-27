@@ -8,20 +8,19 @@
 </template>
 
 <script>
-import { mainconfig } from "./global";
+import { mainconfig } from './global';
 
-import Header from "./components/settings/Header.vue";
-import Main from "./components/settings/Main.vue";
+import Header from './components/settings/Header.vue';
+import Main from './components/settings/Main.vue';
 
 export default {
-  name: "app",
-  data: function() {
+  name: 'app',
+  data() {
     return mainconfig;
   },
   components: {
     Header,
-    Main
-  }
+    Main,
+  },
 };
 </script>
-

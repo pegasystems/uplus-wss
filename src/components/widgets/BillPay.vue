@@ -10,13 +10,19 @@
       <div class="list-box">
         <h3>{{ $t("message.billdue") }}</h3>
         <p>{{ $d(getDueBillDate(), 'short') }}</p>
-        <a v-on:click="openBill()">{{ $t("message.viewbill") }}</a>
+        <button class="simple" v-on:click="openBill()">{{ $t("message.viewbill") }}</button>
       </div>
       <div class="flex flex-nowrap">
-        <i class="pi pi-cancel pi-3x pi-grey"></i>
         <div class="list-box">
-          <h3 v-if="isBillPayActive">{{ $t("message.autopay") + $t("message.off") }}</h3>
-          <h3 v-else>{{ $t("message.autopay") + $t("message.on") }}</h3>
+          <h3>{{ $t("message.autopay") }}</h3>
+          <p v-if="isBillPayActive">
+            <i class="pi pi-cancel pi-grey"></i>
+            {{ $t("message.off") }}
+          </p>
+          <p v-else>
+            <i class="pi pi-circle-check pi-grey"></i>
+            {{ $t("message.on") }}
+          </p>
           <button class="simple" v-on:click="enrollInBillPay">{{ $t("message.autopay_enroll") }}</button>
         </div>
       </div>
@@ -25,20 +31,20 @@
 </template>
 
 <script>
-import { mainconfig } from "../../global";
+import { mainconfig } from '../../global';
 
 export default {
-  data: function() {
+  data() {
     return Object.assign({}, mainconfig, {
-      isBillPayActive: false
+      isBillPayActive: false,
     });
   },
   methods: {
-    getDueBillDate: function() {
+    getDueBillDate() {
       /* Always make the first event on the 15th of the next month */
-      var myDate = new Date();
+      const myDate = new Date();
       if (myDate.getDate() > 16) {
-        if (myDate.getMonth() == 12) {
+        if (myDate.getMonth() === 12) {
           myDate.setMonth(myDate.getMonth() + 1);
         } else {
           myDate.setMonth(1);
@@ -47,12 +53,12 @@ export default {
       myDate.setDate(15);
       return myDate;
     },
-    enrollInBillPay: function() {
+    enrollInBillPay() {
       this.isBillPayActive = !this.isBillPayActive;
     },
-    openBill: function() {
+    openBill() {
       mainconfig.viewBill = 1;
-    }
-  }
+    },
+  },
 };
 </script>

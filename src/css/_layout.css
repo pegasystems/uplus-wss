@@ -518,3 +518,7 @@ a[role="tab"]:active {
 [role="tabpanel"][aria-hidden="true"] {
 	display: none;
 }
+
+.bill-pay p {
+	margin-bottom: 16rem;
+}

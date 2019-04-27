@@ -16,19 +16,20 @@
 </template>
 
 <script>
-import { mainconfig } from "../../global";
-import TopNav from "./TopNav.vue";
+import { mainconfig } from '../../global';
+import TopNav from './TopNav.vue';
+
 export default {
-  data: function() {
+  data() {
     return mainconfig;
   },
   components: {
-    TopNav
+    TopNav,
   },
   methods: {
-    nextPage: function(event) {
-      mainconfig.phonePageName = "quicklinks1";
-    }
-  }
+    nextPage() {
+      mainconfig.phonePageName = 'quicklinks1';
+    },
+  },
 };
 </script>

@@ -7,22 +7,21 @@
 </template>
 
 <script>
-import { mainconfig } from "./global";
+import { mainconfig } from './global';
 
-import Header from "./components/landing/Header.vue";
-import Main from "./components/landing/Main.vue";
-import Footer from "./components/landing/Footer.vue";
+import Header from './components/landing/Header.vue';
+import Main from './components/landing/Main.vue';
+import Footer from './components/landing/Footer.vue';
 
 export default {
-  name: "app",
-  data: function() {
+  name: 'app',
+  data() {
     return mainconfig;
   },
   components: {
     Header,
     Main,
-    Footer
-  }
+    Footer,
+  },
 };
 </script>
-

@@ -21,21 +21,22 @@
 </template>
 
 <script>
-import { mainconfig } from "../../global";
+import { mainconfig } from '../../global';
+
 export default {
-  data: function() {
+  data() {
     return Object.assign({}, mainconfig, {
       isActive: false,
       hasErrorMsg: false,
-      username: "",
-      password: ""
+      username: '',
+      password: '',
     });
   },
   methods: {
-    showLoginOverlay: function(event) {
+    showLoginOverlay() {
       this.isActive = !this.isActive;
       /* Find if a default user is defined */
-      for (var i in this.settings.users) {
+      for (const i in this.settings.users) {
         if (this.settings.users[i].load_by_default) {
           this.username = this.settings.users[i].username;
           this.password = this.settings.users[i].password;
@@ -43,22 +44,22 @@ export default {
         }
       }
     },
-    onClickOutLoginOverlay: function(event) {
+    onClickOutLoginOverlay(event) {
       if (
-        !event.target.classList.contains("launch-login") &&
-        !event.target.classList.contains("launch-login-overlay")
+        !event.target.classList.contains('launch-login')
+        && !event.target.classList.contains('launch-login-overlay')
       ) {
         this.isActive = false;
       }
     },
-    signIn: function(event) {
+    signIn() {
       /* Validate the password */
       let isLoginSuccess = false;
       mainconfig.userId = -1;
-      for (var i in settings.users) {
+      for (const i in this.settings.users) {
         if (
-          this.settings.users[i].username === this.username &&
-          this.settings.users[i].password === this.password
+          this.settings.users[i].username === this.username
+          && this.settings.users[i].password === this.password
         ) {
           isLoginSuccess = true;
           mainconfig.userId = i;
@@ -68,7 +69,7 @@ export default {
       mainconfig.isAuthenticated = isLoginSuccess;
 
       if (!isLoginSuccess) this.hasErrorMsg = true;
-    }
-  }
+    },
+  },
 };
 </script>

@@ -15,15 +15,15 @@
 </template>
 
 <script>
-import { mainconfig } from "../global";
-import MainHeader from "./MainHeader.vue";
-import MainFooter from "./MainFooter.vue";
-import FrontMainArea from "./FrontMainArea.vue";
-import FrontSecondaryArea from "./FrontSecondaryArea.vue";
-import MashupMainArea from "./MashupMainArea.vue";
+import { mainconfig } from '../global';
+import MainHeader from './MainHeader.vue';
+import MainFooter from './MainFooter.vue';
+import FrontMainArea from './FrontMainArea.vue';
+import FrontSecondaryArea from './FrontSecondaryArea.vue';
+import MashupMainArea from './MashupMainArea.vue';
 
 export default {
-  data: function() {
+  data() {
     return mainconfig;
   },
   components: {
@@ -31,7 +31,7 @@ export default {
     FrontMainArea,
     MashupMainArea,
     FrontSecondaryArea,
-    MainFooter
-  }
+    MainFooter,
+  },
 };
 </script>

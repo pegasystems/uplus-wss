@@ -8,15 +8,15 @@
 </template>
 
 <script>
-import { mainconfig } from "../../global";
-import HomePage from "./HomePage.vue";
-import LoginPage from "./LoginPage.vue";
-import QuickLinks from "./QuickLinks.vue";
-import IntroQuickLinks from "./IntroQuickLinks.vue";
-import Mashup from "./Mashup.vue";
+import { mainconfig } from '../../global';
+import HomePage from './HomePage.vue';
+import LoginPage from './LoginPage.vue';
+import QuickLinks from './QuickLinks.vue';
+import IntroQuickLinks from './IntroQuickLinks.vue';
+import Mashup from './Mashup.vue';
 
 export default {
-  data: function() {
+  data() {
     return mainconfig;
   },
   components: {
@@ -24,7 +24,7 @@ export default {
     LoginPage,
     IntroQuickLinks,
     QuickLinks,
-    Mashup
-  }
+    Mashup,
+  },
 };
 </script>

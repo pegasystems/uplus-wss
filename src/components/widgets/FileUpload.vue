@@ -15,32 +15,31 @@
 </template>
 
 <script>
-import { mainconfig, i18n } from "../../global";
+import { mainconfig } from '../../global';
+
 export default {
-  data: function() {
+  data() {
     return mainconfig;
   },
   methods: {
     onFileChange(e) {
-      var input = event.target;
-      var reader = new FileReader();
-      reader.onload = function() {
-        var text = reader.result;
+      const input = e.target;
+      const reader = new FileReader();
+      reader.onload = function onloadFile() {
+        const text = reader.result;
         try {
           mainconfig.settings = JSON.parse(text);
           localStorage.setItem(
-            "config_" + mainconfig.app.industry,
-            JSON.stringify(mainconfig)
+            `config_${mainconfig.app.industry}`,
+            JSON.stringify(mainconfig),
           );
-          alert("The file was successfully uploaded.");
-        } catch (e) {
-          alert("Error when trying to parse the configuration file - " + e);
-          console.error(e);
+          alert('The file was successfully uploaded.');
+        } catch (ex) {
+          alert(`Error when trying to parse the configuration file - ${e}`);
         }
       };
       reader.readAsText(input.files[0]);
-    }
-  }
+    },
+  },
 };
 </script>
-

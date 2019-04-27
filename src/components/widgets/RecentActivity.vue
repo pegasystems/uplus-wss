@@ -12,16 +12,16 @@
 </template>
 
 <script>
-import { mainconfig } from "../../global";
+import { mainconfig } from '../../global';
 
 export default {
-  data: function() {
+  data() {
     return mainconfig;
   },
   methods: {
-    getdate: function(index) {
+    getdate(index) {
       /* Always make the first event on the 15th of your month */
-      var myDate = new Date();
+      const myDate = new Date();
       if (myDate.getDate() <= 16) {
         if (myDate.getMonth() > 1) {
           myDate.setMonth(myDate.getMonth() - 1);
@@ -31,7 +31,7 @@ export default {
       }
       myDate.setDate(15 - index * 2);
       return myDate;
-    }
-  }
+    },
+  },
 };
 </script>

@@ -9,15 +9,15 @@
 </template>
 
 <script>
-import { mainconfig } from "../../global";
-import MainFooter from "../MainFooter.vue";
+import { mainconfig } from '../../global';
+import MainFooter from '../MainFooter.vue';
+
 export default {
-  data: function() {
+  data() {
     return mainconfig;
   },
   components: {
-    MainFooter
-  }
+    MainFooter,
+  },
 };
 </script>
-

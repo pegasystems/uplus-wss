@@ -11,23 +11,24 @@
 </template>
 
 <script>
-import { mainconfig } from "../../global";
-import OperatorButton from "../widgets/OperatorButton.vue";
+import { mainconfig } from '../../global';
+import OperatorButton from '../widgets/OperatorButton.vue';
+
 export default {
-  data: function() {
+  data() {
     return mainconfig;
   },
   methods: {
-    showSidePanel: function(event) {
+    showSidePanel() {
       mainconfig.isSidePanelVisible = true;
     },
-    goToHome: function() {
-      mainconfig.phonePageName = "home";
+    goToHome() {
+      mainconfig.phonePageName = 'home';
       mainconfig.quickLinkId = -1;
-    }
+    },
   },
   components: {
-    OperatorButton
-  }
+    OperatorButton,
+  },
 };
 </script>

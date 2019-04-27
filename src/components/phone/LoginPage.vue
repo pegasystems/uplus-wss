@@ -4,7 +4,7 @@
       <button v-on:click="signIn" class="sign-in">{{$t('message.signin')}}</button>
     </TopNav>
     <div class="layout-stacked primary-card">
-      <h1 class='small'>{{ $t('message.phone_login_title')}}</h1>
+      <h1 class="small">{{ $t('message.phone_login_title')}}</h1>
       <div class="field-item">
         <input id="username" type="text" v-model="username" :placeholder="$t('message.username')">
         <label for="username">{{$t('message.username')}}</label>
@@ -30,14 +30,15 @@
 </template>
 
 <script>
-import { mainconfig } from "../../global";
-import TopNav from "./TopNav.vue";
+import { mainconfig } from '../../global';
+import TopNav from './TopNav.vue';
+
 export default {
-  data: function() {
+  data() {
     /* Find if a default user is defined */
-    let username = "";
-    let password = "";
-    for (var i in mainconfig.settings.users) {
+    let username = '';
+    let password = '';
+    for (const i in mainconfig.settings.users) {
       if (mainconfig.settings.users[i].load_by_default) {
         username = mainconfig.settings.users[i].username;
         password = mainconfig.settings.users[i].password;
@@ -47,22 +48,22 @@ export default {
     return Object.assign({}, mainconfig, {
       isActive: false,
       hasErrorMsg: false,
-      username: username,
-      password: password
+      username,
+      password,
     });
   },
   components: {
-    TopNav
+    TopNav,
   },
   methods: {
-    signIn: function(event) {
+    signIn() {
       /* Validate the password */
       let isLoginSuccess = false;
       mainconfig.userId = -1;
-      for (var i in settings.users) {
+      for (const i in mainconfig.settings.users) {
         if (
-          this.settings.users[i].username === this.username &&
-          this.settings.users[i].password === this.password
+          mainconfig.settings.users[i].username === this.username &&
+          mainconfig.settings.users[i].password === this.password
         ) {
           isLoginSuccess = true;
           mainconfig.userId = i;
@@ -72,7 +73,7 @@ export default {
       mainconfig.isAuthenticated = isLoginSuccess;
 
       if (!isLoginSuccess) this.hasErrorMsg = true;
-    }
-  }
+    },
+  },
 };
 </script>

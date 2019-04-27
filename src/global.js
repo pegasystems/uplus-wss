@@ -1,121 +1,134 @@
-import Vue from 'vue'
-import VueI18n from 'vue-i18n'
+/* exported pegaMashupNavigateBack  */
+/* global settings app */
+/* eslint no-eval: 0 */
+import Vue from 'vue';
+import VueI18n from 'vue-i18n';
 
 // Directive for dealing out with clicking outside of an overlay
-let handleOutsideClick
+let handleOutsideClick;
 Vue.directive('clickoutside', {
   bind(el, binding, vnode) {
     handleOutsideClick = (e) => {
-      e.stopPropagation()
-      const {
-        handler
-      } = binding.value
+      e.stopPropagation();
+      const { handler } = binding.value;
       if (!el.contains(e.target)) {
-        vnode.context[handler](event)
+        vnode.context[handler](e);
       }
-    }
-    document.addEventListener('click', handleOutsideClick)
-    document.addEventListener('touchstart', handleOutsideClick)
+    };
+    document.addEventListener('click', handleOutsideClick);
+    document.addEventListener('touchstart', handleOutsideClick);
   },
   unbind() {
-    document.removeEventListener('click', handleOutsideClick)
-    document.removeEventListener('touchstart', handleOutsideClick)
-  }
-})
+    document.removeEventListener('click', handleOutsideClick);
+    document.removeEventListener('touchstart', handleOutsideClick);
+  },
+});
 
 Vue.use(VueI18n);
 
-var userLang = navigator.language || navigator.userLanguage;
+let userLang = navigator.language || navigator.userLanguage;
 if (userLang.length > 2) userLang = userLang.substring(0, 1);
-if ("browser" === settings.i18n.defaultlocale) settings.i18n.defaultlocale = userLang;
+if (settings.i18n.defaultlocale === 'browser') {
+  settings.i18n.defaultlocale = userLang;
+}
 
 const messages = {};
 const dateTimeFormats = {};
 const numberFormats = {};
 
-var isDefaultLocaleLoaded = false;
-for (var i in settings.i18n.languages) {
-  var lang = settings.i18n.languages[i];
+let isDefaultLocaleLoaded = false;
+for (const i in settings.i18n.languages) {
+  const lang = settings.i18n.languages[i];
   messages[lang] = {
-    message: eval("lang" + lang.toUpperCase())
+    message: eval(`lang${lang.toUpperCase()}`),
   };
-  dateTimeFormats[lang] = eval("dateFormat" + lang.toUpperCase());
-  numberFormats[lang] = eval("numberFormat" + lang.toUpperCase());
+  dateTimeFormats[lang] = eval(`dateFormat${lang.toUpperCase()}`);
+  numberFormats[lang] = eval(`numberFormat${lang.toUpperCase()}`);
   /* Check if the default locale is available in the list of languages - if not, then select the first one */
   if (lang === settings.i18n.defaultlocale) isDefaultLocaleLoaded = true;
 }
-if (!isDefaultLocaleLoaded) settings.i18n.defaultlocale = settings.i18n.languages[0];
+if (!isDefaultLocaleLoaded) {
+  [settings.i18n.defaultlocale] = settings.i18n.languages;
+}
 
-var i18n = new VueI18n({
+const i18n = new VueI18n({
   locale: settings.i18n.defaultlocale,
   messages,
   dateTimeFormats,
-  numberFormats
-})
+  numberFormats,
+});
 
 /* Detect if this is a phone */
-var isMobilePhone = false;
+let isMobilePhone = false;
 if (/iPhone/.test(navigator.userAgent) || /Android/.test(navigator.userAgent)) {
-  var isMobilePhone = true;
+  isMobilePhone = true;
 }
 
 if (isMobilePhone) {
-  document.documentElement.className = "phone";
+  document.documentElement.className = 'phone';
 }
-var mainconfig = Object.assign({}, {
-  settings: settings,
-  app: app,
-  isMobilePhone: isMobilePhone,
-  isAuthenticated: false,
-  isSidePanelVisible: false,
-  phonePageName: "home",
-  userId: -1,
-  quickLinkId: -1,
-  viewBill: -1,
-  homeHeroAction: -1,
-  currentLocale: settings.i18n.defaultlocale
-});
 
+let mainconfigTmp = Object.assign(
+  {},
+  {
+    settings,
+    app,
+    isMobilePhone,
+    isAuthenticated: false,
+    isSidePanelVisible: false,
+    phonePageName: 'home',
+    userId: -1,
+    quickLinkId: -1,
+    viewBill: -1,
+    homeHeroAction: -1,
+    currentLocale: settings.i18n.defaultlocale,
+  },
+);
 // Retrieve the object from storage
-var retrievedObject = localStorage.getItem("config_" + mainconfig.app.industry);
+const retrievedObject = localStorage.getItem(
+  `config_${mainconfigTmp.app.industry}`,
+);
 if (retrievedObject != null) {
-  mainconfig = JSON.parse(retrievedObject);
+  mainconfigTmp = JSON.parse(retrievedObject);
 }
 
 /* Not sure if everything is needed in this object - keeping it as is for backward compatibility */
-var PegaCSWSS = {
+const PegaCSWSS = {
   Chat: {
-    ServerURL: "",
-    Token: ""
+    ServerURL: '',
+    Token: '',
   },
   Cobrowse: {
-    ServerURL: "",
-    Token: ""
+    ServerURL: '',
+    Token: '',
   },
-  SSAConfigName: "",
-  WCBConfigName: mainconfig.settings.pega_chat.WCBConfigName,
-  WebChatBotID: mainconfig.settings.pega_chat.WebChatBotID,
-  ApplicationName: mainconfig.settings.pega_chat.ApplicationName,
-  MashupURL: mainconfig.settings.pega_chat.MashupURL,
-  ContactID: mainconfig.settings.pega_chat.ContactID,
-  AccountNumber: mainconfig.settings.pega_chat.AccountNumber,
-  UserName: mainconfig.settings.pega_chat.UserName
+  SSAConfigName: '',
+  WCBConfigName: mainconfigTmp.settings.pega_chat.WCBConfigName,
+  WebChatBotID: mainconfigTmp.settings.pega_chat.WebChatBotID,
+  ApplicationName: mainconfigTmp.settings.pega_chat.ApplicationName,
+  MashupURL: mainconfigTmp.settings.pega_chat.MashupURL,
+  ContactID: mainconfigTmp.settings.pega_chat.ContactID,
+  AccountNumber: mainconfigTmp.settings.pega_chat.AccountNumber,
+  UserName: mainconfigTmp.settings.pega_chat.UserName,
 };
 
 window.PegaCSWSS = PegaCSWSS;
 
 // We don't show chat and CoBrowse on the settings page and on a mobile phone
-if (typeof mainconfig.settings.pega_chat !== "undefined" && mainconfig.settings.pega_chat.MashupURL !== "" && !isMobilePhone && !("" + window.location).endsWith("settings.html")) {
-  document.write('<script src="../js/jquery.min.js"><\/script>');
-  document.write('<script src="../js/PegaHelperExtension.js"><\/script>');
-  document.write('<script src="../js/PegaHelper.js"><\/script>');
+if (
+  typeof mainconfigTmp.settings.pega_chat !== 'undefined' &&
+  mainconfigTmp.settings.pega_chat.MashupURL !== '' &&
+  !isMobilePhone &&
+  !`${window.location}`.endsWith('settings.html')
+) {
+  document.write('<script src="../js/jquery.min.js"></script>');
+  document.write('<script src="../js/PegaHelperExtension.js"></script>');
+  document.write('<script src="../js/PegaHelper.js"></script>');
 }
 
-window.pegaMashupNavigateBack = function() {
-  document.getElementsByClassName("pi-caret-left")[0].click();
-}
-
-export {
-  mainconfig,
-  i18n
+window.pegaMashupNavigateBack = function pegaMashupNavigateBack() {
+  document.getElementsByClassName('pi-caret-left')[0].click();
 };
+
+const mainconfig = mainconfigTmp;
+export { mainconfig, i18n };

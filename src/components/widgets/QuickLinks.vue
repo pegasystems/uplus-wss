@@ -12,16 +12,16 @@
 </template>
 
 <script>
-import { mainconfig } from "../../global";
+import { mainconfig } from '../../global';
 
 export default {
-  data: function() {
+  data() {
     return mainconfig;
   },
   methods: {
-    selectLink: function(index) {
+    selectLink(index) {
       this.quickLinkId = index;
-    }
-  }
+    },
+  },
 };
 </script>
