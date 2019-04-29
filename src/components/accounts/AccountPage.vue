@@ -21,7 +21,9 @@
         </div>
       </div>
     </main>
-    <MashupMainArea v-else/>
+    <main v-else :class="isMobilePhone ? '': 'wrap'">
+      <MashupMainArea/>
+    </main>
     <main-footer/>
   </div>
 </template>

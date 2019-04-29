@@ -1,7 +1,9 @@
 <template>
   <div v-if="homeHeroAction==1" class="form">
     <MainHeader/>
-    <MashupMainArea></MashupMainArea>
+    <main :class="isMobilePhone ? '': 'wrap'">
+      <MashupMainArea/>
+    </main>
     <MainFooter/>
   </div>
   <div v-else class="front">

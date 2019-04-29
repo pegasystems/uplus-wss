@@ -1,5 +1,5 @@
 <template>
-  <main class="flex flex-col" :class="(isMobilePhone || todo == 1 ) ? '': 'wrap'">
+  <section class="flex flex-col">
     <div v-if="isMashupInitialized">
       <div
         v-if="actionName == 'createNewWork'"
@@ -99,7 +99,7 @@
       border="0"
       frameborder="0"
     ></iframe>
-  </main>
+  </section>
 </template>
 
 <script>
@@ -123,8 +123,8 @@ export default {
     });
   },
   created() {
+    let isInAccoutPage = false;
     this.mashupScript = document.createElement('script');
-    this.todo = -1;
     if (this.quickLinkId !== -1) {
       this.actionName = this.settings.quicklinks[this.quickLinkId].action;
       this.actionNameParam = this.settings.quicklinks[
@@ -153,7 +153,7 @@ export default {
       this.appName = this.settings.homeheroaction.application;
       this.caseTitle = this.settings.homeheroaction.title[this.currentLocale];
     } else {
-      this.todo = 1;
+      isInAccoutPage = true;
       this.actionName = this.settings.todo.action;
       this.actionNameParam = this.settings.todo.actionparam;
       this.serverUrl = this.settings.todo.url;
@@ -183,7 +183,7 @@ export default {
     } else if (this.app.industry === 'insurance') {
       tmpActionParam.pzSkinName = 'ClaritySkin_Flame';
     } else if (this.app.industry === 'manufacturing') {
-      tmpActionParam.pzSkinName = 'ClaritySkin_TulipTree';
+      tmpActionParam.pzSkinName = 'ClaritySkin_DeepCerise';
     }
     tmpActionParam.pyMashupSkeletonName = 'pyDefaultMashupSkeleton';
     if (this.userId !== -1) {
@@ -198,6 +198,9 @@ export default {
       tmpActionParam.Password = encodeURI(
         btoa(this.settings.homeheroaction.pega_pwd),
       );
+    }
+    if (isInAccoutPage) {
+      tmpActionParam.isMashupInContainer = 'true';
     }
     this.actionParam = JSON.stringify(tmpActionParam);
     document.head.appendChild(this.mashupScript);

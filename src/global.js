@@ -127,9 +127,23 @@ if (
   document.write('<script src="../js/PegaHelper.js"></script>');
 }
 
-window.pegaMashupNavigateBack = function pegaMashupNavigateBack() {
-  document.getElementsByClassName('pi-caret-left')[0].click();
-};
+// Handle the back button support on mobile
+// The example iframe will just do a parent.pegaMashupNavigateBack() but the
+// real Mashup app will have to use the postMessage() api.
+if (isMobilePhone) {
+  /* Register global listener for navigate back */
+  window.addEventListener('message', (e) => {
+    if (e.data === 'pegaMashupNavigateBack') {
+      window.pegaMashupNavigateBack();
+    }
+  });
+  window.pegaMashupNavigateBack = function pegaMashupNavigateBack() {
+    const elems = document.getElementsByClassName('pi-caret-left');
+    if (elems.length > 0) {
+      elems[0].click();
+    }
+  };
+}
 
 const mainconfig = mainconfigTmp;
 export { mainconfig, i18n };

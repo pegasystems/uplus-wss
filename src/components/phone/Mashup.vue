@@ -1,7 +1,9 @@
 <template>
   <div class="flex flex-col">
     <TopNav style="display:none" previousPage="quicklinks1"/>
-    <MashupMainArea/>
+    <main :class="isMobilePhone ? '': 'wrap'">
+      <MashupMainArea/>
+    </main>
   </div>
 </template>
 
