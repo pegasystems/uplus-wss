@@ -13,7 +13,7 @@ window.langEN = {
   primary2_msg: 'Use our mobile app to access to the town services.',
   primary3_title: 'Plan your future.',
   primary3_msg: 'Scholarships available in your town.',
-  menu1: 'Your gouvernment',
+  menu1: 'Your government',
   menu2: 'Town services',
   menu3: 'Town projects',
   menu4: 'Our community',

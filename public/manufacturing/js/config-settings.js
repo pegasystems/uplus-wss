@@ -68,14 +68,6 @@ window.settings = {
       icon: '',
     },
   ],
-  billpay: {
-    action: 'createNewWork',
-    actionparam: '',
-    objclass: '',
-    url: '',
-    startcase: 'pyStartCase',
-    application: '',
-  },
   todo: {
     action: 'createNewWork',
     actionparam: '',
