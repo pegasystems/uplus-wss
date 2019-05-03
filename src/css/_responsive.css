@@ -36,7 +36,7 @@
   }
 
   .pi.product-icon {
-    width: 40rem;
+    min-width: 40rem;
     height: 40rem;
     font-size: 20rem;
     line-height: 35rem;
@@ -68,7 +68,7 @@
     margin-left: 8rem;
   }
 
-  footer ul.flex>a {
+  footer ul.flex > a {
     margin-right: 8rem;
   }
 }
@@ -90,15 +90,15 @@
     display: block;
   }
 
-  header nav>ul.flex {
+  header nav > ul.flex {
     display: none;
   }
 
-  header>.header {
+  header > .header {
     flex-wrap: wrap;
   }
 
-  .flex-col-3>div {
+  .flex-col-3 > div {
     width: 100%;
     margin-right: 0;
   }
@@ -107,12 +107,12 @@
     flex-wrap: wrap;
   }
 
-  .layout-inline-grid-double>div {
+  .layout-inline-grid-double > div {
     width: calc(100%);
     margin-right: 0;
   }
 
-  .landing-cards>div,
+  .landing-cards > div,
   .landing-request {
     flex-flow: column;
     align-items: center;
@@ -122,14 +122,12 @@
     margin-top: 0;
   }
 
-  .landing-cards>div>.flex {
+  .landing-cards > div > .flex {
     margin-bottom: 16rem;
   }
-
 }
 
 @media only screen and (max-width: 700px) {
-
   /* Force table to not be like tables anymore */
   table.responsive,
   .responsive thead,
@@ -173,7 +171,6 @@
 }
 
 @media screen and (max-width: 567px) {
-
   .primary-options,
   .secondary-options .wrap {
     flex-flow: column nowrap;
@@ -186,11 +183,11 @@
     align-items: center;
   }
 
-  .primary-options .front-option>img {
+  .primary-options .front-option > img {
     width: 140px;
   }
 
-  .primary-options .front-option>.details {
+  .primary-options .front-option > .details {
     flex: 1;
     text-align: left;
     padding-left: 14rem;
@@ -236,15 +233,15 @@
     display: none;
   }
 
-  .fatlist>li {
+  .fatlist > li {
     flex-wrap: wrap;
   }
 
-  :not(.phone)>footer nav {
+  :not(.phone) > footer nav {
     width: 100%;
   }
 
-  :not(.phone)>footer nav>ul {
+  :not(.phone) > footer nav > ul {
     flex-flow: column;
   }
 
@@ -252,7 +249,7 @@
     display: none;
   }
 
-  .landing .landing-details>div>.details {
+  .landing .landing-details > div > .details {
     width: 100%;
     padding: 21rem 35rem;
   }
