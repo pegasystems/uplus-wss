@@ -45,6 +45,10 @@
         <label :for="'quicklinks-' + index + '-icon'">Icon</label>
         <input :id="'quicklinks-' + index + '-icon'" type="text" v-model="item.icon">
       </div>
+      <div class="field-item">
+        <label :for="'quicklinks-' + index + '-extraparam'">Extra params (comma separated)</label>
+        <input :id="'quicklinks-' + index + '-extraparam'" type="text" v-model="item.extraparam">
+      </div>
     </div>
   </div>
 </template>

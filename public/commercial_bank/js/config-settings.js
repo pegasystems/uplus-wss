@@ -19,6 +19,7 @@ window.settings = {
       startcase: 'pyStartCase',
       application: '',
       icon: '',
+      extraparam: '',
     },
     {
       title: {
@@ -32,6 +33,7 @@ window.settings = {
       startcase: 'pyStartCase',
       application: '',
       icon: '',
+      extraparam: '',
     },
     {
       title: {
@@ -45,6 +47,7 @@ window.settings = {
       startcase: 'pyStartCase',
       application: '',
       icon: '',
+      extraparam: '',
     },
     {
       title: {
@@ -58,6 +61,7 @@ window.settings = {
       startcase: 'pyStartCase',
       application: '',
       icon: '',
+      extraparam: '',
     },
     {
       title: {
@@ -71,6 +75,7 @@ window.settings = {
       startcase: 'pyStartCase',
       application: '',
       icon: '',
+      extraparam: '',
     },
   ],
   billpay: {
@@ -80,6 +85,8 @@ window.settings = {
     url: '',
     startcase: 'pyStartCase',
     application: '',
+    extraparam: '',
+    hidebillpay: '',
   },
   todo: {
     action: 'createNewWork',
@@ -88,6 +95,8 @@ window.settings = {
     url: '',
     startcase: 'pyStartCase',
     application: '',
+    extraparam: '',
+    hideactivity: '',
   },
   homeheroaction: {
     action: 'createNewWork',
@@ -98,6 +107,7 @@ window.settings = {
     application: '',
     pega_userid: '',
     pega_pwd: '',
+    extraparam: '',
   },
   users: [
     {

@@ -33,6 +33,14 @@
         <label for="bill-pay-application">Application name</label>
         <input id="bill-pay-application" type="text" v-model="settings.billpay.application">
       </div>
+      <div class="field-item">
+        <label for="bill-pay-application">Extra params (comma separated)</label>
+        <input id="bill-pay-application" type="text" v-model="settings.billpay.extraparam">
+      </div>
+      <div class="field-item">
+        <label for="bill-pay-hidebillpay">Hide Bill Pay</label>
+        <input id="bill-pay-hidebillpay" type="checkbox" v-model="settings.billpay.hidebillpay">
+      </div>
     </div>
   </div>
 </template>

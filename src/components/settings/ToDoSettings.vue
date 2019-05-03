@@ -33,6 +33,14 @@
         <label for="todo-application">Application name</label>
         <input id="todo-application" type="text" v-model="settings.todo.application">
       </div>
+      <div class="field-item">
+        <label for="todo-extraparam">Extra params (comma separated)</label>
+        <input id="todo-extraparam" type="text" v-model="settings.todo.extraparam">
+      </div>
+      <div class="field-item">
+        <label for="todo-hideactivity">Hide recent activity</label>
+        <input id="todo-hideactivity" type="checkbox" v-model="settings.todo.hideactivity">
+      </div>
     </div>
   </div>
 </template>

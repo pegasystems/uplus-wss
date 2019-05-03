@@ -1,9 +1,16 @@
 <template>
   <div class="col col-1 primary-card">
-    <MashupMainArea v-if="settings.todo.url != ''" :key="componentKey"/>
+    <MashupMainArea
+      v-if="typeof settings.todo !== 'undefined' && settings.todo.url !== ''"
+      :key="componentKey"
+    />
     <AccountPicker/>
-    <BillPay v-if="typeof settings.billpay != 'undefined'"/>
-    <RecentActivity/>
+    <BillPay
+      v-if="typeof settings.billpay !== 'undefined' && settings.billpay.hidebillpay!=='true' && settings.billpay.hidebillpay!==true"
+    />
+    <RecentActivity
+      v-if="settings.todo.hideactivity!=='true' && settings.todo.hideactivity!==true"
+    />
   </div>
 </template>
 

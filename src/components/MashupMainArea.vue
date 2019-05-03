@@ -120,6 +120,7 @@ export default {
       appName: '',
       actionParam: '',
       caseTitle: '',
+      extraParam: '',
     });
   },
   created() {
@@ -134,6 +135,7 @@ export default {
       this.objClass = this.settings.quicklinks[this.quickLinkId].objclass;
       this.startCase = this.settings.quicklinks[this.quickLinkId].startcase;
       this.appName = this.settings.quicklinks[this.quickLinkId].application;
+      this.extraParam = this.settings.quicklinks[this.quickLinkId].extraparam;
       this.caseTitle = this.settings.quicklinks[this.quickLinkId].title[
         this.currentLocale
       ];
@@ -144,6 +146,7 @@ export default {
       this.objClass = this.settings.billpay.objclass;
       this.startCase = this.settings.billpay.startcase;
       this.appName = this.settings.billpay.application;
+      this.extraParam = this.settings.billpay.extraparam;
     } else if (this.homeHeroAction !== -1) {
       this.actionName = this.settings.homeheroaction.action;
       this.actionNameParam = this.settings.homeheroaction.actionparam;
@@ -151,6 +154,7 @@ export default {
       this.objClass = this.settings.homeheroaction.objclass;
       this.startCase = this.settings.homeheroaction.startcase;
       this.appName = this.settings.homeheroaction.application;
+      this.extraParam = this.settings.homeheroaction.extraparam;
       this.caseTitle = this.settings.homeheroaction.title[this.currentLocale];
     } else {
       isInAccoutPage = true;
@@ -160,6 +164,7 @@ export default {
       this.objClass = this.settings.todo.objclass;
       this.startCase = this.settings.todo.startcase;
       this.appName = this.settings.todo.application;
+      this.extraParam = this.settings.todo.extraparam;
     }
     if (this.serverUrl === '') {
       return;
@@ -203,6 +208,14 @@ export default {
     }
     if (isInAccoutPage) {
       tmpActionParam.isMashupInContainer = 'true';
+    }
+    if (this.extraParam !== '') {
+      this.extraParam.split(',').forEach((item) => {
+        const values = item.split('=');
+        if (values.length === 2) {
+          tmpActionParam[values[0].trim()] = values[1].trim();
+        }
+      });
     }
     this.actionParam = JSON.stringify(tmpActionParam);
     document.head.appendChild(this.mashupScript);

@@ -42,6 +42,10 @@
         >
       </div>
       <div class="field-item">
+        <label for="hero-action-extraparam">Extra params (comma separated)</label>
+        <input id="hero-action-extraparam" type="text" v-model="settings.homeheroaction.extraparam">
+      </div>
+      <div class="field-item">
         <label for="hero-action-pega_userid">Pega userid</label>
         <input
           id="hero-action-pega_userid"
