@@ -209,7 +209,7 @@ export default {
     if (isInAccoutPage) {
       tmpActionParam.isMashupInContainer = 'true';
     }
-    if (this.extraParam !== '') {
+    if (typeof this.extraParam !== 'undefined' && this.extraParam !== '') {
       this.extraParam.split(',').forEach((item) => {
         const values = item.split('=');
         if (values.length === 2) {
