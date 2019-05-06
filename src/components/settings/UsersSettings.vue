@@ -27,6 +27,14 @@
         <input :id="'user-' + index + '-name'" type="text" v-model="item.name">
       </div>
       <div class="field-item">
+        <label :for="'user-' + index + '-accountid'">Account ID</label>
+        <input :id="'user-' + index + '-accountid'" type="text" v-model="item.accountID">
+      </div>
+      <div class="field-item">
+        <label :for="'user-' + index + '-contactid'">Contact ID</label>
+        <input :id="'user-' + index + '-contactid'" type="text" v-model="item.contactID">
+      </div>
+      <div class="field-item">
         <label :for="'user-' + index + '-pega_userid'">Pega userid</label>
         <input :id="'user-' + index + '-pega_userid'" type="text" v-model="item.pega_userid">
       </div>

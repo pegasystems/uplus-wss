@@ -115,6 +115,14 @@ if (typeof mainconfigTmp.settings.pega_chat.CoBrowseToken === 'undefined') {
 if (typeof mainconfigTmp.settings.pega_chat.SSAConfigName === 'undefined') {
   mainconfigTmp.settings.pega_chat.SSAConfigName = '';
 }
+for (const i in mainconfigTmp.settings.users) {
+  if (typeof mainconfigTmp.settings.users[i].accountID === 'undefined') {
+    mainconfigTmp.settings.users[i].accountID = '';
+  }
+  if (typeof mainconfigTmp.settings.users[i].contactID === 'undefined') {
+    mainconfigTmp.settings.users[i].contactID = '';
+  }
+}
 
 /* Not sure if everything is needed in this object - keeping it as is for backward compatibility */
 const PegaCSWSS = {
