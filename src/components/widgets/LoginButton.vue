@@ -7,7 +7,10 @@
       :class="[isActive ? 'show' : 'hidden']"
     >
       <div class="field flex flex-col username">
-        <input id="username" type="text" v-model="username">
+        <select id="username" type="text" v-model="username">
+          <option v-for="(item,index) in settings.users" v-bind:key="index" value:="item.username">{{item.username}}
+          </option>
+          </select>
         <label for="username">{{$t('message.username')}}</label>
       </div>
       <div class="field flex flex-col password">

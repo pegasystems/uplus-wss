@@ -106,25 +106,30 @@ if (
 ) {
   mainconfigTmp.settings.billpay.hidebillpay = false;
 }
+if (typeof mainconfigTmp.settings.pega_chat.CoBrowseServerURL === 'undefined') {
+  mainconfigTmp.settings.pega_chat.CoBrowseServerURL = '';
+}
+if (typeof mainconfigTmp.settings.pega_chat.CoBrowseToken === 'undefined') {
+  mainconfigTmp.settings.pega_chat.CoBrowseToken = '';
+}
+if (typeof mainconfigTmp.settings.pega_chat.SSAConfigName === 'undefined') {
+  mainconfigTmp.settings.pega_chat.SSAConfigName = '';
+}
 
 /* Not sure if everything is needed in this object - keeping it as is for backward compatibility */
 const PegaCSWSS = {
-  Chat: {
-    ServerURL: '',
-    Token: '',
-  },
   Cobrowse: {
-    ServerURL: '',
-    Token: '',
+    ServerURL: mainconfigTmp.settings.pega_chat.CoBrowseServerURL,
+    Token: mainconfigTmp.settings.pega_chat.CoBrowseToken,
   },
-  SSAConfigName: '',
+  SSAConfigName: mainconfigTmp.settings.pega_chat.SSAConfigName,
   WCBConfigName: mainconfigTmp.settings.pega_chat.WCBConfigName,
   WebChatBotID: mainconfigTmp.settings.pega_chat.WebChatBotID,
   ApplicationName: mainconfigTmp.settings.pega_chat.ApplicationName,
   MashupURL: mainconfigTmp.settings.pega_chat.MashupURL,
-  ContactID: mainconfigTmp.settings.pega_chat.ContactID,
-  AccountNumber: mainconfigTmp.settings.pega_chat.AccountNumber,
-  UserName: mainconfigTmp.settings.pega_chat.UserName,
+  ContactID: '',
+  AccountNumber: '',
+  UserName: '',
 };
 
 window.PegaCSWSS = PegaCSWSS;

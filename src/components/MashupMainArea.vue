@@ -200,6 +200,12 @@ export default {
       tmpActionParam.Password = encodeURI(
         btoa(this.settings.users[this.userId].pega_pwd),
       );
+      if (this.settings.users[this.userId].accountID) {
+        tmpActionParam.AccountNumber = this.settings.users[
+          this.userId
+        ].accountID;
+      }
+      if (this.settings.users[this.userId].contactID) tmpActionParam.ContactId = this.settings.users[this.userId].contactID;
     } else if (this.homeHeroAction !== -1) {
       tmpActionParam.UserIdentifier = this.settings.homeheroaction.pega_userid;
       tmpActionParam.Password = encodeURI(
