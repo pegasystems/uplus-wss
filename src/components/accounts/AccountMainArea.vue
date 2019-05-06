@@ -9,7 +9,7 @@
       v-if="typeof settings.billpay !== 'undefined' && settings.billpay.hidebillpay!=='true' && settings.billpay.hidebillpay!==true"
     />
     <RecentActivity
-      v-if="settings.todo.hideactivity!=='true' && settings.todo.hideactivity!==true"
+      v-if="typeof settings.todo !== 'undefined' && settings.todo.hideactivity!=='true' && settings.todo.hideactivity!==true"
     />
   </div>
 </template>

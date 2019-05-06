@@ -93,6 +93,20 @@ if (retrievedObject != null) {
   mainconfigTmp = JSON.parse(retrievedObject);
 }
 
+/* Handle upgrade issues */
+if (
+  mainconfigTmp.settings.todo &&
+  typeof mainconfigTmp.settings.todo.hideactivity === 'undefined'
+) {
+  mainconfigTmp.settings.todo.hideactivity = false;
+}
+if (
+  mainconfigTmp.settings.billpay &&
+  typeof mainconfigTmp.settings.billpay.hidebillpay === 'undefined'
+) {
+  mainconfigTmp.settings.billpay.hidebillpay = false;
+}
+
 /* Not sure if everything is needed in this object - keeping it as is for backward compatibility */
 const PegaCSWSS = {
   Chat: {

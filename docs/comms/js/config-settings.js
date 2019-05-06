@@ -81,7 +81,7 @@ window.settings = {
     startcase: 'pyStartCase',
     application: '',
     extraparam: '',
-    hidebillpay: '',
+    hidebillpay: false,
   },
   todo: {
     action: 'createNewWork',
@@ -91,7 +91,7 @@ window.settings = {
     startcase: 'pyStartCase',
     application: '',
     extraparam: '',
-    hideactivity: '',
+    hideactivity: false,
   },
   homeheroaction: {
     action: 'createNewWork',
