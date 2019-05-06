@@ -149,7 +149,7 @@ if (
   !isMobilePhone &&
   !`${window.location}`.endsWith('settings.html')
 ) {
-  document.write('<script src="../js/jquery.min.js"></script>');
+  document.write('<script src="../js/jquery-min.js"></script>');
   document.write('<script src="../js/PegaHelperExtension.js"></script>');
   document.write('<script src="../js/PegaHelper.js"></script>');
 }
