@@ -94,7 +94,7 @@ window.langEN = {
   phone_home_page_promo_message:
     'Enhance your mobile experience. Always have access to your policy and cards on the go',
   phone_home_page_promo_action: 'Download now',
-  phone_login_title: 'Log into your policy',
+  phone_login_title: 'Login',
   phone_login_speak_agent: 'Speak to an agent',
   phone_quick_links_title: 'What type of claims are you filing?',
   phone_quick_links_intro_title: "Sorry you've had an accident!",

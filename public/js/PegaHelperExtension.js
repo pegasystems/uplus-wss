@@ -39,7 +39,7 @@ function getCookie(cname) {
   return "";
 }
 
-window.addEventListener('load', () => {
+$(function() {
   var serverURL = PegaCSWSS.MashupURL;
   var mashupScript = document.createElement('script');
   mashupScript.src = serverURL + "?pyActivity=pzIncludeMashupScripts";
