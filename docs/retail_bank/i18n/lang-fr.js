@@ -25,7 +25,7 @@ window.langFR = {
   privacy: 'Données personnelles',
   termsandconditions: "Conditions d'utilisation",
   settings: 'Parametres',
-  copyright: '© 2018 Pegasystems',
+  copyright: '© 2019 Pegasystems',
   username: 'Identifiant',
   password: 'Mot de passe',
   signin: 'Valider',
