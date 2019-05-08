@@ -20,7 +20,7 @@ window.langEN = {
   menu4: 'Services',
   login: 'Log in',
   logout: 'Log out',
-  hello: 'Welcome ',
+  hello: 'Welcome, ',
   invalidLogin: 'Invalid credentials',
   aboutus: 'About us',
   reviews: 'Reviews',

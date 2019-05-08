@@ -19,11 +19,22 @@ import AccountDetails from '../widgets/AccountDetails.vue';
 
 export default {
   data() {
-    return mainconfig;
+    return Object.assign({}, mainconfig, {
+      componentKey: 1,
+    });
   },
   components: {
     MashupMainArea,
     AccountDetails,
+  },
+  mounted() {
+    /* Will listen for message from the Mashup iframe to force a reload back of the MashupComponent */
+    const self = this;
+    window.addEventListener('message', (e) => {
+      if (e.data === 'pegaMashupNavigateBack') {
+        self.componentKey += 1;
+      }
+    });
   },
 };
 </script>

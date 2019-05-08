@@ -86,24 +86,16 @@ let mainconfigTmp = Object.assign(
   },
 );
 // Retrieve the object from storage
-const retrievedObject = localStorage.getItem(
-  `config_${mainconfigTmp.app.industry}`,
-);
+const retrievedObject = localStorage.getItem(`config_${mainconfigTmp.app.industry}`);
 if (retrievedObject != null) {
   mainconfigTmp = JSON.parse(retrievedObject);
 }
 
 /* Handle upgrade issues */
-if (
-  mainconfigTmp.settings.todo &&
-  typeof mainconfigTmp.settings.todo.hideactivity === 'undefined'
-) {
+if (mainconfigTmp.settings.todo && typeof mainconfigTmp.settings.todo.hideactivity === 'undefined') {
   mainconfigTmp.settings.todo.hideactivity = false;
 }
-if (
-  mainconfigTmp.settings.billpay &&
-  typeof mainconfigTmp.settings.billpay.hidebillpay === 'undefined'
-) {
+if (mainconfigTmp.settings.billpay && typeof mainconfigTmp.settings.billpay.hidebillpay === 'undefined') {
   mainconfigTmp.settings.billpay.hidebillpay = false;
 }
 if (typeof mainconfigTmp.settings.pega_chat.CoBrowseServerURL === 'undefined') {
@@ -170,6 +162,27 @@ if (isMobilePhone) {
       elems[0].click();
     }
   };
+}
+
+/* Check if user is passed as parameter */
+const queryDict = {};
+window.location.search
+  .substr(1)
+  .split('&')
+  .forEach((item) => {
+    queryDict[item.split('=')[0]] = item.split('=')[1];
+  });
+if (queryDict.username || queryDict.pega_userid) {
+  for (const i in mainconfigTmp.settings.users) {
+    if (
+      (typeof queryDict.pega_userid !== 'undefined' && mainconfigTmp.settings.users[i].pega_userid === queryDict.pega_userid) ||
+      (typeof queryDict.username !== 'undefined' && mainconfigTmp.settings.users[i].username === queryDict.username)
+    ) {
+      mainconfigTmp.isAuthenticated = true;
+      mainconfigTmp.userId = i;
+      break;
+    }
+  }
 }
 
 const mainconfig = mainconfigTmp;

@@ -1,6 +1,6 @@
 <template>
   <div class="flex">
-    <div v-if="isNamePresent" class="flex flex-col">
+    <div v-if="isNamePresent" class="flex flex-col margin-r-2x">
       <span v-if="settings.users[userId]">{{ settings.users[userId].name }}</span>
       <span v-if="settings.users[userId]">{{ settings.users[userId].company_name }}</span>
     </div>
