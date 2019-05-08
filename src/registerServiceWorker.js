@@ -1,14 +1,15 @@
 /* eslint-disable no-console */
-
+/* globals registration */
 import { register } from 'register-service-worker';
 
+const notifyAboutUpdate = (worker) => {
+  alert('new content is available - please refresh your browser!');
+  worker.postMessage({ action: 'skipWaiting' });
+};
 if (process.env.NODE_ENV === 'production') {
   register(`${process.env.BASE_URL}service-worker.js`, {
     ready() {
-      console.log(
-        'App is being served from cache by a service worker.\n'
-        + 'For more details, visit https://goo.gl/AFskqB',
-      );
+      console.log('App is being served from cache by a service worker');
     },
     registered() {
       console.log('Service worker has been registered.');
@@ -21,6 +22,7 @@ if (process.env.NODE_ENV === 'production') {
     },
     updated() {
       console.log('New content is available; please refresh.');
+      notifyAboutUpdate(registration.waiting);
     },
     offline() {
       console.log('No internet connection found. App is running in offline mode.');
@@ -29,4 +31,13 @@ if (process.env.NODE_ENV === 'production') {
       console.error('Error during service worker registration:', error);
     },
   });
+
+  let refreshing;
+  if (navigator.serviceWorker) {
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      if (refreshing) return;
+      window.location.reload();
+      refreshing = true;
+    });
+  }
 }

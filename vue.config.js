@@ -3,6 +3,12 @@ module.exports = {
   productionSourceMap: false,
   publicPath: process.env.NODE_ENV === 'production'
     ? '../' : '/',
+  pwa: {
+    workboxPluginMode: 'InjectManifest',
+    workboxOptions: {
+      swSrc: 'src/service-worker.js',
+    },
+  },
   pages: {
     commercial_bank: {
       entry: 'src/main.js',
