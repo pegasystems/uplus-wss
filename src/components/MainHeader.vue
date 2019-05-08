@@ -1,12 +1,17 @@
 <template>
   <header class="flex flex-col">
     <div class="wrap header flex flex-mid-align">
-      <a>
+      <a href="#">
         <img v-on:click="goHomePage" class="logo" :src="('./img/u+-logo.svg')" alt="U+">
       </a>
       <nav class="flex-grow-1">
         <ul class="flex flex-mid-align flex-grow-1">
-          <MenuItem v-for="item in app.menuitems" v-bind:key="item.title" v-bind:title="item.title"></MenuItem>
+          <MenuItem
+            href="#"
+            v-for="item in app.menuitems"
+            v-bind:key="item.title"
+            v-bind:title="item.title"
+          ></MenuItem>
         </ul>
       </nav>
       <OperatorButton v-if="isAuthenticated"/>

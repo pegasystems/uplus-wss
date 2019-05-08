@@ -3,9 +3,9 @@
     <div class="wrap flex">
       <nav>
         <ul class="flex">
-          <a>{{ $t('message.aboutus') }}</a>
-          <a v-if="!isMobilePhone">{{ $t('message.reviews') }}</a>
-          <a v-if="!isMobilePhone">{{ $t('message.privacy') }}</a>
+          <a href="#">{{ $t('message.aboutus') }}</a>
+          <a href="#" v-if="!isMobilePhone">{{ $t('message.reviews') }}</a>
+          <a href="#" v-if="!isMobilePhone">{{ $t('message.privacy') }}</a>
           <a href="./settings.html">{{ $t('message.settings') }}</a>
         </ul>
       </nav>

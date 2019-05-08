@@ -4,7 +4,7 @@
     <div class="content">
       <h3>{{ $t("message." + title) }}</h3>
       <p>{{ $t("message." + message) }}</p>
-      <a>{{ $t("message.learnmore") }}</a>
+      <a href="#">{{ $t("message.learnmore") }}</a>
     </div>
   </section>
 </template>
