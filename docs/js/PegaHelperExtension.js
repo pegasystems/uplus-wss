@@ -39,21 +39,19 @@ function getCookie(cname) {
   return "";
 }
 
-$(function() {
-  var serverURL = PegaCSWSS.MashupURL;
-  var mashupScript = document.createElement('script');
-  mashupScript.src = serverURL + "?pyActivity=pzIncludeMashupScripts";
-  document.getElementsByTagName('script')[0].parentNode.appendChild(mashupScript);
+var serverURL = PegaCSWSS.MashupURL;
+var mashupScript = document.createElement('script');
+mashupScript.src = serverURL + "?pyActivity=pzIncludeMashupScripts";
+document.getElementsByTagName('script')[0].parentNode.appendChild(mashupScript);
 
-  var _initMashup = function () {
-    if (typeof pega !== 'undefined' && typeof pega.Mashup !== 'undefined') {
-      pega.Mashup.Communicator.register(pega.Mashup.hostActionsProcessor);
-      _initAllPegaObjects();
-    } else {
-      setTimeout(_initMashup, 200);
-    }
-  };
-  mashupScript.onload = function () {
-    _initMashup();
-  };
-});
+var _initMashup = function () {
+  if (typeof pega !== 'undefined' && typeof pega.Mashup !== 'undefined') {
+    pega.Mashup.Communicator.register(pega.Mashup.hostActionsProcessor);
+    _initAllPegaObjects();
+  } else {
+    setTimeout(_initMashup, 200);
+  }
+};
+mashupScript.onload = function () {
+  _initMashup();
+};

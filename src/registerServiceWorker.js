@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-/* globals registration */
 import { register } from 'register-service-worker';
 
 const notifyAboutUpdate = (worker) => {
@@ -20,7 +19,7 @@ if (process.env.NODE_ENV === 'production') {
     updatefound() {
       console.log('New content is downloading.');
     },
-    updated() {
+    updated(registration) {
       console.log('New content is available; please refresh.');
       notifyAboutUpdate(registration.waiting);
     },
