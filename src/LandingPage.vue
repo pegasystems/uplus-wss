@@ -1,5 +1,6 @@
 <template>
-  <div id="app" class="form landing">
+  <PhonePage v-if="isMobilePhone"/>
+  <div v-else id="app" class="form landing">
     <Header/>
     <Main/>
     <Footer/>
@@ -8,7 +9,7 @@
 
 <script>
 import { mainconfig } from './global';
-
+import PhonePage from './components/phone/PhonePage.vue';
 import Header from './components/landing/Header.vue';
 import Main from './components/landing/Main.vue';
 import Footer from './components/landing/Footer.vue';
@@ -22,6 +23,7 @@ export default {
     Header,
     Main,
     Footer,
+    PhonePage,
   },
 };
 </script>

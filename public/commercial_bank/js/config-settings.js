@@ -200,5 +200,17 @@ window.settings = {
   pega_marketing: {
     Host: '',
     Port: '',
+    homePage: {
+      containerName: 'TopOffers',
+      maxOffers: 3,
+    },
+    accountPage: {
+      containerName: 'TopOffers',
+      maxOffers: 1,
+    },
+    phonePage: {
+      containerName: 'TopOffers',
+      maxOffers: 1,
+    },
   },
 };

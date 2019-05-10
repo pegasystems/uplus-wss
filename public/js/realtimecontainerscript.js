@@ -9,6 +9,7 @@ function getNBAMServiceControl(serviceClass, callMultiContainer) {
 
 		hostName: serverHostname,
 		port: serverPort,
+    serviceURLProtocol: 'https',
 		url: "",
 
 		initialize: function (serverHostname, serverPort) {
@@ -18,20 +19,25 @@ function getNBAMServiceControl(serviceClass, callMultiContainer) {
 				this.hostName = "localhost";
 			if (typeof this.port == 'undefined')
 				this.port = 80;
-			this.url = "http://" + this.hostName + ":" + this.port + "/prweb/PRRestService/PegaMKTContainer/Services/ExecuteWebContainer?";
+      if(this.hostName.startsWith('http://')) {
+        this.serviceURLProtocol = "http";
+      }
+      var idx= this.hostName.lastIndexOf("/");
+      if(idx!= -1) {
+        this.hostName = this.hostName.substring(idx+1);
+      }
+      
+			this.url = this.serviceURLProtocol + "://" + this.hostName + ":" + this.port + "/prweb/PRRestService/PegaMKTContainer/Services/ExecuteWebContainer?";
 
 		},
 
 		getServiceURL: function (serviceName, params) {
-			if (typeof serviceURLProtocol == 'undefined') {
-				serviceURLProtocol = 'https';
-			}
 			var url;
 			if (serviceClass) {
-				url = serviceURLProtocol + "://" + this.hostName + ":" + this.port + "/prweb/PRRestService/PegaMKTContainer/" + serviceClass + "/" + serviceName + "?";
+				url = this.serviceURLProtocol + "://" + this.hostName + ":" + this.port + "/prweb/PRRestService/PegaMKTContainer/" + serviceClass + "/" + serviceName + "?";
 
 			} else {
-				var url = serviceURLProtocol + "://" + this.hostName + ":" + this.port + "/prweb/PRRestService/PegaMKTContainer/Services/" + serviceName + "?";
+				var url = this.serviceURLProtocol + "://" + this.hostName + ":" + this.port + "/prweb/PRRestService/PegaMKTContainer/Services/" + serviceName + "?";
 			}
 
 			if (params != null) {
@@ -42,7 +48,7 @@ function getNBAMServiceControl(serviceClass, callMultiContainer) {
 
 		getStreamServiceURL: function (streamHost, streamPort, streamName) {
 			var streamURL;
-			streamURL = "http://" + streamHost + ":" + streamPort + "/stream/" + streamName;
+			streamURL = this.serviceURLProtocol + "://" + streamHost + ":" + streamPort + "/stream/" + streamName;
 			return streamURL;
 		},
 

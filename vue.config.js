@@ -1,8 +1,7 @@
 module.exports = {
   outputDir: 'docs',
   productionSourceMap: false,
-  publicPath: process.env.NODE_ENV === 'production'
-    ? '../' : '/',
+  publicPath: process.env.NODE_ENV === 'production' ? '../' : '/',
   pwa: {
     workboxPluginMode: 'InjectManifest',
     workboxOptions: {
@@ -94,33 +93,33 @@ module.exports = {
       title: 'U+ Comms',
       chunks: ['chunk-vendors', 'chunk-common', 'comms'],
     },
-    health_consumer: {
+    health_payer: {
       entry: 'src/main.js',
-      template: 'public/health_consumer/index.html',
-      filename: 'health_consumer/index.html',
+      template: 'public/health_payer/index.html',
+      filename: 'health_payer/index.html',
       title: 'U+ Health',
-      chunks: ['chunk-vendors', 'chunk-common', 'health_consumer'],
+      chunks: ['chunk-vendors', 'chunk-common', 'health_payer'],
     },
-    health_consumer_settings: {
+    health_payer_settings: {
       entry: 'src/settings.js',
-      template: 'public/health_consumer/index.html',
-      filename: 'health_consumer/settings.html',
+      template: 'public/health_payer/index.html',
+      filename: 'health_payer/settings.html',
       title: 'U+ Health',
-      chunks: ['chunk-vendors', 'chunk-common', 'health_consumer'],
+      chunks: ['chunk-vendors', 'chunk-common', 'health_payer'],
     },
-    health_consumer_offer: {
+    health_payer_offer: {
       entry: 'src/offer.js',
-      template: 'public/health_consumer/index.html',
-      filename: 'health_consumer/offer.html',
+      template: 'public/health_payer/index.html',
+      filename: 'health_payer/offer.html',
       title: 'U+ Health',
-      chunks: ['chunk-vendors', 'chunk-common', 'health_consumer'],
+      chunks: ['chunk-vendors', 'chunk-common', 'health_payer'],
     },
-    health_consumer_landing: {
+    health_payer_landing: {
       entry: 'src/landing.js',
-      template: 'public/health_consumer/index.html',
-      filename: 'health_consumer/landingpage.html',
+      template: 'public/health_payer/index.html',
+      filename: 'health_payer/landingpage.html',
       title: 'U+ Health',
-      chunks: ['chunk-vendors', 'chunk-common', 'health_consumer'],
+      chunks: ['chunk-vendors', 'chunk-common', 'health_payer'],
     },
     health_provider: {
       entry: 'src/main.js',

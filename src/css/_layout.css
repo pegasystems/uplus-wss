@@ -274,6 +274,7 @@ img.option {
 
 footer {
   border-top: 1rem solid #d5d5d5;
+  width: 100%;
 }
 
 footer ul.flex > a {

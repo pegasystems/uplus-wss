@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { mainconfig } from '../../global';
+import { mainconfig, upgradeConfig } from '../../global';
 
 export default {
   data() {
@@ -28,10 +28,12 @@ export default {
       reader.onload = function onloadFile() {
         const text = reader.result;
         try {
-          mainconfig.settings = JSON.parse(text);
+          let response = { settings: JSON.parse(text) };
+          response = upgradeConfig(response);
+          mainconfig.settings = response.settings;
           localStorage.setItem(
             `config_${mainconfig.app.industry}`,
-            JSON.stringify(mainconfig),
+            JSON.stringify(response),
           );
           alert('The file was successfully uploaded.');
         } catch (ex) {

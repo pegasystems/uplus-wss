@@ -1,8 +1,94 @@
 /* exported pegaMashupNavigateBack  */
-/* global settings app */
+/* global settings app getNBAMServiceControl  */
 /* eslint no-eval: 0 */
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
+
+const upgradeConfig = function upgradeConfig(cfg) {
+  /* Handle upgrade issues */
+  if (cfg.settings.todo && typeof cfg.settings.todo.hideactivity === 'undefined') {
+    cfg.settings.todo.hideactivity = false;
+  }
+  if (cfg.settings.billpay && typeof cfg.settings.billpay.hidebillpay === 'undefined') {
+    cfg.settings.billpay.hidebillpay = false;
+  }
+  if (typeof cfg.settings.pega_chat.CoBrowseServerURL === 'undefined') {
+    cfg.settings.pega_chat.CoBrowseServerURL = '';
+  }
+  if (typeof cfg.settings.pega_chat.CoBrowseToken === 'undefined') {
+    cfg.settings.pega_chat.CoBrowseToken = '';
+  }
+  if (typeof cfg.settings.pega_chat.SSAConfigName === 'undefined') {
+    cfg.settings.pega_chat.SSAConfigName = '';
+  }
+  for (const i in cfg.settings.users) {
+    if (typeof cfg.settings.users[i].accountID === 'undefined') {
+      cfg.settings.users[i].accountID = '';
+    }
+    if (typeof cfg.settings.users[i].contactID === 'undefined') {
+      cfg.settings.users[i].contactID = '';
+    }
+  }
+  if (typeof cfg.settings.pega_marketing.homePage === 'undefined') {
+    cfg.settings.pega_marketing.homePage = { containerName: 'TopOffers', maxOffers: 3 };
+  }
+  if (typeof cfg.settings.pega_marketing.accountPage === 'undefined') {
+    cfg.settings.pega_marketing.accountPage = { containerName: 'TopOffers', maxOffers: 1 };
+  }
+  if (typeof cfg.settings.pega_marketing.phonePage === 'undefined') {
+    cfg.settings.pega_marketing.phonePage = { containerName: 'TopOffers', maxOffers: 1 };
+  }
+  return cfg;
+};
+
+const parseResponseData = (Context, type, OffersList) => {
+  let maxOffers = OffersList.length;
+  if (Context.settings.pega_marketing[type] && Context.settings.pega_marketing[type].maxOffers) {
+    maxOffers = parseInt(Context.settings.pega_marketing[type].maxOffers, 10);
+    if (maxOffers > OffersList.length) {
+      maxOffers = OffersList.length;
+    }
+  }
+  for (let i = 0; i < maxOffers; i++) {
+    let imgurl = OffersList[i].ImageURL;
+    if (!imgurl.startsWith('http')) {
+      // expect the file to be hosted on this server
+      imgurl = imgurl.replace('webwb/', './img/').replace('web/', './img/');
+    }
+    const extraURLParams = `I=${OffersList[i].Issue}&G=${OffersList[i].Group}&O=${OffersList[i].Name}`;
+    Context.data[i] = {
+      img: imgurl,
+      title: OffersList[i].Label,
+      message: OffersList[i].ShortDescription,
+      link: 'learnmore',
+      url: `./offer.html?${extraURLParams}`,
+    };
+  }
+  Context.loading = false;
+};
+
+const initNBAM = function initNBAM(Context, type, customerID) {
+  if (typeof getNBAMServiceControl !== 'undefined') {
+    const nbamServiceCtrl = getNBAMServiceControl('V2', false);
+    nbamServiceCtrl.initialize(Context.settings.pega_marketing.Host, Context.settings.pega_marketing.Port);
+    const currentPage = 'index.html';
+    const previousPage = 'index.html';
+    let containerName = 'TopOffers';
+    if (Context.settings.pega_marketing[type] && Context.settings.pega_marketing[type].containerName) {
+      containerName = Context.settings.pega_marketing[type].containerName;
+    }
+    nbamServiceCtrl.getOffers(customerID, containerName, 'Web', previousPage, currentPage, (data) => {
+      data.RankedResults = data.ContainerList[0].RankedResults;
+      if (data.OffersList && data.OffersList.length > 0) {
+        parseResponseData(Context, type, data.OffersList);
+      } else if (data.RankedResults && data.RankedResults.length) {
+        parseResponseData(Context, type, data.RankedResults);
+      }
+    });
+  } else {
+    setTimeout(initNBAM(Context, type, customerID), 200);
+  }
+};
 
 // Directive for dealing out with clicking outside of an overlay
 let handleOutsideClick;
@@ -88,33 +174,13 @@ let mainconfigTmp = Object.assign(
 // Retrieve the object from storage
 const retrievedObject = localStorage.getItem(`config_${mainconfigTmp.app.industry}`);
 if (retrievedObject != null) {
-  mainconfigTmp = JSON.parse(retrievedObject);
+  const tmpObj = JSON.parse(retrievedObject);
+  if (tmpObj.settings) {
+    mainconfigTmp.settings = tmpObj.settings;
+  }
 }
 
-/* Handle upgrade issues */
-if (mainconfigTmp.settings.todo && typeof mainconfigTmp.settings.todo.hideactivity === 'undefined') {
-  mainconfigTmp.settings.todo.hideactivity = false;
-}
-if (mainconfigTmp.settings.billpay && typeof mainconfigTmp.settings.billpay.hidebillpay === 'undefined') {
-  mainconfigTmp.settings.billpay.hidebillpay = false;
-}
-if (typeof mainconfigTmp.settings.pega_chat.CoBrowseServerURL === 'undefined') {
-  mainconfigTmp.settings.pega_chat.CoBrowseServerURL = '';
-}
-if (typeof mainconfigTmp.settings.pega_chat.CoBrowseToken === 'undefined') {
-  mainconfigTmp.settings.pega_chat.CoBrowseToken = '';
-}
-if (typeof mainconfigTmp.settings.pega_chat.SSAConfigName === 'undefined') {
-  mainconfigTmp.settings.pega_chat.SSAConfigName = '';
-}
-for (const i in mainconfigTmp.settings.users) {
-  if (typeof mainconfigTmp.settings.users[i].accountID === 'undefined') {
-    mainconfigTmp.settings.users[i].accountID = '';
-  }
-  if (typeof mainconfigTmp.settings.users[i].contactID === 'undefined') {
-    mainconfigTmp.settings.users[i].contactID = '';
-  }
-}
+mainconfigTmp = upgradeConfig(mainconfigTmp);
 
 /* Not sure if everything is needed in this object - keeping it as is for backward compatibility */
 const PegaCSWSS = {
@@ -138,12 +204,20 @@ window.PegaCSWSS = PegaCSWSS;
 if (
   typeof mainconfigTmp.settings.pega_chat !== 'undefined' &&
   mainconfigTmp.settings.pega_chat.MashupURL !== '' &&
-  !isMobilePhone &&
   !`${window.location}`.endsWith('settings.html')
 ) {
   document.write('<script src="../js/jquery-min.js"></script>');
   document.write('<script src="../js/PegaHelperExtension.js"></script>');
   document.write('<script src="../js/PegaHelper.js"></script>');
+}
+
+// Load the Pega Marketing file if configured
+if (
+  typeof mainconfigTmp.settings.pega_marketing !== 'undefined' &&
+  mainconfigTmp.settings.pega_marketing.Host !== '' &&
+  !`${window.location}`.endsWith('settings.html')
+) {
+  document.write('<script src="../js/realtimecontainerscript.js"></script>');
 }
 
 // Handle the back button support on mobile
@@ -186,4 +260,6 @@ if (queryDict.username || queryDict.pega_userid) {
 }
 
 const mainconfig = mainconfigTmp;
-export { mainconfig, i18n };
+export {
+  mainconfig, i18n, upgradeConfig, initNBAM,
+};

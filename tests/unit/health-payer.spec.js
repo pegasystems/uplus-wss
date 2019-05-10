@@ -1,11 +1,11 @@
 import { mount } from '@vue/test-utils';
-import '../../public/health_consumer/js/config-settings';
-import '../../public/health_consumer/js/config-flow';
-import '../../public/health_consumer/i18n/lang-en';
+import '../../public/health_payer/js/config-settings';
+import '../../public/health_payer/js/config-flow';
+import '../../public/health_payer/i18n/lang-en';
 import { mainconfig } from '@/global';
 import App from '@/App.vue';
 
-describe('Health Consumer App on Desktop', () => {
+describe('Health Payer App on Desktop', () => {
   it('renders home page on load', () => {
     const wrapper = mount(App, {
       mocks: {
@@ -31,7 +31,7 @@ describe('Health Consumer App on Desktop', () => {
   });
 });
 
-describe('Health Consumer App on Mobile', () => {
+describe('Health Payer App on Mobile', () => {
   it('renders home page on load', () => {
     mainconfig.isMobilePhone = true;
     mainconfig.isAuthenticated = false;
@@ -43,8 +43,6 @@ describe('Health Consumer App on Mobile', () => {
         $d: msg => msg,
       },
     });
-    expect(wrapper.find('h1').text()).toContain(
-      'message.phone_home_page_title',
-    );
+    expect(wrapper.find('h1').text()).toContain('message.phone_home_page_title');
   });
 });
