@@ -4,7 +4,11 @@ This project showcase a typical Web Application that uses Pega Mashup. A complet
 
 ## For developers
 
-To build and compile the application - use the following command 
+To build and compile the application - use the following commands:
+
+### Tools to install
+
+install npm from https://nodejs.org/en/download/
 
 ### Project setup
 ```
