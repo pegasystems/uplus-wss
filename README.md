@@ -1,6 +1,12 @@
-# uplus WSS Static files
+# UPlus WSS Static files
 
-## Project setup
+This project showcase a typical Web Application that uses Pega Mashup. A complete demo of the application is available at [[https://pegasystems.github.io/uplus-wss/]]. A list of the changes is available at [[https://github.com/pegasystems/uplus-wss/wiki]].
+
+## For developers
+
+To build and compile the application - use the following command 
+
+### Project setup
 ```
 npm install
 ```
