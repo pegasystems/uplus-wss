@@ -2,7 +2,7 @@
 import { register } from 'register-service-worker';
 
 const notifyAboutUpdate = (worker) => {
-  alert('new content is available - please refresh your browser!');
+  alert('new content is available - click OK to refresh your browser');
   worker.postMessage({ action: 'skipWaiting' });
 };
 if (process.env.NODE_ENV === 'production') {

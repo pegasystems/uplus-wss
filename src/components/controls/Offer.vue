@@ -1,5 +1,5 @@
 <template>
-  <section class="secondary-card offer-card-col">
+  <section class="offer-card-col">
     <img class="offer-img" :src="img" :alt="title">
     <div class="content">
       <h3>{{ title }}</h3>

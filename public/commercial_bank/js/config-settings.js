@@ -188,6 +188,36 @@ window.settings = {
       ],
     },
   ],
+  keyrates: [
+    {
+      name: 'keyrates_treasure_bill',
+      trend: 'red',
+      current: 2.43,
+      high: 2.67,
+      low: 1.75,
+    },
+    {
+      name: 'keyrates_commercial_paper',
+      trend: 'red',
+      current: 2.47,
+      high: 2.78,
+      low: 1.99,
+    },
+    {
+      name: 'keyrates_federal_funds',
+      trend: 'green',
+      current: 2.41,
+      high: 2.42,
+      low: 1.69,
+    },
+    {
+      name: 'keyrates_libor',
+      trend: 'green',
+      current: 2.60,
+      high: 2.61,
+      low: 2.54,
+    },
+  ],
   pega_chat: {
     SSAConfigName: '',
     WCBConfigName: '',

@@ -126,6 +126,14 @@ window.langEN = {
   offer_highlights_data3_title: 'Pricing',
   offer_highlights_data3_msg:
     'Minimum of $100 to open your account. You can transfer funds with electronic transfer, mail in check, mobile check deposit, or wire. ',
+  keyrates_treasure_bill: 'Treasury Bills (90 day)',
+  keyrates_commercial_paper: 'Commercial Paper (Finl. 90 day)',
+  keyrates_federal_funds: 'Federal funds (overnight)',
+  keyrates_libor: 'Libor in USD (3 month)',
+  keyrates_title: 'Key rates',
+  keyrates_header_col1: 'This week',
+  keyrates_header_col2: '52 wk high',
+  keyrates_header_col3: '52 wk low',
 };
 
 window.dateFormatEN = {

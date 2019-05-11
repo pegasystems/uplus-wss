@@ -125,6 +125,12 @@ h3 {
   margin: 0 0 21rem 0;
 }
 
+h4 {
+  font-size: 16rem;
+  margin: 8rem 0;
+  color: #000;
+}
+
 .quick-links li,
 .quick-links a,
 .col-2 h3,
@@ -156,6 +162,21 @@ h3.account-type {
   padding: 0 35rem 21rem 35rem;
 }
 
+table.align-center th,
+table.align-center td {
+  text-align: center;
+}
+
+table.color-light tr {
+  background-color: #f1f1f1;
+}
+
+table.color-light td {
+  border: 1px solid #ffffff;
+  padding: 8px;
+  color: #000;
+}
+
 p {
   color: #939393;
 }
@@ -178,4 +199,13 @@ time span {
 
 time.fatlist-item {
   min-width: 158rem;
+}
+
+.keyrates h4 {
+  color: #939393;
+  font-weight: 300;
+}
+
+.keyrates h4 ~ table tr {
+  font-size: 20rem;
 }

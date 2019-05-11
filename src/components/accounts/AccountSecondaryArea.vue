@@ -1,27 +1,31 @@
 <template>
-  <div class="col col-2" v-if="settings.pega_marketing.Host === '' || loading">
-    <Offer
-      v-for="item in app.offers"
-      :key="item.title"
-      v-bind:title="$t('message.' + item.title)"
-      v-bind:message="$t('message.' + item.message)"
-      v-bind:img="('./img/' + item.img)"
-      v-bind:url="'#'"
-      v-bind:link="$t('message.learnmore')"
-    />
+  <div class="col col-2">
+    <div class="secondary-card" v-if="settings.pega_marketing.Host === '' || loading">
+      <Offer
+        v-for="item in app.offers"
+        :key="item.title"
+        v-bind:title="$t('message.' + item.title)"
+        v-bind:message="$t('message.' + item.message)"
+        v-bind:img="('./img/' + item.img)"
+        v-bind:url="'#'"
+        v-bind:link="$t('message.learnmore')"
+      />
+    </div>
+    <div class="secondary-card" v-else>
+      <Offer
+        v-for="item in data"
+        :key="item.title"
+        v-bind:title="item.title"
+        v-bind:message="item.message"
+        v-bind:img="item.img"
+        v-bind:url="item.url"
+        v-bind:link="$t('message.' + item.link)"
+      />
+    </div>
     <QuickLinks/>
-  </div>
-  <div class="col col-2" v-else>
-    <Offer
-      v-for="item in data"
-      :key="item.title"
-      v-bind:title="item.title"
-      v-bind:message="item.message"
-      v-bind:img="item.img"
-      v-bind:url="item.url"
-      v-bind:link="$t('message.' + item.link)"
+    <KeyRates
+      v-if="app.industry  === 'commercial_bank' && typeof settings.keyrates !== 'undefined'"
     />
-    <QuickLinks/>
   </div>
 </template>
 
@@ -29,6 +33,7 @@
 import Offer from '../controls/Offer.vue';
 import QuickLinks from '../widgets/QuickLinks.vue';
 import { mainconfig, initNBAM } from '../../global';
+import KeyRates from '../widgets/KeyRates.vue';
 
 export default {
   data() {
@@ -53,6 +58,7 @@ export default {
   components: {
     Offer,
     QuickLinks,
+    KeyRates,
   },
 };
 </script>

@@ -181,6 +181,10 @@
   font-size: 18rem;
 }
 
+.phone footer {
+  margin: auto 0 0 0;
+}
+
 .phone footer ul.flex {
   margin: 8rem;
   flex-flow: row;
@@ -269,4 +273,10 @@
   display: inline-block;
   text-align: center;
   vertical-align: middle;
+}
+
+.phone #OnlineHelp,
+.phone #ServiceCaseGadget,
+.phone #ChatWrapper {
+  width: 300px;
 }

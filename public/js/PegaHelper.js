@@ -67,7 +67,7 @@ function postMessageListener(event){
   try {
 	var message = JSON.parse(event.data);
   } catch(e) {
-    console.log("Error parsing posted message: " + e.message);
+   // console.log("Error parsing posted message: " + e.message);
 	return;
   }
   /* console.log("message is ", message); */
