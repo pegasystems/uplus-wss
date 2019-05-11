@@ -99,15 +99,15 @@ window.app = {
       title: 'landing_header_title',
       promotions: [
         {
-          icon: 'pi-chevron-solid',
+          icon: 'pi-location-check-solid',
           message: 'landing_header_promotion1',
         },
         {
-          icon: 'pi-chevron-solid',
+          icon: 'pi-multi-device-solid',
           message: 'landing_header_promotion2',
         },
         {
-          icon: 'pi-chevron-solid',
+          icon: 'pi-tv-solid',
           message: 'landing_header_promotion3',
         },
       ],
@@ -132,12 +132,12 @@ window.app = {
       title: 'landing_cards_title',
       data: [
         {
-          icon: 'pi-chevron-solid',
+          icon: 'pi-tv-solid',
           title: 'landing_cards_data1_title',
           message: 'landing_cards_data1_message',
         },
         {
-          icon: 'pi-triangle-solid',
+          icon: 'pi-home-alt-solid',
           title: 'landing_cards_data2_title',
           message: 'landing_cards_data2_message',
         },
@@ -164,27 +164,27 @@ window.app = {
       title: 'landing_benefits_title',
       data: [
         {
-          icon: 'pi-passbook',
+          icon: 'pi-multi-device',
           message: 'landing_benefits_data1_message',
         },
         {
-          icon: 'pi-information-solid',
+          icon: 'pi-controller',
           message: 'landing_benefits_data2_message',
         },
         {
-          icon: 'pi-receipt',
+          icon: 'pi-vr',
           message: 'landing_benefits_data3_message',
         },
         {
-          icon: 'pi-bolt',
+          icon: 'pi-tv',
           message: 'landing_benefits_data4_message',
         },
         {
-          icon: 'pi-disc-stack',
+          icon: 'pi-wifi-signal',
           message: 'landing_benefits_data5_message',
         },
         {
-          icon: 'pi-bolt',
+          icon: 'pi-gear',
           message: 'landing_benefits_data6_message',
         },
       ],
@@ -235,17 +235,17 @@ window.app = {
     highlights: {
       data: [
         {
-          icon: 'pi-chevron-solid',
+          icon: 'pi-laptop',
           title: 'offer_highlights_data1_title',
           message: 'offer_highlights_data1_msg',
         },
         {
-          icon: 'pi-triangle-solid',
+          icon: 'pi-controller',
           title: 'offer_highlights_data2_title',
           message: 'offer_highlights_data2_msg',
         },
         {
-          icon: 'pi-bolt-solid',
+          icon: 'pi-dollar-sign',
           title: 'offer_highlights_data3_title',
           message: 'offer_highlights_data3_msg',
         },
