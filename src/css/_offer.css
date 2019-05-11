@@ -1,21 +1,21 @@
 /* Special styling for the offer page */
-body>#app.form.offer {
-  background: #FFF;
+body > #app.form.offer {
+  background: #fff;
   height: auto;
 }
 
-.offer>header {
+.offer > header {
   height: 400rem;
   padding-top: 50rem;
   text-align: center;
 }
 
-.offer>header p {
-  color: #FFF;
+.offer > header p {
+  color: #fff;
   max-width: 500rem;
 }
 
-.offer>main {
+.offer > main {
   margin-top: -100rem;
   color: #414949;
   max-width: 730rem;
@@ -39,13 +39,13 @@ body>#app.form.offer {
 }
 
 .offer-footer .promo h4,
-.offer-footer footer ul.flex>a,
+.offer-footer footer ul.flex > a,
 .offer-footer button.simple {
-  color: #FFF;
+  color: #fff;
 }
 
 .offer-footer p {
-  color: #FFF;
+  color: #fff;
 }
 
 .main-offer .image {
@@ -54,11 +54,11 @@ body>#app.form.offer {
   background-size: cover;
 }
 
-.main-offer>div {
+.main-offer > div {
   width: 50%;
 }
 
-.main-offer>.details {
+.main-offer > .details {
   margin-left: 30rem;
 }
 
@@ -67,7 +67,7 @@ body>#app.form.offer {
   color: #4a4a4a;
 }
 
-.offer-cards>.flex>div {
+.offer-cards > .flex > div {
   display: flex;
   flex-flow: column nowrap;
   padding: 16rem 0 0 0;
@@ -109,19 +109,21 @@ body>#app.form.offer {
   background-repeat: no-repeat;
   background-size: cover;
   height: 300rem;
+  margin-bottom: 32rem;
 }
 
-.offer-details>div>div {
+.offer-details > div > div {
   width: 50%;
+  padding: 0 0 0 16rem;
 }
 
-.offer-highlights>div {
+.offer-highlights > div {
   margin-bottom: 25rem;
 }
 
 .offer-highlights .pi {
   font-size: 40rem;
-  background: #FFF;
+  background: #fff;
   width: 80rem;
   height: 80rem;
   border-radius: 50%;
