@@ -67,7 +67,12 @@ export default {
           mainconfig.userId = i;
 
           /* Update PegaChat and pass the correct ContactId, AccountNumber and username */
-          const el = document.querySelector("[data-pega-gadgetname='PreviewGadget'] > iframe");
+          let el = document.querySelector("[data-pega-gadgetname='PreviewGadget'] > iframe");
+          if (el === null) {
+            el = document.querySelector(
+              "[data-pega-gadgetname='OnlineHelp'] > iframe",
+            );
+          }
           if (el != null && typeof el.src === 'string') {
             const u = this.settings.users[i];
             let updatedSrc = `${el.src}&ContactId=${u.contactID}&AccountNumber=${u.accountID}&username=${u.username}`;
@@ -80,7 +85,10 @@ export default {
               // Else we will append the timestamp
               updatedSrc += `&timestamp=${Date.now()}`;
             }
+            const parentNode = el.parentNode;
+            el.remove();
             el.src = updatedSrc;
+            parentNode.appendChild(el);
           }
           break;
         }

@@ -45,9 +45,14 @@ export default {
       mainconfig.quickLinkId = -1;
 
       /* Update PegaChat and remove ContactId, AccountNumber and username */
-      const el = document.querySelector(
+      let el = document.querySelector(
         "[data-pega-gadgetname='PreviewGadget'] > iframe",
       );
+      if (el === null) {
+        el = document.querySelector(
+          "[data-pega-gadgetname='OnlineHelp'] > iframe",
+        );
+      }
       if (el != null && typeof el.src === 'string') {
         const listparams = el.src.split('&');
         let updatedSrc = '';
@@ -57,8 +62,7 @@ export default {
             !listparams[i].startsWith('AccountNumber=') &&
             !listparams[i].startsWith('username=')
           ) {
-            updatedSrc +=
-              listparams[i] + (i > 0 && i + 1 < listparams.length ? '&' : '');
+            updatedSrc += (updatedSrc !== '' ? '&' : '') + listparams[i];
           }
         }
         if (updatedSrc.indexOf('timestamp') > -1) {
@@ -70,7 +74,10 @@ export default {
           // Else we will append the timestamp
           updatedSrc += `&timestamp=${Date.now()}`;
         }
+        const parentNode = el.parentNode;
+        el.remove();
         el.src = updatedSrc;
+        parentNode.appendChild(el);
       }
     },
   },
