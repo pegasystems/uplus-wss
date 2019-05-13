@@ -71,7 +71,6 @@ export default {
           updatedSrc += `&timestamp=${Date.now()}`;
         }
         el.src = updatedSrc;
-        el.contentWindow.location.reload(true);
       }
     },
   },
