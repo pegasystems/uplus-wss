@@ -81,6 +81,10 @@ body > #app.form.offer {
   padding: 8rem 0;
   font-size: 14rem;
   font-weight: 800;
+  min-height: 57px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .offer-cards p {

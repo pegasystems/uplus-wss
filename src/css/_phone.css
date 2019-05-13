@@ -280,3 +280,14 @@
 .phone #ChatWrapper {
   width: 300px;
 }
+
+.phone .offer-cards {
+  padding: 16rem;
+}
+.phone .offer-cards > div {
+  flex-flow: column nowrap;
+}
+.phone .offer-cards .primary-card {
+  width: auto;
+  margin: 8rem 0;
+}

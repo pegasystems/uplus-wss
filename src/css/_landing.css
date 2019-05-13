@@ -1,15 +1,15 @@
 /* Special styling for the landing page */
-body>#app.form.landing {
-  background: #FFF;
+body > #app.form.landing {
+  background: #fff;
   height: auto;
 }
 
-.landing>header {
+.landing > header {
   height: 600rem;
   padding-top: 50rem;
 }
 
-.landing>main {
+.landing > main {
   margin-top: -500rem;
   color: #414949;
 }
@@ -23,7 +23,7 @@ body>#app.form.landing {
 .landing-intro li {
   margin-bottom: 16rem;
   font-size: 18rem;
-  color: #FFF;
+  color: #fff;
 }
 
 .landing-request {
@@ -31,12 +31,12 @@ body>#app.form.landing {
 }
 
 .landing-cards {
-  margin-top: 110rem;
+  margin-top: 55rem;
 }
 
 .landing-intro .pi {
   font-size: 26rem;
-  background: #FFF;
+  background: #fff;
   width: 50rem;
   height: 50rem;
   border-radius: 50%;
@@ -51,7 +51,7 @@ body>#app.form.landing {
 
 .landing-cards .pi {
   font-size: 40rem;
-  background: #FFF;
+  background: #fff;
   width: 80rem;
   height: 80rem;
   border-radius: 50%;
@@ -71,8 +71,9 @@ body>#app.form.landing {
   line-height: 80rem;
 }
 
-.landing-request>div {
+.landing-request > div {
   max-width: 400rem;
+  margin-right: 16rem;
 }
 
 .landing .primary-card h3 {
@@ -92,25 +93,25 @@ body>#app.form.landing {
 }
 
 .landing-footer,
-.landing-footer footer ul.flex>a,
+.landing-footer footer ul.flex > a,
 .landing-footer p {
-  color: #FFF;
+  color: #fff;
 }
 
 .landing-benefits {
   background: #ececec;
 }
 
-.landing-cards>div,
-.landing-benefits>div {
+.landing-cards > div,
+.landing-benefits > div {
   max-width: 780rem;
   margin: 0 auto;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.landing-cards>.flex>div,
-.landing-benefits>.flex>div {
+.landing-cards > .flex > div,
+.landing-benefits > .flex > div {
   width: 260rem;
   display: flex;
   flex-flow: column nowrap;
@@ -118,7 +119,7 @@ body>#app.form.landing {
   padding: 0 18rem;
 }
 
-.landing-cards>.flex>div {
+.landing-cards > .flex > div {
   align-items: center;
 }
 
@@ -127,7 +128,7 @@ body>#app.form.landing {
   margin: 8rem 0 16rem 0;
 }
 
-.landing-details>div {
+.landing-details > div {
   flex-flow: row nowrap;
   align-items: center;
   max-width: 1300rem;
@@ -135,11 +136,11 @@ body>#app.form.landing {
   width: 100%;
 }
 
-.landing-details>div>div {
+.landing-details > div > div {
   width: 50%;
 }
 
-.landing-details>div>.details {
+.landing-details > div > .details {
   padding: 0 30rem;
 }
 

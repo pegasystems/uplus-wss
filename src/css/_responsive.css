@@ -118,6 +118,10 @@
     align-items: center;
   }
 
+  .landing-request > .landing-intro {
+    margin: 0 0 16rem 0;
+  }
+
   .landing .landing-cards {
     margin-top: 0;
   }
@@ -201,13 +205,19 @@
     padding-left: 14rem;
   }
 
+  .offer > main,
   .wrap {
     margin: 0;
   }
 
-  .front header {
+  .offer > header,
+  .front > header {
     margin-bottom: 0;
     height: 300rem;
+  }
+
+  .offer > header {
+    margin-bottom: 14rem;
   }
 
   button {
@@ -260,6 +270,23 @@
   .landing .landing-details > div > .details {
     width: 100%;
     padding: 21rem 35rem;
+  }
+
+  .offer-details > .flex {
+    flex-flow: column nowrap;
+    margin-bottom: 16rem;
+  }
+
+  .offer-details > div > div,
+  .offer-details > div > .image {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 0;
+  }
+
+  .landing .promo,
+  .offer .promo {
+    padding: 16rem;
   }
 }
 
