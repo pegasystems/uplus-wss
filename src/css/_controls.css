@@ -152,6 +152,7 @@ input[type='checkbox']:indeterminate::-ms-check {
   filter: drop-shadow(0 3rem 21rem rgba(0, 0, 0, 0.5));
   top: 90rem;
   transition: opacity 0.25s ease-out;
+  z-index: 1000;
 }
 
 .overlay::after {

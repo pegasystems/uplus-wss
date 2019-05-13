@@ -8,8 +8,7 @@
     >
       <div class="field flex flex-col username">
         <select id="username" type="text" v-model="username">
-          <option v-for="(item,index) in settings.users" v-bind:key="index" value:="item.username">{{item.username}}
-          </option>
+          <option v-for="(item,index) in settings.users" v-bind:key="index" value:="item.username">{{item.username}}</option>
           </select>
         <label for="username">{{$t('message.username')}}</label>
       </div>
@@ -66,6 +65,24 @@ export default {
         ) {
           isLoginSuccess = true;
           mainconfig.userId = i;
+
+          /* Update PegaChat and pass the correct ContactId, AccountNumber and username */
+          const el = document.querySelector("[data-pega-gadgetname='PreviewGadget'] > iframe");
+          if (el != null && typeof el.src === 'string') {
+            const u = this.settings.users[i];
+            let updatedSrc = `${el.src}&ContactId=${u.contactID}&AccountNumber=${u.accountID}&username=${u.username}`;
+            if (updatedSrc.indexOf('timestamp') > -1) {
+              updatedSrc = updatedSrc.replace(
+                /timestamp=[^&]+/,
+                `timestamp=${Date.now()}`,
+              );
+            } else {
+              // Else we will append the timestamp
+              updatedSrc += `&timestamp=${Date.now()}`;
+            }
+            el.src = updatedSrc;
+            el.contentWindow.location.reload(true);
+          }
           break;
         }
       }
