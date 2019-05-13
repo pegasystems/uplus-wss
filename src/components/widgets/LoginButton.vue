@@ -67,12 +67,7 @@ export default {
           mainconfig.userId = i;
 
           /* Update PegaChat and pass the correct ContactId, AccountNumber and username */
-          let el = document.querySelector("[data-pega-gadgetname='PreviewGadget'] > iframe");
-          if (el === null) {
-            el = document.querySelector(
-              "[data-pega-gadgetname='OnlineHelp'] > iframe",
-            );
-          }
+          const el = document.querySelector("[data-pega-gadgetname='OnlineHelp'] > iframe");
           if (el != null && typeof el.src === 'string') {
             const u = this.settings.users[i];
             let updatedSrc = `${el.src}&ContactId=${u.contactID}&AccountNumber=${u.accountID}&username=${u.username}`;

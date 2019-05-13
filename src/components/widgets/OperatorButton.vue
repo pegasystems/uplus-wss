@@ -45,14 +45,9 @@ export default {
       mainconfig.quickLinkId = -1;
 
       /* Update PegaChat and remove ContactId, AccountNumber and username */
-      let el = document.querySelector(
-        "[data-pega-gadgetname='PreviewGadget'] > iframe",
+      const el = document.querySelector(
+        "[data-pega-gadgetname='OnlineHelp'] > iframe",
       );
-      if (el === null) {
-        el = document.querySelector(
-          "[data-pega-gadgetname='OnlineHelp'] > iframe",
-        );
-      }
       if (el != null && typeof el.src === 'string') {
         const listparams = el.src.split('&');
         let updatedSrc = '';
