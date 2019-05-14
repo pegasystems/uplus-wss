@@ -28,6 +28,12 @@ const upgradeConfig = function upgradeConfig(cfg) {
     if (typeof cfg.settings.users[i].contactID === 'undefined') {
       cfg.settings.users[i].contactID = '';
     }
+    if (typeof cfg.settings.users[i].subscriberID === 'undefined') {
+      cfg.settings.users[i].subscriberID = '';
+    }
+    if (typeof cfg.settings.users[i].extraparam === 'undefined') {
+      cfg.settings.users[i].extraparam = '';
+    }
   }
   if (typeof cfg.settings.pega_marketing.homePage === 'undefined') {
     cfg.settings.pega_marketing.homePage = { containerName: 'TopOffers', maxOffers: 3 };

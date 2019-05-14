@@ -46,8 +46,8 @@ export default {
     if (this.settings.pega_marketing.Host !== '') {
       const self = this;
       let subscriberID = '';
-      if (this.userId !== -1 && this.settings.users[this.userId].accountID) {
-        subscriberID = this.settings.users[this.userId].accountID;
+      if (this.userId !== -1 && this.settings.users[this.userId].subscriberID) {
+        subscriberID = this.settings.users[this.userId].subscriberID;
       }
 
       setTimeout(() => {

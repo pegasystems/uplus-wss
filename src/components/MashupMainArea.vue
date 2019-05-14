@@ -205,6 +205,11 @@ export default {
           this.userId
         ].accountID;
       }
+      if (this.settings.users[this.userId].subscriberID) {
+        tmpActionParam.SubscriberID = this.settings.users[
+          this.userId
+        ].subscriberID;
+      }
       if (this.settings.users[this.userId].contactID) tmpActionParam.ContactId = this.settings.users[this.userId].contactID;
     } else if (this.homeHeroAction !== -1) {
       tmpActionParam.UserIdentifier = this.settings.homeheroaction.pega_userid;
@@ -217,6 +222,17 @@ export default {
     }
     if (typeof this.extraParam !== 'undefined' && this.extraParam !== '') {
       this.extraParam.split(',').forEach((item) => {
+        const values = item.split('=');
+        if (values.length === 2) {
+          tmpActionParam[values[0].trim()] = values[1].trim();
+        }
+      });
+    }
+    if (
+      typeof this.settings.users[this.userId].extraparam !== 'undefined' &&
+      this.settings.users[this.userId].extraparam !== ''
+    ) {
+      this.settings.users[this.userId].extraparam.split(',').forEach((item) => {
         const values = item.split('=');
         if (values.length === 2) {
           tmpActionParam[values[0].trim()] = values[1].trim();
