@@ -196,9 +196,9 @@ window.settings = {
     {
       name: 'keyrates_treasure_bill',
       trend: 'red',
-      current: 2.43,
+      current: 2.4,
       high: 2.67,
-      low: 1.75,
+      low: 1.7,
     },
     {
       name: 'keyrates_commercial_paper',
@@ -211,7 +211,7 @@ window.settings = {
       name: 'keyrates_federal_funds',
       trend: 'green',
       current: 2.41,
-      high: 2.42,
+      high: 2.4,
       low: 1.69,
     },
     {

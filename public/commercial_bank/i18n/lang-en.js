@@ -158,4 +158,9 @@ window.numberFormatEN = {
     currency: 'USD',
     currencyDisplay: 'symbol',
   },
+  keyrates: {
+    style: 'decimal',
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  },
 };
