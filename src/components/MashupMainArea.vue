@@ -155,7 +155,6 @@ export default {
       this.startCase = this.settings.homeheroaction.startcase;
       this.appName = this.settings.homeheroaction.application;
       this.extraParam = this.settings.homeheroaction.extraparam;
-      this.caseTitle = this.settings.homeheroaction.title[this.currentLocale];
     } else {
       isInAccoutPage = true;
       this.actionName = this.settings.todo.action;
@@ -229,6 +228,7 @@ export default {
       });
     }
     if (
+      this.userId !== -1 &&
       typeof this.settings.users[this.userId].extraparam !== 'undefined' &&
       this.settings.users[this.userId].extraparam !== ''
     ) {
