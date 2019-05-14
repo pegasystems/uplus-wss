@@ -41,19 +41,19 @@ window.app = {
   ],
   accountpicker: [
     {
-      icon: 'pi-piggybank',
+      icon: 'pi-building-2',
       title: 'accountpicker1_title',
       desc: 'accountpicker1_desc',
       id: '',
     },
     {
-      icon: 'pi-money',
+      icon: 'pi-temp',
       title: 'accountpicker2_title',
       desc: 'accountpicker2_desc',
       id: '',
     },
     {
-      icon: 'pi-credit',
+      icon: 'pi-gear',
       title: 'accountpicker3_title',
       desc: 'accountpicker3_desc',
       id: '',

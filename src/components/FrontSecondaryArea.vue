@@ -1,6 +1,6 @@
 <template>
   <div class="secondary-options">
-    <div class="banner"></div>
+    <div class="banner" v-bind:style="{ backgroundImage: 'url(img/secondary-options.jpg)' }"></div>
     <div class="wrap options">
       <section
         v-for="item in app.secondarydetails"

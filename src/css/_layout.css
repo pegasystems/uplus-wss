@@ -198,8 +198,7 @@ main,
 
 .secondary-options .banner {
   height: 317rem;
-  background-size: cover;
-  background: url('../img/secondary-options.jpg') no-repeat 50% 0 transparent;
+  background: no-repeat 50% 0 transparent;
   background-size: cover;
 }
 
