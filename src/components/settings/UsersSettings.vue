@@ -3,8 +3,8 @@
     <div
       class="layout-labels-left secondary-card"
       v-for="(item,index) in settings.users"
-      v-bind:key="item.username"
-      v-bind:title="item.username"
+      v-bind:key="index"
+      v-bind:title="'user(' + index+1 + ')'"
     >
       <div class="field-item">
         <label :for="'user-' + index + '-username'">Username</label>
