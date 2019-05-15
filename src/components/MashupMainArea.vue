@@ -240,25 +240,18 @@ export default {
       });
     }
     this.actionParam = JSON.stringify(tmpActionParam);
+    this.mashupScript.onload = function onloadMashup() {
+      pega.Mashup.Communicator.register(pega.Mashup.hostActionsProcessor);
+      _initAllPegaObjects();
+      setTimeout(() => {
+        const inneriframes = document.getElementsByTagName('iframe');
+        Array.prototype.forEach.call(inneriframes, (el) => {
+          el.allow = 'geolocation';
+        });
+      }, 300);
+    };
     document.head.appendChild(this.mashupScript);
     this.isMashupInitialized = true;
-  },
-  mounted() {
-    const initMashup = function initMashup() {
-      if (typeof pega !== 'undefined' && typeof pega.Mashup !== 'undefined') {
-        pega.Mashup.Communicator.register(pega.Mashup.hostActionsProcessor);
-        _initAllPegaObjects();
-        setTimeout(() => {
-          const inneriframes = document.getElementsByTagName('iframe');
-          Array.prototype.forEach.call(inneriframes, (el) => {
-            el.allow = 'geolocation';
-          });
-        }, 300);
-      } else {
-        setTimeout(initMashup, 200);
-      }
-    };
-    initMashup();
   },
   beforeDestroy() {
     if (typeof pega !== 'undefined') pega = {};

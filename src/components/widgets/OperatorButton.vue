@@ -43,6 +43,7 @@ export default {
       mainconfig.isAuthenticated = false;
       mainconfig.userId = -1;
       mainconfig.quickLinkId = -1;
+      mainconfig.offerURL = '';
 
       /* Update PegaChat and remove ContactId, AccountNumber and username */
       const el = document.querySelector(

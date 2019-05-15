@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import Offer from '../controls/Offer.vue';
+import Offer from '../widgets/Offer.vue';
 import QuickLinks from '../widgets/QuickLinks.vue';
 import { mainconfig, initNBAM } from '../../global';
 import KeyRates from '../widgets/KeyRates.vue';

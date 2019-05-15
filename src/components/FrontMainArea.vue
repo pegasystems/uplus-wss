@@ -15,7 +15,11 @@
       <div class="details">
         <h2 class="option-header">{{ item.title }}</h2>
         <p>{{ item.message }}</p>
-        <a :href="item.url">{{ $t("message." + item.link)}}</a>
+        <button
+          v-on:click="showOffer(item.url)"
+          :title="$t('message.' + item.link)"
+          class="simple"
+        >{{ $t("message." + item.link)}}</button>
       </div>
     </section>
   </div>
@@ -38,6 +42,11 @@ export default {
         initNBAM(self, 'homePage', '');
       }, 200);
     }
+  },
+  methods: {
+    showOffer(url) {
+      mainconfig.offerURL = url;
+    },
   },
 };
 </script>

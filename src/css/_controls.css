@@ -198,6 +198,19 @@ button.launch-login {
   margin-bottom: 3px;
 }
 
+header button.more,
+header button.more:hover,
+header button.more:active,
+header button.more:focus,
+button.launch-login,
+button.launch-login:hover,
+button.launch-login:active,
+button.launch-login:focus {
+  background: #fff;
+  color: #295ed9;
+  border: 1px solid transparent;
+}
+
 button.launch-menu {
   margin-top: 3px;
   margin-bottom: 3px;

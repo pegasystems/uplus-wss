@@ -1,7 +1,10 @@
 <template>
   <div class="form">
-    <main-header/>
-    <main v-if="quickLinkId === -1 && viewBill === -1" class="flex flex-col">
+    <MainHeader/>
+    <main v-if="offerURL!==''" class="wrap">
+      <MicroSiteMainArea/>
+    </main>
+    <main v-else-if="quickLinkId === -1 && viewBill === -1" class="flex flex-col">
       <div v-if="app.industry  === 'commercial_bank'">
         <h1
           v-if="userId!=-1"
@@ -21,10 +24,10 @@
         </div>
       </div>
     </main>
-    <main v-else :class="isMobilePhone ? '': 'wrap'">
+    <main v-else class="wrap">
       <MashupMainArea/>
     </main>
-    <main-footer/>
+    <MainFooter/>
   </div>
 </template>
 
@@ -33,6 +36,7 @@ import { mainconfig } from '../../global';
 import MainHeader from '../MainHeader.vue';
 import MainFooter from '../MainFooter.vue';
 import MashupMainArea from '../MashupMainArea.vue';
+import MicroSiteMainArea from '../MicroSiteMainArea.vue';
 import AccountMainArea from './AccountMainArea.vue';
 import BankAccountMainArea from './BankAccountMainArea.vue';
 import AccountSecondaryArea from './AccountSecondaryArea.vue';
@@ -48,6 +52,7 @@ export default {
     AccountSecondaryArea,
     MashupMainArea,
     MainFooter,
+    MicroSiteMainArea,
   },
 };
 </script>

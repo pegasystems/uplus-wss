@@ -18,7 +18,10 @@
       <LoginButton v-else/>
       <MainHeaderMenu/>
     </div>
-    <div v-if="!isAuthenticated && homeHeroAction!=1" class="wrap hero-wrap flex flex-col">
+    <div
+      v-if="!isAuthenticated && homeHeroAction!=1 && offerURL===''"
+      class="wrap hero-wrap flex flex-col"
+    >
       <div>
         <h1 class="hero">
           {{ $t('message.' + app.herotext.title)}}
@@ -51,6 +54,7 @@ export default {
       mainconfig.viewBill = -1;
       mainconfig.homeHeroAction = -1;
       mainconfig.toDo = -1;
+      mainconfig.offerURL = '';
     },
     applyHeroAction() {
       mainconfig.homeHeroAction = 1;

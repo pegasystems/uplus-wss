@@ -61,13 +61,12 @@ const parseResponseData = (Context, type, OffersList) => {
       // expect the file to be hosted on this server
       imgurl = imgurl.replace('webwb/', './img/').replace('web/', './img/');
     }
-    const extraURLParams = `I=${OffersList[i].Issue}&G=${OffersList[i].Group}&O=${OffersList[i].Name}`;
     Context.data[i] = {
       img: imgurl,
       title: OffersList[i].Label,
       message: OffersList[i].ShortDescription,
       link: 'learnmore',
-      url: `./offer.html?${extraURLParams}`,
+      url: OffersList[i].ClickThroughURL,
     };
   }
   Context.loading = false;
@@ -166,6 +165,7 @@ let mainconfigTmp = Object.assign(
     settings,
     app,
     isMobilePhone,
+    offerURL: '',
     isAuthenticated: false,
     isSidePanelVisible: false,
     phonePageName: 'home',
@@ -212,9 +212,15 @@ if (
   mainconfigTmp.settings.pega_chat.MashupURL !== '' &&
   !`${window.location}`.endsWith('settings.html')
 ) {
-  document.write('<script src="../js/jquery-min.js"></script>');
-  document.write('<script src="../js/PegaHelperExtension.js"></script>');
-  document.write('<script src="../js/PegaHelper.js"></script>');
+  const scriptLoad = document.createElement('script');
+  scriptLoad.setAttribute('src', '../js/jquery-min.js');
+  document.head.appendChild(scriptLoad);
+  const scriptLoad1 = document.createElement('script');
+  scriptLoad1.setAttribute('src', '../js/PegaHelperExtension.js');
+  document.head.appendChild(scriptLoad1);
+  const scriptLoad2 = document.createElement('script');
+  scriptLoad2.setAttribute('src', '../js/PegaHelper.js');
+  document.head.appendChild(scriptLoad2);
 }
 
 // Load the Pega Marketing file if configured
@@ -223,7 +229,9 @@ if (
   mainconfigTmp.settings.pega_marketing.Host !== '' &&
   !`${window.location}`.endsWith('settings.html')
 ) {
-  document.write('<script src="../js/realtimecontainerscript.js"></script>');
+  const scriptLoadMkt = document.createElement('script');
+  scriptLoadMkt.setAttribute('src', '../js/realtimecontainerscript.js');
+  document.head.appendChild(scriptLoadMkt);
 }
 
 // Handle the back button support on mobile

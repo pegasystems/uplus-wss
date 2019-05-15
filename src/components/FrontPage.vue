@@ -1,8 +1,15 @@
 <template>
   <div v-if="homeHeroAction==1" class="form">
     <MainHeader/>
-    <main :class="isMobilePhone ? '': 'wrap'">
+    <main class="wrap">
       <MashupMainArea/>
+    </main>
+    <MainFooter/>
+  </div>
+  <div v-else-if="offerURL!==''" class="form">
+    <MainHeader/>
+    <main class="wrap">
+      <MicroSiteMainArea/>
     </main>
     <MainFooter/>
   </div>
@@ -23,6 +30,7 @@ import MainFooter from './MainFooter.vue';
 import FrontMainArea from './FrontMainArea.vue';
 import FrontSecondaryArea from './FrontSecondaryArea.vue';
 import MashupMainArea from './MashupMainArea.vue';
+import MicroSiteMainArea from './MicroSiteMainArea.vue';
 
 export default {
   data() {
@@ -34,6 +42,7 @@ export default {
     MashupMainArea,
     FrontSecondaryArea,
     MainFooter,
+    MicroSiteMainArea,
   },
 };
 </script>

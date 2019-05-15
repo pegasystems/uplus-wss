@@ -12,11 +12,7 @@
     <script src="./js/config-flow.js"></script>
     <script>
       for (var i in settings.i18n.languages) {
-        document.write(
-          '<script src="./i18n/lang-' +
-            settings.i18n.languages[i] +
-            '.js"><\/script>',
-        );
+        document.write('<script src="./i18n/lang-' + settings.i18n.languages[i] + '.js"><\/script>');
       }
     </script>
   </head>

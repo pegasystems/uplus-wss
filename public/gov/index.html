@@ -15,12 +15,6 @@
     for (var i in settings.i18n.languages) {
       document.write('<script src="./i18n/lang-' + settings.i18n.languages[i] + '.js"><\/script>');
     }
-
-    if (settings.pega_chat.MashupURL !== "" && !("" + window.location).endsWith("settings.html")) {
-      document.write('<script src="../js/jquery.min.js"><\/script>');
-      document.write('<script src="../js/PegaHelperExtension.js"><\/script>');
-      document.write('<script src="../js/PegaHelper.js"><\/script>');
-    }
   </script>
 </head>
 
