@@ -10,6 +10,6 @@ html {
 
 html,
 body,
-body>#app {
+body > #app {
   height: 100%;
 }

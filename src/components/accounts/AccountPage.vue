@@ -4,7 +4,10 @@
     <main v-if="offerURL!==''" class="wrap">
       <MicroSiteMainArea/>
     </main>
-    <main v-else-if="quickLinkId === -1 && viewBill === -1" class="flex flex-col">
+    <main
+      v-else-if="quickLinkId === -1 && viewBill === -1 && viewKMHelp === -1"
+      class="flex flex-col"
+    >
       <div v-if="app.industry  === 'commercial_bank'">
         <h1
           v-if="userId!=-1"

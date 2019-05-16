@@ -12,6 +12,17 @@ const upgradeConfig = function upgradeConfig(cfg) {
   if (cfg.settings.billpay && typeof cfg.settings.billpay.hidebillpay === 'undefined') {
     cfg.settings.billpay.hidebillpay = false;
   }
+  if (typeof cfg.settings.kmhelp === 'undefined') {
+    cfg.settings.kmhelp = {
+      action: 'display',
+      actionparam: 'KMHelpSitePortal',
+      objclass: 'Data-Portal',
+      url: '',
+      startcase: 'pyStartCase',
+      application: '',
+      extraparam: '',
+    };
+  }
   if (typeof cfg.settings.pega_chat.CoBrowseServerURL === 'undefined') {
     cfg.settings.pega_chat.CoBrowseServerURL = '';
   }
@@ -28,70 +39,112 @@ const upgradeConfig = function upgradeConfig(cfg) {
     if (typeof cfg.settings.users[i].contactID === 'undefined') {
       cfg.settings.users[i].contactID = '';
     }
-    if (typeof cfg.settings.users[i].subscriberID === 'undefined') {
-      cfg.settings.users[i].subscriberID = '';
+    if (typeof cfg.settings.users[i].customerID === 'undefined') {
+      cfg.settings.users[i].customerID = '';
     }
     if (typeof cfg.settings.users[i].extraparam === 'undefined') {
       cfg.settings.users[i].extraparam = '';
     }
   }
   if (typeof cfg.settings.pega_marketing.homePage === 'undefined') {
-    cfg.settings.pega_marketing.homePage = { containerName: 'TopOffers', maxOffers: 3 };
+    cfg.settings.pega_marketing.homePage = { containerName: 'TopOffers' };
   }
   if (typeof cfg.settings.pega_marketing.accountPage === 'undefined') {
-    cfg.settings.pega_marketing.accountPage = { containerName: 'TopOffers', maxOffers: 1 };
+    cfg.settings.pega_marketing.accountPage = { containerName: 'TopOffers' };
   }
   if (typeof cfg.settings.pega_marketing.phonePage === 'undefined') {
-    cfg.settings.pega_marketing.phonePage = { containerName: 'TopOffers', maxOffers: 1 };
+    cfg.settings.pega_marketing.phonePage = { containerName: 'TopOffers' };
+  }
+  if (typeof cfg.settings.pega_marketing.offerPage === 'undefined') {
+    cfg.settings.pega_marketing.offerPage = { containerName: 'TopOffers' };
+  }
+  if (typeof cfg.settings.pega_marketing.homePage.placement === 'undefined') {
+    cfg.settings.pega_marketing.homePage.placement = 'Hero,Tile,Tile,Tile';
+  }
+  if (typeof cfg.settings.pega_marketing.accountPage.placement === 'undefined') {
+    cfg.settings.pega_marketing.accountPage.placement = 'Tile';
+  }
+  if (typeof cfg.settings.pega_marketing.phonePage.placement === 'undefined') {
+    cfg.settings.pega_marketing.phonePage.placement = 'Tile';
+  }
+  if (typeof cfg.settings.pega_marketing.offerPage.placement === 'undefined') {
+    cfg.settings.pega_marketing.offerPage.placement = 'Hero,Tile,Tile,Tile';
+  }
+  if (typeof cfg.settings.pega_marketing.homePage.clickaction === 'undefined') {
+    cfg.settings.pega_marketing.homePage.clickaction = 'Mashup';
+  }
+  if (typeof cfg.settings.pega_marketing.accountPage.clickaction === 'undefined') {
+    cfg.settings.pega_marketing.accountPage.clickaction = 'Mashup';
+  }
+  if (typeof cfg.settings.pega_marketing.phonePage.clickaction === 'undefined') {
+    cfg.settings.pega_marketing.phonePage.clickaction = 'Mashup';
+  }
+  if (typeof cfg.settings.pega_marketing.offerPage.clickaction === 'undefined') {
+    cfg.settings.pega_marketing.offerPage.clickaction = 'Mashup';
   }
   return cfg;
 };
 
 const parseResponseData = (Context, type, OffersList) => {
   let maxOffers = OffersList.length;
-  if (Context.settings.pega_marketing[type] && Context.settings.pega_marketing[type].maxOffers) {
-    maxOffers = parseInt(Context.settings.pega_marketing[type].maxOffers, 10);
+  if (Context.settings.pega_marketing[type] && Context.settings.pega_marketing[type].placement) {
+    maxOffers = Context.settings.pega_marketing[type].placement.split(',').length;
     if (maxOffers > OffersList.length) {
       maxOffers = OffersList.length;
     }
   }
   for (let i = 0; i < maxOffers; i++) {
-    let imgurl = OffersList[i].ImageURL;
+    let imgurl = OffersList[i].ImageURL.trim();
     if (!imgurl.startsWith('http')) {
       // expect the file to be hosted on this server
       imgurl = imgurl.replace('webwb/', './img/').replace('web/', './img/');
     }
-    Context.data[i] = {
+    if (imgurl === '') {
+      imgurl = 'img/option-1.jpg';
+    }
+    Context.data.push({
       img: imgurl,
+      placement: OffersList[i].Placement,
       title: OffersList[i].Label,
       message: OffersList[i].ShortDescription,
       link: 'learnmore',
       url: OffersList[i].ClickThroughURL,
-    };
+      name: OffersList[i].Name,
+    });
   }
   Context.loading = false;
 };
 
-const initNBAM = function initNBAM(Context, type, customerID) {
+const initNBAM = function initNBAM(Context, type, customerID, previousPage, currentPage) {
   if (typeof getNBAMServiceControl !== 'undefined') {
     const nbamServiceCtrl = getNBAMServiceControl('V2', false);
     nbamServiceCtrl.initialize(Context.settings.pega_marketing.Host, Context.settings.pega_marketing.Port);
-    const currentPage = 'index.html';
-    const previousPage = 'index.html';
     let containerName = 'TopOffers';
     if (Context.settings.pega_marketing[type] && Context.settings.pega_marketing[type].containerName) {
       containerName = Context.settings.pega_marketing[type].containerName;
     }
-    nbamServiceCtrl.getOffers(customerID, containerName, 'Web', previousPage, currentPage, (data) => {
-      data.RankedResults = data.ContainerList[0].RankedResults;
-      if (data.OffersList && data.OffersList.length > 0) {
-        parseResponseData(Context, type, data.OffersList);
-      } else if (data.RankedResults && data.RankedResults.length) {
-        parseResponseData(Context, type, data.RankedResults);
-      }
-    });
+    let placement = 'Tile';
+    if (Context.settings.pega_marketing[type] && Context.settings.pega_marketing[type].placement) {
+      placement = Context.settings.pega_marketing[type].placement;
+    }
+    nbamServiceCtrl.getOffers(
+      customerID,
+      containerName,
+      'Web',
+      previousPage,
+      currentPage,
+      (data) => {
+        data.RankedResults = data.ContainerList[0].RankedResults;
+        if (data.OffersList && data.OffersList.length > 0) {
+          parseResponseData(Context, type, data.OffersList);
+        } else if (data.RankedResults && data.RankedResults.length > 0) {
+          parseResponseData(Context, type, data.RankedResults);
+        }
+      },
+      placement,
+    );
   } else {
-    setTimeout(initNBAM(Context, type, customerID), 200);
+    setTimeout(initNBAM(Context, type, customerID, previousPage, currentPage), 200);
   }
 };
 
@@ -166,6 +219,7 @@ let mainconfigTmp = Object.assign(
     app,
     isMobilePhone,
     offerURL: '',
+    previousPage: '',
     isAuthenticated: false,
     isSidePanelVisible: false,
     phonePageName: 'home',
@@ -173,6 +227,7 @@ let mainconfigTmp = Object.assign(
     quickLinkId: -1,
     viewBill: -1,
     toDo: -1,
+    viewKMHelp: -1,
     homeHeroAction: -1,
     currentLocale: settings.i18n.defaultlocale,
   },

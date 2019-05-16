@@ -20,6 +20,8 @@
         v-bind:img="item.img"
         v-bind:url="item.url"
         v-bind:link="$t('message.' + item.link)"
+        v-bind:name="item.name"
+        v-bind:clickaction="settings.pega_marketing.accountPage.clickaction"
       />
     </div>
     <QuickLinks/>
@@ -43,15 +45,24 @@ export default {
     });
   },
   mounted() {
-    if (this.settings.pega_marketing.Host !== '') {
+    if (
+      this.settings.pega_marketing.Host !== '' &&
+      this.settings.pega_marketing.accountPage.placement !== '' &&
+      this.settings.pega_marketing.accountPage.containerName !== ''
+    ) {
       const self = this;
-      let subscriberID = '';
-      if (this.userId !== -1 && this.settings.users[this.userId].subscriberID) {
-        subscriberID = this.settings.users[this.userId].subscriberID;
+      let customerID = '';
+      if (this.userId !== -1 && this.settings.users[this.userId].customerID) {
+        customerID = this.settings.users[this.userId].customerID;
       }
-
       setTimeout(() => {
-        initNBAM(self, 'accountPage', subscriberID);
+        initNBAM(
+          self,
+          'accountPage',
+          customerID,
+          self.previousPage,
+          'account.html',
+        );
       }, 200);
     }
   },

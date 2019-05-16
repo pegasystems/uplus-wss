@@ -1,14 +1,21 @@
 <template>
   <main class="home flex flex-col">
-    <MainOffer/>
-    <Cards/>
+    <iframe
+      v-if="offerURL!==''"
+      :src="offerURL"
+      style="overflow: hidden; height: 570px"
+      width="100%"
+      height="100%"
+      border="0"
+      frameborder="0"
+    ></iframe>
+    <MainOffer v-else/>
   </main>
 </template>
 
 <script>
 import { mainconfig } from '../../global';
 import MainOffer from '../offer/MainOffer.vue';
-import Cards from '../offer/Cards.vue';
 
 export default {
   data() {
@@ -16,7 +23,6 @@ export default {
   },
   components: {
     MainOffer,
-    Cards,
   },
 };
 </script>

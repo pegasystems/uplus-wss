@@ -27,11 +27,11 @@
       <tab v-if="typeof settings.pega_chat != 'undefined' && !isMobilePhone" name="Pega Chat">
         <ChatSettings/>
       </tab>
-      <tab
-        v-if="typeof settings.pega_marketing != 'undefined' && !isMobilePhone"
-        name="Pega Marketing"
-      >
+      <tab v-if="typeof settings.pega_marketing != 'undefined'" name="Pega Marketing">
         <NBAMSettings/>
+      </tab>
+      <tab v-if="typeof settings.kmhelp != 'undefined' && !isMobilePhone" name="KM Help">
+        <KMHelpSettings/>
       </tab>
     </tabs>
   </form>
@@ -43,6 +43,7 @@ import Tab from '../controls/Tab.vue';
 import Tabs from '../controls/Tabs.vue';
 import QuickLinksSettings from './QuickLinksSettings.vue';
 import BillPaySettings from './BillPaySettings.vue';
+import KMHelpSettings from './KMHelpSettings.vue';
 import ToDoSettings from './ToDoSettings.vue';
 import HomeHeroActionSettings from './HomeHeroActionSettings.vue';
 import UsersSettings from './UsersSettings.vue';
@@ -78,6 +79,7 @@ export default {
     ToDoSettings,
     HomeHeroActionSettings,
     UsersSettings,
+    KMHelpSettings,
     ChatSettings,
     NBAMSettings,
     TopNav,

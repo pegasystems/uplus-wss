@@ -24,6 +24,7 @@ export default {
   methods: {
     selectLink(index) {
       this.quickLinkId = index;
+      this.previousPage = this.settings.quicklinks[index].objclass;
     },
   },
 };

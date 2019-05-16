@@ -6,7 +6,7 @@
         v-bind:style="{ backgroundImage: 'url(./img/' + item.image + ')', 'order': '' + (index%2) }"
       ></div>
       <div class="details">
-        <h4>{{ $t('message.' + item.title)}}</h4>
+        <h2>{{ $t('message.' + item.title)}}</h2>
         <span class="background-brand line"></span>
         <span>{{ $t('message.' + item.message)}}</span>
       </div>

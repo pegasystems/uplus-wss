@@ -1,6 +1,6 @@
 <template>
   <header class="flex flex-col">
-    <div class="wrap header flex flex-mid-align">
+    <div class="wrap header flex">
       <a href="#">
         <img v-on:click="goHomePage" class="logo" :src="('./img/u+-logo.svg')" alt="U+">
       </a>
@@ -14,25 +14,15 @@
           ></MenuItem>
         </ul>
       </nav>
+      <a
+        href="#"
+        class="margin-r-2x"
+        v-if="isAuthenticated && settings.kmhelp.url !==''"
+        v-on:click="showKMHelp"
+      >{{ $t('message.kmhelp') }}</a>
       <OperatorButton v-if="isAuthenticated"/>
       <LoginButton v-else/>
       <MainHeaderMenu/>
-    </div>
-    <div
-      v-if="!isAuthenticated && homeHeroAction!=1 && offerURL===''"
-      class="wrap hero-wrap flex flex-col"
-    >
-      <div>
-        <h1 class="hero">
-          {{ $t('message.' + app.herotext.title)}}
-          <br>
-          {{ $t('message.' + app.herotext.titlespan)}}
-        </h1>
-        <button
-          v-on:click="applyHeroAction"
-          class="more"
-        >{{ $t('message.' + app.herotext.buttonlabel) }}</button>
-      </div>
     </div>
   </header>
 </template>
@@ -54,10 +44,12 @@ export default {
       mainconfig.viewBill = -1;
       mainconfig.homeHeroAction = -1;
       mainconfig.toDo = -1;
+      mainconfig.viewKMHelp = -1;
       mainconfig.offerURL = '';
+      mainconfig.previousPage = '';
     },
-    applyHeroAction() {
-      mainconfig.homeHeroAction = 1;
+    showKMHelp() {
+      mainconfig.viewKMHelp = 1;
     },
   },
   components: {

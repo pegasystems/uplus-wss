@@ -25,6 +25,7 @@ export default {
     goToHome() {
       mainconfig.phonePageName = 'home';
       mainconfig.quickLinkId = -1;
+      mainconfig.offerURL = '';
     },
   },
   components: {

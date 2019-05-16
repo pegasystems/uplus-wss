@@ -1,18 +1,20 @@
 <template>
-  <main class="wrap flex flex-col">
+  <main v-if="offerURL === ''" class="wrap flex flex-col">
     <MainOffer/>
-    <Cards/>
     <Details/>
     <Highlight/>
+  </main>
+  <main v-else class="wrap flex flex-col">
+    <MicroSiteMainArea/>
   </main>
 </template>
 
 <script>
 import { mainconfig } from '../../global';
 import MainOffer from './MainOffer.vue';
-import Cards from './Cards.vue';
 import Details from './Details.vue';
 import Highlight from './Highlight.vue';
+import MicroSiteMainArea from '../MicroSiteMainArea.vue';
 
 export default {
   data() {
@@ -20,9 +22,9 @@ export default {
   },
   components: {
     MainOffer,
-    Cards,
     Details,
     Highlight,
+    MicroSiteMainArea,
   },
 };
 </script>

@@ -35,8 +35,8 @@
         <input :id="'user-' + index + '-contactid'" type="text" v-model="item.contactID">
       </div>
       <div class="field-item">
-        <label :for="'user-' + index + '-subscriberid'">Subscriber ID (for PegaMkt)</label>
-        <input :id="'user-' + index + '-subscriberid'" type="text" v-model="item.subscriberID">
+        <label :for="'user-' + index + '-customerid'">Customer ID (for PegaMkt)</label>
+        <input :id="'user-' + index + '-customerid'" type="text" v-model="item.customerID">
       </div>
       <div class="field-item">
         <label :for="'user-' + index + '-extraparam'">Extra params (comma separated)</label>

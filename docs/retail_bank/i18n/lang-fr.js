@@ -150,6 +150,7 @@ window.langFR = {
   offer_highlights_data3_title: 'Prix',
   offer_highlights_data3_msg:
     'Un minimum de 100 USD pour ouvrir votre compte. Vous pouvez virer des fonds par virement électronique, par courrier, par chèque, par virement mobile ou par virement.',
+  kmhelp: 'Aide',
 };
 
 window.dateFormatFR = {

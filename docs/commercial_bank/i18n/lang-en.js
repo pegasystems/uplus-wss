@@ -141,6 +141,10 @@ window.langEN = {
   income_and_cost: 'Income and cost',
   cash_and_balance: 'Cash and balance',
   cash_projections: 'Cash projections',
+  kmhelp: 'Help',
+  accounts_header_col1: 'Uplus: Deposits account',
+  investmentaccounts_header_col1: 'US Asset Management, LLC: Investment accounts',
+  addaccount: '+ Add account',
 };
 
 window.dateFormatEN = {

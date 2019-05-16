@@ -16,7 +16,7 @@ body > #app.form.offer {
 }
 
 .offer > main {
-  margin-top: -100rem;
+  margin-top: -140rem;
   color: #414949;
   max-width: 730rem;
 }
@@ -42,6 +42,10 @@ body > #app.form.offer {
 .offer-footer footer ul.flex > a,
 .offer-footer button.simple {
   color: #fff;
+}
+.offer-footer .promo h4 {
+  font-weight: normal;
+  padding-bottom: 30rem;
 }
 
 .offer-footer p {
@@ -114,6 +118,9 @@ body > #app.form.offer {
   background-size: cover;
   height: 300rem;
   margin-bottom: 32rem;
+  padding: 0;
+  width: 300rem;
+  border-radius: 50%;
 }
 
 .offer-details > div > div {

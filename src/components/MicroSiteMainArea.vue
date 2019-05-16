@@ -1,6 +1,5 @@
 <template>
   <section class="flex flex-col">
-    <div data-pega-gadgetname="MarketingMicrosite"></div>
     <iframe
       :src="offerURL"
       style="overflow: hidden; height: 570px"

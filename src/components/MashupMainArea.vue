@@ -155,6 +155,14 @@ export default {
       this.startCase = this.settings.homeheroaction.startcase;
       this.appName = this.settings.homeheroaction.application;
       this.extraParam = this.settings.homeheroaction.extraparam;
+    } else if (this.viewKMHelp !== -1) {
+      this.actionName = this.settings.kmhelp.action;
+      this.actionNameParam = this.settings.kmhelp.actionparam;
+      this.serverUrl = this.settings.kmhelp.url;
+      this.objClass = this.settings.kmhelp.objclass;
+      this.startCase = this.settings.kmhelp.startcase;
+      this.appName = this.settings.kmhelp.application;
+      this.extraParam = this.settings.kmhelp.extraparam;
     } else {
       isInAccoutPage = true;
       this.actionName = this.settings.todo.action;
@@ -204,12 +212,12 @@ export default {
           this.userId
         ].accountID;
       }
-      if (this.settings.users[this.userId].subscriberID) {
-        tmpActionParam.SubscriberID = this.settings.users[
-          this.userId
-        ].subscriberID;
+      if (this.settings.users[this.userId].customerID) {
+        tmpActionParam.customerID = this.settings.users[this.userId].customerID;
       }
-      if (this.settings.users[this.userId].contactID) tmpActionParam.ContactId = this.settings.users[this.userId].contactID;
+      if (this.settings.users[this.userId].contactID) {
+        tmpActionParam.ContactId = this.settings.users[this.userId].contactID;
+      }
     } else if (this.homeHeroAction !== -1) {
       tmpActionParam.UserIdentifier = this.settings.homeheroaction.pega_userid;
       tmpActionParam.Password = encodeURI(

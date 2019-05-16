@@ -1,6 +1,12 @@
 /*************************************************/
 /* Responsive behavior */
 /*************************************************/
+@media screen and (max-width: 1400px) {
+  html {
+    zoom: 0.8;
+  }
+}
+
 @media screen and (max-width: 1023px) {
   header ul.flex li {
     margin-right: 16rem;
@@ -78,8 +84,15 @@
     font-size: 40rem;
   }
 
-  .front header {
+  .front > header {
     height: 300rem;
+  }
+
+  .front > main {
+    margin-top: -200rem;
+  }
+  .front .hero-wrap {
+    height: 200rem;
   }
 
   .launch-login {
@@ -272,14 +285,8 @@
     padding: 21rem 35rem;
   }
 
-  .offer-details > .flex {
-    flex-flow: column nowrap;
-    margin-bottom: 16rem;
-  }
-
   .offer-details > div > div,
   .offer-details > div > .image {
-    width: 100%;
     padding: 0;
     margin-bottom: 0;
   }

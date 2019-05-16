@@ -6,10 +6,8 @@
 }
 
 .logo {
-  height: 50rem;
-  vertical-align: middle;
+  height: 30rem;
   margin-right: 35rem;
-  padding: 10rem 0;
 }
 
 label {
@@ -189,7 +187,7 @@ button,
   cursor: pointer;
 }
 
-header button.more {
+button.more {
   height: 50rem;
 }
 
@@ -198,10 +196,10 @@ button.launch-login {
   margin-bottom: 3px;
 }
 
-header button.more,
-header button.more:hover,
-header button.more:active,
-header button.more:focus,
+button.more,
+button.more:hover,
+button.more:active,
+button.more:focus,
 button.launch-login,
 button.launch-login:hover,
 button.launch-login:active,
@@ -220,36 +218,28 @@ button.launch-menu {
   min-width: 100rem;
 }
 
-button:hover,
-.button:hover {
+button:hover {
   border-color: #224fb6;
 }
 
 button,
-.button,
 button:hover,
-.button:hover,
 button:focus,
-.button:focus,
-button:active,
-.button:active {
+button:active {
   color: #fff;
   text-decoration: none;
 }
 
-button.secondary,
-.button.secondary {
-  border: 1rem solid currentColor;
+button.secondary {
+  border: none;
   background: #fff;
 }
 
-button.secondary:hover,
-.button.secondary:hover {
-  border-color: currentColor;
+button.secondary:hover {
+  border: none;
 }
 
-button.tertiary,
-.button.tertiary {
+button.tertiary {
   background: none;
   border-color: rgba(41, 94, 217, 0);
   min-width: 40rem;

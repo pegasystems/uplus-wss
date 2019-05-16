@@ -31,7 +31,7 @@ body > #app.form.landing {
 }
 
 .landing-cards {
-  margin-top: 55rem;
+  margin-top: 75rem;
 }
 
 .landing-intro .pi {
@@ -60,6 +60,7 @@ body > #app.form.landing {
 }
 
 .landing-cards p {
+  margin-top: 16rem;
   font-size: 18rem;
   font-weight: 800;
   color: #414949;
@@ -96,6 +97,12 @@ body > #app.form.landing {
 .landing-footer footer ul.flex > a,
 .landing-footer p {
   color: #fff;
+}
+
+.landing-footer .promo h4 {
+  color: #fff;
+  font-weight: normal;
+  padding-bottom: 30rem;
 }
 
 .landing-benefits {
