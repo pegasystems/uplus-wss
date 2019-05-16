@@ -209,3 +209,24 @@ time.fatlist-item {
 .keyrates h4 ~ table tr {
   font-size: 20rem;
 }
+
+.cash-projections > div {
+  align-items: center;
+}
+
+.cash-projections h2 {
+  margin: 0 auto 0 0;
+}
+.cash-projections span {
+  font-size: 20rem;
+  color: #000;
+}
+
+.cash-projections > div > div {
+  margin-left: 20rem;
+}
+
+.cash-projections > svg {
+  border: 1px solid #ccc;
+  margin-top: 20rem;
+}

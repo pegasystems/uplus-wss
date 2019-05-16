@@ -134,6 +134,13 @@ window.langEN = {
   keyrates_header_col1: 'This week',
   keyrates_header_col2: '52 wk high',
   keyrates_header_col3: '52 wk low',
+  cash_predition: 'Cash prediction',
+  cash_balance: 'Cash balance',
+  cost: 'Cost',
+  income: 'Income',
+  income_and_cost: 'Income and cost',
+  cash_and_balance: 'Cash and balance',
+  cash_projections: 'Cash projections',
 };
 
 window.dateFormatEN = {
@@ -149,6 +156,9 @@ window.dateFormatEN = {
     weekday: 'short',
     hour: 'numeric',
     minute: 'numeric',
+  },
+  month_only: {
+    month: 'short',
   },
 };
 

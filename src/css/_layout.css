@@ -467,6 +467,14 @@ footer ul.flex {
   float: right;
 }
 
+.margin-r-auto {
+  margin-right: auto;
+}
+
+.margin-l-auto {
+  margin-left: auto;
+}
+
 .width-100-pct {
   width: 100%;
 }
