@@ -26,7 +26,15 @@
 }
 
 .front > main {
-  margin-top: -500rem;
+  margin-top: -600rem;
+}
+
+.front .hero-wrap {
+  height: 600rem;
+}
+
+.hero-wrap button.more {
+  width: 150rem;
 }
 
 .form > header {
@@ -197,14 +205,6 @@ header ul.flex li {
 .hero-wrap {
   flex-grow: 1;
   justify-content: center;
-}
-
-.front .hero-wrap {
-  height: 500rem;
-}
-
-.hero-wrap button.more {
-  width: 150rem;
 }
 
 main,

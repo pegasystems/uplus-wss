@@ -22,6 +22,14 @@
     height: 500rem;
   }
 
+  .front > main {
+    margin-top: -400rem;
+  }
+
+  .front .hero-wrap {
+    height: 400rem;
+  }
+
   h2,
   .col-2 h3 {
     font-size: 20rem;
