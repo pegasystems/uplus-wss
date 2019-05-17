@@ -96,15 +96,15 @@ window.app = {
       title: 'landing_header_title',
       promotions: [
         {
-          icon: 'pi-chevron-solid',
+          icon: 'pi-cancel',
           message: 'landing_header_promotion1',
         },
         {
-          icon: 'pi-chevron-solid',
+          icon: 'pi-money',
           message: 'landing_header_promotion2',
         },
         {
-          icon: 'pi-chevron-solid',
+          icon: 'pi-mobile-phone',
           message: 'landing_header_promotion3',
         },
       ],
@@ -129,17 +129,17 @@ window.app = {
       title: 'landing_cards_title',
       data: [
         {
-          icon: 'pi-chevron-solid',
+          icon: 'pi-cancel',
           title: 'landing_cards_data1_title',
           message: 'landing_cards_data1_message',
         },
         {
-          icon: 'pi-triangle-solid',
+          icon: 'pi-money',
           title: 'landing_cards_data2_title',
           message: 'landing_cards_data2_message',
         },
         {
-          icon: 'pi-bolt-solid',
+          icon: 'pi-mobile-phone',
           title: 'landing_cards_data3_title',
           message: 'landing_cards_data3_message',
         },
@@ -161,11 +161,11 @@ window.app = {
       title: 'landing_benefits_title',
       data: [
         {
-          icon: 'pi-passbook',
+          icon: 'pi-piggybank',
           message: 'landing_benefits_data1_message',
         },
         {
-          icon: 'pi-information-solid',
+          icon: 'pi-clock',
           message: 'landing_benefits_data2_message',
         },
         {
@@ -173,15 +173,15 @@ window.app = {
           message: 'landing_benefits_data3_message',
         },
         {
-          icon: 'pi-bolt',
+          icon: 'pi-mobile-phone',
           message: 'landing_benefits_data4_message',
         },
         {
-          icon: 'pi-disc-stack',
+          icon: 'pi-lock-closed',
           message: 'landing_benefits_data5_message',
         },
         {
-          icon: 'pi-bolt',
+          icon: 'pi-cancel',
           message: 'landing_benefits_data6_message',
         },
       ],
@@ -232,17 +232,17 @@ window.app = {
     highlights: {
       data: [
         {
-          icon: 'pi-chevron-solid',
+          icon: 'pi-piggybank',
           title: 'offer_highlights_data1_title',
           message: 'offer_highlights_data1_msg',
         },
         {
-          icon: 'pi-triangle-solid',
+          icon: 'pi-money-send',
           title: 'offer_highlights_data2_title',
           message: 'offer_highlights_data2_msg',
         },
         {
-          icon: 'pi-bolt-solid',
+          icon: 'pi-dollar-sign',
           title: 'offer_highlights_data3_title',
           message: 'offer_highlights_data3_msg',
         },
