@@ -2,22 +2,31 @@
   <section>
     <div class="header flex flex-mid-align">
       <h2>{{ $t("message.accounts") }}</h2>
-      <input type="text" class="filter" value="Search..." placeholder="Search past services">
+      <input
+        type="text"
+        class="filter"
+        :value="$t('message.search')"
+        :placeholder="$t('message.search_past_services')"
+      >
       <i class="pi pi-search"></i>
     </div>
-    <table v-if="userId!=-1" class="content responsive">
+    <table v-if="userId!=-1" class="content responsive color-heading">
       <thead>
         <tr>
-          <th>Account number</th>
-          <th>Name</th>
-          <th>Type</th>
-          <th class="align-r">Balance</th>
+          <th>{{ $t('message.accounts_header1') }}</th>
+          <th>{{ $t('message.accounts_header2') }}</th>
+          <th>{{ $t('message.accounts_header3') }}</th>
+          <th class="align-r">{{ $t('message.accounts_header4') }}</th>
         </tr>
       </thead>
       <tbody>
-        <tr bgcolor="#f1f1f1">
-          <th colspan="2">{{ $t("message.accounts_header_col1") }}</th>
-          <th colspan="2" class="align-r">$1,679,072.63</th>
+        <tr class="heading">
+          <td class="hide-collapsed" colspan="2">{{ $t("message.accounts_header_col1") }}</td>
+          <td
+            :data-title="$t('message.accounts_header_col1')"
+            colspan="2"
+            class="align-r"
+          >$1,679,072.63</td>
         </tr>
 
         <tr
@@ -25,17 +34,24 @@
           v-bind:key="item.id"
           v-bind:title="item.id"
         >
-          <td data-title="Account number">
+          <td :data-title="$t('message.accounts_header1')" class="space-nowrap">
             <a>{{ item.number }}</a>
           </td>
-          <td data-title="Name">{{ item.name }}</td>
-          <td data-title="Type">{{ item.type }}</td>
-          <td data-title="Balance" class="align-r">{{ $n(item.balance, 'currency') }}</td>
+          <td :data-title="$t('message.accounts_header2')" class="space-nowrap">{{ item.name }}</td>
+          <td :data-title="$t('message.accounts_header3')" class="space-nowrap">{{ item.type }}</td>
+          <td
+            :data-title="$t('message.accounts_header4')"
+            class="align-r"
+          >{{ $n(item.balance, 'currency') }}</td>
         </tr>
 
-        <tr bgcolor="#f1f1f1">
-          <th colspan="2">{{ $t("message.investmentaccounts_header_col1") }}</th>
-          <th colspan="2" class="align-r">$141,216,865.42</th>
+        <tr class="heading">
+          <td class="hide-collapsed" colspan="2">{{ $t("message.investmentaccounts_header_col1") }}</td>
+          <td
+            :data-title="$t('message.investmentaccounts_header_col1')"
+            colspan="2"
+            class="align-r"
+          >$141,216,865.42</td>
         </tr>
 
         <tr
@@ -43,23 +59,25 @@
           v-bind:key="item.id"
           v-bind:title="item.id"
         >
-          <td data-title="Account number">
+          <td :data-title="$t('message.accounts_header1')" class="space-nowrap">
             <a>{{ item.number }}</a>
           </td>
-          <td data-title="Name">{{ item.name }}</td>
-          <td data-title="Type">{{ item.type }}</td>
-          <td data-title="Balance" class="align-r">
-            <span style="font-size:10px">
-              <i v-if="item.trend==='green'" class="pi pi-arrow-up pi-success"></i>
-              <i v-if="item.trend==='red'" class="pi pi-arrow-down pi-error"></i>
-              <span v-if="item.trend==='green'" style="color:green">{{ item.trendvalue}}%</span>
-              <span v-if="item.trend==='red'" style="color:green">{{ item.trendvalue}}%</span>
+          <td :data-title="$t('message.accounts_header2')" class="space-nowrap">{{ item.name }}</td>
+          <td :data-title="$t('message.accounts_header3')" class="space-nowrap">{{ item.type }}</td>
+          <td :data-title="$t('message.accounts_header4')" class="align-r space-nowrap">
+            <span class="trend success" v-if="item.trend==='green'">
+              <i class="pi pi-arrow-up pi-success"></i>
+              {{ item.trendvalue}}%
+            </span>
+            <span class="trend error" v-else>
+              <i class="pi pi-arrow-down pi-error"></i>
+              {{ item.trendvalue}}%
             </span>
             {{ $n(item.balance, 'currency') }}
           </td>
         </tr>
-        <tr bgcolor="#f1f1f1">
-          <td colspan="4">
+        <tr class="heading">
+          <td colspan="4" class="space-nowrap">
             <a>{{ $t("message.addaccount") }}</a>
           </td>
         </tr>

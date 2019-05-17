@@ -165,6 +165,7 @@ h3.account-type {
 table.align-center th,
 table.align-center td {
   text-align: center;
+  width: 33.3333%;
 }
 
 table.color-light tr {
@@ -175,6 +176,16 @@ table.color-light td {
   border: 1px solid #ffffff;
   padding: 8px;
   color: #000;
+}
+
+table.color-heading tr.heading {
+  background: #f1f1f1;
+  font-size: 12rem;
+  height: 45rem;
+}
+
+table.color-heading .trend {
+  font-size: 10rem;
 }
 
 p {

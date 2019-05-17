@@ -16,7 +16,7 @@
       <h4>{{ $t("message." + item.name )}}</h4>
       <table class="align-center color-light">
         <tr>
-          <td>
+          <td class="space-nowrap">
             <i v-if="item.trend==='green'" class="pi pi-arrow-up pi-success"></i>
             <i v-if="item.trend==='red'" class="pi pi-arrow-down pi-error"></i>
             {{ $n(item.current, 'keyrates') }}

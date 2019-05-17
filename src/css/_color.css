@@ -62,6 +62,13 @@ a:active {
   color: #ff0900e6;
   font-weight: 700 !important;
 }
+
+.success {
+  color: #3c8712;
+  font-size: 18rem;
+  font-weight: 700;
+}
+
 .pi.pi-success {
   color: #3c8712;
   font-weight: 700 !important;

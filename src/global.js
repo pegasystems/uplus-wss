@@ -261,11 +261,11 @@ const PegaCSWSS = {
 
 window.PegaCSWSS = PegaCSWSS;
 
-// We don't show chat and CoBrowse on the settings page and on a mobile phone
+// We don't show chat and CoBrowse on the settings page
 if (
   typeof mainconfigTmp.settings.pega_chat !== 'undefined' &&
   mainconfigTmp.settings.pega_chat.MashupURL !== '' &&
-  !`${window.location}`.endsWith('settings.html')
+  `${window.location}`.indexOf('/settings.html') === -1
 ) {
   const scriptLoad = document.createElement('script');
   scriptLoad.setAttribute('src', '../js/jquery-min.js');
@@ -323,6 +323,15 @@ if (queryDict.username || queryDict.pega_userid) {
     ) {
       mainconfigTmp.isAuthenticated = true;
       mainconfigTmp.userId = i;
+      break;
+    }
+  }
+}
+/* check if quicklinkclass is passed as parameter */
+if (queryDict.quicklinkclass) {
+  for (const i in mainconfigTmp.settings.quicklinks) {
+    if (mainconfigTmp.settings.quicklinks[i].objclass === queryDict.quicklinkclass) {
+      mainconfigTmp.quickLinkId = i;
       break;
     }
   }

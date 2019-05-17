@@ -177,7 +177,6 @@
   .responsive td {
     border: none;
     position: relative;
-    white-space: normal;
     text-align: left;
     padding: 3rem 0 3rem 60%;
   }
@@ -192,6 +191,10 @@
 
   .responsive td:before {
     content: attr(data-title);
+  }
+
+  .responsive td.hide-collapsed {
+    display: none;
   }
 }
 

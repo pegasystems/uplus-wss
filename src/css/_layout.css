@@ -26,7 +26,7 @@
 }
 
 .front > main {
-  margin-top: -400rem;
+  margin-top: -500rem;
 }
 
 .form > header {
@@ -84,6 +84,10 @@
   align-items: center;
 }
 
+.space-nowrap {
+  white-space: nowrap;
+}
+
 a.km {
   margin-right: 21rem;
 }
@@ -105,7 +109,7 @@ body {
 
 .wrap {
   width: 100%;
-  max-width: 1416rem;
+  max-width: 1200rem;
   padding: 0 21rem;
   margin: 0 auto 16rem auto;
 }
@@ -196,7 +200,7 @@ header ul.flex li {
 }
 
 .front .hero-wrap {
-  height: 400rem;
+  height: 500rem;
 }
 
 .hero-wrap button.more {

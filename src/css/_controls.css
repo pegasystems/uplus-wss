@@ -406,6 +406,7 @@ td.align-r {
   border-bottom: 1px solid #dedede;
   margin: 0 -12rem 8rem auto;
   max-width: 50%;
+  color: #000;
 }
 
 .pi.pi-search {

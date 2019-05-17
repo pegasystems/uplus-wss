@@ -46,7 +46,6 @@ export default {
       mainconfig.toDo = -1;
       mainconfig.viewKMHelp = -1;
       mainconfig.offerURL = '';
-      mainconfig.previousPage = '';
     },
     showKMHelp() {
       mainconfig.viewKMHelp = 1;
