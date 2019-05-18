@@ -236,8 +236,14 @@ time.fatlist-item {
 }
 
 .cash-projections h2 {
-  margin: 0 auto 0 0;
+  margin: -23px auto 0 0;
 }
+
+.cash-projections h4.dropdown {
+  margin-top: -25px;
+  color: #295ed9;
+}
+
 .cash-projections span {
   font-size: 20rem;
   color: #000;
@@ -249,5 +255,5 @@ time.fatlist-item {
 
 .cash-projections > svg {
   border: 1px solid #ccc;
-  margin-top: 20rem;
+  margin-top: 10rem;
 }
