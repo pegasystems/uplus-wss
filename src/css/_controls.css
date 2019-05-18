@@ -383,14 +383,13 @@ header .menu-overlay a {
 table {
   width: 100%;
   border-collapse: collapse;
-  border: none;
+  border: 1px solid #dedede;
   color: #939393;
 }
 
 th,
 td {
   padding: 14rem;
-  border-bottom: 1px solid #dedede;
   color: #414949;
   text-align: left;
   width: 20%;
