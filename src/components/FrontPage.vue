@@ -1,14 +1,14 @@
 <template>
   <div v-if="homeHeroAction==1" class="form">
     <MainHeader/>
-    <main class="wrap">
+    <main class="wrap flex flex-col">
       <MashupMainArea/>
     </main>
     <MainFooter/>
   </div>
   <div v-else-if="offerURL!==''" class="form">
     <MainHeader/>
-    <main class="wrap">
+    <main class="wrap flex flex-col">
       <MicroSiteMainArea/>
     </main>
     <MainFooter/>

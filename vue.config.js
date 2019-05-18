@@ -16,6 +16,13 @@ module.exports = {
       title: 'U+ Commercial Bank',
       chunks: ['chunk-vendors', 'chunk-common', 'commercial_bank'],
     },
+    commercial_bankaccount: {
+      entry: 'src/main.js',
+      template: 'public/commercial_bank/index.html',
+      filename: 'commercial_bank/account.html',
+      title: 'U+ Commercial Bank',
+      chunks: ['chunk-vendors', 'chunk-common', 'commercial_bank'],
+    },
     commercial_banksettings: {
       entry: 'src/settings.js',
       template: 'public/commercial_bank/index.html',
