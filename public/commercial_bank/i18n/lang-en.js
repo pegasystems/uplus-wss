@@ -151,6 +151,7 @@ window.langEN = {
   addaccount: '+ Add account',
   search: 'Search...',
   search_past_services: 'Search past services',
+  cash_projections_dropdown: 'Past 5 months',
 };
 
 window.dateFormatEN = {
