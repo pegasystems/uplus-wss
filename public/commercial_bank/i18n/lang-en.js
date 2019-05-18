@@ -146,10 +146,10 @@ window.langEN = {
   accounts_header2: 'Name',
   accounts_header3: 'Type',
   accounts_header4: 'Balance',
-  accounts_header_col1: 'Uplus: Deposits account',
+  accounts_header_col1: 'UPlus: Deposits account',
   investmentaccounts_header_col1: 'US Asset Management, LLC: Investment accounts',
   addaccount: '+ Add account',
-  search: 'Search',
+  search: 'Search...',
   search_past_services: 'Search past services',
 };
 
