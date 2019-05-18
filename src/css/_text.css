@@ -178,9 +178,19 @@ table.color-light td {
   color: #000;
 }
 
+table.color-heading {
+border: 1px solid #dedede;
+}
+
 table.color-heading tr.heading {
   background: #f1f1f1;
   font-size: 12rem;
+  height: 45rem;
+  font-weight: bold; 
+}
+
+table.color-heading tr.footer {
+  background: #f1f1f1;
   height: 45rem;
 }
 

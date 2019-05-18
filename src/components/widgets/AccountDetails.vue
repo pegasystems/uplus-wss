@@ -76,7 +76,7 @@
             {{ $n(item.balance, 'currency') }}
           </td>
         </tr>
-        <tr class="heading">
+        <tr class="footer">
           <td colspan="4" class="space-nowrap">
             <a>{{ $t("message.addaccount") }}</a>
           </td>
