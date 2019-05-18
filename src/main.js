@@ -4,9 +4,7 @@ import OfferDetail from './OfferDetail.vue';
 import Settings from './Settings.vue';
 import LandingPage from './LandingPage.vue';
 import './registerServiceWorker';
-import {
-  i18n,
-} from './global';
+import { mainconfig, i18n } from './global';
 
 const app = new Vue({
   el: '#app',
@@ -27,6 +25,24 @@ const app = new Vue({
   },
 });
 
-window.addEventListener('popstate', () => {
+window.addEventListener('popstate', (event) => {
+  console.log(event.state);
+  mainconfig.isAuthenticated = false;
+  mainconfig.userId = -1;
+  mainconfig.quickLinkId = -1;
+  mainconfig.viewBill = -1;
+  mainconfig.homeHeroAction = -1;
+  mainconfig.toDo = -1;
+  mainconfig.viewKMHelp = -1;
+  mainconfig.offerURL = '';
+  mainconfig.previousPage = '';
+  if (event.state === null || !event.state) return;
+  if (typeof event.state.userId !== 'undefined') {
+    mainconfig.userId = event.state.userId;
+    mainconfig.isAuthenticated = true;
+    if (typeof event.state.quickLinkId !== 'undefined') {
+      mainconfig.quickLinkId = event.state.quickLinkId;
+    }
+  }
   app.currentRoute = window.location.pathname;
 });

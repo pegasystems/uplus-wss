@@ -5,7 +5,6 @@
       <ul class="quick-links">
         <li v-for="(item,index) in settings.quicklinks" :key="index">
           <a
-            href="#"
             v-on:click="selectLink(index)"
           >{{ settings.quicklinks[index].title[currentLocale] }}</a>
         </li>
@@ -25,6 +24,7 @@ export default {
     selectLink(index) {
       this.quickLinkId = index;
       this.previousPage = this.settings.quicklinks[index].objclass;
+      window.history.pushState({ userId: mainconfig.userId, quickLinkId: mainconfig.quickLinkId }, '', `quicklink${index}.html`);
     },
   },
 };

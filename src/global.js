@@ -337,6 +337,13 @@ if (queryDict.quicklinkclass) {
   }
 }
 
+/* Read the current state */
+const currentState = window.history.state;
+if (mainconfigTmp.userId === -1 && currentState !== null && typeof currentState.userId !== 'undefined') {
+  mainconfigTmp.isAuthenticated = true;
+  mainconfigTmp.userId = currentState.userId;
+}
+
 const mainconfig = mainconfigTmp;
 export {
   mainconfig, i18n, upgradeConfig, initNBAM,

@@ -7,9 +7,11 @@
       :class="[isActive ? 'show' : 'hidden']"
     >
       <div class="field flex flex-col username">
-        <select id="username" type="text" v-model="username">
-          <option v-for="(item,index) in settings.users" v-bind:key="index" value:="item.username">{{item.username}}</option>
-          </select>
+        <select
+          id="username"
+          type="text"
+          v-model="username"
+        ><option v-for="(item,index) in settings.users" v-bind:key="index" value:="item.username">{{item.username}}</option></select>
         <label for="username">{{$t('message.username')}}</label>
       </div>
       <div class="field flex flex-col password">
@@ -48,8 +50,8 @@ export default {
     },
     onClickOutLoginOverlay(event) {
       if (
-        !event.target.classList.contains('launch-login')
-        && !event.target.classList.contains('launch-login-overlay')
+        !event.target.classList.contains('launch-login') &&
+        !event.target.classList.contains('launch-login-overlay')
       ) {
         this.isActive = false;
       }
@@ -60,23 +62,29 @@ export default {
       mainconfig.userId = -1;
       for (const i in this.settings.users) {
         if (
-          this.settings.users[i].username === this.username
-          && this.settings.users[i].password === this.password
+          this.settings.users[i].username === this.username &&
+          this.settings.users[i].password === this.password
         ) {
           isLoginSuccess = true;
           mainconfig.userId = i;
 
           /* Delete the preview gadget */
-          const elPreview = document.querySelector("[data-pega-gadgetname='PreviewGadget']");
+          const elPreview = document.querySelector(
+            "[data-pega-gadgetname='PreviewGadget']",
+          );
           if (elPreview != null) {
             elPreview.remove();
           }
 
           /* Update PegaChat and pass the correct ContactId, AccountNumber and username */
-          const el = document.querySelector("[data-pega-gadgetname='OnlineHelp'] > iframe");
+          const el = document.querySelector(
+            "[data-pega-gadgetname='OnlineHelp'] > iframe",
+          );
           if (el != null && typeof el.src === 'string') {
             const u = this.settings.users[i];
-            let updatedSrc = `${el.src}&ContactId=${u.contactID}&AccountNumber=${u.accountID}&username=${u.username}`;
+            let updatedSrc = `${el.src}&ContactId=${
+              u.contactID
+            }&AccountNumber=${u.accountID}&username=${u.username}`;
             if (updatedSrc.indexOf('timestamp') > -1) {
               updatedSrc = updatedSrc.replace(
                 /timestamp=[^&]+/,
@@ -95,6 +103,7 @@ export default {
         }
       }
       mainconfig.isAuthenticated = isLoginSuccess;
+      window.history.pushState({ userId: mainconfig.userId }, '', 'account.html');
 
       if (!isLoginSuccess) this.hasErrorMsg = true;
     },
