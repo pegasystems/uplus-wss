@@ -27,6 +27,9 @@
           </span>
         </div>
       </div>
+      <div>
+        <h4 class="dropdown">{{ $t('message.cash_projections_dropdown') }} &#xfe40; </h4>
+      </div>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 300">
         <g transform="translate(60,40)">
           <g
