@@ -1,5 +1,5 @@
 <template>
-  <div class="form">
+  <div class="form flex flex-col">
     <MainHeader/>
     <main v-if="offerURL!==''" class="wrap">
       <MicroSiteMainArea/>

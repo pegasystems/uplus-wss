@@ -1,6 +1,5 @@
 <template>
-  <section class="flex flex-col">
-    <div v-if="isMashupInitialized">
+  <section class="flex flex-col" v-if="isMashupInitialized">
       <div
         v-if="actionName == 'createNewWork'"
         data-pega-gadgetname="PegaGadget"
@@ -86,14 +85,14 @@
         :data-pega-url="serverUrl"
         :data-pega-action-param-parameters="actionParam"
       ></div>
-    </div>
+  </section>
+ <section v-else class="flex flex-col height-100-pct">
     <iframe
-      v-else
       class="pega"
       :class="isMobilePhone ? 'phone': 'desktop'"
       :data-attr-title="caseTitle"
       src="form-embed.html"
-      style="overflow: hidden; height: 570px"
+      style="overflow: hidden; height: 100%"
       width="100%"
       height="100%"
       border="0"

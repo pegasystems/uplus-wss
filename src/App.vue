@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="flex flex-col">
     <PhonePage v-if="isMobilePhone"/>
     <AccountPage v-else-if="isAuthenticated"/>
     <FrontPage v-else/>

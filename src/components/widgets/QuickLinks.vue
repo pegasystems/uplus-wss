@@ -24,7 +24,9 @@ export default {
     selectLink(index) {
       this.quickLinkId = index;
       this.previousPage = this.settings.quicklinks[index].objclass;
-      window.history.pushState({ userId: mainconfig.userId, quickLinkId: mainconfig.quickLinkId }, '', `quicklink${index}.html`);
+      if (window.history) {
+        window.history.pushState({ userId: mainconfig.userId, quickLinkId: mainconfig.quickLinkId }, '', `quicklinks${index}`);
+      }
     },
   },
 };

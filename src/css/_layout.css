@@ -1,4 +1,8 @@
 /* layout */
+.form {
+  flex: 1;
+}
+
 .form main {
   color: #fff;
   min-height: calc(100vh - 244rem);
@@ -503,6 +507,10 @@ footer ul.flex {
 
 .width-100-pct {
   width: 100%;
+}
+
+.height-100-pct {
+  height: 100%;
 }
 
 div.inline-middle > button {

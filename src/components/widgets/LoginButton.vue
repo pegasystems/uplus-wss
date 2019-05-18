@@ -103,8 +103,9 @@ export default {
         }
       }
       mainconfig.isAuthenticated = isLoginSuccess;
-      window.history.pushState({ userId: mainconfig.userId }, '', 'account.html');
-
+      if (window.history) {
+        window.history.pushState({ userId: mainconfig.userId }, '', 'account');
+      }
       if (!isLoginSuccess) this.hasErrorMsg = true;
     },
   },

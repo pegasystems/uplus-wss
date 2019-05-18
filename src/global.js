@@ -338,10 +338,16 @@ if (queryDict.quicklinkclass) {
 }
 
 /* Read the current state */
-const currentState = window.history.state;
-if (mainconfigTmp.userId === -1 && currentState !== null && typeof currentState.userId !== 'undefined') {
-  mainconfigTmp.isAuthenticated = true;
-  mainconfigTmp.userId = currentState.userId;
+if (window.history) {
+  const currentState = window.history.state;
+  if (mainconfigTmp.userId === -1 && currentState !== null && typeof currentState.userId !== 'undefined') {
+    console.log('updating mainconfig in global');
+    mainconfigTmp.isAuthenticated = true;
+    mainconfigTmp.userId = currentState.userId;
+    if (typeof currentState.quickLinkId !== 'undefined') {
+      mainconfigTmp.quickLinkId = currentState.quickLinkId;
+    }
+  }
 }
 
 const mainconfig = mainconfigTmp;
