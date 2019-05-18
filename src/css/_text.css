@@ -182,6 +182,12 @@ table.color-heading tr.heading {
   background: #f1f1f1;
   font-size: 12rem;
   height: 45rem;
+  font-weight: bold; 
+}
+
+table.color-heading tr.footer {
+  background: #f1f1f1;
+  height: 45rem;
 }
 
 table.color-heading .trend {
