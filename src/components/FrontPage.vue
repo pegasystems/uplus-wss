@@ -1,12 +1,12 @@
 <template>
-  <div v-if="homeHeroAction==1" class="form">
+  <div v-if="homeHeroAction==1" class="form flex flex-col">
     <MainHeader/>
     <main class="wrap flex flex-col">
       <MashupMainArea/>
     </main>
     <MainFooter/>
   </div>
-  <div v-else-if="offerURL!==''" class="form">
+  <div v-else-if="offerURL!==''" class="form flex flex-col">
     <MainHeader/>
     <main class="wrap flex flex-col">
       <MicroSiteMainArea/>
