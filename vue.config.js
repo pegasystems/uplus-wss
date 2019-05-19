@@ -14,11 +14,6 @@ module.exports = {
       template: 'public/commercial_bank/index.html',
       filename: 'commercial_bank/index.html',
     },
-    commercial_bank_generic: {
-      entry: 'src/main.js',
-      template: 'public/commercial_bank/index.html',
-      filename: 'commercial_bank/404.html',
-    },
     commercial_bankaccount: {
       entry: 'src/main.js',
       template: 'public/commercial_bank/index.html',
