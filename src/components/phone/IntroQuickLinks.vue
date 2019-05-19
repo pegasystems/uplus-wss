@@ -1,6 +1,6 @@
 <template>
   <main class="flex flex-col intro-quicklinks">
-    <TopNav previousPage="home">
+    <TopNav previousPhonePage="home">
       <button v-on:click="nextPage">{{ $t("message.phone_quick_links_intro_action")}}</button>
     </TopNav>
     <h1>{{ $t("message.phone_quick_links_intro_title")}}</h1>

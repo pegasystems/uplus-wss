@@ -4,7 +4,7 @@
       <button v-on:click="clearAll" class="simple">Reset to default</button>
       <button type="submit">Submit</button>
     </div>
-    <TopNav v-else previousPage="index.html">
+    <TopNav v-else previousPhonePage="index.html">
       <button v-on:click="clearAll" class="simple margin-r-2x">Reset to default</button>
       <button type="submit">Submit</button>
     </TopNav>

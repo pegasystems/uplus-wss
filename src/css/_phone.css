@@ -3,8 +3,10 @@
 }
 
 .phone main {
-  overflow: auto;
+  overflow-y: auto;
   align-items: center;
+  flex: 1;
+  min-height: calc(100vh - 40rem);
 }
 
 .phone #app > div {
@@ -245,7 +247,7 @@
 }
 
 .phone .tabs-details {
-  height: calc(100vh - 123rem);
+  min-height: calc(100vh - 123rem);
   overflow-y: auto;
 }
 

@@ -1,7 +1,7 @@
 <template>
-  <div class="flex flex-col">
-    <TopNav style="display:none" previousPage="quicklinks1"/>
-    <main :class="isMobilePhone ? '': 'wrap'">
+  <div class="height-100-pct">
+    <TopNav style="display:none" previousPhonePage="quicklinks1"/>
+    <main>
       <MashupMainArea/>
     </main>
   </div>

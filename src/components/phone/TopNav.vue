@@ -1,6 +1,6 @@
 <template>
   <div class="flex top-nav">
-    <a v-if="previousPage=='index.html'" href="./index.html">
+    <a v-if="previousPhonePage=='index.html'" href="./index.html">
       <i class="pi pi-caret-left"></i>
     </a>
     <button v-else v-on:click="goBack" class="simple">
@@ -17,14 +17,14 @@ import { mainconfig } from '../../global';
 
 export default {
   props: {
-    previousPage: { required: true },
+    previousPhonePage: { required: true },
   },
   data() {
     return mainconfig;
   },
   methods: {
     goBack() {
-      mainconfig.phonePageName = this.previousPage;
+      mainconfig.phonePageName = this.previousPhonePage;
       mainconfig.quickLinkId = -1;
     },
   },

@@ -1,6 +1,6 @@
 <template>
   <main class="flex flex-col">
-    <TopNav previousPage="home">
+    <TopNav previousPhonePage="home">
       <button v-on:click="signIn" class="sign-in">{{$t('message.signin')}}</button>
     </TopNav>
     <div class="layout-stacked primary-card">
