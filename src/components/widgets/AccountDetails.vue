@@ -13,9 +13,9 @@
     <table v-if="userId!=-1" class="content responsive color-heading">
       <thead>
         <tr>
-          <th>{{ $t('message.accounts_header1') }}</th>
-          <th>{{ $t('message.accounts_header2') }}</th>
-          <th>{{ $t('message.accounts_header3') }}</th>
+          <th class="space-nowrap">{{ $t('message.accounts_header1') }}</th>
+          <th class="space-nowrap">{{ $t('message.accounts_header2') }}</th>
+          <th class="space-nowrap">{{ $t('message.accounts_header3') }}</th>
           <th class="align-r">{{ $t('message.accounts_header4') }}</th>
         </tr>
       </thead>

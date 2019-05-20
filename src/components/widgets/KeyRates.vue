@@ -2,7 +2,7 @@
   <section class="secondary-card container keyrates">
     <h3>{{ $t("message.keyrates_title") }}</h3>
     <table class="align-center color-light">
-      <tr>
+      <tr class="heading">
         <td>{{ $t("message.keyrates_header_col1") }}</td>
         <td>{{ $t("message.keyrates_header_col2") }}</td>
         <td>{{ $t("message.keyrates_header_col3") }}</td>
