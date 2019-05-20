@@ -198,6 +198,13 @@ table.color-heading .trend {
   font-size: 10rem;
 }
 
+tr.heading {
+  background: #f1f1f1;
+  font-size: 12rem;
+  height: 45rem;
+  font-weight: bold; 
+}
+
 p {
   color: #939393;
 }
