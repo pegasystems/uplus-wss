@@ -42,13 +42,13 @@
             transform="rotate(270)"
           >
             <text
-              x="-150"
+              x="-165"
               y="-38"
               dy="0.32em"
               text-anchor="start"
             >{{ $t('message.income_and_cost') }}</text>
             <text
-              x="-160"
+              x="-155"
               y="740"
               dy="0.32em"
               text-anchor="start"
