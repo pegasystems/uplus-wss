@@ -1,5 +1,5 @@
 <template>
-  <HomePage v-if="phonePageName=='home'"/>
+  <HomePage v-if="phonePageName=='home'" :key="isAuthenticated"/>
   <OfferPage v-else-if="phonePageName=='offer'"/>
   <LoginPage v-else-if="!isAuthenticated"/>
   <Mashup v-else-if="quickLinkId != -1"/>

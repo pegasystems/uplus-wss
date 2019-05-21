@@ -28,7 +28,10 @@
         </div>
       </div>
       <div>
-        <h4 class="dropdown">{{ $t('message.cash_projections_dropdown') }}<i class='pi pi-caret-down'></i></h4>
+        <h4 class="dropdown">
+          {{ $t('message.cash_projections_dropdown') }}
+          <i class="pi pi-caret-down"></i>
+        </h4>
       </div>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 300">
         <g transform="translate(60,40)">
@@ -223,19 +226,33 @@ export default {
     AccountDetails,
   },
   mounted() {
-    /* Will listen for message from the Mashup iframe to force a reload back of the MashupComponent */
-    const self = this;
-    window.addEventListener('message', (e) => {
-      if (e.data === 'pegaMashupNavigateBack') {
-        self.componentKey += 1;
-      }
-    });
+    window.addEventListener('message', this.iFrameMessageListener);
+  },
+  destroyed() {
+    window.removeEventListener('message', this.iFrameMessageListener);
   },
   methods: {
     getMonth(monthIndex) {
       const myDate = new Date();
       myDate.setMonth((myDate.getMonth() + monthIndex) % 12);
       return myDate;
+    },
+    /* Will listen for message from the Mashup iframe to force a reload back of the MashupComponent */
+    iFrameMessageListener(e) {
+      if (e.data === 'pegaMashupNavigateBack') {
+        this.componentKey += 1;
+      } else if (typeof e.data === 'object') {
+        if (e.data.key === 'Intent' && typeof e.data.value === 'string') {
+          mainconfig.intent = e.data.value;
+          mainconfig.reloadOffer += 1;
+        } else if (
+          e.data.key === 'PreviousPage' &&
+          typeof e.data.value === 'string'
+        ) {
+          mainconfig.previousPage = e.data.value;
+          mainconfig.reloadOffer += 1;
+        }
+      }
     },
   },
 };

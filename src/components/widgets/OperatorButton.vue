@@ -49,7 +49,15 @@ export default {
       mainconfig.viewKMHelp = -1;
       mainconfig.offerURL = '';
       mainconfig.previousPage = '';
+      mainconfig.intent = '';
+      if (window.history && !mainconfig.isMobilePhone) {
+        window.history.replaceState({}, '', 'index.html');
+      }
 
+      window.PegaCSWSS.ContactID = '';
+      window.PegaCSWSS.AccountNumber = '';
+      window.PegaCSWSS.UserName = '';
+      window.PegaCSWSS.ExtraParams = {};
       /* Update PegaChat and remove ContactId, AccountNumber and username */
       const el = document.querySelector(
         "[data-pega-gadgetname='OnlineHelp'] > iframe",

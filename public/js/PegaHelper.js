@@ -13,11 +13,8 @@ $(document).ready(function(){
   /* Load the cobrowse assets */
   window.fireflyAPI = {};
 
-  /* checking chat session is connected or not, if it is already connected in some other tab then not showing need help button*/
-  if(window.localStorage.getItem(chatSessionStatusKey) == "true"){
-		return;
-	}
-
+  if(PegaCSWSS.Cobrowse.ServerURL !== "" && PegaCSWSS.Cobrowse.Token !== "") {
+    
 	var script = document.createElement("script");
 	script.type = "text/javascript";
 	fireflyAPI.token = PegaCSWSS.Cobrowse.Token;
@@ -26,27 +23,7 @@ $(document).ready(function(){
 	script.async = true;
 	document.head.appendChild(script);
 
-  /* add id attributes to gadgets */
-  $("div[data-pega-gadgetname='OnlineHelp']").attr("id","OnlineHelp");
-  $("div[data-pega-gadgetname='PreviewGadget']").attr("id","PreviewGadget");
-
-  if (window.addEventListener){
-    addEventListener("message", postMessageListener, false);
-    addEventListener("beforeunload", removeConnectedStatus, false);
-  } else {
-    attachEvent("onmessage", postMessageListener);
-    attachEvent("onbeforeunload", removeConnectedStatus);
   }
-
-  var $minL = $("<div>", {id:"launcherminimized",text:"Need Help?"});
-  $minL.click(maximizeAdvisorWindow);
-  var $counter = $("<div>", {id:"unreadCounter",text:"0"});
-  $minL.append($counter);
-  $( 'body' ).append($minL);
-  $("#launcherminimized").hide();
-  /* Invoke the preview loader to force proactive items to fire as well as load preview data */
-  previewMonitor = setTimeout(monitorPreviewLoader, MonitorTimeout);
-
 });
 
 function removeConnectedStatus(){
@@ -186,9 +163,13 @@ function handleResize(command) {
 function monitorPreviewLoader(){
     if (previewLoaded == false) {
 	    var PegaAParamObject = preparePegaAParams("PreviewGadget");
-	    pega.web.api.doAction("PreviewGadget", "display", "Preview", "PegaCS-OnlineHelp-Triage-WebChatbot", null, true, null, PegaAParamObject);
-      MonitorTimeout = MonitorTimeout + 2000;
- 	    previewMonitor = setTimeout(monitorPreviewLoader, MonitorTimeout);
+      if(pega.web && pega.web.api && PegaAParamObject) {
+	      pega.web.api.doAction("PreviewGadget", "display", "Preview", "PegaCS-OnlineHelp-Triage-WebChatbot", null, true, null, PegaAParamObject);
+        MonitorTimeout = MonitorTimeout + 2000;
+ 	      previewMonitor = setTimeout(monitorPreviewLoader, MonitorTimeout);
+      } else {
+        setTimeout(monitorPreviewLoader, 1000);
+      }
 	}
 }
 
@@ -328,17 +309,3 @@ function handleMissedMessages() {
 	  }
 	  return { pxResults: customMetadata}
   }
-	$(function(){
-		window.pega = window.pega || {};
-		window.pega.chat = window.pega.chat || {};
-		window.pega.chat.proactiveChat = new PegaProactiveChat();
-	})
-	/*Proactive chat js api - end */
-
-$(function() {
-  $( 'body' ).append("<div id='OnlineHelp' data-pega-gadgetname ='OnlineHelp' data-pega-action ='createNewWork' data-pega-action-param-classname ='' data-pega-action-param-flowname ='' data-pega-action-param-model ='' data-pega-applicationname ='" + PegaCSWSS.ApplicationName + "' data-pega-isdeferloaded ='true' data-pega-threadname ='CSAdvisor' data-pega-systemid ='pega' data-pega-resizetype ='fixed' data-pega-url ='" + PegaCSWSS.MashupURL +"' data-pega-action-param-parameters ='' data-pega-redirectguests='true' data-pega-event-onclose ='hideinline'></div>");
-
-  $( 'body' ).append("<div id='ProactiveChat' data-pega-gadgetname ='ProactiveChat' data-pega-action ='createNewWork' data-pega-action-param-classname ='' data-pega-action-param-flowname ='' data-pega-action-param-model ='' data-pega-applicationname ='" + PegaCSWSS.ApplicationName + "' data-pega-isdeferloaded ='true' data-pega-threadname ='ProactiveChatThread' data-pega-systemid ='pega' data-pega-resizetype ='fixed' data-pega-url ='" + PegaCSWSS.MashupURL +"' data-pega-action-param-parameters ='' data-pega-redirectguests='true' data-pega-event-onclose ='hideinline' data-pega-event-oncustom='proactiveChatCustomEventHandler'></div>");
-
-  $( 'body' ).append("<div style='display:none; height:80px; padding-top:14px; padding-left:20px;' id='Preview' data-pega-gadgetname ='PreviewGadget' data-pega-isdeferloaded ='true' data-pega-action ='display' data-pega-action-param-classname ='PegaCS-OnlineHelp-Triage-WebChatbot'  data-pega-harnessname ='Preview' data-pega-applicationname ='" + PegaCSWSS.ApplicationName + "' data-pega-threadname ='Preview' data-pega-systemid ='pega' data-pega-resizetype ='fixed' data-pega-event-onclose ='' data-pega-url ='" + PegaCSWSS.MashupURL +"' data-pega-action-param-parameters=''></div>");
-});

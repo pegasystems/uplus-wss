@@ -7,12 +7,14 @@
       <img v-on:click="goToHome" class="logo" :src="('./img/u+-logo.svg')" alt="U+">
     </a>
     <OperatorButton v-if="isAuthenticated"/>
+    <LoginButton v-else/>
   </header>
 </template>
 
 <script>
 import { mainconfig } from '../../global';
 import OperatorButton from '../widgets/OperatorButton.vue';
+import LoginButton from '../widgets/LoginButton.vue';
 
 export default {
   data() {
@@ -30,6 +32,7 @@ export default {
   },
   components: {
     OperatorButton,
+    LoginButton,
   },
 };
 </script>

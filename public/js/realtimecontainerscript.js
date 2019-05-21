@@ -53,7 +53,7 @@
 			return streamURL;
 		},
 
-		getOffers : function (customerID, containerName, channel, previousPage, currentpage, callback,placement) {
+		getOffers : function (customerID, containerName, channel, previousPage, currentpage, callback,intent, placement) {
 
 			this.checkCallBack(callback);
 			var callbackFunction ;
@@ -72,7 +72,7 @@
 			else
 				callbackFunction = callback;
 
-			var jsonObj = this.getJSONObj(customerID, containerName, channel, previousPage, currentpage,placement);
+			var jsonObj = this.getJSONObj(customerID, containerName, channel, previousPage, currentpage,intent, placement);
 			if(serviceClass){
 				this.invokeRemoteService("Container",null,"POST",jsonObj,callbackFunction);
 			} else {
@@ -81,7 +81,7 @@
 
 		},
 
-		getJSONObj : function(customerID, containerName, channel, previousPage, currentpage,placement){
+		getJSONObj : function(customerID, containerName, channel, previousPage, currentpage, intent, placement){
 			if(serviceClass){
 				var jsonObj = {
 					"CustomerID" : customerID,
@@ -101,6 +101,13 @@
                              	 }]
 
 				};
+        if(intent && intent!=="") {
+          jsonObj.Contexts.push({
+                                  "Key": "CurrentPage",
+                                  "Value": intent,
+                                  "Type": "Intent"
+                             	 });
+        }
 			} else {
 				var jsonObj = {
 					"CustomerID" : customerID,

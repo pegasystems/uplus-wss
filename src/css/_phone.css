@@ -293,3 +293,12 @@
   width: auto;
   margin: 8rem 0;
 }
+
+.phone button.launch-login,
+.phone button.launch-login:hover,
+.phone button.launch-login:active,
+.phone button.launch-login:focus {
+  background: transparent;
+  color: #fff;
+  display: inline-block;
+}

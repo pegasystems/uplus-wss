@@ -67,6 +67,10 @@ select {
   transition: all 0.25s ease-out;
 }
 
+a:hover {
+  cursor: pointer;
+}
+
 /* Checks */
 input[type='checkbox'] {
   -webkit-appearance: none;

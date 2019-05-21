@@ -13,6 +13,9 @@ function preparePegaAParams(gadgetName) {
   );
   pegaAParamObj.Language = window.navigator.language;
   pegaAParamObj.pzSkinName = 'OnlineHelp';
+  if(typeof PegaCSWSS.ExtraParams === "object" ) {
+    pegaAParamObj = Object.assign({}, pegaAParamObj, PegaCSWSS.ExtraParams );
+  }
   return pegaAParamObj;
 }
 
@@ -38,20 +41,30 @@ function getCookie(cname) {
   }
   return "";
 }
-
+    
 var serverURL = PegaCSWSS.MashupURL;
 var mashupScript = document.createElement('script');
 mashupScript.src = serverURL + "?pyActivity=pzIncludeMashupScripts";
-document.getElementsByTagName('script')[0].parentNode.appendChild(mashupScript);
+mashupScript.onload = function() {
+  window.pega.chat = window.pega.chat || {};
+  window.pega.chat.proactiveChat = new PegaProactiveChat();
+    
+  $( 'body' ).append("<div id='OnlineHelp' data-pega-gadgetname ='OnlineHelp' data-pega-action ='createNewWork' data-pega-action-param-classname ='' data-pega-action-param-flowname ='' data-pega-action-param-model ='' data-pega-applicationname ='" + PegaCSWSS.ApplicationName + "' data-pega-isdeferloaded ='true' data-pega-threadname ='CSAdvisor' data-pega-systemid ='pega' data-pega-resizetype ='fixed' data-pega-url ='" + PegaCSWSS.MashupURL +"' data-pega-action-param-parameters ='' data-pega-redirectguests='true' data-pega-event-onclose ='hideinline'></div>");
 
-var _initMashup = function () {
-  if (typeof pega !== 'undefined' && typeof pega.Mashup !== 'undefined') {
-    pega.Mashup.Communicator.register(pega.Mashup.hostActionsProcessor);
-    _initAllPegaObjects();
-  } else {
-    setTimeout(_initMashup, 200);
-  }
+  $( 'body' ).append("<div id='ProactiveChat' data-pega-gadgetname ='ProactiveChat' data-pega-action ='createNewWork' data-pega-action-param-classname ='' data-pega-action-param-flowname ='' data-pega-action-param-model ='' data-pega-applicationname ='" + PegaCSWSS.ApplicationName + "' data-pega-isdeferloaded ='true' data-pega-threadname ='ProactiveChatThread' data-pega-systemid ='pega' data-pega-resizetype ='fixed' data-pega-url ='" + PegaCSWSS.MashupURL +"' data-pega-action-param-parameters ='' data-pega-redirectguests='true' data-pega-event-onclose ='hideinline' data-pega-event-oncustom='proactiveChatCustomEventHandler'></div>");
+
+  $( 'body' ).append("<div style='display:none; height:80px; padding-top:14px; padding-left:20px;' id='Preview' data-pega-gadgetname ='PreviewGadget' data-pega-isdeferloaded ='true' data-pega-action ='display' data-pega-action-param-classname ='PegaCS-OnlineHelp-Triage-WebChatbot'  data-pega-harnessname ='Preview' data-pega-applicationname ='" + PegaCSWSS.ApplicationName + "' data-pega-threadname ='Preview' data-pega-systemid ='pega' data-pega-resizetype ='fixed' data-pega-event-onclose ='' data-pega-url ='" + PegaCSWSS.MashupURL +"' data-pega-action-param-parameters=''></div>");
+
+  addEventListener("message", postMessageListener, false);
+  addEventListener("beforeunload", removeConnectedStatus, false);
+  var $minL = $("<div>", {id:"launcherminimized",text:"Need Help?"});
+  $minL.click(maximizeAdvisorWindow);
+  var $counter = $("<div>", {id:"unreadCounter",text:"0"});
+  $minL.append($counter);
+  $( 'body' ).append($minL);
+  $("#launcherminimized").hide();
+  previewMonitor = setTimeout(monitorPreviewLoader, MonitorTimeout);
+  pega.Mashup.Communicator.register(pega.Mashup.hostActionsProcessor);
+  _initAllPegaObjects();
 };
-mashupScript.onload = function () {
-  _initMashup();
-};
+document.head.appendChild(mashupScript);

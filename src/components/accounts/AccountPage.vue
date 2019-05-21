@@ -16,14 +16,14 @@
         <h1 v-else class="wrap">{{ $t("message.hello") }}</h1>
         <div class="wrap cols flex flex-wrap">
           <BankAccountMainArea/>
-          <AccountSecondaryArea/>
+          <AccountSecondaryArea :key="reloadOffer"/>
         </div>
       </div>
       <div v-else>
         <h1 class="wrap">{{ $t("message.accountoverview") }}</h1>
         <div class="wrap cols flex flex-wrap">
           <AccountMainArea/>
-          <AccountSecondaryArea/>
+          <AccountSecondaryArea :key="reloadOffer"/>
         </div>
       </div>
     </main>
