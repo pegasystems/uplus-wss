@@ -205,6 +205,11 @@ tr.heading {
   font-weight: bold; 
 }
 
+.investmentamount {
+	min-width: 130px;
+	display: inline-block;
+}
+
 p {
   color: #939393;
 }
