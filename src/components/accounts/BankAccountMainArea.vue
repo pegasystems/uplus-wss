@@ -33,12 +33,12 @@
           <i class="pi pi-caret-down"></i>
         </h4>
       </div>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 300">
-        <g transform="translate(60,40)">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 305">
+        <g transform="translate(80,40)">
           <g
             class="axis"
-            color="#000"
-            fill="#000"
+            color="#7b7b7b"
+            fill="#7b7b7b"
             font-size="18"
             font-family="Open Sans"
             text-anchor="end"
@@ -46,13 +46,13 @@
           >
             <text
               x="-165"
-              y="-38"
+              y="-43"
               dy="0.32em"
               text-anchor="start"
             >{{ $t('message.income_and_cost') }}</text>
             <text
               x="-155"
-              y="740"
+              y="745"
               dy="0.32em"
               text-anchor="start"
             >{{ $t('message.cash_and_balance') }}</text>
@@ -61,132 +61,132 @@
             class="axis"
             transform="translate(0,200)"
             fill="none"
-            font-size="10"
+            font-size="14"
             font-family="Open Sans"
             text-anchor="middle"
           >
             <path class="domain" stroke="#e4e7eb" d="M0,0V0.5H700.0V0"></path>
-            <text fill="#000" x="-10" dy="0.4em">0</text>
-            <text fill="#000" x="710" dy="0.4em">0</text>
+            <text fill="#7b7b7b" x="-10" dy="0.4em">0</text>
+            <text fill="#7b7b7b" x="710" dy="0.4em">0</text>
           </g>
           <g
             class="axis"
             transform="translate(0,150)"
             fill="none"
-            font-size="10"
+            font-size="14"
             font-family="Open Sans"
             text-anchor="middle"
           >
             <path class="domain" stroke="#e4e7eb" d="M0,0V0.5H700.0V0"></path>
-            <text fill="#000" x="-15" dy="0.4em">.5M</text>
-            <text fill="#000" x="715" dy="0.4em">50k</text>
+            <text fill="#7b7b7b" x="-15" dy="0.4em">.5M</text>
+            <text fill="#7b7b7b" x="715" dy="0.4em">50k</text>
           </g>
           <g
             class="axis"
             transform="translate(0,100)"
             fill="none"
-            font-size="10"
+            font-size="14"
             font-family="Open Sans"
             text-anchor="middle"
           >
             <path class="domain" stroke="#e4e7eb" d="M0,0V0.5H700.0V0"></path>
-            <text fill="#000" x="-15" dy="0.4em">1M</text>
-            <text fill="#000" x="715" dy="0.4em">100k</text>
+            <text fill="#7b7b7b" x="-15" dy="0.4em">1M</text>
+            <text fill="#7b7b7b" x="715" dy="0.4em">100k</text>
           </g>
           <g
             class="axis"
             transform="translate(0,50)"
             fill="none"
-            font-size="10"
+            font-size="14"
             font-family="Open Sans"
             text-anchor="middle"
           >
             <path class="domain" stroke="#e4e7eb" d="M0,0V0.5H700.0V0"></path>
-            <text fill="#000" x="-15" dy="0.4em">1.5M</text>
-            <text fill="#000" x="715" dy="0.4em">150k</text>
+            <text fill="#7b7b7b" x="-15" dy="0.4em">1.5M</text>
+            <text fill="#7b7b7b" x="715" dy="0.4em">150k</text>
           </g>
           <g
             class="axis"
             transform="translate(0,0)"
             fill="none"
-            font-size="10"
+            font-size="14"
             font-family="Open Sans"
             text-anchor="middle"
           >
             <path class="domain" stroke="#e4e7eb" d="M0,0V0.5H700.0V0"></path>
-            <text fill="#000" x="-15" dy="0.4em">2M</text>
-            <text fill="#000" x="715" dy="0.4em">200k</text>
+            <text fill="#7b7b7b" x="-15" dy="0.4em">2M</text>
+            <text fill="#7b7b7b" x="715" dy="0.4em">200k</text>
           </g>
           <g>
             <g transform="translate(15,0)">
-              <rect x="19" y="103" width="22" height="97" fill="#58b902"></rect>
-              <rect x="41" y="115" width="22" height="85" fill="#e24046"></rect>
+              <rect x="19" y="103" width="22" height="97" fill="#67c100"></rect>
+              <rect x="41" y="115" width="22" height="85" fill="#ea5959"></rect>
             </g>
             <g transform="translate(130,0)">
-              <rect x="19" y="86" width="22" height="114" fill="#58b902"></rect>
-              <rect x="41" y="100" width="22" height="100" fill="#e24046"></rect>
+              <rect x="19" y="86" width="22" height="114" fill="#67c100"></rect>
+              <rect x="41" y="100" width="22" height="100" fill="#ea5959"></rect>
             </g>
             <g transform="translate(245,0)">
-              <rect x="19" y="90" width="22" height="110" fill="#58b902"></rect>
-              <rect x="41" y="103" width="22" height="97" fill="#e24046"></rect>
+              <rect x="19" y="90" width="22" height="110" fill="#67c100"></rect>
+              <rect x="41" y="103" width="22" height="97" fill="#ea5959"></rect>
             </g>
             <g transform="translate(360,0)">
-              <rect x="19" y="103" width="22" height="97" fill="#58b902"></rect>
-              <rect x="41" y="80" width="22" height="120" fill="#e24046"></rect>
+              <rect x="19" y="103" width="22" height="97" fill="#67c100"></rect>
+              <rect x="41" y="80" width="22" height="120" fill="#ea5959"></rect>
             </g>
             <g transform="translate(475,0)">
-              <rect x="19" y="140" width="22" height="60" fill="#58b902"></rect>
-              <rect x="41" y="130" width="22" height="70" fill="#e24046"></rect>
+              <rect x="19" y="140" width="22" height="60" fill="#67c100"></rect>
+              <rect x="41" y="130" width="22" height="70" fill="#ea5959"></rect>
             </g>
             <g transform="translate(590,0)">
-              <rect x="19" y="103" width="22" height="97" fill="#58b902"></rect>
-              <rect x="41" y="110" width="22" height="90" fill="#e24046"></rect>
+              <rect x="19" y="103" width="22" height="97" fill="#67c100"></rect>
+              <rect x="41" y="110" width="22" height="90" fill="#ea5959"></rect>
             </g>
           </g>
           <g
             class="axis"
-            transform="translate(0,200)"
+            transform="translate(0,205)"
             fill="none"
-            font-size="20"
+            font-size="16"
             font-family="Open Sans"
             text-anchor="middle"
           >
             <g class="tick" opacity="1" transform="translate(55,0)">
-              <text fill="#000" y="9" dy="0.71em">{{ $d(getMonth(-4), 'month_only') }}</text>
+              <text fill="#7b7b7b" y="9" dy="0.71em">{{ $d(getMonth(-4), 'month_only') }}</text>
             </g>
             <g class="tick" opacity="1" transform="translate(170,0)">
-              <text fill="#000" y="9" dy="0.71em">{{ $d(getMonth(-3), 'month_only') }}</text>
+              <text fill="#7b7b7b" y="9" dy="0.71em">{{ $d(getMonth(-3), 'month_only') }}</text>
             </g>
             <g class="tick" opacity="1" transform="translate(285,0)">
-              <text fill="#000" y="9" dy="0.71em">{{ $d(getMonth(-2), 'month_only') }}</text>
+              <text fill="#7b7b7b" y="9" dy="0.71em">{{ $d(getMonth(-2), 'month_only') }}</text>
             </g>
             <g class="tick" opacity="1" transform="translate(400,0)">
-              <text fill="#000" y="9" dy="0.71em">{{ $d(getMonth(-1), 'month_only') }}</text>
+              <text fill="#7b7b7b" y="9" dy="0.71em">{{ $d(getMonth(-1), 'month_only') }}</text>
             </g>
             <g class="tick" opacity="1" transform="translate(515,0)">
-              <text fill="#000" y="9" dy="0.71em">{{ $d(getMonth(0), 'month_only') }}</text>
+              <text fill="#7b7b7b" y="9" dy="0.71em">{{ $d(getMonth(0), 'month_only') }}</text>
             </g>
             <g class="tick" opacity="1" transform="translate(630,0)">
-              <text fill="#000" y="9" dy="0.71em">{{ $d(getMonth(1), 'month_only') }}</text>
+              <text fill="#7b7b7b" y="9" dy="0.71em">{{ $d(getMonth(1), 'month_only') }}</text>
             </g>
           </g>
           <g font-family="Open Sans" font-size="15" text-anchor="end">
-            <g transform="translate(0,0)">
-              <circle cx="170" cy="240" r="5" fill="#58b902"></circle>
-              <text x="230" y="240" dy="0.32em">{{ $t('message.income') }}</text>
-              <circle cx="275" cy="240" r="5" fill="#e24046"></circle>
-              <text x="315" y="240" dy="0.32em">{{ $t('message.cost') }}</text>
+            <g transform="translate(-55,5)">
+              <circle cx="170" cy="240" r="5" fill="#67c100"></circle>
+              <text fill="#7b7b7b" x="235" y="240" dy="0.32em">{{ $t('message.income') }}</text>
+              <circle cx="275" cy="240" r="5" fill="#ea5959"></circle>
+              <text fill="#7b7b7b" x="320" y="240" dy="0.32em">{{ $t('message.cost') }}</text>
               <g transform="translate(365,240)">
                 <line stroke="#3171e1" x2="15"></line>
                 <line stroke="#3171e1" x2="-15"></line>
                 <circle r="5" stroke="#3171e1" fill="#fff"></circle>
-                <text x="110" dy="0.32em">{{ $t('message.cash_balance') }}</text>
+                <text fill="#7b7b7b" x="115" dy="0.32em">{{ $t('message.cash_balance') }}</text>
               </g>
               <g transform="translate(520,240)">
                 <line stroke="#3171e1" x2="15" stroke-dasharray="3 3"></line>
                 <line stroke="#3171e1" x2="-15" stroke-dasharray="3 3"></line>
                 <circle r="5" stroke="#3171e1" fill="#fff"></circle>
-                <text x="125" dy="0.32em">{{ $t('message.cash_predition') }}</text>
+                <text fill="#7b7b7b" x="135" dy="0.32em">{{ $t('message.cash_predition') }}</text>
               </g>
             </g>
           </g>
