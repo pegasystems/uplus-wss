@@ -73,7 +73,9 @@
               <i class="pi pi-arrow-down pi-error"></i>
               {{ item.trendvalue}}%
             </span>
-            {{ $n(item.balance, 'currency') }}
+            <span class="investmentamount">
+              {{ $n(item.balance, 'currency') }}
+            </span>
           </td>
         </tr>
         <tr class="footer">
