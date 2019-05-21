@@ -75,7 +75,7 @@
         </div>
       </div>
       <div class="layout-labels-left secondary-card">
-        <p>Phone Page</p>
+        <p>Home Page for mobile</p>
         <div class="field-item">
           <label for="NBAM-PhonePage-ContainerName">Container Name</label>
           <input

@@ -154,6 +154,14 @@ export default {
       this.startCase = this.settings.homeheroaction.startcase;
       this.appName = this.settings.homeheroaction.application;
       this.extraParam = this.settings.homeheroaction.extraparam;
+    } else if (this.offerAction !== -1) {
+      this.actionName = this.settings.offeraction.action;
+      this.actionNameParam = this.settings.offeraction.actionparam;
+      this.serverUrl = this.settings.offeraction.url;
+      this.objClass = this.settings.offeraction.objclass;
+      this.startCase = this.settings.offeraction.startcase;
+      this.appName = this.settings.offeraction.application;
+      this.extraParam = this.settings.offeraction.extraparam;
     } else if (this.viewKMHelp !== -1) {
       this.actionName = this.settings.kmhelp.action;
       this.actionNameParam = this.settings.kmhelp.actionparam;
@@ -221,6 +229,11 @@ export default {
       tmpActionParam.UserIdentifier = this.settings.homeheroaction.pega_userid;
       tmpActionParam.Password = encodeURI(
         btoa(this.settings.homeheroaction.pega_pwd),
+      );
+    } else if (this.offerAction !== -1) {
+      tmpActionParam.UserIdentifier = this.settings.offeraction.pega_userid;
+      tmpActionParam.Password = encodeURI(
+        btoa(this.settings.offeraction.pega_pwd),
       );
     }
     if (isInAccoutPage) {

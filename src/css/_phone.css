@@ -91,7 +91,8 @@
 
 .phone header a > img {
   margin-right: 16rem;
-  height: 35rem;
+  height: 40rem;
+  padding: 5rem 0;
 }
 
 .phone header h1 {

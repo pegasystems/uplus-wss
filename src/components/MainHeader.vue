@@ -32,11 +32,36 @@ export default {
   data() {
     return mainconfig;
   },
+  mounted() {
+    window.addEventListener('message', this.iFrameMessageListener);
+  },
+  destroyed() {
+    window.removeEventListener('message', this.iFrameMessageListener);
+  },
   methods: {
+    /* Will listen for message from the Mashup iframe to force a reload back of the MashupComponent */
+    iFrameMessageListener(e) {
+      if (e.data === 'pegaMashupNavigateBack') {
+        mainconfig.reloadAccountMashup += 1;
+        this.goHomePage();
+      } else if (typeof e.data === 'object') {
+        if (e.data.key === 'Intent' && typeof e.data.value === 'string') {
+          mainconfig.intent = e.data.value;
+          mainconfig.reloadOffer += 1;
+        } else if (
+          e.data.key === 'PreviousPage' &&
+          typeof e.data.value === 'string'
+        ) {
+          mainconfig.previousPage = e.data.value;
+          mainconfig.reloadOffer += 1;
+        }
+      }
+    },
     goHomePage() {
       mainconfig.quickLinkId = -1;
       mainconfig.viewBill = -1;
       mainconfig.homeHeroAction = -1;
+      mainconfig.offerAction = -1;
       mainconfig.toDo = -1;
       mainconfig.viewKMHelp = -1;
       mainconfig.offerURL = '';

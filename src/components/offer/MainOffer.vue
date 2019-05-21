@@ -8,7 +8,10 @@
       <div class="details">
         <h3 class="color-brand">{{ $t('message.' + app.offer.main_offer.title)}}</h3>
         <p>{{ $t('message.' + app.offer.main_offer.message)}}</p>
-        <button class="strong">{{ $t('message.' + app.offer.main_offer.button_label)}}</button>
+        <button
+          v-on:click="applyOfferAction"
+          class="strong"
+        >{{ $t('message.' + app.offer.main_offer.button_label)}}</button>
       </div>
     </div>
     <div class="offer-cards promo">
@@ -38,7 +41,10 @@
       <div class="details">
         <h3 class="color-brand">{{ $t('message.' + app.offer.main_offer.title)}}</h3>
         <p>{{ $t('message.' + app.offer.main_offer.message)}}</p>
-        <button class="strong">{{ $t('message.' + app.offer.main_offer.button_label)}}</button>
+        <button
+          v-on:click="applyOfferAction"
+          class="strong"
+        >{{ $t('message.' + app.offer.main_offer.button_label)}}</button>
       </div>
     </div>
     <div v-else class="main-offer primary-card flex flex-nowrap">
@@ -117,6 +123,9 @@ export default {
     showOffer(item) {
       mainconfig.offerURL = item.url;
       mainconfig.previousPage = item.name;
+    },
+    applyOfferAction() {
+      mainconfig.offerAction = 1;
     },
   },
 };

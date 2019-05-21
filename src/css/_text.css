@@ -158,6 +158,7 @@ h3.account-type {
 
 .table-heading {
   border-bottom: 1px solid #dedede;
+  border-radius: 3rem;
   margin: 0 -35rem 21rem -35rem;
   padding: 0 35rem 21rem 35rem;
 }
@@ -179,14 +180,15 @@ table.color-light td {
 }
 
 table.color-heading {
-border: 1px solid #dedede;
+  border: 1px solid #dedede;
+  border-radius: 3rem;
 }
 
 table.color-heading tr.heading {
   background: #f1f1f1;
   font-size: 12rem;
   height: 45rem;
-  font-weight: bold; 
+  font-weight: bold;
 }
 
 table.color-heading tr.footer {
@@ -202,7 +204,7 @@ tr.heading {
   background: #f1f1f1;
   font-size: 12rem;
   height: 45rem;
-  font-weight: bold; 
+  font-weight: bold;
 }
 
 p {

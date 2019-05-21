@@ -29,6 +29,19 @@ const upgradeConfig = function upgradeConfig(cfg) {
       extraparam: '',
     };
   }
+  if (typeof cfg.settings.offeraction === 'undefined') {
+    cfg.settings.offeraction = {
+      action: 'createNewWork',
+      actionparam: '',
+      objclass: '',
+      url: '',
+      startcase: 'pyStartCase',
+      application: '',
+      pega_userid: '',
+      pega_pwd: '',
+      extraparam: '',
+    };
+  }
   if (typeof cfg.settings.pega_chat.CoBrowseServerURL === 'undefined') {
     cfg.settings.pega_chat.CoBrowseServerURL = '';
   }
@@ -260,6 +273,7 @@ let mainconfigTmp = Object.assign(
     previousPage: '',
     intent: '',
     reloadOffer: 1,
+    reloadAccountMashup: 1,
     isAuthenticated: false,
     isSidePanelVisible: false,
     phonePageName: 'home',
@@ -269,6 +283,7 @@ let mainconfigTmp = Object.assign(
     toDo: -1,
     viewKMHelp: -1,
     homeHeroAction: -1,
+    offerAction: -1,
     currentLocale: settings.i18n.defaultlocale,
   },
 );

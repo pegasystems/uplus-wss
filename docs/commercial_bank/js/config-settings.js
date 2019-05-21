@@ -118,6 +118,17 @@ window.settings = {
     pega_pwd: '',
     extraparam: '',
   },
+  offeraction: {
+    action: 'createNewWork',
+    actionparam: '',
+    objclass: '',
+    url: '',
+    startcase: 'pyStartCase',
+    application: '',
+    pega_userid: '',
+    pega_pwd: '',
+    extraparam: '',
+  },
   users: [
     {
       username: 'joe@pegasystems.com',

@@ -2,7 +2,7 @@
 /* Responsive behavior */
 /*************************************************/
 @media screen and (max-width: 1400px) {
-  html {
+  :not(.phone)html {
     zoom: 0.8;
   }
 }

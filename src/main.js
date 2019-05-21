@@ -26,12 +26,12 @@ const app = new Vue({
 });
 
 window.addEventListener('popstate', (event) => {
-  console.log(event.state);
   mainconfig.isAuthenticated = false;
   mainconfig.userId = -1;
   mainconfig.quickLinkId = -1;
   mainconfig.viewBill = -1;
   mainconfig.homeHeroAction = -1;
+  mainconfig.offerAction = -1;
   mainconfig.toDo = -1;
   mainconfig.viewKMHelp = -1;
   mainconfig.offerURL = '';

@@ -1,11 +1,14 @@
 <template>
-  <main v-if="offerURL === ''" class="wrap flex flex-col">
+  <main v-if="offerAction != -1" class="wrap flex flex-col">
+    <MashupMainArea/>
+  </main>
+  <main v-else-if="offerURL !== ''" class="wrap flex flex-col">
+    <MicroSiteMainArea/>
+  </main>
+  <main v-else class="wrap flex flex-col">
     <MainOffer/>
     <Details/>
     <Highlight/>
-  </main>
-  <main v-else class="wrap flex flex-col">
-    <MicroSiteMainArea/>
   </main>
 </template>
 
@@ -15,6 +18,7 @@ import MainOffer from './MainOffer.vue';
 import Details from './Details.vue';
 import Highlight from './Highlight.vue';
 import MicroSiteMainArea from '../MicroSiteMainArea.vue';
+import MashupMainArea from '../MashupMainArea.vue';
 
 export default {
   data() {
@@ -25,6 +29,7 @@ export default {
     Details,
     Highlight,
     MicroSiteMainArea,
+    MashupMainArea,
   },
 };
 </script>

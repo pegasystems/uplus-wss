@@ -125,7 +125,6 @@ export default {
           break;
         }
       }
-      debugger;
       mainconfig.isAuthenticated = isLoginSuccess;
       if (window.history && !mainconfig.isMobilePhone) {
         window.history.pushState({ userId: mainconfig.userId }, '', 'account');

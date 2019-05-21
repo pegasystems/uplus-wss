@@ -2,7 +2,7 @@
   <div class="col col-1 primary-card">
     <MashupMainArea
       v-if="typeof settings.todo !== 'undefined' && settings.todo.url !== ''"
-      :key="componentKey"
+      :key="reloadAccountMashup"
     />
     <AccountDetails/>
     <section class="content cash-projections">
@@ -217,42 +217,17 @@ import AccountDetails from '../widgets/AccountDetails.vue';
 
 export default {
   data() {
-    return Object.assign({}, mainconfig, {
-      componentKey: 1,
-    });
+    return mainconfig;
   },
   components: {
     MashupMainArea,
     AccountDetails,
-  },
-  mounted() {
-    window.addEventListener('message', this.iFrameMessageListener);
-  },
-  destroyed() {
-    window.removeEventListener('message', this.iFrameMessageListener);
   },
   methods: {
     getMonth(monthIndex) {
       const myDate = new Date();
       myDate.setMonth((myDate.getMonth() + monthIndex) % 12);
       return myDate;
-    },
-    /* Will listen for message from the Mashup iframe to force a reload back of the MashupComponent */
-    iFrameMessageListener(e) {
-      if (e.data === 'pegaMashupNavigateBack') {
-        this.componentKey += 1;
-      } else if (typeof e.data === 'object') {
-        if (e.data.key === 'Intent' && typeof e.data.value === 'string') {
-          mainconfig.intent = e.data.value;
-          mainconfig.reloadOffer += 1;
-        } else if (
-          e.data.key === 'PreviousPage' &&
-          typeof e.data.value === 'string'
-        ) {
-          mainconfig.previousPage = e.data.value;
-          mainconfig.reloadOffer += 1;
-        }
-      }
     },
   },
 };

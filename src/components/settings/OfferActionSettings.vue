@@ -1,0 +1,60 @@
+<template>
+  <div class="layout-inline-grid-double">
+    <div class="layout-labels-left secondary-card">
+      <div class="field-item">
+        <label for="offer-action-action">Action</label>
+        <select id="offer-action-action" v-model="settings.offeraction.action">
+          <option>createNewWork</option>
+          <option>display</option>
+          <option>getNextWork</option>
+          <option>openAssignment</option>
+          <option>openWorkItem</option>
+          <option>openWorkByHandle</option>
+          <option>createNewWork</option>
+        </select>
+      </div>
+      <div class="field-item">
+        <label for="offer-action-actionparam">Action parameter</label>
+        <input id="offer-action-actionparam" type="text" v-model="settings.offeraction.actionparam">
+      </div>
+      <div class="field-item">
+        <label for="offer-action-url">URL</label>
+        <input id="offer-action-url" type="text" v-model="settings.offeraction.url">
+      </div>
+      <div class="field-item">
+        <label for="offer-action-objclass">Classname</label>
+        <input id="offer-action-objclass" type="text" v-model="settings.offeraction.objclass">
+      </div>
+      <div class="field-item">
+        <label for="offer-action-startcase">Start case</label>
+        <input id="offer-action-startcase" type="text" v-model="settings.offeraction.startcase">
+      </div>
+      <div class="field-item">
+        <label for="offer-action-application">Application name</label>
+        <input id="offer-action-application" type="text" v-model="settings.offeraction.application">
+      </div>
+      <div class="field-item">
+        <label for="offer-action-extraparam">Extra params (comma separated)</label>
+        <input id="offer-action-extraparam" type="text" v-model="settings.offeraction.extraparam">
+      </div>
+      <div class="field-item">
+        <label for="offer-action-pega_userid">Pega userid</label>
+        <input id="offer-action-pega_userid" type="text" v-model="settings.offeraction.pega_userid">
+      </div>
+      <div class="field-item">
+        <label for="offer-action-pega_pwd">Pega password</label>
+        <input id="offer-action-pega_pwd" type="password" v-model="settings.offeraction.pega_pwd">
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import { mainconfig } from '../../global';
+
+export default {
+  data() {
+    return mainconfig;
+  },
+};
+</script>

@@ -33,6 +33,9 @@
       <tab v-if="typeof settings.kmhelp != 'undefined' && !isMobilePhone" name="KM Help">
         <KMHelpSettings/>
       </tab>
+      <tab v-if="typeof settings.offeraction != 'undefined' && !isMobilePhone" name="Offer Action">
+        <OfferActionSettings/>
+      </tab>
     </tabs>
   </form>
 </template>
@@ -49,6 +52,7 @@ import HomeHeroActionSettings from './HomeHeroActionSettings.vue';
 import UsersSettings from './UsersSettings.vue';
 import ChatSettings from './ChatSettings.vue';
 import NBAMSettings from './NBAMSettings.vue';
+import OfferActionSettings from './OfferActionSettings.vue';
 import TopNav from '../phone/TopNav.vue';
 
 export default {
@@ -82,6 +86,7 @@ export default {
     KMHelpSettings,
     ChatSettings,
     NBAMSettings,
+    OfferActionSettings,
     TopNav,
   },
 };
