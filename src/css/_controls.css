@@ -392,10 +392,9 @@ table {
 
 th,
 td {
-  padding: 14rem;
+  padding: 16rem 8rem;
   color: #414949;
   text-align: left;
-  width: 20%;
 }
 
 th.align-r,
