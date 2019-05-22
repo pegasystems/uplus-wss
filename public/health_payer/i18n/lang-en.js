@@ -33,7 +33,7 @@ window.langEN = {
   lang_fr: 'French',
   change_language: 'Change language',
   accountpicker1_title: 'Primary Care Provider',
-  accountpicker1_desc: 'William A. Clark MD',
+  accountpicker1_desc: 'William Clark MD',
   accountpicker2_title: 'Medical Plan',
   accountpicker2_desc: 'Member ID: 2345690',
   accountpicker3_title: 'Vision Plan',
