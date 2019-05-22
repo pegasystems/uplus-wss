@@ -9,6 +9,11 @@
   margin-top: -300rem;
 }
 
+.form main > .kmhelp,
+.form main > .kmhelp > div {
+  height: 100%;
+}
+
 .form footer {
   position: static;
   top: auto;
@@ -563,4 +568,8 @@ a[role='tab']:active {
 
 .bill-pay p {
   margin-bottom: 16rem;
+}
+
+a.kmhelp {
+  margin: auto 16rem auto 0;
 }

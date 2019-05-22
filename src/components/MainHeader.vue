@@ -10,7 +10,7 @@
         </ul>
       </nav>
       <a
-        class="margin-r-2x"
+        class="kmhelp"
         v-if="isAuthenticated && settings.kmhelp.url !==''"
         v-on:click="showKMHelp"
       >{{ $t('message.kmhelp') }}</a>

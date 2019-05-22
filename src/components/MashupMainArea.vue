@@ -1,5 +1,9 @@
 <template>
-  <section class="flex flex-col" v-if="isMashupInitialized">
+  <section
+    class="flex flex-col"
+    v-if="isMashupInitialized"
+    :class="viewKMHelp !== -1 ? 'kmhelp' : ''"
+  >
     <div
       v-if="actionName == 'createNewWork'"
       data-pega-gadgetname="PegaGadget"
