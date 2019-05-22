@@ -85,7 +85,7 @@ window.langEN = {
     'Your answers to five simple questions give us the information we need. Based on your personal needs and preferences, we can tailor options for plans that best meet your needs. And, our experts are available 24/7 to talk with you about your decision.',
   landing_details2_title: 'Compare',
   landing_details2_message:
-    'We also provide you with an easy-to-understand comparison of plans. compare each tailored plan side-by-side so that you understand the great benefits of each plan. Determine which is best for you based on coverage, price, and convenience!',
+    'We also provide  with an easy-to-understand comparison of plans. compare each tailored plan side-by-side so that you understand the great benefits of each plan. Determine which is best for you based on coverage, price, and convenience!',
   landing_benefits_title: 'Benefit of U+Health Medicare',
   landing_benefits_data1_message:
     'Hospital stays and more',
