@@ -1,10 +1,12 @@
 <template>
   <div class="flex flex-col offer-details">
     <div class="flex flex-nowrap" v-for="(item,index) in app.offer.details" v-bind:key="index">
-      <div
-        class="image"
-        v-bind:style="{ backgroundImage: 'url(./img/' + item.image + ')', 'order': '' + (index%2) }"
-      ></div>
+      <div class="details">
+        <div
+          class="image"
+          v-bind:style="{ backgroundImage: 'url(./img/' + item.image + ')', 'order': '' + (index%2) }"
+        ></div>
+      </div>
       <div class="details">
         <h2>{{ $t('message.' + item.title)}}</h2>
         <span class="background-brand line"></span>

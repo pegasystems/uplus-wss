@@ -296,10 +296,13 @@
     padding: 21rem 35rem;
   }
 
-  .offer-details > div > div,
-  .offer-details > div > .image {
-    padding: 0;
-    margin-bottom: 0;
+  .offer-details > div > div:first-child {
+    padding: 0 50rem 0 44rem;
+    min-width: 244rem;
+  }
+
+  .offer-details .image {
+    height: 150rem;
   }
 
   .landing .promo,

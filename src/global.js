@@ -301,6 +301,36 @@ if (retrievedObject != null) {
 
 mainconfigTmp = upgradeConfig(mainconfigTmp);
 
+/* Read the current state */
+if (window.history) {
+  const currentState = window.history.state;
+  if (
+    mainconfigTmp.userId === -1 &&
+    currentState !== null &&
+    typeof currentState.userId !== 'undefined'
+  ) {
+    console.log(
+      `read current history for currentState.userId=${currentState.userId}`,
+    );
+    mainconfigTmp.isAuthenticated = true;
+    mainconfigTmp.userId = currentState.userId;
+    if (typeof currentState.quickLinkId !== 'undefined') {
+      mainconfigTmp.quickLinkId = currentState.quickLinkId;
+      window.history.replaceState(
+        { userId: mainconfigTmp.userId },
+        '',
+        `quicklink${mainconfigTmp.quickLinkId}`,
+      );
+    } else {
+      window.history.replaceState(
+        { userId: mainconfigTmp.userId },
+        '',
+        'account',
+      );
+    }
+  }
+}
+
 /* Check if user is passed as parameter */
 const queryDict = {};
 window.location.search
@@ -320,6 +350,7 @@ if (queryDict.username || queryDict.pega_userid) {
     ) {
       mainconfigTmp.isAuthenticated = true;
       mainconfigTmp.userId = i;
+      mainconfigTmp.isDeepLink = true;
       break;
     }
   }
@@ -330,7 +361,6 @@ if (queryDict.username || queryDict.pega_userid) {
         mainconfigTmp.settings.quicklinks[i].objclass ===
         queryDict.quicklinkclass
       ) {
-        mainconfigTmp.isDeepLink = true;
         mainconfigTmp.quickLinkId = i;
         window.history.replaceState(
           { userId: mainconfigTmp.userId },
@@ -341,39 +371,16 @@ if (queryDict.username || queryDict.pega_userid) {
       }
     }
   }
-  if (mainconfigTmp.quickLinkId === -1) {
+  if (
+    mainconfigTmp.quickLinkId === -1 &&
+    mainconfigTmp.userId !== -1 &&
+    mainconfigTmp.isAuthenticated
+  ) {
     window.history.replaceState(
       { userId: mainconfigTmp.userId },
       '',
       'account',
     );
-  }
-}
-
-/* Read the current state */
-if (window.history) {
-  const currentState = window.history.state;
-  if (
-    mainconfigTmp.userId === -1 &&
-    currentState !== null &&
-    typeof currentState.userId !== 'undefined'
-  ) {
-    mainconfigTmp.isAuthenticated = true;
-    mainconfigTmp.userId = currentState.userId;
-    if (typeof currentState.quickLinkId !== 'undefined') {
-      mainconfigTmp.quickLinkId = currentState.quickLinkId;
-      window.history.replaceState(
-        { userId: mainconfigTmp.userId },
-        '',
-        `quicklink${mainconfigTmp.quickLinkId}`,
-      );
-    } else {
-      window.history.replaceState(
-        { userId: mainconfigTmp.userId },
-        '',
-        'account',
-      );
-    }
   }
 }
 
@@ -442,12 +449,6 @@ if (
 // The example iframe will just do a parent.pegaMashupNavigateBack() but the
 // real Mashup app will have to use the postMessage() api.
 if (isMobilePhone) {
-  /* Register global listener for navigate back */
-  window.addEventListener('message', (e) => {
-    if (e.data === 'pegaMashupNavigateBack') {
-      window.pegaMashupNavigateBack();
-    }
-  });
   window.pegaMashupNavigateBack = function pegaMashupNavigateBack() {
     const elems = document.getElementsByClassName('pi-caret-left');
     if (elems.length > 0) {

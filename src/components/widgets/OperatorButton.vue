@@ -13,7 +13,7 @@
     >
     <div
       v-clickoutside="{ handler: 'onClickOutOverlay'}"
-      class="overlay flex flex-col"
+      class="overlay logout flex flex-col"
       :class="[isActive ? 'show' : 'hidden']"
     >
       <button v-on:click="logOut" class="simple">{{$t('message.logout')}}</button>
@@ -51,6 +51,7 @@ export default {
       mainconfig.offerURL = '';
       mainconfig.previousPage = '';
       mainconfig.intent = '';
+      mainconfig.isDeepLink = false;
       if (window.history && !mainconfig.isMobilePhone) {
         window.history.replaceState({}, '', 'index.html');
       }

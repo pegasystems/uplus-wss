@@ -215,6 +215,9 @@
   top: 70rem;
 }
 
+.phone .overlay:not(.logout) {
+  left: 8rem;
+}
 .phone .overlay:after {
   right: 16rem;
 }

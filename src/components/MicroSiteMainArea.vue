@@ -2,7 +2,7 @@
   <section class="flex flex-col">
     <iframe
       :src="offerURL"
-      style="overflow: hidden; height: 570px"
+      style="overflow: hidden;"
       width="100%"
       height="100%"
       border="0"

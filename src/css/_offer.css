@@ -104,6 +104,9 @@ body > #app.form.offer {
   padding: 0 8rem;
 }
 
+.offer-details {
+  margin-bottom: 32rem;
+}
 .offer-details .line {
   width: 81rem;
   height: 5rem;
@@ -116,16 +119,22 @@ body > #app.form.offer {
   background-position: 25% 50%;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 300rem;
-  margin-bottom: 32rem;
+  height: 250rem;
   padding: 0;
-  width: 300rem;
   border-radius: 50%;
 }
 
 .offer-details > div > div {
   width: 50%;
-  padding: 0 0 0 16rem;
+}
+
+.offer-details > div > div:first-child {
+  padding: 0 56rem 0 38rem;
+  min-width: 344rem;
+}
+
+.offer-details > div > div:last-child {
+  padding-left: 8rem;
 }
 
 .offer-highlights > div {
