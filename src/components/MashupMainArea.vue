@@ -236,6 +236,9 @@ export default {
         btoa(this.settings.offeraction.pega_pwd),
       );
     }
+    if (this.isDeepLink === true) {
+      tmpActionParam.isDeepLink = 'true';
+    }
     if (isInAccoutPage) {
       tmpActionParam.isMashupInContainer = 'true';
     }

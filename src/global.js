@@ -276,6 +276,7 @@ let mainconfigTmp = Object.assign(
     reloadAccountMashup: 1,
     isAuthenticated: false,
     isSidePanelVisible: false,
+    isDeepLink: false,
     phonePageName: 'home',
     userId: -1,
     quickLinkId: -1,
@@ -329,6 +330,7 @@ if (queryDict.username || queryDict.pega_userid) {
         mainconfigTmp.settings.quicklinks[i].objclass ===
         queryDict.quicklinkclass
       ) {
+        mainconfigTmp.isDeepLink = true;
         mainconfigTmp.quickLinkId = i;
         window.history.replaceState(
           { userId: mainconfigTmp.userId },
