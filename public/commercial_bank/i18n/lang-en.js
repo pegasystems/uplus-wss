@@ -1,5 +1,5 @@
 window.langEN = {
-  hero_text: 'A premier set of services',
+  hero_text: 'Premier services',
   hero_span: 'always at hand',
   learnmore: 'Learn more',
   contactus: 'Contact us',
@@ -7,12 +7,12 @@ window.langEN = {
   secondary1_msg: 'Banking has never been easier.',
   secondary2_title: 'Go paperless',
   secondary2_msg: 'A safe and secure way to stay organized.',
-  primary1_title: 'Designed for businesses and their owners',
+  primary1_title: 'Tailored to your corporation',
   primary1_msg:
-    'We deliver a premium set of products to help your company succeed and reach new goals.',
-  primary2_title: 'Bank simply.',
+    'We deliver a premium set of products to help your company succeed.',
+  primary2_title: 'Bank simply',
   primary2_msg: 'Our top-tier personal account, free for business owners.',
-  primary3_title: 'Get investment advice.',
+  primary3_title: 'Get investment advice',
   primary3_msg: 'An experienced team of business lending specialists.',
   menu1: 'Treasury',
   menu2: 'Lending',
