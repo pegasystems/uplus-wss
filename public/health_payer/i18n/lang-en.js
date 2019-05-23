@@ -1,6 +1,6 @@
 window.langEN = {
   hero_text: 'Helping you be',
-  hero_span: 'the healthier you',
+  hero_span: 'a healthier you',
   learnmore: 'Learn more',
   contactus: 'Contact us',
   secondary1_title: "We're here to help",
@@ -139,7 +139,7 @@ window.langEN = {
     'The key to creating a healthy lifestyle is setting realistic goals. Our personalized program is designed for your success.',
   offer_highlights_data1_title: 'Professional and compassionate guidance',
   offer_highlights_data1_msg:
-    'A U+Health nurse will call you at your convenience to ass your risk for diabetes and personalize a care plan. ',
+    'A U+Health nurse will call you at your convenience to assess your risk for diabetes and personalize a care plan. ',
   offer_highlights_data2_title: 'Online resources available 24/7',
   offer_highlights_data2_msg:
     'Based on your care plan, you will be provided with educational materials related to your health goals. Additional resources are always available online through your U+Health member portal.',
