@@ -53,7 +53,7 @@ window.app = {
       id: '',
     },
     {
-      icon: 'pi-eye',
+      icon: 'pi-shield',
       title: 'accountpicker3_title',
       desc: 'accountpicker3_desc',
       id: '',
