@@ -21,16 +21,16 @@ body .color-brand {
 	border-color: #3C8712;
 }
 
-.front header,
-.offer-hero header {
+/* Home page */
+.front>header {
 	background-image: url('../img/hero-1.jpg');
 }
-
-.front.logged-in header {
+/* Account page */
+.form>header {
 	background-image: url('../img/hero-2.jpg');
 }
 
-
-.form>header {
-	background-image: url('../img/hero-2.jpg');
+/* Offer page */
+.offer header {
+	background-image: url('../img/hero-1.jpg');
 }
