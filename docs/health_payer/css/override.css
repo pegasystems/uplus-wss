@@ -23,7 +23,7 @@ body .color-brand {
 
 .front header,
 .offer-hero header {
-	background-image: url('../img/hero-1.jpg');
+	background-image: url('../img/hero-2.jpg');
 }
 
 .front.logged-in header {
@@ -32,5 +32,5 @@ body .color-brand {
 
 
 .form>header {
-	background-image: url('../img/hero-2.jpg');
+	background-image: url('../img/hero-3.jpg');
 }
