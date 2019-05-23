@@ -107,10 +107,6 @@ p {
   margin-bottom: 8rem;
 }
 
-.offer-hero header h1.hero {
-  font-size: 78rem;
-}
-
 h1.hero span {
   display: block;
 }
@@ -208,8 +204,8 @@ tr.heading {
 }
 
 .investmentamount {
-	min-width: 130px;
-	display: inline-block;
+  min-width: 130px;
+  display: inline-block;
 }
 
 p {

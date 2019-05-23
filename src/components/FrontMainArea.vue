@@ -1,15 +1,14 @@
 <template>
   <div class="flex flex-col" v-if="settings.pega_marketing.Host === '' || loading">
-    <div class="wrap hero-wrap flex flex-col">
-      <h1 class="hero">
-        {{ $t('message.' + app.herotext.title)}}
-        <br>
-        {{ $t('message.' + app.herotext.titlespan)}}
-      </h1>
-      <button
-        v-on:click="applyHeroAction"
-        class="more"
-      >{{ $t('message.' + app.herotext.buttonlabel) }}</button>
+    <div class="wrap hero-wrap flex">
+      <div class="flex flex-col">
+        <h1 class="hero">
+          {{ hero_offer.title }}
+          <br v-if=" hero_offer.message !=''">
+          {{ hero_offer.message }}
+        </h1>
+        <button v-on:click="applyHeroAction" class="more">{{ hero_offer.link }}</button>
+      </div>
     </div>
     <div class="wrap options primary-options">
       <section v-for="item in app.primarydetails" :key="item.img" class="front-option">
@@ -25,18 +24,19 @@
   <div class="flex flex-col" v-else>
     <div
       v-if="!isAuthenticated && homeHeroAction!=1 && offerURL===''"
-      class="wrap hero-wrap flex flex-col"
+      class="wrap hero-wrap flex"
+      :class="hero_offer.img!=='' ? 'hero-with-img':''"
     >
-      <div>
+      <div class="flex flex-col">
         <h1 class="hero">
-          {{ $t('message.' + app.herotext.title)}}
-          <br>
-          {{ $t('message.' + app.herotext.titlespan)}}
+          {{ hero_offer.title }}
+          <br v-if=" hero_offer.message !=''">
+          {{ hero_offer.message }}
         </h1>
-        <button
-          v-on:click="applyHeroAction"
-          class="more"
-        >{{ $t('message.' + app.herotext.buttonlabel) }}</button>
+        <button v-on:click="applyHeroAction" class="more">{{ hero_offer.link }}</button>
+      </div>
+      <div v-if="hero_offer.img!==''">
+        <img class="option" :src="(hero_offer.img)" :alt="(hero_offer.title)">
       </div>
     </div>
     <div class="wrap options primary-options">
@@ -76,7 +76,13 @@ export default {
     return Object.assign({}, mainconfig, {
       loading: true,
       data: [],
-      hero_offer: {},
+      hero_offer: {
+        img: '',
+        url: '',
+        title: this.$t(`message.${mainconfig.app.herotext.title}`),
+        message: this.$t(`message.${mainconfig.app.herotext.titlespan}`),
+        link: this.$t(`message.${mainconfig.app.herotext.buttonlabel}`),
+      },
     });
   },
   mounted() {
@@ -97,7 +103,12 @@ export default {
       mainconfig.previousPage = item.name;
     },
     applyHeroAction() {
-      mainconfig.homeHeroAction = 1;
+      if (this.hero_offer.url === '') {
+        mainconfig.homeHeroAction = 1;
+      } else {
+        mainconfig.offerURL = this.hero_offer.url;
+        mainconfig.previousPage = this.hero_offer.name;
+      }
     },
   },
 };

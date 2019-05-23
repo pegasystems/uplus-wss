@@ -52,10 +52,12 @@ body > #app.form.offer {
   color: #fff;
 }
 
+.offer-cards .image,
 .main-offer .image {
   background-position: 25% 50%;
   background-repeat: no-repeat;
   background-size: cover;
+  min-height: 200rem;
 }
 
 .main-offer > div {

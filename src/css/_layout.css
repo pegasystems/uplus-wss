@@ -19,8 +19,7 @@
   top: auto;
 }
 
-.front header,
-.offer-hero header {
+.front header {
   background-position: 50% 25%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -156,10 +155,6 @@ header {
   padding-top: 29.5rem;
 }
 
-.offer-hero header {
-  height: 420rem;
-}
-
 header.settings {
   margin-bottom: 0;
   padding: 0 16rem;
@@ -213,7 +208,19 @@ header ul.flex li {
 
 .hero-wrap {
   flex-grow: 1;
-  justify-content: center;
+  align-items: center;
+}
+
+.hero-wrap.hero-with-img > div {
+  width: 50%;
+}
+
+.hero-wrap.hero-with-img > div:last-child {
+  text-align: center;
+}
+
+.hero-wrap > div > img {
+  border-radius: unset;
 }
 
 main,

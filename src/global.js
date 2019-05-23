@@ -140,15 +140,16 @@ const parseResponseData = (Context, type, OffersList) => {
       typeof Context.hero_offer === 'object'
     ) {
       isHeroPlacementFilled = true;
-      Context.hero_offer.push({
+      const msg = type === 'homePage' ? '' : OffersList[i].ShortDescription;
+      Context.hero_offer = {
         img: imgurl,
         placement: OffersList[i].Placement,
         title: OffersList[i].Label,
-        message: OffersList[i].ShortDescription,
+        message: msg,
         link: 'learnmore',
         url: OffersList[i].ClickThroughURL,
         name: OffersList[i].Name,
-      });
+      };
     } else {
       Context.data.push({
         img: imgurl,
@@ -210,10 +211,12 @@ const initNBAM = function initNBAM(
       placement,
     );
   } else {
-    setTimeout(
-      initNBAM(Context, type, customerID, previousPage, currentPage),
-      200,
-    );
+    const scriptLoadMkt = document.createElement('script');
+    scriptLoadMkt.onload = function onloadPegaMkt() {
+      initNBAM(Context, type, customerID, previousPage, currentPage);
+    };
+    scriptLoadMkt.setAttribute('src', '../js/realtimecontainerscript.js');
+    document.head.appendChild(scriptLoadMkt);
   }
 };
 
@@ -450,17 +453,6 @@ if (
   };
   scriptLoad.setAttribute('src', '../js/jquery-min.js');
   document.head.appendChild(scriptLoad);
-}
-
-// Load the Pega Marketing file if configured
-if (
-  typeof mainconfigTmp.settings.pega_marketing !== 'undefined' &&
-  mainconfigTmp.settings.pega_marketing.Host !== '' &&
-  !`${window.location}`.endsWith('settings.html')
-) {
-  const scriptLoadMkt = document.createElement('script');
-  scriptLoadMkt.setAttribute('src', '../js/realtimecontainerscript.js');
-  document.head.appendChild(scriptLoadMkt);
 }
 
 // Handle the back button support on mobile

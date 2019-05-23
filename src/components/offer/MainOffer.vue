@@ -1,17 +1,11 @@
 <template>
   <div v-if="settings.pega_marketing.Host === '' || loading">
     <div class="main-offer primary-card flex flex-nowrap">
-      <div
-        class="image"
-        v-bind:style="{ backgroundImage: 'url(./img/' + app.offer.main_offer.image + ')'}"
-      ></div>
+      <div class="image" v-bind:style="{ backgroundImage: 'url(' + hero_offer.img + ')'}"></div>
       <div class="details">
-        <h3 class="color-brand">{{ $t('message.' + app.offer.main_offer.title)}}</h3>
-        <p>{{ $t('message.' + app.offer.main_offer.message)}}</p>
-        <button
-          v-on:click="applyOfferAction"
-          class="strong"
-        >{{ $t('message.' + app.offer.main_offer.button_label)}}</button>
+        <h3 class="color-brand">{{ hero_offer.title }}</h3>
+        <p>{{ hero_offer.message }}</p>
+        <button v-on:click="applyOfferAction" class="strong">{{ hero_offer.link }}</button>
       </div>
     </div>
     <div class="offer-cards promo">
@@ -30,29 +24,12 @@
     </div>
   </div>
   <div v-else>
-    <div
-      v-if="typeof hero_offer.title === 'undefined'"
-      class="main-offer primary-card flex flex-nowrap"
-    >
-      <div
-        class="image"
-        v-bind:style="{ backgroundImage: 'url(./img/' + app.offer.main_offer.image + ')'}"
-      ></div>
-      <div class="details">
-        <h3 class="color-brand">{{ $t('message.' + app.offer.main_offer.title)}}</h3>
-        <p>{{ $t('message.' + app.offer.main_offer.message)}}</p>
-        <button
-          v-on:click="applyOfferAction"
-          class="strong"
-        >{{ $t('message.' + app.offer.main_offer.button_label)}}</button>
-      </div>
-    </div>
-    <div v-else class="main-offer primary-card flex flex-nowrap">
-      <div class="image" v-bind:style="{ backgroundImage: 'url(' + hero_offer.image + ')'}"></div>
+    <div class="main-offer primary-card flex flex-nowrap">
+      <div class="image" v-bind:style="{ backgroundImage: 'url(' + hero_offer.img + ')'}"></div>
       <div class="details">
         <h3 class="color-brand">{{ hero_offer.title }}</h3>
-        <p>{{ $t('message.' + hero_offer.message)}}</p>
-        <button class="strong">{{ hero_offer.link }}</button>
+        <p>{{ hero_offer.message }}</p>
+        <button v-on:click="applyOfferAction" class="strong">{{ hero_offer.link }}</button>
       </div>
     </div>
     <div class="offer-cards promo">
@@ -61,6 +38,11 @@
         <div class="flex flex-col primary-card" v-for="(item,index) in data" v-bind:key="index">
           <h3>{{ item.title}}</h3>
           <p class="flex-grow-1">{{ item.message}}</p>
+          <div
+            v-if="item.img !=''"
+            class="image"
+            v-bind:style="{ backgroundImage: 'url(' + item.img + ')'}"
+          ></div>
           <span class="highlight border-brand">
             <a
               v-if="settings.pega_marketing.offerPage.clickaction === 'TopURL'"
@@ -94,7 +76,15 @@ export default {
     return Object.assign({}, mainconfig, {
       loading: true,
       data: [],
-      hero_offer: {},
+      hero_offer: {
+        img: `./img/${mainconfig.app.offer.main_offer.image}`,
+        url: '',
+        title: this.$t(`message.${mainconfig.app.offer.main_offer.title}`),
+        message: this.$t(`message.${mainconfig.app.offer.main_offer.message}`),
+        link: this.$t(
+          `message.${mainconfig.app.offer.main_offer.button_label}`,
+        ),
+      },
     });
   },
   mounted() {
@@ -125,7 +115,12 @@ export default {
       mainconfig.previousPage = item.name;
     },
     applyOfferAction() {
-      mainconfig.offerAction = 1;
+      if (this.hero_offer.url === '') {
+        mainconfig.offerAction = 1;
+      } else {
+        mainconfig.offerURL = this.hero_offer.url;
+        mainconfig.previousPage = this.hero_offer.name;
+      }
     },
   },
 };

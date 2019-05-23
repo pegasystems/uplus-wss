@@ -150,6 +150,10 @@
   .landing-cards > div > .flex {
     margin-bottom: 16rem;
   }
+
+  .hero-wrap > div > img {
+    max-height: 150rem;
+  }
 }
 
 @media only screen and (max-width: 700px) {
