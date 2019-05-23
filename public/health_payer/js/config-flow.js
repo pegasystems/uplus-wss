@@ -235,17 +235,17 @@ window.app = {
     highlights: {
       data: [
         {
-          icon: 'pi-chevron-solid',
+          icon: 'pi-heart-pulse',
           title: 'offer_highlights_data1_title',
           message: 'offer_highlights_data1_msg',
         },
         {
-          icon: 'pi-triangle-solid',
+          icon: 'pi-book-open',
           title: 'offer_highlights_data2_title',
           message: 'offer_highlights_data2_msg',
         },
         {
-          icon: 'pi-bolt-solid',
+          icon: 'pi-compass',
           title: 'offer_highlights_data3_title',
           message: 'offer_highlights_data3_msg',
         },

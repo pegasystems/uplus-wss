@@ -1,6 +1,6 @@
 window.langEN = {
   hero_text: 'Helping you be',
-  hero_span: 'the healthy you',
+  hero_span: 'the healthier you',
   learnmore: 'Learn more',
   contactus: 'Contact us',
   secondary1_title: "We're here to help",
@@ -112,40 +112,40 @@ window.langEN = {
   phone_quick_links_intro_action: 'Get started',
   phone_quick_links_intro_banner_msg: 'Have a medical emergency?',
   phone_quick_links_intro_banner_action: 'Get help immediately.',
-  offer_header_title: 'Virtual Care—the doctor can see you now.',
+  offer_header_title: 'Together we can prevent diabetes.',
   offer_header_msg:
-    'Anytime—day or night— Virtual Care can be a great option whenever you need care. From common colds and flu to caring for rashes, allergies, and migraines, you can connect with a doctor when you need to, how you need to.',
-  offer_main_offer_title: 'Your first "visit" is on us!',
+    'Diabetes can usually be prevented when managed early and consistently. We invite you to join our FREE diabetes prevention program to better manage your health and lower your risk factors.',
+  offer_main_offer_title: 'Free to members',
   offer_main_offer_msg:
-    'Start by registering with one of our premier providers. Your first visit with a doctor on Virtual Care is free.',
-  offer_main_offer_button_label: 'Get started',
-  offer_footer_title: 'Helping you be the healthy you.',
-  offer_footer_button_label: 'Get started',
-  offer_cards_title: 'Helping you be the healthy you',
-  offer_cards_data1_title: 'Quality care',
+    'Customize your FREE prevention program with your Care Team and start working towards your goals today for a healthy future.',
+  offer_main_offer_button_label: 'Enroll today',
+  offer_footer_title: 'Enroll in our FREE diabetes prevention program today!',
+  offer_footer_button_label: 'Enroll today',
+  offer_cards_title: 'Healthy lifestyle changes that work.',
+  offer_cards_data1_title: 'Nutrition Counseling',
   offer_cards_data1_msg:
-    'Speak to a licensed doctor by phone or video',
-  offer_cards_data1_highlight: 'Expert care',
-  offer_cards_data2_title: '24/7 access',
+    'Nutrition advice that has you eating healthy without giving up all the foods you love.',
+  offer_cards_data1_highlight: 'Healthy food vouchers',
+  offer_cards_data2_title: 'Exercise Coaching',
   offer_cards_data2_msg:
-    'We are there for you no matter what time it is.',
-  offer_cards_data2_highlight: 'Always available',
-  offer_cards_data3_title: 'Help on the go',
+    "Add physical activity to your life, even if you don't think you have time or resources.",
+  offer_cards_data2_highlight: 'Gym discounts and perks',
+  offer_cards_data3_title: 'Personalized Goals',
   offer_cards_data3_msg:
-    'Access our Virtual Care platform by phone, web or app anywhere',
-  offer_cards_data3_highlight: 'Home or travel',
-  offer_details1_title: 'We believe banking shouldn’t cost you money',
+    'Assesments help you directly address your risk factors and overcome barriers to care.',
+  offer_cards_data3_highlight: 'Track your progress',
+  offer_details1_title: 'Working on your goals daily will benefit you for a lifetime.',
   offer_details1_msg:
-    'UPlus Bank is rated #1 because we are committed to growing your savings, not ours.',
-  offer_highlights_data1_title: 'Low Account Minimum',
+    'The key to creating a healthy lifestyle is setting realistic goals. Our personalized program is designed for your success.',
+  offer_highlights_data1_title: 'Professional and compassionate guidance',
   offer_highlights_data1_msg:
-    'Minimum of $100 to open your account. You can transfer funds with electronic transfer, mail in check, mobile check deposit, or wire. ',
-  offer_highlights_data2_title: 'Cash Back',
+    'A U+Health nurse will call you at your convenience to ass your risk for diabetes and personalize a care plan. ',
+  offer_highlights_data2_title: 'Online resources available 24/7',
   offer_highlights_data2_msg:
-    'Earn 1.60% APY on balances of $1,000.00 or more.  Balances of less than $1,000.00 will still earn a great everyday rate of 1% APY.  ',
-  offer_highlights_data3_title: 'Pricing',
+    'Based on your care plan, you will be provided with educational materials related to your health goals. Additional resources are always available online through your U+Health member portal.',
+  offer_highlights_data3_title: 'Mobile goal tracking',
   offer_highlights_data3_msg:
-    'Minimum of $100 to open your account. You can transfer funds with electronic transfer, mail in check, mobile check deposit, or wire. ',
+    'We understand that accountability is key to successfully measuring and tracking progress. Stay motivated by using our mobile diabetes tracking tool.',
   kmhelp: 'Help',
 };
 
