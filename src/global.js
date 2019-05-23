@@ -124,6 +124,7 @@ const parseResponseData = (Context, type, OffersList) => {
       maxOffers = OffersList.length;
     }
   }
+  let isHeroPlacementFilled = false;
   for (let i = 0; i < maxOffers; i++) {
     let imgurl = OffersList[i].ImageURL.trim();
     if (!imgurl.startsWith('http')) {
@@ -133,15 +134,32 @@ const parseResponseData = (Context, type, OffersList) => {
     if (imgurl === '') {
       imgurl = 'img/option-1.jpg';
     }
-    Context.data.push({
-      img: imgurl,
-      placement: OffersList[i].Placement,
-      title: OffersList[i].Label,
-      message: OffersList[i].ShortDescription,
-      link: 'learnmore',
-      url: OffersList[i].ClickThroughURL,
-      name: OffersList[i].Name,
-    });
+    if (
+      !isHeroPlacementFilled &&
+      OffersList[i].Placement === 'Hero' &&
+      typeof Context.hero_offer === 'object'
+    ) {
+      isHeroPlacementFilled = true;
+      Context.hero_offer.push({
+        img: imgurl,
+        placement: OffersList[i].Placement,
+        title: OffersList[i].Label,
+        message: OffersList[i].ShortDescription,
+        link: 'learnmore',
+        url: OffersList[i].ClickThroughURL,
+        name: OffersList[i].Name,
+      });
+    } else {
+      Context.data.push({
+        img: imgurl,
+        placement: OffersList[i].Placement,
+        title: OffersList[i].Label,
+        message: OffersList[i].ShortDescription,
+        link: 'learnmore',
+        url: OffersList[i].ClickThroughURL,
+        name: OffersList[i].Name,
+      });
+    }
   }
   Context.loading = false;
 };
