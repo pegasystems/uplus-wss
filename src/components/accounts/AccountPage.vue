@@ -9,10 +9,7 @@
       class="flex flex-col"
     >
       <div v-if="app.industry  === 'commercial_bank'">
-        <h1
-          v-if="userId!=-1"
-          class="wrap"
-        >{{ $t("message.hello") }} {{ settings.users[userId].name }}</h1>
+        <h1 v-if="userId!=-1" class="wrap">{{ $t('message.hello') + showWelcomeMessage() }}</h1>
         <h1 v-else class="wrap">{{ $t("message.hello") }}</h1>
         <div class="wrap cols flex flex-wrap">
           <BankAccountMainArea/>
@@ -56,6 +53,12 @@ export default {
     MashupMainArea,
     MainFooter,
     MicroSiteMainArea,
+  },
+  methods: {
+    showWelcomeMessage() {
+      const name = this.settings.users[this.userId].name;
+      return name.substring(0, name.lastIndexOf(' '));
+    },
   },
 };
 </script>

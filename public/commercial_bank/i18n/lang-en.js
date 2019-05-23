@@ -20,7 +20,7 @@ window.langEN = {
   menu4: 'Investments',
   login: 'Log in',
   logout: 'Log out',
-  hello: 'Hello, ',
+  hello: 'Hello ',
   invalidLogin: 'Invalid credentials',
   aboutus: 'About us',
   reviews: 'Reviews',
