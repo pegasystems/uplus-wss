@@ -276,6 +276,7 @@ export default {
       });
     }
     this.actionParam = JSON.stringify(tmpActionParam);
+    this.isMashupInitialized = true;
 
     /* If Mashup is already initialized - just return */
     if (
@@ -283,7 +284,6 @@ export default {
       typeof pega.Mashup !== 'undefined' &&
       typeof pega.Mashup.Communicator !== 'undefined'
     ) {
-      this.isMashupInitialized = true;
       return;
     }
 
@@ -296,7 +296,6 @@ export default {
           el.allow = 'geolocation';
         });
       }, 300);
-      this.isMashupInitialized = true;
     };
     document.head.appendChild(this.mashupScript);
   },
