@@ -1,10 +1,5 @@
 .phone body {
   overflow: hidden;
-  height: auto;
-}
-
-.phone body > #app {
-  height: auto;
 }
 
 .phone main {
