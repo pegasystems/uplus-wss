@@ -1,5 +1,5 @@
 <template>
-  <section class="flex flex-col">
+  <section class="flex flex-col height-100-pct">
     <iframe
       :src="offerURL"
       style="overflow: hidden;"
