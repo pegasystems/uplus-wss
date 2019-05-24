@@ -1,3 +1,9 @@
+.phone body,
+.phone body > #app,
+.phone html {
+  height: 100vh;
+}
+
 .phone body {
   overflow: hidden;
 }
