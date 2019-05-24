@@ -6,7 +6,8 @@
   >
     <div
       v-if="actionName == 'createNewWork'"
-      data-pega-gadgetname="PegaGadget"
+      :id="mashupid"
+      :data-pega-gadgetname="mashupid"
       :data-pega-action="actionName"
       :data-pega-action-param-classname="objClass"
       :data-pega-action-param-flowname="startCase"
@@ -19,7 +20,8 @@
     ></div>
     <div
       v-else-if="actionName == 'display'"
-      data-pega-gadgetname="PegaGadget"
+      :id="mashupid"
+      :data-pega-gadgetname="mashupid"
       :data-pega-action="actionName"
       :data-pega-action-param-harnessname="actionNameParam"
       :data-pega-action-param-classname="objClass"
@@ -32,7 +34,8 @@
     ></div>
     <div
       v-else-if="actionName == 'getNextWork'"
-      data-pega-gadgetname="PegaGadget"
+      :id="mashupid"
+      :data-pega-gadgetname="mashupid"
       :data-pega-action="actionName"
       data-pega-isdeferloaded="false"
       :data-pega-applicationname="appName"
@@ -43,7 +46,8 @@
     ></div>
     <div
       v-else-if="actionName == 'openAssignment'"
-      data-pega-gadgetname="PegaGadget"
+      :id="mashupid"
+      :data-pega-gadgetname="mashupid"
       :data-pega-action="actionName"
       :data-pega-action-param-key="actionNameParam"
       data-pega-isdeferloaded="false"
@@ -55,7 +59,8 @@
     ></div>
     <div
       v-else-if="actionName == 'openWorkByHandle'"
-      data-pega-gadgetname="PegaGadget"
+      :id="mashupid"
+      :data-pega-gadgetname="mashupid"
       :data-pega-action="actionName"
       :data-pega-action-param-key="actionNameParam"
       data-pega-isdeferloaded="false"
@@ -67,7 +72,8 @@
     ></div>
     <div
       v-else-if="actionName == 'openWorkItem'"
-      data-pega-gadgetname="PegaGadget"
+      :id="mashupid"
+      :data-pega-gadgetname="mashupid"
       :data-pega-action="actionName"
       :data-pega-action-param-workid="actionNameParam"
       data-pega-isdeferloaded="false"
@@ -79,7 +85,8 @@
     ></div>
     <div
       v-else-if="actionName == 'openWorkByURL'"
-      data-pega-gadgetname="PegaGadget"
+      :id="mashupid"
+      :data-pega-gadgetname="mashupid"
       :data-pega-action="actionName"
       :data-pega-action-param-query="actionNameParam"
       data-pega-isdeferloaded="false"
@@ -106,12 +113,14 @@
 </template>
 
 <script>
-/* global pega:true _initAllPegaObjects  */
+/* global pega:true _initAllPegaObjects */
+/* eslint no-underscore-dangle:0 */
 import { mainconfig } from '../global';
 
 export default {
   data() {
     return Object.assign({}, mainconfig, {
+      mashupid: `wss${Date.now()}`,
       mashupScript: '',
       isMashupInitialized: false,
       serverUrl: '',
@@ -267,24 +276,27 @@ export default {
       });
     }
     this.actionParam = JSON.stringify(tmpActionParam);
+    if (pega.Mashup && pega.Mashup.Communicator) {
+      this.isMashupInitialized = true;
+      return;
+    }
+
     this.mashupScript.onload = function onloadMashup() {
       pega.Mashup.Communicator.register(pega.Mashup.hostActionsProcessor);
       _initAllPegaObjects();
-      setTimeout(() => {
-        const inneriframes = document.getElementsByTagName('iframe');
-        Array.prototype.forEach.call(inneriframes, (el) => {
-          el.allow = 'geolocation';
-        });
-      }, 300);
+      this.isMashupInitialized = true;
     };
     document.head.appendChild(this.mashupScript);
     this.isMashupInitialized = true;
   },
-  beforeDestroy() {
-    if (typeof pega !== 'undefined') pega = {};
-    if (this.mashupScript !== '' && this.mashupScript.parentElement !== null) {
-      document.head.removeChild(this.mashupScript);
-    }
+  mounted() {
+    pega.web.mgr._initGadgets(window);
+    setTimeout(() => {
+      const inneriframes = document.getElementsByTagName('iframe');
+      Array.prototype.forEach.call(inneriframes, (el) => {
+        el.allow = 'geolocation';
+      });
+    }, 300);
   },
 };
 </script>
