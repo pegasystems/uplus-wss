@@ -300,7 +300,11 @@ export default {
     document.head.appendChild(this.mashupScript);
   },
   mounted() {
-    if (this.isMashupInitialized) {
+    if (
+      typeof pega !== 'undefined' &&
+      typeof pega.Mashup !== 'undefined' &&
+      typeof pega.Mashup.Communicator !== 'undefined'
+    ) {
       pega.web.mgr._initGadgets(window);
       setTimeout(() => {
         const inneriframes = document.getElementsByTagName('iframe');
