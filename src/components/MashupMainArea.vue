@@ -276,7 +276,13 @@ export default {
       });
     }
     this.actionParam = JSON.stringify(tmpActionParam);
-    if (pega.Mashup && pega.Mashup.Communicator) {
+
+    /* If Mashup is already initialized - just return */
+    if (
+      typeof pega !== 'undefined' &&
+      typeof pega.Mashup !== 'undefined' &&
+      typeof pega.Mashup.Communicator !== 'undefined'
+    ) {
       this.isMashupInitialized = true;
       return;
     }
@@ -284,19 +290,26 @@ export default {
     this.mashupScript.onload = function onloadMashup() {
       pega.Mashup.Communicator.register(pega.Mashup.hostActionsProcessor);
       _initAllPegaObjects();
+      setTimeout(() => {
+        const inneriframes = document.getElementsByTagName('iframe');
+        Array.prototype.forEach.call(inneriframes, (el) => {
+          el.allow = 'geolocation';
+        });
+      }, 300);
       this.isMashupInitialized = true;
     };
     document.head.appendChild(this.mashupScript);
-    this.isMashupInitialized = true;
   },
   mounted() {
-    pega.web.mgr._initGadgets(window);
-    setTimeout(() => {
-      const inneriframes = document.getElementsByTagName('iframe');
-      Array.prototype.forEach.call(inneriframes, (el) => {
-        el.allow = 'geolocation';
-      });
-    }, 300);
+    if (this.isMashupInitialized) {
+      pega.web.mgr._initGadgets(window);
+      setTimeout(() => {
+        const inneriframes = document.getElementsByTagName('iframe');
+        Array.prototype.forEach.call(inneriframes, (el) => {
+          el.allow = 'geolocation';
+        });
+      }, 300);
+    }
   },
 };
 </script>
