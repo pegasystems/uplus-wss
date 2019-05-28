@@ -78,6 +78,7 @@ export default {
       }
     },
     showKMHelp() {
+      mainconfig.reloadMashup += 1;
       mainconfig.viewKMHelp = 1;
     },
   },

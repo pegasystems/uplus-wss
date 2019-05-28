@@ -297,6 +297,7 @@ let mainconfigTmp = Object.assign(
     previousPage: '',
     intent: '',
     reloadOffer: 1,
+    reloadMashup: 1,
     reloadAccountMashup: 1,
     isAuthenticated: false,
     isSidePanelVisible: false,

@@ -24,7 +24,7 @@
         </div>
       </div>
     </main>
-    <main v-else class="wrap">
+    <main v-else class="wrap" :key="reloadMashup">
       <MashupMainArea/>
     </main>
     <MainFooter/>
