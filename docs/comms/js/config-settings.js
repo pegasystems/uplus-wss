@@ -137,6 +137,7 @@ window.settings = {
       extraparam: '',
       pega_userid: 'jsmith',
       pega_pwd: 'rules',
+      bill_pay: 164.8,
       load_by_default: true,
     },
     {
@@ -151,6 +152,7 @@ window.settings = {
       extraparam: '',
       pega_userid: 'mtaylor',
       pega_pwd: 'rules',
+      bill_pay: 164.8,
       load_by_default: false,
     },
   ],

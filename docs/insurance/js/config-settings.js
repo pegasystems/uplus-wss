@@ -124,6 +124,7 @@ window.settings = {
       extraparam: '',
       pega_userid: 'jsmith',
       pega_pwd: 'rules',
+      bill_pay: 164.8,
       load_by_default: false,
     },
     {
@@ -138,6 +139,7 @@ window.settings = {
       extraparam: '',
       pega_userid: 'MaryJohnson07@pegatsdemo.com',
       pega_pwd: 'install12345!',
+      bill_pay: 164.8,
       load_by_default: true,
     },
   ],

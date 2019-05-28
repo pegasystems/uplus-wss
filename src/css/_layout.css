@@ -291,6 +291,11 @@ main,
   padding: 0;
 }
 
+.hero-wrap > div > img {
+  max-height: 260rem;
+  max-width: 100%;
+}
+
 img.option {
   max-height: 260rem;
   max-width: 100%;
