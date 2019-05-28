@@ -5,7 +5,7 @@
   <main v-else-if="offerURL !== ''" class="wrap flex flex-col">
     <MicroSiteMainArea/>
   </main>
-  <main v-else class="wrap flex flex-col">
+  <main v-else class="wrap flex flex-col static-offer">
     <MainOffer/>
     <Details/>
     <Highlight/>

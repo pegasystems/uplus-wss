@@ -18,7 +18,11 @@ body > #app.form.offer {
 .offer > main {
   margin-top: -140rem;
   color: #414949;
-  max-width: 730rem;
+  max-width: 1000rem;
+}
+
+.offer > main.static-offer {
+  max-width: 710rem;
 }
 
 .offer .primary-card h3 {
