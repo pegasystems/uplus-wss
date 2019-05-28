@@ -175,6 +175,18 @@ export default {
       this.startCase = this.settings.offeraction.startcase;
       this.appName = this.settings.offeraction.application;
       this.extraParam = this.settings.offeraction.extraparam;
+
+      const urlExtraParams = {};
+      window.location.search
+        .substr(1)
+        .split('&')
+        .forEach((item) => {
+          urlExtraParams[item.split('=')[0]] = item.split('=')[1];
+        });
+      for (const i in urlExtraParams) {
+        this.extraParam +=
+          `${(this.extraParam !== '' ? ',' : '') + i}=${urlExtraParams[i]}`;
+      }
     } else if (this.viewKMHelp !== -1) {
       this.actionName = this.settings.kmhelp.action;
       this.actionNameParam = this.settings.kmhelp.actionparam;
@@ -293,7 +305,7 @@ export default {
       setTimeout(() => {
         const inneriframes = document.getElementsByTagName('iframe');
         Array.prototype.forEach.call(inneriframes, (el) => {
-          el.allow = 'geolocation';
+          el.allow = 'geolocation *;';
         });
       }, 300);
     };
@@ -309,7 +321,7 @@ export default {
       setTimeout(() => {
         const inneriframes = document.getElementsByTagName('iframe');
         Array.prototype.forEach.call(inneriframes, (el) => {
-          el.allow = 'geolocation';
+          el.allow = 'geolocation *;';
         });
       }, 300);
     }
