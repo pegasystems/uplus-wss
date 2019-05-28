@@ -219,10 +219,6 @@ header ul.flex li {
   text-align: center;
 }
 
-.hero-wrap > div > img {
-  border-radius: unset;
-}
-
 main,
 .button-row button {
   flex-grow: 1;
@@ -299,7 +295,6 @@ img.option {
   max-height: 260rem;
   max-width: 100%;
   border-radius: 50%;
-  background: #ccc;
 }
 
 .col-2 img {

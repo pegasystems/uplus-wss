@@ -36,7 +36,7 @@
         <button v-on:click="applyHeroAction" class="more">{{ hero_offer.link }}</button>
       </div>
       <div v-if="hero_offer.img!==''">
-        <img class="option" :src="(hero_offer.img)" :alt="(hero_offer.title)">
+        <img :src="(hero_offer.img)" :alt="(hero_offer.title)">
       </div>
     </div>
     <div class="wrap options primary-options">

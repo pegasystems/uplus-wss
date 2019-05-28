@@ -149,7 +149,7 @@ const parseResponseData = (Context, type, OffersList) => {
         placement: OffersList[i].Placement,
         title: OffersList[i].Label,
         message: msg,
-        link: 'learnmore',
+        link: Context.hero_offer.link,
         url: OffersList[i].ClickThroughURL,
         name: OffersList[i].Name,
       };
