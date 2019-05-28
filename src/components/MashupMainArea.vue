@@ -184,8 +184,14 @@ export default {
           urlExtraParams[item.split('=')[0]] = item.split('=')[1];
         });
       for (const i in urlExtraParams) {
-        this.extraParam +=
-          `${(this.extraParam !== '' ? ',' : '') + i}=${urlExtraParams[i]}`;
+        if (
+          typeof urlExtraParams[i] !== 'undefined' &&
+          urlExtraParams[i] !== ''
+        ) {
+          this.extraParam += `${(this.extraParam !== '' ? ',' : '') + i}=${
+            urlExtraParams[i]
+          }`;
+        }
       }
     } else if (this.viewKMHelp !== -1) {
       this.actionName = this.settings.kmhelp.action;
