@@ -223,6 +223,58 @@ const initNBAM = function initNBAM(
   }
 };
 
+const updatePegaChat = function updatePegaChat(u) {
+  /* Delete the preview gadget */
+  const elPreview = document.querySelector(
+    "[data-pega-gadgetname='PreviewGadget']",
+  );
+  if (elPreview != null) {
+    elPreview.remove();
+  }
+
+  /* Update PegaChat and pass the correct ContactId, AccountNumber and username */
+  const el = document.querySelector(
+    "[data-pega-gadgetname='OnlineHelp'] > iframe",
+  );
+  if (el != null && typeof el.src === 'string') {
+    let updatedSrc = `${el.src}&ContactId=${u.contactID}&AccountNumber=${
+      u.accountID
+    }&username=${u.username}`;
+    if (typeof u.extraparam !== 'undefined' && u.extraparam !== '') {
+      u.extraparam.split(',').forEach((item) => {
+        const values = item.split('=');
+        if (values.length === 2) {
+          updatedSrc += `&${values[0].trim()}=${values[1].trim()}`;
+        }
+      });
+    }
+    if (updatedSrc.indexOf('timestamp') > -1) {
+      updatedSrc = updatedSrc.replace(
+        /timestamp=[^&]+/,
+        `timestamp=${Date.now()}`,
+      );
+    } else {
+      // Else we will append the timestamp
+      updatedSrc += `&timestamp=${Date.now()}`;
+    }
+    // updatedSrc = encodeURI(updatedSrc);
+    const parentNode = el.parentNode;
+    el.remove();
+    el.src = updatedSrc;
+    parentNode.appendChild(el);
+  }
+  window.PegaCSWSS.ContactID = u.contactID;
+  window.PegaCSWSS.AccountNumber = u.accountID;
+  window.PegaCSWSS.UserName = u.username;
+  if (typeof u.extraparam !== 'undefined' && u.extraparam !== '') {
+    u.extraparam.split(',').forEach((item) => {
+      const values = item.split('=');
+      if (values.length === 2) {
+        window.PegaCSWSS.ExtraParams[values[0].trim()] = values[1].trim();
+      }
+    });
+  }
+};
 // Directive for dealing out with clicking outside of an overlay
 let handleOutsideClick;
 Vue.directive('clickoutside', {
@@ -473,5 +525,5 @@ if (isMobilePhone) {
 
 const mainconfig = mainconfigTmp;
 export {
-  mainconfig, i18n, upgradeConfig, initNBAM,
+  mainconfig, i18n, upgradeConfig, initNBAM, updatePegaChat,
 };

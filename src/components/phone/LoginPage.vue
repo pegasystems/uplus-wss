@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import { mainconfig } from '../../global';
+import { mainconfig, updatePegaChat } from '../../global';
 import TopNav from './TopNav.vue';
 
 export default {
@@ -60,13 +60,14 @@ export default {
       /* Validate the password */
       let isLoginSuccess = false;
       mainconfig.userId = -1;
-      for (const i in mainconfig.settings.users) {
+      for (const i in this.settings.users) {
         if (
-          mainconfig.settings.users[i].username === this.username &&
-          mainconfig.settings.users[i].password === this.password
+          this.settings.users[i].username === this.username &&
+          this.settings.users[i].password === this.password
         ) {
           isLoginSuccess = true;
           mainconfig.userId = i;
+          updatePegaChat(this.settings.users[i]);
           break;
         }
       }

@@ -29,7 +29,6 @@ export default {
   methods: {
     /* Will listen for message from the Mashup iframe to force a reload back of the MashupComponent */
     iFrameMessageListener(e) {
-      console.log('rrr', e.data);
       if (e.data === 'pegaMashupNavigateBack') {
         window.pegaMashupNavigateBack();
         if (mainconfig.offerURL !== '') {
