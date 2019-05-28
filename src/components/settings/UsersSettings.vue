@@ -51,6 +51,10 @@
         <input :id="'user-' + index + '-pega_pwd'" type="password" v-model="item.pega_pwd">
       </div>
       <div class="field-item">
+        <label :for="'user-' + index + '-billpay'">Bill amount</label>
+        <input :id="'user-' + index + '-billpay'" type="text" v-model="item.billpay">
+      </div>
+      <div class="field-item">
         <label :for="'user-' + index + '-load_by_default'">Loaded by default</label>
         <input
           type="checkbox"

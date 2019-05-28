@@ -64,6 +64,9 @@ const upgradeConfig = function upgradeConfig(cfg) {
     if (typeof cfg.settings.users[i].extraparam === 'undefined') {
       cfg.settings.users[i].extraparam = '';
     }
+    if (typeof cfg.settings.users[i].billpay === 'undefined') {
+      cfg.settings.users[i].billpay = 164.8;
+    }
   }
   if (typeof cfg.settings.pega_marketing.homePage === 'undefined') {
     cfg.settings.pega_marketing.homePage = { containerName: 'TopOffers' };

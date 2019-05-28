@@ -4,7 +4,7 @@
     <div class="content-card flex flex-col-3">
       <div class="list-box">
         <h3>{{ $t("message.amountdue") }}</h3>
-        <p>{{ $n(164.80, 'currency') }}</p>
+        <p>{{ $n(settings.users[userId].billpay, 'currency') }}</p>
         <button v-on:click="openBill()">{{ $t("message.paynow") }}</button>
       </div>
       <div class="list-box">
