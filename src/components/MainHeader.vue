@@ -78,8 +78,9 @@ export default {
       }
     },
     showKMHelp() {
-      mainconfig.reloadMashup += 1;
+      this.goHomePage();
       mainconfig.viewKMHelp = 1;
+      mainconfig.reloadMashup += 1;
     },
   },
   components: {
