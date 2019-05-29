@@ -37,7 +37,10 @@ export default {
         } else if (mainconfig.quickLinkId !== -1) {
           mainconfig.quickLinkId = -1;
         }
-      } else if (typeof e.data === 'object') {
+      } else if (
+        typeof e.data === 'object' &&
+        typeof e.data.key !== 'undefined'
+      ) {
         if (e.data.key === 'Intent' && typeof e.data.value === 'string') {
           mainconfig.intent = e.data.value;
           mainconfig.reloadOffer += 1;

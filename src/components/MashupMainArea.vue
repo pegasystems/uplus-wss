@@ -201,6 +201,12 @@ export default {
       this.startCase = this.settings.kmhelp.startcase;
       this.appName = this.settings.kmhelp.application;
       this.extraParam = this.settings.kmhelp.extraparam;
+      if (mainconfig.KMArticleID !== '') {
+        this.extraParam += `${this.extraParam !== '' ? ',' : ''}ArticleID=${
+          mainconfig.KMArticleID
+        },FromWSS=true`;
+        mainconfig.KMArticleID = '';
+      }
     } else {
       isInAccoutPage = true;
       this.actionName = this.settings.todo.action;

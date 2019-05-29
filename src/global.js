@@ -360,6 +360,7 @@ let mainconfigTmp = Object.assign(
     viewBill: -1,
     toDo: -1,
     viewKMHelp: -1,
+    KMArticleID: '',
     homeHeroAction: -1,
     offerAction: -1,
     currentLocale: settings.i18n.defaultlocale,
