@@ -168,6 +168,7 @@ window.settings = {
   pega_marketing: {
     Host: '',
     Port: '',
+    replaceHomePageHeader: false,
     homePage: {
       containerName: 'TopOffers',
       placement: 'Hero,Tile,Tile,Tile',

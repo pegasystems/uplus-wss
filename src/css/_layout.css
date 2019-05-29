@@ -465,6 +465,10 @@ footer ul.flex {
   width: 180rem;
   margin: 0 16rem 0 0;
 }
+.layout-labels-left > .field-item > label.width-auto {
+  width: auto;
+}
+
 .layout-labels-left > .field-item > select,
 .layout-labels-left > .field-item > input[type='text'],
 .layout-labels-left > .field-item > input[type='password'] {

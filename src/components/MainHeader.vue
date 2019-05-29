@@ -1,5 +1,8 @@
 <template>
-  <header class="flex flex-col">
+  <header
+    class="flex flex-col"
+    v-bind:style=" !isAuthenticated && offerURL == '' && homeHeroImg != '' ? { backgroundImage: 'url(' + homeHeroImg + ')' } : {}"
+  >
     <div class="wrap header flex">
       <a>
         <img v-on:click="goHomePage" class="logo" :src="('./img/u+-logo.svg')" alt="U+">

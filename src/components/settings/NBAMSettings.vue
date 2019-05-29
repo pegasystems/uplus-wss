@@ -11,6 +11,17 @@
           <label for="NBAM-Port">Port</label>
           <input id="NBAM-Port" type="text" v-model="settings.pega_marketing.Port">
         </div>
+        <div class="field-item">
+          <label
+            class="width-auto"
+            for="NBAM-replaceHomePageHeader"
+          >Replace Home Page header for Hero placement</label>
+          <input
+            id="NBAM-replaceHomePageHeader"
+            type="checkbox"
+            v-model="settings.pega_marketing.replaceHomePageHeader"
+          >
+        </div>
       </div>
     </div>
     <div class="layout-inline-grid-double">

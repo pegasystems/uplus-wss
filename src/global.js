@@ -1,5 +1,4 @@
-/* exported pegaMashupNavigateBack  */
-/* global settings app getNBAMServiceControl  */
+/* global settings app getNBAMServiceControl   */
 /* eslint no-eval: 0 */
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
@@ -112,169 +111,14 @@ const upgradeConfig = function upgradeConfig(cfg) {
   ) {
     cfg.settings.pega_marketing.offerPage.clickaction = 'Mashup';
   }
+  if (
+    typeof cfg.settings.pega_marketing.replaceHomePageHeader === 'undefined'
+  ) {
+    cfg.settings.pega_marketing.replaceHomePageHeader = false;
+  }
   return cfg;
 };
 
-const parseResponseData = (Context, type, OffersList) => {
-  let maxOffers = OffersList.length;
-  if (
-    Context.settings.pega_marketing[type] &&
-    Context.settings.pega_marketing[type].placement
-  ) {
-    maxOffers = Context.settings.pega_marketing[type].placement.split(',')
-      .length;
-    if (maxOffers > OffersList.length) {
-      maxOffers = OffersList.length;
-    }
-  }
-  let isHeroPlacementFilled = false;
-  for (let i = 0; i < maxOffers; i++) {
-    let imgurl = OffersList[i].ImageURL.trim();
-    if (!imgurl.startsWith('http')) {
-      // expect the file to be hosted on this server
-      imgurl = imgurl.replace('webwb/', './img/').replace('web/', './img/');
-    }
-    if (imgurl === '') {
-      imgurl = 'img/option-1.jpg';
-    }
-    if (
-      !isHeroPlacementFilled &&
-      OffersList[i].Placement === 'Hero' &&
-      typeof Context.hero_offer === 'object'
-    ) {
-      isHeroPlacementFilled = true;
-      const msg = type === 'homePage' ? '' : OffersList[i].ShortDescription;
-      Context.hero_offer = {
-        img: imgurl,
-        placement: OffersList[i].Placement,
-        title: OffersList[i].Label,
-        message: msg,
-        link: Context.hero_offer.link,
-        url: OffersList[i].ClickThroughURL,
-        name: OffersList[i].Name,
-      };
-    } else {
-      Context.data.push({
-        img: imgurl,
-        placement: OffersList[i].Placement,
-        title: OffersList[i].Label,
-        message: OffersList[i].ShortDescription,
-        link: 'learnmore',
-        url: OffersList[i].ClickThroughURL,
-        name: OffersList[i].Name,
-      });
-    }
-  }
-  Context.loading = false;
-};
-
-const initNBAM = function initNBAM(
-  Context,
-  type,
-  customerID,
-  previousPage,
-  currentPage,
-) {
-  if (typeof getNBAMServiceControl !== 'undefined') {
-    const nbamServiceCtrl = getNBAMServiceControl('V2', false);
-    nbamServiceCtrl.initialize(
-      Context.settings.pega_marketing.Host,
-      Context.settings.pega_marketing.Port,
-    );
-    let containerName = 'TopOffers';
-    if (
-      Context.settings.pega_marketing[type] &&
-      Context.settings.pega_marketing[type].containerName
-    ) {
-      containerName = Context.settings.pega_marketing[type].containerName;
-    }
-    let placement = 'Tile';
-    if (
-      Context.settings.pega_marketing[type] &&
-      Context.settings.pega_marketing[type].placement
-    ) {
-      placement = Context.settings.pega_marketing[type].placement;
-    }
-    const intent = Context.intent.trim();
-    nbamServiceCtrl.getOffers(
-      customerID,
-      containerName,
-      'Web',
-      previousPage,
-      currentPage,
-      (data) => {
-        data.RankedResults = data.ContainerList[0].RankedResults;
-        if (data.OffersList && data.OffersList.length > 0) {
-          parseResponseData(Context, type, data.OffersList);
-        } else if (data.RankedResults && data.RankedResults.length > 0) {
-          parseResponseData(Context, type, data.RankedResults);
-        }
-      },
-      intent,
-      placement,
-    );
-  } else {
-    const scriptLoadMkt = document.createElement('script');
-    scriptLoadMkt.onload = function onloadPegaMkt() {
-      initNBAM(Context, type, customerID, previousPage, currentPage);
-    };
-    scriptLoadMkt.setAttribute('src', '../js/realtimecontainerscript.js');
-    document.head.appendChild(scriptLoadMkt);
-  }
-};
-
-const updatePegaChat = function updatePegaChat(u) {
-  /* Delete the preview gadget */
-  const elPreview = document.querySelector(
-    "[data-pega-gadgetname='PreviewGadget']",
-  );
-  if (elPreview != null) {
-    elPreview.remove();
-  }
-
-  /* Update PegaChat and pass the correct ContactId, AccountNumber and username */
-  const el = document.querySelector(
-    "[data-pega-gadgetname='OnlineHelp'] > iframe",
-  );
-  if (el != null && typeof el.src === 'string') {
-    let updatedSrc = `${el.src}&ContactId=${u.contactID}&AccountNumber=${
-      u.accountID
-    }&username=${u.username}`;
-    if (typeof u.extraparam !== 'undefined' && u.extraparam !== '') {
-      u.extraparam.split(',').forEach((item) => {
-        const values = item.split('=');
-        if (values.length === 2) {
-          updatedSrc += `&${values[0].trim()}=${values[1].trim()}`;
-        }
-      });
-    }
-    if (updatedSrc.indexOf('timestamp') > -1) {
-      updatedSrc = updatedSrc.replace(
-        /timestamp=[^&]+/,
-        `timestamp=${Date.now()}`,
-      );
-    } else {
-      // Else we will append the timestamp
-      updatedSrc += `&timestamp=${Date.now()}`;
-    }
-    // updatedSrc = encodeURI(updatedSrc);
-    const parentNode = el.parentNode;
-    el.remove();
-    el.src = updatedSrc;
-    parentNode.appendChild(el);
-  }
-  window.PegaCSWSS.ContactID = u.contactID;
-  window.PegaCSWSS.AccountNumber = u.accountID;
-  window.PegaCSWSS.UserName = u.username;
-  if (typeof u.extraparam !== 'undefined' && u.extraparam !== '') {
-    u.extraparam.split(',').forEach((item) => {
-      const values = item.split('=');
-      if (values.length === 2) {
-        window.PegaCSWSS.ExtraParams[values[0].trim()] = values[1].trim();
-      }
-    });
-  }
-};
 // Directive for dealing out with clicking outside of an overlay
 let handleOutsideClick;
 Vue.directive('clickoutside', {
@@ -346,6 +190,7 @@ let mainconfigTmp = Object.assign(
     app,
     isMobilePhone,
     offerURL: '',
+    homeHeroImg: '',
     previousPage: '',
     intent: '',
     reloadOffer: 1,
@@ -523,8 +368,173 @@ if (isMobilePhone) {
     }
   };
 }
-
 const mainconfig = mainconfigTmp;
+
+const parseResponseData = (Context, type, OffersList) => {
+  let maxOffers = OffersList.length;
+  if (
+    Context.settings.pega_marketing[type] &&
+    Context.settings.pega_marketing[type].placement
+  ) {
+    maxOffers = Context.settings.pega_marketing[type].placement.split(',')
+      .length;
+    if (maxOffers > OffersList.length) {
+      maxOffers = OffersList.length;
+    }
+  }
+  let isHeroPlacementFilled = false;
+  for (let i = 0; i < maxOffers; i++) {
+    let imgurl = OffersList[i].ImageURL.trim();
+    if (!imgurl.startsWith('http')) {
+      // expect the file to be hosted on this server
+      imgurl = imgurl.replace('webwb/', './img/').replace('web/', './img/');
+    }
+    if (imgurl === '') {
+      imgurl = 'img/option-1.jpg';
+    }
+    if (
+      !isHeroPlacementFilled &&
+      OffersList[i].Placement === 'Hero' &&
+      typeof Context.hero_offer === 'object'
+    ) {
+      isHeroPlacementFilled = true;
+      const msg = type === 'homePage' ? '' : OffersList[i].ShortDescription;
+      if (Context.settings.pega_marketing.replaceHomePageHeader) {
+        mainconfig.homeHeroImg = imgurl;
+        imgurl = '';
+      }
+      Context.hero_offer = {
+        img: imgurl,
+        placement: OffersList[i].Placement,
+        title: OffersList[i].Label,
+        message: msg,
+        link: Context.hero_offer.link,
+        url: OffersList[i].ClickThroughURL,
+        name: OffersList[i].Name,
+      };
+    } else {
+      Context.data.push({
+        img: imgurl,
+        placement: OffersList[i].Placement,
+        title: OffersList[i].Label,
+        message: OffersList[i].ShortDescription,
+        link: 'learnmore',
+        url: OffersList[i].ClickThroughURL,
+        name: OffersList[i].Name,
+      });
+    }
+  }
+  Context.loading = false;
+};
+
+const initNBAM = function initNBAM(
+  Context,
+  type,
+  customerID,
+  previousPage,
+  currentPage,
+) {
+  if (typeof getNBAMServiceControl !== 'undefined') {
+    const nbamServiceCtrl = getNBAMServiceControl('V2', false);
+    nbamServiceCtrl.initialize(
+      Context.settings.pega_marketing.Host,
+      Context.settings.pega_marketing.Port,
+    );
+    let containerName = 'TopOffers';
+    if (
+      Context.settings.pega_marketing[type] &&
+      Context.settings.pega_marketing[type].containerName
+    ) {
+      containerName = Context.settings.pega_marketing[type].containerName;
+    }
+    let placement = 'Tile';
+    if (
+      Context.settings.pega_marketing[type] &&
+      Context.settings.pega_marketing[type].placement
+    ) {
+      placement = Context.settings.pega_marketing[type].placement;
+    }
+    const intent = Context.intent.trim();
+    nbamServiceCtrl.getOffers(
+      customerID,
+      containerName,
+      'Web',
+      previousPage,
+      currentPage,
+      (data) => {
+        data.RankedResults = data.ContainerList[0].RankedResults;
+        if (data.OffersList && data.OffersList.length > 0) {
+          parseResponseData(Context, type, data.OffersList);
+        } else if (data.RankedResults && data.RankedResults.length > 0) {
+          parseResponseData(Context, type, data.RankedResults);
+        }
+      },
+      intent,
+      placement,
+    );
+  } else {
+    const scriptLoadMkt = document.createElement('script');
+    scriptLoadMkt.onload = function onloadPegaMkt() {
+      initNBAM(Context, type, customerID, previousPage, currentPage);
+    };
+    scriptLoadMkt.setAttribute('src', '../js/realtimecontainerscript.js');
+    document.head.appendChild(scriptLoadMkt);
+  }
+};
+
+const updatePegaChat = function updatePegaChat(u) {
+  /* Delete the preview gadget */
+  const elPreview = document.querySelector(
+    "[data-pega-gadgetname='PreviewGadget']",
+  );
+  if (elPreview != null) {
+    elPreview.remove();
+  }
+
+  /* Update PegaChat and pass the correct ContactId, AccountNumber and username */
+  const el = document.querySelector(
+    "[data-pega-gadgetname='OnlineHelp'] > iframe",
+  );
+  if (el != null && typeof el.src === 'string') {
+    let updatedSrc = `${el.src}&ContactId=${u.contactID}&AccountNumber=${
+      u.accountID
+    }&username=${u.username}`;
+    if (typeof u.extraparam !== 'undefined' && u.extraparam !== '') {
+      u.extraparam.split(',').forEach((item) => {
+        const values = item.split('=');
+        if (values.length === 2) {
+          updatedSrc += `&${values[0].trim()}=${values[1].trim()}`;
+        }
+      });
+    }
+    if (updatedSrc.indexOf('timestamp') > -1) {
+      updatedSrc = updatedSrc.replace(
+        /timestamp=[^&]+/,
+        `timestamp=${Date.now()}`,
+      );
+    } else {
+      // Else we will append the timestamp
+      updatedSrc += `&timestamp=${Date.now()}`;
+    }
+    // updatedSrc = encodeURI(updatedSrc);
+    const parentNode = el.parentNode;
+    el.remove();
+    el.src = updatedSrc;
+    parentNode.appendChild(el);
+  }
+  window.PegaCSWSS.ContactID = u.contactID;
+  window.PegaCSWSS.AccountNumber = u.accountID;
+  window.PegaCSWSS.UserName = u.username;
+  if (typeof u.extraparam !== 'undefined' && u.extraparam !== '') {
+    u.extraparam.split(',').forEach((item) => {
+      const values = item.split('=');
+      if (values.length === 2) {
+        window.PegaCSWSS.ExtraParams[values[0].trim()] = values[1].trim();
+      }
+    });
+  }
+};
+
 export {
   mainconfig, i18n, upgradeConfig, initNBAM, updatePegaChat,
 };

@@ -11,7 +11,7 @@
       </div>
     </div>
     <div class="wrap options primary-options">
-      <section v-for="item in app.primarydetails" :key="item.img" class="front-option">
+      <section v-for="(item,index) in app.primarydetails" :key="index" class="front-option">
         <img class="option" :src="(item.img)" :alt="$t('message.' + item.title)">
         <div class="details">
           <h2 class="option-header">{{ $t("message." + item.title)}}</h2>
@@ -40,7 +40,7 @@
       </div>
     </div>
     <div class="wrap options primary-options">
-      <section v-for="item in data" :key="item.img" class="front-option">
+      <section v-for="(item,index) in data" :key="index" class="front-option">
         <img class="option" :src="(item.img)" :alt="(item.title)">
         <div class="details">
           <h2 class="option-header">{{ item.title }}</h2>
