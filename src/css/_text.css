@@ -283,7 +283,7 @@ time.fatlist-item {
 
 .ai-overlay.show {
   display: flex;
-  min-width: 350rem;
+  min-width: 385rem;
   z-index: 2;
 }
 
@@ -307,7 +307,7 @@ time.fatlist-item {
 
 .ai-overlay label {
   font-weight: 700;
-  min-width: 140rem;
+  min-width: 165rem;
   display: inline-block;
   color: #fff;
   margin: 0 8rem 0 0;
