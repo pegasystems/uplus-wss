@@ -39,11 +39,11 @@
             {{ hero_offer.message }}
           </h1>
           <a
-            v-if="settings.pega_marketing.homePage.clickaction === 'TopURL'"
+            v-if="settings.pega_marketing.homePage.clickaction === 'TopURL' && hero_offer.url !== ''"
             :href="hero_offer.url"
           >{{ hero_offer.link }}</a>
           <a
-            v-else-if="settings.pega_marketing.homePage.clickaction === 'Popup'"
+            v-else-if="settings.pega_marketing.homePage.clickaction === 'Popup' && hero_offer.url !== ''"
             :href="hero_offer.url"
             target="_blank"
           >{{ hero_offer.link }}</a>
@@ -75,11 +75,11 @@
             <h2 class="option-header">{{ item.title }}</h2>
             <p>{{ item.message }}</p>
             <a
-              v-if="settings.pega_marketing.homePage.clickaction === 'TopURL'"
+              v-if="settings.pega_marketing.homePage.clickaction === 'TopURL' && item.url!=''"
               :href="item.url"
             >{{ $t("message." + item.link)}}</a>
             <a
-              v-else-if="settings.pega_marketing.homePage.clickaction === 'Popup'"
+              v-else-if="settings.pega_marketing.homePage.clickaction === 'Popup'  && item.url!=''"
               :href="item.url"
               target="_blank"
             >{{ $t("message." + item.link)}}</a>

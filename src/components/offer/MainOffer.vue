@@ -45,12 +45,12 @@
           ></div>
           <span class="highlight border-brand">
             <a
-              v-if="settings.pega_marketing.offerPage.clickaction === 'TopURL'"
+              v-if="settings.pega_marketing.offerPage.clickaction === 'TopURL' && item.url!=''"
               :href="item.url"
               :title="$t('message.' + item.link)"
             >{{ $t("message." + item.link)}}</a>
             <a
-              v-else-if="settings.pega_marketing.offerPage.clickaction === 'Popup'"
+              v-else-if="settings.pega_marketing.offerPage.clickaction === 'Popup' && item.url!=''"
               :href="item.url"
               target="_blank"
               :title="$t('message.' + item.link)"

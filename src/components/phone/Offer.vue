@@ -16,12 +16,12 @@
         <h4>{{ item.title }}</h4>
         <p>{{ item.message }}</p>
         <a
-          v-if="settings.pega_marketing.phonePage.clickaction === 'TopURL'"
+          v-if="settings.pega_marketing.phonePage.clickaction === 'TopURL' && item.url!==''"
           :href="item.url"
           :title="$t('message.' + item.link)"
         >{{ $t("message." + item.link)}}</a>
         <a
-          v-else-if="settings.pega_marketing.phonePage.clickaction === 'Popup'"
+          v-else-if="settings.pega_marketing.phonePage.clickaction === 'Popup' && item.url!==''"
           :href="item.url"
           target="_blank"
           :title="$t('message.' + item.link)"

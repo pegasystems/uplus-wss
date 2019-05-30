@@ -13,11 +13,11 @@
         <p>{{ offer.message }}</p>
         <a v-if="offer.url==='#'" href="./offer.html">{{ offer.link }}</a>
         <a
-          v-else-if="offer.clickaction === 'TopURL'"
+          v-else-if="settings.pega_marketing.accountPage.clickaction === 'TopURL' && offer.url != ''"
           :href="offer.url"
         >{{ $t("message." + offer.link) }}</a>
         <a
-          v-else-if="offer.clickaction === 'Popup'"
+          v-else-if="settings.pega_marketing.accountPage.clickaction === 'Popup' && offer.url != ''"
           :href="offer.url"
           target="_blank"
         >{{ $t("message." + offer.link) }}</a>
