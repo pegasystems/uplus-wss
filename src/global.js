@@ -116,6 +116,9 @@ const upgradeConfig = function upgradeConfig(cfg) {
   ) {
     cfg.settings.pega_marketing.replaceHomePageHeader = false;
   }
+  if (typeof cfg.settings.pega_marketing.showAIOverlay === 'undefined') {
+    cfg.settings.pega_marketing.showAIOverlay = false;
+  }
   return cfg;
 };
 
@@ -370,7 +373,13 @@ if (isMobilePhone) {
 }
 const mainconfig = mainconfigTmp;
 
-const parseResponseData = (Context, type, OffersList) => {
+const parseResponseData = (
+  Context,
+  type,
+  OffersList,
+  containerName,
+  customerID,
+) => {
   let maxOffers = OffersList.length;
   if (
     Context.settings.pega_marketing[type] &&
@@ -411,6 +420,15 @@ const parseResponseData = (Context, type, OffersList) => {
         link: Context.hero_offer.link,
         url: OffersList[i].ClickThroughURL,
         name: OffersList[i].Name,
+        treatment: OffersList[i].Treatment,
+        rank: OffersList[i].Rank,
+        propensity: OffersList[i].Propensity,
+        reason: OffersList[i].Reason,
+        interactionID: OffersList[i].InteractionID,
+        identifier: OffersList[i].Identifier,
+        container: containerName,
+        customerID,
+        showAIoverlay: false,
       };
     } else {
       Context.data.push({
@@ -421,6 +439,15 @@ const parseResponseData = (Context, type, OffersList) => {
         link: 'learnmore',
         url: OffersList[i].ClickThroughURL,
         name: OffersList[i].Name,
+        treatment: OffersList[i].Treatment,
+        rank: OffersList[i].Rank,
+        propensity: OffersList[i].Propensity,
+        reason: OffersList[i].Reason,
+        interactionID: OffersList[i].InteractionID,
+        identifier: OffersList[i].Identifier,
+        container: containerName,
+        customerID,
+        showAIoverlay: false,
       });
     }
   }
@@ -464,9 +491,21 @@ const initNBAM = function initNBAM(
       (data) => {
         data.RankedResults = data.ContainerList[0].RankedResults;
         if (data.OffersList && data.OffersList.length > 0) {
-          parseResponseData(Context, type, data.OffersList);
+          parseResponseData(
+            Context,
+            type,
+            data.OffersList,
+            containerName,
+            customerID,
+          );
         } else if (data.RankedResults && data.RankedResults.length > 0) {
-          parseResponseData(Context, type, data.RankedResults);
+          parseResponseData(
+            Context,
+            type,
+            data.RankedResults,
+            containerName,
+            customerID,
+          );
         }
       },
       intent,

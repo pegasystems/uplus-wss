@@ -267,3 +267,61 @@ time.fatlist-item {
   border: 1px solid #ccc;
   margin-top: 10rem;
 }
+
+.offer-card-col > .offer-card,
+.front-option > .offer-card {
+  position: relative;
+}
+.ai-overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  color: #fff;
+  background-color: rgba(39, 59, 63, 1);
+  flex-flow: column nowrap;
+}
+
+.ai-overlay.show {
+  display: flex;
+  min-width: 350rem;
+  z-index: 2;
+}
+
+.ai-overlay > .footer-img {
+  margin: auto 0 0 0;
+  border-top: 1px solid #fff;
+  text-align: right;
+}
+
+.ai-overlay > ul {
+  text-align: left;
+  padding: 16rem;
+}
+
+.ai-overlay > ul > li {
+  word-break: break-all;
+  display: flex;
+  margin-bottom: 15rem;
+  align-items: baseline;
+}
+
+.ai-overlay label {
+  font-weight: 700;
+  min-width: 140rem;
+  display: inline-block;
+  color: #fff;
+  margin: 0 8rem 0 0;
+}
+.ai-overlay span {
+  word-break: break-all;
+  display: inline-block;
+}
+
+.ai-toggle {
+  font-size: 24rem;
+  border-radius: 50%;
+  border: 3rem solid #fff;
+  min-width: auto;
+  height: 49rem;
+  align-self: flex-end;
+}

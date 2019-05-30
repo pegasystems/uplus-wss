@@ -184,4 +184,9 @@ window.numberFormatEN = {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   },
+  percentage: {
+    style: 'decimal',
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  },
 };

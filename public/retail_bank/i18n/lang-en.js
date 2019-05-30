@@ -103,7 +103,7 @@ window.langEN = {
   phone_login_title: 'Login',
   phone_login_speak_agent: 'Speak to an agent',
   phone_quick_links_title: 'Find out more information on open banking',
-  phone_quick_links_intro_title: "Register for Open Banking",
+  phone_quick_links_intro_title: 'Register for Open Banking',
   phone_quick_links_intro_msg:
    'Open Banking allows you to bring all of you financial information from accounts across multiple banks into one place.',
   phone_quick_links_intro_action: 'Get started',
@@ -167,5 +167,10 @@ window.numberFormatEN = {
     style: 'currency',
     currency: 'USD',
     currencyDisplay: 'symbol',
+  },
+  percentage: {
+    style: 'decimal',
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
   },
 };

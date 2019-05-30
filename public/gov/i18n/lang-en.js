@@ -170,4 +170,9 @@ window.numberFormatEN = {
     currency: 'USD',
     currencyDisplay: 'symbol',
   },
+  percentage: {
+    style: 'decimal',
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  },
 };

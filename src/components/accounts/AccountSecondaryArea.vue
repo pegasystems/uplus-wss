@@ -1,28 +1,17 @@
 <template>
   <div class="col col-2">
     <div class="secondary-card" v-if="settings.pega_marketing.Host === '' || loading">
-      <Offer
-        v-for="item in app.offers"
-        :key="item.title"
-        v-bind:title="$t('message.' + item.title)"
-        v-bind:message="$t('message.' + item.message)"
-        v-bind:img="('./img/' + item.img)"
-        v-bind:url="'#'"
-        v-bind:link="$t('message.learnmore')"
-      />
+      <section class="offer-card-col" v-for="item in app.offers" :key="item.title">
+        <img class="offer-img" :src="('./img/' + item.img)" :alt="$t('message.' + item.title)">
+        <div class="content">
+          <h3>{{ $t('message.' + item.title) }}</h3>
+          <p>{{ $t('message.' + item.message) }}</p>
+          <a href="./offer.html">{{ $t('message.learnmore') }}</a>
+        </div>
+      </section>
     </div>
     <div class="secondary-card" v-else>
-      <Offer
-        v-for="item in data"
-        :key="item.title"
-        v-bind:title="item.title"
-        v-bind:message="item.message"
-        v-bind:img="item.img"
-        v-bind:url="item.url"
-        v-bind:link="$t('message.' + item.link)"
-        v-bind:name="item.name"
-        v-bind:clickaction="settings.pega_marketing.accountPage.clickaction"
-      />
+      <Offer v-for="item in data" :key="item.title" v-bind:offer="item"/>
     </div>
     <QuickLinks/>
     <KeyRates

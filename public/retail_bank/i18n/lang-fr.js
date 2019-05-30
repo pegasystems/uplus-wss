@@ -175,4 +175,9 @@ window.numberFormatFR = {
     currency: 'EUR',
     currencyDisplay: 'symbol',
   },
+  percentage: {
+    style: 'decimal',
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  },
 };

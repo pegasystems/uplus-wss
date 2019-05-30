@@ -282,6 +282,7 @@ window.settings = {
     Host: '',
     Port: '',
     replaceHomePageHeader: false,
+    showAIOverlay: false,
     homePage: {
       containerName: 'TopOffers',
       placement: 'Hero,Tile,Tile,Tile',

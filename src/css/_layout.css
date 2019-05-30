@@ -209,6 +209,7 @@ header ul.flex li {
 .hero-wrap {
   flex-grow: 1;
   align-items: center;
+  position: relative;
 }
 
 .hero-wrap.hero-with-img > div {
@@ -291,7 +292,7 @@ main,
   padding: 0;
 }
 
-.hero-wrap > div > img {
+.hero-wrap img {
   max-height: 260rem;
   max-width: 100%;
 }
@@ -311,6 +312,8 @@ img.option {
   min-width: 150rem;
   padding: 16rem;
   flex: 1;
+  display: flex;
+  flex-flow: column;
 }
 
 footer {

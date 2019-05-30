@@ -22,6 +22,14 @@
             v-model="settings.pega_marketing.replaceHomePageHeader"
           >
         </div>
+        <div class="field-item">
+          <label class="width-auto" for="NBAM-showAIOverlay">Show AI overlay</label>
+          <input
+            id="NBAM-showAIOverlay"
+            type="checkbox"
+            v-model="settings.pega_marketing.showAIOverlay"
+          >
+        </div>
       </div>
     </div>
     <div class="layout-inline-grid-double">
