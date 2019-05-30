@@ -7,9 +7,3 @@
 html {
   font-size: 1px;
 }
-
-html,
-body,
-body > #app {
-  height: 100%;
-}

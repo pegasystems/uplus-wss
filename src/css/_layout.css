@@ -14,11 +14,6 @@
   height: 100%;
 }
 
-.form footer {
-  position: static;
-  top: auto;
-}
-
 .front header {
   background-position: 50% 25%;
   background-repeat: no-repeat;

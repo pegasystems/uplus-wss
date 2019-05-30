@@ -366,6 +366,7 @@ button.simple:hover {
   min-width: 200px;
   height: 0;
   overflow: hidden;
+  z-index: 2;
 }
 
 header .menu-overlay a {

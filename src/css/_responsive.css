@@ -7,7 +7,7 @@
   }
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1024px) {
   header ul.flex li {
     margin-right: 16rem;
     text-align: center;
@@ -115,8 +115,10 @@
     display: none;
   }
 
-  header > .header {
+  header > .header,
+  header > .wrap.header {
     flex-wrap: wrap;
+    align-items: center;
   }
 
   .flex-col-3 > div {
