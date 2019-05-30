@@ -38,7 +38,16 @@
             <br v-if=" hero_offer.message !=''">
             {{ hero_offer.message }}
           </h1>
-          <button v-on:click="applyHeroAction" class="more">{{ hero_offer.link }}</button>
+          <a
+            v-if="settings.pega_marketing.homePage.clickaction === 'TopURL'"
+            :href="hero_offer.url"
+          >{{ hero_offer.link }}</a>
+          <a
+            v-else-if="settings.pega_marketing.homePage.clickaction === 'Popup'"
+            :href="hero_offer.url"
+            target="_blank"
+          >{{ hero_offer.link }}</a>
+          <button v-else v-on:click="applyHeroAction" class="more">{{ hero_offer.link }}</button>
         </div>
         <div v-if="hero_offer.img!==''">
           <img :src="(hero_offer.img)" :alt="(hero_offer.title)">
