@@ -45,6 +45,14 @@
   width: 150rem;
 }
 
+.hero-wrap a {
+  width: 150rem;
+  background: #fff;
+  text-align: center;
+  border-radius: 3rem;
+  line-height: 40rem;
+}
+
 .form > header {
   background-position: 25% 50%;
   background-repeat: no-repeat;
