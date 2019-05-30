@@ -9,9 +9,8 @@
   margin-top: -300rem;
 }
 
-.form main > .kmhelp,
-.form main > .kmhelp > div {
-  height: 100%;
+.kmhelp > div {
+  height: calc(100vh - 244rem);
 }
 
 .front header {
