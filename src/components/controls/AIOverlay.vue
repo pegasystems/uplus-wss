@@ -18,12 +18,12 @@
         <span>{{ offer.identifier }}</span>
       </li>
       <li>
-        <label>Treatment</label>
-        <span>{{ offer.treatment }}</span>
+        <label>Propensity</label>
+        <span>{{ $n(offer.propensity, 'percentage') }}</span>
       </li>
       <li>
-        <label>Propensity</label>
-        <span>{{ $n(offer.propensity, 'percentage') }}%</span>
+        <label>Priority</label>
+        <span>{{ $n(offer.priority, 'percentage') }}</span>
       </li>
       <li>
         <label>Rank</label>
