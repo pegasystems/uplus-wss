@@ -285,6 +285,7 @@ time.fatlist-item {
   display: flex;
   min-width: 385rem;
   z-index: 2;
+  opacity: 0.85;
 }
 
 .ai-overlay > .footer-img {
