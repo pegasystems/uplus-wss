@@ -137,6 +137,11 @@ footer .wrap {
   align-items: center;
 }
 
+.category .wrap {
+  max-width: 1000rem;
+  margin: 0 auto;
+}
+
 footer .wrap,
 .wrap.header {
   max-width: 100%;
@@ -302,6 +307,9 @@ main,
 img.option {
   max-height: 260rem;
   max-width: 100%;
+}
+
+.primary-options img.option {
   border-radius: 50%;
 }
 

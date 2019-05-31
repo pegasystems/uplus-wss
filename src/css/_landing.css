@@ -105,8 +105,24 @@ body > #app.form.landing {
   padding-bottom: 30rem;
 }
 
+.category-highlights,
 .landing-benefits {
   background: #ececec;
+}
+.category-highlights > .flex {
+  max-width: 1000rem;
+  margin: 0 auto;
+}
+
+.category-highlights > .flex > section {
+  flex: 1;
+  flex-flow: column nowrap;
+  align-items: center;
+  padding: 24rem;
+}
+
+.category-highlights p {
+  margin: 16rem 0 24rem 0;
 }
 
 .landing-cards > div,

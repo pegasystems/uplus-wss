@@ -253,6 +253,69 @@ window.app = {
       button_label: 'offer_footer_button_label',
     },
   },
+  category: {
+    header: {
+      title: 'category_header_title',
+      msg: 'category_header_msg',
+    },
+    cards: {
+      title: 'category_cards_title',
+      data: [
+        {
+          image: 'category-card-1.png',
+          title: 'category_cards_data1_title',
+          message: 'category_cards_data1_msg',
+          applylabel: 'category_cards_data1_applylabel',
+          detailslabel: 'category_cards_data1_detailslabel',
+        },
+        {
+          image: 'category-card-2.png',
+          title: 'category_cards_data2_title',
+          message: 'category_cards_data2_msg',
+          applylabel: 'category_cards_data2_applylabel',
+          detailslabel: 'category_cards_data2_detailslabel',
+        },
+        {
+          image: 'category-card-3.png',
+          title: 'category_cards_data3_title',
+          message: 'category_cards_data3_msg',
+          applylabel: 'category_cards_data3_applylabel',
+          detailslabel: 'category_cards_data3_detailslabel',
+        },
+      ],
+    },
+    details: [
+      {
+        title: 'category_details1_title',
+        message: 'category_details1_msg',
+        image: 'category-promo-1.jpg',
+        button_label: 'category_details1_button_label',
+      },
+    ],
+    highlights: {
+      title: 'category_highlights_title',
+      data: [
+        {
+          icon: 'pi-globe',
+          title: 'category_highlights_data1_title',
+          message: 'category_highlights_data1_msg',
+        },
+        {
+          icon: 'pi-lock-closed',
+          title: 'category_highlights_data2_title',
+          message: 'category_highlights_data2_msg',
+        },
+        {
+          icon: 'pi-store',
+          title: 'category_highlights_data3_title',
+          message: 'category_highlights_data3_msg',
+        },
+      ],
+    },
+    footer: {
+      title: 'category_footer_title',
+    },
+  },
   phone: {
     home_page: {
       title: 'phone_home_page_title',

@@ -3,7 +3,7 @@ import '../../public/gov/js/config-settings';
 import '../../public/gov/js/config-flow';
 import '../../public/gov/i18n/lang-en';
 import { mainconfig } from '@/global';
-import App from '@/App.vue';
+import App from '@/DefaultPage.vue';
 
 describe('Gov App on Desktop', () => {
   it('renders home page on load', () => {

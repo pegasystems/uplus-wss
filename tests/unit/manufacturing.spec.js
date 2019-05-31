@@ -3,7 +3,7 @@ import '../../public/manufacturing/js/config-settings';
 import '../../public/manufacturing/js/config-flow';
 import '../../public/manufacturing/i18n/lang-en';
 import { mainconfig } from '@/global';
-import App from '@/App.vue';
+import App from '@/DefaultPage.vue';
 
 describe('Manufacturing App on Desktop', () => {
   it('renders home page on load', () => {

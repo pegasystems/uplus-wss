@@ -201,6 +201,7 @@ let mainconfigTmp = Object.assign(
     reloadAccountMashup: 1,
     isAuthenticated: false,
     isSidePanelVisible: false,
+    isCategoryPage: false,
     isDeepLink: false,
     phonePageName: 'home',
     userId: -1,

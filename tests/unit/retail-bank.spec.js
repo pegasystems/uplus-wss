@@ -4,7 +4,7 @@ import '../../public/retail_bank/js/config-flow';
 import '../../public/retail_bank/i18n/lang-en';
 import '../../public/retail_bank/i18n/lang-fr';
 import { mainconfig } from '@/global';
-import App from '@/App.vue';
+import App from '@/DefaultPage.vue';
 
 describe('Retail Bank App on Desktop', () => {
   it('renders home page on load', () => {

@@ -1,8 +1,9 @@
 import Vue from 'vue';
-import App from './App.vue';
-import OfferDetail from './OfferDetail.vue';
-import Settings from './Settings.vue';
+import DefaultPage from './DefaultPage.vue';
+import OfferPage from './OfferPage.vue';
+import SettingsPage from './SettingsPage.vue';
 import LandingPage from './LandingPage.vue';
+import CategoryPage from './CategoryPage.vue';
 import './registerServiceWorker';
 import { mainconfig, i18n } from './global';
 
@@ -14,10 +15,11 @@ const app = new Vue({
   },
   computed: {
     ViewComponent() {
-      if (this.currentRoute.endsWith('offer.html')) return OfferDetail;
+      if (this.currentRoute.endsWith('offer.html')) return OfferPage;
       if (this.currentRoute.endsWith('landingpage.html')) return LandingPage;
-      if (this.currentRoute.endsWith('settings.html')) return Settings;
-      return App;
+      if (this.currentRoute.endsWith('category.html')) return CategoryPage;
+      if (this.currentRoute.endsWith('settings.html')) return SettingsPage;
+      return DefaultPage;
     },
   },
   render(h) {

@@ -3,7 +3,7 @@ import '../../public/health_payer/js/config-settings';
 import '../../public/health_payer/js/config-flow';
 import '../../public/health_payer/i18n/lang-en';
 import { mainconfig } from '@/global';
-import App from '@/App.vue';
+import App from '@/DefaultPage.vue';
 
 describe('Health Payer App on Desktop', () => {
   it('renders home page on load', () => {
@@ -43,6 +43,8 @@ describe('Health Payer App on Mobile', () => {
         $d: msg => msg,
       },
     });
-    expect(wrapper.find('h1').text()).toContain('message.phone_home_page_title');
+    expect(wrapper.find('h1').text()).toContain(
+      'message.phone_home_page_title',
+    );
   });
 });

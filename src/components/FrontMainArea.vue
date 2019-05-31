@@ -126,7 +126,13 @@ export default {
     ) {
       const self = this;
       setTimeout(() => {
-        initNBAM(self, 'homePage', '', self.previousPage, 'index.html');
+        initNBAM(
+          self,
+          'homePage',
+          '',
+          self.previousPage,
+          mainconfig.isCategoryPage ? 'category.html' : 'index.html',
+        );
       }, 200);
     }
   },

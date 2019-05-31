@@ -10,9 +10,37 @@ body > #app.form.offer {
   text-align: center;
 }
 
+.category > header {
+  height: 400rem;
+  background-position: 0% 0%;
+}
+
 .offer > header p {
   color: #fff;
   max-width: 500rem;
+}
+
+.category h1,
+.category h2,
+.category h4 {
+  text-align: center;
+}
+.category h2 {
+  padding-top: 8rem;
+  color: #4a4a4a;
+  font-weight: 600;
+  font-size: 34rem;
+}
+
+.category > main {
+  color: #414949;
+}
+
+.category > main > p {
+  color: #fff;
+  text-align: center;
+  padding-bottom: 30rem;
+  font-size: 24rem;
 }
 
 .offer > main {
@@ -31,6 +59,7 @@ body > #app.form.offer {
   text-transform: uppercase;
 }
 
+.category .promo,
 .offer .promo {
   text-align: center;
   padding: 55rem 16rem;
@@ -47,9 +76,21 @@ body > #app.form.offer {
 .offer-footer button.simple {
   color: #fff;
 }
+
+.offer-footer button.simple {
+  min-width: 70rem;
+}
+
 .offer-footer .promo h4 {
   font-weight: normal;
   padding-bottom: 30rem;
+}
+
+.form.category .offer-footer .promo h4 {
+  padding-bottom: 0;
+  font-size: 28rem;
+  max-width: 360rem;
+  margin: 0 auto;
 }
 
 .offer-footer p {
@@ -113,6 +154,11 @@ body > #app.form.offer {
 .offer-details {
   margin-bottom: 32rem;
 }
+.category .offer-details {
+  max-width: 600rem;
+  margin: 40rem auto;
+}
+
 .offer-details .line {
   width: 81rem;
   height: 5rem;

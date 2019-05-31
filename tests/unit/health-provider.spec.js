@@ -3,7 +3,7 @@ import '../../public/health_provider/js/config-settings';
 import '../../public/health_provider/js/config-flow';
 import '../../public/health_provider/i18n/lang-en';
 import { mainconfig } from '@/global';
-import App from '@/App.vue';
+import App from '@/DefaultPage.vue';
 
 describe('Health Provider App on Desktop', () => {
   it('renders home page on load', () => {

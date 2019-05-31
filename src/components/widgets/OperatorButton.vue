@@ -53,7 +53,11 @@ export default {
       mainconfig.intent = '';
       mainconfig.isDeepLink = false;
       if (window.history && !mainconfig.isMobilePhone) {
-        window.history.replaceState({}, '', 'index.html');
+        window.history.replaceState(
+          {},
+          '',
+          mainconfig.isCategoryPage ? 'category.html' : 'index.html',
+        );
       }
 
       window.PegaCSWSS.ContactID = '';

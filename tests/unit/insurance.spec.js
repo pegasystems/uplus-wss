@@ -3,7 +3,7 @@ import '../../public/insurance/js/config-settings';
 import '../../public/insurance/js/config-flow';
 import '../../public/insurance/i18n/lang-en';
 import { mainconfig } from '@/global';
-import App from '@/App.vue';
+import App from '@/DefaultPage.vue';
 
 describe('Insurance App on Desktop', () => {
   it('renders home page on load', () => {

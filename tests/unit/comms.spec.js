@@ -3,7 +3,7 @@ import '../../public/comms/js/config-settings';
 import '../../public/comms/js/config-flow';
 import '../../public/comms/i18n/lang-en';
 import { mainconfig } from '@/global';
-import App from '@/App.vue';
+import App from '@/DefaultPage.vue';
 
 describe('Comms App on Desktop', () => {
   it('renders home page on load', () => {

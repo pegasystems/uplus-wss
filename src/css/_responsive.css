@@ -240,12 +240,14 @@
     margin: 0;
   }
 
+  .category > header,
   .offer > header,
   .front > header {
     margin-bottom: 0;
     height: 300rem;
   }
 
+  .category > header,
   .offer > header {
     margin-bottom: 14rem;
   }
@@ -311,9 +313,43 @@
     height: 150rem;
   }
 
+  .category .promo,
   .landing .promo,
   .offer .promo {
     padding: 16rem;
+  }
+
+  .category > main {
+    margin-top: -230rem;
+  }
+  .category .primary-card {
+    padding: 0;
+  }
+  .category .primary-card > .separator {
+    flex-flow: column nowrap;
+  }
+
+  .category .primary-card > .separator > section {
+    border-right: none;
+    flex-flow: row nowrap;
+    align-items: center;
+    border-bottom: 1px solid #979797;
+    padding: 8rem 24rem;
+  }
+
+  .category .primary-card > .separator > section:first-child {
+    border-top: 1px solid #979797;
+  }
+  .category .primary-card > .separator > section > .flex {
+    padding: 0 0 0 24rem;
+  }
+
+  .category-highlights > .flex {
+    flex-flow: column nowrap;
+  }
+
+  .category-highlights p {
+    margin: 8rem 0;
   }
 }
 

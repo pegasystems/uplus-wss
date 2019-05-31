@@ -3,7 +3,7 @@ import '../../public/commercial_bank/js/config-settings';
 import '../../public/commercial_bank/js/config-flow';
 import '../../public/commercial_bank/i18n/lang-en';
 import { mainconfig } from '@/global';
-import App from '@/App.vue';
+import App from '@/DefaultPage.vue';
 
 describe('Commercial Bank App on Desktop', () => {
   it('renders home page on load', () => {

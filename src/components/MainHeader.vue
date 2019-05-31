@@ -90,7 +90,11 @@ export default {
             'account',
           );
         } else {
-          window.history.pushState({}, '', 'index.html');
+          window.history.pushState(
+            {},
+            '',
+            mainconfig.isCategoryPage ? 'category.html' : 'index.html',
+          );
         }
       }
     },

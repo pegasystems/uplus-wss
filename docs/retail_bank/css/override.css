@@ -34,3 +34,8 @@ body .color-brand {
 .offer header {
 	background-image: url('../img/hero-1.jpg');
 }
+
+/* Category page */
+.category header {
+	background-image: url('../img/hero-3.jpg');
+}
