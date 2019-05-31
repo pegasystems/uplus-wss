@@ -225,7 +225,7 @@ export default {
   },
   methods: {
     getMonth(monthIndex) {
-      const myDate = new Date();
+      const myDate = new Date(new Date().getFullYear(),new Date().getMonth(),1);
       myDate.setMonth((myDate.getMonth() + monthIndex) % 12);
       return myDate;
     },
