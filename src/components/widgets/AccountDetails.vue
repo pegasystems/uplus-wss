@@ -21,7 +21,7 @@
       </thead>
       <tbody>
         <tr class="heading">
-          <td class="hide-collapsed" colspan="2">{{ $t("message.accounts_header_col1") }}</td>
+          <td class="hide-collapsed space-nowrap" colspan="2">{{ $t("message.accounts_header_col1") }}</td>
           <td
             :data-title="$t('message.accounts_header_col1')"
             colspan="2"
@@ -46,7 +46,7 @@
         </tr>
 
         <tr class="heading">
-          <td class="hide-collapsed" colspan="2">{{ $t("message.investmentaccounts_header_col1") }}</td>
+          <td class="hide-collapsed space-nowrap" colspan="2">{{ $t("message.investmentaccounts_header_col1") }}</td>
           <td
             :data-title="$t('message.investmentaccounts_header_col1')"
             colspan="2"
