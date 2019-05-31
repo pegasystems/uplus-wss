@@ -13,10 +13,10 @@
     <div class="secondary-card" v-else>
       <Offer v-for="item in data" :key="item.title" v-bind:offer="item"/>
     </div>
-    <QuickLinks/>
     <KeyRates
       v-if="app.industry  === 'commercial_bank' && typeof settings.keyrates !== 'undefined'"
     />
+    <QuickLinks/>
   </div>
 </template>
 

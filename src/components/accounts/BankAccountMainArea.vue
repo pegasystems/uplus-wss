@@ -4,7 +4,6 @@
       v-if="typeof settings.todo !== 'undefined' && settings.todo.url !== ''"
       :key="reloadAccountMashup"
     />
-    <AccountDetails/>
     <section class="content cash-projections">
       <div class="flex">
         <h2>{{ $t("message.cash_projections") }}</h2>
@@ -207,6 +206,7 @@
         </g>
       </svg>
     </section>
+    <AccountDetails/>
   </div>
 </template>
 
