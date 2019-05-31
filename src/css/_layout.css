@@ -534,6 +534,10 @@ footer ul.flex {
   height: 100%;
 }
 
+.full-height > iframe {
+  min-height: calc(100vh - 244rem);
+}
+
 div.inline-middle > button {
   margin-right: 16rem;
 }
