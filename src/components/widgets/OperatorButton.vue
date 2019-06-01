@@ -63,8 +63,8 @@ export default {
       // Issue logout request for each url present in the list */
       for (const servurl in mainconfig.logoutURL) {
         fetch(mainconfig.logoutURL[servurl], {
-          method: 'POST',
-          mode: 'cors',
+          method: 'GET',
+          mode: 'no-cors',
           redirect: 'follow',
           headers: new Headers({
             'Content-Type': 'text/html',
@@ -72,13 +72,9 @@ export default {
         })
           .then((response) => {
             if (response.ok) {
-              console.log(
-                `Request ${mainconfig.logoutURL[servurl]} was successful`,
-              );
+              console.log('Request to logout was successful');
             } else {
-              console.log(
-                `Request ${mainconfig.logoutURL[servurl]} failed`,
-              );
+              console.log('Request to logout failed');
             }
             return response.blob();
           })
@@ -86,10 +82,7 @@ export default {
             console.log(data);
           })
           .catch((error) => {
-            console.log(
-              `Request ${mainconfig.logoutURL[servurl]} failed`,
-              error,
-            );
+            console.log('Request to logout failed', error);
           });
       }
       mainconfig.logoutURL = {};
