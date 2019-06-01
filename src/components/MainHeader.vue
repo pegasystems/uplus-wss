@@ -101,6 +101,8 @@ export default {
     showKMHelp() {
       this.goHomePage();
       mainconfig.viewKMHelp = 1;
+      mainconfig.logoutURL.kmhelp =
+        `${mainconfig.settings.kmhelp.url}?pyActivity=LogOff`;
       mainconfig.reloadMashup += 1;
     },
   },

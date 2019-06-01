@@ -60,6 +60,39 @@ export default {
         );
       }
 
+      // Issue logout request for each url present in the list */
+      for (const servurl in mainconfig.logoutURL) {
+        fetch(mainconfig.logoutURL[servurl], {
+          method: 'POST',
+          mode: 'cors',
+          redirect: 'follow',
+          headers: new Headers({
+            'Content-Type': 'text/html',
+          }),
+        })
+          .then((response) => {
+            if (response.ok) {
+              console.log(
+                `Request ${mainconfig.logoutURL[servurl]} was successful`,
+              );
+            } else {
+              console.log(
+                `Request ${mainconfig.logoutURL[servurl]} failed`,
+              );
+            }
+            return response.blob();
+          })
+          .then((data) => {
+            console.log(data);
+          })
+          .catch((error) => {
+            console.log(
+              `Request ${mainconfig.logoutURL[servurl]} failed`,
+              error,
+            );
+          });
+      }
+      mainconfig.logoutURL = {};
       window.PegaCSWSS.ContactID = '';
       window.PegaCSWSS.AccountNumber = '';
       window.PegaCSWSS.UserName = '';

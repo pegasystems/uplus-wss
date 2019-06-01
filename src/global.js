@@ -210,6 +210,7 @@ let mainconfigTmp = Object.assign(
     toDo: -1,
     viewKMHelp: -1,
     KMArticleID: '',
+    logoutURL: {},
     homeHeroAction: -1,
     offerAction: -1,
     currentLocale: settings.i18n.defaultlocale,
