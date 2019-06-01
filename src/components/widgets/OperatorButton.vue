@@ -62,28 +62,13 @@ export default {
 
       // Issue logout request for each url present in the list */
       for (const servurl in mainconfig.logoutURL) {
-        fetch(mainconfig.logoutURL[servurl], {
-          method: 'GET',
-          mode: 'no-cors',
-          redirect: 'follow',
-          headers: new Headers({
-            'Content-Type': 'text/html',
-          }),
-        })
-          .then((response) => {
-            if (response.ok) {
-              console.log('Request to logout was successful');
-            } else {
-              console.log('Request to logout failed');
-            }
-            return response.blob();
-          })
-          .then((data) => {
-            console.log(data);
-          })
-          .catch((error) => {
-            console.log('Request to logout failed', error);
-          });
+        const testiframe = document.createElement('iframe');
+        testiframe.setAttribute('src', mainconfig.logoutURL[servurl]);
+        testiframe.setAttribute('style', 'display:none');
+        testiframe.onload = function onloadMashup() {
+          document.body.removeChild(testiframe);
+        };
+        document.body.appendChild(testiframe);
       }
       mainconfig.logoutURL = {};
       window.PegaCSWSS.ContactID = '';
