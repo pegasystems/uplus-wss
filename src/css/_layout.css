@@ -13,6 +13,10 @@
   height: calc(100vh - 244rem);
 }
 
+.kmhelp > div > iframe {
+  height: 100% !important;
+}
+
 .front header {
   background-position: 50% 25%;
   background-repeat: no-repeat;
