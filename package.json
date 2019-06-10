@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "node --max_old_space_size=4096 node_modules/.bin/vue-cli-service serve --open",
+    "serve": "npx --max_old_space_size=4096 vue-cli-service serve",
     "build": "vue-cli-service build && find docs -name 'service-worker.js' -exec sed -i '' s/..\\\\/precache-manifest/.\\\\/precache-manifest/g {} + && find docs -name 'precache-manifest.*' -exec sed -i '' 's/\\: \\\"../\\: \\\"./g' {} +",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"
