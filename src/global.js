@@ -12,6 +12,12 @@ const upgradeConfig = function upgradeConfig(cfg) {
     cfg.settings.todo.hideactivity = false;
   }
   if (
+    cfg.settings.todo &&
+    typeof cfg.settings.todo.hideaccount === 'undefined'
+  ) {
+    cfg.settings.todo.hideaccount = false;
+  }
+  if (
     cfg.settings.billpay &&
     typeof cfg.settings.billpay.hidebillpay === 'undefined'
   ) {

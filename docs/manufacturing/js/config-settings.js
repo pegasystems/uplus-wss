@@ -92,6 +92,7 @@ window.settings = {
     application: '',
     extraparam: '',
     hideactivity: false,
+    hideaccount: false,
   },
   kmhelp: {
     action: 'display',

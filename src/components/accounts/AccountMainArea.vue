@@ -4,7 +4,7 @@
       v-if="typeof settings.todo !== 'undefined' && settings.todo.url !== ''"
       :key="reloadAccountMashup"
     />
-    <AccountPicker/>
+    <AccountPicker v-if="typeof settings.todo !== 'undefined' && settings.todo.hideaccount!=='true' && settings.todo.hideaccount!==true"/>
     <BillPay
       v-if="typeof settings.billpay !== 'undefined' && settings.billpay.hidebillpay!=='true' && settings.billpay.hidebillpay!==true"
     />

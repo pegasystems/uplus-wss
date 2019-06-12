@@ -41,6 +41,10 @@
         <label for="todo-hideactivity">Hide recent activity</label>
         <input id="todo-hideactivity" type="checkbox" v-model="settings.todo.hideactivity">
       </div>
+      <div class="field-item">
+        <label for="todo-hideaccount">Hide account details</label>
+        <input id="todo-hideaccount" type="checkbox" v-model="settings.todo.hideaccount">
+      </div>
     </div>
   </div>
 </template>
