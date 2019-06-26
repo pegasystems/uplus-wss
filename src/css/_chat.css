@@ -1,7 +1,8 @@
 /* IAC widget sizing and helper classes */
 #OnlineHelp,
 #ServiceCaseGadget,
-#ChatWrapper {
+#ChatWrapper,
+#ProactiveChat {
   position: fixed;
   right: -900px;
   height: 600px;
@@ -13,18 +14,23 @@
   background: #fff;
   border: 1px solid white;
   border-radius: 4px;
-  -moz-box-shadow: 0px 0px 14px rgba(0, 0, 0, .4);
-  -webkit-box-shadow: 0px 0px 14px rgba(0, 0, 0, .4);
-  box-shadow: 0px 0px 14px rgba(0, 0, 0, .4);
+  box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.4);
+}
+
+#ProactiveChat.alerting {
+  right: 30px;
+  top: 70%;
+  height: 135px;
+  z-index: 2147483645;
 }
 
 #OnlineHelp,
 #ChatWrapper,
 #ServiceCaseGadget,
 #ChatFooter {
-  -webkit-transition: all .5s ease-in-out;
-  -moz-transition: all .5s ease-in-out;
-  transition: all .5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 #OnlineHelp.expanded,
@@ -78,9 +84,9 @@
   height: 50px;
   display: inline-flex;
   width: 100%;
-  border-bottom: 1px solid #E0E0E0;
-  background-color: #8DC63F;
-  color: #FFFFFF;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: #8dc63f;
+  color: #ffffff;
   font-family: Open Sans, sans-serif;
   font-size: 17px;
   font-weight: 300;
@@ -92,10 +98,10 @@
   padding-left: 39px;
   padding-bottom: 10px;
   width: 100%;
-  background-color: #8DC63F;
+  background-color: #8dc63f;
   font-size: 17px;
   font-weight: 300;
-  color: #FFFFFF;
+  color: #ffffff;
   font-family: Open Sans, sans-serif;
   margin-right: -87px;
 }
@@ -176,7 +182,9 @@ input#fileUploadIcon {
 }
 
 div#ChatFooter {
-  background-color: #F1F1F2;
+  position: fixed;
+  bottom: 20px;
+  background-color: #f1f1f2;
   width: 450px;
   text-align: center;
   color: 929497;
@@ -185,12 +193,12 @@ div#ChatFooter {
   border-bottom-right-radius: 6px;
   font-size: 12px;
   height: 22px;
-  padding-top: 8px
+  padding-top: 8px;
 }
 
 /* End of styles required to display chat in full guide div */
 #MinimizeChat {
-  font-family: "Times New Roman";
+  font-family: Open Sans, sans-serif;
   font-size: 2.3em;
   font-weight: 400;
   margin-top: -17px;
@@ -204,7 +212,7 @@ div#ChatFooter {
   margin-bottom: 7px;
   margin-top: 5px;
   padding-bottom: 8px;
-  border-bottom: 1px solid #CCCCCC;
+  border-bottom: 1px solid #cccccc;
   margin-left: 14px;
   margin-right: 14px;
 }
@@ -223,19 +231,19 @@ button.EndChat:active,
 button.EndChat:hover {
   float: right;
   background: white;
-  border: 1px solid #2CA0CE;
-  color: #2CA0CE !important;
+  border: 1px solid #2ca0ce;
+  color: #2ca0ce !important;
   border-radius: 3px;
   padding: 0px 9px;
   margin-top: -25px;
   cursor: pointer;
   font-weight: 100;
   height: 25rem;
-  min-width: 85rem
+  min-width: 85rem;
 }
 
 .EndChat:hover {
-  background: #E5F0FF;
+  background: #e5f0ff;
 }
 
 #ChatLauncherminimized,
@@ -243,7 +251,7 @@ button.EndChat:hover {
 #launcherminimized,
 #launcher {
   font-family: Open Sans, sans-serif;
-  background-color: #295ED9;
+  background-color: #295ed9;
   text-align: center;
   transform: rotate(-90deg) translateX(50%);
   transform-origin: right bottom 0px;
@@ -254,9 +262,9 @@ button.EndChat:hover {
   right: -3px;
   padding: 7px;
   font-size: 20px;
-  color: #FFFFFF;
+  color: #ffffff;
   cursor: pointer;
-  border: 1px solid #FFFFFF;
+  border: 1px solid #ffffff;
 }
 
 #Preview {
@@ -270,9 +278,7 @@ button.EndChat:hover {
   right: 45px;
   padding: 7px;
   color: #000000;
-  -moz-box-shadow: 0px 0px 14px rgba(0, 0, 0, .4);
-  -webkit-box-shadow: 0px 0px 14px rgba(0, 0, 0, .4);
-  box-shadow: 0px 0px 14px rgba(0, 0, 0, .4);
+  box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.4);
   cursor: pointer;
   border: none;
 }

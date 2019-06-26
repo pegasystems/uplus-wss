@@ -105,6 +105,18 @@ function postMessageListener(event){
     textFontColor = message.textFontColor;
     textFontFamily = message.textFontFamily;
   }
+  if (message.command == 'ProactiveChat') {
+	var payload = message.payload || {};
+	if (payload.action == 'offer') {
+		pega.chat.proactiveChat.offer(payload.queue, payload.metadata, payload.defaultUI);
+	} else if (payload.action == 'accept') {
+		pega.chat.proactiveChat.accept()
+	} else if (payload.action == 'decline') {
+		pega.chat.proactiveChat.decline();
+	} else if (payload.action == 'setStyles') {
+		pega.chat.proactiveChat.setStyles(payload.style);
+	}
+  }
 }
 
 function adjustMessageFieldWidth() {
@@ -297,6 +309,9 @@ function handleMissedMessages() {
 	}
 	PegaProactiveChat.prototype.decline = function () {
 		pega.web.api.doAction("ProactiveChat", "setGadgetData", "pyWorkPage.ProactiveChatStatus", 'Declined by customer', { callback: function (obj) { } });
+	}
+	PegaProactiveChat.prototype.setStyles = function (style) {
+		$("#ProactiveChat").attr("style", style);
 	}
   function convertProactiveMetadata(metadata){
 	  var keys = Object.keys(metadata);
