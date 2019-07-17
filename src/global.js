@@ -243,9 +243,6 @@ if (window.history) {
     currentState !== null &&
     typeof currentState.userId !== 'undefined'
   ) {
-    console.log(
-      `read current history for currentState.userId=${currentState.userId}`,
-    );
     mainconfigTmp.isAuthenticated = true;
     mainconfigTmp.userId = currentState.userId;
     if (typeof currentState.quickLinkId !== 'undefined') {
@@ -357,12 +354,12 @@ if (
 ) {
   const scriptLoad = document.createElement('script');
   scriptLoad.onload = function onloadJquery() {
-    const scriptLoad1 = document.createElement('script');
-    scriptLoad1.setAttribute('src', '../js/PegaHelperExtension.js');
-    document.head.appendChild(scriptLoad1);
     const scriptLoad2 = document.createElement('script');
     scriptLoad2.setAttribute('src', '../js/PegaHelper.js');
     document.head.appendChild(scriptLoad2);
+    const scriptLoad1 = document.createElement('script');
+    scriptLoad1.setAttribute('src', '../js/PegaHelperExtension.js');
+    document.head.appendChild(scriptLoad1);
   };
   scriptLoad.setAttribute('src', '../js/jquery-min.js');
   document.head.appendChild(scriptLoad);

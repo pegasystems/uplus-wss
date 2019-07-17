@@ -44,7 +44,8 @@ function getCookie(cname) {
     
 var serverURL = PegaCSWSS.MashupURL;
 var mashupScript = document.createElement('script');
-mashupScript.src = serverURL + "?pyActivity=pzIncludeMashupScripts";
+//mashupScript.src = serverURL + "?pyActivity=pzIncludeMashupScripts";
+mashupScript.src = '../js/PegaIAC.js';
 mashupScript.onload = function() {
   window.pega.chat = window.pega.chat || {};
   window.pega.chat.proactiveChat = new PegaProactiveChat();
