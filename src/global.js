@@ -303,6 +303,9 @@ if (queryDict.username || queryDict.pega_userid) {
         delete mainconfigTmp.deepLinkExtraParam.quicklinkclass;
         delete mainconfigTmp.deepLinkExtraParam.username;
         delete mainconfigTmp.deepLinkExtraParam.pega_userid;
+        if (isMobilePhone) {
+          mainconfigTmp.phonePageName = 'quicklinks1';
+        }
         window.history.replaceState(
           { userId: mainconfigTmp.userId },
           '',
