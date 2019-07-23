@@ -52,6 +52,7 @@ export default {
       mainconfig.previousPage = '';
       mainconfig.intent = '';
       mainconfig.isDeepLink = false;
+      mainconfig.deepLinkExtraParam = {};
       if (window.history && !mainconfig.isMobilePhone) {
         window.history.replaceState(
           {},

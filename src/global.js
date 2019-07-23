@@ -214,6 +214,7 @@ let mainconfigTmp = Object.assign(
     isSidePanelVisible: false,
     isCategoryPage: false,
     isDeepLink: false,
+    deepLinkExtraParam: {},
     phonePageName: 'home',
     userId: -1,
     quickLinkId: -1,
@@ -298,6 +299,10 @@ if (queryDict.username || queryDict.pega_userid) {
         queryDict.quicklinkclass
       ) {
         mainconfigTmp.quickLinkId = i;
+        mainconfigTmp.deepLinkExtraParam = queryDict;
+        delete mainconfigTmp.deepLinkExtraParam.quicklinkclass;
+        delete mainconfigTmp.deepLinkExtraParam.username;
+        delete mainconfigTmp.deepLinkExtraParam.pega_userid;
         window.history.replaceState(
           { userId: mainconfigTmp.userId },
           '',

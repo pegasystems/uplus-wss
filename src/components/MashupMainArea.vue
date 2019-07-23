@@ -279,6 +279,9 @@ export default {
     }
     if (this.isDeepLink === true) {
       tmpActionParam.isDeepLink = 'true';
+      for (const i in this.deepLinkExtraParam) {
+        tmpActionParam[i] = this.deepLinkExtraParam[i];
+      }
     }
     if (isInAccoutPage) {
       tmpActionParam.isMashupInContainer = 'true';
