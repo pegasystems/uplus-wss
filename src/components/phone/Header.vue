@@ -4,10 +4,10 @@
       <i class="pi pi-bars"></i>
     </button>
     <a>
-      <img v-on:click="goToHome" class="logo" :src="('./img/u+-logo.svg')" alt="U+">
+      <img v-on:click="goToHome" class="logo" :src="('./img/u+-logo.svg')" alt="U+" />
     </a>
-    <OperatorButton v-if="isAuthenticated"/>
-    <LoginButton v-else-if="phonePageName==='home' && !isAuthenticated"/>
+    <OperatorButton v-if="isAuthenticated" />
+    <LoginButton v-else-if="phonePageName==='home' && !isAuthenticated" />
   </header>
 </template>
 
@@ -30,13 +30,12 @@ export default {
     /* Will listen for message from the Mashup iframe to force a reload back of the MashupComponent */
     iFrameMessageListener(e) {
       if (e.data === 'pegaMashupNavigateBack') {
-        window.pegaMashupNavigateBack();
         if (mainconfig.offerURL !== '') {
           mainconfig.offerURL = '';
-          mainconfig.phonePageName = 'home';
         } else if (mainconfig.quickLinkId !== -1) {
           mainconfig.quickLinkId = -1;
         }
+        mainconfig.phonePageName = 'home';
       } else if (
         typeof e.data === 'object' &&
         typeof e.data.key !== 'undefined'
