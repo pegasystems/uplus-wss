@@ -19,6 +19,7 @@ window.settings = {
       application: 'CSISelfService',
       icon: 'pi-car-solid',
       extraparam: '',
+      hide: false,
     },
     {
       title: {
@@ -32,6 +33,7 @@ window.settings = {
       application: 'CSISelfService',
       icon: 'pi-home-alt-solid',
       extraparam: '',
+      hide: false,
     },
     {
       title: {
@@ -45,6 +47,7 @@ window.settings = {
       application: 'CSISelfService',
       icon: 'pi-life-ring-solid',
       extraparam: '',
+      hide: false,
     },
     {
       title: {
@@ -58,6 +61,7 @@ window.settings = {
       application: 'CSISelfService',
       icon: 'pi-plane-solid',
       extraparam: '',
+      hide: false,
     },
   ],
   billpay: {

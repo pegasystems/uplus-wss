@@ -125,6 +125,11 @@ const upgradeConfig = function upgradeConfig(cfg) {
   if (typeof cfg.settings.pega_marketing.showAIOverlay === 'undefined') {
     cfg.settings.pega_marketing.showAIOverlay = false;
   }
+  for (const i in cfg.settings.quicklinks) {
+    if (typeof cfg.settings.quicklinks[i].hide === 'undefined') {
+      cfg.settings.quicklinks[i].hide = false;
+    }
+  }
   return cfg;
 };
 

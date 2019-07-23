@@ -441,6 +441,5 @@ td.align-r {
 .inputfile:focus + label,
 .inputfile + label:hover {
   color: #fff;
-  border: 1px solid #fff;
   opacity: 1;
 }

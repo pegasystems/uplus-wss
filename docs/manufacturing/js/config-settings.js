@@ -19,6 +19,7 @@ window.settings = {
       application: '',
       icon: '',
       extraparam: '',
+      hide: false,
     },
     {
       title: {
@@ -32,6 +33,7 @@ window.settings = {
       application: '',
       icon: '',
       extraparam: '',
+      hide: false,
     },
     {
       title: {
@@ -45,6 +47,7 @@ window.settings = {
       application: '',
       icon: '',
       extraparam: '',
+      hide: false,
     },
     {
       title: {
@@ -58,6 +61,7 @@ window.settings = {
       application: '',
       icon: '',
       extraparam: '',
+      hide: false,
     },
     {
       title: {
@@ -71,6 +75,7 @@ window.settings = {
       application: '',
       icon: '',
       extraparam: '',
+      hide: false,
     },
   ],
   billpay: {
