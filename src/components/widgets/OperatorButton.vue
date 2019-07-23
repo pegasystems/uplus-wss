@@ -10,7 +10,7 @@
       class="avatar"
       :src="'../img/' + settings.users[userId].img"
       alt="Customer image"
-    >
+    />
     <div
       v-clickoutside="{ handler: 'onClickOutOverlay'}"
       class="overlay logout flex flex-col"
@@ -59,7 +59,6 @@ export default {
           mainconfig.isCategoryPage ? 'category.html' : 'index.html',
         );
       }
-
       // Issue logout request for each url present in the list */
       for (const servurl in mainconfig.logoutURL) {
         const testiframe = document.createElement('iframe');

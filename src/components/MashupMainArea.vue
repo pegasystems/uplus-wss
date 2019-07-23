@@ -216,6 +216,7 @@ export default {
       this.startCase = this.settings.todo.startcase;
       this.appName = this.settings.todo.application;
       this.extraParam = this.settings.todo.extraparam;
+      this.logoutURL.todo = `${this.settings.todo.url}?pyActivity=LogOff`;
     }
     if (this.serverUrl === '') {
       return;
