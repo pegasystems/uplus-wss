@@ -222,13 +222,10 @@ export default {
       return;
     }
     this.threadName = this.objClass.replace(/-/g, '');
-    this.mashupScript.setAttribute('src', '../js/PegaIAC.js');
-    /*
     this.mashupScript.setAttribute(
       'src',
       `${this.serverUrl}?pyActivity=pzIncludeMashupScripts`,
     );
-*/
     const tmpActionParam = {};
     tmpActionParam.pzSkinName = 'ClaritySkin';
     if (this.app.industry === 'comms') {
