@@ -291,51 +291,55 @@ if (queryDict.username || queryDict.pega_userid) {
       break;
     }
   }
-}
-/* check if quicklinkclass is passed as parameter */
-if (queryDict.quicklinkclass) {
-  for (const i in mainconfigTmp.settings.quicklinks) {
-    if (
-      mainconfigTmp.settings.quicklinks[i].objclass === queryDict.quicklinkclass
-    ) {
-      mainconfigTmp.quickLinkId = i;
-      mainconfigTmp.deepLinkExtraParam = queryDict;
-      delete mainconfigTmp.deepLinkExtraParam.quicklinkclass;
-      delete mainconfigTmp.deepLinkExtraParam.username;
-      delete mainconfigTmp.deepLinkExtraParam.pega_userid;
-      if (isMobilePhone) {
-        mainconfigTmp.phonePageName = 'quicklinks1';
+
+  /* check if quicklinkclass is passed as parameter */
+  if (queryDict.quicklinkclass) {
+    for (const i in mainconfigTmp.settings.quicklinks) {
+      if (
+        mainconfigTmp.settings.quicklinks[i].objclass ===
+        queryDict.quicklinkclass
+      ) {
+        mainconfigTmp.quickLinkId = i;
+        mainconfigTmp.deepLinkExtraParam = queryDict;
+        delete mainconfigTmp.deepLinkExtraParam.quicklinkclass;
+        delete mainconfigTmp.deepLinkExtraParam.username;
+        delete mainconfigTmp.deepLinkExtraParam.pega_userid;
+        if (isMobilePhone) {
+          mainconfigTmp.phonePageName = 'quicklinks1';
+        }
+        window.history.replaceState(
+          { userId: mainconfigTmp.userId },
+          '',
+          `quicklink${mainconfigTmp.quickLinkId}`,
+        );
+        break;
       }
-      window.history.replaceState(
-        { userId: mainconfigTmp.userId },
-        '',
-        `quicklink${mainconfigTmp.quickLinkId}`,
-      );
-      break;
     }
   }
-}
-if (queryDict.viewBill) {
-  mainconfigTmp.viewBill = 1;
-  mainconfigTmp.deepLinkExtraParam = queryDict;
-  delete mainconfigTmp.deepLinkExtraParam.viewBill;
-  delete mainconfigTmp.deepLinkExtraParam.username;
-  delete mainconfigTmp.deepLinkExtraParam.pega_userid;
-}
-if (queryDict.viewKMHelp) {
-  mainconfigTmp.viewKMHelp = 1;
-  mainconfigTmp.deepLinkExtraParam = queryDict;
-  delete mainconfigTmp.deepLinkExtraParam.viewKMHelp;
-  delete mainconfigTmp.deepLinkExtraParam.username;
-  delete mainconfigTmp.deepLinkExtraParam.pega_userid;
+  if (queryDict.viewBill) {
+    mainconfigTmp.viewBill = 1;
+    mainconfigTmp.deepLinkExtraParam = queryDict;
+    delete mainconfigTmp.deepLinkExtraParam.viewBill;
+    delete mainconfigTmp.deepLinkExtraParam.username;
+    delete mainconfigTmp.deepLinkExtraParam.pega_userid;
+  }
+  if (queryDict.viewKMHelp) {
+    mainconfigTmp.viewKMHelp = 1;
+    mainconfigTmp.deepLinkExtraParam = queryDict;
+    delete mainconfigTmp.deepLinkExtraParam.viewKMHelp;
+    delete mainconfigTmp.deepLinkExtraParam.username;
+    delete mainconfigTmp.deepLinkExtraParam.pega_userid;
+  }
 }
 if (queryDict.homeHeroAction) {
   mainconfigTmp.homeHeroAction = 1;
+  mainconfigTmp.isDeepLink = true;
   mainconfigTmp.deepLinkExtraParam = queryDict;
   delete mainconfigTmp.deepLinkExtraParam.homeHeroAction;
 }
 if (queryDict.offerAction) {
   mainconfigTmp.offerAction = 1;
+  mainconfigTmp.isDeepLink = true;
   mainconfigTmp.deepLinkExtraParam = queryDict;
   delete mainconfigTmp.deepLinkExtraParam.offerAction;
 }
