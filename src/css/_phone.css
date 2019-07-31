@@ -1,22 +1,7 @@
-.phone body,
-.phone body > #app,
-.phone html {
-  height: 100vh;
-}
-
-.phone body {
-  overflow: hidden;
-}
-
 .phone main {
-  overflow-y: auto;
   align-items: center;
   flex: 1;
   min-height: calc(100vh - 40rem);
-}
-
-.phone #app > div {
-  height: 100%;
 }
 
 .phone aside {
