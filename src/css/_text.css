@@ -344,13 +344,14 @@ time.fatlist-item {
 
 .rts-overlay {
   width: 100%;
-  height: 21px;
+  height: 100px;
   background-color: #344251;
   position: fixed;
   bottom: 0;
   z-index: 2;
-  transition: height 0.2s ease;
+  transition: transform 0.2s ease;
   padding: 0 14px;
+  transform: translateY(80px);
 }
 
 .rts-overlay > div {
@@ -366,7 +367,7 @@ time.fatlist-item {
 }
 
 .rts-overlay.expanded {
-  height: 100px;
+  transform: translateY(0);
 }
 
 .rts-toggle {
