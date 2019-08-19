@@ -355,6 +355,10 @@ time.fatlist-item {
   padding-top: 21px;
 }
 
+.rts-enable {
+  margin: 14px 14px 14px auto;
+}
+
 .rts-overlay.expanded {
   height: 100px;
   padding: 0 14px;
@@ -363,7 +367,7 @@ time.fatlist-item {
 .rts-toggle {
   font-size: 15rem;
   border-radius: 50%;
-  border: 3rem solid #fff;
+  border: 3rem solid transparent;
   width: 32rem;
   min-width: auto;
   height: 32rem;
@@ -398,8 +402,9 @@ time.fatlist-item {
   font-size: 13px;
   color: #fff;
   flex: 1;
-  padding: 0 14px;
+  padding: 14px 14px 0 14px;
   margin-left: 14px;
+  flex: 1;
 }
 
 .rts-overlay .comment > p {

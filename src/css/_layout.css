@@ -526,6 +526,10 @@ footer ul.flex {
   flex-grow: 1;
 }
 
+.flex-1 {
+  flex: 1;
+}
+
 .float-r {
   float: right;
 }
