@@ -349,10 +349,16 @@ time.fatlist-item {
   position: fixed;
   bottom: 0;
   z-index: 2;
+  transition: height 0.2s ease;
+  padding: 0 14px;
 }
 
 .rts-overlay > div {
   padding-top: 21px;
+}
+
+.rts-overlay > div > .flex {
+  max-width: 500px;
 }
 
 .rts-enable {
@@ -361,7 +367,6 @@ time.fatlist-item {
 
 .rts-overlay.expanded {
   height: 100px;
-  padding: 0 14px;
 }
 
 .rts-toggle {
