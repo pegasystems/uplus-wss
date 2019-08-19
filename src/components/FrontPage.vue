@@ -1,25 +1,26 @@
 <template>
   <div v-if="homeHeroAction==1" class="form flex flex-col">
-    <MainHeader/>
+    <MainHeader />
     <main class="wrap flex flex-col">
-      <MashupMainArea/>
+      <MashupMainArea />
     </main>
-    <MainFooter/>
+    <MainFooter />
   </div>
   <div v-else-if="offerURL!==''" class="form flex flex-col">
-    <MainHeader/>
+    <MainHeader />
     <main class="wrap flex flex-col">
-      <MicroSiteMainArea/>
+      <MicroSiteMainArea />
     </main>
-    <MainFooter/>
+    <MainFooter />
   </div>
   <div v-else class="front">
-    <MainHeader/>
-    <main class="flex flex-col">
-      <FrontMainArea/>
-      <FrontSecondaryArea/>
+    <RTSOverlay v-if="settings.pega_marketing.enableRTS" />
+    <MainHeader />
+    <main :class="'flex flex-col' + (isRTSEnabled ? ' rts-enabled' : '')">
+      <FrontMainArea />
+      <FrontSecondaryArea />
     </main>
-    <MainFooter/>
+    <MainFooter />
   </div>
 </template>
 
@@ -31,6 +32,7 @@ import FrontMainArea from './FrontMainArea.vue';
 import FrontSecondaryArea from './FrontSecondaryArea.vue';
 import MashupMainArea from './MashupMainArea.vue';
 import MicroSiteMainArea from './MicroSiteMainArea.vue';
+import RTSOverlay from './controls/RTSOverlay.vue';
 
 export default {
   data() {
@@ -43,6 +45,7 @@ export default {
     FrontSecondaryArea,
     MainFooter,
     MicroSiteMainArea,
+    RTSOverlay,
   },
 };
 </script>

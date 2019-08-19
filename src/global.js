@@ -125,6 +125,9 @@ const upgradeConfig = function upgradeConfig(cfg) {
   if (typeof cfg.settings.pega_marketing.showAIOverlay === 'undefined') {
     cfg.settings.pega_marketing.showAIOverlay = false;
   }
+  if (typeof cfg.settings.pega_marketing.enableRTS === 'undefined') {
+    cfg.settings.pega_marketing.enableRTS = false;
+  }
   for (const i in cfg.settings.quicklinks) {
     if (typeof cfg.settings.quicklinks[i].hide === 'undefined') {
       cfg.settings.quicklinks[i].hide = false;
@@ -225,6 +228,7 @@ let mainconfigTmp = Object.assign(
     logoutURL: {},
     homeHeroAction: -1,
     offerAction: -1,
+    isRTSEnabled: false,
     currentLocale: settings.i18n.defaultlocale,
   },
 );
@@ -468,6 +472,7 @@ const parseResponseData = (
         reason: OffersList[i].Reason,
         interactionID: OffersList[i].InteractionID,
         identifier: OffersList[i].Identifier,
+        category: OffersList[i].Category,
         container: containerName,
         customerID,
         showAIoverlay: false,
@@ -488,6 +493,7 @@ const parseResponseData = (
         reason: OffersList[i].Reason,
         interactionID: OffersList[i].InteractionID,
         identifier: OffersList[i].Identifier,
+        category: OffersList[i].Category,
         container: containerName,
         customerID,
         showAIoverlay: false,
@@ -564,6 +570,22 @@ const initNBAM = function initNBAM(
   }
 };
 
+const sendRTSEvent = function sendRTSEvent(Context, item) {
+  if (typeof getNBAMServiceControl !== 'undefined') {
+    const nbamServiceCtrl = getNBAMServiceControl('V2', false);
+    nbamServiceCtrl.initialize(
+      Context.settings.pega_marketing.Host,
+      Context.settings.pega_marketing.Port,
+    );
+    nbamServiceCtrl.sendRTSEvent(
+      `customer_id=${item.customerID}&activity_group=${
+        item.category
+      }&activity_value=${item.name}&activity=hover`,
+      null,
+    );
+  }
+};
+
 const updatePegaChat = function updatePegaChat(u) {
   /* Delete the preview gadget */
   const elPreview = document.querySelector(
@@ -618,5 +640,10 @@ const updatePegaChat = function updatePegaChat(u) {
 };
 
 export {
-  mainconfig, i18n, upgradeConfig, initNBAM, updatePegaChat,
+  mainconfig,
+  i18n,
+  upgradeConfig,
+  initNBAM,
+  sendRTSEvent,
+  updatePegaChat,
 };

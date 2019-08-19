@@ -5,11 +5,11 @@
       <div class="layout-labels-left secondary-card">
         <div class="field-item">
           <label for="NBAM-Host">Host</label>
-          <input id="NBAM-Host" type="text" v-model="settings.pega_marketing.Host">
+          <input id="NBAM-Host" type="text" v-model="settings.pega_marketing.Host" />
         </div>
         <div class="field-item">
           <label for="NBAM-Port">Port</label>
-          <input id="NBAM-Port" type="text" v-model="settings.pega_marketing.Port">
+          <input id="NBAM-Port" type="text" v-model="settings.pega_marketing.Port" />
         </div>
         <div class="field-item">
           <label
@@ -20,7 +20,7 @@
             id="NBAM-replaceHomePageHeader"
             type="checkbox"
             v-model="settings.pega_marketing.replaceHomePageHeader"
-          >
+          />
         </div>
         <div class="field-item">
           <label class="width-auto" for="NBAM-showAIOverlay">Show AI overlay</label>
@@ -28,7 +28,11 @@
             id="NBAM-showAIOverlay"
             type="checkbox"
             v-model="settings.pega_marketing.showAIOverlay"
-          >
+          />
+        </div>
+        <div class="field-item">
+          <label class="width-auto" for="NBAM-enableRTS">Enable Real-time data streaming</label>
+          <input id="NBAM-enableRTS" type="checkbox" v-model="settings.pega_marketing.enableRTS" />
         </div>
       </div>
     </div>
@@ -41,7 +45,7 @@
             id="NBAM-HomePage-ContainerName"
             type="text"
             v-model="settings.pega_marketing.homePage.containerName"
-          >
+          />
         </div>
         <div class="field-item">
           <label for="NBAM-HomePage-Placement">Placement (Hero or Tile)</label>
@@ -49,7 +53,7 @@
             id="NBAM-HomePage-Placement"
             type="text"
             v-model="settings.pega_marketing.homePage.placement"
-          >
+          />
         </div>
         <div class="field-item">
           <label for="NBAM-HomePage-ClickAction">Click Action</label>
@@ -71,7 +75,7 @@
             id="NBAM-AccountPage-ContainerName"
             type="text"
             v-model="settings.pega_marketing.accountPage.containerName"
-          >
+          />
         </div>
         <div class="field-item">
           <label for="NBAM-AccountPage-Placement">Placement (Hero or Tile)</label>
@@ -79,7 +83,7 @@
             id="NBAM-AccountPage-Placement"
             type="text"
             v-model="settings.pega_marketing.accountPage.placement"
-          >
+          />
         </div>
         <div class="field-item">
           <label for="NBAM-AccountPage-ClickAction">Click Action</label>
@@ -101,7 +105,7 @@
             id="NBAM-PhonePage-ContainerName"
             type="text"
             v-model="settings.pega_marketing.phonePage.containerName"
-          >
+          />
         </div>
         <div class="field-item">
           <label for="NBAM-PhonePage-Placement">Placement (Hero or Tile)</label>
@@ -109,7 +113,7 @@
             id="NBAM-PhonePage-Placement"
             type="text"
             v-model="settings.pega_marketing.phonePage.placement"
-          >
+          />
         </div>
         <div class="field-item">
           <label for="NBAM-PhonePage-ClickAction">Click Action</label>
@@ -131,7 +135,7 @@
             id="NBAM-OfferPage-ContainerName"
             type="text"
             v-model="settings.pega_marketing.offerPage.containerName"
-          >
+          />
         </div>
         <div class="field-item">
           <label for="NBAM-OfferPage-Placement">Placement (Hero or Tile)</label>
@@ -139,7 +143,7 @@
             id="NBAM-OfferPage-Placement"
             type="text"
             v-model="settings.pega_marketing.offerPage.placement"
-          >
+          />
         </div>
         <div class="field-item">
           <label for="NBAM-OfferPage-ClickAction">Click Action</label>

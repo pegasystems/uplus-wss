@@ -4,7 +4,7 @@
       <div class="flex flex-col">
         <h1 class="hero">
           {{ hero_offer.title }}
-          <br v-if=" hero_offer.message !=''">
+          <br v-if=" hero_offer.message !=''" />
           {{ hero_offer.message }}
         </h1>
         <button v-on:click="applyHeroAction" class="more">{{ hero_offer.link }}</button>
@@ -13,7 +13,7 @@
     <div class="wrap options primary-options">
       <section v-for="(item,index) in app.primarydetails" :key="index" class="front-option">
         <div>
-          <img class="option" :src="(item.img)" :alt="$t('message.' + item.title)">
+          <img class="option" :src="(item.img)" :alt="$t('message.' + item.title)" />
         </div>
         <div class="details">
           <h2 class="option-header">{{ $t("message." + item.title)}}</h2>
@@ -35,7 +35,7 @@
         <div class="flex flex-col">
           <h1 class="hero">
             {{ hero_offer.title }}
-            <br v-if=" hero_offer.message !=''">
+            <br v-if=" hero_offer.message !=''" />
             {{ hero_offer.message }}
           </h1>
           <a
@@ -50,7 +50,7 @@
           <button v-else v-on:click="applyHeroAction" class="more">{{ hero_offer.link }}</button>
         </div>
         <div v-if="hero_offer.img!==''">
-          <img :src="(hero_offer.img)" :alt="(hero_offer.title)">
+          <img :src="(hero_offer.img)" :alt="(hero_offer.title)" />
         </div>
         <AIOverlay
           v-if="settings.pega_marketing.showAIOverlay"
@@ -60,7 +60,13 @@
       </div>
     </div>
     <div class="wrap options primary-options">
-      <section v-for="(item,index) in data" :key="index" class="front-option">
+      <section
+        v-for="(item,index) in data"
+        :key="index"
+        class="front-option"
+        @mouseover="checkRTSEventHover(index, item, true)"
+        @mouseleave="checkRTSEventHover(index, item, false)"
+      >
         <button
           v-if="settings.pega_marketing.showAIOverlay"
           class="pi pi-polaris-solid ai-toggle"
@@ -69,7 +75,7 @@
         ></button>
         <div class="offer-card">
           <div>
-            <img class="option" :src="(item.img)" :alt="(item.title)">
+            <img class="option" :src="(item.img)" :alt="(item.title)" />
           </div>
           <div class="details">
             <h2 class="option-header">{{ item.title }}</h2>
@@ -101,7 +107,7 @@
 </template>
 
 <script>
-import { mainconfig, initNBAM } from '../global';
+import { mainconfig, initNBAM, sendRTSEvent } from '../global';
 import AIOverlay from './controls/AIOverlay.vue';
 
 export default {
@@ -109,6 +115,10 @@ export default {
     return Object.assign({}, mainconfig, {
       loading: true,
       data: [],
+      RTSstate: {
+        index: -1,
+        id: 0,
+      },
       hero_offer: {
         img: '',
         url: '',
@@ -137,6 +147,33 @@ export default {
     }
   },
   methods: {
+    checkRTSEventHover(index, item, state) {
+      if (mainconfig.isRTSEnabled === true) {
+        if (this.RTSstate.index === -1) {
+          this.RTSstate.index = index;
+          this.RTSstate.id = setTimeout(() => {
+            this.generateRTSEvent(item);
+          }, 3000);
+        } else if (this.RTSstate.index === index && state === false) {
+          clearTimeout(this.RTSstate.id);
+          this.RTSstate.id = 0;
+          this.RTSstate.index = -1;
+        }
+      }
+    },
+    generateRTSEvent(item) {
+      const el = document.querySelector('.comment');
+      const today = new Date();
+      let month = today.getMonth() + 1;
+      if (month < 10) {
+        month = `0${month}`;
+      }
+      const date = `${today.getFullYear()}-${month}-${today.getDate()}`;
+      const time = `${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`;
+      el.innerHTML += `<p>${date} ${time} - Sending event - group:${item.category} - value:${item.name}</p`;
+      el.scrollTo(0, el.scrollHeight);
+      sendRTSEvent(this, item);
+    },
     showOffer(item) {
       mainconfig.offerURL = item.url;
       mainconfig.previousPage = item.name;

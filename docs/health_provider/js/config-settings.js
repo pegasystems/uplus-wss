@@ -176,6 +176,7 @@ window.settings = {
     Port: '',
     replaceHomePageHeader: false,
     showAIOverlay: false,
+    enableRTS: false,
     homePage: {
       containerName: 'TopOffers',
       placement: 'Hero,Tile,Tile,Tile',
