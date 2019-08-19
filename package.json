@@ -13,7 +13,7 @@
     "core-js": "^2.6.9",
     "register-service-worker": "^1.6.2",
     "vue": "^2.6.10",
-    "vue-i18n": "^8.12.0"
+    "vue-i18n": "^8.14.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.10.0",
