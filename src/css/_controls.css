@@ -43,7 +43,7 @@ input[type='checkbox'] {
 
 select {
   background: #fff
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48.06 28.04'  width='18' height='9'%3E%3Cpath fill='#295ED9' d='M47.41.55a1.91 1.91 0 0 0-2.7 0l-20.71 22.61-20.75-22.6-.18-.18a1.91 1.91 0 1 0-2.51 2.88l21.87 23.84a1.69 1.69 0 0 0 .13.31 2.15 2.15 0 0 0 2.85 0 1.75 1.75 0 0 0 .13-.32l21.87-23.84a1.91 1.91 0 0 0 0-2.7z' transform='translate(.1 .09)'/%3E%3C/svg%3E")
+    url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48.06 28.04' width='18' height='9'%3E%3Cpath fill='%23295ED9' d='M47.51.64a1.91 1.91 0 00-2.7 0L24.1 23.25 3.35.65 3.17.47A1.91 1.91 0 10.66 3.35l21.87 23.84a1.69 1.69 0 00.13.31 2.15 2.15 0 002.85 0 1.75 1.75 0 00.13-.32L47.51 3.34a1.91 1.91 0 000-2.7z'/%3E%3C/svg%3E")
     right 15px top 50% no-repeat;
   padding-right: 48px;
   -webkit-appearance: none;
@@ -426,20 +426,29 @@ td.align-r {
 
 .inputfile + label {
   font-size: 18rem;
-  font-weight: 700;
+  font-weight: 600;
   padding: 8rem;
   margin-bottom: 0;
-  color: #fff;
+  color: #295ed9;
   border: none;
-  display: inline-block;
   cursor: pointer;
-  opacity: 0.85;
   height: 40rem;
+  border: 1px solid #295ed9;
+  border-radius: 3rem;
+  transition: all 0.25s ease-out;
+}
+button.file-download:hover,
+button.file-download:active,
+button.file-download:focus,
+.inputfile:hover + label,
+.inputfile:active + label,
+.inputfile:focus + label {
+  outline: 2px solid #295ed9;
+  border-radius: 0;
 }
 
-.inputfile:hover + label,
-.inputfile:focus + label,
-.inputfile + label:hover {
-  color: #fff;
-  opacity: 1;
+button.file-download {
+  color: #295ed9;
+  background: #fff;
+  font-weight: 600;
 }

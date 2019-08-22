@@ -1,8 +1,9 @@
 <template>
-  <div class="flex flex-col padding-2x">
-    <p>General</p>
-    <div class="layout-inline-grid-double">
-      <div class="layout-labels-left secondary-card">
+  <div class="container-transparent">
+    <h2>Pega Marketing</h2>
+    <p>Configuration to use Pega Marketing to generate offers. Enter an empty 'Host' to disable this functionality.</p>
+    <Container title="General" expanded>
+      <div class="layout-labels-top layout-inline-grid-double">
         <div class="field-item">
           <label for="NBAM-Host">Host</label>
           <input id="NBAM-Host" type="text" v-model="settings.pega_marketing.Host" />
@@ -11,18 +12,7 @@
           <label for="NBAM-Port">Port</label>
           <input id="NBAM-Port" type="text" v-model="settings.pega_marketing.Port" />
         </div>
-        <div class="field-item">
-          <label
-            class="width-auto"
-            for="NBAM-replaceHomePageHeader"
-          >Replace Home Page header for Hero placement</label>
-          <input
-            id="NBAM-replaceHomePageHeader"
-            type="checkbox"
-            v-model="settings.pega_marketing.replaceHomePageHeader"
-          />
-        </div>
-        <div class="field-item">
+        <div class="field-item field-checkbox">
           <label class="width-auto" for="NBAM-showAIOverlay">Show AI overlay</label>
           <input
             id="NBAM-showAIOverlay"
@@ -30,15 +20,27 @@
             v-model="settings.pega_marketing.showAIOverlay"
           />
         </div>
-        <div class="field-item">
+        <div class="field-item field-checkbox">
           <label class="width-auto" for="NBAM-enableRTS">Enable Real-time data streaming</label>
           <input id="NBAM-enableRTS" type="checkbox" v-model="settings.pega_marketing.enableRTS" />
         </div>
       </div>
-    </div>
-    <div class="layout-inline-grid-double">
-      <div class="layout-labels-left secondary-card">
-        <p>Home Page</p>
+      <div class="layout-labels-left">
+        <div class="field-item">
+          <label
+            class="width-auto"
+            for="NBAM-replaceHomePageHeader"
+          >Replace Home Page header with Hero placement</label>
+          <input
+            id="NBAM-replaceHomePageHeader"
+            type="checkbox"
+            v-model="settings.pega_marketing.replaceHomePageHeader"
+          />
+        </div>
+      </div>
+    </Container>
+    <Container title="Home Page" expanded>
+      <div class="layout-labels-top layout-inline-grid-double">
         <div class="field-item">
           <label for="NBAM-HomePage-ContainerName">Container Name</label>
           <input
@@ -67,8 +69,9 @@
           </select>
         </div>
       </div>
-      <div class="layout-labels-left secondary-card">
-        <p>Account Page</p>
+    </Container>
+    <Container title="Account Page">
+      <div class="layout-labels-top layout-inline-grid-double">
         <div class="field-item">
           <label for="NBAM-AccountPage-ContainerName">Container Name</label>
           <input
@@ -97,8 +100,9 @@
           </select>
         </div>
       </div>
-      <div class="layout-labels-left secondary-card">
-        <p>Home Page for mobile</p>
+    </Container>
+    <Container title="Home Page for mobile">
+      <div class="layout-labels-top layout-inline-grid-double">
         <div class="field-item">
           <label for="NBAM-PhonePage-ContainerName">Container Name</label>
           <input
@@ -127,8 +131,9 @@
           </select>
         </div>
       </div>
-      <div class="layout-labels-left secondary-card">
-        <p>Offer Page</p>
+    </Container>
+    <Container title="Offer Page">
+      <div class="layout-labels-top layout-inline-grid-double">
         <div class="field-item">
           <label for="NBAM-OfferPage-ContainerName">Container Name</label>
           <input
@@ -157,16 +162,20 @@
           </select>
         </div>
       </div>
-    </div>
+    </Container>
   </div>
 </template>
 
 <script>
 import { mainconfig } from '../../global';
+import Container from '../controls/Container.vue';
 
 export default {
   data() {
     return mainconfig;
+  },
+  components: {
+    Container,
   },
 };
 </script>

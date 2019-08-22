@@ -1,49 +1,49 @@
 <template>
   <form id="settings" @submit="processForm">
-    <div v-if="!isMobilePhone" class="inline-middle float-r">
-      <button v-on:click="clearAll" class="simple">Reset to default</button>
-      <button type="submit">Submit</button>
-    </div>
-    <TopNav v-else previousPhonePage="index.html">
+    <TopNav v-if="isMobilePhone" previousPhonePage="index.html">
       <button v-on:click="clearAll" class="simple margin-r-2x">Reset to default</button>
-      <button type="submit">Submit</button>
+      <button type="submit">Save</button>
     </TopNav>
-    <tabs>
-      <tab name="Quick Links" :selected="true">
-        <QuickLinksSettings/>
-      </tab>
-      <tab v-if="typeof settings.billpay != 'undefined' && !isMobilePhone" name="Bill Pay">
-        <BillPaySettings/>
-      </tab>
-      <tab v-if="typeof settings.todo != 'undefined' && !isMobilePhone" name="To Do">
-        <ToDoSettings/>
-      </tab>
-      <tab v-if="!isMobilePhone" name="Home Hero Action">
-        <HomeHeroActionSettings/>
+    <Navigation @clearall="clearAll">
+      <tab name="Getting Started" :selected="true">
+        <GettingStarted />
       </tab>
       <tab name="Users">
-        <UsersSettings/>
+        <UsersSettings />
       </tab>
-      <tab v-if="typeof settings.pega_chat != 'undefined' && !isMobilePhone" name="Pega Chat">
-        <ChatSettings/>
+      <tab name="Quick Links">
+        <QuickLinksSettings />
+      </tab>
+      <tab v-if="typeof settings.todo != 'undefined'" name="To Do Widget">
+        <ToDoSettings />
+      </tab>
+      <tab v-if="typeof settings.billpay != 'undefined'" name="Bill Pay Widget">
+        <BillPaySettings />
+      </tab>
+      <tab v-if="typeof settings.pega_chat != 'undefined'" name="Pega Chat and Co-Browse">
+        <ChatSettings />
       </tab>
       <tab v-if="typeof settings.pega_marketing != 'undefined'" name="Pega Marketing">
-        <NBAMSettings/>
+        <NBAMSettings />
       </tab>
-      <tab v-if="typeof settings.kmhelp != 'undefined' && !isMobilePhone" name="KM Help">
-        <KMHelpSettings/>
+      <tab v-if="typeof settings.kmhelp != 'undefined'" name="Knowledge Management">
+        <KMHelpSettings />
       </tab>
-      <tab v-if="typeof settings.offeraction != 'undefined' && !isMobilePhone" name="Offer Action">
-        <OfferActionSettings/>
+      <tab v-if="!isMobilePhone" name="Home Hero Action">
+        <HomeHeroActionSettings />
       </tab>
-    </tabs>
+      <tab v-if="typeof settings.offeraction != 'undefined'" name="Offer Action">
+        <OfferActionSettings />
+      </tab>
+    </Navigation>
   </form>
 </template>
 
 <script>
 import { mainconfig } from '../../global';
 import Tab from '../controls/Tab.vue';
-import Tabs from '../controls/Tabs.vue';
+import Navigation from './Navigation.vue';
+import GettingStarted from './GettingStarted.vue';
 import QuickLinksSettings from './QuickLinksSettings.vue';
 import BillPaySettings from './BillPaySettings.vue';
 import KMHelpSettings from './KMHelpSettings.vue';
@@ -76,8 +76,9 @@ export default {
     },
   },
   components: {
-    Tabs,
+    Navigation,
     Tab,
+    GettingStarted,
     QuickLinksSettings,
     BillPaySettings,
     ToDoSettings,

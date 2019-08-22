@@ -22,6 +22,10 @@
         <span>{{ offer.treatment }}</span>
       </li>
       <li>
+        <label>Category</label>
+        <span>{{ offer.category }}</span>
+      </li>
+      <li>
         <label>Propensity</label>
         <span>{{ $n(offer.propensity, 'score') }}</span>
       </li>
@@ -39,7 +43,7 @@
       </li>
     </ul>
     <div class="footer-img">
-      <img src="../../img/pega-logo.png">
+      <img src="../../img/pega-logo.png" />
     </div>
   </div>
 </template>

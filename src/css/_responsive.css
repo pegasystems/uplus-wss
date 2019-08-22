@@ -135,6 +135,10 @@
     margin-right: 0;
   }
 
+  .layout-inline-grid-double > div:nth-child(2n) {
+    margin: 0;
+  }
+
   .landing-cards > div,
   .landing-request {
     flex-flow: column;
@@ -209,6 +213,42 @@
 
   .responsive td.hide-collapsed {
     display: none;
+  }
+
+  .tab-vertical-menu > .tab-interface > .container {
+    order: 2;
+  }
+
+  .tab-vertical-menu > .tab-interface > .container > .header {
+    display: flex;
+  }
+
+  .tab-vertical-menu > .tab-interface > .container > .body {
+    display: block;
+  }
+  .tab-vertical-menu > .tab-interface > .container.collapsed > .body {
+    display: none;
+  }
+
+  .tab-vertical-menu > .tab-interface {
+    margin: 0 24rem;
+    position: static;
+    float: none;
+    width: auto;
+  }
+
+  .tab-vertical-menu > .tabs-details {
+    margin: 0 24rem;
+  }
+
+  .tab-vertical-menu > .tab-interface > .tab-action {
+    flex-flow: row nowrap;
+    padding: 0;
+    background: none;
+    margin: 0;
+  }
+  .tab-vertical-menu > .tab-interface > .tab-action > button.simple {
+    margin-right: auto;
   }
 }
 

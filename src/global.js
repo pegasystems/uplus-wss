@@ -577,10 +577,15 @@ const sendRTSEvent = function sendRTSEvent(Context, item) {
       Context.settings.pega_marketing.Host,
       Context.settings.pega_marketing.Port,
     );
+    let custID = item.customerID;
+    /* Read the cookie MKTID if present and send it as Customer ID instead */
+    if (custID === '' && document.cookie.split('MKTID=') > 1) {
+      custID = document.cookie.split('MKTID=')[1].split(';')[0];
+    }
     nbamServiceCtrl.sendRTSEvent(
-      `customer_id=${item.customerID}&activity_group=${
-        item.category
-      }&activity_value=${item.name}&activity=hover`,
+      `customer_id=${custID}&activity_group=${item.category}&activity_value=${
+        item.name
+      }&activity=hover`,
       null,
     );
   }

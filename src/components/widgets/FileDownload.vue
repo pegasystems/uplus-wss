@@ -1,6 +1,6 @@
 <template>
-  <button v-on:click="downloadFile" class="light margin-r-2x" title="Download configuration">
-    <i class="pi pi-document-download-solid"/>
+  <button v-on:click="downloadFile" class="file-download" title="Download configuration">
+    <i class="pi pi-document-download-solid" />Download config file
   </button>
 </template>
 

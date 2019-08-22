@@ -1,5 +1,5 @@
 <template>
-  <span>
+  <div class="file-upload">
     <input
       type="file"
       @change="onFileChange"
@@ -7,11 +7,11 @@
       id="file"
       class="inputfile"
       title="Upload configuration"
-    >
+    />
     <label for="file" title="Upload configuration">
-      <i class="pi pi-document-upload-solid"/>
+      <i class="pi pi-document-upload-solid" />Upload config file
     </label>
-  </span>
+  </div>
 </template>
 
 <script>
