@@ -12,6 +12,8 @@
           <label for="NBAM-Port">Port</label>
           <input id="NBAM-Port" type="text" v-model="settings.pega_marketing.Port" />
         </div>
+      </div>
+      <div class="layout-labels-left">
         <div class="field-item field-checkbox">
           <label class="width-auto" for="NBAM-showAIOverlay">Show AI overlay</label>
           <input
@@ -24,8 +26,6 @@
           <label class="width-auto" for="NBAM-enableRTS">Enable Real-time data streaming</label>
           <input id="NBAM-enableRTS" type="checkbox" v-model="settings.pega_marketing.enableRTS" />
         </div>
-      </div>
-      <div class="layout-labels-left">
         <div class="field-item">
           <label
             class="width-auto"

@@ -1,7 +1,7 @@
 <template>
   <div class="tab-vertical-menu">
     <div class="tab-interface">
-      <Container @toggleExpand="toggleExpand" title="menu" :expanded="expanded">
+      <Container @toggleExpand="toggleExpand" title="Menu" :expanded="expanded">
         <ul role="tablist">
           <li role="presentation" v-for="(tab,index) in tabs" v-bind:key="index">
             <a
@@ -35,7 +35,7 @@ export default {
   data() {
     return Object.assign({}, mainconfig, {
       tabs: [],
-      expanded: true,
+      expanded: false,
     });
   },
   created() {
