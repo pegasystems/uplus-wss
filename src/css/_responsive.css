@@ -41,11 +41,11 @@
 
   body,
   button,
-  footer ul.flex li {
+  footer nav > div.flex li {
     font-size: 14rem;
   }
 
-  footer ul.flex li {
+  footer nav > div.flex li {
     margin-right: 3vw;
   }
 
@@ -82,7 +82,7 @@
     margin-left: 8rem;
   }
 
-  footer ul.flex > a {
+  footer nav > div.flex > a {
     margin-right: 8rem;
   }
 }
@@ -331,7 +331,7 @@
     width: 100%;
   }
 
-  :not(.phone) > footer nav > ul {
+  :not(.phone) > footer nav > div {
     flex-flow: column;
   }
 

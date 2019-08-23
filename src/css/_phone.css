@@ -179,13 +179,13 @@
   margin: auto 0 0 0;
 }
 
-.phone footer ul.flex {
+.phone footer nav > div.flex {
   margin: 8rem;
   flex-flow: row;
   justify-content: space-around;
 }
 
-.phone footer ul.flex > a,
+.phone footer nav > div.flex > a,
 .phone footer button.simple,
 .phone button.nav-button {
   color: #fff;

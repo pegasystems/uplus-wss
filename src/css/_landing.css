@@ -94,7 +94,7 @@ body > #app.form.landing {
 }
 
 .landing-footer,
-.landing-footer footer ul.flex > a,
+.landing-footer footer nav > div.flex > a,
 .landing-footer p {
   color: #fff;
 }

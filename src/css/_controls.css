@@ -12,7 +12,7 @@
 
 label {
   margin-top: 0;
-  color: #939393;
+  color: #646363;
   font-size: 18rem;
   font-weight: 700;
   margin-bottom: 15px;
@@ -334,7 +334,7 @@ button.simple:hover {
 }
 
 .field .helper {
-  color: #939393;
+  color: #646363;
 }
 
 .password,
@@ -388,7 +388,7 @@ header .menu-overlay a {
 table {
   width: 100%;
   border-collapse: collapse;
-  color: #939393;
+  color: #646363;
 }
 
 th,

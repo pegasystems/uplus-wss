@@ -72,7 +72,7 @@ body > #app.form.offer {
 }
 
 .offer-footer .promo h4,
-.offer-footer footer ul.flex > a,
+.offer-footer footer nav > div.flex > a,
 .offer-footer button.simple {
   color: #fff;
 }

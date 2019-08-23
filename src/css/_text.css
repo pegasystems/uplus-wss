@@ -128,7 +128,7 @@ h1.hero span {
 
 h3,
 th {
-  color: #939393;
+  color: #646363;
 }
 
 h3 {
@@ -224,7 +224,7 @@ tr.heading {
 }
 
 p {
-  color: #939393;
+  color: #646363;
 }
 
 p.activity {
@@ -234,7 +234,7 @@ p.activity {
 
 time {
   text-transform: uppercase;
-  color: #939393;
+  color: #646363;
   font-size: 18rem;
   font-weight: 600;
 }
@@ -248,7 +248,7 @@ time.fatlist-item {
 }
 
 .keyrates h4 {
-  color: #939393;
+  color: #646363;
   font-weight: 300;
 }
 

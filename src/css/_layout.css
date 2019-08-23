@@ -335,13 +335,13 @@ footer {
   width: 100%;
 }
 
-footer ul.flex > a {
+footer nav > div.flex > a {
   margin-right: 35rem;
   font-size: 18rem;
-  color: #939393;
+  color: #646363;
 }
 
-footer ul.flex {
+footer nav > div.flex {
   margin: 26rem 0;
   align-items: center;
 }

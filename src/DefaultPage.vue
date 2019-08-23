@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <PhonePage v-if="isMobilePhone"/>
-    <AccountPage v-else-if="isAuthenticated"/>
-    <FrontPage v-else/>
+    <PhonePage v-if="isMobilePhone" />
+    <AccountPage v-else-if="isAuthenticated" />
+    <FrontPage v-else />
   </div>
 </template>
 
@@ -26,7 +26,6 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i,800');
 @import url('./css/normalize.min.css');
 @import url('./css/_init.css');
 @import url('./css/_text.css');
