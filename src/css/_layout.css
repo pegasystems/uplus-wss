@@ -27,7 +27,7 @@
 }
 
 .front > header {
-  justify-content: unset;
+  justify-content: flex-start;
   margin-bottom: 0;
 }
 

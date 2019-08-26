@@ -60,6 +60,10 @@ li {
   border-radius: 50%;
 }
 
+header > .header > a {
+  width: 165rem;
+}
+
 header a,
 header a:visited {
   font-size: 16rem;

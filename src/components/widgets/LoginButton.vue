@@ -7,15 +7,13 @@
       :class="[isActive ? 'show' : 'hidden']"
     >
       <div class="field flex flex-col username">
-        <select
-          id="username"
-          type="text"
-          v-model="username"
-        ><option v-for="(item,index) in settings.users" v-bind:key="index" value:="item.username">{{item.username}}</option></select>
+        <select id="username" type="text" v-model="username">
+          <option v-for="(item,index) in settings.users" v-bind:key="index">{{item.username}}</option>
+        </select>
         <label for="username">{{$t('message.username')}}</label>
       </div>
       <div class="field flex flex-col password">
-        <input id="password" type="password" v-model="password">
+        <input id="password" type="password" v-model="password" />
         <label for="password">{{$t('message.password')}}</label>
       </div>
       <button v-on:click="signIn" class="sign-in">{{$t('message.signin')}}</button>
