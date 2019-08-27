@@ -171,7 +171,7 @@ export default {
       const date = `${today.getFullYear()}-${month}-${today.getDate()}`;
       const time = `${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`;
       el.innerHTML += `<p>${date} ${time} - Sending event - group:${item.category} - value:${item.name}</p`;
-      el.scrollTo(0, el.scrollHeight);
+      el.scrollTop = el.scrollHeight;
       sendRTSEvent(this, item);
     },
     showOffer(item) {
