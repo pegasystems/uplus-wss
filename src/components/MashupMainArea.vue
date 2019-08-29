@@ -224,7 +224,7 @@ export default {
     this.threadName = this.objClass.replace(/-/g, '');
     this.mashupScript.setAttribute(
       'src',
-      `${this.serverUrl}?pyActivity=pzIncludeMashupScripts`,
+      `${this.serverUrl}?pyActivity=pzIncludeMashupScripts&id=${this.mashupid}`,
     );
     const tmpActionParam = {};
     tmpActionParam.pzSkinName = 'ClaritySkin';
