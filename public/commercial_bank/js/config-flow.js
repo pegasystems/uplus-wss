@@ -262,12 +262,12 @@ window.app = {
       actions: [
         {
           icon: 'pi-calculator',
-          page: 'home',
+          page: 'account',
           title: 'phone_home_page_actions1_title',
         },
         {
           icon: 'pi-document-data',
-          page: 'quicklinks',
+          page: 'quicklinks1',
           title: 'phone_home_page_actions2_title',
         },
         {

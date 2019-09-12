@@ -42,7 +42,7 @@
 }
 
 .phone aside header .logo {
-  height: 38rem;
+  height: 29rem;
 }
 
 .phone aside nav {
@@ -109,6 +109,10 @@
   padding: 30rem;
   margin: 16rem;
   width: calc(100% - 32rem);
+}
+
+.phone .margin-t-0 {
+  margin-top: 0;
 }
 
 .phone h1.small {
@@ -251,6 +255,12 @@
   font-weight: normal;
   font-size: 16rem;
   margin-left: 16rem;
+}
+
+.phone .quick-links-account a {
+  font-size: 16rem;
+  margin-bottom: 8rem;
+  display: block;
 }
 
 .phone .quick-links li {

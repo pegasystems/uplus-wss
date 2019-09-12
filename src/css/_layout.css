@@ -398,6 +398,10 @@ footer nav > div.flex {
   margin-bottom: 16rem;
 }
 
+.primary-card > section:last-child {
+  margin-bottom: 0;
+}
+
 .secondary-card {
   padding: 20rem;
   margin-bottom: 30rem;

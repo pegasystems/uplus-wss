@@ -123,7 +123,9 @@
 
   .flex-col-3 > div {
     width: 100%;
-    margin-right: 0;
+    width: 100%;
+    margin: 0;
+    padding: 8rem;
   }
 
   .flex-col-3 {
@@ -325,6 +327,25 @@
 
   .fatlist > li {
     flex-wrap: wrap;
+    padding: 0;
+  }
+
+  time.fatlist-item {
+    font-size: 14rem;
+    min-width: 100%;
+  }
+
+  p.activity {
+    font-size: 14rem;
+    font-size: 14rem;
+    max-width: calc(100% - 85rem);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  a.fatlist-item {
+    padding-left: 0;
   }
 
   :not(.phone) > footer nav {

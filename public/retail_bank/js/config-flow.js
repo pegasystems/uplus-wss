@@ -325,7 +325,7 @@ window.app = {
       actions: [
         {
           icon: 'pi-calculator',
-          page: 'home',
+          page: 'account',
           title: 'phone_home_page_actions1_title',
         },
         {

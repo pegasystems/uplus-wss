@@ -1,6 +1,6 @@
 <template>
   <main class="flex flex-col">
-    <TopNav previousPhonePage="quicklinks"/>
+    <TopNav previousPhonePage="home" />
     <div class="flex flex-col primary-card">
       <i class="top-icon pi pi-document-data color-brand"></i>
       <h1 class="small">{{ $t('message.phone_quick_links_title')}}</h1>
