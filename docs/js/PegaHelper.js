@@ -70,7 +70,12 @@ function postMessageListener(event){
     clearInterval(previewMonitor);
    	/* enable launcher now */
 	  if (BotActive != true) {
-	    var $launcher = $("<div>", {id:"launcher",text:"Need Help?"});
+      var $launcher;
+      if(PegaCSWSS.ShowAsButton) {
+        $launcher = $("<div id='launcher'><img src='../img/ChatbotIcon.svg' width=50' height='50'/></div>");
+      } else {
+        $launcher = $("<div>", { id: "launcher", text:"Need Help?"});
+      }
 	    $launcher.click(InvokeAdvisor);
       $( 'body' ).append($launcher);
 	  }

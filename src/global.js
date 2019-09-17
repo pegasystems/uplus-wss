@@ -53,8 +53,8 @@ const upgradeConfig = function upgradeConfig(cfg) {
   if (typeof cfg.settings.pega_chat.CoBrowseToken === 'undefined') {
     cfg.settings.pega_chat.CoBrowseToken = '';
   }
-  if (typeof cfg.settings.pega_chat.SSAConfigName === 'undefined') {
-    cfg.settings.pega_chat.SSAConfigName = '';
+  if (typeof cfg.settings.pega_chat.ShowAsButton === 'undefined') {
+    cfg.settings.pega_chat.ShowAsButton = true;
   }
   for (const i in cfg.settings.users) {
     if (typeof cfg.settings.users[i].accountID === 'undefined') {
@@ -245,6 +245,10 @@ if (retrievedObject != null) {
 
 mainconfigTmp = upgradeConfig(mainconfigTmp);
 
+if (mainconfigTmp.settings.pega_chat.ShowAsButton) {
+  document.documentElement.className = `${document.documentElement.className} chat-button`;
+}
+
 /* Read the current state */
 if (window.history) {
   const currentState = window.history.state;
@@ -361,11 +365,11 @@ window.PegaCSWSS = {
     ServerURL: mainconfigTmp.settings.pega_chat.CoBrowseServerURL,
     Token: mainconfigTmp.settings.pega_chat.CoBrowseToken,
   },
-  SSAConfigName: mainconfigTmp.settings.pega_chat.SSAConfigName,
   WCBConfigName: mainconfigTmp.settings.pega_chat.WCBConfigName,
   WebChatBotID: mainconfigTmp.settings.pega_chat.WebChatBotID,
   ApplicationName: mainconfigTmp.settings.pega_chat.ApplicationName,
   MashupURL: mainconfigTmp.settings.pega_chat.MashupURL,
+  ShowAsButton: mainconfigTmp.settings.pega_chat.ShowAsButton,
   ContactID: '',
   AccountNumber: '',
   UserName: '',
@@ -583,9 +587,7 @@ const sendRTSEvent = function sendRTSEvent(Context, item) {
       custID = document.cookie.split('MKTID=')[1].split(';')[0];
     }
     nbamServiceCtrl.sendRTSEvent(
-      `customer_id=${custID}&activity_group=${item.category}&activity_value=${
-        item.name
-      }&activity=hover`,
+      `customer_id=${custID}&activity_group=${item.category}&activity_value=${item.name}&activity=hover`,
       null,
     );
   }
@@ -605,9 +607,7 @@ const updatePegaChat = function updatePegaChat(u) {
     "[data-pega-gadgetname='OnlineHelp'] > iframe",
   );
   if (el != null && typeof el.src === 'string') {
-    let updatedSrc = `${el.src}&ContactId=${u.contactID}&AccountNumber=${
-      u.accountID
-    }&username=${u.username}`;
+    let updatedSrc = `${el.src}&ContactId=${u.contactID}&AccountNumber=${u.accountID}&username=${u.username}`;
     if (typeof u.extraparam !== 'undefined' && u.extraparam !== '') {
       u.extraparam.split(',').forEach((item) => {
         const values = item.split('=');

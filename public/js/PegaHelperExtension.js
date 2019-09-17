@@ -57,7 +57,12 @@ mashupScript.onload = function() {
 
   addEventListener("message", postMessageListener, false);
   addEventListener("beforeunload", removeConnectedStatus, false);
-  var $minL = $("<div>", {id:"launcherminimized",text:"Need Help?"});
+  var $minL;
+  if(PegaCSWSS.ShowAsButton) {
+    $minL = $("<div id='launcherminimized'><img src='../img/ChatbotIcon.svg' width=50' height='50'/></div>");
+  } else {
+    $minL = $("<div>", { id: "launcherminimized", text:"Need Help?"});
+  }
   $minL.click(maximizeAdvisorWindow);
   var $counter = $("<div>", {id:"unreadCounter",text:"0"});
   $minL.append($counter);

@@ -163,11 +163,11 @@ window.settings = {
     },
   ],
   pega_chat: {
-    SSAConfigName: '',
     WCBConfigName: '',
     WebChatBotID: '',
     ApplicationName: '',
     MashupURL: '',
+    ShowAsButton: true,
     CoBrowseServerURL: '',
     CoBrowseToken: '',
   },

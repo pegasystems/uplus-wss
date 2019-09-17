@@ -21,6 +21,12 @@
           <input id="chat-ApplicationName" type="text" v-model="settings.pega_chat.ApplicationName" />
         </div>
       </div>
+      <div class="layout-labels-left">
+        <div class="field-item">
+          <label class="width-auto" for="chat-ShowAsButton">Show the launch icon as button</label>
+          <input id="chat-ShowAsButton" type="checkbox" v-model="settings.pega_chat.ShowAsButton" />
+        </div>
+      </div>
     </Container>
     <Container title="Co-Browse" expanded>
       <div class="layout-labels-top layout-inline-grid-double">

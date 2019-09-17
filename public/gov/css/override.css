@@ -2,7 +2,8 @@ header,
 .background-brand,
 .product-icon,
 main .secondary-options .front-option::after,
-.benefits li::after {
+.benefits li::after,
+#ChatLauncherminimized, #launcher, #launcherminimized, #servicecaselauncherminimized {
 	background-color: #0076DE;
 }
 

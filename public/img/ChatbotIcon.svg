@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="76px" height="76px" viewBox="0 0 76 76" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 57.1 (83088) - https://sketch.com -->
+    <title>Chatbot Avatar</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="60" height="60" rx="30"></rect>
+        <filter x="-18.3%" y="-11.7%" width="136.7%" height="136.7%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.15 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Chatbot-Avatar" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Collapsed/Circle/Avatar" transform="translate(8.000000, 8.000000)">
+            <g id="Dropshadow" fill-rule="nonzero" fill="black" fill-opacity="1">
+                <use filter="url(#filter-2)" xlink:href="#path-1"></use>
+            </g>
+            <rect id="Background" fill="#E6EDFF" fill-rule="nonzero" x="0" y="0" width="60" height="60" rx="30"></rect>
+            <g id="bot" transform="translate(10.000000, 11.000000)">
+                <path d="M20,37.2 C10.5,37.2 3.7,32.4 3.7,32.4 L3.7,18 C3.7,8.8 8.5,0.7 20,0.7 C31.5,0.7 36.3,8.6 36.3,17.8 L36.3,32.4 C36.3,32.4 29.5,37.2 20,37.2 Z" id="Path" fill="#81D4FA"></path>
+                <path d="M3.7,24.8 L2.7,24.8 C1.6,24.8 0.8,23.9 0.8,22.9 L0.8,18 C0.8,16.9 1.7,16.1 2.7,16.1 L3.7,16.1 L3.7,24.8 L3.7,24.8 Z M36.3,16.1 L37.3,16.1 C38.4,16.1 39.2,17 39.2,18 L39.2,22.8 C39.2,23.9 38.3,24.7 37.3,24.7 L36.3,24.7 L36.3,16.1 Z M3.7,29.6 L3.7,32.5 C3.7,32.5 10.6,37.3 20,37.3 C29.4,37.3 36.3,32.5 36.3,32.5 L36.3,29.6 C36.3,29.6 29.4,34.4 20,34.4 C10.6,34.4 3.7,29.6 3.7,29.6 Z" id="Shape" fill="#1E88E5" fill-rule="nonzero"></path>
+                <path d="M20,30.5 C11.8,30.5 6.6,27.1 6.6,21.9 L6.6,17 C6.6,12.6 10.1,7.4 20,7.4 C29.9,7.4 33.4,12.6 33.4,17 L33.4,21.8 C33.4,27.1 28.2,30.5 20,30.5 Z" id="Path" fill="#7E57C2"></path>
+                <path d="M20,8.4 C29.3,8.4 32.5,13.1 32.5,17 L32.5,21.8 C32.5,26.4 27.7,29.5 20,29.5 C12.3,29.5 7.5,26.4 7.5,21.8 L7.5,17 C7.5,13.1 10.7,8.4 20,8.4 L20,8.4 Z M20,6.5 C9.4,6.5 5.6,12.2 5.6,17 L5.6,21.8 C5.6,27.6 11.3,31.4 20,31.4 C28.7,31.4 34.4,27.6 34.4,21.8 L34.4,17 C34.4,11.8 29.9,6.5 20,6.5 Z" id="Shape" fill="#B3E5FC" fill-rule="nonzero"></path>
+                <path d="M20,30.5 C11.8,30.5 6.6,27.1 6.6,21.9 L6.6,17 C6.6,12.6 10.1,7.4 20,7.4 C29.9,7.4 33.4,12.6 33.4,17 L33.4,21.8 C33.4,27.1 28.2,30.5 20,30.5 Z" id="Path" fill="#7E57C2"></path>
+                <path d="M20,8.4 C29.3,8.4 32.5,13.1 32.5,17 L32.5,21.8 C32.5,26.4 27.7,29.5 20,29.5 C12.3,29.5 7.5,26.4 7.5,21.8 L7.5,17 C7.5,13.1 10.7,8.4 20,8.4 L20,8.4 Z M20,6.5 C9.4,6.5 5.6,12.2 5.6,17 L5.6,21.8 C5.6,27.6 11.3,31.4 20,31.4 C28.7,31.4 34.4,27.6 34.4,21.8 L34.4,17 C34.4,11.8 29.9,6.5 20,6.5 Z" id="Shape" fill="#B3E5FC" fill-rule="nonzero"></path>
+                <path d="M32.5,21.9 C32.5,26.5 27.7,29.6 20,29.6 C12.3,29.6 7.5,26.5 7.5,21.9 L7.5,17 C7.5,13.1 10.7,8.4 20,8.4 C29.3,8.4 32.5,13.1 32.5,17 L32.5,21.9 Z" id="Path" fill="#7E57C2"></path>
+                <path d="M11.4,22.9 C10.8,22.9 10.4,22.5 10.4,21.9 L10.4,17 C10.4,13.4 14.1,11.2 20,11.2 C20.6,11.2 21,11.6 21,12.2 C21,12.8 20.6,13.2 20,13.2 C15.4,13.2 12.4,14.7 12.4,17 L12.4,21.8 C12.4,22.4 11.9,22.9 11.4,22.9 Z" id="Path" fill="#B388FF"></path>
+                <path d="M20,8.4 C29.3,8.4 32.5,13.1 32.5,17 L32.5,21.8 C32.5,26.4 27.7,29.5 20,29.5 C12.3,29.5 7.5,26.4 7.5,21.8 L7.5,17 C7.5,13.1 10.7,8.4 20,8.4 L20,8.4 Z M20,6.5 C9.4,6.5 5.6,12.2 5.6,17 L5.6,21.8 C5.6,27.6 11.3,31.4 20,31.4 C28.7,31.4 34.4,27.6 34.4,21.8 L34.4,17 C34.4,11.8 29.9,6.5 20,6.5 Z" id="Shape" fill="#B3E5FC" fill-rule="nonzero"></path>
+            </g>
+        </g>
+    </g>
+</svg>
