@@ -252,6 +252,14 @@
   .tab-vertical-menu > .tab-interface > .tab-action > button.simple {
     margin-right: auto;
   }
+
+  .chat-button #ChatLauncherminimized > img,
+  .chat-button #servicecaselauncherminimized > img,
+  .chat-button #launcherminimized > img,
+  .chat-button #launcher > img {
+    width: 30px;
+    height: 30px;
+  }
 }
 
 @media screen and (max-width: 567px) {

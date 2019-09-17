@@ -9,6 +9,8 @@
   top: 50%;
   margin: -275px 0;
   width: 450px;
+  max-width: calc(100vw - 60px);
+  max-height: calc(100vh - 50px);
   overflow: auto;
   z-index: 2147483644;
   background: #fff;
@@ -293,9 +295,11 @@ div#ChatFooter {
   bottom: 20px;
   right: 20px;
   border-radius: 50%;
+  border-color: transparent;
   display: inline-table;
   transform: none;
   opacity: 0.8;
+  filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.4));
 }
 
 .chat-button #ChatLauncherminimized:hover,
@@ -303,7 +307,6 @@ div#ChatFooter {
 .chat-button #launcherminimized:hover,
 .chat-button #launcher:hover {
   opacity: 1;
-  border-color: #000;
 }
 
 .chat-button #ChatLauncherminimized > img,
@@ -311,6 +314,8 @@ div#ChatFooter {
 .chat-button #launcherminimized > img,
 .chat-button #launcher > img {
   display: block;
+  width: 50px;
+  height: 50px;
 }
 
 .chat-button #Preview {
