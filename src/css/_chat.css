@@ -282,8 +282,9 @@ div#ChatFooter {
   bottom: -2000px;
 }
 .chat-button #ProactiveChat.alerting {
-  top: auto;
-  bottom: 50px;
+  top: 70%;
+  bottom: auto;
+  height: 135px;
 }
 
 .chat-button #ChatLauncherminimized,
