@@ -323,3 +323,8 @@ div#ChatFooter {
   top: auto;
   bottom: 75px;
 }
+
+.chat-button #unreadCounter {
+  transform: none;
+  top: -4px;
+}
