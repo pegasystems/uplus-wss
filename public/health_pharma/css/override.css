@@ -1,0 +1,37 @@
+header,
+.background-brand,
+.product-icon,
+main .secondary-options .front-option::after,
+.benefits li::after,
+#ChatLauncherminimized, #launcher, #launcherminimized, #servicecaselauncherminimized {
+	background-color: #0C8487;
+}
+
+header .menu-overlay a:hover,
+header .menu-overlay a:active,
+header .menu-overlay a:focus {
+	background-color: #0C8487;
+	color: #FFF;
+}
+
+body .color-brand {
+	color: #0C8487;
+}
+
+.border-brand {
+	border-color: #0C8487;
+}
+
+/* Home page */
+.front>header {
+	background-image: url('../img/hero-2.jpg');
+}
+/* Account page */
+.form>header {
+	background-image: url('../img/hero-3.jpg');
+}
+
+/* Offer page */
+.offer header {
+	background-image: url('../img/hero-3.jpg');
+}
