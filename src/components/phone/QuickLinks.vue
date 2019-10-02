@@ -6,10 +6,15 @@
       <h1 class="small">{{ $t('message.phone_quick_links_title')}}</h1>
       <nav>
         <ul class="quick-links">
-          <li v-for="(item,index) in settings.quicklinks" :key="index">
+          <button
+            v-on:click="selectLink(index)"
+            class="simple"
+            v-for="(item,index) in settings.quicklinks"
+            :key="index"
+          >
             <i :class="'pi background-brand ' + (item.icon==''? 'pi-document-data': item.icon)"></i>
-            <a v-on:click="selectLink(index)">{{ settings.quicklinks[index].title[currentLocale] }}</a>
-          </li>
+            {{ settings.quicklinks[index].title[currentLocale] }}
+          </button>
         </ul>
       </nav>
     </div>

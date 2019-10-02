@@ -126,7 +126,7 @@
   margin: 16rem 0;
   color: #414949;
   font-weight: 800;
-  margin: 30rem 0 50rem 0;
+  margin: 30rem 0;
 }
 
 .phone .home > .hero {
@@ -152,7 +152,7 @@
   border: 1px solid #ececec;
   padding: 0 8rem;
   height: 140rem;
-  flex-grow: 1;
+  flex: 1;
   color: #000;
   font-size: 18rem;
 }
@@ -250,36 +250,38 @@
   overflow-y: auto;
 }
 
-.phone .quick-links a {
-  color: #414949;
-  font-weight: normal;
-  font-size: 16rem;
-  margin-left: 16rem;
-}
-
 .phone .quick-links-account a {
   font-size: 16rem;
   margin-bottom: 8rem;
   display: block;
 }
 
-.phone .quick-links li {
-  padding: 16rem;
+.phone .quick-links button {
+  color: #414949;
+  font-weight: normal;
+  font-size: 16rem;
+  padding: 8rem 16rem;
   border: 1px solid #ccc;
   border-radius: 4rem;
   margin-bottom: 8rem;
   text-align: left;
+  display: flex;
+  height: auto;
+  width: 100%;
+  align-items: center;
 }
-.phone .quick-links li > i {
+
+.phone .quick-links button > i {
   border-radius: 50%;
   height: 32rem;
-  width: 32rem;
+  min-width: 32rem;
   line-height: 26rem;
   font-size: 16rem;
   color: #fff;
   display: inline-block;
   text-align: center;
   vertical-align: middle;
+  margin-right: 8rem;
 }
 
 .phone #OnlineHelp,
