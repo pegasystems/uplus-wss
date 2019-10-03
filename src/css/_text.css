@@ -418,3 +418,7 @@ time.fatlist-item {
   margin: 0;
   font-size: 13px;
 }
+
+.scorecard {
+  font-size: 22rem;
+}

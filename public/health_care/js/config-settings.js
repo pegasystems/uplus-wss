@@ -117,6 +117,28 @@ window.settings = {
       pega_pwd: 'rules',
       bill_pay: 164.8,
       load_by_default: true,
+      kpi: [
+        {
+          icon: 'pi-gauge',
+          name: 'kpi_wellness_score',
+          value: '80/100',
+        },
+        {
+          icon: 'pi-chart-donut-solid',
+          name: 'kpi_cholesterol',
+          value: '215',
+        },
+        {
+          icon: 'pi-target',
+          name: 'kpi_bmi',
+          value: '26.3',
+        },
+        {
+          icon: 'pi-heart-pulse',
+          name: 'kpi_blood_pressure',
+          value: '115/86',
+        },
+      ],
     },
     {
       username: 'mary@pegasystems.com',
@@ -132,6 +154,28 @@ window.settings = {
       pega_pwd: 'rules',
       bill_pay: 164.8,
       load_by_default: false,
+      kpi: [
+        {
+          icon: 'pi-gauge',
+          name: 'kpi_wellness_score',
+          value: '80/100',
+        },
+        {
+          icon: 'pi-star',
+          name: 'kpi_cholesterol',
+          value: '215',
+        },
+        {
+          icon: 'pi-heart-pulse',
+          name: 'kpi_bmi',
+          value: '26.3',
+        },
+        {
+          icon: 'pi-target',
+          name: 'kpi_blood_pressure',
+          value: '115/86',
+        },
+      ],
     },
   ],
   pega_chat: {

@@ -453,3 +453,9 @@ button.file-download {
   background: #fff;
   font-weight: 600;
 }
+
+.kpi-item {
+  display: flex;
+  flex: 1 1 100rem;
+  padding: 0 8rem;
+}
