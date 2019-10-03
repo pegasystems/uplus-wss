@@ -160,267 +160,290 @@ Vue.use(VueI18n);
 
 let userLang = navigator.language || navigator.userLanguage;
 if (userLang.length > 2) userLang = userLang.substring(0, 1);
-if (settings.i18n.defaultlocale === 'browser') {
-  settings.i18n.defaultlocale = userLang;
-}
 
-const messages = {};
-const dateTimeFormats = {};
-const numberFormats = {};
+let i18nTmp;
+let mainconfigTmp;
 
-let isDefaultLocaleLoaded = false;
-for (const i in settings.i18n.languages) {
-  const lang = settings.i18n.languages[i];
-  messages[lang] = {
-    message: eval(`lang${lang.toUpperCase()}`),
-  };
-  dateTimeFormats[lang] = eval(`dateFormat${lang.toUpperCase()}`);
-  numberFormats[lang] = eval(`numberFormat${lang.toUpperCase()}`);
-  /* Check if the default locale is available in the list of languages - if not, then select the first one */
-  if (lang === settings.i18n.defaultlocale) isDefaultLocaleLoaded = true;
-}
-if (!isDefaultLocaleLoaded) {
-  [settings.i18n.defaultlocale] = settings.i18n.languages;
-}
-
-const i18n = new VueI18n({
-  locale: settings.i18n.defaultlocale,
-  messages,
-  dateTimeFormats,
-  numberFormats,
-});
-
-/* Detect if this is a phone */
-let isMobilePhone = false;
-if (/iPhone/.test(navigator.userAgent) || /Android/.test(navigator.userAgent)) {
-  isMobilePhone = true;
-}
-
-if (isMobilePhone) {
-  document.documentElement.className = 'phone';
-}
-
-let mainconfigTmp = Object.assign(
-  {},
-  {
-    settings,
-    app,
-    isMobilePhone,
-    offerURL: '',
-    homeHeroImg: '',
-    previousPage: '',
-    intent: '',
-    reloadOffer: 1,
-    reloadMashup: 1,
-    reloadAccountMashup: 1,
-    isAuthenticated: false,
-    isSidePanelVisible: false,
-    isCategoryPage: false,
-    isDeepLink: false,
-    deepLinkExtraParam: {},
-    phonePageName: 'home',
-    userId: -1,
-    quickLinkId: -1,
-    viewBill: -1,
-    toDo: -1,
-    viewKMHelp: -1,
-    KMArticleID: '',
-    logoutURL: {},
-    homeHeroAction: -1,
-    offerAction: -1,
-    isRTSEnabled: false,
-    currentLocale: settings.i18n.defaultlocale,
-  },
-);
-// Retrieve the object from storage
-const retrievedObject = localStorage.getItem(
-  `config_${mainconfigTmp.app.industry}`,
-);
-if (retrievedObject != null) {
-  const tmpObj = JSON.parse(retrievedObject);
-  if (tmpObj.settings) {
-    mainconfigTmp.settings = tmpObj.settings;
+if (typeof settings === 'undefined') {
+  window.location.href = `${window.location.href}/`;
+} else {
+  if (settings.i18n.defaultlocale === 'browser') {
+    settings.i18n.defaultlocale = userLang;
   }
-}
 
-mainconfigTmp = upgradeConfig(mainconfigTmp);
+  const messages = {};
+  const dateTimeFormats = {};
+  const numberFormats = {};
 
-if (mainconfigTmp.settings.pega_chat.ShowAsButton) {
-  document.documentElement.className = `${document.documentElement.className} chat-button`;
-}
+  let isDefaultLocaleLoaded = false;
+  for (const i in settings.i18n.languages) {
+    const lang = settings.i18n.languages[i];
+    messages[lang] = {
+      message: eval(`lang${lang.toUpperCase()}`),
+    };
+    dateTimeFormats[lang] = eval(`dateFormat${lang.toUpperCase()}`);
+    numberFormats[lang] = eval(`numberFormat${lang.toUpperCase()}`);
+    /* Check if the default locale is available in the list of languages - if not, then select the first one */
+    if (lang === settings.i18n.defaultlocale) isDefaultLocaleLoaded = true;
+  }
+  if (!isDefaultLocaleLoaded) {
+    [settings.i18n.defaultlocale] = settings.i18n.languages;
+  }
 
-/* Read the current state */
-if (window.history) {
-  const currentState = window.history.state;
+  i18nTmp = new VueI18n({
+    locale: settings.i18n.defaultlocale,
+    messages,
+    dateTimeFormats,
+    numberFormats,
+  });
+
+  /* Detect if this is a phone */
+  let isMobilePhone = false;
   if (
-    mainconfigTmp.userId === -1 &&
-    currentState !== null &&
-    typeof currentState.userId !== 'undefined'
+    /iPhone/.test(navigator.userAgent) ||
+    /Android/.test(navigator.userAgent)
   ) {
-    mainconfigTmp.isAuthenticated = true;
-    mainconfigTmp.userId = currentState.userId;
-    if (typeof currentState.quickLinkId !== 'undefined') {
-      mainconfigTmp.quickLinkId = currentState.quickLinkId;
-      window.history.replaceState(
-        { userId: mainconfigTmp.userId },
-        '',
-        `quicklink${mainconfigTmp.quickLinkId}`,
-      );
-    } else {
-      window.history.replaceState(
-        { userId: mainconfigTmp.userId },
-        '',
-        'account',
-      );
+    isMobilePhone = true;
+  }
+
+  if (isMobilePhone) {
+    document.documentElement.className = 'phone';
+  }
+
+  mainconfigTmp = Object.assign(
+    {},
+    {
+      settings,
+      app,
+      isMobilePhone,
+      offerURL: '',
+      homeHeroImg: '',
+      previousPage: '',
+      intent: '',
+      reloadOffer: 1,
+      reloadMashup: 1,
+      reloadAccountMashup: 1,
+      isAuthenticated: false,
+      isSidePanelVisible: false,
+      isCategoryPage: false,
+      isDeepLink: false,
+      deepLinkExtraParam: {},
+      phonePageName: '',
+      userId: -1,
+      quickLinkId: -1,
+      viewBill: -1,
+      toDo: -1,
+      viewKMHelp: -1,
+      KMArticleID: '',
+      logoutURL: {},
+      homeHeroAction: -1,
+      offerAction: -1,
+      isRTSEnabled: false,
+      currentLocale: settings.i18n.defaultlocale,
+    },
+  );
+  // Retrieve the object from storage
+  const retrievedObject = localStorage.getItem(
+    `config_${mainconfigTmp.app.industry}`,
+  );
+  if (retrievedObject != null) {
+    const tmpObj = JSON.parse(retrievedObject);
+    if (tmpObj.settings) {
+      mainconfigTmp.settings = tmpObj.settings;
     }
   }
-}
 
-/* Check if user is passed as parameter */
-const queryDict = {};
-window.location.search
-  .substr(1)
-  .split('&')
-  .forEach((item) => {
-    queryDict[item.split('=')[0]] = item.split('=')[1];
-  });
-if (queryDict.username || queryDict.pega_userid) {
-  for (const i in mainconfigTmp.settings.users) {
+  mainconfigTmp = upgradeConfig(mainconfigTmp);
+
+  if (mainconfigTmp.settings.pega_chat.ShowAsButton) {
+    document.documentElement.className = `${document.documentElement.className} chat-button`;
+  }
+
+  /* Read the current state */
+  if (window.history) {
+    const currentState = window.history.state;
     if (
-      (typeof queryDict.pega_userid !== 'undefined' &&
-        mainconfigTmp.settings.users[i].pega_userid ===
-          queryDict.pega_userid) ||
-      (typeof queryDict.username !== 'undefined' &&
-        mainconfigTmp.settings.users[i].username === queryDict.username)
+      mainconfigTmp.userId === -1 &&
+      currentState !== null &&
+      typeof currentState.userId !== 'undefined'
     ) {
       mainconfigTmp.isAuthenticated = true;
-      mainconfigTmp.userId = i;
-      mainconfigTmp.isDeepLink = true;
-      break;
-    }
-  }
-
-  /* check if quicklinkclass is passed as parameter */
-  if (queryDict.quicklinkclass) {
-    for (const i in mainconfigTmp.settings.quicklinks) {
-      if (
-        mainconfigTmp.settings.quicklinks[i].objclass ===
-        queryDict.quicklinkclass
-      ) {
-        mainconfigTmp.quickLinkId = i;
-        mainconfigTmp.deepLinkExtraParam = queryDict;
-        delete mainconfigTmp.deepLinkExtraParam.quicklinkclass;
-        delete mainconfigTmp.deepLinkExtraParam.username;
-        delete mainconfigTmp.deepLinkExtraParam.pega_userid;
+      mainconfigTmp.userId = currentState.userId;
+      if (typeof currentState.quickLinkId !== 'undefined') {
+        mainconfigTmp.quickLinkId = currentState.quickLinkId;
         if (isMobilePhone) {
-          mainconfigTmp.phonePageName = 'quicklinks1';
+          mainconfigTmp.phonePageName = 'help';
         }
         window.history.replaceState(
-          { userId: mainconfigTmp.userId },
+          {
+            userId: mainconfigTmp.userId,
+            quickLinkId: mainconfigTmp.quickLinkId,
+          },
           '',
           `quicklink${mainconfigTmp.quickLinkId}`,
         );
+      } else {
+        window.history.replaceState(
+          { userId: mainconfigTmp.userId },
+          '',
+          'account',
+        );
+      }
+    }
+  }
+
+  /* Check if user is passed as parameter */
+  const queryDict = {};
+  window.location.search
+    .substr(1)
+    .split('&')
+    .forEach((item) => {
+      queryDict[item.split('=')[0]] = item.split('=')[1];
+    });
+  if (queryDict.username || queryDict.pega_userid) {
+    for (const i in mainconfigTmp.settings.users) {
+      if (
+        (typeof queryDict.pega_userid !== 'undefined' &&
+          mainconfigTmp.settings.users[i].pega_userid ===
+            queryDict.pega_userid) ||
+        (typeof queryDict.username !== 'undefined' &&
+          mainconfigTmp.settings.users[i].username === queryDict.username)
+      ) {
+        mainconfigTmp.isAuthenticated = true;
+        mainconfigTmp.userId = i;
+        mainconfigTmp.isDeepLink = true;
         break;
       }
     }
-  }
-  if (queryDict.viewBill) {
-    mainconfigTmp.viewBill = 1;
-    mainconfigTmp.deepLinkExtraParam = queryDict;
-    delete mainconfigTmp.deepLinkExtraParam.viewBill;
-    delete mainconfigTmp.deepLinkExtraParam.username;
-    delete mainconfigTmp.deepLinkExtraParam.pega_userid;
-  }
-  if (queryDict.viewKMHelp) {
-    mainconfigTmp.viewKMHelp = 1;
-    mainconfigTmp.deepLinkExtraParam = queryDict;
-    delete mainconfigTmp.deepLinkExtraParam.viewKMHelp;
-    delete mainconfigTmp.deepLinkExtraParam.username;
-    delete mainconfigTmp.deepLinkExtraParam.pega_userid;
-  }
-}
-if (queryDict.homeHeroAction) {
-  mainconfigTmp.homeHeroAction = 1;
-  mainconfigTmp.isDeepLink = true;
-  mainconfigTmp.deepLinkExtraParam = queryDict;
-  delete mainconfigTmp.deepLinkExtraParam.homeHeroAction;
-}
-if (queryDict.offerAction) {
-  mainconfigTmp.offerAction = 1;
-  mainconfigTmp.isDeepLink = true;
-  mainconfigTmp.deepLinkExtraParam = queryDict;
-  delete mainconfigTmp.deepLinkExtraParam.offerAction;
-}
-if (
-  mainconfigTmp.quickLinkId === -1 &&
-  mainconfigTmp.userId !== -1 &&
-  mainconfigTmp.isAuthenticated
-) {
-  window.history.replaceState({ userId: mainconfigTmp.userId }, '', 'account');
-}
 
-/* initialize the object needed by PegaHelper */
-window.PegaCSWSS = {
-  Cobrowse: {
-    ServerURL: mainconfigTmp.settings.pega_chat.CoBrowseServerURL,
-    Token: mainconfigTmp.settings.pega_chat.CoBrowseToken,
-  },
-  WCBConfigName: mainconfigTmp.settings.pega_chat.WCBConfigName,
-  WebChatBotID: mainconfigTmp.settings.pega_chat.WebChatBotID,
-  ApplicationName: mainconfigTmp.settings.pega_chat.ApplicationName,
-  MashupURL: mainconfigTmp.settings.pega_chat.MashupURL,
-  ShowAsButton: mainconfigTmp.settings.pega_chat.ShowAsButton,
-  ContactID: '',
-  AccountNumber: '',
-  UserName: '',
-  ExtraParams: {},
-};
-if (mainconfigTmp.userId !== -1) {
-  const u = mainconfigTmp.settings.users[mainconfigTmp.userId];
-  window.PegaCSWSS.ContactID = u.contactID;
-  window.PegaCSWSS.AccountNumber = u.accountID;
-  window.PegaCSWSS.UserName = u.username;
-  if (typeof u.extraparam !== 'undefined' && u.extraparam !== '') {
-    u.extraparam.split(',').forEach((item) => {
-      const values = item.split('=');
-      if (values.length === 2) {
-        window.PegaCSWSS.ExtraParams[values[0].trim()] = values[1].trim();
+    /* check if quicklinkclass is passed as parameter */
+    if (queryDict.quicklinkclass) {
+      for (const i in mainconfigTmp.settings.quicklinks) {
+        if (
+          mainconfigTmp.settings.quicklinks[i].objclass ===
+          queryDict.quicklinkclass
+        ) {
+          mainconfigTmp.quickLinkId = i;
+          mainconfigTmp.deepLinkExtraParam = queryDict;
+          delete mainconfigTmp.deepLinkExtraParam.quicklinkclass;
+          delete mainconfigTmp.deepLinkExtraParam.username;
+          delete mainconfigTmp.deepLinkExtraParam.pega_userid;
+          if (isMobilePhone) {
+            mainconfigTmp.phonePageName = 'help';
+          }
+          window.history.replaceState(
+            { userId: mainconfigTmp.userId },
+            '',
+            `quicklink${mainconfigTmp.quickLinkId}`,
+          );
+          break;
+        }
       }
-    });
+    }
+    if (queryDict.viewBill) {
+      mainconfigTmp.viewBill = 1;
+      mainconfigTmp.deepLinkExtraParam = queryDict;
+      delete mainconfigTmp.deepLinkExtraParam.viewBill;
+      delete mainconfigTmp.deepLinkExtraParam.username;
+      delete mainconfigTmp.deepLinkExtraParam.pega_userid;
+    }
+    if (queryDict.viewKMHelp) {
+      mainconfigTmp.viewKMHelp = 1;
+      mainconfigTmp.deepLinkExtraParam = queryDict;
+      delete mainconfigTmp.deepLinkExtraParam.viewKMHelp;
+      delete mainconfigTmp.deepLinkExtraParam.username;
+      delete mainconfigTmp.deepLinkExtraParam.pega_userid;
+    }
+  }
+  if (queryDict.homeHeroAction) {
+    mainconfigTmp.homeHeroAction = 1;
+    mainconfigTmp.isDeepLink = true;
+    mainconfigTmp.deepLinkExtraParam = queryDict;
+    delete mainconfigTmp.deepLinkExtraParam.homeHeroAction;
+  }
+  if (queryDict.offerAction) {
+    mainconfigTmp.offerAction = 1;
+    mainconfigTmp.isDeepLink = true;
+    mainconfigTmp.deepLinkExtraParam = queryDict;
+    delete mainconfigTmp.deepLinkExtraParam.offerAction;
+  }
+  if (
+    mainconfigTmp.quickLinkId === -1 &&
+    mainconfigTmp.userId !== -1 &&
+    mainconfigTmp.isAuthenticated
+  ) {
+    window.history.replaceState(
+      { userId: mainconfigTmp.userId },
+      '',
+      'account',
+    );
+  }
+
+  /* initialize the object needed by PegaHelper */
+  window.PegaCSWSS = {
+    Cobrowse: {
+      ServerURL: mainconfigTmp.settings.pega_chat.CoBrowseServerURL,
+      Token: mainconfigTmp.settings.pega_chat.CoBrowseToken,
+    },
+    WCBConfigName: mainconfigTmp.settings.pega_chat.WCBConfigName,
+    WebChatBotID: mainconfigTmp.settings.pega_chat.WebChatBotID,
+    ApplicationName: mainconfigTmp.settings.pega_chat.ApplicationName,
+    MashupURL: mainconfigTmp.settings.pega_chat.MashupURL,
+    ShowAsButton: mainconfigTmp.settings.pega_chat.ShowAsButton,
+    ContactID: '',
+    AccountNumber: '',
+    UserName: '',
+    ExtraParams: {},
+  };
+  if (mainconfigTmp.userId !== -1) {
+    const u = mainconfigTmp.settings.users[mainconfigTmp.userId];
+    window.PegaCSWSS.ContactID = u.contactID;
+    window.PegaCSWSS.AccountNumber = u.accountID;
+    window.PegaCSWSS.UserName = u.username;
+    if (typeof u.extraparam !== 'undefined' && u.extraparam !== '') {
+      u.extraparam.split(',').forEach((item) => {
+        const values = item.split('=');
+        if (values.length === 2) {
+          window.PegaCSWSS.ExtraParams[values[0].trim()] = values[1].trim();
+        }
+      });
+    }
+  }
+
+  // We don't show chat and CoBrowse on the settings page
+  if (
+    typeof mainconfigTmp.settings.pega_chat !== 'undefined' &&
+    mainconfigTmp.settings.pega_chat.MashupURL !== '' &&
+    `${window.location}`.indexOf('/settings.html') === -1
+  ) {
+    const scriptLoad = document.createElement('script');
+    scriptLoad.onload = function onloadJquery() {
+      const scriptLoad2 = document.createElement('script');
+      scriptLoad2.setAttribute('src', '../js/PegaHelper.js');
+      document.head.appendChild(scriptLoad2);
+      const scriptLoad1 = document.createElement('script');
+      scriptLoad1.setAttribute('src', '../js/PegaHelperExtension.js');
+      document.head.appendChild(scriptLoad1);
+    };
+    scriptLoad.setAttribute('src', '../js/jquery-min.js');
+    document.head.appendChild(scriptLoad);
+  }
+
+  // Handle the back button support on mobile
+  // The example iframe will just do a parent.pegaMashupNavigateBack() but the
+  // real Mashup app will have to use the postMessage() api.
+  if (isMobilePhone) {
+    window.pegaMashupNavigateBack = function pegaMashupNavigateBack() {
+      const elems = document.getElementsByClassName('pi-caret-left');
+      if (elems.length > 0) {
+        elems[0].click();
+      }
+    };
   }
 }
 
-// We don't show chat and CoBrowse on the settings page
-if (
-  typeof mainconfigTmp.settings.pega_chat !== 'undefined' &&
-  mainconfigTmp.settings.pega_chat.MashupURL !== '' &&
-  `${window.location}`.indexOf('/settings.html') === -1
-) {
-  const scriptLoad = document.createElement('script');
-  scriptLoad.onload = function onloadJquery() {
-    const scriptLoad2 = document.createElement('script');
-    scriptLoad2.setAttribute('src', '../js/PegaHelper.js');
-    document.head.appendChild(scriptLoad2);
-    const scriptLoad1 = document.createElement('script');
-    scriptLoad1.setAttribute('src', '../js/PegaHelperExtension.js');
-    document.head.appendChild(scriptLoad1);
-  };
-  scriptLoad.setAttribute('src', '../js/jquery-min.js');
-  document.head.appendChild(scriptLoad);
-}
-
-// Handle the back button support on mobile
-// The example iframe will just do a parent.pegaMashupNavigateBack() but the
-// real Mashup app will have to use the postMessage() api.
-if (isMobilePhone) {
-  window.pegaMashupNavigateBack = function pegaMashupNavigateBack() {
-    const elems = document.getElementsByClassName('pi-caret-left');
-    if (elems.length > 0) {
-      elems[0].click();
-    }
-  };
-}
 const mainconfig = mainconfigTmp;
+const i18n = i18nTmp;
 
 const parseResponseData = (
   Context,

@@ -14,8 +14,8 @@
         {{ $t('message.' + item.title)}}
       </button>
     </div>
-    <Offer :key="reloadOffer"/>
-    <MainFooter/>
+    <Offer :key="reloadOffer" />
+    <MainFooter />
   </main>
 </template>
 
@@ -31,6 +31,24 @@ export default {
   methods: {
     showPage(page) {
       mainconfig.phonePageName = page;
+
+      if (mainconfig.isAuthenticated) {
+        window.history.pushState(
+          { userId: mainconfig.userId },
+          '',
+          mainconfig.phonePageName === ''
+            ? 'index.html'
+            : mainconfig.phonePageName,
+        );
+      } else {
+        window.history.pushState(
+          {},
+          '',
+          mainconfig.phonePageName === ''
+            ? 'index.html'
+            : mainconfig.phonePageName,
+        );
+      }
     },
   },
   components: {

@@ -1,6 +1,6 @@
 <template>
   <main class="flex flex-col">
-    <TopNav previousPhonePage="home" />
+    <TopNav previousPhonePage />
     <AccountMainArea />
     <AccountSecondaryArea :key="reloadOffer" />
   </main>

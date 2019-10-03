@@ -7,7 +7,7 @@
       <img v-on:click="goToHome" class="logo" :src="('./img/u+-logo.svg')" alt="U+" />
     </a>
     <OperatorButton v-if="isAuthenticated" />
-    <LoginButton v-else-if="phonePageName==='home' && !isAuthenticated" />
+    <LoginButton v-else-if="phonePageName==='' && !isAuthenticated" />
   </header>
 </template>
 
@@ -35,7 +35,7 @@ export default {
         } else if (mainconfig.quickLinkId !== -1) {
           mainconfig.quickLinkId = -1;
         }
-        mainconfig.phonePageName = 'home';
+        mainconfig.phonePageName = '';
       } else if (
         typeof e.data === 'object' &&
         typeof e.data.key !== 'undefined'
@@ -56,9 +56,26 @@ export default {
       mainconfig.isSidePanelVisible = true;
     },
     goToHome() {
-      mainconfig.phonePageName = 'home';
+      mainconfig.phonePageName = '';
       mainconfig.quickLinkId = -1;
       mainconfig.offerURL = '';
+      if (mainconfig.isAuthenticated) {
+        window.history.pushState(
+          { userId: mainconfig.userId },
+          '',
+          mainconfig.phonePageName === ''
+            ? 'index.html'
+            : mainconfig.phonePageName,
+        );
+      } else {
+        window.history.pushState(
+          {},
+          '',
+          mainconfig.phonePageName === ''
+            ? 'index.html'
+            : mainconfig.phonePageName,
+        );
+      }
     },
   },
   components: {

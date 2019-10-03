@@ -70,8 +70,22 @@ export default {
         }
       }
       mainconfig.isAuthenticated = isLoginSuccess;
-      if (window.history && !mainconfig.isMobilePhone) {
-        window.history.pushState({ userId: mainconfig.userId }, '', 'account');
+      if (window.history) {
+        if (mainconfig.isMobilePhone) {
+          window.history.pushState(
+            { userId: mainconfig.userId },
+            '',
+            mainconfig.phonePageName === ''
+              ? 'index.html'
+              : mainconfig.phonePageName,
+          );
+        } else {
+          window.history.pushState(
+            { userId: mainconfig.userId },
+            '',
+            'account',
+          );
+        }
       }
       if (!isLoginSuccess) {
         this.hasErrorMsg = true;

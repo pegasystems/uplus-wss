@@ -3,7 +3,9 @@
     <AccountPicker
       v-if="typeof settings.todo !== 'undefined' && settings.todo.hideaccount!=='true' && settings.todo.hideaccount!==true"
     />
-    <KPI v-if="app.industry  === 'health-pharma' || app.industry  === 'health-care'" />
+    <KPI
+      v-if="app.industry  === 'health-pharma' || app.industry  === 'health-care' || app.industry  === 'health-payer'"
+    />
     <MashupMainArea
       v-if="typeof settings.todo !== 'undefined' && settings.todo.url !== ''"
       :key="reloadAccountMashup"

@@ -270,12 +270,12 @@ window.app = {
         },
         {
           icon: 'pi-document-data',
-          page: 'quicklinks1',
+          page: 'help',
           title: 'phone_home_page_actions2_title',
         },
         {
           icon: 'pi-dollar-sign',
-          page: 'home',
+          page: '',
           title: 'phone_home_page_actions3_title',
         },
       ],

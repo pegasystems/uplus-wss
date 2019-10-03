@@ -1,10 +1,10 @@
 <template>
-  <HomePage v-if="phonePageName=='home'" :key="isAuthenticated" />
+  <HomePage v-if="phonePageName==''" :key="isAuthenticated" />
   <OfferPage v-else-if="phonePageName=='offer'" />
   <LoginPage v-else-if="!isAuthenticated" />
   <Mashup v-else-if="quickLinkId != -1" />
-  <IntroQuickLinks v-else-if="phonePageName=='quicklinks'" />
-  <QuickLinks v-else-if="phonePageName=='quicklinks1'" />
+  <IntroQuickLinks v-else-if="phonePageName=='intro'" />
+  <QuickLinks v-else-if="phonePageName=='help'" />
   <Account v-else-if="phonePageName=='account'" />
   <HomePage v-else />
 </template>

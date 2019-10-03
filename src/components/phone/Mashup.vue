@@ -1,8 +1,8 @@
 <template>
   <div class="height-100-pct">
-    <TopNav style="display:none" previousPhonePage="quicklinks1"/>
+    <TopNav style="display:none" previousPhonePage="help" />
     <main>
-      <MashupMainArea/>
+      <MashupMainArea />
     </main>
   </div>
 </template>

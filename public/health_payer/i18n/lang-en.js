@@ -54,7 +54,7 @@ window.langEN = {
   recentactivity2_msg: 'PCP Appointment scheduled',
   recentactivity3_msg: 'Health risk assessment completed',
   recentactivity4_msg: 'Dental appointment scheduled',
-  viewmore: 'PDF',
+  viewmore: 'View more',
   offer1_title: 'Ready to go mobile.',
   offer1_msg:
     'Safe and secure—put U+Health at your fingertips.',
@@ -147,6 +147,11 @@ window.langEN = {
   offer_highlights_data3_msg:
     'We understand that accountability is key to successfully measuring and tracking progress. Stay motivated by using our mobile diabetes tracking tool.',
   kmhelp: 'Help',
+  yourkpi: 'Health snapshot',
+  kpi_wellness_score: 'Wellness score',
+  kpi_cholesterol: 'Cholesterol',
+  kpi_bmi: 'BMI',
+  kpi_blood_pressure: 'Blood pressure',
 };
 
 window.dateFormatEN = {

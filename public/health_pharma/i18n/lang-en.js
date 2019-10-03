@@ -57,7 +57,7 @@ window.langEN = {
   recentactivity2_msg: 'Specialist Appointment',
   recentactivity3_msg: 'Congratulations! You completed your health assessment',
   recentactivity4_msg: 'Initial Risk Assessment',
-  viewmore: 'PDF',
+  viewmore: 'View more',
   offer1_title: 'Ready to go mobile.',
   offer1_msg:
     'Safe and secure—put U+Health at your fingertips.',

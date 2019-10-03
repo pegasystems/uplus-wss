@@ -1,12 +1,12 @@
 <template>
   <main class="flex flex-col">
-    <TopNav previousPhonePage="home">
+    <TopNav previousPhonePage>
       <button v-on:click="signIn" class="sign-in">{{$t('message.signin')}}</button>
     </TopNav>
     <div class="layout-stacked primary-card">
       <h1 class="small">{{ $t('message.phone_login_title')}}</h1>
       <div class="field-item">
-        <input id="username" type="text" v-model="username" :placeholder="$t('message.username')">
+        <input id="username" type="text" v-model="username" :placeholder="$t('message.username')" />
         <label for="username">{{$t('message.username')}}</label>
       </div>
       <div class="field-item">
@@ -15,14 +15,14 @@
           type="password"
           v-model="password"
           :placeholder="$t('message.password')"
-        >
+        />
         <label for="password">{{$t('message.password')}}</label>
       </div>
       <span class="error" v-if="hasErrorMsg">{{$t('message.invalidLogin')}}</span>
     </div>
     <div class="bottom-banner">
       <a>
-        <i class="pi pi-phone-out"/>
+        <i class="pi pi-phone-out" />
         {{ $t("message.phone_login_speak_agent")}}
       </a>
     </div>
@@ -74,6 +74,26 @@ export default {
       mainconfig.isAuthenticated = isLoginSuccess;
 
       if (!isLoginSuccess) this.hasErrorMsg = true;
+
+      if (window.history) {
+        if (mainconfig.isAuthenticated) {
+          window.history.pushState(
+            { userId: mainconfig.userId },
+            '',
+            mainconfig.phonePageName === ''
+              ? 'index.html'
+              : mainconfig.phonePageName,
+          );
+        } else {
+          window.history.pushState(
+            {},
+            '',
+            mainconfig.phonePageName === ''
+              ? 'index.html'
+              : mainconfig.phonePageName,
+          );
+        }
+      }
     },
   },
 };

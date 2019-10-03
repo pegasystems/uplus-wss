@@ -2,7 +2,7 @@
 import { register } from 'register-service-worker';
 
 const notifyAboutUpdate = (worker) => {
-  alert('new content is available - please refresh your browser!');
+  /* alert('New content is available - we are refreshing your browser'); */
   worker.postMessage({ action: 'skipWaiting' });
 };
 if (process.env.NODE_ENV === 'production') {
@@ -24,7 +24,9 @@ if (process.env.NODE_ENV === 'production') {
       notifyAboutUpdate(registration.waiting);
     },
     offline() {
-      console.log('No internet connection found. App is running in offline mode.');
+      console.log(
+        'No internet connection found. App is running in offline mode.',
+      );
     },
     error(error) {
       console.error('Error during service worker registration:', error);

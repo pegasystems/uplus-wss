@@ -12,19 +12,17 @@
         <p>{{ $d(getDueBillDate(), 'short') }}</p>
         <button class="simple" v-on:click="openBill()">{{ $t("message.viewbill") }}</button>
       </div>
-      <div class="flex flex-nowrap">
-        <div class="list-box">
-          <h3>{{ $t("message.autopay") }}</h3>
-          <p v-if="isBillPayActive">
-            <i class="pi pi-cancel pi-grey"></i>
-            {{ $t("message.off") }}
-          </p>
-          <p v-else>
-            <i class="pi pi-circle-check pi-grey"></i>
-            {{ $t("message.on") }}
-          </p>
-          <button class="simple" v-on:click="enrollInBillPay">{{ $t("message.autopay_enroll") }}</button>
-        </div>
+      <div class="list-box">
+        <h3>{{ $t("message.autopay") }}</h3>
+        <p v-if="isBillPayActive">
+          <i class="pi pi-cancel pi-grey"></i>
+          {{ $t("message.off") }}
+        </p>
+        <p v-else>
+          <i class="pi pi-circle-check pi-grey"></i>
+          {{ $t("message.on") }}
+        </p>
+        <button class="simple" v-on:click="enrollInBillPay">{{ $t("message.autopay_enroll") }}</button>
       </div>
     </div>
   </section>

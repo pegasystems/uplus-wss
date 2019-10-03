@@ -53,12 +53,21 @@ export default {
       mainconfig.intent = '';
       mainconfig.isDeepLink = false;
       mainconfig.deepLinkExtraParam = {};
-      if (window.history && !mainconfig.isMobilePhone) {
-        window.history.replaceState(
-          {},
-          '',
-          mainconfig.isCategoryPage ? 'category.html' : 'index.html',
-        );
+      if (window.history) {
+        if (mainconfig.isMobilePhone) {
+          mainconfig.phonePageName = '';
+          window.history.pushState(
+            { userId: mainconfig.userId },
+            '',
+            'index.html',
+          );
+        } else {
+          window.history.replaceState(
+            {},
+            '',
+            mainconfig.isCategoryPage ? 'category.html' : 'index.html',
+          );
+        }
       }
       // Issue logout request for each url present in the list */
       for (const servurl in mainconfig.logoutURL) {

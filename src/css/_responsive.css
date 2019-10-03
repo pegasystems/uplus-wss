@@ -124,12 +124,15 @@
   .flex-col-3 > div {
     width: 100%;
     width: 100%;
-    margin: 0;
+    margin: 0 0 8rem 0;
     padding: 8rem;
+    display: flex;
+    align-items: baseline;
   }
 
   .flex-col-3 {
     flex-wrap: wrap;
+    padding: 0;
   }
 
   .layout-inline-grid-double > div {
@@ -161,6 +164,11 @@
 
   .hero-wrap img {
     max-height: 150rem;
+  }
+  .list-box > h3,
+  .list-box > p {
+    font-size: 14rem;
+    margin: 0 8rem 0 0;
   }
 }
 
@@ -336,6 +344,7 @@
   .fatlist > li {
     flex-wrap: wrap;
     padding: 0;
+    margin-bottom: 8rem;
   }
 
   time.fatlist-item {

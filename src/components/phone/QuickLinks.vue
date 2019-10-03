@@ -1,6 +1,6 @@
 <template>
   <main class="flex flex-col">
-    <TopNav previousPhonePage="home" />
+    <TopNav previousPhonePage />
     <div class="flex flex-col primary-card">
       <i class="top-icon pi pi-document-data color-brand"></i>
       <h1 class="small">{{ $t('message.phone_quick_links_title')}}</h1>
@@ -35,6 +35,13 @@ export default {
   methods: {
     selectLink(index) {
       this.quickLinkId = index;
+      if (window.history) {
+        window.history.pushState(
+          { userId: mainconfig.userId, quickLinkId: mainconfig.quickLinkId },
+          '',
+          `quicklink${index}`,
+        );
+      }
     },
   },
 };

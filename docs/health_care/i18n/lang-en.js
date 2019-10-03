@@ -38,7 +38,7 @@ window.langEN = {
   accountpicker1_title: 'Primary Care Provider',
   accountpicker1_desc: 'Lisa Binder',
   accountpicker2_title: 'Medical Plan',
-  accountpicker2_desc: 'MB2015072422',
+  accountpicker2_desc: 'MB2015072',
   accountpicker3_title: 'Network',
   accountpicker3_desc: 'HMO',
   youraccount: 'Your coverage details',
@@ -55,7 +55,7 @@ window.langEN = {
   recentactivity: 'Recent activity',
   recentactivity1_msg: 'PCP Appointment',
   recentactivity2_msg: 'Congratulations! You completed your health assessment',
-  viewmore: 'PDF',
+  viewmore: 'View more',
   offer1_title: 'Ready to go mobile.',
   offer1_msg:
     'Safe and secure—put U+Health at your fingertips.',
