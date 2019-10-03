@@ -161,17 +161,17 @@ window.settings = {
           value: '80/100',
         },
         {
-          icon: 'pi-star',
+          icon: 'pi-chart-donut-solid',
           name: 'kpi_cholesterol',
           value: '215',
         },
         {
-          icon: 'pi-heart-pulse',
+          icon: 'pi-target',
           name: 'kpi_bmi',
           value: '26.3',
         },
         {
-          icon: 'pi-target',
+          icon: 'pi-heart-pulse',
           name: 'kpi_blood_pressure',
           value: '115/86',
         },
