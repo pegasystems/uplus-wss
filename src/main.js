@@ -15,17 +15,18 @@ const app = new Vue({
   },
   computed: {
     ViewComponent() {
+      let curRoute = this.currentRoute;
       if (
         window.history &&
         window.history.state !== null &&
         typeof window.history.state.page !== 'undefined'
       ) {
-        console.log(`ViewComponent page=>${window.history.state.page}`);
+        curRoute = window.history.state.page;
       }
-      if (this.currentRoute.endsWith('offer.html')) return OfferPage;
-      if (this.currentRoute.endsWith('landingpage.html')) return LandingPage;
-      if (this.currentRoute.endsWith('category.html')) return CategoryPage;
-      if (this.currentRoute.endsWith('settings.html')) return SettingsPage;
+      if (curRoute.endsWith('offer.html')) return OfferPage;
+      if (curRoute.endsWith('landingpage.html')) return LandingPage;
+      if (curRoute.endsWith('category.html')) return CategoryPage;
+      if (curRoute.endsWith('settings.html')) return SettingsPage;
       return DefaultPage;
     },
   },
