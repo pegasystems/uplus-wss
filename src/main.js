@@ -15,6 +15,13 @@ const app = new Vue({
   },
   computed: {
     ViewComponent() {
+      if (
+        window.history &&
+        window.history.state !== null &&
+        typeof window.history.state.page !== 'undefined'
+      ) {
+        console.log(`ViewComponent page=>${window.history.state.page}`);
+      }
       if (this.currentRoute.endsWith('offer.html')) return OfferPage;
       if (this.currentRoute.endsWith('landingpage.html')) return LandingPage;
       if (this.currentRoute.endsWith('category.html')) return CategoryPage;
@@ -28,6 +35,7 @@ const app = new Vue({
 });
 
 window.addEventListener('popstate', (event) => {
+  console.log('popstate');
   mainconfig.isAuthenticated = false;
   mainconfig.userId = -1;
   mainconfig.quickLinkId = -1;

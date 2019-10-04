@@ -5,8 +5,11 @@
     <title>WSS Uplus application</title>
     <script type="text/javascript">
       if (window.history) {
+          var curstate = window.history.state;
+          if(curstate === null) curstate = {};
+          curstate.page = l.pathname.split('/').slice(1 + segmentCount).join('/');
           window.history.replaceState(
-          window.history.state,
+          curstate,
           '',
           'index.html',
         );
