@@ -286,9 +286,13 @@ if (typeof settings === 'undefined') {
           `quicklink${mainconfigTmp.quickLinkId}`,
         );
       } else if (isMobilePhone) {
-        mainconfigTmp.phonePageName = window.location.pathname.substring(
-          window.location.pathname.lastIndexOf('/') + 1,
-        );
+        if (typeof currentState.page !== 'undefined') {
+          mainconfigTmp.phonePageName = currentState.page;
+        } else {
+          mainconfigTmp.phonePageName = window.location.pathname.substring(
+            window.location.pathname.lastIndexOf('/') + 1,
+          );
+        }
         window.history.replaceState(
           { userId: mainconfigTmp.userId },
           '',
