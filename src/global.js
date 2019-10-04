@@ -267,7 +267,9 @@ if (typeof settings === 'undefined') {
       currentState !== null &&
       typeof currentState.userId !== 'undefined'
     ) {
-      mainconfigTmp.isAuthenticated = true;
+      if (currentState.userId !== -1) {
+        mainconfigTmp.isAuthenticated = true;
+      }
       mainconfigTmp.userId = currentState.userId;
       if (typeof currentState.quickLinkId !== 'undefined') {
         mainconfigTmp.quickLinkId = currentState.quickLinkId;
@@ -281,6 +283,16 @@ if (typeof settings === 'undefined') {
           },
           '',
           `quicklink${mainconfigTmp.quickLinkId}`,
+        );
+      } else if (isMobilePhone) {
+        debugger;
+        mainconfigTmp.phonePageName = window.location.pathname.substring(
+          window.location.pathname.lastIndexOf('/') + 1,
+        );
+        window.history.replaceState(
+          { userId: mainconfigTmp.userId },
+          '',
+          mainconfigTmp.phonePageName,
         );
       } else {
         window.history.replaceState(
