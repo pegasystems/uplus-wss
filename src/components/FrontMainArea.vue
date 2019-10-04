@@ -18,7 +18,7 @@
         <div class="details">
           <h2 class="option-header">{{ $t("message." + item.title)}}</h2>
           <p>{{ $t("message." + item.message)}}</p>
-          <a href="./offer.html">{{ $t("message." + item.link)}}</a>
+          <a v-on:click="gotoOfferPage" href="./offer.html">{{ $t("message." + item.link)}}</a>
         </div>
       </section>
     </div>
@@ -188,6 +188,11 @@ export default {
     },
     toggleAIOverlay(item) {
       item.showAIoverlay = !item.showAIoverlay;
+    },
+    gotoOfferPage(event) {
+      mainconfig.currentPage = 'offer.html';
+      window.history.replaceState({}, '', 'offer.html');
+      event.preventDefault();
     },
   },
   components: {

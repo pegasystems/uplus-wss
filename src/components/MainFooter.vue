@@ -6,7 +6,7 @@
           <a>{{ $t('message.aboutus') }}</a>
           <a v-if="!isMobilePhone">{{ $t('message.reviews') }}</a>
           <a v-if="!isMobilePhone">{{ $t('message.privacy') }}</a>
-          <a href="./settings.html">{{ $t('message.settings') }}</a>
+          <a v-on:click="gotoSettingsPage" href="./settings.html">{{ $t('message.settings') }}</a>
         </div>
       </nav>
       <LangSwitch v-if="settings.i18n.showLangSwitch" />
@@ -25,6 +25,13 @@ export default {
   },
   components: {
     LangSwitch,
+  },
+  methods: {
+    gotoSettingsPage(event) {
+      mainconfig.currentPage = 'settings.html';
+      window.history.replaceState({}, '', 'settings.html');
+      event.preventDefault();
+    },
   },
 };
 </script>

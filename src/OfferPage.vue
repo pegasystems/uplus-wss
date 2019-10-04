@@ -1,9 +1,9 @@
 <template>
-  <PhonePage v-if="isMobilePhone"/>
+  <PhonePage v-if="isMobilePhone" />
   <div v-else id="app" class="form offer">
-    <Header/>
-    <Main/>
-    <Footer/>
+    <Header />
+    <Main />
+    <Footer />
   </div>
 </template>
 
@@ -15,7 +15,6 @@ import Main from './components/offer/Main.vue';
 import Footer from './components/offer/Footer.vue';
 
 export default {
-  name: 'app',
   data() {
     return mainconfig;
   },

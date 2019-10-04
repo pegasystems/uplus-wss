@@ -16,7 +16,7 @@
         <div class="content">
           <h3>{{ $t('message.' + item.title) }}</h3>
           <p>{{ $t('message.' + item.message) }}</p>
-          <a href="./offer.html">{{ $t('message.learnmore') }}</a>
+          <a v-on:click="gotoOfferPage" href="./offer.html">{{ $t('message.learnmore') }}</a>
         </div>
       </section>
     </div>
@@ -62,6 +62,11 @@ export default {
   methods: {
     selectLink(index) {
       mainconfig.quickLinkId = index;
+    },
+    gotoOfferPage(event) {
+      mainconfig.currentPage = 'offer.html';
+      window.history.replaceState({}, '', 'offer.html');
+      event.preventDefault();
     },
   },
   components: {

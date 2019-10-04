@@ -7,11 +7,11 @@
       title="toggle AI"
     ></button>
     <div class="offer-card">
-      <img class="offer-img" :src="offer.img" :alt="offer.title">
+      <img class="offer-img" :src="offer.img" :alt="offer.title" />
       <div class="content">
         <h3>{{ offer.title }}</h3>
         <p>{{ offer.message }}</p>
-        <a v-if="offer.url==='#'" href="./offer.html">{{ offer.link }}</a>
+        <a v-if="offer.url==='#'" v-on:click="gotoOfferPage" href="./offer.html">{{ offer.link }}</a>
         <a
           v-else-if="settings.pega_marketing.accountPage.clickaction === 'TopURL' && offer.url != ''"
           :href="offer.url"
@@ -54,6 +54,11 @@ export default {
     },
     toggleAIOverlay(item) {
       item.showAIoverlay = !item.showAIoverlay;
+    },
+    gotoOfferPage(event) {
+      mainconfig.currentPage = 'offer.html';
+      window.history.replaceState({}, '', 'offer.html');
+      event.preventDefault();
     },
   },
   components: {

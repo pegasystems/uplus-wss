@@ -2,21 +2,21 @@
   <div class="col col-2">
     <div class="secondary-card" v-if="settings.pega_marketing.Host === '' || loading">
       <section class="offer-card-col" v-for="item in app.offers" :key="item.title">
-        <img class="offer-img" :src="('./img/' + item.img)" :alt="$t('message.' + item.title)">
+        <img class="offer-img" :src="('./img/' + item.img)" :alt="$t('message.' + item.title)" />
         <div class="content">
           <h3>{{ $t('message.' + item.title) }}</h3>
           <p>{{ $t('message.' + item.message) }}</p>
-          <a href="./offer.html">{{ $t('message.learnmore') }}</a>
+          <a v-on:click="gotoOfferPage" href="./offer.html">{{ $t('message.learnmore') }}</a>
         </div>
       </section>
     </div>
     <div class="secondary-card" v-else>
-      <Offer v-for="item in data" :key="item.title" v-bind:offer="item"/>
+      <Offer v-for="item in data" :key="item.title" v-bind:offer="item" />
     </div>
     <KeyRates
       v-if="app.industry  === 'commercial_bank' && typeof settings.keyrates !== 'undefined'"
     />
-    <QuickLinks/>
+    <QuickLinks />
   </div>
 </template>
 
@@ -59,6 +59,13 @@ export default {
     Offer,
     QuickLinks,
     KeyRates,
+  },
+  methods: {
+    gotoOfferPage(event) {
+      mainconfig.currentPage = 'offer.html';
+      window.history.replaceState({}, '', 'offer.html');
+      event.preventDefault();
+    },
   },
 };
 </script>

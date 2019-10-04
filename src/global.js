@@ -218,6 +218,7 @@ if (typeof settings === 'undefined') {
       isMobilePhone,
       offerURL: '',
       homeHeroImg: '',
+      currentPage: '',
       previousPage: '',
       intent: '',
       reloadOffer: 1,
@@ -285,7 +286,6 @@ if (typeof settings === 'undefined') {
           `quicklink${mainconfigTmp.quickLinkId}`,
         );
       } else if (isMobilePhone) {
-        debugger;
         mainconfigTmp.phonePageName = window.location.pathname.substring(
           window.location.pathname.lastIndexOf('/') + 1,
         );
