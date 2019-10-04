@@ -96,27 +96,6 @@ module.exports = {
       title: 'U+ Comms',
       chunks: ['chunk-vendors', 'chunk-common', 'comms'],
     },
-    commsaccount: {
-      entry: 'src/main.js',
-      template: 'public/comms/index.html',
-      filename: 'comms/account.html',
-      title: 'U+ Comms',
-      chunks: ['chunk-vendors', 'chunk-common', 'comms'],
-    },
-    commssettings: {
-      entry: 'src/main.js',
-      template: 'public/comms/index.html',
-      filename: 'comms/settings.html',
-      title: 'U+ Comms',
-      chunks: ['chunk-vendors', 'chunk-common', 'comms'],
-    },
-    commsoffer: {
-      entry: 'src/main.js',
-      template: 'public/comms/index.html',
-      filename: 'comms/offer.html',
-      title: 'U+ Comms',
-      chunks: ['chunk-vendors', 'chunk-common', 'comms'],
-    },
     health_payer: {
       entry: 'src/main.js',
       template: 'public/health_payer/index.html',

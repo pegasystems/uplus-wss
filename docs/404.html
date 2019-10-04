@@ -4,12 +4,26 @@
     <meta charset="utf-8">
     <title>WSS Uplus application</title>
     <script type="text/javascript">
+      if (window.history) {
+        const currentState = window.history.state;
+        if (
+          currentState !== null &&
+          typeof currentState.userId !== 'undefined'
+        ) {
+          window.history.replaceState(
+          { userId: currentState.userId },
+          '',
+          'index.html',
+        );
+        }
+      } else {
       var segmentCount = 2;
       var l = window.location;
       l.replace(
         l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
         l.pathname.split('/').slice(0, 1 + segmentCount).join('/') + '/?key=' +  l.pathname.split('/').slice(1 + segmentCount).join('-')
       );
+      }
     </script>
   </head>
   <body>
