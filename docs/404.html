@@ -5,17 +5,12 @@
     <title>WSS Uplus application</title>
     <script type="text/javascript">
       if (window.history) {
-        const currentState = window.history.state;
-        if (
-          currentState !== null &&
-          typeof currentState.userId !== 'undefined'
-        ) {
           window.history.replaceState(
-          { userId: currentState.userId },
+          window.history.state,
           '',
           'index.html',
         );
-        }
+        location.reload(true);
       } else {
       var segmentCount = 2;
       var l = window.location;
