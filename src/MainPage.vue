@@ -30,6 +30,7 @@ export default {
       this.currentPage = window.history.state.page;
       window.history.replaceState({}, '', this.currentPage);
     }
+    mainconfig.currentPage = this.currentPage;
   },
   components: {
     DefaultPage,

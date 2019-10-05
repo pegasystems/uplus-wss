@@ -261,7 +261,7 @@ if (typeof settings === 'undefined') {
   }
 
   /* Read the current state */
-  if (window.history) {
+  if (window.history && window.history.state !== null) {
     const currentState = window.history.state;
     if (
       mainconfigTmp.userId === -1 &&
@@ -294,7 +294,7 @@ if (typeof settings === 'undefined') {
           );
         }
         window.history.replaceState(
-          { userId: mainconfigTmp.userId },
+          mainconfigTmp.isAuthenticated ? {} : { userId: mainconfigTmp.userId },
           '',
           mainconfigTmp.phonePageName,
         );
@@ -305,6 +305,15 @@ if (typeof settings === 'undefined') {
           'account',
         );
       }
+    } else if (isMobilePhone) {
+      if (typeof currentState.page !== 'undefined') {
+        mainconfigTmp.phonePageName = currentState.page;
+      } else {
+        mainconfigTmp.phonePageName = window.location.pathname.substring(
+          window.location.pathname.lastIndexOf('/') + 1,
+        );
+      }
+      window.history.replaceState({}, '', mainconfigTmp.phonePageName);
     }
   }
 
@@ -382,17 +391,6 @@ if (typeof settings === 'undefined') {
     mainconfigTmp.isDeepLink = true;
     mainconfigTmp.deepLinkExtraParam = queryDict;
     delete mainconfigTmp.deepLinkExtraParam.offerAction;
-  }
-  if (
-    mainconfigTmp.quickLinkId === -1 &&
-    mainconfigTmp.userId !== -1 &&
-    mainconfigTmp.isAuthenticated
-  ) {
-    window.history.replaceState(
-      { userId: mainconfigTmp.userId },
-      '',
-      'account',
-    );
   }
 
   /* initialize the object needed by PegaHelper */

@@ -6,7 +6,7 @@
     ></div>
     <div class="details">
       <p>{{ $t('message.phone_home_page_promo_message')}}</p>
-      <a v-on:click="showPage('offer')">{{ $t('message.phone_home_page_promo_action')}}</a>
+      <a v-on:click="showOfferPage">{{ $t('message.phone_home_page_promo_action')}}</a>
     </div>
   </div>
   <div class="width-100-pct" v-else>
@@ -48,8 +48,9 @@ export default {
     });
   },
   methods: {
-    showPage(page) {
-      mainconfig.phonePageName = page;
+    showOfferPage() {
+      mainconfig.phonePageName = 'offer';
+      window.history.pushState({}, '', 'offer.html');
     },
     showOffer(item) {
       mainconfig.phonePageName = 'offer';

@@ -7,7 +7,7 @@
       <img v-on:click="goToHome" class="logo" :src="('./img/u+-logo.svg')" alt="U+" />
     </a>
     <OperatorButton v-if="isAuthenticated" />
-    <LoginButton v-else-if="phonePageName==='' && !isAuthenticated" />
+    <LoginButton v-else-if="phonePageName==='' || phonePageName==='index.html' " />
   </header>
 </template>
 

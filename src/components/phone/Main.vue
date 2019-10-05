@@ -1,6 +1,6 @@
 <template>
-  <HomePage v-if="phonePageName==''" :key="isAuthenticated" />
-  <OfferPage v-else-if="phonePageName=='offer'" />
+  <HomePage v-if="phonePageName=='' || phonePageName=='index.html'" :key="isAuthenticated" />
+  <OfferPage v-else-if="phonePageName.indexOf('offer') !== -1" />
   <LoginPage v-else-if="!isAuthenticated" />
   <Mashup v-else-if="quickLinkId != -1" />
   <IntroQuickLinks v-else-if="phonePageName=='intro'" />
