@@ -24,14 +24,14 @@ body .color-brand {
 
 /* Home page */
 .front>header {
-	background-image: url('../img/hero-2.jpg');
+	background-image: url('../img/hero-1.jpg');
 }
 /* Account page */
 .form>header {
-	background-image: url('../img/hero-2.jpg');
+	background-image: url('../img/hero-1.jpg');
 }
 
 /* Offer page */
 .offer header {
-	background-image: url('../img/hero-2.jpg');
+	background-image: url('../img/hero-1.jpg');
 }
