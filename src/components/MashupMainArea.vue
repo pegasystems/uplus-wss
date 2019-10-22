@@ -303,6 +303,7 @@ export default {
         }
       });
     }
+    tmpActionParam.pySkipCookieConsent = 'true';
     this.actionParam = JSON.stringify(tmpActionParam);
     this.isMashupInitialized = true;
 
