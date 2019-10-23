@@ -230,7 +230,7 @@ export default {
     tmpActionParam.pzSkinName = 'ClaritySkin';
     if (this.app.industry === 'comms') {
       tmpActionParam.pzSkinName = 'ClaritySkin_HoneyFlower';
-    } else if (this.app.industry === 'health') {
+    } else if (this.app.industry.indexOf('health') === 0) {
       tmpActionParam.pzSkinName = 'ClaritySkin_Keppel';
     } else if (this.app.industry === 'gov') {
       tmpActionParam.pzSkinName = 'ClaritySkin_PictonBlue';
