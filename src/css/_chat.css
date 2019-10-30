@@ -55,6 +55,12 @@
   margin: -275px 0;
   top: 50%;
 }
+#OnlineHelp.showLeftPanel {
+  width: 900px;
+}
+#OnlineHelp.hideLeftPanel {
+  width: 450px;
+}
 #ChatWrapper {
   height: 550px;
   right: 2px;
@@ -76,7 +82,6 @@
   display: inline-flex;
   width: 100%;
   border-bottom: 1px solid #e0e0e0;
-  background-color: #8dc63f;
   color: #fff;
   font-family: Open Sans, sans-serif;
   font-size: 17px;
@@ -88,7 +93,6 @@
   padding-left: 39px;
   padding-bottom: 10px;
   width: 100%;
-  background-color: #8dc63f;
   font-size: 17px;
   font-weight: 300;
   color: #fff;
@@ -99,6 +103,7 @@ div#chatBox {
   position: inherit !important;
   width: inherit !important;
   box-shadow: none !important;
+  font-size: 18px;
   color: #000000;
   font-family: Open Sans, sans-serif;
 }
@@ -106,7 +111,7 @@ div#chatBox {
   display: none !important;
 }
 div#messageBoxDiv {
-  height: calc(600px - 209px) !important;
+  height: calc(850px - 209px) !important;
   width: inherit !important;
   border-bottom: 1px solid #e0e0e0;
 }
@@ -156,8 +161,6 @@ input#fileUploadIcon {
   display: none !important;
 }
 div#ChatFooter {
-  position: fixed;
-  bottom: 20px;
   background-color: #f1f1f2;
   width: 450px;
   text-align: center;

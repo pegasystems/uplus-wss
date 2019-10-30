@@ -26,6 +26,30 @@
           <label class="width-auto" for="chat-ShowAsButton">Show the launch icon as button</label>
           <input id="chat-ShowAsButton" type="checkbox" v-model="settings.pega_chat.ShowAsButton" />
         </div>
+        <div class="field-item">
+          <label
+            class="width-auto"
+            for="chat-EnableProActiveNotification"
+          >Enable proactive notifications</label>
+          <input
+            id="chat-EnableProActiveNotification"
+            type="checkbox"
+            v-model="settings.pega_chat.EnableProActiveNotification"
+          />
+        </div>
+      </div>
+      <div class="layout-labels-top layout-inline-grid-double">
+        <div class="field-item">
+          <label
+            class="width-auto"
+            for="chat-ProActiveNotificationDismissTime"
+          >Proactive notifications dismiss time (in ms)</label>
+          <input
+            id="chat-ProActiveNotificationDismissTime"
+            type="text"
+            v-model="settings.pega_chat.ProActiveNotificationDismissTime"
+          />
+        </div>
       </div>
     </Container>
     <Container title="Co-Browse" expanded>

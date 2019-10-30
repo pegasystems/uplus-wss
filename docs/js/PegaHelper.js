@@ -1,28 +1,64 @@
 var standardHeight = "550"+"px";
 var initialMessageBoxDivHeight;
 var adjustMessageFieldWidthInterval;
-var previewLoaded = false;
-var previewMonitor;
-var MonitorTimeout = 2000;
 var missedMessageCounter = 0;
 var minimized = true;
-var chatSessionStatusKey = 'chat-sesstion-connected';
-var BotActive = false;
+var chatSessionStatusKey = 'chat-session-connected';
+var proactiveContainer;
+var proactiveTimer = null;
+
+var MarketingURL = "";
+var MarketingURLProtocol = 'http';
+var MarketingURLPort = '80';
+var MarketingHostname = 'localhost';
+if(PegaCSWSS.MarketingHost !== "") {
+    MarketingHostname = PegaCSWSS.MarketingHost;
+    if(MarketingHostname.startsWith('http://')) {
+       MarketingURLProtocol = "http";
+    } else {
+       MarketingURLProtocol = "https";
+    }
+    var idx= MarketingHostname.lastIndexOf("/");
+    if(idx!= -1) {
+      MarketingHostname = MarketingHostname.substring(idx+1);
+    }
+    if(PegaCSWSS.MarketingPort !== "") {
+      MarketingURLPort = PegaCSWSS.MarketingPort;
+    }
+}
+var ProactiveCDHDismiss = "false";
+if(PegaCSWSS.ProActiveNotificationDismissTime.trim() !== "") {
+   ProactiveCDHDismiss = "true"; 
+}
+          
+var PegaChatConfig = {
+	"ChannelId": PegaCSWSS.WebChatBotID ,
+    "HelpConfigurationName": PegaCSWSS.WCBConfigName,
+	"PegaSSAHelpButtonText": "Need Help?",
+	"PegaApplicationName": PegaCSWSS.ApplicationName,
+	"PegaServerURL": PegaCSWSS.MashupURL,
+	"SSAWorkClass": "Work-Channel-Chat",
+	"ProactiveChatClass": "PegaCA-Work-ProactiveChat",
+	"CobrowseToken": PegaCSWSS.Cobrowse.Token,
+	"CoBrowseServerHostURL": PegaCSWSS.Cobrowse.ServerURL,
+    "ProactiveCDHEnabled": "" + PegaCSWSS.EnableProActiveNotification,
+    "MarketingURL": MarketingURLProtocol + "://" + MarketingHostname + ":" + MarketingURLPort + "/prweb/PRRestService/PegaMKTContainer/V2/Container", "ProactiveCDHDismiss" : ProactiveCDHDismiss,
+    "ProactiveCDHDismissTime" : PegaCSWSS.ProActiveNotificationDismissTime
+};
+console.log(PegaChatConfig);
 
 $(document).ready(function(){
   /* Load the cobrowse assets */
   window.fireflyAPI = {};
 
-  if(PegaCSWSS.Cobrowse.ServerURL !== "" && PegaCSWSS.Cobrowse.Token !== "") {
-    
+  if(PegaChatConfig.CoBrowseServerHostURL !== "" && PegaChatConfig.CobrowseToken !== "") {
 	var script = document.createElement("script");
 	script.type = "text/javascript";
-	fireflyAPI.token = PegaCSWSS.Cobrowse.Token;
-	fireflyAPI.serverHostUrl = PegaCSWSS.Cobrowse.ServerURL;
-  script.src = PegaCSWSS.Cobrowse.ServerURL + "/cobrowse/loadScripts";
+	fireflyAPI.token = PegaChatConfig.CobrowseToken;
+	fireflyAPI.serverHostUrl = PegaChatConfig.CoBrowseServerHostURL;
+	script.src = PegaChatConfig.CoBrowseServerHostURL + "/cobrowse/loadScripts";
 	script.async = true;
 	document.head.appendChild(script);
-
   }
 });
 
@@ -52,34 +88,9 @@ function postMessageListener(event){
   if (message.message) {
     if ((message.message.payload.name == "loaded" ||message.message.payload.name == "confirm") && message.message.src == "OnlineHelpIfr") {
       $("#OnlineHelpIfr").show();
-	}
-  }
-
-  /* This command is issued if the bot is already active and the page is refreshed */
-  if (message.command == "BotActive") {
-	  BotActive = true;
-    InvokeAdvisor();
-  }
-
-  if (message.message && message.message.payload.name == "loaded" && message.message.src == "PreviewGadgetIfr") {
-    if (previewLoaded == true) {
-	    /* Preview has already loaded */
-	    return;
-	  }
-    previewLoaded = true;
-    clearInterval(previewMonitor);
-   	/* enable launcher now */
-	  if (BotActive != true) {
-      var $launcher;
-      if(PegaCSWSS.ShowAsButton) {
-        $launcher = $("<div id='launcher'><img src='../img/ChatbotIcon.svg' width=50' height='50'/></div>");
-      } else {
-        $launcher = $("<div>", { id: "launcher", text:"Need Help?"});
-      }
-	    $launcher.click(InvokeAdvisor);
-      $( 'body' ).append($launcher);
 	  }
   }
+
   if (message.command == "setChatConnectionStatus") {
 		window.localStorage.setItem(chatSessionStatusKey, message.status);
   }
@@ -100,7 +111,7 @@ function postMessageListener(event){
     hideinline();
   }
 
-  if (message.command == "expand" || message.command == "collapse" || message.command == "compact") {
+  if (message.command == "expand" || message.command == "collapse" || message.command == "compact" || message.command == "standard") {
     handleResize(message.command);
   }
 
@@ -111,16 +122,27 @@ function postMessageListener(event){
     textFontFamily = message.textFontFamily;
   }
   if (message.command == 'ProactiveChat') {
-	var payload = message.payload || {};
-	if (payload.action == 'offer') {
-		pega.chat.proactiveChat.offer(payload.queue, payload.metadata, payload.defaultUI);
-	} else if (payload.action == 'accept') {
-		pega.chat.proactiveChat.accept()
-	} else if (payload.action == 'decline') {
-		pega.chat.proactiveChat.decline();
-	} else if (payload.action == 'setStyles') {
-		pega.chat.proactiveChat.setStyles(payload.style);
+		var payload = message.payload || {};
+		if (payload.action == 'offer') {
+			pega.chat.proactiveChat.offer(payload.queue, payload.metadata, payload.defaultUI);
+		} else if (payload.action == 'accept') {
+			pega.chat.proactiveChat.accept()
+		} else if (payload.action == 'decline') {
+			pega.chat.proactiveChat.decline();
+		} else if (payload.action == 'setStyles') {
+			pega.chat.proactiveChat.setStyles();
+		}
 	}
+  if (message.command == "showLeftPanel" || message.command == "hideLeftPanel") {
+    handleLeftPanel(message.command);
+  }
+
+  if(message.command == "setAssignmentKey") {
+    sessionStorage.setItem("AssignmentKey", message.pzInsKey);
+  }
+
+  if(message.command == "clearProactiveTimer") {
+    clearProactiveTimer();
   }
 }
 
@@ -143,21 +165,118 @@ function hideinline(){
 }
 
 /* load Advisor gadget */
-function InvokeAdvisor(event, workId, queueName) {
+function InvokeAdvisor(initialSize) {
   /* call end chat to make sure it's a clean start */
-  if((typeof(fireflyChatAPI) != "undefined") && fireflyChatAPI.endChat)
-  	fireflyChatAPI.endChat();
-  $("#OnlineHelp").removeClass("expanded");
-  $("#OnlineHelp").addClass("alerting");
+  if((typeof(fireflyChatAPI) != "undefined") && fireflyChatAPI.endChat){
+    fireflyChatAPI.endChat();
+  }
   $("#launcher").hide();
-  var PegaAParamObject = preparePegaAParams("OnlineHelp");
-  if(workId){
-		PegaAParamObject.ProactiveChatId=workId;
+  if(sessionStorage.getItem("botMinimized")=="true"){
+    $("#launcherminimized").show();
+	  minimized = true;
+	  missedMessageCounter = sessionStorage.getItem("unreadCount");
+	  document.getElementById("unreadCounter").innerHTML = missedMessageCounter;
+	  if(missedMessageCounter!= "0"){
+		  $("#unreadCounter").show();
+	  }else{
+		  $("#unreadCounter").hide();
+	  }
+  }else{
+    $("#OnlineHelp").removeClass("expanded");
+    if (initialSize == "compact") {
+      $('#OnlineHelp').addClass("compacted");
+    } else {
+	    $('#OnlineHelp').addClass("standard");
+	  }
+    $("#OnlineHelp").addClass("alerting");
+  }
+  var activeAssignment = sessionStorage.getItem("AssignmentKey");
+  if (activeAssignment) {
+    pega.web.api.doAction("OnlineHelp","openAssignment", activeAssignment);
+  } else {
+    pega.web.api.doAction("OnlineHelp", "load");
+  }
+}
+
+window.setDynamicChatGadgetParams = function(name) {
+	if (name=="workId") {
+		return pega.chat.proactiveChat.workId || "";
+	} else if (name == "queue"){
+		return pega.chat.proactiveChat.queueName || "";
+	} else if (name == "offerClass") {
+		if (proactiveContainer)
+          return proactiveContainer.ClassIdentifier;
+	    else
+		  return "";
+	} else if (name == "offerName") {
+	    if (proactiveContainer)
+          return proactiveContainer.Label;
+	    else
+		  return "";
+	} else if (name == "offerBenefits") {
+	    if (proactiveContainer)
+          return proactiveContainer.Benefits;
+	    else
+		  return "";
+ 	} else if (name == "caseClass") {
+	    if (proactiveContainer)
+          return proactiveContainer.Class;
+	    else
+		  return "";
+	} else if (name == "caseGreeting") {
+	    if (proactiveContainer)
+          return proactiveContainer.Greeting;
+	    else
+		  return "";
+	} else if (name == "caseReason") {
+	    if (proactiveContainer)
+          return proactiveContainer.Reason;
+	    else
+		  return "";
+	} else if (name == "proactiveAccept") {
+	    if (proactiveContainer)
+          return proactiveContainer.AcceptText;
+	    else
+		  return "";
+	} else if (name == "proactiveDecline") {
+	    if (proactiveContainer)
+          return proactiveContainer.DeclineText;
+	    else
+		  return "";
 	}
-	if(queueName){
-		PegaAParamObject.ProactiveChatQueue=queueName;
+};
+
+function setDefaultChatGadgetParams(){
+	var PegaAParamObject = preparePegaAParams("OnlineHelp");
+	PegaAParamObject.channelId = PegaChatConfig.ChannelId;
+  PegaAParamObject.HelpConfigurationName = PegaChatConfig.HelpConfigurationName;
+	PegaAParamObject.ProactiveChatId = "[page/function/workId]";
+	PegaAParamObject.ProactiveChatQueue = "[page/function/queue]";
+  PegaAParamObject.offerClass = "[page/function/offerClass]"; /* Offer, Case or Knowledge */
+	PegaAParamObject.offerName = "[page/function/offerName]";
+	PegaAParamObject.offerBenefits = "[page/function/offerBenefits]";
+  PegaAParamObject.caseClass = "[page/function/caseClass]";
+  PegaAParamObject.caseGreeting = "[page/function/caseGreeting]";
+  PegaAParamObject.caseReason = "[page/function/caseReason]";
+  PegaAParamObject.proactiveAccept = "[page/function/proactiveAccept]";
+  PegaAParamObject.proactiveDecline = "[page/function/proactiveDecline]";
+	return JSON.stringify(PegaAParamObject);
+}
+
+window.setDynamicProactiveChatGadgetParams = function (name) {
+	if (name == "metadata") {
+		return JSON.stringify(convertProactiveMetadata(pega.chat.proactiveChat.metadata));
+	} else if (name == "queue") {
+		return pega.chat.proactiveChat.queueName || "";
 	}
-  pega.web.api.doAction("OnlineHelp", "createNewWork", "Work-Channel-Chat", "pyStartCase", PegaAParamObject);
+};
+function setDefaultProactiveChatGadgetParams() {
+ 	var PegaAParamObject = preparePegaAParams("ProactiveChat");
+	PegaAParamObject.channelId = PegaChatConfig.ChannelId;;
+  PegaAParamObject.HelpConfigurationName = PegaChatConfig.HelpConfigurationName;
+	PegaAParamObject.metadata = "[page/function/metadata]";
+	PegaAParamObject.queueName = "[page/function/queue]";
+	return JSON.stringify(PegaAParamObject);
 }
 
 function handleResize(command) {
@@ -176,18 +295,55 @@ function handleResize(command) {
   }
 }
 
+function handleLeftPanel(command) {
+  if(command=="showLeftPanel") {
+    $('#OnlineHelp').addClass("showLeftPanel");
+ 	  $('#OnlineHelp').removeClass("hideLeftPanel");
+  } else if(command=="hideLeftPanel") {
+    $('#OnlineHelp').addClass("hideLeftPanel");
+	  $('#OnlineHelp').removeClass("showLeftPanel");
+  }
+}
+
 /* load preview gadget */
-function monitorPreviewLoader(){
-    if (previewLoaded == false) {
-	    var PegaAParamObject = preparePegaAParams("PreviewGadget");
-      if(pega.web && pega.web.api && PegaAParamObject) {
-	      pega.web.api.doAction("PreviewGadget", "display", "Preview", "PegaCS-OnlineHelp-Triage-WebChatbot", null, true, null, PegaAParamObject);
-        MonitorTimeout = MonitorTimeout + 2000;
- 	      previewMonitor = setTimeout(monitorPreviewLoader, MonitorTimeout);
-      } else {
-        setTimeout(monitorPreviewLoader, 1000);
-      }
+function displayLauncher(){
+  var $launcher;
+  if(PegaCSWSS.ShowAsButton) {
+    $launcher = $("<div id='launcher'><img src='../img/ChatbotIcon.svg' width=50' height='50'/></div>");
+  } else {
+    $launcher = $("<div>", { id: "launcher", text:PegaChatConfig.PegaSSAHelpButtonText});
+  }
+  $launcher.click(InvokeAdvisor);
+  $( 'body' ).append($launcher);
+}
+
+function processCDHResponse(Response) {
+  if (Response && Response.ContainerList) {
+    /* console.log("There is a valid CDH response.");*/
+    if(Response.ContainerList[0].RankedResults) {
+      /*console.log("There is a valid Ranked result");		*/
+      proactiveContainer = Response.ContainerList[0].RankedResults[0];
+      /*console.log("Offer details:"+proactiveContainer.ClassIdentifier +" "+ proactiveContainer.Name +" "+ proactiveContainer.Benefits);*/
+	    InvokeAdvisor("compact");
+	    if (PegaChatConfig.ProactiveCDHDismiss == "true") {
+ 	      proactiveTimer = setTimeout(CDHActionTimeout, PegaChatConfig.ProactiveCDHDismissTime * 1000);
+	    }
+    } /*else
+      console.log("There are no results")				*/
+  }
+}
+
+function clearProactiveTimer() {
+	if (proactiveTimer) {
+		clearTimeout(proactiveTimer);
+    proactiveTimer = null;
 	}
+}
+
+function CDHActionTimeout(){
+  /*console.log("About to dismiss cdh");*/
+  pega.web.api.doAction("OnlineHelp","setGadgetData","pyWorkPage.DismissCDH","true", {callback:function(status){}});
+  minimizeAdvisor();
 }
 
 function minimizeAdvisor(message){
@@ -197,18 +353,23 @@ function minimizeAdvisor(message){
    $("#unreadCounter").hide();
    minimized = true;
    missedMessageCounter = 0;
+   sessionStorage.setItem("botMinimized",true);
+   sessionStorage.setItem("unreadCount",0);
 }
 
 function maximizeAdvisorWindow() {
 	$("#OnlineHelp").addClass("alerting");
 	$("#launcherminimized").hide();
 	minimized = false;
+  sessionStorage.setItem("botMinimized",false);
+	sessionStorage.setItem("unreadCount",0);
 }
 
 function handleMissedMessages() {
   if (minimized == true) {
     missedMessageCounter ++;
     document.getElementById("unreadCounter").innerHTML = missedMessageCounter;
+    sessionStorage.setItem("unreadCount",missedMessageCounter);
 	  $("#unreadCounter").show();
   }
 }
@@ -226,12 +387,14 @@ function handleMissedMessages() {
 				triggerProactiveChatEvent('ready',message);
 			} else if (message.status === "accepted") {
 				triggerProactiveChatEvent(message.status,message);
-				InvokeAdvisor(null, message.WorkId, window.pega.chat.proactiveChat.queueName);
+        window.pega.chat.proactiveChat.workId = message.WorkId;
+				InvokeAdvisor();
 				$("#ProactiveChat").removeClass("alerting");
 			} else if (message.status === "declined") {
 				triggerProactiveChatEvent(message.status,message);
 				$("#ProactiveChat").removeClass("alerting");
 			}else if (message.status === 'not-loaded') {
+        $("#ProactiveChat").removeClass("alerting");
         triggerProactiveChatEvent('not-ready',message);
       }
 		}
@@ -302,12 +465,9 @@ function handleMissedMessages() {
 	PegaProactiveChat.prototype.offer = function (queueName, metadata, bDefaultUI) {
     this.queueName = queueName;
 		this.defaultUI = bDefaultUI === false ? false : true;
-		metadata = metadata || {};
-		var PegaAParamObject = preparePegaAParams("OnlineHelp");
-		PegaAParamObject.queueName = queueName;
-		PegaAParamObject.metadata = JSON.stringify(convertProactiveMetadata(metadata));
-		PegaAParamObject.hideDefaultUI = true ;
-		pega.web.api.doAction("ProactiveChat", "createNewWork", "PegaCA-Work-ProactiveChat", "pyStartCase", PegaAParamObject);
+		this.metadata = metadata || {};
+		$("#ProactiveChat").addClass("alerting");
+		pega.web.api.doAction("ProactiveChat", "load");
 	}
 	PegaProactiveChat.prototype.accept = function () {
 		pega.web.api.doAction("ProactiveChat", "setGadgetData", "pyWorkPage.ProactiveChatStatus", 'Accepted by customer', { callback: function (obj) { } });
@@ -315,9 +475,10 @@ function handleMissedMessages() {
 	PegaProactiveChat.prototype.decline = function () {
 		pega.web.api.doAction("ProactiveChat", "setGadgetData", "pyWorkPage.ProactiveChatStatus", 'Declined by customer', { callback: function (obj) { } });
 	}
-	PegaProactiveChat.prototype.setStyles = function (style) {
+  PegaProactiveChat.prototype.setStyles = function (style) {
 		$("#ProactiveChat").attr("style", style);
 	}
+
   function convertProactiveMetadata(metadata){
 	  var keys = Object.keys(metadata);
 	  var customMetadata = [];

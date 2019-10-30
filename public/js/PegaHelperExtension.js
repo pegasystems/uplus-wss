@@ -1,10 +1,7 @@
 /* passing parameters dynamically - start */
 function preparePegaAParams(gadgetName) {
   var pegaAParamObj = {};
-  pegaAParamObj.AppName = PegaCSWSS.ApplicationName;
-  pegaAParamObj.HelpConfigurationName = PegaCSWSS.WCBConfigName;
   pegaAParamObj.ContactId = PegaCSWSS.ContactID;
-  pegaAParamObj.channelId = PegaCSWSS.WebChatBotID;
   pegaAParamObj.AccountNumber = PegaCSWSS.AccountNumber;
   pegaAParamObj.username = PegaCSWSS.UserName;
   pegaAParamObj.CustomerURL = window.location.href.replace(
@@ -12,7 +9,6 @@ function preparePegaAParams(gadgetName) {
     '',
   );
   pegaAParamObj.Language = window.navigator.language;
-  pegaAParamObj.pzSkinName = 'OnlineHelp';
   if(typeof PegaCSWSS.ExtraParams === "object" ) {
     pegaAParamObj = Object.assign({}, pegaAParamObj, PegaCSWSS.ExtraParams );
   }
@@ -41,19 +37,20 @@ function getCookie(cname) {
   }
   return "";
 }
-    
+
 var serverURL = PegaCSWSS.MashupURL;
 var mashupScript = document.createElement('script');
 mashupScript.src = serverURL + "?pyActivity=pzIncludeMashupScripts";
 mashupScript.onload = function() {
   window.pega.chat = window.pega.chat || {};
   window.pega.chat.proactiveChat = new PegaProactiveChat();
-    
-  $( 'body' ).append("<div id='OnlineHelp' data-pega-gadgetname ='OnlineHelp' data-pega-action ='createNewWork' data-pega-action-param-classname ='' data-pega-action-param-flowname ='' data-pega-action-param-model ='' data-pega-applicationname ='" + PegaCSWSS.ApplicationName + "' data-pega-isdeferloaded ='true' data-pega-threadname ='CSAdvisor' data-pega-systemid ='pega' data-pega-resizetype ='fixed' data-pega-url ='" + PegaCSWSS.MashupURL +"' data-pega-action-param-parameters ='' data-pega-redirectguests='true' data-pega-event-onclose ='hideinline'></div>");
 
-  $( 'body' ).append("<div id='ProactiveChat' data-pega-gadgetname ='ProactiveChat' data-pega-action ='createNewWork' data-pega-action-param-classname ='' data-pega-action-param-flowname ='' data-pega-action-param-model ='' data-pega-applicationname ='" + PegaCSWSS.ApplicationName + "' data-pega-isdeferloaded ='true' data-pega-threadname ='ProactiveChatThread' data-pega-systemid ='pega' data-pega-resizetype ='fixed' data-pega-url ='" + PegaCSWSS.MashupURL +"' data-pega-action-param-parameters ='' data-pega-redirectguests='true' data-pega-event-oncustom='proactiveChatCustomEventHandler'></div>");
+  $('body').append("<div id='OnlineHelp' data-pega-gadgetname ='OnlineHelp' data-pega-action ='createNewWork' data-pega-action-param-classname ='" + PegaChatConfig.SSAWorkClass + "' data-pega-action-param-flowname ='pyStartCase' data-pega-action-param-model ='' data-pega-applicationname ='" + PegaChatConfig.PegaApplicationName + "' data-pega-isdeferloaded ='true' data-pega-threadname ='CSAdvisor' data-pega-systemid ='pega' data-pega-resizetype ='fixed' data-pega-url ='" + PegaChatConfig.PegaServerURL +"' data-pega-action-param-parameters ='" + setDefaultChatGadgetParams() + "' data-pega-event-onpagedata = 'setDynamicChatGadgetParams' data-pega-redirectguests='true' data-pega-event-onclose ='hideinline'></div>");
 
-  $( 'body' ).append("<div style='display:none; height:80px; padding-top:14px; padding-left:20px;' id='Preview' data-pega-gadgetname ='PreviewGadget' data-pega-isdeferloaded ='true' data-pega-action ='display' data-pega-action-param-classname ='PegaCS-OnlineHelp-Triage-WebChatbot'  data-pega-harnessname ='Preview' data-pega-applicationname ='" + PegaCSWSS.ApplicationName + "' data-pega-threadname ='Preview' data-pega-systemid ='pega' data-pega-resizetype ='fixed' data-pega-event-onclose ='' data-pega-url ='" + PegaCSWSS.MashupURL +"' data-pega-action-param-parameters=''></div>");
+  $('body').append("<div id='ProactiveChat' data-pega-gadgetname ='ProactiveChat' data-pega-action ='createNewWork' data-pega-action-param-classname ='" + PegaChatConfig.ProactiveChatClass + "' data-pega-action-param-flowname ='pyStartCase' data-pega-action-param-model ='' data-pega-applicationname ='" + PegaChatConfig.PegaApplicationName + "' data-pega-isdeferloaded ='true' data-pega-threadname ='ProactiveChatThread' data-pega-systemid ='pega' data-pega-resizetype ='fixed' data-pega-url ='" + PegaChatConfig.PegaServerURL + "' data-pega-action-param-parameters ='" + setDefaultProactiveChatGadgetParams() + "' data-pega-event-onpagedata = 'setDynamicProactiveChatGadgetParams' data-pega-redirectguests='true' data-pega-event-oncustom='proactiveChatCustomEventHandler'></div>");
+
+  /* add id attributes to gadgets */
+  $("div[data-pega-gadgetname='OnlineHelp']").attr("id","OnlineHelp");
 
   addEventListener("message", postMessageListener, false);
   addEventListener("beforeunload", removeConnectedStatus, false);
@@ -61,15 +58,35 @@ mashupScript.onload = function() {
   if(PegaCSWSS.ShowAsButton) {
     $minL = $("<div id='launcherminimized'><img src='../img/ChatbotIcon.svg' width=50' height='50'/></div>");
   } else {
-    $minL = $("<div>", { id: "launcherminimized", text:"Need Help?"});
+    $minL = $("<div>", { id: "launcherminimized", text:PegaChatConfig.PegaSSAHelpButtonText});
   }
   $minL.click(maximizeAdvisorWindow);
   var $counter = $("<div>", {id:"unreadCounter",text:"0"});
   $minL.append($counter);
   $( 'body' ).append($minL);
   $("#launcherminimized").hide();
-  previewMonitor = setTimeout(monitorPreviewLoader, MonitorTimeout);
-  pega.Mashup.Communicator.register(pega.Mashup.hostActionsProcessor);
-  _initAllPegaObjects();
+
+  if (PegaChatConfig.ProactiveCDHEnabled == "true") {
+    /* Check CDH to see if there's an offer to present */
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4) {
+        try {
+	      processCDHResponse(JSON.parse(this.responseText));
+        } catch(e) {
+          console.error("Error when processing the response from Pega Mkt for Proactive notifications");
+        }
+      }
+    };
+
+    xhttp.open("POST", PegaChatConfig.MarketingURL, true);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send('{"CustomerID" : "'+PegaCSWSS.ContactID+'", "ContainerName" : "PrioritizeOffer", "Channel": "CallCenter"}');
+  }
+  displayLauncher();
+  setTimeout(function() {
+    pega.Mashup.Communicator.register(pega.Mashup.hostActionsProcessor);
+    _initAllPegaObjects();
+  },1000);
 };
 document.head.appendChild(mashupScript);

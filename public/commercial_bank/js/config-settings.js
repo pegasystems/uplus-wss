@@ -281,6 +281,8 @@ window.settings = {
     ApplicationName: '',
     MashupURL: '',
     ShowAsButton: true,
+    EnableProActiveNotification: false,
+    ProActiveNotificationDismissTime: '',
     CoBrowseServerURL: '',
     CoBrowseToken: '',
   },

@@ -56,6 +56,18 @@ const upgradeConfig = function upgradeConfig(cfg) {
   if (typeof cfg.settings.pega_chat.ShowAsButton === 'undefined') {
     cfg.settings.pega_chat.ShowAsButton = true;
   }
+  if (
+    typeof cfg.settings.pega_chat.EnableProActiveNotification === 'undefined'
+  ) {
+    cfg.settings.pega_chat.EnableProActiveNotification = false;
+  }
+  if (
+    typeof cfg.settings.pega_chat.ProActiveNotificationDismissTime ===
+    'undefined'
+  ) {
+    cfg.settings.pega_chat.ProActiveNotificationDismissTime = '';
+  }
+
   for (const i in cfg.settings.users) {
     if (typeof cfg.settings.users[i].accountID === 'undefined') {
       cfg.settings.users[i].accountID = '';
@@ -404,6 +416,12 @@ if (typeof settings === 'undefined') {
     ApplicationName: mainconfigTmp.settings.pega_chat.ApplicationName,
     MashupURL: mainconfigTmp.settings.pega_chat.MashupURL,
     ShowAsButton: mainconfigTmp.settings.pega_chat.ShowAsButton,
+    MarketingHost: mainconfigTmp.settings.pega_marketing.Host,
+    MarketingPort: mainconfigTmp.settings.pega_marketing.Port,
+    EnableProActiveNotification:
+      mainconfigTmp.settings.pega_chat.EnableProActiveNotification,
+    ProActiveNotificationDismissTime:
+      mainconfigTmp.settings.pega_chat.ProActiveNotificationDismissTime,
     ContactID: '',
     AccountNumber: '',
     UserName: '',
