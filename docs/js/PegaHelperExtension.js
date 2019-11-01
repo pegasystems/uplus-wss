@@ -1,9 +1,6 @@
 /* passing parameters dynamically - start */
 function preparePegaAParams(gadgetName) {
   var pegaAParamObj = {};
-  pegaAParamObj.ContactId = PegaCSWSS.ContactID;
-  pegaAParamObj.AccountNumber = PegaCSWSS.AccountNumber;
-  pegaAParamObj.username = PegaCSWSS.UserName;
   pegaAParamObj.CustomerURL = window.location.href.replace(
     /(http|https):\/\//,
     '',
@@ -44,6 +41,10 @@ mashupScript.src = serverURL + "?pyActivity=pzIncludeMashupScripts";
 mashupScript.onload = function() {
   window.pega.chat = window.pega.chat || {};
   window.pega.chat.proactiveChat = new PegaProactiveChat();
+
+  setCookie("ContactID", PegaCSWSS.ContactID, 30);
+  setCookie("AccountNumber",PegaCSWSS.AccountNumber, 30);
+  setCookie("UserName",PegaCSWSS.UserName, 30);
 
   $('body').append("<div id='OnlineHelp' data-pega-gadgetname ='OnlineHelp' data-pega-action ='createNewWork' data-pega-action-param-classname ='" + PegaChatConfig.SSAWorkClass + "' data-pega-action-param-flowname ='pyStartCase' data-pega-action-param-model ='' data-pega-applicationname ='" + PegaChatConfig.PegaApplicationName + "' data-pega-isdeferloaded ='true' data-pega-threadname ='CSAdvisor' data-pega-systemid ='pega' data-pega-resizetype ='fixed' data-pega-url ='" + PegaChatConfig.PegaServerURL +"' data-pega-action-param-parameters ='" + setDefaultChatGadgetParams() + "' data-pega-event-onpagedata = 'setDynamicChatGadgetParams' data-pega-redirectguests='true' data-pega-event-onclose ='hideinline'></div>");
 

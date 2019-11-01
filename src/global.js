@@ -649,14 +649,6 @@ const sendRTSEvent = function sendRTSEvent(Context, item) {
 };
 
 const updatePegaChat = function updatePegaChat(u) {
-  /* Delete the preview gadget */
-  const elPreview = document.querySelector(
-    "[data-pega-gadgetname='PreviewGadget']",
-  );
-  if (elPreview != null) {
-    elPreview.remove();
-  }
-
   /* Update PegaChat and pass the correct ContactId, AccountNumber and username */
   const el = document.querySelector(
     "[data-pega-gadgetname='OnlineHelp'] > iframe",

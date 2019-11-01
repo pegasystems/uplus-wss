@@ -199,7 +199,13 @@ function InvokeAdvisor(initialSize) {
 }
 
 window.setDynamicChatGadgetParams = function(name) {
-	if (name=="workId") {
+    if (name=="ContactId") {
+           return PegaCSWSS.ContactID;
+    } else if (name=="AccountNumber") {
+         return PegaCSWSS.AccountNumber;
+     } else if (name=="username") {
+           return PegaCSWSS.UserName;
+     } else if (name=="workId") {
 		return pega.chat.proactiveChat.workId || "";
 	} else if (name == "queue"){
 		return pega.chat.proactiveChat.queueName || "";
@@ -250,6 +256,9 @@ function setDefaultChatGadgetParams(){
 	var PegaAParamObject = preparePegaAParams("OnlineHelp");
 	PegaAParamObject.channelId = PegaChatConfig.ChannelId;
   PegaAParamObject.HelpConfigurationName = PegaChatConfig.HelpConfigurationName;
+    PegaAParamObject.ContactId = "[page/function/ContactId]";
+  PegaAParamObject.AccountNumber = "[page/function/AccountNumber]";
+  PegaAParamObject.username = "[page/function/username]";
 	PegaAParamObject.ProactiveChatId = "[page/function/workId]";
 	PegaAParamObject.ProactiveChatQueue = "[page/function/queue]";
   PegaAParamObject.offerClass = "[page/function/offerClass]"; /* Offer, Case or Knowledge */
@@ -264,7 +273,13 @@ function setDefaultChatGadgetParams(){
 }
 
 window.setDynamicProactiveChatGadgetParams = function (name) {
-	if (name == "metadata") {
+    if (name=="ContactId") {
+           return PegaCSWSS.ContactID;
+     } else if (name=="AccountNumber") {
+         return PegaCSWSS.AccountNumber;
+     } else if (name=="username") {
+           return PegaCSWSS.UserName;
+     } else if (name == "metadata") {
 		return JSON.stringify(convertProactiveMetadata(pega.chat.proactiveChat.metadata));
 	} else if (name == "queue") {
 		return pega.chat.proactiveChat.queueName || "";
@@ -274,6 +289,9 @@ function setDefaultProactiveChatGadgetParams() {
  	var PegaAParamObject = preparePegaAParams("ProactiveChat");
 	PegaAParamObject.channelId = PegaChatConfig.ChannelId;;
   PegaAParamObject.HelpConfigurationName = PegaChatConfig.HelpConfigurationName;
+    PegaAParamObject.ContactId = "[page/function/ContactId]";
+  PegaAParamObject.AccountNumber = "[page/function/AccountNumber]";
+  PegaAParamObject.username = "[page/function/username]";
 	PegaAParamObject.metadata = "[page/function/metadata]";
 	PegaAParamObject.queueName = "[page/function/queue]";
 	return JSON.stringify(PegaAParamObject);
