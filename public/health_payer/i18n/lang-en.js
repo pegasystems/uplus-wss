@@ -97,11 +97,11 @@ window.langEN = {
   landing_footer_title: 'Simplify your Medicare journey',
   landing_footer_button_label: 'Get started',
   phone_home_page_title: 'How can we help you today?',
-  phone_home_page_actions1_title: 'View my cards',
+  phone_home_page_actions1_title: 'View my card',
   phone_home_page_actions2_title: 'Find care',
   phone_home_page_actions3_title: 'View benefits',
   phone_home_page_promo_message:
-    'Enhance your mobile experience. Always have access to your policy and cards on the go',
+    'Enhance your mobile experience. Always have access to your policy and ID card',
   phone_home_page_promo_action: 'Download now',
   phone_login_title: 'Login',
   phone_login_speak_agent: 'Speak to an agent',
