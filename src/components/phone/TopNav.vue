@@ -22,6 +22,7 @@ export default {
   methods: {
     goBack() {
       mainconfig.phonePageName = this.previousPhonePage;
+      mainconfig.homeHeroAction = -1;
       mainconfig.quickLinkId = -1;
       if (mainconfig.isAuthenticated) {
         window.history.pushState(

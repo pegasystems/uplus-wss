@@ -1,5 +1,5 @@
 <template>
-  <Mashup v-if="phonePageName=='heroaction' || currentPage.indexOf('heroaction') !== -1" />
+  <Mashup v-if="phonePageName=='heroaction'" />
   <HomePage v-else-if="phonePageName=='' || phonePageName=='index.html'" :key="isAuthenticated" />
   <OfferPage v-else-if="phonePageName.indexOf('offer') !== -1" />
   <LoginPage v-else-if="!isAuthenticated" />
