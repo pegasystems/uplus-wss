@@ -269,7 +269,7 @@ window.app = {
         },
         {
           icon: 'pi-dollar-sign',
-          page: '',
+          page: 'heroaction',
           title: 'phone_home_page_actions3_title',
         },
       ],

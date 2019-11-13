@@ -29,7 +29,7 @@
       <tab v-if="typeof settings.kmhelp != 'undefined'" name="Knowledge Management">
         <KMHelpSettings />
       </tab>
-      <tab v-if="!isMobilePhone" name="Home Hero Action">
+      <tab name="Home Hero Action">
         <HomeHeroActionSettings />
       </tab>
       <tab v-if="typeof settings.offeraction != 'undefined'" name="Offer Action">

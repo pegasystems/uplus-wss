@@ -30,6 +30,9 @@ export default {
       this.currentPage = window.history.state.page;
       window.history.replaceState({}, '', this.currentPage);
     }
+    if (this.currentPage === 'heroaction') {
+      mainconfig.homeHeroAction = 1;
+    }
     mainconfig.currentPage = this.currentPage;
   },
   components: {

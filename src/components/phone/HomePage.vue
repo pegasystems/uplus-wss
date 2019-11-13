@@ -31,7 +31,9 @@ export default {
   methods: {
     showPage(page) {
       mainconfig.phonePageName = page;
-
+      if (page === 'heroaction') {
+        mainconfig.homeHeroAction = 1;
+      }
       if (mainconfig.isAuthenticated) {
         window.history.pushState(
           { userId: mainconfig.userId },

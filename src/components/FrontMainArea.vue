@@ -181,6 +181,7 @@ export default {
     applyHeroAction() {
       if (this.hero_offer.url === '') {
         mainconfig.homeHeroAction = 1;
+        window.history.replaceState({}, '', 'heroaction');
       } else {
         mainconfig.offerURL = this.hero_offer.url;
         mainconfig.previousPage = this.hero_offer.name;

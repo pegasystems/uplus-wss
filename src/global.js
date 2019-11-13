@@ -317,6 +317,16 @@ if (typeof settings === 'undefined') {
           'account',
         );
       }
+    } else if (window.location.pathname.indexOf('/heroaction') !== -1) {
+      if (isMobilePhone) {
+        mainconfigTmp.phonePageName = 'heroaction';
+      }
+      mainconfigTmp.homeHeroAction = 1;
+      window.history.replaceState(
+        {},
+        '',
+        'heroaction',
+      );
     } else if (isMobilePhone) {
       if (typeof currentState.page !== 'undefined') {
         mainconfigTmp.phonePageName = currentState.page;
@@ -342,7 +352,7 @@ if (typeof settings === 'undefined') {
       if (
         (typeof queryDict.pega_userid !== 'undefined' &&
           mainconfigTmp.settings.users[i].pega_userid ===
-            queryDict.pega_userid) ||
+          queryDict.pega_userid) ||
         (typeof queryDict.username !== 'undefined' &&
           mainconfigTmp.settings.users[i].username === queryDict.username)
       ) {
