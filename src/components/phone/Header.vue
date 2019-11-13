@@ -56,6 +56,7 @@ export default {
       mainconfig.isSidePanelVisible = true;
     },
     goToHome() {
+      mainconfig.homeHeroAction = -1;
       mainconfig.phonePageName = '';
       mainconfig.quickLinkId = -1;
       mainconfig.offerURL = '';
