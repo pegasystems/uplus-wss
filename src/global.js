@@ -404,12 +404,14 @@ if (typeof settings === 'undefined') {
   }
   if (queryDict.homeHeroAction) {
     mainconfigTmp.homeHeroAction = 1;
+    if (isMobilePhone) { mainconfigTmp.phonePageName = 'heroaction'; }
     mainconfigTmp.isDeepLink = true;
     mainconfigTmp.deepLinkExtraParam = queryDict;
     delete mainconfigTmp.deepLinkExtraParam.homeHeroAction;
   }
   if (queryDict.offerAction) {
     mainconfigTmp.offerAction = 1;
+    if (isMobilePhone) { mainconfigTmp.phonePageName = 'offer'; }
     mainconfigTmp.isDeepLink = true;
     mainconfigTmp.deepLinkExtraParam = queryDict;
     delete mainconfigTmp.deepLinkExtraParam.offerAction;

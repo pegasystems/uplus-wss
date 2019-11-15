@@ -11,11 +11,10 @@
       var curstate = window.history.state;
       if (curstate === null) curstate = {};
       curstate.page = l.pathname.split('/').slice(1 + segmentCount).join('/');
-      curstate.search = l.search;
       window.history.replaceState(
         curstate,
         '',
-        'index.html' + l.search,
+        'index.html',
       );
       location.reload(true);
     }
