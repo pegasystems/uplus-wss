@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="primary-card margin-t-0 quick-links-account">
+    <div class="secondary-card margin-t-0 quick-links-account">
       <h2>{{ $t('message.phone_quick_links_title')}}</h2>
       <nav>
         <ul>
@@ -10,7 +10,7 @@
         </ul>
       </nav>
     </div>
-    <div class="primary-card" v-if="settings.pega_marketing.Host === '' || loading">
+    <div class="secondary-card" v-if="settings.pega_marketing.Host === '' || loading">
       <section class="offer-card-col" v-for="item in app.offers" :key="item.title">
         <img class="offer-img" :src="('./img/' + item.img)" :alt="$t('message.' + item.title)" />
         <div class="content">
@@ -20,7 +20,7 @@
         </div>
       </section>
     </div>
-    <div class="primary-card" v-else>
+    <div class="secondary-card" v-else>
       <Offer v-for="item in data" :key="item.title" v-bind:offer="item" />
     </div>
   </div>

@@ -1,5 +1,5 @@
 <template>
-  <div class="flex home-promo primary-card" v-if="settings.pega_marketing.Host === '' || loading">
+  <div class="flex home-promo secondary-card" v-if="settings.pega_marketing.Host === '' || loading">
     <div
       class="image"
       v-bind:style="{ backgroundImage: 'url(./img/' + app.phone.home_page.promo.image + ')' }"
@@ -10,7 +10,7 @@
     </div>
   </div>
   <div class="width-100-pct" v-else>
-    <div class="flex home-promo primary-card" v-for="item in data" :key="item.title">
+    <div class="flex home-promo secondary-card" v-for="item in data" :key="item.title">
       <div class="image" v-bind:style="{ backgroundImage: 'url(' + item.img + ')' }"></div>
       <div class="details">
         <h4>{{ item.title }}</h4>

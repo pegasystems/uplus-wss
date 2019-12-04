@@ -28,7 +28,11 @@ export default {
       typeof window.history.state.page !== 'undefined'
     ) {
       this.currentPage = window.history.state.page;
-      window.history.replaceState({}, '', this.currentPage);
+      window.history.replaceState(
+        {},
+        '',
+        this.currentPage + window.location.search,
+      );
     }
     if (this.currentPage === 'heroaction') {
       mainconfig.homeHeroAction = 1;

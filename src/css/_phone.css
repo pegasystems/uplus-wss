@@ -105,7 +105,8 @@
   height: 200rem;
 }
 
-.phone .primary-card {
+.phone .primary-card,
+.phone .secondary-card {
   padding: 30rem;
   margin: 16rem;
   width: calc(100% - 32rem);
