@@ -94,7 +94,7 @@ window.langEN = {
   phone_home_page_title: 'How can we help you today?',
   phone_home_page_actions1_title: 'Get a quote',
   phone_home_page_actions2_title: 'File a claim',
-  phone_home_page_actions3_title: 'Pay my bill',
+  phone_home_page_actions3_title: 'Support request',
   phone_home_page_promo_message:
     'Enhance your mobile experience. Always have access to your policy and cards on the go',
   phone_home_page_promo_action: 'Download now',

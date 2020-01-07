@@ -270,7 +270,7 @@ window.app = {
         },
         {
           icon: 'pi-document-data',
-          page: 'intro',
+          page: 'help',
           title: 'phone_home_page_actions2_title',
         },
         {
