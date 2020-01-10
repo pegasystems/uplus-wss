@@ -136,11 +136,12 @@ function postMessageListener(event){
   if (message.command == "showLeftPanel" || message.command == "hideLeftPanel") {
     handleLeftPanel(message.command);
   }
-
-  if(message.command == "setAssignmentKey") {
-    sessionStorage.setItem("AssignmentKey", message.pzInsKey);
-  }
-
+ 
+  if (message.command == "setAssignmentKey") {
+      var isProactiveChatFlag = sessionStorage.getItem('isProactiveChat') == "true";
+      !isProactiveChatFlag && sessionStorage.setItem("AssignmentKey", message.pzInsKey);
+  } 
+ 
   if(message.command == "clearProactiveTimer") {
     clearProactiveTimer();
   }
