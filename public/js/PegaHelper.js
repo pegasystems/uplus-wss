@@ -407,14 +407,17 @@ function handleMissedMessages() {
 			} else if (message.status === "accepted") {
 				triggerProactiveChatEvent(message.status,message);
         window.pega.chat.proactiveChat.workId = message.WorkId;
+        sessionStorage.setItem('isProactiveChat', false);
 				InvokeAdvisor();
 				$("#ProactiveChat").removeClass("alerting");
 			} else if (message.status === "declined") {
 				triggerProactiveChatEvent(message.status,message);
+        sessionStorage.setItem('isProactiveChat', false);
 				$("#ProactiveChat").removeClass("alerting");
 			}else if (message.status === 'not-loaded') {
         $("#ProactiveChat").removeClass("alerting");
         triggerProactiveChatEvent('not-ready',message);
+        sessionStorage.setItem('isProactiveChat', false);
       }
 		}
 	}
@@ -487,6 +490,7 @@ function handleMissedMessages() {
 		this.metadata = metadata || {};
 		$("#ProactiveChat").addClass("alerting");
 		pega.web.api.doAction("ProactiveChat", "load");
+    sessionStorage.setItem('isProactiveChat', true);
 	}
 	PegaProactiveChat.prototype.accept = function () {
 		pega.web.api.doAction("ProactiveChat", "setGadgetData", "pyWorkPage.ProactiveChatStatus", 'Accepted by customer', { callback: function (obj) { } });
