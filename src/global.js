@@ -322,11 +322,7 @@ if (typeof settings === 'undefined') {
         mainconfigTmp.phonePageName = 'heroaction';
       }
       mainconfigTmp.homeHeroAction = 1;
-      window.history.replaceState(
-        {},
-        '',
-        'heroaction',
-      );
+      window.history.replaceState({}, '', 'heroaction');
     } else if (isMobilePhone) {
       if (typeof currentState.page !== 'undefined') {
         mainconfigTmp.phonePageName = currentState.page;
@@ -352,7 +348,7 @@ if (typeof settings === 'undefined') {
       if (
         (typeof queryDict.pega_userid !== 'undefined' &&
           mainconfigTmp.settings.users[i].pega_userid ===
-          queryDict.pega_userid) ||
+            queryDict.pega_userid) ||
         (typeof queryDict.username !== 'undefined' &&
           mainconfigTmp.settings.users[i].username === queryDict.username)
       ) {
@@ -404,14 +400,18 @@ if (typeof settings === 'undefined') {
   }
   if (queryDict.homeHeroAction) {
     mainconfigTmp.homeHeroAction = 1;
-    if (isMobilePhone) { mainconfigTmp.phonePageName = 'heroaction'; }
+    if (isMobilePhone) {
+      mainconfigTmp.phonePageName = 'heroaction';
+    }
     mainconfigTmp.isDeepLink = true;
     mainconfigTmp.deepLinkExtraParam = queryDict;
     delete mainconfigTmp.deepLinkExtraParam.homeHeroAction;
   }
   if (queryDict.offerAction) {
     mainconfigTmp.offerAction = 1;
-    if (isMobilePhone) { mainconfigTmp.phonePageName = 'offer'; }
+    if (isMobilePhone) {
+      mainconfigTmp.phonePageName = 'offer';
+    }
     mainconfigTmp.isDeepLink = true;
     mainconfigTmp.deepLinkExtraParam = queryDict;
     delete mainconfigTmp.deepLinkExtraParam.offerAction;
@@ -662,7 +662,7 @@ const sendRTSEvent = function sendRTSEvent(Context, item) {
 
 const updatePegaChat = function updatePegaChat(u) {
   /* Update PegaChat and pass the correct ContactId, AccountNumber and username */
-  const el = document.querySelector(
+  let el = document.querySelector(
     "[data-pega-gadgetname='OnlineHelp'] > iframe",
   );
   if (el != null && typeof el.src === 'string') {
@@ -700,6 +700,13 @@ const updatePegaChat = function updatePegaChat(u) {
         window.PegaCSWSS.ExtraParams[values[0].trim()] = values[1].trim();
       }
     });
+  }
+  el = document.querySelector("[data-pega-gadgetname='OnlineHelp']");
+  if (el != null) {
+    el.setAttribute(
+      'data-pega-action-param-parameters',
+      window.setDefaultChatGadgetParams(),
+    );
   }
 };
 
