@@ -38,6 +38,7 @@ function getCookie(cname) {
 function resetPegaChat() {
   var el = document.querySelector("[data-pega-gadgetname='OnlineHelp'] > iframe");
   if(el) {
+    minimizeAdvisor();
     el.src = el.src.split('?')[0] + "?pyActivity=LogOff";  
   }
   setTimeout(function() {
