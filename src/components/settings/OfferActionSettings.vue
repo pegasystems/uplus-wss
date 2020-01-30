@@ -64,7 +64,9 @@
         </div>
         <div class="layout-labels-top">
           <div class="field-item">
-            <label for="offer-action-extraparam">Extra parameters (separated with comma)</label>
+            <label
+              for="offer-action-extraparam"
+            >Extra parameters (for example 'key1=value1,key2=value2')</label>
             <textarea id="offer-action-extraparam" v-model="settings.offeraction.extraparam" />
           </div>
         </div>

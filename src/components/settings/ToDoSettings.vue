@@ -48,7 +48,7 @@
         </div>
         <div class="layout-labels-top">
           <div class="field-item">
-            <label for="todo-extraparam">Extra parameters (separated with comma)</label>
+            <label for="todo-extraparam">Extra parameters (for example 'key1=value1,key2=value2')</label>
             <textarea id="todo-extraparam" v-model="settings.todo.extraparam" />
           </div>
         </div>

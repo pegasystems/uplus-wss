@@ -89,30 +89,37 @@ export default {
         "[data-pega-gadgetname='OnlineHelp'] > iframe",
       );
       if (el != null && typeof el.src === 'string') {
-        const listparams = el.src.split('&');
-        let updatedSrc = '';
-        for (const i in listparams) {
-          if (
-            !listparams[i].startsWith('ContactId=') &&
-            !listparams[i].startsWith('AccountNumber=') &&
-            !listparams[i].startsWith('username=')
-          ) {
-            updatedSrc += (updatedSrc !== '' ? '&' : '') + listparams[i];
-          }
-        }
-        if (updatedSrc.indexOf('timestamp') > -1) {
-          updatedSrc = updatedSrc.replace(
-            /timestamp=[^&]+/,
-            `timestamp=${Date.now()}`,
-          );
+        if (
+          mainconfig.settings.pega_chat.ResetLogout === true &&
+          typeof window.resetPegaChat === 'function'
+        ) {
+          window.resetPegaChat();
         } else {
-          // Else we will append the timestamp
-          updatedSrc += `&timestamp=${Date.now()}`;
+          const listparams = el.src.split('&');
+          let updatedSrc = '';
+          for (const i in listparams) {
+            if (
+              !listparams[i].startsWith('ContactId=') &&
+              !listparams[i].startsWith('AccountNumber=') &&
+              !listparams[i].startsWith('username=')
+            ) {
+              updatedSrc += (updatedSrc !== '' ? '&' : '') + listparams[i];
+            }
+          }
+          if (updatedSrc.indexOf('timestamp') > -1) {
+            updatedSrc = updatedSrc.replace(
+              /timestamp=[^&]+/,
+              `timestamp=${Date.now()}`,
+            );
+          } else {
+            // Else we will append the timestamp
+            updatedSrc += `&timestamp=${Date.now()}`;
+          }
+          const parentNode = el.parentNode;
+          el.remove();
+          el.src = updatedSrc;
+          parentNode.appendChild(el);
         }
-        const parentNode = el.parentNode;
-        el.remove();
-        el.src = updatedSrc;
-        parentNode.appendChild(el);
       }
     },
   },

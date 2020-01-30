@@ -213,6 +213,7 @@ window.settings = {
     MashupURL: '',
     ShowAsButton: true,
     EnableProActiveNotification: false,
+    ResetLogout: false,
     ProActiveNotificationDismissTime: '',
     CoBrowseServerURL: '',
     CoBrowseToken: '',

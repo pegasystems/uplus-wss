@@ -73,7 +73,7 @@
           <div class="field-item">
             <label
               :for="'quicklinks-' + index + '-extraparam'"
-            >Extra parameters (separated with comma)</label>
+            >Extra parameters (for example 'key1=value1,key2=value2')</label>
             <textarea :id="'quicklinks-' + index + '-extraparam'" v-model="item.extraparam" />
           </div>
         </div>

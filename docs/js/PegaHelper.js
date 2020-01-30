@@ -7,23 +7,22 @@ var chatSessionStatusKey = 'chat-session-connected';
 var proactiveContainer;
 var proactiveTimer = null;
 
-var MarketingURL = "";
-var MarketingURLProtocol = 'http';
-var MarketingURLPort = '80';
-var MarketingHostname = 'localhost';
+var ProactiveServiceProtocol = 'http';
+var ProactiveServicePort = '80';
+var ProactiveServiceHostname = 'localhost';
 if(PegaCSWSS.MarketingHost !== "") {
-    MarketingHostname = PegaCSWSS.MarketingHost;
-    if(MarketingHostname.startsWith('http://')) {
-       MarketingURLProtocol = "http";
+    ProactiveServiceHostname = PegaCSWSS.MarketingHost;
+    if(ProactiveServiceHostname.startsWith('http://')) {
+       ProactiveServiceProtocol = "http";
     } else {
-       MarketingURLProtocol = "https";
+       ProactiveServiceProtocol = "https";
     }
-    var idx= MarketingHostname.lastIndexOf("/");
+    var idx= ProactiveServiceHostname.lastIndexOf("/");
     if(idx!= -1) {
-      MarketingHostname = MarketingHostname.substring(idx+1);
+      ProactiveServiceHostname = ProactiveServiceHostname.substring(idx+1);
     }
     if(PegaCSWSS.MarketingPort !== "") {
-      MarketingURLPort = PegaCSWSS.MarketingPort;
+      ProactiveServicePort = PegaCSWSS.MarketingPort;
     }
 }
 var ProactiveCDHDismiss = "false";
@@ -42,7 +41,8 @@ var PegaChatConfig = {
 	"CobrowseToken": PegaCSWSS.Cobrowse.Token,
 	"CoBrowseServerHostURL": PegaCSWSS.Cobrowse.ServerURL,
     "ProactiveCDHEnabled": "" + PegaCSWSS.EnableProActiveNotification,
-    "MarketingURL": MarketingURLProtocol + "://" + MarketingHostname + ":" + MarketingURLPort + "/prweb/PRRestService/PegaMKTContainer/V2/Container", "ProactiveCDHDismiss" : ProactiveCDHDismiss,
+    "ProactiveServiceURL": ProactiveServiceProtocol + "://" + ProactiveServiceHostname + ":" + ProactiveServicePort + "/prweb/PRRestService/CSSelfServiceNBA/V1/Container", 
+    "ProactiveCDHDismiss" : ProactiveCDHDismiss,
     "ProactiveCDHDismissTime" : PegaCSWSS.ProActiveNotificationDismissTime
 };
 console.log(PegaChatConfig);
@@ -211,66 +211,66 @@ window.setDynamicChatGadgetParams = function(name) {
 	} else if (name == "queue"){
 		return pega.chat.proactiveChat.queueName || "";
 	} else if (name == "offerClass") {
-		if (proactiveContainer)
-          return proactiveContainer.ClassIdentifier;
-	    else
-		  return "";
-	} else if (name == "offerName") {
-	    if (proactiveContainer)
-          return proactiveContainer.Label;
-	    else
-		  return "";
-	} else if (name == "offerBenefits") {
-	    if (proactiveContainer)
-          return proactiveContainer.Benefits;
-	    else
-		  return "";
- 	} else if (name == "caseClass") {
-	    if (proactiveContainer)
-          return proactiveContainer.Class;
-	    else
-		  return "";
-	} else if (name == "caseGreeting") {
-	    if (proactiveContainer)
-          return proactiveContainer.Greeting;
-	    else
-		  return "";
-	} else if (name == "caseReason") {
-	    if (proactiveContainer)
-          return proactiveContainer.Reason;
-	    else
-		  return "";
-	} else if (name == "proactiveAccept") {
-	    if (proactiveContainer)
-          return proactiveContainer.AcceptText;
-	    else
-		  return "";
-	} else if (name == "proactiveDecline") {
-	    if (proactiveContainer)
-          return proactiveContainer.DeclineText;
-	    else
-		  return "";
+        if (proactiveContainer && proactiveContainer.ClassName != "")
+            return "Case";
+        else
+            return "";
+    } else if (name == "offerName") {
+        if (proactiveContainer)
+            return proactiveContainer.Label;
+        else
+            return "";
+    } else if (name == "offerBenefits") {
+        if (proactiveContainer)
+            return proactiveContainer.Benefits;
+        else
+            return "";
+    } else if (name == "caseClass") {
+        if (proactiveContainer)
+            return proactiveContainer.ClassName;
+        else
+            return "";
+    } else if (name == "caseGreeting") {
+        if (proactiveContainer)
+            return proactiveContainer.Greeting;
+        else
+            return "";
+    } else if (name == "caseReason") {
+        if (proactiveContainer)
+            return proactiveContainer.Reason;
+        else
+            return "";
+    } else if (name == "proactiveAccept") {
+        if (proactiveContainer)
+            return proactiveContainer.AcceptText;
+        else
+            return "";
+    } else if (name == "proactiveDecline") {
+        if (proactiveContainer)
+            return proactiveContainer.DeclineText;
+        else
+            return "";
 	}
 };
 
 function setDefaultChatGadgetParams(){
-	var PegaAParamObject = preparePegaAParams("OnlineHelp");
-	PegaAParamObject.channelId = PegaChatConfig.ChannelId;
-  PegaAParamObject.HelpConfigurationName = PegaChatConfig.HelpConfigurationName;
+    var PegaAParamObject = preparePegaAParams("OnlineHelp");
+    PegaAParamObject.channelId = PegaChatConfig.ChannelId;
+    PegaAParamObject.HelpConfigurationName = PegaChatConfig.HelpConfigurationName;
     PegaAParamObject.ContactId = "[page/function/ContactId]";
-  PegaAParamObject.AccountNumber = "[page/function/AccountNumber]";
-  PegaAParamObject.username = "[page/function/username]";
-	PegaAParamObject.ProactiveChatId = "[page/function/workId]";
-	PegaAParamObject.ProactiveChatQueue = "[page/function/queue]";
-  PegaAParamObject.offerClass = "[page/function/offerClass]"; /* Offer, Case or Knowledge */
-	PegaAParamObject.offerName = "[page/function/offerName]";
-	PegaAParamObject.offerBenefits = "[page/function/offerBenefits]";
-  PegaAParamObject.caseClass = "[page/function/caseClass]";
-  PegaAParamObject.caseGreeting = "[page/function/caseGreeting]";
-  PegaAParamObject.caseReason = "[page/function/caseReason]";
-  PegaAParamObject.proactiveAccept = "[page/function/proactiveAccept]";
-  PegaAParamObject.proactiveDecline = "[page/function/proactiveDecline]";
-	return JSON.stringify(PegaAParamObject);
+    PegaAParamObject.AccountNumber = "[page/function/AccountNumber]";
+    PegaAParamObject.username = "[page/function/username]";
+    PegaAParamObject.ProactiveChatId = "[page/function/workId]";
+    PegaAParamObject.ProactiveChatQueue = "[page/function/queue]";
+    PegaAParamObject.offerClass = "[page/function/offerClass]"; /* Offer, Case or Knowledge */
+    PegaAParamObject.offerName = "[page/function/offerName]";
+    PegaAParamObject.offerBenefits = "[page/function/offerBenefits]";
+    PegaAParamObject.caseClass = "[page/function/caseClass]";
+    PegaAParamObject.caseGreeting = "[page/function/caseGreeting]";
+    PegaAParamObject.caseReason = "[page/function/caseReason]";
+    PegaAParamObject.proactiveAccept = "[page/function/proactiveAccept]";
+    PegaAParamObject.proactiveDecline = "[page/function/proactiveDecline]";
+    return JSON.stringify(PegaAParamObject);
 }
 
 window.setDynamicProactiveChatGadgetParams = function (name) {
@@ -377,11 +377,11 @@ function minimizeAdvisor(message){
 }
 
 function maximizeAdvisorWindow() {
-	$("#OnlineHelp").addClass("alerting");
-	$("#launcherminimized").hide();
-	minimized = false;
-  sessionStorage.setItem("botMinimized",false);
-	sessionStorage.setItem("unreadCount",0);
+    $("#OnlineHelp").addClass("alerting");
+    $("#launcherminimized").hide();
+    minimized = false;
+    sessionStorage.setItem("botMinimized",false);
+    sessionStorage.setItem("unreadCount",0);
 }
 
 function handleMissedMessages() {

@@ -35,6 +35,15 @@ function getCookie(cname) {
   return "";
 }
 
+function resetPegaChat() {
+  pega.web.api.removeGadget("OnlineHelp");
+  sessionStorage.removeItem("AssignmentKey");
+  pega.web.api.addGadget("OnlineHelp");
+  _initAllPegaObjects();
+  pega.web.api.doAction("OnlineHelp", "load");
+};
+
+
 var serverURL = PegaCSWSS.MashupURL;
 var mashupScript = document.createElement('script');
 mashupScript.src = serverURL + "?pyActivity=pzIncludeMashupScripts";
@@ -80,14 +89,10 @@ mashupScript.onload = function() {
       }
     };
 
-    xhttp.open("POST", PegaChatConfig.MarketingURL, true);
+    xhttp.open("POST", PegaChatConfig.ProactiveServiceURL, true);
     xhttp.setRequestHeader("Content-type", "application/json");
     xhttp.send('{"CustomerID" : "'+PegaCSWSS.ContactID+'", "ContainerName" : "PrioritizeOffer", "Channel": "CallCenter"}');
   }
   displayLauncher();
-  setTimeout(function() {
-    pega.Mashup.Communicator.register(pega.Mashup.hostActionsProcessor);
-    _initAllPegaObjects();
-  },1000);
 };
 document.head.appendChild(mashupScript);

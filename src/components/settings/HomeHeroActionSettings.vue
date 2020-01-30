@@ -68,7 +68,9 @@
         </div>
         <div class="layout-labels-top">
           <div class="field-item">
-            <label for="hero-action-extraparam">Extra parameters (separated with comma)</label>
+            <label
+              for="hero-action-extraparam"
+            >Extra parameters (for example 'key1=value1,key2=value2')</label>
             <textarea id="hero-action-extraparam" v-model="settings.homeheroaction.extraparam" />
           </div>
         </div>

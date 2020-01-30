@@ -37,6 +37,10 @@
             v-model="settings.pega_chat.EnableProActiveNotification"
           />
         </div>
+        <div class="field-item">
+          <label class="width-auto" for="chat-ResetLogout">Reset chat when user logs out</label>
+          <input id="chat-ResetLogout" type="checkbox" v-model="settings.pega_chat.ResetLogout" />
+        </div>
       </div>
       <div class="layout-labels-top layout-inline-grid-double">
         <div class="field-item">

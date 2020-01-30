@@ -1,5 +1,6 @@
-/* global settings app getNBAMServiceControl   */
+/* global settings app getNBAMServiceControl pega */
 /* eslint no-eval: 0 */
+/* eslint no-underscore-dangle: 0 */
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
 
@@ -55,6 +56,9 @@ const upgradeConfig = function upgradeConfig(cfg) {
   }
   if (typeof cfg.settings.pega_chat.ShowAsButton === 'undefined') {
     cfg.settings.pega_chat.ShowAsButton = true;
+  }
+  if (typeof cfg.settings.pega_chat.ResetLogout === 'undefined') {
+    cfg.settings.pega_chat.ResetLogout = false;
   }
   if (
     typeof cfg.settings.pega_chat.EnableProActiveNotification === 'undefined'
@@ -703,10 +707,17 @@ const updatePegaChat = function updatePegaChat(u) {
   }
   el = document.querySelector("[data-pega-gadgetname='OnlineHelp']");
   if (el != null) {
+    /*
     el.setAttribute(
       'data-pega-action-param-parameters',
       window.setDefaultChatGadgetParams(),
-    );
+    ); */
+    const elOnlineHelp = pega.web.mgr._getGadgetByID('OnlineHelp');
+    if (elOnlineHelp && elOnlineHelp._oDivAttrs) {
+      for (const val in window.PegaCSWSS.ExtraParams) {
+        elOnlineHelp._oDivAttrs.params[val] = window.PegaCSWSS.ExtraParams[val];
+      }
+    }
   }
 };
 
