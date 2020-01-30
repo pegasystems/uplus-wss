@@ -40,11 +40,13 @@ function resetPegaChat() {
   if(el) {
     el.src = el.src.split('?')[0] + "?pyActivity=LogOff";  
   }
-  pega.web.api.removeGadget("OnlineHelp");
-  sessionStorage.removeItem("AssignmentKey");
-  pega.web.api.addGadget("OnlineHelp");
-  _initAllPegaObjects();
-  pega.web.api.doAction("OnlineHelp", "load");
+  setTimeout(funtion() {
+    pega.web.api.removeGadget("OnlineHelp");
+    sessionStorage.removeItem("AssignmentKey");
+    pega.web.api.addGadget("OnlineHelp");
+    _initAllPegaObjects();
+    pega.web.api.doAction("OnlineHelp", "load");
+  },2000);
 };
 
 
