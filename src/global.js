@@ -1,4 +1,4 @@
-/* global settings app getNBAMServiceControl pega */
+/* global settings app getNBAMServiceControl pega sendProactiveNotificationReq */
 /* eslint no-eval: 0 */
 /* eslint no-underscore-dangle: 0 */
 import Vue from 'vue';
@@ -707,17 +707,17 @@ const updatePegaChat = function updatePegaChat(u) {
   }
   el = document.querySelector("[data-pega-gadgetname='OnlineHelp']");
   if (el != null) {
-    /*
-    el.setAttribute(
-      'data-pega-action-param-parameters',
-      window.setDefaultChatGadgetParams(),
-    ); */
+    /* We need to set the extra parameters manually */
     const elOnlineHelp = pega.web.mgr._getGadgetByID('OnlineHelp');
     if (elOnlineHelp && elOnlineHelp._oDivAttrs) {
       for (const val in window.PegaCSWSS.ExtraParams) {
         elOnlineHelp._oDivAttrs.params[val] = window.PegaCSWSS.ExtraParams[val];
       }
     }
+  }
+  /* We need to call the proactive notification since PegaCSWSS.ContactID has changed */
+  if (typeof sendProactiveNotificationReq === 'function') {
+    sendProactiveNotificationReq();
   }
 };
 

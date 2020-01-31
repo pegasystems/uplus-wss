@@ -50,6 +50,25 @@ function resetPegaChat() {
   },2000);
 };
 
+function sendProactiveNotificationReq() {
+if (PegaChatConfig.ProactiveCDHEnabled == "true") {
+    /* Check CDH to see if there's an offer to present */
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4) {
+        try {
+	      processCDHResponse(JSON.parse(this.responseText));
+        } catch(e) {
+          console.error("Error when processing the response from Pega Mkt for Proactive notifications");
+        }
+      }
+    };
+
+    xhttp.open("POST", PegaChatConfig.ProactiveServiceURL, true);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send('{"CustomerID" : "'+PegaCSWSS.ContactID+'", "ContainerName" : "PrioritizeOffer", "Channel": "CallCenter"}');
+  }
+}
 
 var serverURL = PegaCSWSS.MashupURL;
 var mashupScript = document.createElement('script');
@@ -82,24 +101,7 @@ mashupScript.onload = function() {
   $minL.append($counter);
   $( 'body' ).append($minL);
   $("#launcherminimized").hide();
-
-  if (PegaChatConfig.ProactiveCDHEnabled == "true") {
-    /* Check CDH to see if there's an offer to present */
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-      if (this.readyState == 4) {
-        try {
-	      processCDHResponse(JSON.parse(this.responseText));
-        } catch(e) {
-          console.error("Error when processing the response from Pega Mkt for Proactive notifications");
-        }
-      }
-    };
-
-    xhttp.open("POST", PegaChatConfig.ProactiveServiceURL, true);
-    xhttp.setRequestHeader("Content-type", "application/json");
-    xhttp.send('{"CustomerID" : "'+PegaCSWSS.ContactID+'", "ContainerName" : "PrioritizeOffer", "Channel": "CallCenter"}');
-  }
+  sendProactiveNotificationReq();
   displayLauncher();
 };
 document.head.appendChild(mashupScript);
