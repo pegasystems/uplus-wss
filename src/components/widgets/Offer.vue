@@ -11,21 +11,36 @@
       <div class="content">
         <h3>{{ offer.title }}</h3>
         <p>{{ offer.message }}</p>
-        <a v-if="offer.url==='#'" v-on:click="gotoOfferPage" href="./offer.html">{{ offer.link }}</a>
         <a
-          v-else-if="settings.pega_marketing.accountPage.clickaction === 'TopURL' && offer.url != ''"
+          v-if="offer.url === '#'"
+          v-on:click="gotoOfferPage"
+          href="./offer.html"
+          >{{ offer.link }}</a
+        >
+        <a
+          v-else-if="
+            settings.pega_marketing.accountPage.clickaction === 'TopURL' &&
+              offer.url != ''
+          "
           :href="offer.url"
-        >{{ $t("message." + offer.link) }}</a>
+          >{{ $t('message.' + offer.link) }}</a
+        >
         <a
-          v-else-if="settings.pega_marketing.accountPage.clickaction === 'Popup' && offer.url != ''"
+          v-else-if="
+            settings.pega_marketing.accountPage.clickaction === 'Popup' &&
+              offer.url != ''
+          "
           :href="offer.url"
           target="_blank"
-        >{{ $t("message." + offer.link) }}</a>
+          >{{ $t('message.' + offer.link) }}</a
+        >
         <button
           v-else
           class="simple"
           v-on:click="showOffer(offer.url, offer.name)"
-        >{{ $t("message." + offer.link) }}</button>
+        >
+          {{ $t('message.' + offer.link) }}
+        </button>
         <AIOverlay
           v-if="settings.pega_marketing.showAIOverlay"
           :offer="offer"
@@ -58,6 +73,7 @@ export default {
     gotoOfferPage(event) {
       mainconfig.currentPage = 'offer.html';
       window.history.replaceState({}, '', 'offer.html');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       event.preventDefault();
     },
   },

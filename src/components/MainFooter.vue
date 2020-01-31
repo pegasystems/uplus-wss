@@ -1,12 +1,14 @@
 <template>
-  <footer :class="isMobilePhone ? 'background-brand':''">
+  <footer :class="isMobilePhone ? 'background-brand' : ''">
     <div class="wrap flex">
       <nav>
         <div class="flex">
           <a>{{ $t('message.aboutus') }}</a>
           <a v-if="!isMobilePhone">{{ $t('message.reviews') }}</a>
           <a v-if="!isMobilePhone">{{ $t('message.privacy') }}</a>
-          <a v-on:click="gotoSettingsPage" href="./settings.html">{{ $t('message.settings') }}</a>
+          <a v-on:click="gotoSettingsPage" href="./settings.html">{{
+            $t('message.settings')
+          }}</a>
         </div>
       </nav>
       <LangSwitch v-if="settings.i18n.showLangSwitch" />
@@ -30,6 +32,7 @@ export default {
     gotoSettingsPage(event) {
       mainconfig.currentPage = 'settings.html';
       window.history.replaceState({}, '', 'settings.html');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       event.preventDefault();
     },
   },

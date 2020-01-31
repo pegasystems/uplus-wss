@@ -1,17 +1,17 @@
 <template>
   <main class="home flex flex-col">
     <div class="hero background-brand">
-      <h1>{{ $t('message.' + app.phone.home_page.title)}}</h1>
+      <h1>{{ $t('message.' + app.phone.home_page.title) }}</h1>
     </div>
     <div class="main-actions primary-card">
       <button
         v-on:click="showPage(item.page)"
         class="simple"
-        v-for="(item,index) in app.phone.home_page.actions"
+        v-for="(item, index) in app.phone.home_page.actions"
         v-bind:key="index"
       >
         <i :class="'pi color-brand ' + item.icon"></i>
-        {{ $t('message.' + item.title)}}
+        {{ $t('message.' + item.title) }}
       </button>
     </div>
     <Offer :key="reloadOffer" />
@@ -51,6 +51,7 @@ export default {
             : mainconfig.phonePageName,
         );
       }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     },
   },
   components: {

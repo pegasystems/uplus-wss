@@ -1,22 +1,37 @@
 <template>
   <div>
     <div class="secondary-card margin-t-0 quick-links-account">
-      <h2>{{ $t('message.phone_quick_links_title')}}</h2>
+      <h2>{{ $t('message.phone_quick_links_title') }}</h2>
       <nav>
         <ul>
-          <li v-for="(item,index) in settings.quicklinks" :key="index">
-            <a v-on:click="selectLink(index)">{{ settings.quicklinks[index].title[currentLocale] }}</a>
+          <li v-for="(item, index) in settings.quicklinks" :key="index">
+            <a v-on:click="selectLink(index)">{{
+              settings.quicklinks[index].title[currentLocale]
+            }}</a>
           </li>
         </ul>
       </nav>
     </div>
-    <div class="secondary-card" v-if="settings.pega_marketing.Host === '' || loading">
-      <section class="offer-card-col" v-for="item in app.offers" :key="item.title">
-        <img class="offer-img" :src="('./img/' + item.img)" :alt="$t('message.' + item.title)" />
+    <div
+      class="secondary-card"
+      v-if="settings.pega_marketing.Host === '' || loading"
+    >
+      <section
+        class="offer-card-col"
+        v-for="item in app.offers"
+        :key="item.title"
+      >
+        <img
+          class="offer-img"
+          :src="'./img/' + item.img"
+          :alt="$t('message.' + item.title)"
+        />
         <div class="content">
           <h3>{{ $t('message.' + item.title) }}</h3>
           <p>{{ $t('message.' + item.message) }}</p>
-          <a v-on:click="gotoOfferPage" href="./offer.html">{{ $t('message.learnmore') }}</a>
+          <a v-on:click="gotoOfferPage" href="./offer.html">{{
+            $t('message.learnmore')
+          }}</a>
         </div>
       </section>
     </div>
@@ -66,6 +81,7 @@ export default {
     gotoOfferPage(event) {
       mainconfig.currentPage = 'offer.html';
       window.history.replaceState({}, '', 'offer.html');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       event.preventDefault();
     },
   },

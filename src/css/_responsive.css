@@ -127,7 +127,7 @@
     margin: 0 0 8rem 0;
     padding: 8rem;
     display: flex;
-    align-items: baseline;
+    align-items: center;
   }
 
   .flex-col-3 {
@@ -369,8 +369,11 @@
     width: 100%;
   }
 
-  :not(.phone) > footer nav > div {
-    flex-flow: column;
+  :not(.phone) > footer nav > div > a {
+    display: none;
+  }
+  :not(.phone) > footer nav > div > a:last-child {
+    display: block;
   }
 
   .landing-details .image {
@@ -392,9 +395,14 @@
   }
 
   .category .promo,
-  .landing .promo,
-  .offer .promo {
+  .landing .promo {
     padding: 16rem;
+  }
+
+  .offer .promo > .flex {
+    flex-flow: column;
+    max-width: 300px;
+    margin: 0 auto;
   }
 
   .category > main {

@@ -1,25 +1,39 @@
 <template>
   <header
     class="flex flex-col"
-    v-bind:style=" !isAuthenticated && offerURL == '' && homeHeroImg != '' ? { backgroundImage: 'url(' + homeHeroImg + ')' } : {}"
+    v-bind:style="
+      !isAuthenticated && offerURL == '' && homeHeroImg != ''
+        ? { backgroundImage: 'url(' + homeHeroImg + ')' }
+        : {}
+    "
   >
     <div class="wrap header flex">
       <a>
-        <img v-on:click="goHomePage" class="logo" :src="('./img/u+-logo.svg')" alt="U+">
+        <img
+          v-on:click="goHomePage"
+          class="logo"
+          :src="'./img/u+-logo.svg'"
+          alt="U+"
+        />
       </a>
       <nav class="flex-grow-1">
         <ul class="flex flex-mid-align flex-grow-1">
-          <MenuItem v-for="item in app.menuitems" v-bind:key="item.title" v-bind:title="item.title"></MenuItem>
+          <MenuItem
+            v-for="item in app.menuitems"
+            v-bind:key="item.title"
+            v-bind:title="item.title"
+          ></MenuItem>
         </ul>
       </nav>
       <a
         class="kmhelp"
-        v-if="isAuthenticated && settings.kmhelp.url !==''"
+        v-if="isAuthenticated && settings.kmhelp.url !== ''"
         v-on:click="showKMHelp"
-      >{{ $t('message.kmhelp') }}</a>
-      <OperatorButton v-if="isAuthenticated"/>
-      <LoginButton v-else/>
-      <MainHeaderMenu/>
+        >{{ $t('message.kmhelp') }}</a
+      >
+      <OperatorButton v-if="isAuthenticated" />
+      <LoginButton v-else />
+      <MainHeaderMenu />
     </div>
   </header>
 </template>
@@ -96,13 +110,13 @@ export default {
             mainconfig.isCategoryPage ? 'category.html' : 'index.html',
           );
         }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     },
     showKMHelp() {
       this.goHomePage();
       mainconfig.viewKMHelp = 1;
-      mainconfig.logoutURL.kmhelp =
-        `${mainconfig.settings.kmhelp.url}?pyActivity=LogOff`;
+      mainconfig.logoutURL.kmhelp = `${mainconfig.settings.kmhelp.url}?pyActivity=LogOff`;
       mainconfig.reloadMashup += 1;
     },
   },

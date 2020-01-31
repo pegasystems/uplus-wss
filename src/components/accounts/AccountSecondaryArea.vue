@@ -1,12 +1,25 @@
 <template>
   <div class="col col-2">
-    <div class="secondary-card" v-if="settings.pega_marketing.Host === '' || loading">
-      <section class="offer-card-col" v-for="item in app.offers" :key="item.title">
-        <img class="offer-img" :src="('./img/' + item.img)" :alt="$t('message.' + item.title)" />
+    <div
+      class="secondary-card"
+      v-if="settings.pega_marketing.Host === '' || loading"
+    >
+      <section
+        class="offer-card-col"
+        v-for="item in app.offers"
+        :key="item.title"
+      >
+        <img
+          class="offer-img"
+          :src="'./img/' + item.img"
+          :alt="$t('message.' + item.title)"
+        />
         <div class="content">
           <h3>{{ $t('message.' + item.title) }}</h3>
           <p>{{ $t('message.' + item.message) }}</p>
-          <a v-on:click="gotoOfferPage" href="./offer.html">{{ $t('message.learnmore') }}</a>
+          <a v-on:click="gotoOfferPage" href="./offer.html">{{
+            $t('message.learnmore')
+          }}</a>
         </div>
       </section>
     </div>
@@ -14,7 +27,10 @@
       <Offer v-for="item in data" :key="item.title" v-bind:offer="item" />
     </div>
     <KeyRates
-      v-if="app.industry  === 'commercial_bank' && typeof settings.keyrates !== 'undefined'"
+      v-if="
+        app.industry === 'commercial_bank' &&
+          typeof settings.keyrates !== 'undefined'
+      "
     />
     <QuickLinks />
   </div>
@@ -64,6 +80,7 @@ export default {
     gotoOfferPage(event) {
       mainconfig.currentPage = 'offer.html';
       window.history.replaceState({}, '', 'offer.html');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       event.preventDefault();
     },
   },

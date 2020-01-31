@@ -4,10 +4,17 @@
       <i class="pi pi-bars"></i>
     </button>
     <a>
-      <img v-on:click="goToHome" class="logo" :src="('./img/u+-logo.svg')" alt="U+" />
+      <img
+        v-on:click="goToHome"
+        class="logo"
+        :src="'./img/u+-logo.svg'"
+        alt="U+"
+      />
     </a>
     <OperatorButton v-if="isAuthenticated" />
-    <LoginButton v-else-if="phonePageName==='' || phonePageName==='index.html' " />
+    <LoginButton
+      v-else-if="phonePageName === '' || phonePageName === 'index.html'"
+    />
   </header>
 </template>
 
@@ -77,6 +84,7 @@ export default {
             : mainconfig.phonePageName,
         );
       }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     },
   },
   components: {

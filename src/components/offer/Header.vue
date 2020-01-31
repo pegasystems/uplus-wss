@@ -1,10 +1,10 @@
 <template>
   <header class="flex flex-col flex-mid-align">
     <a v-on:click="gotoHomePage" href="./index.html">
-      <img class="logo" :src="('./img/u+-logo.svg')" alt="U+" />
+      <img class="logo" :src="'./img/u+-logo.svg'" alt="U+" />
     </a>
-    <h1>{{ $t('message.' + app.offer.header.title)}}</h1>
-    <p>{{ $t('message.' + app.offer.header.msg)}}</p>
+    <h1>{{ $t('message.' + app.offer.header.title) }}</h1>
+    <p>{{ $t('message.' + app.offer.header.msg) }}</p>
   </header>
 </template>
 
@@ -23,6 +23,7 @@ export default {
         '',
         mainconfig.isAuthenticated ? 'account' : 'index.html',
       );
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       event.preventDefault();
     },
   },

@@ -1,22 +1,28 @@
 <template>
   <div class="flex">
     <div v-if="isNamePresent" class="flex flex-col margin-r-2x">
-      <span v-if="settings.users[userId]">{{ settings.users[userId].name }}</span>
-      <span v-if="settings.users[userId]">{{ settings.users[userId].company_name }}</span>
+      <span v-if="settings.users[userId]">{{
+        settings.users[userId].name
+      }}</span>
+      <span v-if="settings.users[userId]">{{
+        settings.users[userId].company_name
+      }}</span>
     </div>
     <img
-      v-if="userId!=-1"
+      v-if="userId != -1"
       v-on:click="showOverlay"
       class="avatar"
       :src="'../img/' + settings.users[userId].img"
       alt="Customer image"
     />
     <div
-      v-clickoutside="{ handler: 'onClickOutOverlay'}"
+      v-clickoutside="{ handler: 'onClickOutOverlay' }"
       class="overlay logout flex flex-col"
       :class="[isActive ? 'show' : 'hidden']"
     >
-      <button v-on:click="logOut" class="simple">{{$t('message.logout')}}</button>
+      <button v-on:click="logOut" class="simple">
+        {{ $t('message.logout') }}
+      </button>
     </div>
   </div>
 </template>
@@ -67,6 +73,7 @@ export default {
             '',
             mainconfig.isCategoryPage ? 'category.html' : 'index.html',
           );
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         }
       }
       // Issue logout request for each url present in the list */

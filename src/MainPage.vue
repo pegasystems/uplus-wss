@@ -33,6 +33,7 @@ export default {
         '',
         this.currentPage + window.location.search,
       );
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
     if (this.currentPage === 'heroaction') {
       mainconfig.homeHeroAction = 1;
