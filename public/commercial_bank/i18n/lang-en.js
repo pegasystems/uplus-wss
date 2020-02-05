@@ -26,7 +26,7 @@ window.langEN = {
   reviews: 'Reviews',
   privacy: 'Privacy',
   termsandconditions: 'Terms & Conditions',
-  copyright: '© 2019 Pegasystems',
+  copyright: 'Pegasystems',
   settings: 'Settings',
   username: 'Username',
   password: 'Password',
