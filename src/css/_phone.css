@@ -75,7 +75,7 @@
   min-width: auto;
 }
 
-.phone header a {
+.phone header .logo-link {
   flex: 1;
   text-align: center;
 }

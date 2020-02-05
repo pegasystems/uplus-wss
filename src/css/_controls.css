@@ -367,6 +367,7 @@ button.simple:hover {
   background: #fff;
   position: absolute;
   transition: height 0.25s ease-in-out;
+  filter: drop-shadow(0 3rem 21rem rgba(0, 0, 0, 0.5));
   right: 40rem;
   min-width: 200px;
   height: 0;
@@ -411,15 +412,19 @@ td.align-r {
 .filter {
   border: none;
   border-bottom: 1px solid #dedede;
-  margin: 0 -12rem 8rem auto;
+  margin: 0 0 8rem auto;
   max-width: 50%;
   color: #000;
 }
 
-.pi.pi-search {
-  color: #000;
+.search-bar {
+  position: relative;
 }
-
+.search-bar .pi-search {
+  position: absolute;
+  right: 0;
+  bottom: 22px;
+}
 .inputfile {
   width: 0.1px;
   height: 0.1px;

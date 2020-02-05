@@ -1,14 +1,14 @@
 <template>
   <section>
-    <div class="header flex flex-mid-align">
+    <div class="header flex flex-mid-align search-bar">
       <h2>{{ $t("message.accounts") }}</h2>
       <input
         type="text"
         class="filter"
         :value="$t('message.search')"
         :placeholder="$t('message.search_past_services')"
-      >
-      <i class="pi pi-search"></i>
+      />
+      <i class="pi pi-dark pi-search"></i>
     </div>
     <table v-if="userId!=-1" class="content responsive color-heading">
       <thead>
@@ -21,7 +21,10 @@
       </thead>
       <tbody>
         <tr class="heading">
-          <td class="hide-collapsed space-nowrap" colspan="2">{{ $t("message.accounts_header_col1") }}</td>
+          <td
+            class="hide-collapsed space-nowrap"
+            colspan="2"
+          >{{ $t("message.accounts_header_col1") }}</td>
           <td
             :data-title="$t('message.accounts_header_col1')"
             colspan="2"
@@ -46,7 +49,10 @@
         </tr>
 
         <tr class="heading">
-          <td class="hide-collapsed space-nowrap" colspan="2">{{ $t("message.investmentaccounts_header_col1") }}</td>
+          <td
+            class="hide-collapsed space-nowrap"
+            colspan="2"
+          >{{ $t("message.investmentaccounts_header_col1") }}</td>
           <td
             :data-title="$t('message.investmentaccounts_header_col1')"
             colspan="2"
@@ -73,9 +79,7 @@
               <i class="pi pi-arrow-down pi-error"></i>
               {{ item.trendvalue}}%
             </span>
-            <span class="investmentamount">
-              {{ $n(item.balance, 'currency') }}
-            </span>
+            <span class="investmentamount">{{ $n(item.balance, 'currency') }}</span>
           </td>
         </tr>
         <tr class="footer">

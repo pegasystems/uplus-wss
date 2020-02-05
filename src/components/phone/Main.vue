@@ -1,9 +1,9 @@
 <template>
   <Mashup v-if="phonePageName=='heroaction'" />
+  <Mashup v-else-if="quickLinkId != -1 || viewKMHelp != -1" />
   <HomePage v-else-if="phonePageName=='' || phonePageName=='index.html'" :key="isAuthenticated" />
   <OfferPage v-else-if="phonePageName.indexOf('offer') !== -1" />
   <LoginPage v-else-if="!isAuthenticated" />
-  <Mashup v-else-if="quickLinkId != -1" />
   <IntroQuickLinks v-else-if="phonePageName=='intro'" />
   <QuickLinks v-else-if="phonePageName=='help'" />
   <Account v-else-if="phonePageName=='account'" />

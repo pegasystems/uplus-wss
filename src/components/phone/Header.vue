@@ -3,18 +3,16 @@
     <button v-on:click="showSidePanel" class="nav-button">
       <i class="pi pi-bars"></i>
     </button>
-    <a>
-      <img
-        v-on:click="goToHome"
-        class="logo"
-        :src="'./img/u+-logo.svg'"
-        alt="U+"
-      />
+    <a class="logo-link">
+      <img v-on:click="goToHome" class="logo" :src="'./img/u+-logo.svg'" alt="U+" />
     </a>
+    <a
+      class="kmhelp"
+      v-if="isAuthenticated && settings.kmhelp.url !== ''"
+      v-on:click="showKMHelp"
+    >{{ $t('message.kmhelp') }}</a>
     <OperatorButton v-if="isAuthenticated" />
-    <LoginButton
-      v-else-if="phonePageName === '' || phonePageName === 'index.html'"
-    />
+    <LoginButton v-else-if="phonePageName === '' || phonePageName === 'index.html'" />
   </header>
 </template>
 
@@ -66,6 +64,7 @@ export default {
       mainconfig.homeHeroAction = -1;
       mainconfig.phonePageName = '';
       mainconfig.quickLinkId = -1;
+      mainconfig.viewKMHelp = -1;
       mainconfig.offerURL = '';
       if (mainconfig.isAuthenticated) {
         window.history.pushState(
@@ -85,6 +84,11 @@ export default {
         );
       }
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    },
+    showKMHelp() {
+      mainconfig.viewKMHelp = 1;
+      mainconfig.logoutURL.kmhelp = `${mainconfig.settings.kmhelp.url}?pyActivity=LogOff`;
+      mainconfig.reloadMashup += 1;
     },
   },
   components: {
