@@ -41,7 +41,7 @@
 #OnlineHelp.compacted,
 #ServiceCaseGadget.compacted,
 #ChatWrapper.compacted {
-  height: 450px;
+  height: 450px !important;
 }
 #OnlineHelp.minimized,
 #ServiceCaseGadget.minimized,
