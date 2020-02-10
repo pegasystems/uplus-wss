@@ -306,35 +306,28 @@ export default {
     tmpActionParam.pySkipCookieConsent = 'true';
     this.actionParam = JSON.stringify(tmpActionParam);
     this.isMashupInitialized = true;
-    console.log('MashupMainArea - created');
     /* If Mashup is already initialized - just return */
     if (
       typeof pega !== 'undefined' &&
       typeof pega.Mashup !== 'undefined' &&
       typeof pega.Mashup.Communicator !== 'undefined'
     ) {
-      console.log('MashupMainArea - already defined = skip');
       return;
     }
 
     this.mashupScript.onload = function onloadMashup() {
-      console.log('MashupMainArea - onload');
       pega.Mashup.Communicator.register(pega.Mashup.hostActionsProcessor);
       _initAllPegaObjects();
     };
     document.head.appendChild(this.mashupScript);
   },
   mounted() {
-    console.log('MashupMainArea - mounted');
     if (
       typeof pega !== 'undefined' &&
       typeof pega.Mashup !== 'undefined' &&
       typeof pega.Mashup.Communicator !== 'undefined'
     ) {
-      console.log('MashupMainArea - mounted - _initGadgets');
       pega.web.mgr._initGadgets(window);
-    } else {
-      console.log('MashupMainArea - mounted - skip _initGadgets');
     }
   },
 };

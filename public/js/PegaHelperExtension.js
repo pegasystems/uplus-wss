@@ -103,5 +103,7 @@ mashupScript.onload = function() {
   $("#launcherminimized").hide();
   sendProactiveNotificationReq();
   displayLauncher();
+  pega.Mashup.Communicator.register(pega.Mashup.hostActionsProcessor);	
+  _initAllPegaObjects();	
 };
 document.head.appendChild(mashupScript);
