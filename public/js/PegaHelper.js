@@ -41,7 +41,7 @@ var PegaChatConfig = {
 	"CobrowseToken": PegaCSWSS.Cobrowse.Token,
 	"CoBrowseServerHostURL": PegaCSWSS.Cobrowse.ServerURL,
     "ProactiveCDHEnabled": "" + PegaCSWSS.EnableProActiveNotification,
-    "ProactiveServiceURL": ProactiveServiceProtocol + "://" + ProactiveServiceHostname + (ProactiveServicePort != "" ?  ":" + ProactiveServicePort, "") + "/prweb/PRRestService/CSSelfServiceNBA/V1/Container", 
+    "ProactiveServiceURL": ProactiveServiceProtocol + "://" + ProactiveServiceHostname + (ProactiveServicePort != "" ?  (":" + ProactiveServicePort) , "") + "/prweb/PRRestService/CSSelfServiceNBA/V1/Container", 
     "ProactiveCDHDismiss" : ProactiveCDHDismiss,
     "ProactiveCDHDismissTime" : PegaCSWSS.ProActiveNotificationDismissTime
 };
