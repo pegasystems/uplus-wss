@@ -1,7 +1,7 @@
 ﻿function getNBAMServiceControl(serviceClass,callMultiContainer) {
 
 	var serverHostname = "localhost";
-	var serverPort = "8080";
+	var serverPort = "";
 	var serviceClass = serviceClass;
 	var callMultiContainer = callMultiContainer;
 	var offerLength = 0;
@@ -16,10 +16,8 @@
 
 			this.hostName = serverHostname;
 			this.port = serverPort;
-			if (typeof this.hostName == 'undefined')
-				this.hostName = "localhost";
-			if (typeof this.port == 'undefined')
-        this.port = 80;
+			if (typeof this.hostName == 'undefined') this.hostName = "localhost";
+			if (typeof this.port == 'undefined') this.port = "";
         if(this.hostName.startsWith('http://')) {
         this.serviceURLProtocol = "http";
       }
@@ -27,17 +25,17 @@
       if(idx!= -1) {
         this.hostName = this.hostName.substring(idx+1);
       }
-			this.url = this.serviceURLProtocol + "://" + this.hostName + ":" + this.port + "/prweb/PRRestService/PegaMKTContainer/Services/ExecuteWebContainer?";
+			this.url = this.serviceURLProtocol + "://" + this.hostName + (this.port!="" ? ":" + this.port, "") + "/prweb/PRRestService/PegaMKTContainer/Services/ExecuteWebContainer?";
 
 		},
 
 		getServiceURL : function (serviceName,params) {
 			var url;
 			if (serviceClass) {
-				url = this.serviceURLProtocol + "://" + this.hostName + ":" + this.port + "/prweb/PRRestService/PegaMKTContainer/" + serviceClass + "/" + serviceName + "?";
+				url = this.serviceURLProtocol + "://" + this.hostName + (this.port!="" ? ":" + this.port, "") + "/prweb/PRRestService/PegaMKTContainer/" + serviceClass + "/" + serviceName + "?";
 
 			} else {
-				var url = this.serviceURLProtocol + "://" + this.hostName + ":" + this.port + "/prweb/PRRestService/PegaMKTContainer/Services/" + serviceName + "?";
+				var url = this.serviceURLProtocol + "://" + this.hostName + (this.port!="" ? ":" + this.port, "") + "/prweb/PRRestService/PegaMKTContainer/Services/" + serviceName + "?";
 			}
 
 			if(params != null) {
@@ -49,7 +47,8 @@
 
 		getStreamServiceURL: function(streamHost,streamPort,streamName) {
 			var streamURL;
-			streamURL = this.serviceURLProtocol + "://" + streamHost + ":" + streamPort + "/stream/" + streamName;
+            if (typeof streamPort == 'undefined') streamPort = "";
+			streamURL = this.serviceURLProtocol + "://" + streamHost + (streamPort!="" ? ":" + streamPort, "") +  "/stream/" + streamName;
 			return streamURL;
 		},
 
@@ -324,7 +323,7 @@
 	},
 
    sendRTSEvent : function(urlParameters, callback) {
-    var streamURL = this.serviceURLProtocol + "://" + this.hostName + ":" + this.port + "/prweb/PRHTTPService/pwdemocontrols/Services/ProcessDigitalActivityStream?" +  urlParameters;
+    var streamURL = this.serviceURLProtocol + "://" + this.hostName + ( this.port != "" ?  ":" + this.port, "") + "/prweb/PRHTTPService/pwdemocontrols/Services/ProcessDigitalActivityStream?" +  urlParameters;
 		var xmlHttpReq = this.createRequest("GET", streamURL, callback);
 		if (xmlHttpReq)	xmlHttpReq.send(null);
 	},

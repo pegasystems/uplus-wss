@@ -7,8 +7,8 @@ var chatSessionStatusKey = 'chat-session-connected';
 var proactiveContainer;
 var proactiveTimer = null;
 
-var ProactiveServiceProtocol = 'http';
-var ProactiveServicePort = '80';
+var ProactiveServiceProtocol = 'https';
+var ProactiveServicePort = '';
 var ProactiveServiceHostname = 'localhost';
 if(PegaCSWSS.MarketingHost !== "") {
     ProactiveServiceHostname = PegaCSWSS.MarketingHost;
@@ -41,7 +41,7 @@ var PegaChatConfig = {
 	"CobrowseToken": PegaCSWSS.Cobrowse.Token,
 	"CoBrowseServerHostURL": PegaCSWSS.Cobrowse.ServerURL,
     "ProactiveCDHEnabled": "" + PegaCSWSS.EnableProActiveNotification,
-    "ProactiveServiceURL": ProactiveServiceProtocol + "://" + ProactiveServiceHostname + ":" + ProactiveServicePort + "/prweb/PRRestService/CSSelfServiceNBA/V1/Container", 
+    "ProactiveServiceURL": ProactiveServiceProtocol + "://" + ProactiveServiceHostname + (ProactiveServicePort != "" ?  ":" + ProactiveServicePort, "") + "/prweb/PRRestService/CSSelfServiceNBA/V1/Container", 
     "ProactiveCDHDismiss" : ProactiveCDHDismiss,
     "ProactiveCDHDismissTime" : PegaCSWSS.ProActiveNotificationDismissTime
 };
