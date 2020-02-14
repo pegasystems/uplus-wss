@@ -66,7 +66,12 @@ if (PegaChatConfig.ProactiveCDHEnabled == "true") {
 
     xhttp.open("POST", PegaChatConfig.ProactiveServiceURL, true);
     xhttp.setRequestHeader("Content-type", "application/json");
-    xhttp.send('{"CustomerID" : "'+PegaCSWSS.ContactID+'", "ContainerName" : "PrioritizeOffer", "Channel": "CallCenter"}');
+    var extraParms = "";
+    for(var val in PegaCSWSS.ExtraParams) {
+        extraParms += '"' + val + '":"'+ PegaCSWSS.ExtraParams[val] + '",';
+    }
+    var postBody = '{' + extraParms + '"CustomerID":"'+PegaCSWSS.ContactID+'","AccountNumber":"'+PegaCSWSS.AccountNumber+'","UserName":"'+PegaCSWSS.UserName+'","ContainerName":"PrioritizeOffer","Channel":"CallCenter"}';
+    xhttp.send(postBody);
   }
 }
 
@@ -106,6 +111,6 @@ mashupScript.onload = function() {
   setTimeout(function() {	
     pega.Mashup.Communicator.register(pega.Mashup.hostActionsProcessor);	
     _initAllPegaObjects();	
-  },1000);
+  },30);
 };
 document.head.appendChild(mashupScript);
