@@ -66,6 +66,7 @@
 
 .account-picker > .flex > .content-card {
   margin: 0 8rem 8rem 8rem;
+  flex: 1;
 }
 
 .account-picker > .flex > .content-card:first-child {

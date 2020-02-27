@@ -10,13 +10,13 @@ window.app = {
       className: 'contact-us',
       title: 'secondary1_title',
       message: 'secondary1_msg',
-      link: 'learnmore',
+      link: 'starthere',
     },
     {
       className: 'paperless',
       title: 'secondary2_title',
       message: 'secondary2_msg',
-      link: 'learnmore',
+      link: 'signup',
     },
   ],
   primarydetails: [
@@ -41,13 +41,13 @@ window.app = {
   ],
   accountpicker: [
     {
-      icon: 'pi-building-2',
+      icon: 'pi-car-solid',
       title: 'accountpicker1_title',
       desc: 'accountpicker1_desc',
       id: '',
     },
     {
-      icon: 'pi-temp',
+      icon: 'pi-car-solid',
       title: 'accountpicker2_title',
       desc: 'accountpicker2_desc',
       id: '',
@@ -229,17 +229,17 @@ window.app = {
     highlights: {
       data: [
         {
-          icon: 'pi-chevron-solid',
+          icon: 'pi-rain',
           title: 'offer_highlights_data1_title',
           message: 'offer_highlights_data1_msg',
         },
         {
-          icon: 'pi-triangle-solid',
+          icon: 'pi-temperature-solid',
           title: 'offer_highlights_data2_title',
           message: 'offer_highlights_data2_msg',
         },
         {
-          icon: 'pi-bolt-solid',
+          icon: 'pi-car-solid',
           title: 'offer_highlights_data3_title',
           message: 'offer_highlights_data3_msg',
         },

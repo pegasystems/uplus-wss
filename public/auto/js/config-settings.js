@@ -9,7 +9,7 @@ window.settings = {
   quicklinks: [
     {
       title: {
-        en: 'Search for parts',
+        en: 'Troubleshoot a problem',
       },
       action: 'createNewWork',
       actionparam: '',

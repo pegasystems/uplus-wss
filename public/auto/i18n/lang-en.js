@@ -3,6 +3,8 @@ window.langEN = {
   hero_span: 'delivered today',
   learnmore: 'Learn more',
   contactus: 'Contact us',
+  signup: 'Sign up',
+  starthere: 'Start here',
   secondary1_title: 'Build your dream',
   secondary1_msg: 'Let us help you build the perfect vehicle for you',
   secondary2_title: 'Let us sweeten the deal',
@@ -111,31 +113,31 @@ window.langEN = {
   offer_header_title: 'Full-size, mid-size and compact SUVs',
   offer_header_msg:
     'U+ Auto offers a range of SUVs to fit your specific needs from the most powerful to the most efficient.',
-  offer_main_offer_title: 'World-class SUVs',
+  offer_main_offer_title: 'Limited time offer',
   offer_main_offer_msg:
     'From the sporty and surprisingly spacious Quartz, to the rugged and refined Granite, there’s a U+ Auto SUV with the comfort and capability you’re looking for.',
-  offer_main_offer_button_label: 'Learn more',
+  offer_main_offer_button_label: 'Find your SUV',
   offer_footer_title: 'Start your adventure now.',
   offer_footer_button_label: 'Find your SUV',
-  offer_cards_title: 'Power to exceed',
+  offer_cards_title: 'Complete luxury from bumper to bumper',
   offer_cards_data1_title: 'Keeping you safe',
   offer_cards_data1_msg:
     'Accident prevention technology, smart 4WD, and towing and trailer sway control insures you get where you need to be.',
   offer_cards_data1_highlight: 'Prevention',
   offer_cards_data2_title: 'Keeping you connected',
   offer_cards_data2_msg:
-    'Available 4g LTE Wi-Fi hotspot keeps the family entertained on the road',
+    'Available 5G Wi-Fi hotspot keeps the family entertained on the road',
   offer_cards_data2_highlight: 'Entertainment',
   offer_cards_data3_title: 'Keeping you comfortable ',
   offer_cards_data3_msg:
-    'Plenty of knee and shoulder room to relax in.',
+    'Plenty of knee and shoulder room to relax in',
   offer_cards_data3_highlight: 'Space',
   offer_details1_title: 'The journey should be as engaging as the destination',
   offer_details1_msg:
-    'Driving a U+ SUV is as fun and exciting as what awaits you at the end of the ride',
+    'Driving a U+ SUV is as fun and exciting as what awaits you at the end of the ride.',
   offer_highlights_data1_title: 'Intelligent All-wheel Drive',
   offer_highlights_data1_msg:
-    'Balancing torque between the front and rear wheels for maximum traction, keeping the vehicle sure-footed on the road.',
+    'Balancing torque between the front and rear wheels for maximum traction, keeping the vehicle sure-footed on the road',
   offer_highlights_data2_title: 'Leather seats with ventilation and heating',
   offer_highlights_data2_msg:
     'Keep cool in the summer and warm in the winter',
