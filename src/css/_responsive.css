@@ -121,6 +121,14 @@
     align-items: center;
   }
 
+  .account-picker > .flex {
+    display: block;
+  }
+
+  .account-picker > .flex > div.content-card {
+    margin: 0 0 8rem 0;
+  }
+
   .flex-col-3 > div {
     width: 100%;
     width: 100%;

@@ -89,5 +89,12 @@ module.exports = {
       title: 'U+ Manufacturing',
       chunks: ['chunk-vendors', 'chunk-common', 'manufacturing'],
     },
+    auto: {
+      entry: 'src/main.js',
+      template: 'public/auto/index.html',
+      filename: 'auto/index.html',
+      title: 'U+ Auto',
+      chunks: ['chunk-vendors', 'chunk-common', 'auto'],
+    },
   },
 };

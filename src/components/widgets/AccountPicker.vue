@@ -1,7 +1,7 @@
 <template>
   <section class="account-picker">
     <h2>{{ $t("message.youraccount") }}</h2>
-    <div class="flex flex-col-3">
+    <div class="flex">
       <div
         v-for="item in app.accountpicker"
         :key="item.title"

@@ -64,6 +64,17 @@
   display: flex;
 }
 
+.account-picker > .flex > .content-card {
+  margin: 0 8rem 8rem 8rem;
+}
+
+.account-picker > .flex > .content-card:first-child {
+  margin-left: 0;
+}
+.account-picker > .flex > .content-card:last-child {
+  margin-right: 0;
+}
+
 .flex-col-3 {
   flex-wrap: nowrap;
 }

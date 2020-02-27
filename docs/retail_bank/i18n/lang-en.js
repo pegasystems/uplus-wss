@@ -147,7 +147,7 @@ window.langEN = {
   category_header_title: 'Credit cards',
   category_header_msg: 'A card for every occasion',
   category_cards_title: 'Featured cards',
-  category_cards_data1_title: 'Platinium Card',
+  category_cards_data1_title: 'Platinum Card',
   category_cards_data1_msg: 'Make everyday purchases and earn 4x points on U+ Bank Platinum.',
   category_cards_data1_applylabel: 'Apply now',
   category_cards_data1_detailslabel: 'View Details',

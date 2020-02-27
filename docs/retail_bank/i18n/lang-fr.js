@@ -154,7 +154,7 @@ window.langFR = {
   category_header_title: 'Cartes de crédit',
   category_header_msg: 'Une carte pour chaque occasion',
   category_cards_title: 'Cartes proposées',
-  category_cards_data1_title: 'Platinium Card',
+  category_cards_data1_title: 'Platinum Card',
   category_cards_data1_msg: 'Faites des achats quotidiens et gagnez 4x points sur U+ Bank Platinum.',
   category_cards_data1_applylabel: 'Appliquer maintenant',
   category_cards_data1_detailslabel: 'Voir les détails',
