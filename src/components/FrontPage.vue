@@ -1,5 +1,5 @@
 <template>
-  <div v-if="homeHeroAction==1" class="form flex flex-col">
+  <div v-if="homeHeroAction==1 || viewKMHelp==1" class="form flex flex-col">
     <MainHeader />
     <main class="wrap flex flex-col">
       <MashupMainArea />

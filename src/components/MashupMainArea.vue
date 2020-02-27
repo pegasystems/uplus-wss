@@ -263,6 +263,9 @@ export default {
       if (this.settings.users[this.userId].contactID) {
         tmpActionParam.ContactId = this.settings.users[this.userId].contactID;
       }
+    } else if (this.viewKMHelp !== -1) {
+      tmpActionParam.UserIdentifier = this.settings.kmhelp.username;
+      tmpActionParam.Password = encodeURI(btoa(this.settings.kmhelp.password));
     } else if (this.homeHeroAction !== -1) {
       tmpActionParam.UserIdentifier = this.settings.homeheroaction.pega_userid;
       tmpActionParam.Password = encodeURI(

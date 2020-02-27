@@ -35,6 +35,12 @@ const upgradeConfig = function upgradeConfig(cfg) {
       extraparam: '',
     };
   }
+  if (typeof cfg.settings.kmhelp.username === 'undefined') {
+    cfg.settings.kmhelp.username = '';
+  }
+  if (typeof cfg.settings.kmhelp.password === 'undefined') {
+    cfg.settings.kmhelp.password = '';
+  }
   if (typeof cfg.settings.offeraction === 'undefined') {
     cfg.settings.offeraction = {
       action: 'createNewWork',

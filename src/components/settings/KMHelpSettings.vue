@@ -40,6 +40,14 @@
             <label for="kmhelp-application">Application name</label>
             <input id="kmhelp-application" type="text" v-model="settings.kmhelp.application" />
           </div>
+          <div class="field-item">
+            <label for="kmhelp-username">Username (for unauthenticated access)</label>
+            <input id="kmhelp-username" type="text" v-model="settings.kmhelp.username" />
+          </div>
+          <div class="field-item">
+            <label for="kmhelp-password">Password (for unauthenticated access)</label>
+            <input id="kmhelp-password" type="text" v-model="settings.kmhelp.password" />
+          </div>
         </div>
         <div class="layout-labels-top">
           <div class="field-item">

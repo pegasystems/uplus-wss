@@ -79,6 +79,8 @@ window.settings = {
     startcase: 'pyStartCase',
     application: '',
     extraparam: '',
+    username: '',
+    password: '',
   },
   homeheroaction: {
     action: 'createNewWork',
