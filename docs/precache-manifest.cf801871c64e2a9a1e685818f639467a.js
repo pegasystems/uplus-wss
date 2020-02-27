@@ -68,12 +68,12 @@ self.__precacheManifest = [
     "url": "./img/contact.e5a3bcc3.svg"
   },
   {
-    "revision": ".b3f3e21fae06fae9dd11b9f65b173d",
-    "url": "./img/checkmark-w.71b3f3e2.svg"
-  },
-  {
     "revision": ".c6b63072760f2685267ff8f787787d",
     "url": "./img/paperless.3cc6b630.svg"
+  },
+  {
+    "revision": ".b3f3e21fae06fae9dd11b9f65b173d",
+    "url": "./img/checkmark-w.71b3f3e2.svg"
   },
   {
     "revision": ".abb023f78eec3fd1cb987ec59d8adc",
@@ -140,16 +140,16 @@ self.__precacheManifest = [
     "url": "./auto/img/u+-logo.svg"
   },
   {
-    "revision": ".0ef5ec75028a3a5ce17418be018a4d",
+    "revision": ".da172b869a106bc4ac319163a94745",
     "url": "./auto/js/config-flow.js"
-  },
-  {
-    "revision": ".30fe7c553578a97695e84a310bbbdd",
-    "url": "./commercial_bank/charts/balance.html"
   },
   {
     "revision": ".ae9c4616d3afb11b465e795845701f",
     "url": "./auto/js/config-settings.js"
+  },
+  {
+    "revision": ".30fe7c553578a97695e84a310bbbdd",
+    "url": "./commercial_bank/charts/balance.html"
   },
   {
     "revision": ".dd4cb0fb26045afb6b9f53a736c933",
@@ -160,12 +160,12 @@ self.__precacheManifest = [
     "url": "./commercial_bank/css/override.css"
   },
   {
-    "revision": ".1a5ad2b10c4c5ca12163a30ce6c7df",
-    "url": "./commercial_bank/form-embed.html"
-  },
-  {
     "revision": ".0d8844c3ba96659bfce005b293acaa",
     "url": "./commercial_bank/i18n/lang-en.js"
+  },
+  {
+    "revision": ".1a5ad2b10c4c5ca12163a30ce6c7df",
+    "url": "./commercial_bank/form-embed.html"
   },
   {
     "revision": ".d930e6e850492b8527d14ad46f26d1",
@@ -204,20 +204,20 @@ self.__precacheManifest = [
     "url": "./comms/js/config-settings.js"
   },
   {
-    "revision": ".026780baa27aefb21f08b747155163",
-    "url": "./gov/css/override.css"
-  },
-  {
     "revision": ".b994fd93882918b4f01909d8e20808",
     "url": "./favicon.ico"
   },
   {
-    "revision": ".884c1972282fb67af1fb6760b1d11e",
-    "url": "./gov/i18n/lang-en.js"
+    "revision": ".026780baa27aefb21f08b747155163",
+    "url": "./gov/css/override.css"
   },
   {
     "revision": ".1a5ad2b10c4c5ca12163a30ce6c7df",
     "url": "./gov/form-embed.html"
+  },
+  {
+    "revision": ".884c1972282fb67af1fb6760b1d11e",
+    "url": "./gov/i18n/lang-en.js"
   },
   {
     "revision": ".abe76efb5e9af39e16c89bdd4b0564",
@@ -248,12 +248,12 @@ self.__precacheManifest = [
     "url": "./health_care/img/u+-logo.svg"
   },
   {
-    "revision": ".8200a3770887df06730f7b4bc62070",
-    "url": "./health_care/js/config-flow.js"
-  },
-  {
     "revision": ".08d026e06ccf9bbdc776e053f8c9c0",
     "url": "./health_care/js/config-settings.js"
+  },
+  {
+    "revision": ".8200a3770887df06730f7b4bc62070",
+    "url": "./health_care/js/config-flow.js"
   },
   {
     "revision": ".2a42834454befdd48724a5da3fb927",
@@ -292,12 +292,12 @@ self.__precacheManifest = [
     "url": "./health_pharma/i18n/lang-en.js"
   },
   {
-    "revision": ".f6a433f92a1738392d4d84fd87d62e",
-    "url": "./health_pharma/js/config-flow.js"
-  },
-  {
     "revision": ".1fb448744330a692d78b9b4ce06265",
     "url": "./health_pharma/img/u+-logo.svg"
+  },
+  {
+    "revision": ".f6a433f92a1738392d4d84fd87d62e",
+    "url": "./health_pharma/js/config-flow.js"
   },
   {
     "revision": ".c0c4d09717c09a2231a67c0166a22f",
@@ -320,12 +320,12 @@ self.__precacheManifest = [
     "url": "./health_provider/img/u+-logo.svg"
   },
   {
-    "revision": ".b63e38ee99ea003bfab4c8d53d0691",
-    "url": "./health_provider/js/config-settings.js"
-  },
-  {
     "revision": ".8f056e090a115111bbb4f297808b21",
     "url": "./health_provider/js/config-flow.js"
+  },
+  {
+    "revision": ".b63e38ee99ea003bfab4c8d53d0691",
+    "url": "./health_provider/js/config-settings.js"
   },
   {
     "revision": ".63f620529651e8100b227cd232a945",
@@ -424,11 +424,11 @@ self.__precacheManifest = [
     "url": "./retail_bank/img/u+-logo.svg"
   },
   {
-    "revision": ".91ca66ffbe82cf4fc8d21495937615",
-    "url": "./retail_bank/js/config-settings.js"
-  },
-  {
     "revision": ".c25cc2dec05489e3f407cb788e4189",
     "url": "./retail_bank/js/config-flow.js"
+  },
+  {
+    "revision": ".91ca66ffbe82cf4fc8d21495937615",
+    "url": "./retail_bank/js/config-settings.js"
   }
 ];

@@ -197,7 +197,7 @@ window.app = {
       title: 'offer_main_offer_title',
       message: 'offer_main_offer_msg',
       button_label: 'offer_main_offer_button_label',
-      image: 'offer-main.jpg',
+      image: 'offer-01.jpg',
     },
     cards: {
       title: 'offer_cards_title',
