@@ -264,7 +264,7 @@ window.app = {
       },
       actions: [
         {
-          icon: 'pi-calculator',
+          icon: 'pi-globe',
           page: 'account',
           title: 'phone_home_page_actions1_title',
         },
@@ -274,8 +274,8 @@ window.app = {
           title: 'phone_home_page_actions2_title',
         },
         {
-          icon: 'pi-dollar-sign',
-          page: 'heroaction',
+          icon: 'pi-receipt',
+          page: '',
           title: 'phone_home_page_actions3_title',
         },
       ],
