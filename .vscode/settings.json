@@ -6,7 +6,6 @@
   "files.encoding": "utf8",
   "editor.insertSpaces": true,
   "editor.tabSize": 2,
-
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
@@ -14,13 +13,16 @@
   "[javascript]": {
     "editor.formatOnSave": false
   },
-  "[javascriptreact]": {
-    "editor.formatOnSave": false
-  },
-
   "javascript.preferences.quoteStyle": "single",
   "javascript.format.semicolons": "insert",
   "typescript.preferences.quoteStyle": "single",
   "typescript.format.semicolons": "insert",
-
-  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "mdx"]
+  "eslint.validate": [
+    "javascript"
+  ],
+  "vetur.format.defaultFormatter.js": "none",
+  "vetur.format.defaultFormatter.less": "none",
+  "vetur.format.defaultFormatter.html": "none",
+  "vetur.format.defaultFormatter.css": "none",
+  "vetur.format.defaultFormatter.postcss": "none"
+}

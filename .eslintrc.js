@@ -13,7 +13,7 @@ module.exports = {
     'guard-for-in': 'off',
     'no-plusplus': 'off',
     'no-restricted-syntax': 'off',
-    'max-len': ['error', { code: 160 }],
+    'max-len': 'off',
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-alert': 'off',
