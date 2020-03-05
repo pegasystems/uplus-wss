@@ -1,0 +1,26 @@
+{
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "files.eol": "\n",
+  "files.encoding": "utf8",
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "[javascriptreact]": {
+    "editor.formatOnSave": false
+  },
+
+  "javascript.preferences.quoteStyle": "single",
+  "javascript.format.semicolons": "insert",
+  "typescript.preferences.quoteStyle": "single",
+  "typescript.format.semicolons": "insert",
+
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "mdx"]

@@ -9,7 +9,7 @@
           <button
             v-on:click="selectLink(index)"
             class="simple"
-            v-for="(item, index) in settings.quicklinks"
+            v-for="(item, index) in visibleQuickLinks"
             :key="index"
           >
             <i
@@ -18,7 +18,7 @@
                   (item.icon == '' ? 'pi-document-data' : item.icon)
               "
             ></i>
-            {{ settings.quicklinks[index].title[currentLocale] }}
+            {{ item.title[currentLocale] }}
           </button>
         </ul>
       </nav>
@@ -36,6 +36,11 @@ export default {
   },
   components: {
     TopNav,
+  },
+  computed: {
+    visibleQuickLinks() {
+      return this.settings.quicklinks.filter(item => item.hide !== true);
+    },
   },
   methods: {
     selectLink(index) {
