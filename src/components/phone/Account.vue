@@ -2,7 +2,7 @@
   <main class="flex flex-col">
     <TopNav previousPhonePage />
     <AccountMainArea />
-    <AccountSecondaryArea :key="reloadOffer" />
+    <AccountSecondaryArea v-if="app.industry !== 'insurance'" :key="reloadOffer" />
   </main>
 </template>
 

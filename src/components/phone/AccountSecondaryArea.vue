@@ -4,9 +4,9 @@
       <h2>{{ $t('message.phone_quick_links_title') }}</h2>
       <nav>
         <ul>
-          <li v-for="(item, index) in settings.quicklinks" :key="index">
+          <li v-for="(item, index) in visibleQuickLinks" :key="index">
             <a v-on:click="selectLink(index)">{{
-              settings.quicklinks[index].title[currentLocale]
+              item.title[currentLocale]
             }}</a>
           </li>
         </ul>
@@ -73,6 +73,11 @@ export default {
         );
       }, 200);
     }
+  },
+  computed: {
+    visibleQuickLinks() {
+      return this.settings.quicklinks.filter(item => item.hide !== true);
+    },
   },
   methods: {
     selectLink(index) {
