@@ -294,6 +294,10 @@
 .phone .offer-cards {
   padding: 16rem;
 }
+.phone .offer-cards .primary-card {
+  text-align:center;
+}
+
 .phone .offer-cards > div {
   flex-flow: column nowrap;
 }

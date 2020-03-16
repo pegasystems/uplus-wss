@@ -5,7 +5,7 @@
       <nav>
         <ul>
           <li v-for="(item, index) in visibleQuickLinks" :key="index">
-            <a v-on:click="selectLink(index)">{{
+            <a v-on:click="selectLink(item.originalIndex)">{{
               item.title[currentLocale]
             }}</a>
           </li>
@@ -76,7 +76,10 @@ export default {
   },
   computed: {
     visibleQuickLinks() {
-      return this.settings.quicklinks.filter(item => item.hide !== true);
+      return this.settings.quicklinks.filter((item, index) => {
+        item.originalIndex = index;
+        return item.hide !== true;
+      });
     },
   },
   methods: {
