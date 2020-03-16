@@ -65,6 +65,7 @@ export default {
       mainconfig.phonePageName = '';
       mainconfig.quickLinkId = -1;
       mainconfig.viewKMHelp = -1;
+      mainconfig.offerAction = -1;
       mainconfig.offerURL = '';
       if (mainconfig.isAuthenticated) {
         window.history.pushState(
