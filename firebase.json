@@ -10,8 +10,7 @@
     "ignore": [
       "firebase.json",
       "**/.*",
-      "**/node_modules/**",
-      "404.html"
+      "**/node_modules/**"
     ]
   }
 }
