@@ -3,7 +3,7 @@
     <div class="main-offer primary-card flex flex-nowrap">
       <div class="image" v-bind:style="{ backgroundImage: 'url(' + hero_offer.img + ')'}"></div>
       <div class="details">
-        <h3 class="color-brand">{{ hero_offer.title }}</h3>
+        <h2 class="color-brand">{{ hero_offer.title }}</h2>
         <p>{{ hero_offer.message }}</p>
         <button v-on:click="applyOfferAction" class="strong">{{ hero_offer.link }}</button>
       </div>
@@ -27,7 +27,7 @@
     <div class="main-offer primary-card flex flex-nowrap">
       <div class="image" v-bind:style="{ backgroundImage: 'url(' + hero_offer.img + ')'}"></div>
       <div class="details">
-        <h3 class="color-brand">{{ hero_offer.title }}</h3>
+        <h2 class="color-brand">{{ hero_offer.title }}</h2>
         <p>{{ hero_offer.message }}</p>
         <button v-on:click="applyOfferAction" class="strong">{{ hero_offer.link }}</button>
       </div>
