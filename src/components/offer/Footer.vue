@@ -2,7 +2,7 @@
   <div class="background-brand offer-footer">
     <div class="promo">
       <h4>{{ $t('message.' + app.offer.footer.title)}}</h4>
-      <button class="secondary">{{ $t('message.' + app.offer.footer.button_label)}}</button>
+      <button class="secondary" style="pointer-events: none;">{{ $t('message.' + app.offer.footer.button_label)}}</button>
     </div>
     <MainFooter/>
   </div>
