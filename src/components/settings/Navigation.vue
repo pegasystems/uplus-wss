@@ -33,10 +33,11 @@ import Container from '../controls/Container.vue';
 
 export default {
   data() {
-    return Object.assign({}, mainconfig, {
+    return {
+      ...mainconfig,
       tabs: [],
       expanded: false,
-    });
+    };
   },
   created() {
     this.tabs = this.$children;

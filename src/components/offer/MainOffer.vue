@@ -73,7 +73,8 @@ import { mainconfig, initNBAM } from '../../global';
 
 export default {
   data() {
-    return Object.assign({}, mainconfig, {
+    return {
+      ...mainconfig,
       loading: true,
       data: [],
       hero_offer: {
@@ -85,7 +86,7 @@ export default {
           `message.${mainconfig.app.offer.main_offer.button_label}`,
         ),
       },
-    });
+    };
   },
   mounted() {
     if (

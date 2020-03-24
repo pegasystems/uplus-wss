@@ -66,10 +66,11 @@ import { mainconfig, initNBAM } from '../../global';
 
 export default {
   data() {
-    return Object.assign({}, mainconfig, {
+    return {
+      ...mainconfig,
       loading: true,
       data: [],
-    });
+    };
   },
   methods: {
     showOfferPage() {

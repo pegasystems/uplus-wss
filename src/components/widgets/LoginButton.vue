@@ -27,12 +27,13 @@ import { mainconfig, updatePegaChat } from '../../global';
 
 export default {
   data() {
-    return Object.assign({}, mainconfig, {
+    return {
+      ...mainconfig,
       isActive: false,
       hasErrorMsg: false,
       username: '',
       password: '',
-    });
+    };
   },
   methods: {
     showLoginOverlay() {

@@ -11,9 +11,7 @@ import { mainconfig, i18n } from '../../global';
 
 export default {
   data() {
-    return Object.assign({}, mainconfig, {
-      currentLocale: i18n.locale,
-    });
+    return { ...mainconfig, currentLocale: i18n.locale };
   },
   methods: {
     changeLanguage() {

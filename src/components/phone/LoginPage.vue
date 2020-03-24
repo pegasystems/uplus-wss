@@ -45,12 +45,13 @@ export default {
         break;
       }
     }
-    return Object.assign({}, mainconfig, {
+    return {
+      ...mainconfig,
       isActive: false,
       hasErrorMsg: false,
       username,
       password,
-    });
+    };
   },
   components: {
     TopNav,

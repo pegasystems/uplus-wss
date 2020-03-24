@@ -22,7 +22,7 @@
           <i class="pi pi-circle-check pi-grey"></i>
           {{ $t("message.on") }}
         </p>
-        <button class="simple" v-on:click="enrollInBillPay">{{ $t("message.autopay_enroll") }}</button>
+        <button class="simple" v-on:click="enrollInBillPay()">{{ $t("message.autopay_enroll") }}</button>
       </div>
     </div>
   </section>
@@ -33,9 +33,7 @@ import { mainconfig } from '../../global';
 
 export default {
   data() {
-    return Object.assign({}, mainconfig, {
-      isBillPayActive: false,
-    });
+    return { ...mainconfig, isBillPayActive: false };
   },
   methods: {
     getDueBillDate() {

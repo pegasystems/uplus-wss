@@ -119,7 +119,8 @@ import { mainconfig } from '../global';
 
 export default {
   data() {
-    return Object.assign({}, mainconfig, {
+    return {
+      ...mainconfig,
       mashupid: `wss${Date.now()}`,
       mashupScript: '',
       isMashupInitialized: false,
@@ -133,7 +134,7 @@ export default {
       actionParam: '',
       caseTitle: '',
       extraParam: '',
-    });
+    };
   },
   created() {
     let isInAccoutPage = false;

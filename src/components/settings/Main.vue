@@ -57,9 +57,7 @@ import TopNav from '../phone/TopNav.vue';
 
 export default {
   data() {
-    return Object.assign({}, mainconfig, {
-      isClearAll: false,
-    });
+    return { ...mainconfig, isClearAll: false };
   },
   methods: {
     processForm() {

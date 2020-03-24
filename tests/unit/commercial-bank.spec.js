@@ -9,9 +9,9 @@ describe('Commercial Bank App on Desktop', () => {
   it('renders home page on load', () => {
     const wrapper = mount(App, {
       mocks: {
-        $t: msg => msg,
-        $n: msg => msg,
-        $d: msg => msg,
+        $t: (msg) => msg,
+        $n: (msg) => msg,
+        $d: (msg) => msg,
       },
     });
     expect(wrapper.find('h1').text()).toContain('message.hero_text');
@@ -22,9 +22,9 @@ describe('Commercial Bank App on Desktop', () => {
     mainconfig.userId = 0;
     const wrapper = mount(App, {
       mocks: {
-        $t: msg => msg,
-        $n: msg => msg,
-        $d: msg => msg,
+        $t: (msg) => msg,
+        $n: (msg) => msg,
+        $d: (msg) => msg,
       },
     });
     expect(wrapper.find('h1').text()).toContain('message.hello');
@@ -38,9 +38,9 @@ describe('Commercial Bank App on Mobile', () => {
     mainconfig.userId = -1;
     const wrapper = mount(App, {
       mocks: {
-        $t: msg => msg,
-        $n: msg => msg,
-        $d: msg => msg,
+        $t: (msg) => msg,
+        $n: (msg) => msg,
+        $d: (msg) => msg,
       },
     });
     expect(wrapper.find('h1').text()).toContain(

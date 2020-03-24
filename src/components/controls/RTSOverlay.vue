@@ -27,11 +27,12 @@ import { mainconfig } from '../../global';
 
 export default {
   data() {
-    return Object.assign({}, mainconfig, {
+    return {
+      ...mainconfig,
       isExpanded: false,
       isEnabled: false,
       msg: 'Click play to enable detection of user patterns.',
-    });
+    };
   },
   methods: {
     toggleRTSOverlay() {

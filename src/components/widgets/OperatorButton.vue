@@ -32,9 +32,7 @@ import { mainconfig } from '../../global';
 
 export default {
   data() {
-    return Object.assign({}, mainconfig, {
-      isActive: false,
-    });
+    return { ...mainconfig, isActive: false };
   },
   methods: {
     showOverlay() {

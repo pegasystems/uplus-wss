@@ -44,10 +44,11 @@ import KeyRates from '../widgets/KeyRates.vue';
 
 export default {
   data() {
-    return Object.assign({}, mainconfig, {
+    return {
+      ...mainconfig,
       loading: true,
       data: [],
-    });
+    };
   },
   mounted() {
     if (

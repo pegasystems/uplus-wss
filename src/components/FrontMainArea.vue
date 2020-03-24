@@ -152,7 +152,8 @@ import AIOverlay from './controls/AIOverlay.vue';
 
 export default {
   data() {
-    return Object.assign({}, mainconfig, {
+    return {
+      ...mainconfig,
       loading: true,
       data: [],
       RTSstate: {
@@ -166,7 +167,7 @@ export default {
         message: this.$t(`message.${mainconfig.app.herotext.titlespan}`),
         link: this.$t(`message.${mainconfig.app.herotext.buttonlabel}`),
       },
-    });
+    };
   },
   mounted() {
     if (
