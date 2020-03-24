@@ -1,12 +1,6 @@
 {
   "hosting": {
     "public": "docs",
-    "headers": [{
-      "source":"**/index.html",
-      "headers": [
-        {"key":"Feature-Policy","value":"geolocation *"}
-      ]}
-    ],
     "ignore": [
       "firebase.json",
       "**/.*",
