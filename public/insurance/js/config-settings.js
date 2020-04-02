@@ -7,7 +7,21 @@ window.settings = {
     /* set to true to show the language switcher */
   },
   quicklinks: [
-    {
+   {
+      title: {
+        en: 'Add Driver',
+      },
+      action: 'createNewWork',
+      actionparam: '',
+      objclass: 'PegaIns-Serv-Work-Auto-AddDriver',
+      url: '',
+      startcase: 'pyStartCase',
+      application: 'CSISelfService',
+      icon: 'pi-car-solid',
+      extraparam: '',
+      hide: false,
+    },
+   {
       title: {
         en: 'Auto Accident',
       },
@@ -21,13 +35,13 @@ window.settings = {
       extraparam: '',
       hide: false,
     },
-    {
+   {
       title: {
-        en: 'Homeowner',
+        en: 'Change Address',
       },
       action: 'createNewWork',
       actionparam: '',
-      objclass: 'PegaIns-Serv-Work-FNOL-Auto-Pers',
+      objclass: 'PegaIns-Serv-Work-ChangeAddress',
       url: '',
       startcase: 'pyStartCase',
       application: 'CSISelfService',
@@ -37,11 +51,25 @@ window.settings = {
     },
     {
       title: {
-        en: 'Life',
+        en: 'Policy Loan',
       },
       action: 'createNewWork',
       actionparam: '',
-      objclass: 'PegaIns-Serv-Work-FNOL-Auto-Pers',
+      objclass: 'PegaIns-Serv-Work-Life-PolicyLoan',
+      url: '',
+      startcase: 'pyStartCase',
+      application: 'CSISelfService',
+      icon: 'pi-life-ring-solid',
+      extraparam: '',
+      hide: false,
+    },  
+    {
+      title: {
+        en: 'Surrender Policy',
+      },
+      action: 'createNewWork',
+      actionparam: '',
+      objclass: 'PegaIns-Serv-Work-Life-PolicySurrender',
       url: '',
       startcase: 'pyStartCase',
       application: 'CSISelfService',
@@ -55,11 +83,25 @@ window.settings = {
       },
       action: 'createNewWork',
       actionparam: '',
-      objclass: 'PegaIns-Serv-Work-FNOL-Auto-Pers',
+      objclass: 'PegaIns-Serv-Work-MicroIns-Travel',
       url: '',
       startcase: 'pyStartCase',
       application: 'CSISelfService',
       icon: 'pi-plane-solid',
+      extraparam: '',
+      hide: false,
+    },
+    {
+      title: {
+        en: 'Update Billing',
+      },
+      action: 'createNewWork',
+      actionparam: '',
+      objclass: 'PegaIns-Serv-Work-UpdateBillingFrequency',
+      url: '',
+      startcase: 'pyStartCase',
+      application: 'CSISelfService',
+      icon: 'pi-home-alt-solid',
       extraparam: '',
       hide: false,
     },
