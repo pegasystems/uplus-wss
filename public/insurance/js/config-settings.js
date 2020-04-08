@@ -18,7 +18,7 @@ window.settings = {
       startcase: 'pyStartCase',
       application: 'CSISelfService',
       icon: 'pi-car-solid',
-      extraparam: '',
+      extraparam: 'PolicyID=PA1411133384',
       hide: false,
     },
    {
@@ -49,6 +49,21 @@ window.settings = {
       extraparam: '',
       hide: false,
     },
+   {
+      title: {
+        en: 'Change Beneficiary',
+      },
+      action: 'createNewWork',
+      actionparam: '',
+      objclass: 'PegaIns-Serv-Work-Life-ChangeBeneficiary',
+      url: '',
+      startcase: 'pyStartCase',
+      application: 'CSISelfService',
+      icon: 'pi-life-ring-solid',
+      extraparam: '',
+      hide: false,
+    },
+
     {
       title: {
         en: 'Policy Loan',
@@ -60,9 +75,24 @@ window.settings = {
       startcase: 'pyStartCase',
       application: 'CSISelfService',
       icon: 'pi-life-ring-solid',
+      extraparam: 'PolicyID=LF1446571166',
+      hide: false,
+    },  
+    {
+      title: {
+        en: 'Report a Death Claim',
+      },
+      action: 'createNewWork',
+      actionparam: '',
+      objclass: 'PegaIns-Serv-Work-FNOL-Life',
+      url: '',
+      startcase: 'pyStartCase',
+      application: 'CSISelfService',
+      icon: 'pi-life-ring-solid',
       extraparam: '',
       hide: false,
     },  
+
     {
       title: {
         en: 'Surrender Policy',
@@ -74,12 +104,12 @@ window.settings = {
       startcase: 'pyStartCase',
       application: 'CSISelfService',
       icon: 'pi-life-ring-solid',
-      extraparam: '',
+      extraparam: 'PolicyID=LF1446571166',
       hide: false,
     },
     {
       title: {
-        en: 'Travel',
+        en: 'Travel Quote',
       },
       action: 'createNewWork',
       actionparam: '',
@@ -162,23 +192,23 @@ window.settings = {
   },
   users: [
     {
-      username: 'joe@pegasystems.com',
+      username: 'JimJohnson@pegatsdemo.com',
       password: 'rules',
       img: 'avatar-1.jpg',
       company_name: '',
       name: '',
       accountID: '',
-      contactID: '',
+      contactID: 'CONT-29',
       customerID: '',
       extraparam: '',
-      pega_userid: 'jsmith',
-      pega_pwd: 'rules',
+      pega_userid: 'jim.johnson9870@gmail.com',
+      pega_pwd: 'install12345!',
       bill_pay: 164.8,
       load_by_default: false,
     },
     {
       username: 'MaryJohnson07@pegatsdemo.com',
-      password: 'install12345!',
+      password: 'rules',
       img: 'avatar-maryjohnson.jpg',
       company_name: '',
       name: '',
@@ -186,7 +216,7 @@ window.settings = {
       contactID: 'CONT-28',
       customerID: '',
       extraparam: '',
-      pega_userid: 'MaryJohnson07@pegatsdemo.com',
+      pega_userid: 'mary.johnson1812@gmail.com',
       pega_pwd: 'install12345!',
       bill_pay: 164.8,
       load_by_default: true,
