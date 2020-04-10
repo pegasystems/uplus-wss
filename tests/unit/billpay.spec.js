@@ -33,7 +33,6 @@ describe('When rendering the BillPay component', () => {
   it('should correctly localize the content', () => {
     const Constructor = Vue.extend(BillPay);
     const vm = new Constructor({ i18n }).$mount();
-    console.log(vm.$el.innerHTML);
     expect(vm.$el.innerHTML).toContain('Enroll in autopay');
   });
 });
