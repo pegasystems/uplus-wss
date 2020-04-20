@@ -2,6 +2,8 @@
 
 The Uplus application is a typical web application built as a Progressive Web Application (PWA) with one of the latest framework (Vue.js). It showcases how a Single Page Application (SPA) can be integrated with the Pega Platform around Mashup, Co-Browse, Pega chat and Knowledge Management as well as with Pega Marketing for offers and realtime streams. It demonstrates how these technologies can be integrated with a typical consumer grade web application to provide a seamingless experience and interaction. 
 
+![](https://github.com/pegasystems/uplus-wss/workflows/Main%20workflow/badge.svg)
+
 A complete demo of the application is available at https://pegasystems.github.io/uplus-wss/. 
 
 Documentation is available at https://github.com/pegasystems/uplus-wss/wiki.
