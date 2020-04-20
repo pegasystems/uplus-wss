@@ -1,9 +1,9 @@
 <template>
-  <main class="home flex flex-col">
+  <main class="home flex flex-col full-height">
     <iframe
       v-if="offerURL!==''"
       :src="offerURL"
-      style="overflow: hidden; height: 570px"
+      style="overflow: hidden;"
       width="100%"
       height="100%"
       border="0"

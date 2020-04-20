@@ -41,7 +41,8 @@
 
   body,
   button,
-  footer nav > div.flex li {
+  footer nav > div.flex li,
+  .inputfile + label {
     font-size: 14rem;
   }
 
