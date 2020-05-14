@@ -158,6 +158,29 @@ h4 {
   font-weight: 700;
 }
 
+.banner > div {
+  border-color: transparent;
+}
+
+.banner h3 {
+  margin: 0 0 7rem 0;
+  text-transform: uppercase;
+}
+
+.banner p {
+  font-size: 14rem;
+}
+
+.banner,
+.banner h3,
+.banner p {
+  color: #FFF;
+}
+
+.banner button {
+  margin-left: 7rem;
+}
+
 .offer-text p {
   margin: 14rem 0;
 }

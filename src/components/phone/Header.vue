@@ -43,6 +43,8 @@ export default {
           mainconfig.viewKMHelp = -1;
         } else if (mainconfig.viewBill !== -1) {
           mainconfig.viewBill = -1;
+        } else if (mainconfig.viewBanner !== -1) {
+          mainconfig.viewBanner = -1;
         }
         mainconfig.phonePageName = '';
       } else if (
@@ -70,6 +72,7 @@ export default {
       mainconfig.quickLinkId = -1;
       mainconfig.viewKMHelp = -1;
       mainconfig.viewBill = -1;
+      mainconfig.viewBanner = -1;
       mainconfig.offerAction = -1;
       mainconfig.offerURL = '';
       if (mainconfig.isAuthenticated) {

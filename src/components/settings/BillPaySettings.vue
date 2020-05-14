@@ -1,6 +1,6 @@
 <template>
   <div class="container-transparent">
-    <h2>Bill Pay Widget</h2>
+    <h2>Bill Pay component</h2>
     <p>Configuration of the Pega Mashup displayed when clicking on the 'Pay now' action inside the account page.</p>
     <div class="container">
       <div class="body">

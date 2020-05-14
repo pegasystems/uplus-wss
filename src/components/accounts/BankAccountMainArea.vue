@@ -1,5 +1,8 @@
 <template>
   <div class="col col-1 primary-card">
+    <Banner
+      v-if="typeof settings.banner !== 'undefined' && settings.banner.hidebanner!==true && settings.banner.hidebanner!=='true'"
+    />
     <MashupMainArea
       v-if="typeof settings.todo !== 'undefined' && settings.todo.url !== ''"
       :key="reloadAccountMashup"
@@ -214,6 +217,7 @@
 import { mainconfig } from '../../global';
 import MashupMainArea from '../MashupMainArea.vue';
 import AccountDetails from '../widgets/AccountDetails.vue';
+import Banner from '../widgets/Banner.vue';
 
 export default {
   data() {
@@ -222,6 +226,7 @@ export default {
   components: {
     MashupMainArea,
     AccountDetails,
+    Banner,
   },
   methods: {
     getMonth(monthIndex) {

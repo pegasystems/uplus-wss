@@ -7,7 +7,7 @@ window.settings = {
     /* set to true to show the language switcher */
   },
   quicklinks: [
-   {
+    {
       title: {
         en: 'Add Driver',
       },
@@ -21,7 +21,7 @@ window.settings = {
       extraparam: 'PolicyID=PA1411133384',
       hide: false,
     },
-   {
+    {
       title: {
         en: 'Auto Accident',
       },
@@ -35,7 +35,7 @@ window.settings = {
       extraparam: '',
       hide: false,
     },
-   {
+    {
       title: {
         en: 'Change Address',
       },
@@ -49,7 +49,7 @@ window.settings = {
       extraparam: '',
       hide: false,
     },
-   {
+    {
       title: {
         en: 'Change Beneficiary',
       },
@@ -77,7 +77,7 @@ window.settings = {
       icon: 'pi-life-ring-solid',
       extraparam: 'PolicyID=LF1446571166',
       hide: false,
-    },  
+    },
     {
       title: {
         en: 'Report a Death Claim',
@@ -91,7 +91,7 @@ window.settings = {
       icon: 'pi-life-ring-solid',
       extraparam: '',
       hide: false,
-    },  
+    },
 
     {
       title: {
@@ -146,6 +146,17 @@ window.settings = {
     extraparam: '',
     hidebillpay: false,
   },
+  banner: {
+    action: 'createNewWork',
+    actionparam: '',
+    objclass: '',
+    url: '',
+    startcase: 'pyStartCase',
+    application: '',
+    extraparam: '',
+    hidebanner: true,
+    color: '#CE9840',
+  },
   todo: {
     action: 'createNewWork',
     actionparam: '',
@@ -156,6 +167,7 @@ window.settings = {
     extraparam: '',
     hideactivity: false,
     hideaccount: false,
+    hideKPI: true,
   },
   kmhelp: {
     action: 'display',

@@ -138,6 +138,13 @@ input[type='checkbox']:indeterminate::-ms-check {
   background-color: #eceff8;
 }
 
+input[type='color'] {
+  width: 30rem;
+  padding: 0;
+  height: 30rem;
+  border: none;
+}
+
 /* Misc */
 .hidden {
   opacity: 0;
@@ -189,7 +196,7 @@ button,
   box-sizing: border-box;
   display: inline-block;
   font-weight: 700;
-  height: 40rem;
+  min-height: 40rem;
   min-width: 140rem;
   border-radius: 3rem;
   cursor: pointer;
@@ -442,7 +449,7 @@ td.align-r {
   color: #295ed9;
   border: none;
   cursor: pointer;
-  height: 40rem;
+  min-height: 40rem;
   border: 1px solid #295ed9;
   border-radius: 3rem;
   transition: all 0.25s ease-out;

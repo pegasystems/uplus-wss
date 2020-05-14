@@ -5,7 +5,7 @@
       <MicroSiteMainArea/>
     </main>
     <main
-      v-else-if="quickLinkId === -1 && viewBill === -1 && viewKMHelp === -1"
+      v-else-if="quickLinkId === -1 && viewBill === -1 && viewKMHelp === -1 && viewBanner === -1"
       class="flex flex-col"
     >
       <div v-if="app.industry  === 'commercial_bank'">

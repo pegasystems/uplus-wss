@@ -1,6 +1,6 @@
 <template>
   <div class="container-transparent">
-    <h2>To Do Widget</h2>
+    <h2>To Do component</h2>
     <p>Configuration of the Pega Mashup displayed as the To Do list inside the account page.</p>
     <div class="container">
       <div class="body">
@@ -13,6 +13,14 @@
             <label class="width-auto" for="todo-hideaccount">Hide account details</label>
             <input id="todo-hideaccount" type="checkbox" v-model="settings.todo.hideaccount" />
           </div>
+        </div>
+        <div class="layout-labels-top layout-inline-grid-double">
+          <div class="field-item field-checkbox" v-if="app.industry  === 'health-pharma' || app.industry  === 'health-care' || app.industry  === 'health-payer'">
+            <label class="width-auto" for="todo-hidekpi">Hide KPI details</label>
+            <input id="todo-hidekpi" type="checkbox" v-model="settings.todo.hideKPI" />
+          </div>
+        </div>
+        <div class="layout-labels-top layout-inline-grid-double">
           <div class="field-item">
             <label for="todo-action">Action</label>
             <select id="todo-action" v-model="settings.todo.action">

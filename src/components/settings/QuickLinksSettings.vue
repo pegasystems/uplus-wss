@@ -1,7 +1,7 @@
 <template>
   <div class="container-transparent">
     <h2>Quick links</h2>
-    <p>Configuration of each of the Pega Mashup cases that can be accessed through the quick links widget.</p>
+    <p>Configuration of each of the Pega Mashup cases that can be accessed through the quick links component.</p>
     <div v-for="(item,index) in settings.quicklinks" v-bind:key="index">
       <Container :title="'Mashup Case ' + (index+1)" :expanded="index===0">
         <div class="layout-labels-left">

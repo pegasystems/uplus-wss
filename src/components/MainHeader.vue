@@ -81,6 +81,7 @@ export default {
     goHomePage() {
       mainconfig.quickLinkId = -1;
       mainconfig.viewBill = -1;
+      mainconfig.viewBanner = -1;
       mainconfig.homeHeroAction = -1;
       mainconfig.offerAction = -1;
       mainconfig.toDo = -1;

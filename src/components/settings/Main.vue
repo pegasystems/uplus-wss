@@ -14,11 +14,14 @@
       <tab name="Quick Links">
         <QuickLinksSettings />
       </tab>
-      <tab v-if="typeof settings.todo != 'undefined'" name="To Do Widget">
+      <tab v-if="typeof settings.todo != 'undefined'" name="To Do component">
         <ToDoSettings />
       </tab>
-      <tab v-if="typeof settings.billpay != 'undefined'" name="Bill Pay Widget">
+      <tab v-if="typeof settings.billpay != 'undefined'" name="Bill Pay component">
         <BillPaySettings />
+      </tab>
+      <tab v-if="typeof settings.banner != 'undefined'" name="Banner component">
+        <BannerSettings />
       </tab>
       <tab v-if="typeof settings.pega_chat != 'undefined'" name="Pega Chat and Co-Browse">
         <ChatSettings />
@@ -46,6 +49,7 @@ import Navigation from './Navigation.vue';
 import GettingStarted from './GettingStarted.vue';
 import QuickLinksSettings from './QuickLinksSettings.vue';
 import BillPaySettings from './BillPaySettings.vue';
+import BannerSettings from './BannerSettings.vue';
 import KMHelpSettings from './KMHelpSettings.vue';
 import ToDoSettings from './ToDoSettings.vue';
 import HomeHeroActionSettings from './HomeHeroActionSettings.vue';
@@ -79,6 +83,7 @@ export default {
     GettingStarted,
     QuickLinksSettings,
     BillPaySettings,
+    BannerSettings,
     ToDoSettings,
     HomeHeroActionSettings,
     UsersSettings,

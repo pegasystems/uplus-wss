@@ -19,10 +19,29 @@ const upgradeConfig = function upgradeConfig(cfg) {
     cfg.settings.todo.hideaccount = false;
   }
   if (
+    cfg.settings.todo &&
+    typeof cfg.settings.todo.hideKPI === 'undefined'
+  ) {
+    cfg.settings.todo.hideKPI = false;
+  }
+  if (
     cfg.settings.billpay &&
     typeof cfg.settings.billpay.hidebillpay === 'undefined'
   ) {
     cfg.settings.billpay.hidebillpay = false;
+  }
+  if (typeof cfg.settings.banner === 'undefined') {
+    cfg.settings.banner = {
+      action: 'createNewWork',
+      actionparam: '',
+      objclass: '',
+      url: '',
+      startcase: 'pyStartCase',
+      application: '',
+      extraparam: '',
+      hidebanner: true,
+      color: '#CE9840',
+    };
   }
   if (typeof cfg.settings.kmhelp === 'undefined') {
     cfg.settings.kmhelp = {
@@ -253,6 +272,7 @@ if (typeof settings === 'undefined') {
     userId: -1,
     quickLinkId: -1,
     viewBill: -1,
+    viewBanner: -1,
     toDo: -1,
     viewKMHelp: -1,
     KMArticleID: '',
@@ -394,6 +414,13 @@ if (typeof settings === 'undefined') {
       mainconfigTmp.viewBill = 1;
       mainconfigTmp.deepLinkExtraParam = queryDict;
       delete mainconfigTmp.deepLinkExtraParam.viewBill;
+      delete mainconfigTmp.deepLinkExtraParam.username;
+      delete mainconfigTmp.deepLinkExtraParam.pega_userid;
+    }
+    if (queryDict.viewBanner) {
+      mainconfigTmp.viewBanner = 1;
+      mainconfigTmp.deepLinkExtraParam = queryDict;
+      delete mainconfigTmp.deepLinkExtraParam.viewBanner;
       delete mainconfigTmp.deepLinkExtraParam.username;
       delete mainconfigTmp.deepLinkExtraParam.pega_userid;
     }

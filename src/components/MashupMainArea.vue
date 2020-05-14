@@ -160,6 +160,14 @@ export default {
       this.startCase = this.settings.billpay.startcase;
       this.appName = this.settings.billpay.application;
       this.extraParam = this.settings.billpay.extraparam;
+    } else if (this.viewBanner !== -1) {
+      this.actionName = this.settings.banner.action;
+      this.actionNameParam = this.settings.banner.actionparam;
+      this.serverUrl = this.settings.banner.url;
+      this.objClass = this.settings.banner.objclass;
+      this.startCase = this.settings.banner.startcase;
+      this.appName = this.settings.banner.application;
+      this.extraParam = this.settings.banner.extraparam;
     } else if (this.homeHeroAction !== -1) {
       this.actionName = this.settings.homeheroaction.action;
       this.actionNameParam = this.settings.homeheroaction.actionparam;

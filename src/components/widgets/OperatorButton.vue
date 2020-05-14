@@ -52,7 +52,7 @@ export default {
       mainconfig.offerAction = -1;
       mainconfig.toDo = -1;
       mainconfig.viewKMHelp = -1;
-      mainconfig.viewBill = -1;
+      mainconfig.viewBanner = -1;
       mainconfig.offerURL = '';
       mainconfig.previousPage = '';
       mainconfig.intent = '';

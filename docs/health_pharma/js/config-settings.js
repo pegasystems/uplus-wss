@@ -74,6 +74,17 @@ window.settings = {
     extraparam: '',
     hidebillpay: true,
   },
+  banner: {
+    action: 'createNewWork',
+    actionparam: '',
+    objclass: '',
+    url: '',
+    startcase: 'pyStartCase',
+    application: '',
+    extraparam: '',
+    hidebanner: true,
+    color: '#CE9840',
+  },
   todo: {
     action: 'createNewWork',
     actionparam: '',
@@ -84,6 +95,7 @@ window.settings = {
     extraparam: '',
     hideactivity: false,
     hideaccount: false,
+    hideKPI: false,
   },
   kmhelp: {
     action: 'display',

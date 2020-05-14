@@ -424,6 +424,15 @@
     flex-flow: column nowrap;
   }
 
+  .banner > div > div {
+    flex-flow: column;
+    text-align: center;
+  }
+
+  .banner i {
+    font-size: 2em;
+  }
+
   .category .primary-card > .separator > section {
     border-right: none;
     flex-flow: row nowrap;
