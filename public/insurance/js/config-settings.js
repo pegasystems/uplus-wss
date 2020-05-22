@@ -63,7 +63,20 @@ window.settings = {
       extraparam: '',
       hide: false,
     },
-
+    {
+      title: {
+        en: 'Make Payment',
+      },
+      action: 'createNewWork',
+      actionparam: '',
+      objclass: 'PegaCPMI-Work-Service-MakePayment',
+      url: '',
+      startcase: 'pyStartCase',
+      application: 'CSISelfService',
+      icon: 'pi-life-ring-solid',
+      extraparam: '',
+      hide: false,
+    },
     {
       title: {
         en: 'Policy Loan',
