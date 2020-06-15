@@ -43,6 +43,10 @@
             <label for="bill-pay-application">Application name</label>
             <input id="bill-pay-application" type="text" v-model="settings.billpay.application" />
           </div>
+          <div class="field-item">
+            <label for="bill-pay-channelid">Channel ID</label>
+            <input id="bill-pay-channelid" type="text" v-model="settings.billpay.channelid" />
+          </div>
         </div>
         <div class="layout-labels-top">
           <div class="field-item">

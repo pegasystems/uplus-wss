@@ -61,6 +61,10 @@
               v-model="settings.offeraction.pega_pwd"
             />
           </div>
+          <div class="field-item">
+            <label for="offer-action-channelid">Channel ID</label>
+            <input id="offer-action-channelid" type="text" v-model="settings.offeraction.channelid" />
+          </div>
         </div>
         <div class="layout-labels-top">
           <div class="field-item">

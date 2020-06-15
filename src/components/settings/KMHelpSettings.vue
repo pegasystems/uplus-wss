@@ -48,6 +48,10 @@
             <label for="kmhelp-password">Password (for unauthenticated access)</label>
             <input id="kmhelp-password" type="text" v-model="settings.kmhelp.password" />
           </div>
+          <div class="field-item">
+            <label for="kmhelp-channelid">Channel ID</label>
+            <input id="kmhelp-channelid" type="text" v-model="settings.kmhelp.channelid" />
+          </div>
         </div>
         <div class="layout-labels-top">
           <div class="field-item">

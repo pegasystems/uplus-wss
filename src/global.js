@@ -173,6 +173,27 @@ const upgradeConfig = function upgradeConfig(cfg) {
     if (typeof cfg.settings.quicklinks[i].hide === 'undefined') {
       cfg.settings.quicklinks[i].hide = false;
     }
+    if (typeof cfg.settings.quicklinks[i].channelid === 'undefined') {
+      cfg.settings.quicklinks[i].channelid = '';
+    }
+  }
+  if (typeof cfg.settings.billpay.channelid === 'undefined') {
+    cfg.settings.billpay.channelid = '';
+  }
+  if (typeof cfg.settings.banner.channelid === 'undefined') {
+    cfg.settings.banner.channelid = '';
+  }
+  if (typeof cfg.settings.homeheroaction.channelid === 'undefined') {
+    cfg.settings.homeheroaction.channelid = '';
+  }
+  if (typeof cfg.settings.offeraction.channelid === 'undefined') {
+    cfg.settings.offeraction.channelid = '';
+  }
+  if (typeof cfg.settings.kmhelp.channelid === 'undefined') {
+    cfg.settings.kmhelp.channelid = '';
+  }
+  if (typeof cfg.settings.todo.channelid === 'undefined') {
+    cfg.settings.todo.channelid = '';
   }
   return cfg;
 };

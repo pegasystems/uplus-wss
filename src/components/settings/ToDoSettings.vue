@@ -53,6 +53,10 @@
             <label for="todo-application">Application name</label>
             <input id="todo-application" type="text" v-model="settings.todo.application" />
           </div>
+          <div class="field-item">
+            <label for="todo-channelid">Channel ID</label>
+            <input id="todo-channelid" type="text" v-model="settings.todo.channelid" />
+          </div>
         </div>
         <div class="layout-labels-top">
           <div class="field-item">

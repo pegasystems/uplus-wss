@@ -47,6 +47,10 @@
             <label for="banner-application">Application name</label>
             <input id="banner-application" type="text" v-model="settings.banner.application" />
           </div>
+          <div class="field-item">
+            <label for="banner-channelid">Channel ID</label>
+            <input id="banner-channelid" type="text" v-model="settings.banner.channelid" />
+          </div>
         </div>
         <div class="layout-labels-top">
           <div class="field-item">

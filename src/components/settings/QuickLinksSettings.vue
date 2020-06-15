@@ -65,6 +65,10 @@
             />
           </div>
           <div class="field-item">
+            <label :for="'quicklinks-' + index + '-channelid'">Channel ID</label>
+            <input :id="'quicklinks-' + index + '-channelid'" type="text" v-model="item.channelid" />
+          </div>
+          <div class="field-item">
             <label :for="'quicklinks-' + index + '-icon'">Icon (for mobile)</label>
             <input :id="'quicklinks-' + index + '-icon'" type="text" v-model="item.icon" />
           </div>

@@ -12,9 +12,11 @@
       :data-pega-action-param-classname="objClass"
       :data-pega-action-param-flowname="startCase"
       data-pega-isdeferloaded="false"
+      data-pega-isretained="false"
       :data-pega-applicationname="appName"
       :data-pega-threadname="threadName"
       data-pega-resizetype="stretch"
+      :data-pega-channelID="channelID"
       :data-pega-url="serverUrl"
       :data-pega-action-param-parameters="actionParam"
     ></div>
@@ -26,9 +28,11 @@
       :data-pega-action-param-harnessname="actionNameParam"
       :data-pega-action-param-classname="objClass"
       data-pega-isdeferloaded="false"
+      data-pega-isretained="false"
       :data-pega-applicationname="appName"
       :data-pega-threadname="threadName"
       data-pega-resizetype="stretch"
+      :data-pega-channelID="channelID"
       :data-pega-url="serverUrl"
       :data-pega-action-param-parameters="actionParam"
     ></div>
@@ -38,9 +42,11 @@
       :data-pega-gadgetname="mashupid"
       :data-pega-action="actionName"
       data-pega-isdeferloaded="false"
+      data-pega-isretained="false"
       :data-pega-applicationname="appName"
       :data-pega-threadname="threadName"
       data-pega-resizetype="stretch"
+      :data-pega-channelID="channelID"
       :data-pega-url="serverUrl"
       :data-pega-action-param-parameters="actionParam"
     ></div>
@@ -51,9 +57,11 @@
       :data-pega-action="actionName"
       :data-pega-action-param-key="actionNameParam"
       data-pega-isdeferloaded="false"
+      data-pega-isretained="false"
       :data-pega-applicationname="appName"
       :data-pega-threadname="threadName"
       data-pega-resizetype="stretch"
+      :data-pega-channelID="channelID"
       :data-pega-url="serverUrl"
       :data-pega-action-param-parameters="actionParam"
     ></div>
@@ -64,9 +72,11 @@
       :data-pega-action="actionName"
       :data-pega-action-param-key="actionNameParam"
       data-pega-isdeferloaded="false"
+      data-pega-isretained="false"
       :data-pega-applicationname="appName"
       :data-pega-threadname="threadName"
       data-pega-resizetype="stretch"
+      :data-pega-channelID="channelID"
       :data-pega-url="serverUrl"
       :data-pega-action-param-parameters="actionParam"
     ></div>
@@ -77,9 +87,11 @@
       :data-pega-action="actionName"
       :data-pega-action-param-workid="actionNameParam"
       data-pega-isdeferloaded="false"
+      data-pega-isretained="false"
       :data-pega-applicationname="appName"
       :data-pega-threadname="threadName"
       data-pega-resizetype="stretch"
+      :data-pega-channelID="channelID"
       :data-pega-url="serverUrl"
       :data-pega-action-param-parameters="actionParam"
     ></div>
@@ -90,9 +102,11 @@
       :data-pega-action="actionName"
       :data-pega-action-param-query="actionNameParam"
       data-pega-isdeferloaded="false"
+      data-pega-isretained="false"
       :data-pega-applicationname="appName"
       :data-pega-threadname="threadName"
       data-pega-resizetype="stretch"
+      :data-pega-channelID="channelID"
       :data-pega-url="serverUrl"
       :data-pega-action-param-parameters="actionParam"
     ></div>
@@ -100,7 +114,7 @@
   <section v-else class="flex flex-col height-100-pct">
     <iframe
       class="pega"
-      :class="isMobilePhone ? 'phone': 'desktop'"
+      :class="isMobilePhone ? 'phone' : 'desktop'"
       :data-attr-title="caseTitle"
       src="form-embed.html"
       style="overflow: hidden; height: 600px"
@@ -130,6 +144,7 @@ export default {
       objClass: '',
       startCase: '',
       threadName: '',
+      channelID: '',
       appName: '',
       actionParam: '',
       caseTitle: '',
@@ -148,6 +163,7 @@ export default {
       this.objClass = this.settings.quicklinks[this.quickLinkId].objclass;
       this.startCase = this.settings.quicklinks[this.quickLinkId].startcase;
       this.appName = this.settings.quicklinks[this.quickLinkId].application;
+      this.channelID = this.settings.quicklinks[this.quickLinkId].channelid;
       this.extraParam = this.settings.quicklinks[this.quickLinkId].extraparam;
       this.caseTitle = this.settings.quicklinks[this.quickLinkId].title[
         this.currentLocale
@@ -159,6 +175,7 @@ export default {
       this.objClass = this.settings.billpay.objclass;
       this.startCase = this.settings.billpay.startcase;
       this.appName = this.settings.billpay.application;
+      this.channelID = this.settings.billpay.channelid;
       this.extraParam = this.settings.billpay.extraparam;
     } else if (this.viewBanner !== -1) {
       this.actionName = this.settings.banner.action;
@@ -167,6 +184,7 @@ export default {
       this.objClass = this.settings.banner.objclass;
       this.startCase = this.settings.banner.startcase;
       this.appName = this.settings.banner.application;
+      this.channelID = this.settings.banner.channelid;
       this.extraParam = this.settings.banner.extraparam;
     } else if (this.homeHeroAction !== -1) {
       this.actionName = this.settings.homeheroaction.action;
@@ -175,6 +193,7 @@ export default {
       this.objClass = this.settings.homeheroaction.objclass;
       this.startCase = this.settings.homeheroaction.startcase;
       this.appName = this.settings.homeheroaction.application;
+      this.channelID = this.settings.homeheroaction.channelid;
       this.extraParam = this.settings.homeheroaction.extraparam;
     } else if (this.offerAction !== -1) {
       this.actionName = this.settings.offeraction.action;
@@ -183,6 +202,7 @@ export default {
       this.objClass = this.settings.offeraction.objclass;
       this.startCase = this.settings.offeraction.startcase;
       this.appName = this.settings.offeraction.application;
+      this.channelID = this.settings.offeraction.channelid;
       this.extraParam = this.settings.offeraction.extraparam;
 
       const urlExtraParams = {};
@@ -209,6 +229,7 @@ export default {
       this.objClass = this.settings.kmhelp.objclass;
       this.startCase = this.settings.kmhelp.startcase;
       this.appName = this.settings.kmhelp.application;
+      this.channelID = this.settings.kmhelp.channelid;
       this.extraParam = this.settings.kmhelp.extraparam;
       if (mainconfig.KMArticleID !== '') {
         this.extraParam += `${this.extraParam !== '' ? ',' : ''}ArticleID=${
@@ -224,6 +245,7 @@ export default {
       this.objClass = this.settings.todo.objclass;
       this.startCase = this.settings.todo.startcase;
       this.appName = this.settings.todo.application;
+      this.channelID = this.settings.todo.channelid;
       this.extraParam = this.settings.todo.extraparam;
       this.logoutURL.todo = `${this.settings.todo.url}?pyActivity=LogOff`;
     }

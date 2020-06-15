@@ -65,6 +65,10 @@
               v-model="settings.homeheroaction.pega_pwd"
             />
           </div>
+          <div class="field-item">
+            <label for="hero-action-channelid">Channel ID</label>
+            <input id="hero-action-channelid" type="text" v-model="settings.homeheroaction.channelid" />
+          </div>
         </div>
         <div class="layout-labels-top">
           <div class="field-item">
