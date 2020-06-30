@@ -322,11 +322,11 @@
 		if (xmlHttpReq)	xmlHttpReq.send(JSON.stringify(jsonObj));
 	},
 
-   sendRTSEvent : function(urlParameters, callback) {
-    var streamURL = this.serviceURLProtocol + "://" + this.hostName + ( this.port != "" ?  ":" + this.port : "") + "/prweb/PRHTTPService/pwdemocontrols/Services/ProcessDigitalActivityStream?" +  urlParameters;
-		var xmlHttpReq = this.createRequest("GET", streamURL, callback);
-		if (xmlHttpReq)	xmlHttpReq.send(null);
-	},
+   sendRTSEvent : function(customerID, eventName, callback) {
+     console.log("Sending RTS Event ID: " + customerID + " Event: " + eventName);
+     customerID = encodeURI(customerID);
+     this.invokeRemoteService("Event?ID="+customerID+"&Intent="+eventName,null,"GET",null,callback);
+    },
 
   };
 

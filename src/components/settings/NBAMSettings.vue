@@ -2,23 +2,45 @@
   <div class="container-transparent">
     <h2>Pega Marketing</h2>
     <p>
-      Configuration to use Pega Marketing to generate offers. Enter an empty 'Host' to disable this functionality. For more details, click
-      <a href="https://github.com/pegasystems/uplus-wss/wiki/Integration-with-Pega-Marketing">here</a>.
+      Configuration to use Pega Marketing to generate offers. Enter an empty
+      'Host' to disable this functionality. For more details, click
+      <a
+        href="https://github.com/pegasystems/uplus-wss/wiki/Integration-with-Pega-Marketing"
+        >here</a
+      >.
     </p>
     <Container title="General" expanded>
       <div class="layout-labels-top layout-inline-grid-double">
         <div class="field-item">
           <label for="NBAM-Host">Host</label>
-          <input id="NBAM-Host" type="text" v-model="settings.pega_marketing.Host" />
+          <input
+            id="NBAM-Host"
+            type="text"
+            v-model="settings.pega_marketing.Host"
+          />
         </div>
         <div class="field-item">
           <label for="NBAM-Port">Port</label>
-          <input id="NBAM-Port" type="text" v-model="settings.pega_marketing.Port" />
+          <input
+            id="NBAM-Port"
+            type="text"
+            v-model="settings.pega_marketing.Port"
+          />
+        </div>
+        <div class="field-item">
+          <label for="NBAM-Channel">Channel</label>
+          <input
+            id="NBAM-Channel"
+            type="text"
+            v-model="settings.pega_marketing.channel"
+          />
         </div>
       </div>
       <div class="layout-labels-left">
         <div class="field-item field-checkbox">
-          <label class="width-auto" for="NBAM-showAIOverlay">Show AI overlay</label>
+          <label class="width-auto" for="NBAM-showAIOverlay"
+            >Show AI overlay</label
+          >
           <input
             id="NBAM-showAIOverlay"
             type="checkbox"
@@ -26,14 +48,19 @@
           />
         </div>
         <div class="field-item field-checkbox">
-          <label class="width-auto" for="NBAM-enableRTS">Enable Real-time data streaming</label>
-          <input id="NBAM-enableRTS" type="checkbox" v-model="settings.pega_marketing.enableRTS" />
+          <label class="width-auto" for="NBAM-enableRTS"
+            >Enable Real-time data streaming</label
+          >
+          <input
+            id="NBAM-enableRTS"
+            type="checkbox"
+            v-model="settings.pega_marketing.enableRTS"
+          />
         </div>
         <div class="field-item">
-          <label
-            class="width-auto"
-            for="NBAM-replaceHomePageHeader"
-          >Replace Home Page header with Hero placement</label>
+          <label class="width-auto" for="NBAM-replaceHomePageHeader"
+            >Replace Home Page header with Hero placement</label
+          >
           <input
             id="NBAM-replaceHomePageHeader"
             type="checkbox"
@@ -84,7 +111,9 @@
           />
         </div>
         <div class="field-item">
-          <label for="NBAM-AccountPage-Placement">Placement (Hero or Tile)</label>
+          <label for="NBAM-AccountPage-Placement"
+            >Placement (Hero or Tile)</label
+          >
           <input
             id="NBAM-AccountPage-Placement"
             type="text"

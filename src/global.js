@@ -163,6 +163,11 @@ const upgradeConfig = function upgradeConfig(cfg) {
   ) {
     cfg.settings.pega_marketing.replaceHomePageHeader = false;
   }
+  if (
+    typeof cfg.settings.pega_marketing.channel === 'undefined'
+  ) {
+    cfg.settings.pega_marketing.channel = 'Web';
+  }
   if (typeof cfg.settings.pega_marketing.showAIOverlay === 'undefined') {
     cfg.settings.pega_marketing.showAIOverlay = false;
   }
@@ -660,7 +665,7 @@ const initNBAM = function initNBAM(
     nbamServiceCtrl.getOffers(
       customerID,
       containerName,
-      'Web',
+      Context.settings.pega_marketing.channel,
       previousPage,
       currentPage,
       (data) => {
@@ -708,10 +713,7 @@ const sendRTSEvent = function sendRTSEvent(Context, item) {
     if (custID === '' && document.cookie.split('MKTID=') > 1) {
       custID = document.cookie.split('MKTID=')[1].split(';')[0];
     }
-    nbamServiceCtrl.sendRTSEvent(
-      `customer_id=${custID}&activity_group=${item.category}&activity_value=${item.name}&activity=hover`,
-      null,
-    );
+    nbamServiceCtrl.sendRTSEvent(custID, item.category, null);
   }
 };
 

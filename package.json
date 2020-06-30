@@ -4,24 +4,25 @@
   "private": true,
   "scripts": {
     "serve": "npx --max_old_space_size=4096 vue-cli-service serve",
-    "build": "vue-cli-service build && find docs -name 'service-worker.js' -exec sed -i '' s/..\\\\/precache-manifest/.\\\\/precache-manifest/g {} + && find docs -name 'precache-manifest.*' -exec sed -i '' 's/\\: \\\"../\\: \\\"./g' {} +",
+    "build": "vue-cli-service build && node scripts/fix_files.js",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
     "register-service-worker": "^1.7.1",
     "vue": "^2.6.11",
-    "vue-i18n": "^8.18.2"
+    "vue-i18n": "^8.18.2",
+    "replace-in-file": "^6.1.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.10.2",
-    "@babel/preset-env": "^7.10.2",
-    "@vue/cli-plugin-babel": "^4.4.4",
-    "@vue/cli-plugin-eslint": "^4.4.4",
-    "@vue/cli-plugin-pwa": "^4.4.4",
-    "@vue/cli-plugin-unit-jest": "^4.4.4",
-    "@vue/cli-service": "^4.4.4",
-    "@vue/eslint-config-airbnb": "^5.0.2",
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@vue/cli-plugin-babel": "^4.4.6",
+    "@vue/cli-plugin-eslint": "^4.4.6",
+    "@vue/cli-plugin-pwa": "^4.4.6",
+    "@vue/cli-plugin-unit-jest": "^4.4.6",
+    "@vue/cli-service": "^4.4.6",
+    "@vue/eslint-config-airbnb": "^5.1.0",
     "@vue/test-utils": "^1.0.3",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.1.0",

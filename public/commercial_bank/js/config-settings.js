@@ -304,6 +304,7 @@ window.settings = {
   pega_marketing: {
     Host: '',
     Port: '',
+    channel: 'Web',
     replaceHomePageHeader: false,
     showAIOverlay: false,
     enableRTS: false,

@@ -39,6 +39,10 @@ window.langEN = {
   quicklinks: 'Quick links',
   accounts: 'Accounts',
   balance: 'Balance',
+  banner_icon: 'pi-warn-solid',
+  banner_title: 'Uplus Assistance',
+  banner_desc: 'Need assistance? Start here to request assistance',
+  banner_action: 'Request assistance',
   offerforyou: 'Offer for you',
   landing_header_title:
     'Maximize your savings with a U+ Bank SavingsPLUS account.',
