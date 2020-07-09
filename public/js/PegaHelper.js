@@ -191,12 +191,7 @@ function InvokeAdvisor(initialSize) {
 	  }
     $("#OnlineHelp").addClass("alerting");
   }
-  var activeAssignment = sessionStorage.getItem("AssignmentKey");
-  if (activeAssignment) {
-    pega.web.api.doAction("OnlineHelp","openAssignment", activeAssignment);
-  } else {
-    pega.web.api.doAction("OnlineHelp", "load");
-  }
+  pega.web.api.doAction("OnlineHelp", "load");
 }
 
 window.setDynamicChatGadgetParams = function(name) {
