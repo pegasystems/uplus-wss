@@ -145,6 +145,10 @@ function postMessageListener(event){
   if(message.command == "clearProactiveTimer") {
     clearProactiveTimer();
   }
+	
+  if (message.command == "downloadBotTranscript") {
+    downloadBotTranscript(message.transcript);
+  }	
 }
 
 function adjustMessageFieldWidth() {
@@ -386,6 +390,16 @@ function handleMissedMessages() {
     sessionStorage.setItem("unreadCount",missedMessageCounter);
 	  $("#unreadCounter").show();
   }
+}
+
+function downloadBotTranscript(message) {
+    var element = document.createElement('a');
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(message));
+    element.setAttribute('download', "ChatTranscript.txt");
+    element.style.display = 'none';
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
 }
 
 /* minimize advisor utilities - end */
