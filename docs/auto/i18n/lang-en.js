@@ -44,7 +44,7 @@ window.langEN = {
   amountdue: 'Amount due',
   paynow: 'Pay now',
   billdue: 'Due date',
-  viewbill: 'View Bill',
+  viewbill: 'View bill',
   autopay: 'Autopay',
   off: 'Off',
   on: 'On',
