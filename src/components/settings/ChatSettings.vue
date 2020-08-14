@@ -30,7 +30,7 @@
           <label
             class="width-auto"
             for="chat-EnableProActiveNotification"
-          >Enable Pega Marketing proactive notifications (must be configured)</label>
+          >Enable Customer Decision Hub proactive notifications (must be configured)</label>
           <input
             id="chat-EnableProActiveNotification"
             type="checkbox"

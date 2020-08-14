@@ -57,7 +57,7 @@
             <input :id="'user-' + index + '-contactid'" type="text" v-model="item.contactID" />
           </div>
           <div class="field-item">
-            <label :for="'user-' + index + '-customerid'">Customer ID (Pega Marketing)</label>
+            <label :for="'user-' + index + '-customerid'">Customer ID (Customer Decision Hub)</label>
             <input :id="'user-' + index + '-customerid'" type="text" v-model="item.customerID" />
           </div>
         </div>

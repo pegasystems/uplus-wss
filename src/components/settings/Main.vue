@@ -26,7 +26,7 @@
       <tab v-if="typeof settings.pega_chat != 'undefined'" name="Pega Chat and Co-Browse">
         <ChatSettings />
       </tab>
-      <tab v-if="typeof settings.pega_marketing != 'undefined'" name="Pega Marketing">
+      <tab v-if="typeof settings.pega_marketing != 'undefined'" name="Customer Decision Hub">
         <NBAMSettings />
       </tab>
       <tab v-if="typeof settings.kmhelp != 'undefined'" name="Knowledge Management">

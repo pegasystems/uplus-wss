@@ -1,8 +1,8 @@
 <template>
   <div class="container-transparent">
-    <h2>Pega Marketing</h2>
+    <h2>Customer Decision Hub</h2>
     <p>
-      Configuration to use Pega Marketing to generate offers. Enter an empty
+      Configuration to use Customer Decision Hub to generate offers. Enter an empty
       'Host' to disable this functionality. For more details, click
       <a
         href="https://github.com/pegasystems/uplus-wss/wiki/Integration-with-Pega-Marketing"
