@@ -5,7 +5,7 @@
       Configuration to use Customer Decision Hub to generate offers. Enter an empty
       'Host' to disable this functionality. For more details, click
       <a
-        href="https://github.com/pegasystems/uplus-wss/wiki/Integration-with-Pega-Marketing"
+        href="https://github.com/pegasystems/uplus-wss/wiki/Integration-with-the-Customer-Decision-Hub"
         >here</a
       >.
     </p>
