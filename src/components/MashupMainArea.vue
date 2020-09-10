@@ -234,7 +234,7 @@ export default {
       if (mainconfig.KMArticleID !== '') {
         this.extraParam += `${this.extraParam !== '' ? ',' : ''}ArticleID=${
           mainconfig.KMArticleID
-        },FromWSS=true`;
+        },preActivityParams={"ArticleID":"${mainconfig.KMArticleID}"}`;
         mainconfig.KMArticleID = '';
       }
     } else {
