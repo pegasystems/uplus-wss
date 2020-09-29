@@ -7,7 +7,7 @@
           <h3>{{ $t("message.banner_title") }}</h3>
           <p>{{ $t("message.banner_desc") }}</p>
         </div>
-         <button v-on:click="openBanner()">{{ $t("message.banner_action") }}</button>
+         <button v-if="settings.banner.hidebanner_button != true"  v-on:click="openBanner()">{{ $t("message.banner_action") }}</button>
       </div>
     </div>
   </section>
