@@ -5,9 +5,15 @@
     <div class="container">
       <div class="body">
         <div class="layout-labels-left">
-          <div class="field-item">
-            <label class="width-auto" for="banner-hidebanner">Hide banner</label>
-            <input id="banner-hidebanner" type="checkbox" v-model="settings.banner.hidebanner" />
+          <div class="layout-inline-grid-double layout-labels-left">
+            <div class="field-item">
+              <label class="width-auto" for="banner-hidebanner">Hide banner</label>
+              <input id="banner-hidebanner" type="checkbox" v-model="settings.banner.hidebanner" />
+            </div>
+            <div class="field-item">
+              <label class="width-auto" for="banner-hidebanner_button">Hide banner button</label>
+              <input id="banner-hidebanner_button" type="checkbox" v-model="settings.banner.hidebanner_button" />
+            </div>
           </div>
           <div class="field-item">
             <label class="width-auto" for="banner-background-color">Background color</label>
