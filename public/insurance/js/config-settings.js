@@ -168,6 +168,7 @@ window.settings = {
     application: '',
     extraparam: '',
     hidebanner: true,
+    hidebanner_button: false,
     color: '#CE9840',
   },
   todo: {

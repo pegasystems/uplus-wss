@@ -4,13 +4,17 @@
     <p>Configuration of the Banner component inside the account page.</p>
     <div class="container">
       <div class="body">
-        <div class="layout-labels-left">
+        <div class="layout-labels-left layout-inline-grid-double">
           <div class="field-item">
-            <label class="width-auto" for="banner-hidebanner">Hide banner</label>
+            <label for="banner-hidebanner">Hide banner</label>
             <input id="banner-hidebanner" type="checkbox" v-model="settings.banner.hidebanner" />
           </div>
           <div class="field-item">
-            <label class="width-auto" for="banner-background-color">Background color</label>
+            <label for="banner-hidebanner-button">Hide banner button</label>
+            <input id="banner-hidebanner-button" type="checkbox" v-model="settings.banner.hidebanner_button" />
+          </div>
+          <div class="field-item">
+            <label for="banner-background-color">Background color</label>
             <input id="banner-background-color" type="color" v-model="settings.banner.color" />
           </div>
         </div>

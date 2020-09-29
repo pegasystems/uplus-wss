@@ -43,6 +43,9 @@ const upgradeConfig = function upgradeConfig(cfg) {
       color: '#CE9840',
     };
   }
+  if (typeof cfg.settings.banner.hidebanner_button === 'undefined') {
+    cfg.settings.banner.hidebanner_button = false;
+  }
   if (typeof cfg.settings.kmhelp === 'undefined') {
     cfg.settings.kmhelp = {
       action: 'display',
