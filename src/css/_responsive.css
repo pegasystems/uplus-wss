@@ -7,6 +7,53 @@
   }
 }
 
+@media screen and (max-width: 1200px) {
+  /* Force table to not be like tables anymore */
+  table.responsive,
+  .responsive thead,
+  .responsive tbody,
+  .responsive th,
+  .responsive td,
+  .responsive tr {
+    display: block;
+  }
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  .responsive thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  .responsive tr {
+    border: 1px solid #ccc;
+  }
+
+  .responsive td {
+    border: none;
+    position: relative;
+    text-align: left;
+    padding: 3rem 0 3rem 60%;
+  }
+
+  .responsive td:before {
+    position: absolute;
+    left: 8rem;
+    padding-right: 8rem;
+    text-align: left;
+    font-weight: bold;
+    max-width: 59%;
+  }
+
+  .responsive td:before {
+    content: attr(data-title);
+  }
+
+  .responsive td.hide-collapsed {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 1024px) {
   header ul.flex li {
     margin-right: 16rem;
@@ -188,50 +235,6 @@
 
   .col-2 > .secondary-card {
     width: auto;
-  }
-
-  /* Force table to not be like tables anymore */
-  table.responsive,
-  .responsive thead,
-  .responsive tbody,
-  .responsive th,
-  .responsive td,
-  .responsive tr {
-    display: block;
-  }
-
-  /* Hide table headers (but not display: none;, for accessibility) */
-  .responsive thead tr {
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
-  }
-
-  .responsive tr {
-    border: 1px solid #ccc;
-  }
-
-  .responsive td {
-    border: none;
-    position: relative;
-    text-align: left;
-    padding: 3rem 0 3rem 60%;
-  }
-
-  .responsive td:before {
-    position: absolute;
-    left: 8rem;
-    padding-right: 8rem;
-    text-align: left;
-    font-weight: bold;
-  }
-
-  .responsive td:before {
-    content: attr(data-title);
-  }
-
-  .responsive td.hide-collapsed {
-    display: none;
   }
 
   .tab-vertical-menu > .tab-interface > .container {
