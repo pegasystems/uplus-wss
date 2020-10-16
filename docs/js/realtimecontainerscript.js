@@ -325,7 +325,7 @@
    sendRTSEvent : function(customerID, eventName, callback) {
      console.log("Sending RTS Event ID: " + customerID + " Event: " + eventName);
      customerID = encodeURI(customerID);
-     this.invokeRemoteService("Event?ID="+customerID+"&Intent="+eventName,null,"GET",null,callback);
+     this.invokeRemoteService("DigitalActivityStream?ID="+customerID+"&Intent="+eventName,null,"GET",null,callback);
     },
 
   };
