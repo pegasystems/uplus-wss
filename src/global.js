@@ -716,7 +716,7 @@ const sendRTSEvent = function sendRTSEvent(Context, item) {
     if (custID === '' && document.cookie.split('MKTID=') > 1) {
       custID = document.cookie.split('MKTID=')[1].split(';')[0];
     }
-    nbamServiceCtrl.sendRTSEvent(custID, item.category, null);
+    nbamServiceCtrl.sendRTSEvent(custID, item, null);
   }
 };
 

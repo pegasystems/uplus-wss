@@ -322,10 +322,11 @@
 		if (xmlHttpReq)	xmlHttpReq.send(JSON.stringify(jsonObj));
 	},
 
-   sendRTSEvent : function(customerID, eventName, callback) {
-     console.log("Sending RTS Event ID: " + customerID + " Event: " + eventName);
+   sendRTSEvent : function(customerID, item, callback) {
+     console.log("Sending RTS Event ID: " + customerID + " Event: " , item);
      customerID = encodeURI(customerID);
-     this.invokeRemoteService("DigitalActivityStream?ID="+customerID+"&Intent="+eventName,null,"GET",null,callback);
+     this.invokeRemoteService("DigitalActivityStream?customer_id="+customerID+"&activity_group="+item.category+
+	 "&activity_value=" + item.name + "&activity=hover",null,"GET",null,callback);
     },
 
   };
