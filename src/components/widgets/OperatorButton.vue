@@ -48,7 +48,6 @@ export default {
       mainconfig.userId = -1;
       if (mainconfig.quickLinkId !== -1) {
         const urllogout = `${mainconfig.settings.quicklinks[mainconfig.quickLinkId].url}?pyActivity=LogOff`;
-        console.log('logoff from Mashup iframe at ', urllogout);
         const testiframe = document.createElement('iframe');
         testiframe.setAttribute('src', urllogout);
         testiframe.setAttribute('style', 'display:none');
@@ -90,7 +89,6 @@ export default {
       for (const servurl in mainconfig.logoutURL) {
         const testiframe = document.createElement('iframe');
         const urllogout = mainconfig.logoutURL[servurl];
-        console.log('logoff from Mashup iframe at ', urllogout);
         testiframe.setAttribute('src', urllogout);
         testiframe.setAttribute('style', 'display:none');
         testiframe.onload = function onloadMashup() {
