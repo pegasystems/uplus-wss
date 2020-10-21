@@ -23,6 +23,17 @@ export default {
     goBack() {
       mainconfig.phonePageName = this.previousPhonePage;
       mainconfig.homeHeroAction = -1;
+      if (mainconfig.quickLinkId !== -1) {
+        const urllogout = `${mainconfig.settings.quicklinks[mainconfig.quickLinkId].url}?pyActivity=LogOff`;
+        console.log('logoff from Mashup iframe at ', urllogout);
+        const testiframe = document.createElement('iframe');
+        testiframe.setAttribute('src', urllogout);
+        testiframe.setAttribute('style', 'display:none');
+        testiframe.onload = function onloadMashup() {
+          document.body.removeChild(testiframe);
+        };
+        document.body.appendChild(testiframe);
+      }
       mainconfig.quickLinkId = -1;
       if (mainconfig.isAuthenticated) {
         window.history.pushState(

@@ -46,6 +46,17 @@ export default {
     logOut() {
       mainconfig.isAuthenticated = false;
       mainconfig.userId = -1;
+      if (mainconfig.quickLinkId !== -1) {
+        const urllogout = `${mainconfig.settings.quicklinks[mainconfig.quickLinkId].url}?pyActivity=LogOff`;
+        console.log('logoff from Mashup iframe at ', urllogout);
+        const testiframe = document.createElement('iframe');
+        testiframe.setAttribute('src', urllogout);
+        testiframe.setAttribute('style', 'display:none');
+        testiframe.onload = function onloadMashup() {
+          document.body.removeChild(testiframe);
+        };
+        document.body.appendChild(testiframe);
+      }
       mainconfig.quickLinkId = -1;
       mainconfig.viewBill = -1;
       mainconfig.homeHeroAction = -1;
@@ -78,7 +89,9 @@ export default {
       // Issue logout request for each url present in the list */
       for (const servurl in mainconfig.logoutURL) {
         const testiframe = document.createElement('iframe');
-        testiframe.setAttribute('src', mainconfig.logoutURL[servurl]);
+        const urllogout = mainconfig.logoutURL[servurl];
+        console.log('logoff from Mashup iframe at ', urllogout);
+        testiframe.setAttribute('src', urllogout);
         testiframe.setAttribute('style', 'display:none');
         testiframe.onload = function onloadMashup() {
           document.body.removeChild(testiframe);
