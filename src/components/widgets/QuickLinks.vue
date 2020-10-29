@@ -1,5 +1,5 @@
 <template>
-  <section class="secondary-card container">
+  <section v-if="hasQuicklinks()" class="secondary-card container">
     <h3>{{ $t('message.quicklinks') }}</h3>
     <nav>
       <ul class="quick-links">
@@ -32,6 +32,12 @@ export default {
         );
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
+    },
+    hasQuicklinks() {
+      for (const i in this.settings.quicklinks) {
+        if (this.settings.quicklinks[i].hide !== true) return true;
+      }
+      return false;
     },
   },
 };
