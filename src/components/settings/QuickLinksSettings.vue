@@ -8,9 +8,9 @@
           <div class="field-item">
             <label
               class="width-auto"
-              :for="'quicklinks-' + index + '-extraparam'"
+              :for="'quicklinks-' + index + '-hideaccount'"
             >Hide from account page</label>
-            <input :id="'quicklinks-' + index + '-extraparam'" type="checkbox" v-model="item.hide" />
+            <input :id="'quicklinks-' + index + '-hideaccount'" type="checkbox" v-model="item.hide" />
           </div>
         </div>
         <div class="layout-inline-grid-double layout-labels-top">

@@ -59,9 +59,9 @@
         <div class="layout-labels-top">
           <div class="field-item">
             <label
-              for="banner-application"
+              for="banner-extraparam"
             >Extra parameters (for example 'key1=value1,key2=value2')</label>
-            <textarea id="banner-application" v-model="settings.banner.extraparam" />
+            <textarea id="banner-extraparam" v-model="settings.banner.extraparam" />
           </div>
         </div>
       </div>

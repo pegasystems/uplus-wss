@@ -55,8 +55,8 @@
         </div>
         <div class="layout-labels-top">
           <div class="field-item">
-            <label for="kmhelp-application">Extra parameters (for example 'key1=value1,key2=value2')</label>
-            <textarea id="kmhelp-application" v-model="settings.kmhelp.extraparam" />
+            <label for="kmhelp-extraparam">Extra parameters (for example 'key1=value1,key2=value2')</label>
+            <textarea id="kmhelp-extraparam" v-model="settings.kmhelp.extraparam" />
           </div>
         </div>
       </div>

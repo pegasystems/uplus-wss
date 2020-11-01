@@ -51,9 +51,9 @@
         <div class="layout-labels-top">
           <div class="field-item">
             <label
-              for="bill-pay-application"
+              for="bill-pay-extraparam"
             >Extra parameters (for example 'key1=value1,key2=value2')</label>
-            <textarea id="bill-pay-application" v-model="settings.billpay.extraparam" />
+            <textarea id="bill-pay-extraparam" v-model="settings.billpay.extraparam" />
           </div>
         </div>
       </div>
