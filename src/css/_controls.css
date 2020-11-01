@@ -15,7 +15,6 @@ label {
   color: #646363;
   font-size: 18rem;
   font-weight: 700;
-  margin-bottom: 15px;
   display: inline-block;
 }
 
@@ -166,6 +165,12 @@ input[type='color'] {
   top: 90rem;
   transition: opacity 0.25s ease-out;
   z-index: 1000;
+  max-width: 465px;
+  min-width: 465px;
+}
+
+.overlay.logout {
+  min-width: 0;
 }
 
 .overlay::after {

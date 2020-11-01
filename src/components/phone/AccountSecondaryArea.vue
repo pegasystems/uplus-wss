@@ -88,7 +88,12 @@ export default {
       mainconfig.quickLinkId = index;
     },
     gotoOfferPage(event) {
-      mainconfig.currentPage = 'offer';
+      mainconfig.currentPage = 'offer.html';
+      if (this.$gtag) {
+        this.$gtag.pageview({
+          page_path: mainconfig.currentPage,
+        });
+      }
       window.history.replaceState({}, '', 'offer.html');
       window.scrollTo({ top: 0, behavior: 'smooth' });
       event.preventDefault();

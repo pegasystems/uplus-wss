@@ -116,6 +116,9 @@ const upgradeConfig = function upgradeConfig(cfg) {
     if (typeof cfg.settings.users[i].billpay === 'undefined') {
       cfg.settings.users[i].billpay = 164.8;
     }
+    if (typeof cfg.settings.users[i].otp_send_to === 'undefined') {
+      cfg.settings.users[i].otp_send_to = '';
+    }
   }
   if (typeof cfg.settings.pega_marketing.homePage === 'undefined') {
     cfg.settings.pega_marketing.homePage = { containerName: 'TopOffers' };
@@ -202,6 +205,31 @@ const upgradeConfig = function upgradeConfig(cfg) {
   }
   if (typeof cfg.settings.todo.channelid === 'undefined') {
     cfg.settings.todo.channelid = '';
+  }
+  if (typeof cfg.settings.general === 'undefined') {
+    cfg.settings.general = {
+      ga: {
+        enabled: true,
+        trackingid: 'G-RJ6VT2L72P',
+      },
+      auth_2fa: {
+        enabled: false,
+        sendMode: 'email',
+        url: '',
+        emailSettings: {
+          correspondenceName: 'pyDefaultOTPCorr',
+          emailAccount: 'Default',
+          subject: 'New OTP Request',
+          validateMaxAge: 'false',
+        },
+        smsSettings: {
+          from: 'Pega',
+          account: 'Default',
+          message: 'Uplus OTP login code',
+          validateMaxAge: 'false',
+        },
+      },
+    };
   }
   return cfg;
 };

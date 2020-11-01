@@ -495,7 +495,7 @@ footer nav > div.flex {
 }
 
 .layout-labels-left > .field-item > label {
-  width: 180rem;
+  min-width: 180rem;
   margin: 0 16rem 0 0;
 }
 .layout-labels-left > .field-item > label.width-auto {

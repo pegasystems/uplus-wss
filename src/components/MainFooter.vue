@@ -35,6 +35,11 @@ export default {
   methods: {
     gotoSettingsPage(event) {
       mainconfig.currentPage = 'settings.html';
+      if (this.$gtag) {
+        this.$gtag.pageview({
+          page_path: mainconfig.currentPage,
+        });
+      }
       window.history.replaceState({}, '', 'settings.html');
       window.scrollTo({ top: 0, behavior: 'smooth' });
       event.preventDefault();

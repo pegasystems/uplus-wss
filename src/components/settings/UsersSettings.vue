@@ -47,7 +47,10 @@
             <label :for="'user-' + index + '-pega_pwd'">Pega password</label>
             <input :id="'user-' + index + '-pega_pwd'" type="password" v-model="item.pega_pwd" />
           </div>
-
+          <div class="field-item">
+            <label :for="'user-' + index + '-otp_send_to'">OTP send to (email or phone)</label>
+            <input :id="'user-' + index + '-otp_send_to'" type="text" v-model="item.otp_send_to" />
+          </div>
           <div class="field-item">
             <label :for="'user-' + index + '-accountid'">Account ID (Mashup Chat)</label>
             <input :id="'user-' + index + '-accountid'" type="text" v-model="item.accountID" />

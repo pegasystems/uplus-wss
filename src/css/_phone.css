@@ -8,7 +8,7 @@
   min-height: calc(100vh - 40rem);
 }
 
-.phone .kmhelp>div {
+.phone .kmhelp > div {
   height: calc(100vh - 40rem);
 }
 
@@ -217,10 +217,12 @@
 .phone .overlay {
   right: 8rem;
   top: 70rem;
+  min-width: 0;
 }
 
 .phone .overlay:not(.logout) {
   left: 8rem;
+  bottom: 8rem;
 }
 .phone .overlay:after {
   right: 16rem;
@@ -303,7 +305,7 @@
   padding: 16rem;
 }
 .phone .offer-cards .primary-card {
-  text-align:center;
+  text-align: center;
 }
 
 .phone .offer-cards > div {

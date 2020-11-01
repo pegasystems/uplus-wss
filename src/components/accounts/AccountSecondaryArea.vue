@@ -80,6 +80,11 @@ export default {
   methods: {
     gotoOfferPage(event) {
       mainconfig.currentPage = 'offer.html';
+      if (this.$gtag) {
+        this.$gtag.pageview({
+          page_path: mainconfig.currentPage,
+        });
+      }
       window.history.replaceState({}, '', 'offer.html');
       window.scrollTo({ top: 0, behavior: 'smooth' });
       event.preventDefault();

@@ -39,6 +39,11 @@ export default {
       mainconfig.homeHeroAction = 1;
     }
     mainconfig.currentPage = this.currentPage;
+    if (this.$gtag) {
+      this.$gtag.pageview({
+        page_path: mainconfig.currentPage,
+      });
+    }
   },
   components: {
     DefaultPage,

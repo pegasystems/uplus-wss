@@ -73,6 +73,11 @@ export default {
     gotoOfferPage(event) {
       mainconfig.currentPage = 'offer.html';
       window.history.replaceState({}, '', 'offer.html');
+      if (this.$gtag) {
+        this.$gtag.pageview({
+          page_path: mainconfig.currentPage,
+        });
+      }
       window.scrollTo({ top: 0, behavior: 'smooth' });
       event.preventDefault();
     },

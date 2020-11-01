@@ -8,6 +8,9 @@
       <tab name="Getting Started" :selected="true">
         <GettingStarted />
       </tab>
+      <tab v-if="typeof settings.general != 'undefined'" name="General">
+        <General />
+      </tab>
       <tab name="Users">
         <UsersSettings />
       </tab>
@@ -47,6 +50,7 @@ import { mainconfig } from '../../global';
 import Tab from '../controls/Tab.vue';
 import Navigation from './Navigation.vue';
 import GettingStarted from './GettingStarted.vue';
+import General from './GeneralSettings.vue';
 import QuickLinksSettings from './QuickLinksSettings.vue';
 import BillPaySettings from './BillPaySettings.vue';
 import BannerSettings from './BannerSettings.vue';
@@ -81,6 +85,7 @@ export default {
     Navigation,
     Tab,
     GettingStarted,
+    General,
     QuickLinksSettings,
     BillPaySettings,
     BannerSettings,

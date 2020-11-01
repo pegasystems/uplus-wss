@@ -6,6 +6,29 @@ window.settings = {
     showLangSwitch: false,
     /* set to true to show the language switcher */
   },
+  general: {
+    ga: {
+      enabled: true,
+      trackingid: 'G-RJ6VT2L72P',
+    },
+    auth_2fa: {
+      enabled: false,
+      sendMode: 'email',
+      url: '',
+      emailSettings: {
+        correspondenceName: 'pyDefaultOTPCorr',
+        emailAccount: 'Default',
+        subject: 'New OTP Request',
+        validateMaxAge: 'false',
+      },
+      smsSettings: {
+        from: 'Pega',
+        account: 'Default',
+        message: 'Uplus OTP login code',
+        validateMaxAge: 'false',
+      },
+    },
+  },
   quicklinks: [
     {
       title: {
@@ -160,6 +183,7 @@ window.settings = {
       pega_pwd: 'rules',
       bill_pay: 164.8,
       load_by_default: true,
+      otp_send_to: '',
       kpi: [
         {
           icon: 'pi-gauge',
@@ -197,6 +221,7 @@ window.settings = {
       pega_pwd: 'rules',
       bill_pay: 164.8,
       load_by_default: false,
+      otp_send_to: '',
       kpi: [
         {
           icon: 'pi-gauge',

@@ -18,6 +18,11 @@ export default {
   methods: {
     gotoHomePage(event) {
       mainconfig.currentPage = 'index.html';
+      if (this.$gtag) {
+        this.$gtag.pageview({
+          page_path: mainconfig.currentPage,
+        });
+      }
       window.history.replaceState(
         {},
         '',
