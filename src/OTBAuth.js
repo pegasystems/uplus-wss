@@ -11,6 +11,8 @@ const setAuth = function setAuth(username, password) {
 const validateOTP = async function validateOTP(settings, referenceid, otp, auth) {
   if (otp === 'skip') return true;
   const headers = {
+    Accept: 'application/json, text/plain, */*',
+    'Content-Type': 'application/json;charset=UTF-8',
     Authorization: `Basic ${auth}`,
   };
   const apiurl = `${settings.url}/prweb/api/v1/authenticate/OTP/verify?OTPValue=${otp}&ReferenceID=${referenceid}`;
@@ -33,6 +35,8 @@ const requestOTP = async function requestOTP(settings, auth, sendTo) {
   };
   const context = Math.floor(Date.now() / 100);
   const headers = {
+    Accept: 'application/json, text/plain, */*',
+    'Content-Type': 'application/json;charset=UTF-8',
     Authorization: `Basic ${auth}`,
   };
   const sendMode = settings.sendMode;
