@@ -1,7 +1,11 @@
 <template>
   <div class="container-transparent">
     <h2>Pega Chat and Co-Browse</h2>
-    <p>Configuration of the PegaChat Mashup and Co-Browse components. Enter an empty 'URL' to disable the functionality.</p>
+    <p>Configuration of the PegaChat Mashup and Co-Browse components. Enter an empty 'URL' to disable the functionality. For more details, click
+      <a
+        href="https://github.com/pegasystems/uplus-wss/wiki/How-to-configure-the-Pega-Chat-bot"
+        >here</a
+      >.</p>
     <Container title="Pega Chat" expanded>
       <div class="layout-labels-top layout-inline-grid-double">
         <div class="field-item">

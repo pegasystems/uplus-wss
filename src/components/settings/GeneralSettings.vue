@@ -1,7 +1,11 @@
 <template>
   <div class="container-transparent">
     <h2>General</h2>
-    <p>General configuration settings.</p>
+    <p>General configuration settings. For more details on how to configure two-factor authentication, click
+      <a
+        href="https://github.com/pegasystems/uplus-wss/wiki/How-to-configure-two-factor-authentication"
+        >here</a
+      >.</p>
     <div class="container">
       <div class="body">
         <Container title="Google Analytics" expanded>
