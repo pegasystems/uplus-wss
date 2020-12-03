@@ -412,7 +412,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./retail_bank/form-embed.html"
   },
   {
-    "revision": ".d66334733aaeceb08ae2e2d5c8bd79",
+    "revision": ".5710702fb2bf41e6624b321b6b2c0b",
     "url": "./retail_bank/i18n/lang-en.js"
   },
   {

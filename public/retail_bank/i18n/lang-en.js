@@ -102,14 +102,14 @@ window.langEN = {
   landing_footer_button_label: 'Apply Now',
   phone_home_page_title: 'How can we help you today?',
   phone_home_page_actions1_title: 'View Accounts',
-  phone_home_page_actions2_title: 'Open Banking',
+  phone_home_page_actions2_title: 'Self Service',
   phone_home_page_actions3_title: 'Pay my bill',
   phone_home_page_promo_message:
     'Enhance your mobile experience. Always have access to your finances on the go',
   phone_home_page_promo_action: 'Download now',
   phone_login_title: 'Login',
   phone_login_speak_agent: 'Speak to an agent',
-  phone_quick_links_title: 'Find out more information on open banking',
+  phone_quick_links_title: 'Options for Self Service',
   phone_quick_links_intro_title: 'Register for Open Banking',
   phone_quick_links_intro_msg:
     'Open Banking allows you to bring all of you financial information from accounts across multiple banks into one place.',
