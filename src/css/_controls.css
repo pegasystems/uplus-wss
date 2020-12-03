@@ -323,6 +323,11 @@ button.simple:hover {
   width: 100%;
 }
 
+.overlay select,
+.overlay input {
+  width: 100%;
+}
+
 .field > * {
   margin-top: 5rem;
 }
