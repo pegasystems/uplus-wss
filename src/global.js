@@ -467,6 +467,21 @@ if (typeof settings === 'undefined') {
         }
       }
     }
+    /* check if todoclass is passed as parameter */
+    if (mainconfigTmp.settings.todo.objclass === queryDict.todoclass) {
+      mainconfigTmp.deepLinkExtraParam = queryDict;
+      delete mainconfigTmp.deepLinkExtraParam.todoclass;
+      delete mainconfigTmp.deepLinkExtraParam.username;
+      delete mainconfigTmp.deepLinkExtraParam.pega_userid;
+      if (isMobilePhone) {
+        mainconfigTmp.phonePageName = 'help';
+      }
+      window.history.replaceState(
+        { userId: mainconfigTmp.userId },
+        '',
+        'account',
+      );
+    }
     if (queryDict.viewBill) {
       mainconfigTmp.viewBill = 1;
       mainconfigTmp.deepLinkExtraParam = queryDict;
