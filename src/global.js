@@ -474,7 +474,7 @@ if (typeof settings === 'undefined') {
       delete mainconfigTmp.deepLinkExtraParam.username;
       delete mainconfigTmp.deepLinkExtraParam.pega_userid;
       if (isMobilePhone) {
-        mainconfigTmp.phonePageName = 'help';
+        mainconfigTmp.phonePageName = 'account';
       }
       window.history.replaceState(
         { userId: mainconfigTmp.userId },
