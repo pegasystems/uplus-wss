@@ -52,6 +52,10 @@
             <label for="kmhelp-channelid">Channel ID</label>
             <input id="kmhelp-channelid" type="text" v-model="settings.kmhelp.channelid" />
           </div>
+          <div class="field-item">
+            <label for="kmhelp-tenantid">Tenant ID</label>
+            <input id="kmhelp-tenantid" type="text" v-model="settings.kmhelp.tenantid" />
+          </div>
         </div>
         <div class="layout-labels-top">
           <div class="field-item">

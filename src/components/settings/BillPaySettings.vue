@@ -47,6 +47,10 @@
             <label for="bill-pay-channelid">Channel ID</label>
             <input id="bill-pay-channelid" type="text" v-model="settings.billpay.channelid" />
           </div>
+          <div class="field-item">
+            <label for="bill-pay-tenantid">Tenant ID</label>
+            <input id="bill-pay-tenantid" type="text" v-model="settings.billpay.tenantid" />
+          </div>
         </div>
         <div class="layout-labels-top">
           <div class="field-item">

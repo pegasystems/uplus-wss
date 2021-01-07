@@ -57,6 +57,10 @@
             <label for="todo-channelid">Channel ID</label>
             <input id="todo-channelid" type="text" v-model="settings.todo.channelid" />
           </div>
+          <div class="field-item">
+            <label for="todo-tenantid">Tenant ID</label>
+            <input id="todo-tenantid" type="text" v-model="settings.todo.tenantid" />
+          </div>
         </div>
         <div class="layout-labels-top">
           <div class="field-item">

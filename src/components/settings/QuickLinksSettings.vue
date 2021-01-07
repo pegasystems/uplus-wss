@@ -69,6 +69,10 @@
             <input :id="'quicklinks-' + index + '-channelid'" type="text" v-model="item.channelid" />
           </div>
           <div class="field-item">
+            <label :for="'quicklinks-' + index + '-tenantid'">Tenant ID</label>
+            <input :id="'quicklinks-' + index + '-tenantid'" type="text" v-model="item.tenantid" />
+          </div>
+          <div class="field-item">
             <label :for="'quicklinks-' + index + '-icon'">Icon (for mobile)</label>
             <input :id="'quicklinks-' + index + '-icon'" type="text" v-model="item.icon" />
           </div>

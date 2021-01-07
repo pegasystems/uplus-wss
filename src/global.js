@@ -99,7 +99,9 @@ const upgradeConfig = function upgradeConfig(cfg) {
   ) {
     cfg.settings.pega_chat.ProActiveNotificationDismissTime = '';
   }
-
+  if (typeof cfg.settings.pega_chat.TenantID === 'undefined') {
+    cfg.settings.pega_chat.TenantID = '';
+  }
   for (const i in cfg.settings.users) {
     if (typeof cfg.settings.users[i].accountID === 'undefined') {
       cfg.settings.users[i].accountID = '';
@@ -187,7 +189,11 @@ const upgradeConfig = function upgradeConfig(cfg) {
     if (typeof cfg.settings.quicklinks[i].channelid === 'undefined') {
       cfg.settings.quicklinks[i].channelid = '';
     }
+    if (typeof cfg.settings.quicklinks[i].tenantid === 'undefined') {
+      cfg.settings.quicklinks[i].tenantid = '';
+    }
   }
+  /* upgrade channelid */
   if (typeof cfg.settings.billpay.channelid === 'undefined') {
     cfg.settings.billpay.channelid = '';
   }
@@ -206,6 +212,26 @@ const upgradeConfig = function upgradeConfig(cfg) {
   if (typeof cfg.settings.todo.channelid === 'undefined') {
     cfg.settings.todo.channelid = '';
   }
+  /* upgrade tenantid */
+  if (typeof cfg.settings.billpay.tenantid === 'undefined') {
+    cfg.settings.billpay.tenantid = '';
+  }
+  if (typeof cfg.settings.banner.tenantid === 'undefined') {
+    cfg.settings.banner.tenantid = '';
+  }
+  if (typeof cfg.settings.homeheroaction.tenantid === 'undefined') {
+    cfg.settings.homeheroaction.tenantid = '';
+  }
+  if (typeof cfg.settings.offeraction.tenantid === 'undefined') {
+    cfg.settings.offeraction.tenantid = '';
+  }
+  if (typeof cfg.settings.kmhelp.tenantid === 'undefined') {
+    cfg.settings.kmhelp.tenantid = '';
+  }
+  if (typeof cfg.settings.todo.tenantid === 'undefined') {
+    cfg.settings.todo.tenantid = '';
+  }
+
   if (typeof cfg.settings.general === 'undefined') {
     cfg.settings.general = {
       ga: {
@@ -534,6 +560,7 @@ if (typeof settings === 'undefined') {
     ApplicationName: mainconfigTmp.settings.pega_chat.ApplicationName,
     MashupURL: mainconfigTmp.settings.pega_chat.MashupURL,
     ShowAsButton: mainconfigTmp.settings.pega_chat.ShowAsButton,
+    TenantID: mainconfigTmp.settings.pega_chat.TenantID,
     MarketingHost: mainconfigTmp.settings.pega_marketing.Host,
     MarketingPort: mainconfigTmp.settings.pega_marketing.Port,
     EnableProActiveNotification:

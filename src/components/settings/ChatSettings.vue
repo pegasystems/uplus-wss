@@ -24,6 +24,10 @@
           <label for="chat-ApplicationName">Application name</label>
           <input id="chat-ApplicationName" type="text" v-model="settings.pega_chat.ApplicationName" />
         </div>
+        <div class="field-item">
+          <label for="chat-TenantID">Tenant ID</label>
+          <input id="chat-TenantID" type="text" v-model="settings.pega_chat.TenantID" />
+        </div>
       </div>
       <div class="layout-labels-left">
         <div class="field-item">

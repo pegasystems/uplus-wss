@@ -65,6 +65,10 @@
             <label for="offer-action-channelid">Channel ID</label>
             <input id="offer-action-channelid" type="text" v-model="settings.offeraction.channelid" />
           </div>
+          <div class="field-item">
+            <label for="offer-action-tenantid">Tenant ID</label>
+            <input id="offer-action-tenantid" type="text" v-model="settings.offeraction.tenantid" />
+          </div>
         </div>
         <div class="layout-labels-top">
           <div class="field-item">

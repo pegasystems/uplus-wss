@@ -31,6 +31,7 @@ if(PegaCSWSS.ProActiveNotificationDismissTime.trim() !== "") {
 }
           
 var PegaChatConfig = {
+	"TenantId": PegaCSWSS.TenantID ,
 	"ChannelId": PegaCSWSS.WebChatBotID ,
     "HelpConfigurationName": PegaCSWSS.WCBConfigName,
 	"PegaSSAHelpButtonText": "Need Help?",

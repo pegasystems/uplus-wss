@@ -55,6 +55,10 @@
             <label for="banner-channelid">Channel ID</label>
             <input id="banner-channelid" type="text" v-model="settings.banner.channelid" />
           </div>
+          <div class="field-item">
+            <label for="banner-tenantid">Tenant ID</label>
+            <input id="banner-tenantid" type="text" v-model="settings.banner.tenantid" />
+          </div>
         </div>
         <div class="layout-labels-top">
           <div class="field-item">

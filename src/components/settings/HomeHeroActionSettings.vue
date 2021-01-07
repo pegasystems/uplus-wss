@@ -69,6 +69,10 @@
             <label for="hero-action-channelid">Channel ID</label>
             <input id="hero-action-channelid" type="text" v-model="settings.homeheroaction.channelid" />
           </div>
+          <div class="field-item">
+            <label for="hero-action-tenantid">Tenant ID</label>
+            <input id="hero-action-tenantid" type="text" v-model="settings.homeheroaction.tenantid" />
+          </div>
         </div>
         <div class="layout-labels-top">
           <div class="field-item">
