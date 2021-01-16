@@ -224,6 +224,10 @@
   left: 8rem;
   bottom: 8rem;
 }
+
+.phone .overlay.logout {
+  right: 8rem;
+}
 .phone .overlay:after {
   right: 16rem;
 }

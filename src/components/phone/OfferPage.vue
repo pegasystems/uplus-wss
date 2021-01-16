@@ -9,7 +9,7 @@
       border="0"
       frameborder="0"
     ></iframe>
-    <MainOffer v-else/>
+    <MainOffer v-else v-bind:offerType="offerIndex"/>
   </main>
 </template>
 

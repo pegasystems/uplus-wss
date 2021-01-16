@@ -88,10 +88,10 @@ export default {
       mainconfig.quickLinkId = index;
     },
     gotoOfferPage(event) {
-      mainconfig.currentPage = 'offer.html';
+      mainconfig.phonePageName = 'offer.html';
       if (this.$gtag) {
         this.$gtag.pageview({
-          page_path: mainconfig.currentPage,
+          page_path: mainconfig.phonePageName,
         });
       }
       window.history.pushState({}, '', 'offer.html');
