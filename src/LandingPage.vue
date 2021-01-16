@@ -10,7 +10,7 @@
 <script>
 import { mainconfig } from './global';
 import PhonePage from './components/phone/PhonePage.vue';
-import Header from './components/landing/Header.vue';
+import Header from './components/MainHeader.vue';
 import Main from './components/landing/Main.vue';
 import Footer from './components/landing/Footer.vue';
 

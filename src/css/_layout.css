@@ -22,7 +22,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   height: 700rem;
-  padding-top: 34rem;
+  padding-top: 7rem;
   margin-bottom: 70rem;
 }
 
@@ -56,7 +56,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   justify-content: flex-start;
-  padding: 14rem;
+  padding-top: 7rem;
   height: 400rem;
 }
 
@@ -164,8 +164,9 @@ footer .wrap,
 }
 
 .wrap.header {
-  align-items: baseline;
+  align-items: flex-end;
   margin-bottom: 0;
+  height: 55rem;
 }
 
 header {

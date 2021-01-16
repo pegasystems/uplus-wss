@@ -182,7 +182,7 @@ export default {
           'homePage',
           '',
           self.previousPage,
-          mainconfig.isCategoryPage ? 'category.html' : 'index.html',
+          mainconfig.currentPage,
         );
       }, 200);
     }
@@ -222,7 +222,7 @@ export default {
     applyHeroAction() {
       if (this.hero_offer.url === '') {
         mainconfig.homeHeroAction = 1;
-        window.history.replaceState({}, '', 'heroaction');
+        window.history.pushState({}, '', 'heroaction');
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
         mainconfig.offerURL = this.hero_offer.url;
@@ -239,7 +239,8 @@ export default {
           page_path: mainconfig.currentPage,
         });
       }
-      window.history.replaceState({}, '', 'offer.html');
+      window.history.pushState({}, '', 'offer.html');
+      mainconfig.offerIndex = 0;
       window.scrollTo({ top: 0, behavior: 'smooth' });
       event.preventDefault();
     },

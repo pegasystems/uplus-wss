@@ -76,6 +76,7 @@ export default {
     showOfferPage() {
       mainconfig.phonePageName = 'offer';
       window.history.pushState({}, '', 'offer.html');
+      mainconfig.offerIndex = 0;
       window.scrollTo({ top: 0, behavior: 'smooth' });
     },
     showOffer(item) {

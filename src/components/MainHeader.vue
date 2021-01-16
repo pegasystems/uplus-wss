@@ -13,7 +13,7 @@
       </a>
       <nav class="flex-grow-1">
         <ul class="flex flex-mid-align flex-grow-1">
-          <MenuItem v-for="item in app.menuitems" v-bind:key="item.title" v-bind:title="item.title"></MenuItem>
+          <MenuItem v-for="(item, index) in app.menuitems" v-bind:key="index" v-bind:title="item.title" v-bind:href="app.offer.length > index+1 ? `offer${index+1}.html` : ''"></MenuItem>
         </ul>
       </nav>
       <a
@@ -24,6 +24,10 @@
       <OperatorButton v-if="isAuthenticated" />
       <LoginButton v-else />
       <MainHeaderMenu />
+    </div>
+    <div v-if="currentPage.indexOf('offer') === 0">
+      <h1>{{ $t('message.' + app.offer[offerIndex].header.title) }}</h1>
+      <p>{{ $t('message.' + app.offer[offerIndex].header.msg) }}</p>
     </div>
   </header>
 </template>
@@ -97,18 +101,21 @@ export default {
       mainconfig.toDo = -1;
       mainconfig.viewKMHelp = -1;
       mainconfig.offerURL = '';
+      mainconfig.offerIndex = 0;
       if (window.history) {
         if (mainconfig.isAuthenticated) {
+          mainconfig.currentPage = 'account';
           window.history.pushState(
             { userId: mainconfig.userId },
             '',
-            'account',
+            mainconfig.currentPage,
           );
         } else {
+          mainconfig.currentPage = 'index.html';
           window.history.pushState(
             {},
             '',
-            mainconfig.isCategoryPage ? 'category.html' : 'index.html',
+            mainconfig.currentPage,
           );
         }
         window.scrollTo({ top: 0, behavior: 'smooth' });

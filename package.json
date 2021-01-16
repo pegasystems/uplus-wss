@@ -13,7 +13,7 @@
     "replace-in-file": "^6.1.0",
     "vue": "^2.6.12",
     "vue-gtag": "^1.10.0",
-    "vue-i18n": "^8.22.1"
+    "vue-i18n": "^8.22.3"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",

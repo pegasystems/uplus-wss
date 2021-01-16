@@ -1,8 +1,9 @@
 <template>
-  <OfferPage v-if="currentPage.indexOf('offer.html') !== -1" />
-  <SettingsPage v-else-if="currentPage.indexOf('settings.html') !== -1" />
-  <LandingPage v-else-if="currentPage.indexOf('landingpage.html') !== -1" />
-  <CategoryPage v-else-if="currentPage.indexOf('category.html') !== -1" />
+  <DefaultPage v-if="currentPage.indexOf('index.html') === 0" />
+  <OfferPage v-else-if="currentPage.indexOf('offer') === 0" />
+  <SettingsPage v-else-if="currentPage.indexOf('settings.html') === 0" />
+  <LandingPage v-else-if="currentPage.indexOf('landingpage.html') === 0" />
+  <CategoryPage v-else-if="currentPage.indexOf('category.html') === 0" />
   <DefaultPage v-else />
 </template>
 
@@ -37,6 +38,9 @@ export default {
     }
     if (this.currentPage === 'heroaction') {
       mainconfig.homeHeroAction = 1;
+    }
+    if (this.currentPage.indexOf('offer') === 0 && this.currentPage.indexOf('offer.html') !== 0) {
+      mainconfig.offerIndex = parseInt(this.currentPage.substring(5).replace('.html', ''), 10);
     }
     mainconfig.currentPage = this.currentPage;
     if (this.$gtag) {

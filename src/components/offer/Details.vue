@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col offer-details">
-    <div class="flex flex-nowrap" v-for="(item,index) in app.offer.details" v-bind:key="index">
+    <div class="flex flex-nowrap" v-for="(item,index) in app.offer[offerIndex].details" v-bind:key="index">
       <div class="details">
         <div
           class="image"

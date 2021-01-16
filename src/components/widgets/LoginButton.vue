@@ -91,6 +91,7 @@ export default {
               : mainconfig.phonePageName,
           );
         } else {
+          mainconfig.currentPage = 'account';
           window.history.pushState(
             { userId: mainconfig.userId },
             '',

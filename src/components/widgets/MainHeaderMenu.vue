@@ -4,7 +4,7 @@
     <div
       v-clickoutside="{ handler: 'onClickOutMenuOverlay' }"
       class="menu-overlay flex flex-col"
-      :style="{ height: isActive? '204px' : ''}"
+      :style="{ height: isActive? heightVal : ''}"
     >
       <ul>
         <MenuItem v-for="item in app.menuitems" v-bind:key="item.title" v-bind:title="item.title"></MenuItem>
@@ -22,7 +22,7 @@ import { mainconfig } from '../../global';
 
 export default {
   data() {
-    return { ...mainconfig, isActive: false };
+    return { ...mainconfig, isActive: false, heightVal: '204px' };
   },
   methods: {
     showlogin() {
@@ -40,9 +40,10 @@ export default {
         }
       });
     },
-    showMenuOverlay() {
+    showMenuOverlay(e) {
       this.isActive = !this.isActive;
       if (this.isActive === true) {
+        this.heightVal = `${e.target.nextElementSibling.firstElementChild.clientHeight}px`;
         this.toggleLoginOverlay(false);
       }
     },

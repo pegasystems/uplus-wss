@@ -1,19 +1,19 @@
 <template>
   <div v-if="settings.pega_marketing.Host === '' || loading">
     <div class="main-offer primary-card flex flex-nowrap">
-      <div class="image" v-bind:style="{ backgroundImage: 'url(' + hero_offer.img + ')'}"></div>
+      <div class="image" v-bind:style="{ backgroundImage: `url(./img/${app.offer[offerType].main_offer.image})`}"></div>
       <div class="details">
-        <h3 class="color-brand">{{ hero_offer.title }}</h3>
-        <p>{{ hero_offer.message }}</p>
-        <button v-on:click="applyOfferAction" class="strong">{{ hero_offer.link }}</button>
+        <h3 class="color-brand">{{ $t(`message.${app.offer[offerType].main_offer.title}`) }}</h3>
+        <p>{{ $t(`message.${app.offer[offerType].main_offer.message}`) }}</p>
+        <button v-on:click="applyOfferAction" class="strong">{{ $t(`message.${app.offer[offerType].main_offer.button_label}`) }}</button>
       </div>
     </div>
     <div class="offer-cards promo">
-      <h4>{{ $t('message.' + app.offer.cards.title)}}</h4>
+      <h4>{{ $t('message.' + app.offer[offerType].cards.title)}}</h4>
       <div class="flex">
         <div
           class="flex flex-col primary-card"
-          v-for="(item,index) in app.offer.cards.data"
+          v-for="(item,index) in app.offer[offerType].cards.data"
           v-bind:key="index"
         >
           <h3>{{ $t('message.' + item.title)}}</h3>
@@ -33,7 +33,7 @@
       </div>
     </div>
     <div class="offer-cards promo">
-      <h4>{{ $t('message.' + app.offer.cards.title)}}</h4>
+      <h4>{{ $t('message.' + app.offer[offerType].cards.title)}}</h4>
       <div class="flex">
         <div class="flex flex-col primary-card" v-for="(item,index) in data" v-bind:key="index">
           <h3>{{ item.title}}</h3>
@@ -72,20 +72,13 @@
 import { mainconfig, initNBAM } from '../../global';
 
 export default {
+  props: ['offerType'],
   data() {
     return {
       ...mainconfig,
       loading: true,
       data: [],
-      hero_offer: {
-        img: `./img/${mainconfig.app.offer.main_offer.image}`,
-        url: '',
-        title: this.$t(`message.${mainconfig.app.offer.main_offer.title}`),
-        message: this.$t(`message.${mainconfig.app.offer.main_offer.message}`),
-        link: this.$t(
-          `message.${mainconfig.app.offer.main_offer.button_label}`,
-        ),
-      },
+      hero_offer: {},
     };
   },
   mounted() {
@@ -102,10 +95,10 @@ export default {
       setTimeout(() => {
         initNBAM(
           self,
-          'offerPage',
+          `offerPage${this.offerIndex > 0 ? this.offerIndex : ''}`,
           customerID,
           this.previousPage,
-          'offer.html',
+          this.currentPage,
         );
       }, 200);
     }

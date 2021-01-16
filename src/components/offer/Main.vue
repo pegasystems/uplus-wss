@@ -6,7 +6,7 @@
     <MicroSiteMainArea/>
   </main>
   <main v-else class="wrap flex flex-col static-offer">
-    <MainOffer/>
+    <MainOffer v-bind:offerType="offerIndex"/>
     <Details/>
     <Highlight/>
   </main>

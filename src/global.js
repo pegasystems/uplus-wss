@@ -339,6 +339,7 @@ if (typeof settings === 'undefined') {
     app,
     isMobilePhone,
     offerURL: '',
+    offerIndex: 0,
     homeHeroImg: '',
     currentPage: '',
     previousPage: '',
@@ -348,7 +349,6 @@ if (typeof settings === 'undefined') {
     reloadAccountMashup: 1,
     isAuthenticated: false,
     isSidePanelVisible: false,
-    isCategoryPage: false,
     isDeepLink: false,
     deepLinkExtraParam: {},
     phonePageName: '',
@@ -364,6 +364,7 @@ if (typeof settings === 'undefined') {
     offerAction: -1,
     isRTSEnabled: false,
     currentLocale: settings.i18n.defaultlocale,
+    mainTitle: document.title,
   };
   // Retrieve the object from storage
   const retrievedObject = localStorage.getItem(
@@ -621,6 +622,44 @@ if (typeof settings === 'undefined') {
 
 const mainconfig = mainconfigTmp;
 const i18n = i18nTmp;
+
+window.addEventListener('popstate', () => {
+  if (mainconfig.quickLinkId !== -1) {
+    const urllogout = `${mainconfig.settings.quicklinks[mainconfig.quickLinkId].url}?pyActivity=LogOff`;
+    const testiframe = document.createElement('iframe');
+    testiframe.setAttribute('src', urllogout);
+    testiframe.setAttribute('style', 'display:none');
+    testiframe.onload = function onloadMashup() {
+      document.body.removeChild(testiframe);
+    };
+    document.body.appendChild(testiframe);
+  }
+  mainconfig.quickLinkId = -1;
+  mainconfig.currentPage = window.location.pathname.substring(
+    window.location.pathname.lastIndexOf('/') + 1,
+  );
+  if (mainconfig.currentPage === 'heroaction') {
+    mainconfig.homeHeroAction = 1;
+  }
+  if (mainconfig.currentPage.indexOf('offer') === 0 && mainconfig.currentPage.indexOf('offer.html') !== 0) {
+    mainconfig.offerIndex = parseInt(mainconfig.currentPage.substring(5).replace('.html', ''), 10);
+  }
+  if (mainconfig.currentPage.indexOf('index.html') === 0 || mainconfig.currentPage.indexOf('account') === 0) {
+    mainconfig.viewBill = -1;
+    mainconfig.viewBanner = -1;
+    mainconfig.homeHeroAction = -1;
+    mainconfig.offerAction = -1;
+    mainconfig.toDo = -1;
+    mainconfig.viewKMHelp = -1;
+    mainconfig.offerURL = '';
+  }
+  if (mainconfig.currentPage.indexOf('index.html') === 0) {
+    mainconfig.isAuthenticated = false;
+  }
+  if (mainconfig.currentPage.indexOf('account') === 0) {
+    mainconfig.isAuthenticated = true;
+  }
+});
 
 const parseResponseData = (
   Context,

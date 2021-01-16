@@ -16,9 +16,6 @@ export default {
   data() {
     return mainconfig;
   },
-  created() {
-    mainconfig.isCategoryPage = true;
-  },
   components: {
     MainPage,
     AccountPage,

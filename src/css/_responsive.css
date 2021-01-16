@@ -150,7 +150,13 @@
   .front .hero-wrap {
     height: 200rem;
   }
-
+  .offer > header {
+    padding: 7rem 14rem 0;
+  }
+  .offer > header h1 {
+    margin-top: 0;
+    font-size: 24rem;
+  }
   .launch-login {
     display: none;
   }
@@ -162,7 +168,9 @@
   header nav > ul.flex {
     display: none;
   }
-
+  .overlay.logout {
+    right: 100rem;
+  }
   header > .header,
   header > .wrap.header {
     flex-wrap: wrap;

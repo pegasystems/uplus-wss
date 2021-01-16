@@ -157,6 +157,142 @@ window.langFR = {
   offer_highlights_data3_title: 'Prix',
   offer_highlights_data3_msg:
     'Un minimum de 100 USD pour ouvrir votre compte. Vous pouvez virer des fonds par virement électronique, par courrier, par chèque, par virement mobile ou par virement.',
+  offer1_header_title: "Ouvrez un compte d'épargne régulier et économisez!",
+  offer1_header_msg: 'Dépôt minimum faible, accès facile aux fonds, intérêts composés quotidiennement et crédités mensuellement sur votre compte Dépôts, retraits et virements avec votre carte U + Gold ou ATM gratuite, aucuns frais de service mensuels pour les mineurs de 17 ans et moins Banque en ligne gratuite et gratuite Services bancaires mobiles et alertes',
+  offer1_main_offer_title: "Ouvert aujourd'hui",
+  offer1_main_offer_msg: 'Un compte qui permet de commencer facilement à épargner!',
+  offer1_main_offer_button_label: 'Appliquer maintenant',
+  offer1_footer_title:
+    'Simplifiez vos opérations bancaires et commencez à gagner plus.',
+  offer1_footer_button_label: 'Appliquer maintenant',
+  offer1_cards_title: 'Simplifiez vos opérations bancaires et épargnez',
+  offer1_cards_data1_title: 'SavingsPLUS',
+  offer1_cards_data1_msg:
+    'Un programme complet de couverture médicale pour vous protéger dans toutes les situations',
+  offer1_cards_data1_highlight: '20% APR',
+  offer1_cards_data2_title: 'Vérification Flex',
+  offer1_cards_data2_msg:
+    'Un programme complet de couverture médicale pour vous protéger dans toutes les situations',
+  offer1_cards_data2_highlight: 'Pas de frais de guichet automatique',
+  offer1_cards_data3_title: 'CB Credit Card PLUS',
+  offer1_cards_data3_msg:
+    'Un programme complet de couverture médicale pour vous protéger dans toutes les situations',
+  offer1_cards_data3_highlight: 'Gagnez 5% de cash back',
+  offer1_details1_title:
+    'Nous pensons que les opérations bancaires ne doivent pas vous coûter d’argent',
+  offer1_details1_msg:
+    'UPlus Bank est classée n ° 1 parce que nous nous engageons à accroître votre épargne, pas la nôtre.',
+  offer1_highlights_data1_title: 'Minimum du compte minimum',
+  offer1_highlights_data1_msg:
+    'Un minimum de 100 USD pour ouvrir votre compte. Vous pouvez virer des fonds par virement électronique, par courrier, par virement bancaire ou par virement.',
+  offer1_highlights_data2_title: 'Remise en argent',
+  offer1_highlights_data2_msg:
+    'Gagnez 1,60% d’APY avec un solde égal ou supérieur à 1 000,00 $. Un solde inférieur à 1 000,00 € vous rapportera tout de même un bon taux quotidien de 1% APY.',
+  offer1_highlights_data3_title: 'Prix',
+  offer1_highlights_data3_msg:
+    'Un minimum de 100 USD pour ouvrir votre compte. Vous pouvez virer des fonds par virement électronique, par courrier, par chèque, par virement mobile ou par virement.',
+  offer2_header_title: 'Carte de crédit U + Rewards',
+  offer2_header_msg: "La carte de récompenses peut vous récompenser à chaque étape du voyage. Gagnez des points Rewards sur vos achats de voyages. Bénéficiez d'avantages sur le chemin de l'aéroport, pendant que vous vous détendez dans un salon de l'aéroport avant votre vol et une fois arrivé à votre hôtel.",
+  offer2_main_offer_title: "Ouvert aujourd'hui",
+  offer2_main_offer_msg: "De grands avantages avec l'accès à une ligne de crédit plus élevée",
+  offer2_main_offer_button_label: 'Appliquer maintenant',
+  offer2_footer_title:
+      'Simplifiez vos opérations bancaires et commencez à gagner plus.',
+  offer2_footer_button_label: 'Appliquer maintenant',
+  offer2_cards_title: 'Simplifiez vos opérations bancaires et épargnez',
+  offer2_cards_data1_title: 'SavingsPLUS',
+  offer2_cards_data1_msg:
+      'Un programme complet de couverture médicale pour vous protéger dans toutes les situations',
+  offer2_cards_data1_highlight: '20% APR',
+  offer2_cards_data2_title: 'Vérification Flex',
+  offer2_cards_data2_msg:
+      'Un programme complet de couverture médicale pour vous protéger dans toutes les situations',
+  offer2_cards_data2_highlight: 'Pas de frais de guichet automatique',
+  offer2_cards_data3_title: 'CB Credit Card PLUS',
+  offer2_cards_data3_msg:
+      'Un programme complet de couverture médicale pour vous protéger dans toutes les situations',
+  offer2_cards_data3_highlight: 'Gagnez 5% de cash back',
+  offer2_details1_title:
+      'Nous pensons que les opérations bancaires ne doivent pas vous coûter d’argent',
+  offer2_details1_msg:
+      'UPlus Bank est classée n ° 1 parce que nous nous engageons à accroître votre épargne, pas la nôtre.',
+  offer2_highlights_data1_title: 'Minimum du compte minimum',
+  offer2_highlights_data1_msg:
+      'Un minimum de 100 USD pour ouvrir votre compte. Vous pouvez virer des fonds par virement électronique, par courrier, par virement bancaire ou par virement.',
+  offer2_highlights_data2_title: 'Remise en argent',
+  offer2_highlights_data2_msg:
+      'Gagnez 1,60% d’APY avec un solde égal ou supérieur à 1 000,00 $. Un solde inférieur à 1 000,00 € vous rapportera tout de même un bon taux quotidien de 1% APY.',
+  offer2_highlights_data3_title: 'Prix',
+  offer2_highlights_data3_msg:
+      'Un minimum de 100 USD pour ouvrir votre compte. Vous pouvez virer des fonds par virement électronique, par courrier, par chèque, par virement mobile ou par virement.',
+  offer3_header_title: "Financez votre nouvelle maison aujourd'hui!",
+  offer3_header_msg: "Verrouillez des paiements bas, avec un prêt à taux fixe, vous n'avez jamais à vous soucier de la modification de votre paiement, ce qui peut vous aider à gérer plus facilement les flux de trésorerie. Et vous pouvez profiter de tarifs toujours proches de tous les records!",
+  offer3_main_offer_title: "Ouvert aujourd'hui",
+  offer3_main_offer_msg: 'Budget en toute confiance!',
+  offer3_main_offer_button_label: 'Appliquer maintenant',
+  offer3_footer_title:
+    'Simplifiez vos opérations bancaires et commencez à gagner plus.',
+  offer3_footer_button_label: 'Appliquer maintenant',
+  offer3_cards_title: 'Simplifiez vos opérations bancaires et épargnez',
+  offer3_cards_data1_title: 'SavingsPLUS',
+  offer3_cards_data1_msg:
+    'Un programme complet de couverture médicale pour vous protéger dans toutes les situations',
+  offer3_cards_data1_highlight: '20% APR',
+  offer3_cards_data2_title: 'Vérification Flex',
+  offer3_cards_data2_msg:
+    'Un programme complet de couverture médicale pour vous protéger dans toutes les situations',
+  offer3_cards_data2_highlight: 'Pas de frais de guichet automatique',
+  offer3_cards_data3_title: 'CB Credit Card PLUS',
+  offer3_cards_data3_msg:
+    'Un programme complet de couverture médicale pour vous protéger dans toutes les situations',
+  offer3_cards_data3_highlight: 'Gagnez 5% de cash back',
+  offer3_details1_title:
+    'Nous pensons que les opérations bancaires ne doivent pas vous coûter d’argent',
+  offer3_details1_msg:
+    'UPlus Bank est classée n ° 1 parce que nous nous engageons à accroître votre épargne, pas la nôtre.',
+  offer3_highlights_data1_title: 'Minimum du compte minimum',
+  offer3_highlights_data1_msg:
+    'Un minimum de 100 USD pour ouvrir votre compte. Vous pouvez virer des fonds par virement électronique, par courrier, par virement bancaire ou par virement.',
+  offer3_highlights_data2_title: 'Remise en argent',
+  offer3_highlights_data2_msg:
+    'Gagnez 1,60% d’APY avec un solde égal ou supérieur à 1 000,00 $. Un solde inférieur à 1 000,00 € vous rapportera tout de même un bon taux quotidien de 1% APY.',
+  offer3_highlights_data3_title: 'Prix',
+  offer3_highlights_data3_msg:
+    'Un minimum de 100 USD pour ouvrir votre compte. Vous pouvez virer des fonds par virement électronique, par courrier, par chèque, par virement mobile ou par virement.',
+  offer4_header_title: "Donner du sens à l'investissement!",
+  offer4_header_msg: "Nous croyons à l'investissement à long terme avec une emphase sur la qualité et la diversification",
+  offer4_main_offer_title: "Ouvert aujourd'hui",
+  offer4_main_offer_msg: 'Budget en toute confiance!',
+  offer4_main_offer_button_label: 'Parler a un conseille financier',
+  offer4_footer_title:
+    'Simplifiez vos opérations bancaires et commencez à gagner plus.',
+  offer4_footer_button_label: 'Appliquer maintenant',
+  offer4_cards_title: 'Simplifiez vos opérations bancaires et épargnez',
+  offer4_cards_data1_title: 'SavingsPLUS',
+  offer4_cards_data1_msg:
+    'Un programme complet de couverture médicale pour vous protéger dans toutes les situations',
+  offer4_cards_data1_highlight: '20% APR',
+  offer4_cards_data2_title: 'Vérification Flex',
+  offer4_cards_data2_msg:
+    'Un programme complet de couverture médicale pour vous protéger dans toutes les situations',
+  offer4_cards_data2_highlight: 'Pas de frais de guichet automatique',
+  offer4_cards_data3_title: 'CB Credit Card PLUS',
+  offer4_cards_data3_msg:
+    'Un programme complet de couverture médicale pour vous protéger dans toutes les situations',
+  offer4_cards_data3_highlight: 'Gagnez 5% de cash back',
+  offer4_details1_title:
+    'Nous pensons que les opérations bancaires ne doivent pas vous coûter d’argent',
+  offer4_details1_msg:
+    'UPlus Bank est classée n ° 1 parce que nous nous engageons à accroître votre épargne, pas la nôtre.',
+  offer4_highlights_data1_title: 'Minimum du compte minimum',
+  offer4_highlights_data1_msg:
+    'Un minimum de 100 USD pour ouvrir votre compte. Vous pouvez virer des fonds par virement électronique, par courrier, par virement bancaire ou par virement.',
+  offer4_highlights_data2_title: 'Remise en argent',
+  offer4_highlights_data2_msg:
+    'Gagnez 1,60% d’APY avec un solde égal ou supérieur à 1 000,00 $. Un solde inférieur à 1 000,00 € vous rapportera tout de même un bon taux quotidien de 1% APY.',
+  offer4_highlights_data3_title: 'Prix',
+  offer4_highlights_data3_msg:
+    'Un minimum de 100 USD pour ouvrir votre compte. Vous pouvez virer des fonds par virement électronique, par courrier, par chèque, par virement mobile ou par virement.',
   kmhelp: 'Aide',
   category_header_title: 'Cartes de crédit',
   category_header_msg: 'Une carte pour chaque occasion',

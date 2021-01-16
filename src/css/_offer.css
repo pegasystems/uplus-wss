@@ -6,8 +6,12 @@ body > #app.form.offer {
 
 .offer > header {
   height: 400rem;
-  padding-top: 50rem;
+  padding-top: 7rem;
   text-align: center;
+}
+
+.offer > header h1 {
+  margin-top: 28rem;
 }
 
 .category > header {
@@ -17,7 +21,8 @@ body > #app.form.offer {
 
 .offer > header p {
   color: #fff;
-  max-width: 500rem;
+  max-width: 800rem;
+  margin: 0 auto;
 }
 
 .category h1,
@@ -56,7 +61,6 @@ body > #app.form.offer {
 .offer .primary-card h3 {
   font-size: 20rem;
   font-weight: 800;
-  text-transform: uppercase;
 }
 
 .category .promo,

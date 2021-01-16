@@ -191,7 +191,7 @@ window.app = {
       button_label: 'landing_footer_button_label',
     },
   },
-  offer: {
+  offer: [{
     header: {
       title: 'offer_header_title',
       msg: 'offer_header_msg',
@@ -253,6 +253,254 @@ window.app = {
       button_label: 'offer_footer_button_label',
     },
   },
+  {
+    header: {
+      title: 'offer1_header_title',
+      msg: 'offer1_header_msg',
+    },
+    main_offer: {
+      title: 'offer1_main_offer_title',
+      message: 'offer1_main_offer_msg',
+      button_label: 'offer1_main_offer_button_label',
+      image: 'offer-main.jpg',
+    },
+    cards: {
+      title: 'offer1_cards_title',
+      data: [
+        {
+          title: 'offer1_cards_data1_title',
+          message: 'offer1_cards_data1_msg',
+          highlight: 'offer1_cards_data1_highlight',
+        },
+        {
+          title: 'offer1_cards_data2_title',
+          message: 'offer1_cards_data2_msg',
+          highlight: 'offer1_cards_data2_highlight',
+        },
+        {
+          title: 'offer1_cards_data3_title',
+          message: 'offer1_cards_data3_msg',
+          highlight: 'offer1_cards_data3_highlight',
+        },
+      ],
+    },
+    details: [
+      {
+        title: 'offer1_details1_title',
+        message: 'offer1_details1_msg',
+        image: 'offer-promo-1.jpg',
+      },
+    ],
+    highlights: {
+      data: [
+        {
+          icon: 'pi-piggybank',
+          title: 'offer1_highlights_data1_title',
+          message: 'offer1_highlights_data1_msg',
+        },
+        {
+          icon: 'pi-money-send',
+          title: 'offer1_highlights_data2_title',
+          message: 'offer1_highlights_data2_msg',
+        },
+        {
+          icon: 'pi-dollar-sign',
+          title: 'offer1_highlights_data3_title',
+          message: 'offer1_highlights_data3_msg',
+        },
+      ],
+    },
+    footer: {
+      title: 'offer1_footer_title',
+      button_label: 'offer1_footer_button_label',
+    },
+  },
+  {
+    header: {
+      title: 'offer2_header_title',
+      msg: 'offer2_header_msg',
+    },
+    main_offer: {
+      title: 'offer2_main_offer_title',
+      message: 'offer2_main_offer_msg',
+      button_label: 'offer2_main_offer_button_label',
+      image: 'offer-main.jpg',
+    },
+    cards: {
+      title: 'offer2_cards_title',
+      data: [
+        {
+          title: 'offer2_cards_data1_title',
+          message: 'offer2_cards_data1_msg',
+          highlight: 'offer2_cards_data1_highlight',
+        },
+        {
+          title: 'offer2_cards_data2_title',
+          message: 'offer2_cards_data2_msg',
+          highlight: 'offer2_cards_data2_highlight',
+        },
+        {
+          title: 'offer2_cards_data3_title',
+          message: 'offer2_cards_data3_msg',
+          highlight: 'offer2_cards_data3_highlight',
+        },
+      ],
+    },
+    details: [
+      {
+        title: 'offer2_details1_title',
+        message: 'offer2_details1_msg',
+        image: 'offer-promo-1.jpg',
+      },
+    ],
+    highlights: {
+      data: [
+        {
+          icon: 'pi-piggybank',
+          title: 'offer2_highlights_data1_title',
+          message: 'offer2_highlights_data1_msg',
+        },
+        {
+          icon: 'pi-money-send',
+          title: 'offer2_highlights_data2_title',
+          message: 'offer2_highlights_data2_msg',
+        },
+        {
+          icon: 'pi-dollar-sign',
+          title: 'offer2_highlights_data3_title',
+          message: 'offer2_highlights_data3_msg',
+        },
+      ],
+    },
+    footer: {
+      title: 'offer_footer_title',
+      button_label: 'offer2_footer_button_label',
+    },
+  },
+  {
+    header: {
+      title: 'offer3_header_title',
+      msg: 'offer3_header_msg',
+    },
+    main_offer: {
+      title: 'offer3_main_offer_title',
+      message: 'offer3_main_offer_msg',
+      button_label: 'offer3_main_offer_button_label',
+      image: 'offer-main.jpg',
+    },
+    cards: {
+      title: 'offer3_cards_title',
+      data: [
+        {
+          title: 'offer3_cards_data1_title',
+          message: 'offer3_cards_data1_msg',
+          highlight: 'offer3_cards_data1_highlight',
+        },
+        {
+          title: 'offer3_cards_data2_title',
+          message: 'offer3_cards_data2_msg',
+          highlight: 'offer3_cards_data2_highlight',
+        },
+        {
+          title: 'offer3_cards_data3_title',
+          message: 'offer3_cards_data3_msg',
+          highlight: 'offer3_cards_data3_highlight',
+        },
+      ],
+    },
+    details: [
+      {
+        title: 'offer3_details1_title',
+        message: 'offer3_details1_msg',
+        image: 'offer-promo-1.jpg',
+      },
+    ],
+    highlights: {
+      data: [
+        {
+          icon: 'pi-piggybank',
+          title: 'offer3_highlights_data1_title',
+          message: 'offer3_highlights_data1_msg',
+        },
+        {
+          icon: 'pi-money-send',
+          title: 'offer3_highlights_data2_title',
+          message: 'offer3_highlights_data2_msg',
+        },
+        {
+          icon: 'pi-dollar-sign',
+          title: 'offer3_highlights_data3_title',
+          message: 'offer3_highlights_data3_msg',
+        },
+      ],
+    },
+    footer: {
+      title: 'offer3_footer_title',
+      button_label: 'offer3_footer_button_label',
+    },
+  },
+  {
+    header: {
+      title: 'offer4_header_title',
+      msg: 'offer4_header_msg',
+    },
+    main_offer: {
+      title: 'offer4_main_offer_title',
+      message: 'offer4_main_offer_msg',
+      button_label: 'offer4_main_offer_button_label',
+      image: 'offer-main.jpg',
+    },
+    cards: {
+      title: 'offer4_cards_title',
+      data: [
+        {
+          title: 'offer4_cards_data1_title',
+          message: 'offer4_cards_data1_msg',
+          highlight: 'offer4_cards_data1_highlight',
+        },
+        {
+          title: 'offer4_cards_data2_title',
+          message: 'offer4_cards_data2_msg',
+          highlight: 'offer4_cards_data2_highlight',
+        },
+        {
+          title: 'offer4_cards_data3_title',
+          message: 'offer4_cards_data3_msg',
+          highlight: 'offer4_cards_data3_highlight',
+        },
+      ],
+    },
+    details: [
+      {
+        title: 'offer4_details1_title',
+        message: 'offer4_details1_msg',
+        image: 'offer-promo-1.jpg',
+      },
+    ],
+    highlights: {
+      data: [
+        {
+          icon: 'pi-piggybank',
+          title: 'offer4_highlights_data1_title',
+          message: 'offer4_highlights_data1_msg',
+        },
+        {
+          icon: 'pi-money-send',
+          title: 'offer4_highlights_data2_title',
+          message: 'offer4_highlights_data2_msg',
+        },
+        {
+          icon: 'pi-dollar-sign',
+          title: 'offer4_highlights_data3_title',
+          message: 'offer4_highlights_data3_msg',
+        },
+      ],
+    },
+    footer: {
+      title: 'offer4_footer_title',
+      button_label: 'offer4_footer_button_label',
+    },
+  }],
   category: {
     header: {
       title: 'category_header_title',

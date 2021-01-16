@@ -150,6 +150,142 @@ window.langEN = {
   offer_highlights_data3_title: 'Pricing',
   offer_highlights_data3_msg:
     'Minimum of $100 to open your account. You can transfer funds with electronic transfer, mail in check, mobile check deposit, or wire. ',
+  offer1_header_title: 'Open a Regular Savings account and Save!',
+  offer1_header_msg:
+      'Low minimum deposit, Easy access to funds ,Interest compounded daily and credited to your account monthly.Deposits, withdrawals and transfers with your free U+ Gold or ATM Card, No monthly service charges for minors age 17 and under Free Online Banking ,and Free Mobile Banking and Alerts',
+  offer1_main_offer_title: 'Open today',
+  offer1_main_offer_msg:
+      'An account that makes it easy to start saving !',
+  offer1_main_offer_button_label: 'Apply Now',
+  offer1_footer_title: 'Simplify your banking and start earning more.',
+  offer1_footer_button_label: 'Apply Now',
+  offer1_cards_title: 'Simplify your banking and save',
+  offer1_cards_data1_title: 'RegularSavings',
+  offer1_cards_data1_msg:
+      'High every day savings rates.',
+  offer1_cards_data1_highlight: '1% interest',
+  offer1_cards_data2_title: 'Online banking',
+  offer1_cards_data2_msg:
+      'Low minimum balance',
+  offer1_cards_data2_highlight: 'No ATM fees',
+  offer1_cards_data3_title: 'U+ Card PLUS',
+  offer1_cards_data3_msg:
+      'Earn rewards for regular payments and low revolving balance',
+  offer1_cards_data3_highlight: 'Earn 5% cash back',
+  offer1_details1_title: 'We believe banking shouldn’t cost you money',
+  offer1_details1_msg:
+      'UPlus Bank is rated #1 because we are committed to growing your savings, not ours.',
+  offer1_highlights_data1_title: 'Low Account Minimum',
+  offer1_highlights_data1_msg:
+      'Minimum of $100 to open your account. You can transfer funds with electronic transfer, mail in check, mobile check deposit, or wire. ',
+  offer1_highlights_data2_title: 'Cash Back',
+  offer1_highlights_data2_msg:
+      'Earn 1.60% APY on balances of $1,000.00 or more.  Balances of less than $1,000.00 will still earn a great everyday rate of 1% APY.  ',
+  offer1_highlights_data3_title: 'Pricing',
+  offer1_highlights_data3_msg:
+      'Minimum of $100 to open your account. You can transfer funds with electronic transfer, mail in check, mobile check deposit, or wire. ',
+  offer2_header_title: 'U+ Rewards Credit Card',
+  offer2_header_msg:
+      'The Rewards Card can reward you at every stage of the journey. Earn Rewards Points on travel purchases. Enjoy benefits on your way to the airport, while you relax in an airport Lounge before your flight, and once you arrive at your hotel.',
+  offer2_main_offer_title: 'Open today',
+  offer2_main_offer_msg:
+      'Great benefits with access to a higher credit line',
+  offer2_main_offer_button_label: 'Apply Now',
+  offer2_footer_title: 'Spend and save',
+  offer2_footer_button_label: 'Apply Now',
+  offer2_cards_title: 'Simplify your banking and save',
+  offer2_cards_data1_title: 'RegularSavings',
+  offer2_cards_data1_msg:
+      'High every day savings rates.',
+  offer2_cards_data1_highlight: '1% interest',
+  offer2_cards_data2_title: 'Online banking',
+  offer2_cards_data2_msg:
+      'Low minimum balance',
+  offer2_cards_data2_highlight: 'No ATM fees',
+  offer2_cards_data3_title: 'U+ Card PLUS',
+  offer2_cards_data3_msg:
+      'Earn rewards for regular payments and low revolving balance',
+  offer2_cards_data3_highlight: 'Earn 5% cash back',
+  offer2_details1_title: 'We believe banking shouldn’t cost you money',
+  offer2_details1_msg:
+      'UPlus Bank is rated #1 because we are committed to growing your savings, not ours.',
+  offer2_highlights_data1_title: 'Low Account Minimum',
+  offer2_highlights_data1_msg:
+      'Minimum of $100 to open your account. You can transfer funds with electronic transfer, mail in check, mobile check deposit, or wire. ',
+  offer2_highlights_data2_title: 'Cash Back',
+  offer2_highlights_data2_msg:
+      'Earn 1.60% APY on balances of $1,000.00 or more.  Balances of less than $1,000.00 will still earn a great everyday rate of 1% APY.  ',
+  offer2_highlights_data3_title: 'Pricing',
+  offer2_highlights_data3_msg:
+      'Minimum of $100 to open your account. You can transfer funds with electronic transfer, mail in check, mobile check deposit, or wire. ',
+  offer3_header_title: 'Finance your new home today!',
+  offer3_header_msg:
+      'Lock in low payments, With a fixed-rate loan, you never need to worry about your payment changing, which can help you manage cash flow more easily. And you can take advantage of rates that are still near record lows!',
+  offer3_main_offer_title: 'Open today',
+  offer3_main_offer_msg:
+      'Budget with confidence !',
+  offer3_main_offer_button_label: 'Apply Now',
+  offer3_footer_title: 'Spend and save',
+  offer3_footer_button_label: 'Apply Now',
+  offer3_cards_title: 'Simplify your banking and save',
+  offer3_cards_data1_title: 'RegularSavings',
+  offer3_cards_data1_msg:
+      'High every day savings rates.',
+  offer3_cards_data1_highlight: '1% interest',
+  offer3_cards_data2_title: 'Online banking',
+  offer3_cards_data2_msg:
+      'Low minimum balance',
+  offer3_cards_data2_highlight: 'No ATM fees',
+  offer3_cards_data3_title: 'U+ Card PLUS',
+  offer3_cards_data3_msg:
+      'Earn rewards for regular payments and low revolving balance',
+  offer3_cards_data3_highlight: 'Earn 5% cash back',
+  offer3_details1_title: 'We believe banking shouldn’t cost you money',
+  offer3_details1_msg:
+      'UPlus Bank is rated #1 because we are committed to growing your savings, not ours.',
+  offer3_highlights_data1_title: 'Low Account Minimum',
+  offer3_highlights_data1_msg:
+      'Minimum of $100 to open your account. You can transfer funds with electronic transfer, mail in check, mobile check deposit, or wire. ',
+  offer3_highlights_data2_title: 'Cash Back',
+  offer3_highlights_data2_msg:
+      'Earn 1.60% APY on balances of $1,000.00 or more.  Balances of less than $1,000.00 will still earn a great everyday rate of 1% APY.  ',
+  offer3_highlights_data3_title: 'Pricing',
+  offer3_highlights_data3_msg:
+      'Minimum of $100 to open your account. You can transfer funds with electronic transfer, mail in check, mobile check deposit, or wire. ',
+  offer4_header_title: 'Making sense of investing!',
+  offer4_header_msg:
+      'We believe in long-term investing with an emphsis on quality and diversification',
+  offer4_main_offer_title: 'Open today',
+  offer4_main_offer_msg:
+      'Budget with confidence !',
+  offer4_main_offer_button_label: 'Talk to an advisor today',
+  offer4_footer_title: 'Spend and save',
+  offer4_footer_button_label: 'Apply Now',
+  offer4_cards_title: 'Simplify your banking and save',
+  offer4_cards_data1_title: 'RegularSavings',
+  offer4_cards_data1_msg:
+      'High every day savings rates.',
+  offer4_cards_data1_highlight: '1% interest',
+  offer4_cards_data2_title: 'Online banking',
+  offer4_cards_data2_msg:
+      'Low minimum balance',
+  offer4_cards_data2_highlight: 'No ATM fees',
+  offer4_cards_data3_title: 'U+ Card PLUS',
+  offer4_cards_data3_msg:
+      'Earn rewards for regular payments and low revolving balance',
+  offer4_cards_data3_highlight: 'Earn 5% cash back',
+  offer4_details1_title: 'We believe banking shouldn’t cost you money',
+  offer4_details1_msg:
+      'UPlus Bank is rated #1 because we are committed to growing your savings, not ours.',
+  offer4_highlights_data1_title: 'Low Account Minimum',
+  offer4_highlights_data1_msg:
+      'Minimum of $100 to open your account. You can transfer funds with electronic transfer, mail in check, mobile check deposit, or wire. ',
+  offer4_highlights_data2_title: 'Cash Back',
+  offer4_highlights_data2_msg:
+      'Earn 1.60% APY on balances of $1,000.00 or more.  Balances of less than $1,000.00 will still earn a great everyday rate of 1% APY.  ',
+  offer4_highlights_data3_title: 'Pricing',
+  offer4_highlights_data3_msg:
+      'Minimum of $100 to open your account. You can transfer funds with electronic transfer, mail in check, mobile check deposit, or wire. ',
   kmhelp: 'Help',
   category_header_title: 'Credit cards',
   category_header_msg: 'A card for every occasion',

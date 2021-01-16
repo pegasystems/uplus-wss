@@ -194,7 +194,7 @@ window.app = {
       button_label: 'landing_footer_button_label',
     },
   },
-  offer: {
+  offer: [{
     header: {
       title: 'offer_header_title',
       msg: 'offer_header_msg',
@@ -255,7 +255,7 @@ window.app = {
       title: 'offer_footer_title',
       button_label: 'offer_footer_button_label',
     },
-  },
+  }],
   phone: {
     home_page: {
       title: 'phone_home_page_title',

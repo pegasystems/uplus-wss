@@ -77,10 +77,11 @@ export default {
             'index.html',
           );
         } else {
+          mainconfig.currentPage = 'index.html';
           window.history.replaceState(
             {},
             '',
-            mainconfig.isCategoryPage ? 'category.html' : 'index.html',
+            mainconfig.currentPage,
           );
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }

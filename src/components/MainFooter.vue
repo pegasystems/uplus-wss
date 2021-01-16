@@ -40,7 +40,7 @@ export default {
           page_path: mainconfig.currentPage,
         });
       }
-      window.history.replaceState({}, '', 'settings.html');
+      window.history.pushState({}, '', 'settings.html');
       window.scrollTo({ top: 0, behavior: 'smooth' });
       event.preventDefault();
     },

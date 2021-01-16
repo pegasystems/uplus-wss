@@ -94,7 +94,8 @@ export default {
           page_path: mainconfig.currentPage,
         });
       }
-      window.history.replaceState({}, '', 'offer.html');
+      window.history.pushState({}, '', 'offer.html');
+      mainconfig.offerIndex = 0;
       window.scrollTo({ top: 0, behavior: 'smooth' });
       event.preventDefault();
     },

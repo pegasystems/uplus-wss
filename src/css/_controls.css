@@ -159,10 +159,10 @@ input[type='color'] {
   background: #fff;
   position: absolute;
   padding: 35rem 36rem;
-  right: 28px;
+  right: 28rem;
   align-items: center;
   filter: drop-shadow(0 3rem 21rem rgba(0, 0, 0, 0.5));
-  top: 90rem;
+  top: 83rem;
   transition: opacity 0.25s ease-out;
   z-index: 1000;
   max-width: 465px;
@@ -171,6 +171,7 @@ input[type='color'] {
 
 .overlay.logout {
   min-width: 0;
+  right: 4rem;
 }
 
 .overlay::after {
@@ -236,6 +237,7 @@ button.launch-menu {
   font-size: 16rem;
   border: none;
   min-width: 100rem;
+  margin-left: 16rem;
 }
 
 button:hover {
@@ -385,7 +387,7 @@ button.simple:hover {
   position: absolute;
   transition: height 0.25s ease-in-out;
   filter: drop-shadow(0 3rem 21rem rgba(0, 0, 0, 0.5));
-  right: 40rem;
+  right: 16rem;
   min-width: 200px;
   height: 0;
   overflow: hidden;
