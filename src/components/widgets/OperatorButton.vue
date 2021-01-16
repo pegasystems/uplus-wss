@@ -46,16 +46,6 @@ export default {
     logOut() {
       mainconfig.isAuthenticated = false;
       mainconfig.userId = -1;
-      if (mainconfig.quickLinkId !== -1) {
-        const urllogout = `${mainconfig.settings.quicklinks[mainconfig.quickLinkId].url}?pyActivity=LogOff`;
-        const testiframe = document.createElement('iframe');
-        testiframe.setAttribute('src', urllogout);
-        testiframe.setAttribute('style', 'display:none');
-        testiframe.onload = function onloadMashup() {
-          document.body.removeChild(testiframe);
-        };
-        document.body.appendChild(testiframe);
-      }
       mainconfig.quickLinkId = -1;
       mainconfig.viewBill = -1;
       mainconfig.homeHeroAction = -1;

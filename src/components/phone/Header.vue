@@ -38,14 +38,6 @@ export default {
         if (mainconfig.offerURL !== '') {
           mainconfig.offerURL = '';
         } else if (mainconfig.quickLinkId !== -1) {
-          const urllogout = `${mainconfig.settings.quicklinks[mainconfig.quickLinkId].url}?pyActivity=LogOff`;
-          const testiframe = document.createElement('iframe');
-          testiframe.setAttribute('src', urllogout);
-          testiframe.setAttribute('style', 'display:none');
-          testiframe.onload = function onloadMashup() {
-            document.body.removeChild(testiframe);
-          };
-          document.body.appendChild(testiframe);
           mainconfig.quickLinkId = -1;
         } else if (mainconfig.viewKMHelp !== -1) {
           mainconfig.viewKMHelp = -1;
@@ -77,16 +69,6 @@ export default {
     goToHome() {
       mainconfig.homeHeroAction = -1;
       mainconfig.phonePageName = '';
-      if (mainconfig.quickLinkId !== -1) {
-        const urllogout = `${mainconfig.settings.quicklinks[mainconfig.quickLinkId].url}?pyActivity=LogOff`;
-        const testiframe = document.createElement('iframe');
-        testiframe.setAttribute('src', urllogout);
-        testiframe.setAttribute('style', 'display:none');
-        testiframe.onload = function onloadMashup() {
-          document.body.removeChild(testiframe);
-        };
-        document.body.appendChild(testiframe);
-      }
       mainconfig.quickLinkId = -1;
       mainconfig.viewKMHelp = -1;
       mainconfig.viewBill = -1;
