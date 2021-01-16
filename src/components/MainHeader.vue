@@ -13,7 +13,7 @@
       </a>
       <nav class="flex-grow-1">
         <ul class="flex flex-mid-align flex-grow-1">
-          <MenuItem v-for="(item, index) in app.menuitems" v-bind:key="index" v-bind:title="item.title" v-bind:href="app.offer.length > index+1 ? `offer${index+1}.html` : ''"></MenuItem>
+          <MenuItem v-for="(item, index) in app.menuitems" v-bind:key="index" v-bind:title="item.title" v-bind:href="app.offer.length > 1 ? `offer${index+1}.html` : null"></MenuItem>
         </ul>
       </nav>
       <a

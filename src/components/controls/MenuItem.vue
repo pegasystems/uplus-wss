@@ -24,7 +24,7 @@ export default {
         mainconfig.offerIndex = parseInt(mainconfig.currentPage.substring(5).replace('.html', ''), 10);
       }
       window.history.pushState({}, '', mainconfig.currentPage);
-      document.title = `${mainconfig.mainTitle}-${i18n.t(`message.${this.title}`)}`;
+      // document.title = `${mainconfig.mainTitle}-${i18n.t(`message.${this.title}`)}`;
       window.scrollTo({ top: 0, behavior: 'smooth' });
       event.preventDefault();
     },

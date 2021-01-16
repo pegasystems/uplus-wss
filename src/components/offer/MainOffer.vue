@@ -78,7 +78,7 @@ export default {
       ...mainconfig,
       loading: true,
       data: [],
-      hero_offer: {},
+      hero_offer: { url: '' },
     };
   },
   mounted() {
