@@ -71,11 +71,11 @@
           <td :data-title="$t('message.accounts_header2')">{{ item.name }}</td>
           <td :data-title="$t('message.accounts_header3')">{{ item.type }}</td>
           <td :data-title="$t('message.accounts_header4')" class="align-r">
-            <span class="trend success" v-if="item.trend==='green'">
+            <span class="trend trend-success" v-if="item.trend==='green'">
               <i class="pi pi-arrow-up pi-success"></i>
               {{ item.trendvalue}}%
             </span>
-            <span class="trend error" v-else>
+            <span class="trend trend-error" v-else>
               <i class="pi pi-arrow-down pi-error"></i>
               {{ item.trendvalue}}%
             </span>

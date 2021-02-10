@@ -11,6 +11,13 @@ window.settings = {
       enabled: true,
       trackingid: 'G-RJ6VT2L72P',
     },
+    connection: {
+      type: 'mashup',
+      authtype: 'basic',
+      clientid: '',
+      clientsecret: '',
+      webportal: '',
+    },
     auth_2fa: {
       enabled: false,
       sendMode: 'email',

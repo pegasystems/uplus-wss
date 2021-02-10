@@ -257,6 +257,16 @@ const upgradeConfig = function upgradeConfig(cfg) {
       },
     };
   }
+  /* New support for dx api */
+  if (typeof cfg.settings.general.connection === 'undefined') {
+    cfg.settings.general.connection = {
+      type: 'mashup',
+      authtype: 'basic',
+      clientid: '',
+      clientsecret: '',
+      webportal: '',
+    };
+  }
   return cfg;
 };
 

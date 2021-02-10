@@ -52,7 +52,7 @@ a:active {
   padding: 0;
 }
 
-.error {
+.trend-error {
   color: #ff0900e6;
   font-size: 18rem;
   font-weight: 700;
@@ -63,7 +63,7 @@ a:active {
   font-weight: 700 !important;
 }
 
-.success {
+.trend-success {
   color: #3c8712;
   font-size: 18rem;
   font-weight: 700;

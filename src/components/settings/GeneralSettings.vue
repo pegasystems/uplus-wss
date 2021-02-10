@@ -8,6 +8,37 @@
       >.</p>
     <div class="container">
       <div class="body">
+        <Container title="Pega Platform access" expanded>
+          <div class="layout-labels-left">
+          <div class="field-item">
+            <label for="ga-connection-type">Type</label>
+            <select id="ga-connection-type" v-model="settings.general.connection.type">
+                <option value='mashup'>Mashup</option>
+                <option value='dxv1'>DX API v1</option>
+                <option value='dxv2'>DX API v2</option>
+            </select>
+          </div>
+          <div class="field-item">
+            <label for="ga-connection-authtype">Authentication</label>
+            <select id="ga-connection-authtype" v-model="settings.general.connection.authtype">
+              <option value="basic">Basic authentication</option>
+              <option value="oauth2password">OAuth 2.0 Password Grant Type</option>
+            </select>
+          </div>
+          <div class="field-item" v-if="settings.general.connection.authtype === 'oauth2password'">
+            <label for="ga-connection-clientid">Client ID</label>
+            <input type='text' id="ga-connection-clientid" v-model="settings.general.connection.clientid" />
+          </div>
+          <div class="field-item" v-if="settings.general.connection.authtype === 'oauth2password'">
+            <label for="ga-connection-clientsecret">Client secret</label>
+            <input type='text' id="ga-connection-clientsecret" v-model="settings.general.connection.clientsecret" />
+          </div>
+          <div class="field-item" v-if="settings.general.connection.type === 'dxv2'">
+            <label for="ga-connection-webportal">Web portal</label>
+            <input type='text' id="ga-connection-webportal" v-model="settings.general.connection.webportal" />
+          </div>
+        </div>
+        </Container>
         <Container title="Google Analytics" expanded>
           <div class="layout-labels-left">
           <div class="field-item">

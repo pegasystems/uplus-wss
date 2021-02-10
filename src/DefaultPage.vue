@@ -25,6 +25,7 @@ export default {
 <style>
 @import url('./css/normalize.min.css');
 @import url('./css/_init.css');
+@import url('./css/_webcomponent.css');
 @import url('./css/_text.css');
 @import url('./css/_layout.css');
 @import url('./css/_controls.css');

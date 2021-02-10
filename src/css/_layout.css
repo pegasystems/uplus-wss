@@ -515,7 +515,7 @@ footer nav > div.flex {
 
 /* label top layout */
 .layout-labels-top > .field-item > label {
-  margin: 0 0 8rem 0;
+  margin: 0 0 4rem 0;
 }
 
 .layout-labels-top > .field-item > select,
@@ -728,6 +728,12 @@ a.kmhelp {
 .container > .header > button.simple {
   color: #000;
   margin-left: 21rem;
+  min-height: auto;
+  text-align: center;
+  padding: 0 8px;
+}
+.container > .header > button.simple > i {
+  margin-right: 0;
 }
 .container.collapsed > .body {
   display: none;
