@@ -8,6 +8,12 @@
   color: #1d2020;
 }
 
+.pega-mashup fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
 .primary-card > .pega-mashup {
   padding: 8rem 16rem;
   margin-bottom: 24rem;
@@ -46,14 +52,17 @@
   border: none;
 }
 
-button.action-menu,
-button.action-menu:active,
-button.action-menu:hover,
-button.action-menu:focus {
+.pega-mashup button.action-menu,
+.pega-mashup button.action-menu:active,
+.pega-mashup button.action-menu:hover,
+.pega-mashup button.action-menu:focus {
   color: #1d2020;
   border: #333 1px solid;
   min-width: auto;
   padding: 0 30px 0 16px;
+  background: #fff
+    url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA0OC4wNiAyOC4wNCcgIHdpZHRoPScxOCcgaGVpZ2h0PSc5Jz48cGF0aCBmaWxsPSIjMTAxMzJFIiBkPSdNNDcuNDEuNTVhMS45MSAxLjkxIDAgMCAwLTIuNyAwbC0yMC43MSAyMi42MS0yMC43NS0yMi42LS4xOC0uMThhMS45MSAxLjkxIDAgMSAwLTIuNTEgMi44OGwyMS44NyAyMy44NGExLjY5IDEuNjkgMCAwIDAgLjEzLjMxIDIuMTUgMi4xNSAwIDAgMCAyLjg1IDAgMS43NSAxLjc1IDAgMCAwIC4xMy0uMzJsMjEuODctMjMuODRhMS45MSAxLjkxIDAgMCAwIDAtMi43eicgdHJhbnNmb3JtPSd0cmFuc2xhdGUoLjEgLjA5KScvPjwvc3ZnPg==')
+    no-repeat calc(100% - 8px) 50%;
 }
 
 .layout-content-default.flex,
@@ -63,8 +72,9 @@ button.action-menu:focus {
   flex-flow: column;
   width: 100%;
 }
-.layout-content-inline_grid_double {
-  flex-flow: row nowrap;
+.flex.layout-content-inline_grid_double {
+  flex-flow: row wrap;
+  display: flex;
 }
 .flex.layout-content-inline_grid_double > div:nth-child(2n + 1) {
   width: calc(50% - 8px);
@@ -100,7 +110,7 @@ button.action-menu:focus {
   flex-flow: row;
   margin-bottom: 8px;
 }
-.layout-content-stacked_with_labels_left > .field-item > label {
+.layout-content-stacked_with_labels_left > .field-item .field-caption {
   margin-right: 8px;
   margin-bottom: 0;
   width: 200px;
@@ -138,18 +148,22 @@ button.action-menu:focus {
   display: flex;
   flex-flow: column;
 }
-.field-item > label {
+.field-item .field-caption {
   margin-bottom: 3px;
+  margin-top: 6px;
   min-height: 20px;
   display: block;
 }
-.field-checkbox > label,
-.field-checkbox,
 .field-button {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
   line-height: 28px;
+}
+.field-checkbox > div {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
 }
 .rdl .pzhc.pzbutton,
 table .pzhc.pzbutton {
@@ -218,7 +232,10 @@ table .pzhc.pzbutton:active {
   min-width: auto;
 }
 
-#case-data,
+#case-data {
+  flex: 1;
+}
+
 #case-data > div:first-child {
   flex: 1;
 }
