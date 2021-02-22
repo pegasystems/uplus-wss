@@ -6,12 +6,12 @@
     <div class="wrap hero-wrap flex">
       <div class="flex flex-col">
         <h1 class="hero">
-          {{ hero_offer.title }}
-          <br v-if="hero_offer.message != ''" />
-          {{ hero_offer.message }}
+          {{ $t(`message.${app.herotext.title}`) }}
+          <br v-if="$t(`message.${app.herotext.titlespan}`) != ''" />
+          {{ $t(`message.${app.herotext.titlespan}`) }}
         </h1>
         <button v-on:click="applyHeroAction" class="more">
-          {{ hero_offer.link }}
+          {{ $t(`message.${app.herotext.buttonlabel}`) }}
         </button>
       </div>
     </div>
