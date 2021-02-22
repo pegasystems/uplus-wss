@@ -15,9 +15,14 @@ export default {
   },
   methods: {
     changeLanguage() {
-      for (const i in this.settings.i18n.languages) {
-        if (i18n.locale !== this.settings.i18n.languages[i]) {
-          this.currentLocale = this.settings.i18n.languages[i];
+      const numLang = this.settings.i18n.languages.length - 1;
+      for (let i = 0; i <= numLang; i++) {
+        if (i18n.locale === this.settings.i18n.languages[i]) {
+          if (i === numLang) {
+            this.currentLocale = this.settings.i18n.languages[0];
+          } else {
+            this.currentLocale = this.settings.i18n.languages[i + 1];
+          }
           i18n.locale = this.currentLocale;
           mainconfig.currentLocale = this.currentLocale;
           break;
