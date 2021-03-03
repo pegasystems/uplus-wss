@@ -14,7 +14,7 @@
     </div>
     <div
       class="secondary-card"
-      v-if="settings.pega_marketing.Host === '' || loading"
+      v-if="settings.pega_marketing.Host === '' || (loading && !settings.pega_marketing.showLoadingIndicator)"
     >
       <section
         class="offer-card-col"
@@ -34,6 +34,17 @@
           }}</a>
         </div>
       </section>
+    </div>
+    <div
+      class="secondary-card loading-container"
+      style="min-height: 300rem"
+      v-else-if="settings.pega_marketing.Host!== '' && loading && settings.pega_marketing.showLoadingIndicator"
+    >
+    <span class="loading">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </span>
     </div>
     <div class="secondary-card" v-else>
       <Offer v-for="item in data" :key="item.title" v-bind:offer="item" />

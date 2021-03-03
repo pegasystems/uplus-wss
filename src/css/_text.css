@@ -174,7 +174,7 @@ h4 {
 .banner,
 .banner h3,
 .banner p {
-  color: #FFF;
+  color: #fff;
 }
 
 .banner button {
@@ -397,9 +397,8 @@ time.fatlist-item {
   font-size: 15rem;
   border-radius: 50%;
   border: 3rem solid transparent;
-  width: 32rem;
+  width: 40rem;
   min-width: auto;
-  height: 32rem;
   padding: 0;
 }
 

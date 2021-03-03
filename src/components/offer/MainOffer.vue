@@ -1,5 +1,5 @@
 <template>
-  <div v-if="settings.pega_marketing.Host === '' || loading">
+  <div v-if="settings.pega_marketing.Host === '' || (loading && !settings.pega_marketing.showLoadingIndicator)">
     <div class="main-offer primary-card flex flex-nowrap">
       <div class="image" v-bind:style="{ backgroundImage: `url(./img/${app.offer[offerType].main_offer.image})`}"></div>
       <div class="details">
@@ -23,14 +23,27 @@
       </div>
     </div>
   </div>
+  <div v-else-if="settings.pega_marketing.Host!== '' && loading && settings.pega_marketing.showLoadingIndicator">
+    <div style="height:100rem">
+    </div>
+    <div class="offer-cards promo loading-container" style="min-height: 300rem">
+      <span class="loading">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </span>
+    </div>
+  </div>
   <div v-else>
-    <div class="main-offer primary-card flex flex-nowrap">
+    <div class="main-offer primary-card flex flex-nowrap" v-if="hero_offer.url !== '' && hero_offer.img !== ''">
       <div class="image" v-bind:style="{ backgroundImage: 'url(' + hero_offer.img + ')'}"></div>
       <div class="details">
         <h3 class="color-brand">{{ hero_offer.title }}</h3>
         <p>{{ hero_offer.message }}</p>
         <button v-on:click="applyOfferAction" class="strong">{{ hero_offer.link }}</button>
       </div>
+    </div>
+    <div v-else style="height:100rem">
     </div>
     <div class="offer-cards promo">
       <h4>{{ $t('message.' + app.offer[offerType].cards.title)}}</h4>

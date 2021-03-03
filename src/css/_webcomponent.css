@@ -419,6 +419,12 @@ table .pzhc.pzbutton:active {
   margin-left: -3px;
 }
 
+.loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .loading {
   display: flex;
   flex-flow: row nowrap;
@@ -428,9 +434,9 @@ table .pzhc.pzbutton:active {
 }
 
 .loading > .dot {
-  width: 1rem;
-  height: 1rem;
-  margin: 0 0.5rem;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
   background: #0076d1;
   border-radius: 50%;
   animation: Loading-ellipsis 1s infinite cubic-bezier(0.4, 0.6, 0.1, 1);

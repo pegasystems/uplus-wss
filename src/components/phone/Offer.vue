@@ -1,7 +1,7 @@
 <template>
   <div
     class="flex home-promo secondary-card"
-    v-if="settings.pega_marketing.Host === '' || loading"
+    v-if="settings.pega_marketing.Host === '' || (loading && !settings.pega_marketing.showLoadingIndicator)"
   >
     <div
       class="image"
@@ -15,6 +15,17 @@
         $t('message.phone_home_page_promo_action')
       }}</a>
     </div>
+  </div>
+  <div
+    class="flex home-promo secondary-card loading-container"
+    style="min-height: 300rem"
+    v-else-if="settings.pega_marketing.Host!== '' && loading && settings.pega_marketing.showLoadingIndicator"
+  >
+    <span class="loading">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </span>
   </div>
   <div class="width-100-pct" v-else>
     <div

@@ -233,6 +233,7 @@ window.settings = {
     replaceHomePageHeader: false,
     showAIOverlay: false,
     enableRTS: false,
+    showLoadingIndicator: false,
     homePage: {
       containerName: 'TopOffers',
       placement: 'Hero,Tile,Tile,Tile',

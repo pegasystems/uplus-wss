@@ -182,6 +182,9 @@ const upgradeConfig = function upgradeConfig(cfg) {
   if (typeof cfg.settings.pega_marketing.enableRTS === 'undefined') {
     cfg.settings.pega_marketing.enableRTS = false;
   }
+  if (typeof cfg.settings.pega_marketing.showLoadingIndicator === 'undefined') {
+    cfg.settings.pega_marketing.showLoadingIndicator = false;
+  }
   for (const i in cfg.settings.quicklinks) {
     if (typeof cfg.settings.quicklinks[i].hide === 'undefined') {
       cfg.settings.quicklinks[i].hide = false;

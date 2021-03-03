@@ -1,7 +1,7 @@
 <template>
   <div
     class="flex flex-col"
-    v-if="settings.pega_marketing.Host === '' || loading"
+    v-if="settings.pega_marketing.Host === '' || (loading && !settings.pega_marketing.showLoadingIndicator)"
   >
     <div class="wrap hero-wrap flex">
       <div class="flex flex-col">
@@ -15,7 +15,7 @@
         </button>
       </div>
     </div>
-    <div class="wrap options primary-options">
+    <div class="wrap options primary-options" >
       <section
         v-for="(item, index) in app.primarydetails"
         :key="index"
@@ -35,6 +35,28 @@
             $t('message.' + item.link)
           }}</a>
         </div>
+      </section>
+    </div>
+  </div>
+  <div
+    class="flex flex-col"
+    v-else-if="settings.pega_marketing.Host!== '' && loading && settings.pega_marketing.showLoadingIndicator"
+  >
+    <div class="wrap hero-wrap flex">
+      <div class="flex flex-col">
+      </div>
+    </div>
+    <div class="wrap options primary-options" style="min-height: 400rem;">
+      <section
+        v-for="(item, index) in app.primarydetails"
+        :key="index"
+        class="front-option loading-container"
+      >
+        <span class="loading">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </span>
       </section>
     </div>
   </div>

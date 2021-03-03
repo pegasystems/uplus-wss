@@ -67,6 +67,16 @@
             v-model="settings.pega_marketing.replaceHomePageHeader"
           />
         </div>
+        <div class="field-item">
+          <label class="width-auto" for="NBAM-showLoadingIndicator"
+            >Display progress indicator while loading the offers</label
+          >
+          <input
+            id="NBAM-showLoadingIndicator"
+            type="checkbox"
+            v-model="settings.pega_marketing.showLoadingIndicator"
+          />
+        </div>
       </div>
     </Container>
     <Container title="Home Page" expanded>
