@@ -328,6 +328,9 @@ export default {
       for (const i in this.deepLinkExtraParam) {
         tmpActionParam[i] = this.deepLinkExtraParam[i];
       }
+      /* Reset the state once the deeplink is generated */
+      mainconfig.isDeepLink = false;
+      mainconfig.deepLinkExtraParam = {};
     }
     if (isInAccoutPage) {
       tmpActionParam.isMashupInContainer = 'true';
