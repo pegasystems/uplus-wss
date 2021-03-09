@@ -62,7 +62,8 @@ export default {
           mainconfig.reloadOffer += 1;
         }
       } else if (e.data) {
-        const elem = JSON.parse(e.data);
+        let elem = {};
+        try { elem = JSON.parse(e.data); } catch { elem = {}; }
         if (elem.channelName === 'PWMashup' && elem.message && elem.message.payload && elem.message.payload.name === 'confirm') {
           if (mainconfig.quickLinkId !== -1) {
             const serverUrl = mainconfig.settings.quicklinks[mainconfig.quickLinkId].url;

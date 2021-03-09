@@ -1,7 +1,7 @@
 <template>
   <div class="container-transparent">
     <h2>Banner component</h2>
-    <p>Configuration of the Banner component inside the account page.</p>
+    <p>Configuration of the banner component inside the account page.</p>
     <div class="container">
       <div class="body">
         <div class="layout-labels-left layout-inline-grid-double">
@@ -58,6 +58,10 @@
           <div class="field-item">
             <label for="banner-tenantid">Tenant ID</label>
             <input id="banner-tenantid" type="text" v-model="settings.banner.tenantid" />
+          </div>
+          <div class="field-item field-checkbox">
+            <label class="width-auto" for="banner-dataretained">Retain state on reload</label>
+            <input id="banner-dataretained" type="checkbox" v-model="settings.banner.dataretained" />
           </div>
         </div>
         <div class="layout-labels-top">

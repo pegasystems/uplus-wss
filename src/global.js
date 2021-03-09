@@ -104,7 +104,14 @@ const upgradeConfig = function upgradeConfig(cfg) {
     'undefined'
   ) {
     cfg.settings.pega_chat.UseLegacyWebChat = true;
+  }
+  if (
+    typeof cfg.settings.pega_chat.DMMURL === 'undefined') {
     cfg.settings.pega_chat.DMMURL = '';
+  }
+  if (
+    typeof cfg.settings.pega_chat.DMMID === 'undefined') {
+    cfg.settings.pega_chat.DMMID = 'pega-wm-chat';
   }
   if (typeof cfg.settings.pega_chat.TenantID === 'undefined') {
     cfg.settings.pega_chat.TenantID = '';
@@ -202,6 +209,9 @@ const upgradeConfig = function upgradeConfig(cfg) {
     if (typeof cfg.settings.quicklinks[i].tenantid === 'undefined') {
       cfg.settings.quicklinks[i].tenantid = '';
     }
+    if (typeof cfg.settings.quicklinks[i].dataretained === 'undefined') {
+      cfg.settings.quicklinks[i].dataretained = true;
+    }
   }
   /* upgrade channelid */
   if (typeof cfg.settings.billpay.channelid === 'undefined') {
@@ -240,6 +250,26 @@ const upgradeConfig = function upgradeConfig(cfg) {
   }
   if (typeof cfg.settings.todo.tenantid === 'undefined') {
     cfg.settings.todo.tenantid = '';
+  }
+
+  /* upgrade data retained */
+  if (typeof cfg.settings.billpay.dataretained === 'undefined') {
+    cfg.settings.billpay.dataretained = true;
+  }
+  if (typeof cfg.settings.banner.dataretained === 'undefined') {
+    cfg.settings.banner.dataretained = true;
+  }
+  if (typeof cfg.settings.homeheroaction.dataretained === 'undefined') {
+    cfg.settings.homeheroaction.dataretained = true;
+  }
+  if (typeof cfg.settings.offeraction.dataretained === 'undefined') {
+    cfg.settings.offeraction.dataretained = true;
+  }
+  if (typeof cfg.settings.kmhelp.dataretained === 'undefined') {
+    cfg.settings.kmhelp.dataretained = true;
+  }
+  if (typeof cfg.settings.todo.dataretained === 'undefined') {
+    cfg.settings.todo.dataretained = true;
   }
 
   if (typeof cfg.settings.general === 'undefined') {
@@ -631,16 +661,13 @@ if (typeof settings === 'undefined') {
   if (
     typeof mainconfigTmp.settings.pega_chat !== 'undefined' &&
     mainconfigTmp.settings.pega_chat.DMMURL !== '' &&
+    mainconfigTmp.settings.pega_chat.DMMID !== '' &&
     mainconfigTmp.settings.pega_chat.UseLegacyWebChat === false &&
     `${window.location}`.indexOf('/settings.html') === -1
   ) {
-    const divElem = document.createElement('div');
-    divElem.setAttribute('id', 'pega-chat-widget');
-    document.body.appendChild(divElem);
-
     const scriptLoad = document.createElement('script');
-    scriptLoad.setAttribute('id', 'pega-chat-widget');
-    scriptLoad.setAttribute('src', `${mainconfigTmp.settings.pega_chat.DMMURL}`);
+    scriptLoad.setAttribute('id', mainconfigTmp.settings.pega_chat.DMMID);
+    scriptLoad.setAttribute('src', mainconfigTmp.settings.pega_chat.DMMURL);
     document.head.appendChild(scriptLoad);
   }
 

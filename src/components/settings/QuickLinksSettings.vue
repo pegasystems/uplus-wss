@@ -1,7 +1,7 @@
 <template>
   <div class="container-transparent">
     <h2>Quick links</h2>
-    <p>Configuration of each of the Pega Mashup cases that can be accessed through the quick links component.</p>
+    <p>Configuration of each of the mashup cases that can be accessed through the quick links component.</p>
     <div v-for="(item,index) in settings.quicklinks" v-bind:key="index">
       <Container :title="'Mashup Case ' + (index+1)" :expanded="index===0">
         <div class="layout-labels-left">
@@ -71,6 +71,10 @@
           <div class="field-item">
             <label :for="'quicklinks-' + index + '-tenantid'">Tenant ID</label>
             <input :id="'quicklinks-' + index + '-tenantid'" type="text" v-model="item.tenantid" />
+          </div>
+          <div class="field-item field-checkbox">
+            <label class="width-auto" :for="'quicklinks-' + index + '-dataretained'">Retain state on reload</label>
+            <input :id="'quicklinks-' + index + '-dataretained'" type="checkbox" v-model="item.dataretained" />
           </div>
           <div class="field-item">
             <label :for="'quicklinks-' + index + '-icon'">Icon (for mobile)</label>

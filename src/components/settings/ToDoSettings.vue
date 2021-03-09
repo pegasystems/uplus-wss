@@ -1,7 +1,7 @@
 <template>
   <div class="container-transparent">
     <h2>To Do component</h2>
-    <p>Configuration of the Pega Mashup displayed as the To Do list inside the account page.</p>
+    <p>Configuration of the mashup displayed as the To Do list inside the account page.</p>
     <div class="container">
       <div class="body">
         <div class="layout-labels-top layout-inline-grid-double">
@@ -60,6 +60,10 @@
           <div class="field-item">
             <label for="todo-tenantid">Tenant ID</label>
             <input id="todo-tenantid" type="text" v-model="settings.todo.tenantid" />
+          </div>
+          <div class="field-item field-checkbox">
+            <label class="width-auto" for="todo-dataretained">Retain state on reload</label>
+            <input id="todo-dataretained" type="checkbox" v-model="settings.todo.dataretained" />
           </div>
         </div>
         <div class="layout-labels-top">

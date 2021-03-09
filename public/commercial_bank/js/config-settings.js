@@ -51,6 +51,9 @@ window.settings = {
       icon: '',
       extraparam: '',
       hide: false,
+      channelid: '',
+      tenantid: '',
+      dataretained: true,
     },
     {
       title: {
@@ -66,6 +69,9 @@ window.settings = {
       icon: '',
       extraparam: '',
       hide: false,
+      channelid: '',
+      tenantid: '',
+      dataretained: true,
     },
     {
       title: {
@@ -81,6 +87,9 @@ window.settings = {
       icon: '',
       extraparam: '',
       hide: false,
+      channelid: '',
+      tenantid: '',
+      dataretained: true,
     },
     {
       title: {
@@ -96,6 +105,9 @@ window.settings = {
       icon: '',
       extraparam: '',
       hide: false,
+      channelid: '',
+      tenantid: '',
+      dataretained: true,
     },
     {
       title: {
@@ -111,6 +123,9 @@ window.settings = {
       icon: '',
       extraparam: '',
       hide: false,
+      channelid: '',
+      tenantid: '',
+      dataretained: true,
     },
   ],
   billpay: {
@@ -122,6 +137,9 @@ window.settings = {
     application: '',
     extraparam: '',
     hidebillpay: false,
+    channelid: '',
+    tenantid: '',
+    dataretained: true,
   },
   banner: {
     action: 'createNewWork',
@@ -134,6 +152,9 @@ window.settings = {
     hidebanner: true,
     hidebanner_button: false,
     color: '#CE9840',
+    channelid: '',
+    tenantid: '',
+    dataretained: true,
   },
   todo: {
     action: 'createNewWork',
@@ -146,6 +167,9 @@ window.settings = {
     hideactivity: false,
     hideaccount: false,
     hideKPI: true,
+    channelid: '',
+    tenantid: '',
+    dataretained: true,
   },
   kmhelp: {
     action: 'display',
@@ -157,6 +181,9 @@ window.settings = {
     extraparam: '',
     username: '',
     password: '',
+    channelid: '',
+    tenantid: '',
+    dataretained: true,
   },
   homeheroaction: {
     action: 'createNewWork',
@@ -168,6 +195,9 @@ window.settings = {
     pega_userid: '',
     pega_pwd: '',
     extraparam: '',
+    channelid: '',
+    tenantid: '',
+    dataretained: true,
   },
   offeraction: {
     action: 'createNewWork',
@@ -179,6 +209,9 @@ window.settings = {
     pega_userid: '',
     pega_pwd: '',
     extraparam: '',
+    channelid: '',
+    tenantid: '',
+    dataretained: true,
   },
   users: [
     {
@@ -335,6 +368,7 @@ window.settings = {
     CoBrowseToken: '',
     UseLegacyWebChat: false,
     DMMURL: '',
+    DMMID: 'pega-wm-chat',
   },
   pega_marketing: {
     Host: '',

@@ -12,7 +12,7 @@
       :data-pega-action-param-classname="objClass"
       :data-pega-action-param-flowname="startCase"
       data-pega-isdeferloaded="false"
-      data-pega-isretained="true"
+      :data-pega-isretained="dataretained"
       :data-pega-applicationname="appName"
       :data-pega-threadname="threadName"
       data-pega-resizetype="stretch"
@@ -29,7 +29,7 @@
       :data-pega-action-param-harnessname="actionNameParam"
       :data-pega-action-param-classname="objClass"
       data-pega-isdeferloaded="false"
-      data-pega-isretained="true"
+      :data-pega-isretained="dataretained"
       :data-pega-applicationname="appName"
       :data-pega-threadname="threadName"
       data-pega-resizetype="stretch"
@@ -44,7 +44,7 @@
       :data-pega-gadgetname="mashupid"
       :data-pega-action="actionName"
       data-pega-isdeferloaded="false"
-      data-pega-isretained="true"
+      :data-pega-isretained="dataretained"
       :data-pega-applicationname="appName"
       :data-pega-threadname="threadName"
       data-pega-resizetype="stretch"
@@ -60,7 +60,7 @@
       :data-pega-action="actionName"
       :data-pega-action-param-key="actionNameParam"
       data-pega-isdeferloaded="false"
-      data-pega-isretained="true"
+      :data-pega-isretained="dataretained"
       :data-pega-applicationname="appName"
       :data-pega-threadname="threadName"
       data-pega-resizetype="stretch"
@@ -76,7 +76,7 @@
       :data-pega-action="actionName"
       :data-pega-action-param-key="actionNameParam"
       data-pega-isdeferloaded="false"
-      data-pega-isretained="true"
+      :data-pega-isretained="dataretained"
       :data-pega-applicationname="appName"
       :data-pega-threadname="threadName"
       data-pega-resizetype="stretch"
@@ -92,7 +92,7 @@
       :data-pega-action="actionName"
       :data-pega-action-param-workid="actionNameParam"
       data-pega-isdeferloaded="false"
-      data-pega-isretained="true"
+      :data-pega-isretained="dataretained"
       :data-pega-applicationname="appName"
       :data-pega-threadname="threadName"
       data-pega-resizetype="stretch"
@@ -108,7 +108,7 @@
       :data-pega-action="actionName"
       :data-pega-action-param-query="actionNameParam"
       data-pega-isdeferloaded="false"
-      data-pega-isretained="true"
+      :data-pega-isretained="dataretained"
       :data-pega-applicationname="appName"
       :data-pega-threadname="threadName"
       data-pega-resizetype="stretch"
@@ -157,6 +157,7 @@ export default {
       caseTitle: '',
       extraParam: '',
       tenantID: '',
+      dataretained: true,
     };
   },
   created() {
@@ -173,6 +174,7 @@ export default {
       this.appName = this.settings.quicklinks[this.quickLinkId].application;
       this.channelID = this.settings.quicklinks[this.quickLinkId].channelid;
       this.tenantID = this.settings.quicklinks[this.quickLinkId].tenantid;
+      this.dataretained = this.settings.quicklinks[this.quickLinkId].dataretained;
       this.extraParam = this.settings.quicklinks[this.quickLinkId].extraparam;
       this.caseTitle = this.settings.quicklinks[this.quickLinkId].title[
         this.currentLocale
@@ -186,6 +188,7 @@ export default {
       this.appName = this.settings.billpay.application;
       this.channelID = this.settings.billpay.channelid;
       this.tenantID = this.settings.billpay.tenantid;
+      this.dataretained = this.settings.billpay.dataretained;
       this.extraParam = this.settings.billpay.extraparam;
     } else if (this.viewBanner !== -1) {
       this.actionName = this.settings.banner.action;
@@ -196,6 +199,7 @@ export default {
       this.appName = this.settings.banner.application;
       this.channelID = this.settings.banner.channelid;
       this.tenantID = this.settings.banner.tenantid;
+      this.dataretained = this.settings.banner.dataretained;
       this.extraParam = this.settings.banner.extraparam;
     } else if (this.homeHeroAction !== -1) {
       this.actionName = this.settings.homeheroaction.action;
@@ -206,6 +210,7 @@ export default {
       this.appName = this.settings.homeheroaction.application;
       this.channelID = this.settings.homeheroaction.channelid;
       this.tenantID = this.settings.homeheroaction.tenantid;
+      this.dataretained = this.settings.homeheroaction.dataretained;
       this.extraParam = this.settings.homeheroaction.extraparam;
     } else if (this.offerAction !== -1) {
       this.actionName = this.settings.offeraction.action;
@@ -216,6 +221,7 @@ export default {
       this.appName = this.settings.offeraction.application;
       this.channelID = this.settings.offeraction.channelid;
       this.tenantID = this.settings.offeraction.tenantid;
+      this.dataretained = this.settings.offeraction.dataretained;
       this.extraParam = this.settings.offeraction.extraparam;
 
       const urlExtraParams = {};
@@ -244,6 +250,7 @@ export default {
       this.appName = this.settings.kmhelp.application;
       this.channelID = this.settings.kmhelp.channelid;
       this.tenantID = this.settings.kmhelp.tenantid;
+      this.dataretained = this.settings.kmhelp.dataretained;
       this.extraParam = this.settings.kmhelp.extraparam;
       if (mainconfig.KMArticleID !== '') {
         this.extraParam += `${this.extraParam !== '' ? ',' : ''}ArticleID=${
@@ -261,6 +268,7 @@ export default {
       this.appName = this.settings.todo.application;
       this.channelID = this.settings.todo.channelid;
       this.tenantID = this.settings.todo.tenantid;
+      this.dataretained = this.settings.todo.dataretained;
       this.extraParam = this.settings.todo.extraparam;
       this.logoutURL.todo = `${this.settings.todo.url}?pyActivity=LogOff`;
     }

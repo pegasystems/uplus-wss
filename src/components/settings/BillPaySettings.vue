@@ -1,7 +1,7 @@
 <template>
   <div class="container-transparent">
     <h2>Bill Pay component</h2>
-    <p>Configuration of the Pega Mashup displayed when clicking on the 'Pay now' action inside the account page.</p>
+    <p>Configuration of the mashup displayed when clicking on the 'Pay now' action inside the account page.</p>
     <div class="container">
       <div class="body">
         <div class="layout-labels-left">
@@ -50,6 +50,10 @@
           <div class="field-item">
             <label for="bill-pay-tenantid">Tenant ID</label>
             <input id="bill-pay-tenantid" type="text" v-model="settings.billpay.tenantid" />
+          </div>
+          <div class="field-item field-checkbox">
+            <label class="width-auto" for="bill-pay-dataretained">Retain state on reload</label>
+            <input id="bill-pay-dataretained" type="checkbox" v-model="settings.billpay.dataretained" />
           </div>
         </div>
         <div class="layout-labels-top">

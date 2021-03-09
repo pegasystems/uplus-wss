@@ -1,7 +1,7 @@
 <template>
   <div class="container-transparent">
     <h2>Messaging and Co-Browse</h2>
-    <p>Configuration of the Messaging and Co-Browse components. Enter an empty 'URL' to disable the functionality. For more details, click
+    <p>Configuration of the messaging and Co-Browse components. Enter an empty 'URL' to disable the functionality. For more details, click
       <a
         href="https://github.com/pegasystems/uplus-wss/wiki/How-to-configure-the-Pega-Chat-bot"
         >here</a
@@ -15,6 +15,10 @@
       </div>
       <div class="layout-labels-top" v-if='settings.pega_chat.UseLegacyWebChat === false'>
         <div class="field-item">
+          <label for="chat-DMMID">ID of the widget</label>
+          <input id="chat-DMMID" type="text" v-model="settings.pega_chat.DMMID" />
+        </div>
+      <div class="field-item">
           <label for="chat-DMMURL">URL of the Digital Messaging Server</label>
           <input id="chat-DMMURL" type="text" v-model="settings.pega_chat.DMMURL" />
         </div>

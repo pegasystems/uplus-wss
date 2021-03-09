@@ -2,7 +2,7 @@
   <div class="container-transparent">
     <h2>Knowledge Management</h2>
     <p>
-      Configuration of the Pega Mashup used for Knowledge Management and displayed when clicking on the "Help" link in the header.
+      Configuration of the mashup used for Knowledge Management and displayed when clicking on the "Help" link in the header.
       Enter an empty 'URL' to disable this functionality.
     </p>
     <div class="container">
@@ -55,6 +55,10 @@
           <div class="field-item">
             <label for="kmhelp-tenantid">Tenant ID</label>
             <input id="kmhelp-tenantid" type="text" v-model="settings.kmhelp.tenantid" />
+          </div>
+          <div class="field-item field-checkbox">
+            <label class="width-auto" for="kmhelp-dataretained">Retain state on reload</label>
+            <input id="kmhelp-dataretained" type="checkbox" v-model="settings.kmhelp.dataretained" />
           </div>
         </div>
         <div class="layout-labels-top">

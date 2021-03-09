@@ -1,7 +1,7 @@
 <template>
   <div class="container-transparent">
     <h2>Offer Action</h2>
-    <p>Configuration of the Pega Mashup displayed when clicking on the "Apply now" button inside the main offer of the offer page (offer.html)</p>
+    <p>Configuration of the mashup displayed when clicking on the "Apply now" button inside the main offer of the offer page (offer.html)</p>
     <div class="container">
       <div class="body">
         <div class="layout-labels-top layout-inline-grid-double">
@@ -68,6 +68,10 @@
           <div class="field-item">
             <label for="offer-action-tenantid">Tenant ID</label>
             <input id="offer-action-tenantid" type="text" v-model="settings.offeraction.tenantid" />
+          </div>
+          <div class="field-item field-checkbox">
+            <label class="width-auto" for="offer-action-dataretained">Retain state on reload</label>
+            <input id="offer-action-dataretained" type="checkbox" v-model="settings.offeraction.dataretained" />
           </div>
         </div>
         <div class="layout-labels-top">
