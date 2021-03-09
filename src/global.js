@@ -99,6 +99,13 @@ const upgradeConfig = function upgradeConfig(cfg) {
   ) {
     cfg.settings.pega_chat.ProActiveNotificationDismissTime = '';
   }
+  if (
+    typeof cfg.settings.pega_chat.UseLegacyWebChat ===
+    'undefined'
+  ) {
+    cfg.settings.pega_chat.UseLegacyWebChat = true;
+    cfg.settings.pega_chat.DMMURL = '';
+  }
   if (typeof cfg.settings.pega_chat.TenantID === 'undefined') {
     cfg.settings.pega_chat.TenantID = '';
   }
@@ -605,6 +612,7 @@ if (typeof settings === 'undefined') {
   if (
     typeof mainconfigTmp.settings.pega_chat !== 'undefined' &&
     mainconfigTmp.settings.pega_chat.MashupURL !== '' &&
+    mainconfigTmp.settings.pega_chat.UseLegacyWebChat === true &&
     `${window.location}`.indexOf('/settings.html') === -1
   ) {
     const scriptLoad = document.createElement('script');
@@ -617,6 +625,22 @@ if (typeof settings === 'undefined') {
       document.head.appendChild(scriptLoad1);
     };
     scriptLoad.setAttribute('src', '../js/jquery-min.js');
+    document.head.appendChild(scriptLoad);
+  }
+
+  if (
+    typeof mainconfigTmp.settings.pega_chat !== 'undefined' &&
+    mainconfigTmp.settings.pega_chat.DMMURL !== '' &&
+    mainconfigTmp.settings.pega_chat.UseLegacyWebChat === false &&
+    `${window.location}`.indexOf('/settings.html') === -1
+  ) {
+    const divElem = document.createElement('div');
+    divElem.setAttribute('id', 'pega-chat-widget');
+    document.body.appendChild(divElem);
+
+    const scriptLoad = document.createElement('script');
+    scriptLoad.setAttribute('id', 'pega-chat-widget');
+    scriptLoad.setAttribute('src', `${mainconfigTmp.settings.pega_chat.DMMURL}`);
     document.head.appendChild(scriptLoad);
   }
 

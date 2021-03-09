@@ -1,12 +1,25 @@
 <template>
   <div class="container-transparent">
-    <h2>Pega Chat and Co-Browse</h2>
-    <p>Configuration of the PegaChat Mashup and Co-Browse components. Enter an empty 'URL' to disable the functionality. For more details, click
+    <h2>Messaging and Co-Browse</h2>
+    <p>Configuration of the Messaging and Co-Browse components. Enter an empty 'URL' to disable the functionality. For more details, click
       <a
         href="https://github.com/pegasystems/uplus-wss/wiki/How-to-configure-the-Pega-Chat-bot"
         >here</a
       >.</p>
-    <Container title="Pega Chat" expanded>
+    <Container title="Messaging" expanded>
+      <div class="layout-labels-left">
+        <div class="field-item">
+          <label class="width-auto" for="chat-ShowAsButton">Connect using legacy Web Chat Mashup</label>
+          <input id="chat-ShowAsButton" type="checkbox" v-model="settings.pega_chat.UseLegacyWebChat" />
+        </div>
+      </div>
+      <div class="layout-labels-top" v-if='settings.pega_chat.UseLegacyWebChat === false'>
+        <div class="field-item">
+          <label for="chat-DMMURL">URL of the Digital Messaging Server</label>
+          <input id="chat-DMMURL" type="text" v-model="settings.pega_chat.DMMURL" />
+        </div>
+      </div>
+      <div v-else>
       <div class="layout-labels-top layout-inline-grid-double">
         <div class="field-item">
           <label for="chat-MashupURL">URL</label>
@@ -63,6 +76,7 @@
           />
         </div>
       </div>
+    </div>
     </Container>
     <Container title="Co-Browse" expanded>
       <div class="layout-labels-top layout-inline-grid-double">

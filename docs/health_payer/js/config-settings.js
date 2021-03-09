@@ -264,6 +264,8 @@ window.settings = {
     ProActiveNotificationDismissTime: '',
     CoBrowseServerURL: '',
     CoBrowseToken: '',
+    UseLegacyWebChat: false,
+    DMMURL: '',
   },
   pega_marketing: {
     Host: '',

@@ -26,7 +26,7 @@
       <tab v-if="typeof settings.banner != 'undefined'" name="Banner component">
         <BannerSettings />
       </tab>
-      <tab v-if="typeof settings.pega_chat != 'undefined'" name="Pega Chat and Co-Browse">
+      <tab v-if="typeof settings.pega_chat != 'undefined'" name="Messaging and Co-Browse">
         <ChatSettings />
       </tab>
       <tab v-if="typeof settings.pega_marketing != 'undefined'" name="Customer Decision Hub">

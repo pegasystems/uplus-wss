@@ -61,6 +61,21 @@ export default {
           mainconfig.previousPage = e.data.value;
           mainconfig.reloadOffer += 1;
         }
+      } else if (e.data) {
+        const elem = JSON.parse(e.data);
+        if (elem.channelName === 'PWMashup' && elem.message && elem.message.payload && elem.message.payload.name === 'confirm') {
+          if (mainconfig.quickLinkId !== -1) {
+            const serverUrl = mainconfig.settings.quicklinks[mainconfig.quickLinkId].url;
+            const testiframe = document.createElement('iframe');
+            const urllogout = `${serverUrl}?pyActivity=LogOff`;
+            testiframe.setAttribute('src', urllogout);
+            testiframe.setAttribute('style', 'display:none');
+            testiframe.onload = function onloadMashup() {
+              document.body.removeChild(testiframe);
+            };
+            document.body.appendChild(testiframe);
+          }
+        }
       }
     },
     showSidePanel() {
