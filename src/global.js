@@ -669,6 +669,17 @@ if (typeof settings === 'undefined') {
     scriptLoad.setAttribute('id', mainconfigTmp.settings.pega_chat.DMMID);
     scriptLoad.setAttribute('src', mainconfigTmp.settings.pega_chat.DMMURL);
     document.head.appendChild(scriptLoad);
+
+    window.fireflyAPI = {};
+    if (mainconfigTmp.settings.pega_chat.CoBrowseServerURL !== '' && mainconfigTmp.settings.pega_chat.CoBrowseToken !== '') {
+      const script = document.createElement('script');
+      script.type = 'text/javascript';
+      window.fireflyAPI.token = mainconfigTmp.settings.pega_chat.CoBrowseToken;
+      window.fireflyAPI.serverHostUrl = mainconfigTmp.settings.pega_chat.CoBrowseServerURL;
+      script.src = `${mainconfigTmp.settings.pega_chat.CoBrowseServerURL}/cobrowse/loadScripts`;
+      script.async = true;
+      document.head.appendChild(script);
+    }
   }
 
   // Handle the back button support on mobile
