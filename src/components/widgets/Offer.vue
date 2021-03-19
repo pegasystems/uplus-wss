@@ -37,7 +37,7 @@
         <button
           v-else
           class="simple"
-          v-on:click="showOffer(offer.url, offer.name)"
+          v-on:click="showOffer(offer)"
         >
           {{ $t('message.' + offer.link) }}
         </button>
@@ -54,6 +54,7 @@
 <script>
 import { mainconfig } from '../../global';
 import AIOverlay from '../controls/AIOverlay.vue';
+import { captureResponse } from '../../CDHIntegration';
 
 export default {
   props: {
@@ -63,9 +64,12 @@ export default {
     return mainconfig;
   },
   methods: {
-    showOffer(url, name) {
-      mainconfig.offerURL = url;
-      mainconfig.previousPage = name;
+    showOffer(offer) {
+      mainconfig.offerURL = offer.url;
+      mainconfig.previousPage = offer.name;
+      if (mainconfig.settings.pega_marketing.useCaptureByChannel === true) {
+        captureResponse(this, offer, 'Clicked');
+      }
     },
     toggleAIOverlay(item) {
       item.showAIoverlay = !item.showAIoverlay;

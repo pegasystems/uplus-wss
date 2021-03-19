@@ -383,7 +383,7 @@
 	captureWebResponseWithJSON : function(jsonObj,callback){
 		this.invokeRemoteService("CaptureWebResponse",null,"POST",jsonObj,callback);
     },
-	captureResponse : function(containerID, customerID, offerID, issue, group, interactionID,outcome,behaviour,channel,direction,campaignID,callback,initiateOffer){
+	captureResponse : function(containerID, customerID, offerID, issue, group, interactionID,outcome,channel,direction,campaignID,rank,treatment,initiateOffer, callback){
 
 
 		if(serviceClass){
@@ -397,10 +397,10 @@
 						"CampaignID": campaignID,
 						"InteractionID" : interactionID,
 						"Outcome":outcome,
-						"Behaviour":behaviour,
 						"Direction":direction,
-						"Channel":channel
-
+						"Channel":channel,
+                        "Rank": rank,
+                        "Treatment": treatment
 				}]
 			};
 		} else {
@@ -414,10 +414,10 @@
 						"CampaignID": campaignID,
 						"InteractionID" : interactionID,
 						"Outcome":outcome,
-						"Behaviour":behaviour,
 						"Direction":direction,
-						"Channel":channel
-
+						"Channel":channel,
+                        "Rank": rank,
+                        "Treatment": treatment
 				}]
 			};
 		}

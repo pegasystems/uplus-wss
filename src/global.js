@@ -205,6 +205,9 @@ const upgradeConfig = function upgradeConfig(cfg) {
   if (typeof cfg.settings.pega_marketing.apiLevel === 'undefined') {
     cfg.settings.pega_marketing.apiLevel = 'V2';
   }
+  if (typeof cfg.settings.pega_marketing.contextName === 'undefined') {
+    cfg.settings.pega_marketing.contextName = 'Customer';
+  }
   for (const i in cfg.settings.quicklinks) {
     if (typeof cfg.settings.quicklinks[i].hide === 'undefined') {
       cfg.settings.quicklinks[i].hide = false;

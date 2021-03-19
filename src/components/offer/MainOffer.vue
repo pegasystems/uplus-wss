@@ -49,6 +49,7 @@
       <h4>{{ $t('message.' + app.offer[offerType].cards.title)}}</h4>
       <div class="flex">
         <div class="flex flex-col primary-card" v-for="(item,index) in data" v-bind:key="index">
+          <div class='offer-container' :data-offer-index="index">
           <h3>{{ item.title}}</h3>
           <p class="flex-grow-1">{{ item.message}}</p>
           <div
@@ -75,6 +76,7 @@
               :title="$t('message.' + item.link)"
             >{{ $t("message." + item.link)}}</button>
           </span>
+          </div>
         </div>
       </div>
     </div>
@@ -83,7 +85,7 @@
 
 <script>
 import { mainconfig } from '../../global';
-import { initNBAM } from '../../CDHIntegration';
+import { initNBAM, captureResponse } from '../../CDHIntegration';
 
 export default {
   props: ['offerType'],
@@ -117,10 +119,27 @@ export default {
       }, 200);
     }
   },
+  updated() {
+    if (window.IntersectionObserver && mainconfig.settings.pega_marketing.useCaptureByChannel === true) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const idx = entry.target.getAttribute('data-offer-index');
+            captureResponse(this, this.data[idx], 'Impression');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 1 });
+      document.querySelectorAll('.offer-container').forEach((offer) => { observer.observe(offer); });
+    }
+  },
   methods: {
     showOffer(item) {
       mainconfig.offerURL = item.url;
       mainconfig.previousPage = item.name;
+      if (mainconfig.settings.pega_marketing.useCaptureByChannel === true) {
+        captureResponse(this, item, 'Clicked');
+      }
     },
     applyOfferAction() {
       if (this.hero_offer.url === '') {

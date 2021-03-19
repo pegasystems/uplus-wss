@@ -30,9 +30,10 @@
   <div class="width-100-pct" v-else>
     <div
       class="flex home-promo secondary-card"
-      v-for="item in data"
+      v-for="(item,index) in data"
       :key="item.title"
     >
+    <div class='offer-container' :data-offer-index="index">
       <div
         class="image"
         v-bind:style="{ backgroundImage: 'url(' + item.img + ')' }"
@@ -68,13 +69,14 @@
           {{ $t('message.' + item.link) }}
         </button>
       </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import { mainconfig } from '../../global';
-import { initNBAM } from '../../CDHIntegration';
+import { initNBAM, captureResponse } from '../../CDHIntegration';
 
 export default {
   data() {
@@ -95,6 +97,9 @@ export default {
       mainconfig.phonePageName = 'offer';
       mainconfig.offerURL = item.url;
       mainconfig.previousPage = item.name;
+      if (mainconfig.settings.pega_marketing.useCaptureByChannel === true) {
+        captureResponse(this, item, 'Clicked');
+      }
     },
   },
   mounted() {
@@ -117,6 +122,20 @@ export default {
           'index.html',
         );
       }, 200);
+    }
+  },
+  updated() {
+    if (window.IntersectionObserver && mainconfig.settings.pega_marketing.useCaptureByChannel === true) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const idx = entry.target.getAttribute('data-offer-index');
+            captureResponse(this, this.data[idx], 'Impression');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 1 });
+      document.querySelectorAll('.offer-container').forEach((offer) => { observer.observe(offer); });
     }
   },
 };

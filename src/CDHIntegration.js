@@ -1,3 +1,4 @@
+/* eslint no-console: 0 */
 const parseResponseData = (
   Context,
   type,
@@ -53,6 +54,12 @@ const parseResponseData = (
         interactionID: OffersList[i].InteractionID,
         identifier: OffersList[i].Identifier,
         category: OffersList[i].Category,
+        group: OffersList[i].Group,
+        campaignID: OffersList[i].CampaignID,
+        issue: OffersList[i].Issue,
+        channel: OffersList[i].Channel,
+        subjectID: OffersList[i].SubjectID,
+        contextName: OffersList[i].ContextName,
         container: containerName,
         customerID,
         showAIoverlay: false,
@@ -74,6 +81,12 @@ const parseResponseData = (
         interactionID: OffersList[i].InteractionID,
         identifier: OffersList[i].Identifier,
         category: OffersList[i].Category,
+        group: OffersList[i].Group,
+        campaignID: OffersList[i].CampaignID,
+        issue: OffersList[i].Issue,
+        channel: OffersList[i].Channel,
+        subjectID: OffersList[i].SubjectID,
+        contextName: OffersList[i].ContextName,
         container: containerName,
         customerID,
         showAIoverlay: false,
@@ -83,6 +96,41 @@ const parseResponseData = (
   Context.loading = false;
 };
 
+const captureResponse = function captureResponse(Context, item, outcome) {
+  if (Context.settings.pega_marketing.apiLevel !== 'V3') return;
+  if (typeof window.getNBAMServiceControl !== 'undefined') {
+    const nbamServiceCtrl = window.getNBAMServiceControl(Context.settings.pega_marketing.apiLevel, false);
+    nbamServiceCtrl.initialize(
+      Context.settings.pega_marketing.Host,
+      Context.settings.pega_marketing.Port,
+    );
+    nbamServiceCtrl.captureResponse(
+      item.container,
+      item.customerID,
+      item.name, /* OfferID */
+      item.issue,
+      item.group,
+      item.interactionID,
+      outcome, /* outcome could be Clicked or Impression */
+      item.channel,
+      'Inbound',
+      item.campaignID,
+      item.rank,
+      item.treatment,
+      false,
+      (data) => {
+        console.log(`send capture information for ${item.name} rank=${item.rank} outcome=${outcome} response:${data.Status}`);
+      },
+    );
+  } else {
+    const scriptLoadMkt = document.createElement('script');
+    scriptLoadMkt.onload = function onloadPegaMkt() {
+      captureResponse(Context, item, outcome);
+    };
+    scriptLoadMkt.setAttribute('src', '../js/realtimecontainerscript.js');
+    document.head.appendChild(scriptLoadMkt);
+  }
+};
 const initNBAM = function initNBAM(
   Context,
   type,
@@ -111,73 +159,37 @@ const initNBAM = function initNBAM(
       placement = Context.settings.pega_marketing[type].placement;
     }
     const intent = Context.intent.trim();
-    if (Context.settings.pega_marketing.useCaptureByChannel) {
-      nbamServiceCtrl.captureWebResponse(
-        containerName,
-        customerID,
-        '', /* offerID */
-        '', /* issue */
-        '', /* group */
-        '', /* interactionID */
-        '', /* outcome */
-        '', /* behavior */
-        Context.settings.pega_marketing.channel,
-        'Inbound',
-        '',
-        (data) => {
-          data.RankedResults = data.ContainerList[0].RankedResults;
-          if (data.OffersList && data.OffersList.length > 0) {
-            parseResponseData(
-              Context,
-              type,
-              data.OffersList,
-              containerName,
-              customerID,
-            );
-          } else if (data.RankedResults && data.RankedResults.length > 0) {
-            parseResponseData(
-              Context,
-              type,
-              data.RankedResults,
-              containerName,
-              customerID,
-            );
-          }
-        },
-      );
-    } else {
-      nbamServiceCtrl.getOffers(
-        customerID,
-        'Account',
-        containerName,
-        '',
-        Context.settings.pega_marketing.channel,
-        previousPage,
-        currentPage,
-        (data) => {
-          data.RankedResults = data.ContainerList[0].RankedResults;
-          if (data.OffersList && data.OffersList.length > 0) {
-            parseResponseData(
-              Context,
-              type,
-              data.OffersList,
-              containerName,
-              customerID,
-            );
-          } else if (data.RankedResults && data.RankedResults.length > 0) {
-            parseResponseData(
-              Context,
-              type,
-              data.RankedResults,
-              containerName,
-              customerID,
-            );
-          }
-        },
-        intent,
-        placement,
-      );
-    }
+    nbamServiceCtrl.getOffers(
+      customerID,
+      Context.settings.pega_marketing.contextName,
+      containerName,
+      '',
+      Context.settings.pega_marketing.channel,
+      previousPage,
+      currentPage,
+      (data) => {
+        data.RankedResults = data.ContainerList[0].RankedResults;
+        if (data.OffersList && data.OffersList.length > 0) {
+          parseResponseData(
+            Context,
+            type,
+            data.OffersList,
+            containerName,
+            customerID,
+          );
+        } else if (data.RankedResults && data.RankedResults.length > 0) {
+          parseResponseData(
+            Context,
+            type,
+            data.RankedResults,
+            containerName,
+            customerID,
+          );
+        }
+      },
+      intent,
+      placement,
+    );
   } else {
     const scriptLoadMkt = document.createElement('script');
     scriptLoadMkt.onload = function onloadPegaMkt() {
@@ -207,4 +219,5 @@ const sendRTSEvent = function sendRTSEvent(Context, item) {
 export {
   initNBAM,
   sendRTSEvent,
+  captureResponse,
 };

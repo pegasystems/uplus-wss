@@ -35,7 +35,7 @@
     </span>
     </div>
     <div class="secondary-card" v-else>
-      <Offer v-for="item in data" :key="item.title" v-bind:offer="item" />
+      <Offer v-for="(item,index) in data" :key="item.title" v-bind:offer="item" :data-offer-index="index" class='offer-container' />
     </div>
     <KeyRates
       v-if="
@@ -51,7 +51,7 @@
 import Offer from '../widgets/Offer.vue';
 import QuickLinks from '../widgets/QuickLinks.vue';
 import { mainconfig } from '../../global';
-import { initNBAM } from '../../CDHIntegration';
+import { initNBAM, captureResponse } from '../../CDHIntegration';
 import KeyRates from '../widgets/KeyRates.vue';
 
 export default {
@@ -82,6 +82,20 @@ export default {
           'account.html',
         );
       }, 200);
+    }
+  },
+  updated() {
+    if (window.IntersectionObserver && mainconfig.settings.pega_marketing.useCaptureByChannel === true) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const idx = entry.target.getAttribute('data-offer-index');
+            captureResponse(this, this.data[idx], 'Impression');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 1 });
+      document.querySelectorAll('.offer-container').forEach((offer) => { observer.observe(offer); });
     }
   },
   components: {

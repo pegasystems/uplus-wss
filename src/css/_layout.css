@@ -284,6 +284,7 @@ main,
   font-size: 27rem;
   color: #414949;
   margin: 0;
+  word-break: break-all;
 }
 
 .secondary-options .front-option::after {

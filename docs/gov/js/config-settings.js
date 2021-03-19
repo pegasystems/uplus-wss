@@ -266,6 +266,7 @@ window.settings = {
     enableRTS: false,
     useCaptureByChannel: true,
     apiLevel: 'V2',
+    contextName: 'Customer',
     showLoadingIndicator: false,
     homePage: {
       containerName: 'TopOffers',

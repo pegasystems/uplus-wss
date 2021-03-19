@@ -36,7 +36,7 @@
           />
         </div>
         <div class="field-item">
-          <label for="NBAM-APILevel">API Level</label>
+          <label for="NBAM-APILevel">API level</label>
           <select
             id="NBAM-APILevel"
             v-model="settings.pega_marketing.apiLevel"
@@ -45,11 +45,21 @@
             <option>V3</option>
           </select>
         </div>
+        <div v-if="settings.pega_marketing.apiLevel === 'V3'" class="field-item">
+          <label for="NBAM-contextName">Context name</label>
+          <select
+            id="NBAM-contextName"
+            v-model="settings.pega_marketing.contextName"
+          >
+            <option>Account</option>
+            <option>Customer</option>
+          </select>
+        </div>
       </div>
       <div class="layout-labels-left">
-        <div class="field-item field-checkbox">
+        <div v-if="settings.pega_marketing.apiLevel === 'V3'" class="field-item field-checkbox">
           <label class="width-auto" for="NBAM-useCaptureByChannel"
-            >Use capture by channel (instead of capture on retrieval)</label
+            >Enable capturing responses to actions</label
           >
           <input
             id="NBAM-useCaptureByChannel"
@@ -102,7 +112,7 @@
     <Container title="Home Page" expanded>
       <div class="layout-labels-top layout-inline-grid-double">
         <div class="field-item">
-          <label for="NBAM-HomePage-ContainerName">Container Name</label>
+          <label for="NBAM-HomePage-ContainerName">Container name</label>
           <input
             id="NBAM-HomePage-ContainerName"
             type="text"
@@ -118,7 +128,7 @@
           />
         </div>
         <div class="field-item">
-          <label for="NBAM-HomePage-ClickAction">Click Action</label>
+          <label for="NBAM-HomePage-ClickAction">Click action</label>
           <select
             id="NBAM-HomePage-ClickAction"
             v-model="settings.pega_marketing.homePage.clickaction"
@@ -133,7 +143,7 @@
     <Container title="Account Page">
       <div class="layout-labels-top layout-inline-grid-double">
         <div class="field-item">
-          <label for="NBAM-AccountPage-ContainerName">Container Name</label>
+          <label for="NBAM-AccountPage-ContainerName">Container name</label>
           <input
             id="NBAM-AccountPage-ContainerName"
             type="text"
@@ -151,7 +161,7 @@
           />
         </div>
         <div class="field-item">
-          <label for="NBAM-AccountPage-ClickAction">Click Action</label>
+          <label for="NBAM-AccountPage-ClickAction">Click action</label>
           <select
             id="NBAM-AccountPage-ClickAction"
             v-model="settings.pega_marketing.accountPage.clickaction"
@@ -166,7 +176,7 @@
     <Container title="Home Page for mobile">
       <div class="layout-labels-top layout-inline-grid-double">
         <div class="field-item">
-          <label for="NBAM-PhonePage-ContainerName">Container Name</label>
+          <label for="NBAM-PhonePage-ContainerName">Container name</label>
           <input
             id="NBAM-PhonePage-ContainerName"
             type="text"
@@ -182,7 +192,7 @@
           />
         </div>
         <div class="field-item">
-          <label for="NBAM-PhonePage-ClickAction">Click Action</label>
+          <label for="NBAM-PhonePage-ClickAction">Click action</label>
           <select
             id="NBAM-PhonePage-ClickAction"
             v-model="settings.pega_marketing.phonePage.clickaction"
@@ -197,7 +207,7 @@
     <Container title="Offer Page">
       <div class="layout-labels-top layout-inline-grid-double">
         <div class="field-item">
-          <label for="NBAM-OfferPage-ContainerName">Container Name</label>
+          <label for="NBAM-OfferPage-ContainerName">Container name</label>
           <input
             id="NBAM-OfferPage-ContainerName"
             type="text"
@@ -213,7 +223,7 @@
           />
         </div>
         <div class="field-item">
-          <label for="NBAM-OfferPage-ClickAction">Click Action</label>
+          <label for="NBAM-OfferPage-ClickAction">Click action</label>
           <select
             id="NBAM-OfferPage-ClickAction"
             v-model="settings.pega_marketing.offerPage.clickaction"

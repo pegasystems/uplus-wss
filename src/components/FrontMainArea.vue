@@ -127,7 +127,7 @@
           v-on:click="toggleAIOverlay(item)"
           title="toggle AI"
         ></button>
-        <div class="offer-card">
+        <div class="offer-card" :data-offer-index="index">
           <div>
             <img class="option" :src="item.img" :alt="item.title" />
           </div>
@@ -168,7 +168,7 @@
 
 <script>
 import { mainconfig } from '../global';
-import { initNBAM, sendRTSEvent } from '../CDHIntegration';
+import { initNBAM, sendRTSEvent, captureResponse } from '../CDHIntegration';
 import AIOverlay from './controls/AIOverlay.vue';
 
 export default {
@@ -208,6 +208,20 @@ export default {
       }, 200);
     }
   },
+  updated() {
+    if (window.IntersectionObserver && mainconfig.settings.pega_marketing.useCaptureByChannel === true) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const idx = entry.target.getAttribute('data-offer-index');
+            captureResponse(this, this.data[idx], 'Impression');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 1 });
+      document.querySelectorAll('.offer-card').forEach((offer) => { observer.observe(offer); });
+    }
+  },
   methods: {
     checkRTSEventHover(index, item, state) {
       if (mainconfig.isRTSEnabled === true) {
@@ -239,6 +253,9 @@ export default {
     showOffer(item) {
       mainconfig.offerURL = item.url;
       mainconfig.previousPage = item.name;
+      if (mainconfig.settings.pega_marketing.useCaptureByChannel === true) {
+        captureResponse(this, item, 'Clicked');
+      }
     },
     applyHeroAction() {
       if (this.hero_offer.url === '') {
