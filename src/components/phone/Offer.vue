@@ -73,7 +73,8 @@
 </template>
 
 <script>
-import { mainconfig, initNBAM } from '../../global';
+import { mainconfig } from '../../global';
+import { initNBAM } from '../../CDHIntegration';
 
 export default {
   data() {

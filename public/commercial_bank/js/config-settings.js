@@ -377,6 +377,8 @@ window.settings = {
     replaceHomePageHeader: false,
     showAIOverlay: false,
     enableRTS: false,
+    useCaptureByChannel: true,
+    apiLevel: 'V2',
     showLoadingIndicator: false,
     homePage: {
       containerName: 'TopOffers',

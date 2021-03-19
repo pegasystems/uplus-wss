@@ -50,7 +50,8 @@
 <script>
 import Offer from '../widgets/Offer.vue';
 import QuickLinks from '../widgets/QuickLinks.vue';
-import { mainconfig, initNBAM } from '../../global';
+import { mainconfig } from '../../global';
+import { initNBAM } from '../../CDHIntegration';
 import KeyRates from '../widgets/KeyRates.vue';
 
 export default {

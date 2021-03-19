@@ -35,8 +35,28 @@
             v-model="settings.pega_marketing.channel"
           />
         </div>
+        <div class="field-item">
+          <label for="NBAM-APILevel">API Level</label>
+          <select
+            id="NBAM-APILevel"
+            v-model="settings.pega_marketing.apiLevel"
+          >
+            <option>V2</option>
+            <option>V3</option>
+          </select>
+        </div>
       </div>
       <div class="layout-labels-left">
+        <div class="field-item field-checkbox">
+          <label class="width-auto" for="NBAM-useCaptureByChannel"
+            >Use capture by channel (instead of capture on retrieval)</label
+          >
+          <input
+            id="NBAM-useCaptureByChannel"
+            type="checkbox"
+            v-model="settings.pega_marketing.useCaptureByChannel"
+          />
+        </div>
         <div class="field-item field-checkbox">
           <label class="width-auto" for="NBAM-showAIOverlay"
             >Show AI overlay</label

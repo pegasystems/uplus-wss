@@ -24,7 +24,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./auto/img/u+-logo.svg"
   },
   {
-    "revision": ".10d6c0ffd7b8fddf7c96c4b965d1e3",
+    "revision": ".fa698001c2fbe61114850d6cfbe494",
     "url": "./auto/index.html"
   },
   {
@@ -32,7 +32,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./auto/js/config-flow.js"
   },
   {
-    "revision": ".10f07ff1eb4cc1f877695519e0bd01",
+    "revision": ".801661d0ef3c260a683a418e372e9e",
     "url": "./auto/js/config-settings.js"
   },
   {
@@ -60,7 +60,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./commercial_bank/img/u+-logo.svg"
   },
   {
-    "revision": ".cb2cf2fe25023c318f025a471e78c4",
+    "revision": ".30466e57abea6e3f8b5b2a0830d23d",
     "url": "./commercial_bank/index.html"
   },
   {
@@ -68,7 +68,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./commercial_bank/js/config-flow.js"
   },
   {
-    "revision": ".90d36b5185bd2f513df5fb95c80d11",
+    "revision": ".34d7a24ac9962af0e9efca8f55ab4b",
     "url": "./commercial_bank/js/config-settings.js"
   },
   {
@@ -88,7 +88,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./comms/img/u+-logo.svg"
   },
   {
-    "revision": ".196ba9aa01f5c00a785a38a3c7e910",
+    "revision": ".4b457022ec8fcfb5181707749997a0",
     "url": "./comms/index.html"
   },
   {
@@ -96,12 +96,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./comms/js/config-flow.js"
   },
   {
-    "revision": ".3e48fbfd2a497c6e6e3fe267cadd7b",
+    "revision": ".5f73c9ed82ab857aa53abc9d1f1b72",
     "url": "./comms/js/config-settings.js"
   },
   {
-    "revision": ".cebc91597ea022afe1",
-    "url": "./css/chunk-common.a671504b.css"
+    "revision": ".8b7ef12c555d362f00",
+    "url": "./css/chunk-common.dd781716.css"
   },
   {
     "revision": ".b994fd93882918b4f01909d8e20808",
@@ -132,7 +132,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./gov/img/u+-logo.svg"
   },
   {
-    "revision": ".89bdbe2e0d747d20497c66837d9d68",
+    "revision": ".cd2e0249c6e664a98038334e7ace99",
     "url": "./gov/index.html"
   },
   {
@@ -140,7 +140,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./gov/js/config-flow.js"
   },
   {
-    "revision": ".df3c3a7cc941468a9119475005e162",
+    "revision": ".d52b74e3c69f4e94b37b3412ec1f68",
     "url": "./gov/js/config-settings.js"
   },
   {
@@ -160,7 +160,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./health_care/img/u+-logo.svg"
   },
   {
-    "revision": ".84ce9857b5d742ef9f1d6e0b21ba7a",
+    "revision": ".2e3f569283c17b2aa131fba8907d20",
     "url": "./health_care/index.html"
   },
   {
@@ -168,7 +168,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./health_care/js/config-flow.js"
   },
   {
-    "revision": ".82658dca9b613ef29689c67410f708",
+    "revision": ".7d68273c2a21b757708c65154cf55c",
     "url": "./health_care/js/config-settings.js"
   },
   {
@@ -188,7 +188,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./health_payer/img/u+-logo.svg"
   },
   {
-    "revision": ".0031e87c4b4f22ae6721ea9b1326cc",
+    "revision": ".c15db99a6ff7f7ccd9fdf57dc0bf68",
     "url": "./health_payer/index.html"
   },
   {
@@ -196,7 +196,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./health_payer/js/config-flow.js"
   },
   {
-    "revision": ".14e3402644fee16b366bfe7e01a2bf",
+    "revision": ".b4c4c4fecf341ff2298b5d254b2569",
     "url": "./health_payer/js/config-settings.js"
   },
   {
@@ -216,7 +216,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./health_pharma/img/u+-logo.svg"
   },
   {
-    "revision": ".f830eb25402469100d4bfd640bcf7e",
+    "revision": ".be3ec07b0d3405642d90bb61a78759",
     "url": "./health_pharma/index.html"
   },
   {
@@ -224,7 +224,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./health_pharma/js/config-flow.js"
   },
   {
-    "revision": ".9e6b5ea66ead1dd3e037b1cf568d37",
+    "revision": ".f3b1356f97d450aae55798251b3d98",
     "url": "./health_pharma/js/config-settings.js"
   },
   {
@@ -244,7 +244,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./health_provider/img/u+-logo.svg"
   },
   {
-    "revision": ".9e148258aea2e56eaefc6f0ab5e53d",
+    "revision": ".0a52cc8497f5cbc53601c118bc609c",
     "url": "./health_provider/index.html"
   },
   {
@@ -252,7 +252,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./health_provider/js/config-flow.js"
   },
   {
-    "revision": ".5cc160c3aa5629c399629b40442173",
+    "revision": ".b53039b544506e0c4381b5a0a398b3",
     "url": "./health_provider/js/config-settings.js"
   },
   {
@@ -292,7 +292,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./insurance/img/u+-logo.svg"
   },
   {
-    "revision": ".d21a10d7eb4f077eb3bdfb28c21efb",
+    "revision": ".037e808cf40bd9f89973b1f585b85e",
     "url": "./insurance/index.html"
   },
   {
@@ -300,7 +300,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./insurance/js/config-flow.js"
   },
   {
-    "revision": ".caf84666cdb96fa92f13aca9280895",
+    "revision": ".07f4a0908ac28597d444ef3a1346c4",
     "url": "./insurance/js/config-settings.js"
   },
   {
@@ -316,8 +316,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./js/auto.f7621465.js"
   },
   {
-    "revision": ".cebc91597ea022afe1",
-    "url": "./js/chunk-common.3e6e0c0c.js"
+    "revision": ".8b7ef12c555d362f00",
+    "url": "./js/chunk-common.8fdaefc2.js"
   },
   {
     "revision": ".3a3a6598e6f1323cbc",
@@ -368,12 +368,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./js/pega-mashup-webcomponent-light-all.js"
   },
   {
-    "revision": ".5736b2413b8c6472182e3a1675e02a",
+    "revision": ".836f4cebd058c3dd430bbefd7dcc9e",
     "url": "./js/realtimecontainerscript.js"
   },
   {
     "revision": ".6bbf1513b32d04a5b7",
     "url": "./js/retail_bank.4bc50aa0.js"
+  },
+  {
+    "revision": ".b85799523ce176b64426da3b765e2c",
+    "url": "./js/test/realtimecontainerscript-new.js"
+  },
+  {
+    "revision": ".5736b2413b8c6472182e3a1675e02a",
+    "url": "./js/test/realtimecontainerscript.js"
   },
   {
     "revision": ".29f346898fe1ec3ac3e485e6b63aed",
@@ -396,7 +404,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./manufacturing/img/u+-logo.svg"
   },
   {
-    "revision": ".6dae7865065e51d5662fd19c4e716e",
+    "revision": ".d09fe1c16df0b4d075efddbc20fa4f",
     "url": "./manufacturing/index.html"
   },
   {
@@ -404,7 +412,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./manufacturing/js/config-flow.js"
   },
   {
-    "revision": ".c192d59f6bd655dd2ea13786813591",
+    "revision": ".d18027b4eda9dd0d935f07030d3255",
     "url": "./manufacturing/js/config-settings.js"
   },
   {
@@ -428,7 +436,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./retail_bank/img/u+-logo.svg"
   },
   {
-    "revision": ".5ee43212c67776970f6d42f73d4192",
+    "revision": ".4d458599edd5b7e71c8117bdf0a83e",
     "url": "./retail_bank/index.html"
   },
   {
@@ -436,7 +444,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./retail_bank/js/config-flow.js"
   },
   {
-    "revision": ".2f9286532386ef0d999fca2574bb2c",
+    "revision": ".ae103eb95df14d9a2dd4da1b060bf5",
     "url": "./retail_bank/js/config-settings.js"
   }
 ]);

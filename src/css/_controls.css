@@ -477,8 +477,9 @@ header .menu-overlay a {
 
 .fatlist > li {
   border-bottom: 1rem solid #e6e7e8;
-  padding: 20rem;
+  padding: 3rem 0;
   align-items: center;
+  min-height: 28rem;
 }
 
 table {

@@ -25,17 +25,17 @@
       if(idx!= -1) {
         this.hostName = this.hostName.substring(idx+1);
       }
-			this.url = this.serviceURLProtocol + "://" + this.hostName + (this.port!="" ? ":" + this.port : "") + "/prweb/PRRestService/PegaMKTContainer/Services/ExecuteWebContainer?";
+			this.url = this.serviceURLProtocol + "://" + this.hostName + (this.port!="" ? ":" + this.port : "") + "/prweb/api/PegaMKTContainer/Services/ExecuteWebContainer?";
 
 		},
 
 		getServiceURL : function (serviceName,params) {
 			var url;
 			if (serviceClass) {
-				url = this.serviceURLProtocol + "://" + this.hostName + (this.port!="" ? ":" + this.port : "") + "/prweb/PRRestService/PegaMKTContainer/" + serviceClass + "/" + serviceName + "?";
+				url = this.serviceURLProtocol + "://" + this.hostName + (this.port!="" ? ":" + this.port : "") + "/prweb/api/PegaMKTContainer/" + serviceClass + "/" + serviceName + "?";
 
 			} else {
-				var url = this.serviceURLProtocol + "://" + this.hostName + (this.port!="" ? ":" + this.port : "") + "/prweb/PRRestService/PegaMKTContainer/Services/" + serviceName + "?";
+				var url = this.serviceURLProtocol + "://" + this.hostName + (this.port!="" ? ":" + this.port : "") + "/prweb/api/PegaMKTContainer/Services/" + serviceName + "?";
 			}
 
 			if(params != null) {
@@ -45,19 +45,18 @@
 
 		},
 
-		getStreamServiceURL: function(streamHost,streamPort,streamName) {
-			var streamURL;
-            if (typeof streamPort == 'undefined') streamPort = "";
-			streamURL = this.serviceURLProtocol + "://" + streamHost + (streamPort!="" ? ":" + streamPort : "") +  "/stream/" + streamName;
-			return streamURL;
-		},
-
-		getOffers : function (customerID, containerName, channel, previousPage, currentpage, callback,intent, placement) {
+		 /*
+      * This method is updated to handle all the versions of the container service calls i.e., V1/V2/V3 based on the serviceClass defined. 
+      * Added new parameter "ContextName" (at which context level decisioning should be done) which can be passed for V3 container service. else for other version before V3, null value can be passed.
+      * "externalID": For identity matching. It doesn't exist pass null.
+      * CustomerID had been modified to "subjectID" corresponds to the customer Id at particular context level. For V2, this field will be mapped to customerID in the container payload.
+      */
+		getOffers : function (subjectID, contextName, containerName, externalID, channel, previousPage, currentpage, callback,intent, placement) {
 
 			this.checkCallBack(callback);
 			var callbackFunction ;
-
-
+		
+			
 			if(callMultiContainer){
 				callbackFunction = function (data){
 				    var responseData = data["ResponseData"];
@@ -66,27 +65,49 @@
 						console.log(responseData[containerNameList[i]]);
 						callback(responseData[containerNameList[i]],containerNameList[i]);
 					}
-				};
+				};	
 			}
 			else
 				callbackFunction = callback;
+			
+			var jsonObj = this.getV3JSONObj(subjectID, contextName, containerName, externalID, channel, previousPage, currentpage,intent, placement);
 
-			var jsonObj = this.getJSONObj(customerID, containerName, channel, previousPage, currentpage,intent, placement);
 			if(serviceClass){
 				this.invokeRemoteService("Container",null,"POST",jsonObj,callbackFunction);
 			} else {
 				this.invokeRemoteService("ExecuteWebContainer",null,"POST",jsonObj,callbackFunction);
 			}
+			
+		},
+        
+         loadOffers : function (jsonObj, methodType, callback) {
 
+			this.checkCallBack(callback);
+			if(methodType == "GET"){
+			    var queryParams = function parse(jsonObj) {
+									return '?' + 
+									Object.keys(jsonObj).map(function(key) {
+									if(typeof jsonObj[key]!='object'){
+										return encodeURIComponent(key) + '=' +
+										encodeURIComponent(jsonObj[key]);
+										}
+									}).join('&');}
+          queryParams = queryParams.substring(0, queryParams.length() - 1);
+				  this.invokeRemoteService("Container", queryParams,"GET", null, callback);
+			}
+			else {
+				  this.invokeRemoteService("Container", null,"POST", jsonObj, callback);
+			}
+			
 		},
 
 		getJSONObj : function(customerID, containerName, channel, previousPage, currentpage, intent, placement){
-			if(serviceClass){
+			if(serviceClass){				
 				var jsonObj = {
 					"CustomerID" : customerID,
 					"ContainerName" : containerName,
 					"Channel": channel,
-					"Direction": "Inbound",
+                    "Direction": "Inbound",
                     "Placements":placement,
                   	"Contexts": [{
                                   "Key": "CurrentPage",
@@ -98,15 +119,15 @@
                                   "Value": previousPage,
                                   "Type": "PreviousPage"
                              	 }]
-
+					
 				};
-        if(intent && intent!=="") {
-          jsonObj.Contexts.push({
+                 if(intent && intent!=="") {
+                    jsonObj.Contexts.push({
                                   "Key": "CurrentPage",
                                   "Value": intent,
                                   "Type": "Intent"
                              	 });
-        }
+                }
 			} else {
 				var jsonObj = {
 					"CustomerID" : customerID,
@@ -149,22 +170,94 @@
 			if (xmlHttpReq)	xmlHttpReq.send(jsonString);
 		},
 
-      	/**
-		*"capturePaidClickResponse " : capture paid meida click response
+        /**
+		*"capturePaidClickResponse " : capture paid meida click response 
 		**/
-		capturePaidClickResponse : function (CustomerID, ExternalAudienceId, PaidAccountId, ReferrerUrl, Source, Utm_medium, callback) {
+		capturePaidClickResponse : function (CustomerID, ExternalAudienceId, ReferrerUrl, Utm_medium, callback) {
 			var jsonObj = {
 				"CustomerID" : CustomerID,
 				"ExternalAudienceId" : ExternalAudienceId,
-				"PaidAccountId" : PaidAccountId,
 				"ReferrerUrl" : ReferrerUrl,
-				"Source" : Source,
 				"Utm_medium" : Utm_medium
 			};
 
 			this.captureMultiplePaidClickResponse(jsonObj, callback);
 		},
+        /**
+		*"capturePaidClickResponse " : capture paid meida click response with AdSetId and DestinationType
+		**/
+		capturePaidClickResponseExt : function (CustomerID, ExternalAudienceId, AdSetId, DestinationType, ReferrerUrl, Utm_medium, Outcome, callback) {
+			var jsonObj = {
+				"CustomerID" : CustomerID,
+				"ExternalAudienceId" : ExternalAudienceId,
+				"ReferrerUrl" : ReferrerUrl,
+				"Utm_medium" : Utm_medium,
+        "AdSetId" : AdSetId,
+        "DestinationType" : DestinationType,
+        "Outcome" : Outcome
+			};
 
+			this.captureMultiplePaidClickResponse(jsonObj, callback);
+		},
+    
+    /**
+		 * Fetches the query parameters from the click URL.
+		 */
+		fetchQueryParams: function () {
+			return window.location.search.substring(1);
+		},
+
+        		/**
+		 * Builds the request payload required for the CapturePaidResponseExt service and also identifies the destination
+		 * i.e., Facebook/Google based on the query parameter name adset_id/adgroup_id
+		 */
+		buildRequestPayload: function () {
+			var rawQueryParams = sessionStorage.getItem('query_params');
+			var queryParams = rawQueryParams.split('&');
+			var externalAudienceId, adSetIdOrAdGroupId, utmMedium, outcome, referralUrl, destination;
+			if (queryParams) {
+				for (var i = 0; i < queryParams.length; i++) {
+					console.log(queryParam);
+					var queryParam = queryParams[i];
+					var key = queryParam.split('=')[0];
+					var value = queryParam.split('=')[1];
+					switch (key) {
+						case 'ext_aud_id':
+							externalAudienceId = value;
+							break;
+						case 'adset_id':
+							adSetIdOrAdGroupId = value;
+							destination = 'Facebook';
+							break;
+						case 'adgroup_id':
+							adSetIdOrAdGroupId = value;
+							destination = 'Google';
+							break;
+						case 'utm_medium':
+							utmMedium = value;
+							break;
+						case 'outcome':
+							outcome = value;
+							break;
+						case 'ref_url':
+							referralUrl = value;
+							break;
+					}
+				}
+			}
+			if (!outcome || outcome.length <= 0) {
+				outcome = "PaidClick";
+			}
+			return {
+				'externalAudienceId': externalAudienceId,
+				'adSetIdOrAdGroupId': adSetIdOrAdGroupId,
+				'utmMedium': utmMedium,
+				'outcome': outcome,
+				'referralUrl': referralUrl,
+				'destination': destination
+			}
+		},
+        
 		/**
 		* "captureMultiplePaidClickResponse" capture paid meida click response
 		**/
@@ -205,16 +298,16 @@
 	},
 
 	callDefaultCallBack : function (response) {
-
+		
 		var OffersList;
-	 	if(typeof response.OffersList != "undefined") {
+	 	if(typeof response.OffersList != "undefined") { 
 			OffersList = response.OffersList;
 		} else if(data.RankedResults && data.RankedResults.length) {
 			OffersList = response.RankedResults;
 		}
 
 
-		for (var i=0; i< OffersList.length; i++) {
+		for (var i=0; i< OffersList.length; i++) {		      
 		      //Get the src for the img tag...
 		      var ba = document.getElementById("BannerAd" + (offerLength+i));
 		      var tagname = "BannerURL";
@@ -223,18 +316,46 @@
 		      }
 
 			  offerLength = offerLength+i;
-
+			  
 		      var bannerURL = OffersList[i].ImageURL;
+			  var n = str.indexOf("content/");
+			 var imgURL = str.substring(0, n);
+			  var repoURL = imgURL + "content";
+			  //Get the content for the fragment ...
+			  var contentformat = OffersList[i].ContentFormat;
+	if(contentformat == "HTML")
+	{
+	  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var str = this.responseText;
+	  alert(this.responseText);
+	  var res = str.replace("/content",repoURL);
+      // Need to update the code for Dynamic Div to support fragmants will be taking care as part of uplus bank code changes
+	  document.getElementById("BannerAd_Frag").innerHTML = res;
+	  alert(res);
+	}
+	else{
+			  
+			  $(function(){
+      $("#includedContent").load(bannerURL+".html"); 
+    });
 		      if (ba) ba.src = bannerURL;
-
-		      //Get the href for the anchor/link tag
+		      
+		      //Get the href for the anchor/link tag		      
 		      var bannerRef = OffersList[i].ClickThroughURL;
-
-
+		      
+		      
 		      var bc = document.getElementById("BannerClick" + i);
 		      if (bc) bc.href = bannerRef;
 	   	}
-	},
+  }
+		
+	
+  };
+  xhttp.open("GET", bannerURL, true);
+  xhttp.send();
+}},
 
 	/* captureWebResponse function is implemented as part US-81885 */
 
@@ -317,9 +438,45 @@
     },
 
 	invokeRemoteService: function(serviceName,urlParams,httpVerb,jsonObj,callback){
-		var serviceUrl = this.getServiceURL(serviceName,urlParams);
+		var serviceUrl = this.getServiceURL(serviceName,urlParams); 			
 		var xmlHttpReq = this.createRequest(httpVerb, serviceUrl, callback);
-		if (xmlHttpReq)	xmlHttpReq.send(JSON.stringify(jsonObj));
+		if(typeof jsonObj === "string") {
+			if (xmlHttpReq)	xmlHttpReq.send(jsonObj);
+		} else {
+			if (xmlHttpReq)	xmlHttpReq.send(JSON.stringify(jsonObj));
+		}
+	},
+  
+    /*This function is the overloaded version of the getJSONObj to generate container payload based on the serviceClass*/
+    getV3JSONObj : function(subjectID, contextName, containerName, externalID, channel, previousPage, currentpage,intent, placement){
+			let jsonObj;
+			if(serviceClass && serviceClass.toUpperCase() === "V3"){				
+				let jsonStr = '{ '+ (subjectID ? ('"SubjectID":"' + subjectID + '",') : '')
+				  + (contextName ? ('"ContextName":"' + contextName + '",') : '')
+				  + (externalID ? ('"ExternalID":"' + externalID + '",') : '')
+          + '"ContainerName":"'+ containerName + '",'
+                + '"Direction":"Inbound",'
+                + '"Placements":"'+ placement + '",'
+				  +	'"Channel":"' + channel + '",'
+                  +	'"Contexts": [{ "Key": "CurrentPage",'
+                                 +'"Value":"' + (intent && intent !== '' ? intent : currentpage) + '",'
+                                 + '"Type": "' + (intent && intent !== '' ? "Intent" : "CurrentPage") + '"},'
+                                 +'{'
+                                 +'"Key": "PreviousPage",'
+                                 +'"Value":"' + previousPage + '",'
+                                 + '"Type": "PreviousPage" }]'
+					
+				+'}';
+				try {
+					jsonObj = JSON.parse(JSON.stringify(jsonStr));
+				} catch(err) {
+					console.log(err);
+				}
+				
+	  } else {
+				jsonObj = this.getJSONObj(subjectID, containerName, channel, previousPage, currentpage, intent, placement);
+			}
+			return jsonObj;
 	},
 
    sendRTSEvent : function(customerID, item, callback) {

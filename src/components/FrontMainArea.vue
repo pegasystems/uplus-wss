@@ -7,8 +7,7 @@
       <div class="flex flex-col">
         <h1 class="hero">
           {{ $t(`message.${app.herotext.title}`) }}
-          <br v-if="$t(`message.${app.herotext.titlespan}`) != ''" />
-          {{ $t(`message.${app.herotext.titlespan}`) }}
+          <span>{{ $t(`message.${app.herotext.titlespan}`) }}</span>
         </h1>
         <button v-on:click="applyHeroAction" class="more">
           {{ $t(`message.${app.herotext.buttonlabel}`) }}
@@ -81,8 +80,7 @@
         <div class="flex flex-col">
           <h1 class="hero">
             {{ hero_offer.title }}
-            <br v-if="hero_offer.message != ''" />
-            {{ hero_offer.message }}
+            <span>{{ hero_offer.message }}</span>
           </h1>
           <a
             v-if="
@@ -169,7 +167,8 @@
 </template>
 
 <script>
-import { mainconfig, initNBAM, sendRTSEvent } from '../global';
+import { mainconfig } from '../global';
+import { initNBAM, sendRTSEvent } from '../CDHIntegration';
 import AIOverlay from './controls/AIOverlay.vue';
 
 export default {

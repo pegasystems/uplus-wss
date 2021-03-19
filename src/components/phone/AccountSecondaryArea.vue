@@ -54,7 +54,8 @@
 
 <script>
 import Offer from '../widgets/Offer.vue';
-import { mainconfig, initNBAM } from '../../global';
+import { mainconfig } from '../../global';
+import { initNBAM } from '../../CDHIntegration';
 
 export default {
   data() {

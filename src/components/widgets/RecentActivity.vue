@@ -3,9 +3,11 @@
     <h2>{{ $t("message.recentactivity") }}</h2>
     <ul class="fatlist">
       <li v-for="(item,index) in app.recentactivity" :key="item.message" class="flex">
-        <time class="fatlist-item">{{ $d(getdate(index), 'short') }}</time>
+        <time v-if="item.date" class="fatlist-item">{{ $d(new Date(item.date), 'short') }}</time>
+        <time v-else class="fatlist-item">{{ $d(getdate(index), 'short') }}</time>
         <p class="fatlist-item activity">{{ $t("message." + item.message) }}</p>
-        <a class="fatlist-item flex-align-r">{{ $t("message.viewmore") }}</a>
+        <p v-if="item.cost" class="fatlist-item flex-align-r">{{ isDebit(item.cost) ? '(' + $n(item.cost, 'currency') + ')' : $n(item.cost, 'currency') }}</p>
+        <a v-else class="fatlist-item flex-align-r">{{ $t("message.viewmore") }}</a>
       </li>
     </ul>
   </section>
@@ -19,6 +21,13 @@ export default {
     return mainconfig;
   },
   methods: {
+    isDebit(value) {
+      try {
+        return parseFloat(value) < 0.0;
+      } catch (e) {
+        return false;
+      }
+    },
     getdate(index) {
       /* Always make the first event on the 15th of your month */
       const myDate = new Date();
