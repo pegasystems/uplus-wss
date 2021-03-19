@@ -6,7 +6,7 @@
         <time v-if="item.date" class="fatlist-item">{{ $d(new Date(item.date), 'short') }}</time>
         <time v-else class="fatlist-item">{{ $d(getdate(index), 'short') }}</time>
         <p class="fatlist-item activity">{{ $t("message." + item.message) }}</p>
-        <p v-if="item.cost" class="fatlist-item flex-align-r">{{ isDebit(item.cost) ? '(' + $n(item.cost, 'currency') + ')' : $n(item.cost, 'currency') }}</p>
+        <p v-if="item.cost" class="fatlist-item flex-align-r">{{ $n(item.cost, 'currency') }}</p>
         <a v-else class="fatlist-item flex-align-r">{{ $t("message.viewmore") }}</a>
       </li>
     </ul>
@@ -21,13 +21,6 @@ export default {
     return mainconfig;
   },
   methods: {
-    isDebit(value) {
-      try {
-        return parseFloat(value) < 0.0;
-      } catch (e) {
-        return false;
-      }
-    },
     getdate(index) {
       /* Always make the first event on the 15th of your month */
       const myDate = new Date();
