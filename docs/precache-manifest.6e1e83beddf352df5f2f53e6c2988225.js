@@ -376,14 +376,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./js/retail_bank.4bc50aa0.js"
   },
   {
-    "revision": ".b85799523ce176b64426da3b765e2c",
-    "url": "./js/test/realtimecontainerscript-new.js"
-  },
-  {
-    "revision": ".5736b2413b8c6472182e3a1675e02a",
-    "url": "./js/test/realtimecontainerscript.js"
-  },
-  {
     "revision": ".29f346898fe1ec3ac3e485e6b63aed",
     "url": "./manifest.json"
   },
