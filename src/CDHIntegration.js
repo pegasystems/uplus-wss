@@ -117,6 +117,9 @@ const captureResponse = function captureResponse(Context, item, outcome) {
       item.campaignID,
       item.rank,
       item.treatment,
+      item.propensity,
+      item.priority,
+      item.contextName,
       false,
       (data) => {
         console.log(`send capture information for ${item.name} rank=${item.rank} outcome=${outcome} response:${data.Status}`);

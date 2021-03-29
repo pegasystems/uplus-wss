@@ -383,13 +383,14 @@
 	captureWebResponseWithJSON : function(jsonObj,callback){
 		this.invokeRemoteService("CaptureWebResponse",null,"POST",jsonObj,callback);
     },
-	captureResponse : function(containerID, customerID, offerID, issue, group, interactionID,outcome,channel,direction,campaignID,rank,treatment,initiateOffer, callback){
+	captureResponse : function(containerID, customerID, offerID, issue, group, interactionID,outcome,channel,direction,campaignID,rank,treatment,propensity, priority, contextName, initiateOffer, callback){
 
 
 		if(serviceClass){
 			var jsonObj = {
-				"CustomerID" : customerID,
+				"SubjectID" : customerID,
 				"ContainerName" : containerID,
+				"ContextName": contextName,
 				"RankedResults" : [{
 						"Name" : offerID,
 						"Issue" : issue,
@@ -400,15 +401,20 @@
 						"Direction":direction,
 						"Channel":channel,
                         "Rank": rank,
-                        "Treatment": treatment
+                        "Treatment": treatment,
+					"Propensity": propensity,
+					"Priority": priority,
+					"SubjectID": customerID,
+					"ContextName": contextName
 				}]
 			};
 		} else {
 			var jsonObj = {
-				"CustomerID" : customerID,
+				"SubjectID" : customerID,
 				"ContainerName" : containerID,
+				"ContextName": contextName,
 				"OffersList" : [{
-						"OfferID" : offerID,
+						"Name" : offerID,
 						"Issue" : issue,
 						"Group" : group,
 						"CampaignID": campaignID,
@@ -417,7 +423,11 @@
 						"Direction":direction,
 						"Channel":channel,
                         "Rank": rank,
-                        "Treatment": treatment
+                        "Treatment": treatment,
+					"Propensity": propensity,
+					"Priority": priority,
+					"SubjectID": customerID,
+					"ContextName": contextName
 				}]
 			};
 		}
