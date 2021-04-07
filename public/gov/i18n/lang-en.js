@@ -1,7 +1,8 @@
 window.langEN = {
-  hero_text: 'Stay',
-  hero_span: 'connected',
+  hero_text: 'Government services at your finger tips',
+  hero_span: '',
   learnmore: 'Learn more',
+  applynow: 'Apply Now',
   contactus: 'Contact us',
   secondary1_title: "We're here to help.",
   secondary1_msg: 'Be involved with your community.',

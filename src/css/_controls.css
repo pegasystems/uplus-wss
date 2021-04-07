@@ -44,6 +44,7 @@ textarea {
   overflow: hidden;
   display: block;
   tab-size: 4;
+  font-size: 18rem;
 }
 
 textarea:hover,

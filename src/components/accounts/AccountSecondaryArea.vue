@@ -2,7 +2,8 @@
   <div class="col col-2">
     <div
       class="secondary-card"
-      v-if="settings.pega_marketing.Host === '' || (loading && !settings.pega_marketing.showLoadingIndicator)"
+      v-if="settings.pega_marketing.Host === '' || settings.pega_marketing.accountPage.placement === '' ||
+      settings.pega_marketing.accountPage.containerName === '' || (loading && !settings.pega_marketing.showLoadingIndicator)"
     >
       <section
         class="offer-card-col"

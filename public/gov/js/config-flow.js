@@ -3,7 +3,7 @@ window.app = {
   herotext: {
     title: 'hero_text',
     titlespan: 'hero_span',
-    buttonlabel: 'learnmore',
+    buttonlabel: 'applynow',
   },
   secondarydetails: [
     {

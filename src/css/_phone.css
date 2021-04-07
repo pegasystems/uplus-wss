@@ -4,6 +4,12 @@
   min-height: calc(100vh - 40rem);
 }
 
+.phone select,
+.phone input,
+.phone textarea {
+  font-size: 16rem;
+}
+
 .phone .full-height > iframe {
   min-height: calc(100vh - 40rem);
 }
