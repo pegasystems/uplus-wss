@@ -308,7 +308,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./js/PegaHelper.js"
   },
   {
-    "revision": ".4b5411532ad0979aac067f23a0c503",
+    "revision": ".e03106aa104a8912bb983f83c261d8",
     "url": "./js/PegaHelperExtension.js"
   },
   {

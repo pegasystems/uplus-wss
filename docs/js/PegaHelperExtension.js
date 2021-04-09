@@ -75,10 +75,8 @@ if (PegaChatConfig.ProactiveCDHEnabled == "true") {
   }
 }
 
-var serverURL = PegaCSWSS.MashupURL;
-var mashupScript = document.createElement('script');
-mashupScript.src = serverURL + "?pyActivity=pzIncludeMashupScripts";
-mashupScript.onload = function() {
+function loadMashup() {
+  var serverURL = PegaCSWSS.MashupURL;
   window.pega.chat = window.pega.chat || {};
   window.pega.chat.proactiveChat = new PegaProactiveChat();
 
@@ -111,6 +109,25 @@ mashupScript.onload = function() {
   setTimeout(function() {	
     pega.Mashup.Communicator.register(pega.Mashup.hostActionsProcessor);	
     _initAllPegaObjects();	
-  },30);
-};
-document.head.appendChild(mashupScript);
+  },300);
+}
+
+setTimeout( function() {
+if (
+      typeof pega !== 'undefined' &&
+      typeof pega.Mashup !== 'undefined' &&
+      typeof pega.Mashup.Communicator !== 'undefined'
+    ) {
+  loadMashup();
+} else {
+  var serverURL = PegaCSWSS.MashupURL;
+  var mashupScript = document.createElement('script');
+  mashupScript.src = serverURL + "?pyActivity=pzIncludeMashupScripts";
+  mashupScript.onload = function() {
+    loadMashup();
+  };
+  document.head.appendChild(mashupScript);
+}
+},1000);
+
+
