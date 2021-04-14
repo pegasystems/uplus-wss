@@ -402,8 +402,6 @@
 						"Channel":channel,
                         "Rank": rank,
                         "Treatment": treatment,
-					"Propensity": propensity,
-					"Priority": priority,
 					"SubjectID": customerID,
 					"ContextName": contextName
 				}]
@@ -424,8 +422,6 @@
 						"Channel":channel,
                         "Rank": rank,
                         "Treatment": treatment,
-					"Propensity": propensity,
-					"Priority": priority,
 					"SubjectID": customerID,
 					"ContextName": contextName
 				}]
