@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { mainconfig } from '../../global';
+import { mainconfig, setCookie } from '../../global';
 
 export default {
   data() {
@@ -92,6 +92,11 @@ export default {
       window.PegaCSWSS.AccountNumber = '';
       window.PegaCSWSS.UserName = '';
       window.PegaCSWSS.ExtraParams = {};
+
+      setCookie('ContactID', window.PegaCSWSS.ContactID, 30);
+      setCookie('AccountNumber', window.PegaCSWSS.AccountNumber, 30);
+      setCookie('UserName', window.PegaCSWSS.UserName, 30);
+
       /* Update PegaChat and remove ContactId, AccountNumber and username */
       const el = document.querySelector(
         "[data-pega-gadgetname='OnlineHelp'] > iframe",

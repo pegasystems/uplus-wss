@@ -76,7 +76,8 @@ export default {
     },
     gotoOfferPage(event) {
       mainconfig.currentPage = 'offer.html';
-      window.history.pushState({}, '', 'offer.html');
+      const stateObj = mainconfig.isAuthenticated ? { userId: mainconfig.userId } : {};
+      window.history.pushState(stateObj, '', 'offer.html');
       if (this.$gtag) {
         this.$gtag.pageview({
           page_path: mainconfig.currentPage,

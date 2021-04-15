@@ -4,6 +4,29 @@
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
 
+function setCookie(cname, cvalue, exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+  const expires = `expires=${d.toGMTString()}`;
+  document.cookie = `${cname}=${cvalue};${expires};path=/`;
+}
+
+function getCookie(cname) {
+  const name = `${cname}=`;
+  const decodedCookie = decodeURIComponent(document.cookie);
+  const ca = decodedCookie.split(';');
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) === ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) === 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return '';
+}
+
 const upgradeConfig = function upgradeConfig(cfg) {
   /* Handle upgrade issues */
   if (
@@ -484,7 +507,7 @@ if (typeof settings === 'undefined') {
         window.history.replaceState(
           { userId: mainconfigTmp.userId },
           '',
-          'account',
+          currentState.page,
         );
       }
     } else if (window.location.pathname.indexOf('/heroaction') !== -1) {
@@ -502,6 +525,17 @@ if (typeof settings === 'undefined') {
         );
       }
       window.history.replaceState({}, '', mainconfigTmp.phonePageName);
+    }
+  }
+
+  if (mainconfigTmp.isAuthenticated === false && getCookie('UserName') !== '') {
+    const username = getCookie('UserName');
+    for (const i in mainconfigTmp.settings.users) {
+      if (mainconfigTmp.settings.users[i].username === username) {
+        mainconfigTmp.isAuthenticated = true;
+        mainconfigTmp.userId = i;
+        break;
+      }
     }
   }
 
@@ -646,6 +680,9 @@ if (typeof settings === 'undefined') {
       });
     }
   }
+  setCookie('ContactID', window.PegaCSWSS.ContactID, 30);
+  setCookie('AccountNumber', window.PegaCSWSS.AccountNumber, 30);
+  setCookie('UserName', window.PegaCSWSS.UserName, 30);
 
   // We don't show chat and CoBrowse on the settings page
   if (
@@ -768,6 +805,11 @@ const updatePegaChat = function updatePegaChat(u) {
   window.PegaCSWSS.ContactID = u.contactID;
   window.PegaCSWSS.AccountNumber = u.accountID;
   window.PegaCSWSS.UserName = u.username;
+
+  setCookie('ContactID', window.PegaCSWSS.ContactID, 30);
+  setCookie('AccountNumber', window.PegaCSWSS.AccountNumber, 30);
+  setCookie('UserName', window.PegaCSWSS.UserName, 30);
+
   if (typeof u.extraparam !== 'undefined' && u.extraparam !== '') {
     u.extraparam.split(',').forEach((item) => {
       const values = item.split('=');
@@ -797,4 +839,5 @@ export {
   i18n,
   upgradeConfig,
   updatePegaChat,
+  setCookie,
 };

@@ -107,7 +107,8 @@ export default {
           page_path: mainconfig.phonePageName,
         });
       }
-      window.history.pushState({}, '', 'offer.html');
+      const stateObj = mainconfig.isAuthenticated ? { userId: mainconfig.userId } : {};
+      window.history.pushState(stateObj, '', 'offer.html');
       mainconfig.offerIndex = 0;
       window.scrollTo({ top: 0, behavior: 'smooth' });
       event.preventDefault();
