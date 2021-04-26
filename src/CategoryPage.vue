@@ -1,16 +1,12 @@
 <template>
-  <div id="app">
-    <PhonePage v-if="isMobilePhone" />
-    <AccountPage v-else-if="isAuthenticated" />
-    <MainPage v-else />
-  </div>
+  <PhonePage v-if="isMobilePhone" />
+  <MainPage v-else id="app"/>
 </template>
 
 <script>
 import { mainconfig } from './global';
 import PhonePage from './components/phone/PhonePage.vue';
 import MainPage from './components/category/MainPage.vue';
-import AccountPage from './components/accounts/AccountPage.vue';
 
 export default {
   data() {
@@ -18,7 +14,6 @@ export default {
   },
   components: {
     MainPage,
-    AccountPage,
     PhonePage,
   },
 };

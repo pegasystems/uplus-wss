@@ -406,7 +406,8 @@ time.fatlist-item {
   padding: 0;
 }
 
-.rts-enabled .primary-options > .front-option {
+.rts-enabled .primary-options > .front-option.cdh-offer,
+.rts-enabled .offer-container {
   outline: 1px dashed #f7112d;
   cursor: pointer;
 }

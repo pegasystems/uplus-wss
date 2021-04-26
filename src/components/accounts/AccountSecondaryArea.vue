@@ -36,7 +36,10 @@
     </span>
     </div>
     <div class="secondary-card" v-else>
-      <Offer v-for="(item,index) in data" :key="item.title" v-bind:offer="item" :data-offer-index="index" class='offer-container' />
+      <div v-for="(item,index) in data" :key="item.title" @mouseover="checkRTSEventHover(index, item, true)"
+        @mouseleave="checkRTSEventHover(index, item, false)">
+        <Offer v-bind:offer="item" :data-offer-index="index" class='offer-container' />
+      </div>
     </div>
     <KeyRates
       v-if="
@@ -52,7 +55,7 @@
 import Offer from '../widgets/Offer.vue';
 import QuickLinks from '../widgets/QuickLinks.vue';
 import { mainconfig } from '../../global';
-import { initNBAM, captureResponse } from '../../CDHIntegration';
+import { initNBAM, captureResponse, sendRTSEvent } from '../../CDHIntegration';
 import KeyRates from '../widgets/KeyRates.vue';
 
 export default {
@@ -61,6 +64,10 @@ export default {
       ...mainconfig,
       loading: true,
       data: [],
+      RTSstate: {
+        index: -1,
+        id: 0,
+      },
     };
   },
   mounted() {
@@ -117,6 +124,33 @@ export default {
       mainconfig.offerIndex = 0;
       window.scrollTo({ top: 0, behavior: 'smooth' });
       event.preventDefault();
+    },
+    checkRTSEventHover(index, item, state) {
+      if (mainconfig.isRTSEnabled === true) {
+        if (this.RTSstate.index === -1) {
+          this.RTSstate.index = index;
+          this.RTSstate.id = setTimeout(() => {
+            this.generateRTSEvent(item);
+          }, 3000);
+        } else if (this.RTSstate.index === index && state === false) {
+          clearTimeout(this.RTSstate.id);
+          this.RTSstate.id = 0;
+          this.RTSstate.index = -1;
+        }
+      }
+    },
+    generateRTSEvent(item) {
+      const el = document.querySelector('.comment');
+      const today = new Date();
+      let month = today.getMonth() + 1;
+      if (month < 10) {
+        month = `0${month}`;
+      }
+      const date = `${today.getFullYear()}-${month}-${today.getDate()}`;
+      const time = `${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`;
+      el.innerHTML += `<p>${date} ${time} - Sending event - group:${item.category} - value:${item.name}</p`;
+      el.scrollTop = el.scrollHeight;
+      sendRTSEvent(this, item);
     },
   },
 };

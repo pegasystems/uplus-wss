@@ -118,7 +118,7 @@
       <section
         v-for="(item, index) in data"
         :key="index"
-        class="front-option"
+        class="front-option cdh-offer"
         @mouseover="checkRTSEventHover(index, item, true)"
         @mouseleave="checkRTSEventHover(index, item, false)"
       >
