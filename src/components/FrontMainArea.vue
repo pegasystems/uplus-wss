@@ -169,7 +169,9 @@
 
 <script>
 import { mainconfig } from '../global';
-import { initNBAM, sendRTSEvent, captureResponse } from '../CDHIntegration';
+import {
+  initNBAM, sendRTSEvent, captureResponse, sendClickStreamEvent,
+} from '../CDHIntegration';
 import AIOverlay from './controls/AIOverlay.vue';
 
 export default {
@@ -267,6 +269,8 @@ export default {
         mainconfig.offerURL = this.hero_offer.url;
         mainconfig.previousPage = this.hero_offer.name;
       }
+      sendClickStreamEvent(mainconfig, 'PegaView', 'HeroOffer', window.loadPage);
+      window.loadPage = new Date();
     },
     toggleAIOverlay(item) {
       item.showAIoverlay = !item.showAIoverlay;
@@ -278,6 +282,8 @@ export default {
           page_path: mainconfig.currentPage,
         });
       }
+      sendClickStreamEvent(mainconfig, 'PegaView', 'Offer', window.loadPage);
+      window.loadPage = new Date();
       const stateObj = mainconfig.isAuthenticated ? { userId: mainconfig.userId } : {};
       window.history.pushState(stateObj, '', 'offer.html');
       mainconfig.offerIndex = 0;

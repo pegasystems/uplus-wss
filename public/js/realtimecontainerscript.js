@@ -491,6 +491,13 @@
      this.invokeRemoteService("DigitalActivityStream?customer_id="+customerID+"&activity_group="+item.category+
 	 "&activity_value=" + item.name + "&activity=hover",null,"GET",null,callback);
     },
+        
+    sendClickStreamEvent : function(event, callback) {
+     console.log("Sending ClickStream Event", event);
+     var serviceUrl = this.serviceURLProtocol + "://" + this.hostName + (this.port!="" ? ":" + this.port : "") + "/prweb/api/ClickStream/1.1/insert"; 			
+	var xmlHttpReq = this.createRequest("POST", serviceUrl, callback);
+	if (xmlHttpReq)	xmlHttpReq.send(JSON.stringify(event));
+    },
 
   };
 

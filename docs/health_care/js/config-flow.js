@@ -76,15 +76,19 @@ window.app = {
   ],
   menuitems: [
     {
+      pagetype: 'myhealthchart',
       title: 'menu1',
     },
     {
+      pagetype: 'appointment',
       title: 'menu2',
     },
     {
+      pagetype: 'patients',
       title: 'menu3',
     },
     {
+      pagetype: 'referal',
       title: 'menu4',
     },
   ],

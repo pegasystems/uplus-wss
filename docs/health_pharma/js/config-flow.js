@@ -82,15 +82,19 @@ window.app = {
   ],
   menuitems: [
     {
+      pagetype: 'yourhealth',
       title: 'menu1',
     },
     {
+      pagetype: 'assistance',
       title: 'menu2',
     },
     {
+      pagetype: 'support',
       title: 'menu3',
     },
     {
+      pagetype: 'medicine',
       title: 'menu4',
     },
   ],

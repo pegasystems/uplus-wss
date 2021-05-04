@@ -7,7 +7,7 @@
       :style="{ height: isActive? heightVal : ''}"
     >
       <ul>
-        <MenuItem v-for="item in app.menuitems" v-bind:key="item.title" v-bind:title="item.title"></MenuItem>
+        <MenuItem v-for="item in app.menuitems" v-bind:pagetype="item.pagetype" v-bind:key="item.title" v-bind:title="item.title"></MenuItem>
         <li v-if="!isAuthenticated">
           <a v-on:click="showlogin" class="launch-login-overlay">{{ $t('message.login')}}</a>
         </li>

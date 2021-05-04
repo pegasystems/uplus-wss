@@ -9,6 +9,7 @@
 
 <script>
 import { mainconfig } from './global';
+import { sendClickStreamEvent } from './CDHIntegration';
 import DefaultPage from './DefaultPage.vue';
 import OfferPage from './OfferPage.vue';
 import SettingsPage from './SettingsPage.vue';
@@ -48,6 +49,8 @@ export default {
         page_path: mainconfig.currentPage,
       });
     }
+    sendClickStreamEvent(mainconfig, 'Device');
+    window.loadPage = new Date();
   },
   components: {
     DefaultPage,

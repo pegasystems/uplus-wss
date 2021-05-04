@@ -55,7 +55,9 @@
 import Offer from '../widgets/Offer.vue';
 import QuickLinks from '../widgets/QuickLinks.vue';
 import { mainconfig } from '../../global';
-import { initNBAM, captureResponse, sendRTSEvent } from '../../CDHIntegration';
+import {
+  initNBAM, captureResponse, sendRTSEvent, sendClickStreamEvent,
+} from '../../CDHIntegration';
 import KeyRates from '../widgets/KeyRates.vue';
 
 export default {
@@ -119,6 +121,8 @@ export default {
           page_path: mainconfig.currentPage,
         });
       }
+      sendClickStreamEvent(mainconfig, 'PageView', 'Offer', window.loadPage);
+      window.loadPage = new Date();
       const stateObj = mainconfig.isAuthenticated ? { userId: mainconfig.userId } : {};
       window.history.pushState(stateObj, '', 'offer.html');
       mainconfig.offerIndex = 0;

@@ -13,7 +13,7 @@
       </a>
       <nav class="flex-grow-1">
         <ul class="flex flex-mid-align flex-grow-1">
-          <MenuItem v-for="(item, index) in app.menuitems" v-bind:key="index" v-bind:title="item.title" v-bind:href="app.offer.length > 1 ? `offer${index+1}.html` : null"></MenuItem>
+          <MenuItem v-for="(item, index) in app.menuitems" v-bind:pagetype="item.pagetype" v-bind:key="index" v-bind:title="item.title" v-bind:href="app.offer.length > 1 ? `offer${index+1}.html` : null"></MenuItem>
         </ul>
       </nav>
       <a
@@ -38,6 +38,7 @@ import MainHeaderMenu from './widgets/MainHeaderMenu.vue';
 import OperatorButton from './widgets/OperatorButton.vue';
 import LoginButton from './widgets/LoginButton.vue';
 import { mainconfig } from '../global';
+import { sendClickStreamEvent } from '../CDHIntegration';
 
 export default {
   data() {
@@ -126,6 +127,8 @@ export default {
         }
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
+      sendClickStreamEvent(mainconfig, 'PageView', 'Home', window.loadPage);
+      window.loadPage = new Date();
     },
     showKMHelp() {
       this.goHomePage();

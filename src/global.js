@@ -219,6 +219,9 @@ const upgradeConfig = function upgradeConfig(cfg) {
   if (typeof cfg.settings.pega_marketing.enableRTS === 'undefined') {
     cfg.settings.pega_marketing.enableRTS = false;
   }
+  if (typeof cfg.settings.pega_marketing.enableClickStream === 'undefined') {
+    cfg.settings.pega_marketing.enableClickStream = false;
+  }
   if (typeof cfg.settings.pega_marketing.showLoadingIndicator === 'undefined') {
     cfg.settings.pega_marketing.showLoadingIndicator = false;
   }

@@ -5,6 +5,7 @@
 
 <script>
 import { mainconfig } from '../global';
+import { sendClickStreamEvent } from '../CDHIntegration';
 
 export default {
   data() { return mainconfig; },
@@ -109,6 +110,8 @@ export default {
         }
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
+      sendClickStreamEvent(mainconfig, 'PageView', 'Home', window.loadPage);
+      window.loadPage = new Date();
     },
   },
 };

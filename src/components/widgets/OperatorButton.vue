@@ -29,6 +29,7 @@
 
 <script>
 import { mainconfig, setCookie } from '../../global';
+import { sendClickStreamEvent } from '../../CDHIntegration';
 
 export default {
   data() {
@@ -44,6 +45,8 @@ export default {
       }
     },
     logOut() {
+      sendClickStreamEvent(mainconfig, 'PageView', 'Home', window.loadPage);
+      window.loadPage = new Date();
       mainconfig.isAuthenticated = false;
       mainconfig.userId = -1;
       mainconfig.quickLinkId = -1;

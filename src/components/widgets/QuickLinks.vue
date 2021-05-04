@@ -15,6 +15,7 @@
 
 <script>
 import { mainconfig } from '../../global';
+import { sendClickStreamEvent } from '../../CDHIntegration';
 
 export default {
   data() {
@@ -32,6 +33,11 @@ export default {
         );
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
+      if (this.$gtag) {
+        this.$gtag.pageview({ page_path: `quicklink${index}` });
+      }
+      sendClickStreamEvent(mainconfig, 'PageView', `quicklink${index}`, window.loadPage);
+      window.loadPage = new Date();
     },
     hasQuicklinks() {
       for (const i in this.settings.quicklinks) {

@@ -204,6 +204,7 @@ const initNBAM = function initNBAM(
 };
 
 const sendRTSEvent = function sendRTSEvent(Context, item) {
+  if (Context.settings.pega_marketing.Host === '') return;
   if (typeof window.getNBAMServiceControl !== 'undefined') {
     const nbamServiceCtrl = window.getNBAMServiceControl(Context.settings.pega_marketing.apiLevel, false);
     nbamServiceCtrl.initialize(
@@ -216,6 +217,56 @@ const sendRTSEvent = function sendRTSEvent(Context, item) {
       custID = document.cookie.split('MKTID=')[1].split(';')[0];
     }
     nbamServiceCtrl.sendRTSEvent(custID, item, null);
+  } else {
+    const scriptLoadMkt = document.createElement('script');
+    scriptLoadMkt.onload = function onloadPegaMkt() {
+      sendRTSEvent(Context, item);
+    };
+    scriptLoadMkt.setAttribute('src', '../js/realtimecontainerscript.js');
+    document.head.appendChild(scriptLoadMkt);
+  }
+};
+
+const sendClickStreamEvent = function sendClickStreamEvent(Context, eventtype, pagetype, PageViewActiveTime) {
+  if (Context.settings.pega_marketing.Host === '') return;
+  if (typeof window.getNBAMServiceControl !== 'undefined') {
+    const nbamServiceCtrl = window.getNBAMServiceControl(Context.settings.pega_marketing.apiLevel, false);
+    nbamServiceCtrl.initialize(
+      Context.settings.pega_marketing.Host,
+      Context.settings.pega_marketing.Port,
+    );
+    let pageViewActiveTime = '';
+    if (PageViewActiveTime) {
+      pageViewActiveTime = parseInt((new Date() - PageViewActiveTime) / 1000, 10);
+    }
+    let cookieID = '';
+    let customerid = '';
+    if (Context.userId !== -1 && Context.settings.users[Context.userId].customerID) {
+      customerid = Context.settings.users[Context.userId].customerID;
+    }
+    if (customerid === '' && document.cookie.split('MKTID=') > 1) {
+      cookieID = document.cookie.split('MKTID=')[1].split(';')[0];
+    }
+    const devicetype = Context.isMobilePhone ? 'Mobile' : 'PC';
+    const eventMsg = {
+      customerID: customerid,
+      interestedIn: '',
+      interestLevel: '',
+      Event: eventtype,
+      PageType: pagetype,
+      Devicetype: devicetype,
+      PageViewActiveTime: pageViewActiveTime,
+      CookieID: cookieID,
+    };
+    /* Read the cookie MKTID if present and send it as Customer ID instead */
+    nbamServiceCtrl.sendClickStreamEvent(eventMsg, null);
+  } else {
+    const scriptLoadMkt = document.createElement('script');
+    scriptLoadMkt.onload = function onloadPegaMkt() {
+      sendClickStreamEvent(Context, eventtype, PageViewActiveTime);
+    };
+    scriptLoadMkt.setAttribute('src', '../js/realtimecontainerscript.js');
+    document.head.appendChild(scriptLoadMkt);
   }
 };
 
@@ -223,4 +274,5 @@ export {
   initNBAM,
   sendRTSEvent,
   captureResponse,
+  sendClickStreamEvent,
 };

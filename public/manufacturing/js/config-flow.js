@@ -82,15 +82,19 @@ window.app = {
   ],
   menuitems: [
     {
+      pagetype: 'product',
       title: 'menu1',
     },
     {
+      pagetype: 'resource',
       title: 'menu2',
     },
     {
+      pagetype: 'support',
       title: 'menu3',
     },
     {
+      pagetype: 'offer',
       title: 'menu4',
     },
   ],

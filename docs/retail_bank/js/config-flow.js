@@ -79,15 +79,19 @@ window.app = {
   ],
   menuitems: [
     {
+      pagetype: 'Deposit',
       title: 'menu1',
     },
     {
+      pagetype: 'Card',
       title: 'menu2',
     },
     {
+      pagetype: 'Loan',
       title: 'menu3',
     },
     {
+      pagetype: 'Investment',
       title: 'menu4',
     },
   ],

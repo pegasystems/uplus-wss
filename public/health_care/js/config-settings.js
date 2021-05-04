@@ -274,6 +274,7 @@ window.settings = {
     replaceHomePageHeader: false,
     showAIOverlay: false,
     enableRTS: false,
+    enableClickStream: false,
     useCaptureByChannel: true,
     apiLevel: 'V2',
     contextName: 'Customer',

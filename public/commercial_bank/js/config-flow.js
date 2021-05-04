@@ -79,15 +79,19 @@ window.app = {
   ],
   menuitems: [
     {
+      pagetype: 'treasury',
       title: 'menu1',
     },
     {
+      pagetype: 'lending',
       title: 'menu2',
     },
     {
+      pagetype: 'fx services',
       title: 'menu3',
     },
     {
+      pagetype: 'investment',
       title: 'menu4',
     },
   ],

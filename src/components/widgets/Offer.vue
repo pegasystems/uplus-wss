@@ -54,7 +54,7 @@
 <script>
 import { mainconfig } from '../../global';
 import AIOverlay from '../controls/AIOverlay.vue';
-import { captureResponse } from '../../CDHIntegration';
+import { captureResponse, sendClickStreamEvent } from '../../CDHIntegration';
 
 export default {
   props: {
@@ -75,6 +75,8 @@ export default {
       item.showAIoverlay = !item.showAIoverlay;
     },
     gotoOfferPage(event) {
+      sendClickStreamEvent(mainconfig, 'PageView', 'Offer', window.loadPage);
+      window.loadPage = new Date();
       mainconfig.currentPage = 'offer.html';
       const stateObj = mainconfig.isAuthenticated ? { userId: mainconfig.userId } : {};
       window.history.pushState(stateObj, '', 'offer.html');

@@ -23,6 +23,7 @@
 
 <script>
 import { mainconfig } from '../global';
+import { sendClickStreamEvent } from '../CDHIntegration';
 import LangSwitch from './widgets/LangSwitch.vue';
 
 export default {
@@ -34,6 +35,8 @@ export default {
   },
   methods: {
     gotoSettingsPage(event) {
+      sendClickStreamEvent(mainconfig, 'PageView', 'Settings', window.loadPage);
+      window.loadPage = new Date();
       mainconfig.currentPage = 'settings.html';
       if (this.$gtag) {
         this.$gtag.pageview({

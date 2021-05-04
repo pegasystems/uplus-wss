@@ -87,6 +87,16 @@
             v-model="settings.pega_marketing.enableRTS"
           />
         </div>
+        <div class="field-item field-checkbox">
+          <label class="width-auto" for="NBAM-enableClickStream"
+            >Enable Click Stream</label
+          >
+          <input
+            id="NBAM-enableClickStream"
+            type="checkbox"
+            v-model="settings.pega_marketing.enableClickStream"
+          />
+        </div>
         <div class="field-item">
           <label class="width-auto" for="NBAM-replaceHomePageHeader"
             >Replace Home Page header with Hero placement</label

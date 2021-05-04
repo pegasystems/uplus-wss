@@ -32,6 +32,7 @@
 <script>
 import { mainconfig, updatePegaChat } from '../../global';
 import { setAuth, validateOTP, requestOTP } from '../../OTBAuth';
+import { sendClickStreamEvent } from '../../CDHIntegration';
 
 export default {
   data() {
@@ -99,6 +100,8 @@ export default {
           );
         }
       }
+      sendClickStreamEvent(mainconfig, 'PageView', 'Account', window.loadPage);
+      window.loadPage = new Date();
       this.isActive = false;
     },
     signIn() {
