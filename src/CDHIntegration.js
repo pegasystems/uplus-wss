@@ -249,12 +249,12 @@ const sendClickStreamEvent = function sendClickStreamEvent(Context, eventtype, p
     }
     const devicetype = Context.isMobilePhone ? 'Mobile' : 'PC';
     const eventMsg = {
-      customerID: customerid,
+      CustomerID: customerid,
       interestedIn: '',
       interestLevel: '',
       Event: eventtype,
       PageType: pagetype,
-      Devicetype: devicetype,
+      DeviceType: devicetype,
       PageViewActiveTime: pageViewActiveTime,
       CookieID: cookieID,
     };
