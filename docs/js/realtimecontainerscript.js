@@ -494,7 +494,7 @@
         
     sendClickStreamEvent : function(event, callback) {
      console.log("Sending ClickStream Event", event);
-     var serviceUrl = this.serviceURLProtocol + "://" + this.hostName + (this.port!="" ? ":" + this.port : "") + "/prweb/api/ClickStream/1.1/insert"; 			
+     var serviceUrl = this.serviceURLProtocol + "://" + this.hostName + (this.port!="" ? ":" + this.port : "") + "/prweb/api/Clickstream/1.1/Insert"; 			
 	var xmlHttpReq = this.createRequest("POST", serviceUrl, callback);
 	if (xmlHttpReq)	xmlHttpReq.send(JSON.stringify(event));
     },

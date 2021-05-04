@@ -368,7 +368,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./js/pega-mashup-webcomponent-light-all.js"
   },
   {
-    "revision": ".3f094a2ad6840855a1474e23b0dadf",
+    "revision": ".468fb102dd0467cb673bc3af286a52",
     "url": "./js/realtimecontainerscript.js"
   },
   {
