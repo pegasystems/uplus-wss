@@ -84,7 +84,7 @@ export default {
       } else if (e.data) {
         let elem = {};
         try { elem = JSON.parse(e.data); } catch { elem = {}; }
-        if (elem.channelName === 'PWMashup' && elem.message && elem.message.payload && elem.message.payload.name === 'confirm') {
+        if (elem.channelName === 'PWMashup' && elem.message && elem.message.payload && elem.message.payload.name === 'confirm' && elem.message.uid.indexOf('ProactiveChat') === -1) {
           if (mainconfig.quickLinkId !== -1) {
             const serverUrl = mainconfig.settings.quicklinks[mainconfig.quickLinkId].url;
             const testiframe = document.createElement('iframe');
