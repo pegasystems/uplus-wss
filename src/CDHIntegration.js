@@ -247,6 +247,9 @@ const sendClickStreamEvent = function sendClickStreamEvent(Context, eventtype, p
     if (customerid === '' && document.cookie.split('MKTID=') > 1) {
       cookieID = document.cookie.split('MKTID=')[1].split(';')[0];
     }
+    /* If there is no cookie or customerID, just skip sending the event */
+    if (customerid === '' && cookieID === '') return;
+
     const devicetype = Context.isMobilePhone ? 'Mobile' : 'PC';
     const eventMsg = {
       CustomerID: customerid,
