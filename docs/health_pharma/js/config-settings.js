@@ -283,6 +283,7 @@ window.settings = {
     UseLegacyWebChat: false,
     DMMURL: '',
     DMMID: 'pega-wm-chat',
+    DMMSecret: '',
   },
   pega_marketing: {
     Host: '',

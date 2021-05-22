@@ -22,6 +22,10 @@
           <label for="chat-DMMURL">URL of the Digital Messaging Server</label>
           <input id="chat-DMMURL" type="text" v-model="settings.pega_chat.DMMURL" />
         </div>
+        <div class="field-item">
+          <label for="chat-DMMSecret">Secret to generate JWT Token for authentication</label>
+          <input id="chat-DMMSecret" type="text" v-model="settings.pega_chat.DMMSecret" />
+        </div>
       </div>
       <div v-else>
       <div class="layout-labels-top layout-inline-grid-double">

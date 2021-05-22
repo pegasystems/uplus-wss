@@ -30,6 +30,7 @@
 <script>
 import { mainconfig, setCookie } from '../../global';
 import { sendClickStreamEvent } from '../../CDHIntegration';
+import generateJWTKey from '../../JWTToken';
 
 export default {
   data() {
@@ -100,6 +101,21 @@ export default {
       setCookie('AccountNumber', window.PegaCSWSS.AccountNumber, 30);
       setCookie('UserName', window.PegaCSWSS.UserName, 30);
 
+      if (mainconfig.settings.pega_chat.DMMSecret !== '' && mainconfig.userId !== -1 && window.PegaCSWSS.DMMSessionID !== '') {
+        const privateData = {
+          authenticated: true,
+          ContactID: window.PegaCSWSS.ContactID,
+          AccountNumber: window.PegaCSWSS.AccountNumber,
+          UserName: window.PegaCSWSS.UserName,
+        };
+        const jwttoken = generateJWTKey({ iss: window.PegaCSWSS.DMMSessionID }, mainconfig.settings.pega_chat.DMMSecret);
+        const request = new XMLHttpRequest();
+        const chatUrl = new URL(mainconfig.settings.pega_chat.DMMURL);
+        request.open('POST', `${chatUrl.origin}/private-data`, true);
+        request.setRequestHeader('Content-type', 'application/json');
+        request.setRequestHeader('authorization', `Bearer ${jwttoken}`);
+        request.send(JSON.stringify(privateData));
+      }
       /* Update PegaChat and remove ContactId, AccountNumber and username */
       const el = document.querySelector(
         "[data-pega-gadgetname='OnlineHelp'] > iframe",

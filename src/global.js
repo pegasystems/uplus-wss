@@ -3,6 +3,7 @@
 /* eslint no-underscore-dangle: 0 */
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
+import generateJWTKey from './JWTToken';
 
 function setCookie(cname, cvalue, exdays) {
   const d = new Date();
@@ -135,6 +136,10 @@ const upgradeConfig = function upgradeConfig(cfg) {
   if (
     typeof cfg.settings.pega_chat.DMMID === 'undefined') {
     cfg.settings.pega_chat.DMMID = 'pega-wm-chat';
+  }
+  if (
+    typeof cfg.settings.pega_chat.DMMSecret === 'undefined') {
+    cfg.settings.pega_chat.DMMSecret = '';
   }
   if (typeof cfg.settings.pega_chat.TenantID === 'undefined') {
     cfg.settings.pega_chat.TenantID = '';
@@ -667,6 +672,7 @@ if (typeof settings === 'undefined') {
     ContactID: '',
     AccountNumber: '',
     UserName: '',
+    DMMSessionID: '',
     ExtraParams: {},
   };
   if (mainconfigTmp.userId !== -1) {
@@ -714,6 +720,32 @@ if (typeof settings === 'undefined') {
     mainconfigTmp.settings.pega_chat.UseLegacyWebChat === false &&
     `${window.location}`.indexOf('/settings.html') === -1
   ) {
+    if (typeof window.PegaUnifiedChatWidget === 'undefined') {
+      window.PegaUnifiedChatWidget = {};
+    }
+
+    // This callback will be invoked every time a new chat session is started
+    window.PegaUnifiedChatWidget.onSessionInitialized = (sessionId) => {
+      window.PegaCSWSS.DMMSessionID = sessionId;
+      // eslint-disable-next-line no-console
+      console.log(`PegaUnifiedChatWidget onSessionInitialized=${sessionId}`);
+      if (mainconfigTmp.settings.pega_chat.DMMSecret !== '' && mainconfigTmp.userId !== -1) {
+        const privateData = {
+          authenticated: true,
+          ContactID: window.PegaCSWSS.ContactID,
+          AccountNumber: window.PegaCSWSS.AccountNumber,
+          UserName: window.PegaCSWSS.UserName,
+        };
+        const jwttoken = generateJWTKey({ iss: sessionId }, mainconfigTmp.settings.pega_chat.DMMSecret);
+        const request = new XMLHttpRequest();
+        const chatUrl = new URL(mainconfigTmp.settings.pega_chat.DMMURL);
+        request.open('POST', `${chatUrl.origin}/private-data`, true);
+        request.setRequestHeader('Content-type', 'application/json');
+        request.setRequestHeader('authorization', `Bearer ${jwttoken}`);
+        request.send(JSON.stringify(privateData));
+      }
+    };
+
     const scriptLoad = document.createElement('script');
     scriptLoad.setAttribute('id', mainconfigTmp.settings.pega_chat.DMMID);
     scriptLoad.setAttribute('src', mainconfigTmp.settings.pega_chat.DMMURL);
@@ -813,6 +845,21 @@ const updatePegaChat = function updatePegaChat(u) {
   setCookie('AccountNumber', window.PegaCSWSS.AccountNumber, 30);
   setCookie('UserName', window.PegaCSWSS.UserName, 30);
 
+  if (mainconfig.settings.pega_chat.DMMSecret !== '' && mainconfig.userId !== -1 && window.PegaCSWSS.DMMSessionID !== '') {
+    const privateData = {
+      authenticated: true,
+      ContactID: window.PegaCSWSS.ContactID,
+      AccountNumber: window.PegaCSWSS.AccountNumber,
+      UserName: window.PegaCSWSS.UserName,
+    };
+    const jwttoken = generateJWTKey({ iss: window.PegaCSWSS.DMMSessionID }, mainconfig.settings.pega_chat.DMMSecret);
+    const request = new XMLHttpRequest();
+    const chatUrl = new URL(mainconfig.settings.pega_chat.DMMURL);
+    request.open('POST', `${chatUrl.origin}/private-data`, true);
+    request.setRequestHeader('Content-type', 'application/json');
+    request.setRequestHeader('authorization', `Bearer ${jwttoken}`);
+    request.send(JSON.stringify(privateData));
+  }
   if (typeof u.extraparam !== 'undefined' && u.extraparam !== '') {
     u.extraparam.split(',').forEach((item) => {
       const values = item.split('=');
