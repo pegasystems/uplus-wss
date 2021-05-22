@@ -112,7 +112,7 @@ export default {
         const request = new XMLHttpRequest();
         const chatUrl = new URL(mainconfig.settings.pega_chat.DMMURL);
         request.open('POST', `${chatUrl.origin}/private-data`, true);
-        request.setRequestHeader('Content-type', 'application/json');
+        request.setRequestHeader('Content-type', 'multipart/form-data');
         request.setRequestHeader('authorization', `Bearer ${jwttoken}`);
         request.send(JSON.stringify(privateData));
       }
