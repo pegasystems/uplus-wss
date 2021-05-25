@@ -267,6 +267,7 @@ window.settings = {
     DMMURL: '',
     DMMID: 'pega-wm-chat',
     DMMSecret: '',
+    DMMPrivateURL: 'https://5vtgqfsgzb.execute-api.us-east-1.amazonaws.com/Prod/private-data',
   },
   pega_marketing: {
     Host: '',

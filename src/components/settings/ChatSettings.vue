@@ -18,13 +18,17 @@
           <label for="chat-DMMID">ID of the widget</label>
           <input id="chat-DMMID" type="text" v-model="settings.pega_chat.DMMID" />
         </div>
-      <div class="field-item">
+        <div class="field-item">
           <label for="chat-DMMURL">URL of the Digital Messaging Server</label>
           <input id="chat-DMMURL" type="text" v-model="settings.pega_chat.DMMURL" />
         </div>
         <div class="field-item">
           <label for="chat-DMMSecret">Secret to generate JWT Token for authentication</label>
           <input id="chat-DMMSecret" type="text" v-model="settings.pega_chat.DMMSecret" />
+        </div>
+        <div class="field-item">
+          <label for="chat-DMMPrivateURL">URL of the DM server to send private data</label>
+          <input id="chat-DMMPrivateURL" type="text" v-model="settings.pega_chat.DMMPrivateURL" />
         </div>
       </div>
       <div v-else>
