@@ -737,36 +737,12 @@ if (typeof settings === 'undefined') {
           UserName: window.PegaCSWSS.UserName,
         };
         const jwttoken = generateJWTKey({ iss: sessionId }, mainconfigTmp.settings.pega_chat.DMMSecret);
-        const headers = {
-          'Content-Type': 'application/json;charset=UTF-8',
-          Authorization: `Bearer ${jwttoken}`,
-        };
-        const reqHeaders = {
-          method: 'POST',
-          headers,
-          mode: 'cors',
-        };
+        const request = new XMLHttpRequest();
         const chatUrl = new URL(mainconfigTmp.settings.pega_chat.DMMURL);
-        const apiurl = `${chatUrl.origin}/private-data`;
-        reqHeaders.body = JSON.stringify(privateData);
-        fetch(apiurl, reqHeaders)
-          .then((res) => {
-            if (res.status === 200 || res.status === 201 || (res.status >= 400 && res.status < 500)) {
-              return res.json();
-            }
-            if (res.ok) {
-              return Promise.resolve('ok');
-            }
-            return Promise.reject(res);
-          })
-          .then((response) => {
-            // eslint-disable-next-line no-console
-            console.log(response);
-          })
-          .catch((error) => {
-            // eslint-disable-next-line no-console
-            console.error('Error:', error);
-          });
+        request.open('POST', `${chatUrl.origin}/private-data`, true);
+        request.setRequestHeader('Content-type', 'text/plain');
+        request.setRequestHeader('authorization', `Bearer ${jwttoken}`);
+        request.send(JSON.stringify(privateData));
       }
     };
 
