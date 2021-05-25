@@ -116,7 +116,7 @@ export default {
         const reqHeaders = {
           method: 'POST',
           headers,
-          mode: 'no-cors',
+          mode: 'cors',
         };
         const chatUrl = new URL(mainconfig.settings.pega_chat.DMMURL);
         const apiurl = `${chatUrl.origin}/private-data`;
