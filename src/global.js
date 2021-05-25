@@ -738,8 +738,8 @@ if (typeof settings === 'undefined') {
         };
         const jwttoken = generateJWTKey({ iss: sessionId }, mainconfigTmp.settings.pega_chat.DMMSecret);
         const request = new XMLHttpRequest();
-        const chatUrl = new URL(mainconfigTmp.settings.pega_chat.DMMURL);
-        request.open('POST', `${chatUrl.origin}/private-data`, true);
+        /* const chatUrl = new URL(mainconfigTmp.settings.pega_chat.DMMURL); */
+        request.open('POST', 'https://5vtgqfsgzb.execute-api.us-east-1.amazonaws.com/Prod/private-data', true);
         request.setRequestHeader('Content-type', 'application/json;charset=UTF-8');
         request.setRequestHeader('authorization', `Bearer ${jwttoken}`);
         request.send(JSON.stringify(privateData));
@@ -854,8 +854,8 @@ const updatePegaChat = function updatePegaChat(u) {
     };
     const jwttoken = generateJWTKey({ iss: window.PegaCSWSS.DMMSessionID }, mainconfig.settings.pega_chat.DMMSecret);
     const request = new XMLHttpRequest();
-    const chatUrl = new URL(mainconfig.settings.pega_chat.DMMURL);
-    request.open('POST', `${chatUrl.origin}/private-data`, true);
+    /* const chatUrl = new URL(mainconfig.settings.pega_chat.DMMURL); */
+    request.open('POST', 'https://5vtgqfsgzb.execute-api.us-east-1.amazonaws.com/Prod/private-data', true);
     request.setRequestHeader('Content-type', 'application/json;charset=UTF-8');
     request.setRequestHeader('authorization', `Bearer ${jwttoken}`);
     request.send(JSON.stringify(privateData));
