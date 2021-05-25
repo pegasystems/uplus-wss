@@ -110,7 +110,7 @@ export default {
         };
         const jwttoken = generateJWTKey({ iss: window.PegaCSWSS.DMMSessionID }, mainconfig.settings.pega_chat.DMMSecret);
         const headers = {
-          'Content-Type': 'multipart/form-data',
+          'Content-Type': 'application/json;charset=UTF-8',
           Authorization: `Bearer ${jwttoken}`,
         };
         const reqHeaders = {
