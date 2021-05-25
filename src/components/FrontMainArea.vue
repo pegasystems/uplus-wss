@@ -2,7 +2,7 @@
   <div
     class="flex flex-col"
     v-if="settings.pega_marketing.Host === '' || settings.pega_marketing.homePage.placement === '' ||
-      settings.pega_marketing.homePage.containerName === '' || (loading && !settings.pega_marketing.showLoadingIndicator)"
+      settings.pega_marketing.homePage.containerName === '' || (loading && !settings.pega_marketing.showLoadingIndicator) || errorloading"
   >
     <div class="wrap hero-wrap flex">
       <div class="flex flex-col">
@@ -178,6 +178,7 @@ export default {
   data() {
     return {
       ...mainconfig,
+      errorloading: false,
       loading: true,
       data: [],
       RTSstate: {

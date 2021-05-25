@@ -93,7 +93,6 @@ const parseResponseData = (
       });
     }
   }
-  Context.loading = false;
 };
 
 const captureResponse = function captureResponse(Context, item, outcome) {
@@ -162,37 +161,50 @@ const initNBAM = function initNBAM(
       placement = Context.settings.pega_marketing[type].placement;
     }
     const intent = Context.intent.trim();
-    nbamServiceCtrl.getOffers(
-      customerID,
-      Context.settings.pega_marketing.contextName,
-      containerName,
-      '',
-      Context.settings.pega_marketing.channel,
-      previousPage,
-      currentPage,
-      (data) => {
-        data.RankedResults = data.ContainerList[0].RankedResults;
-        if (data.OffersList && data.OffersList.length > 0) {
-          parseResponseData(
-            Context,
-            type,
-            data.OffersList,
-            containerName,
-            customerID,
-          );
-        } else if (data.RankedResults && data.RankedResults.length > 0) {
-          parseResponseData(
-            Context,
-            type,
-            data.RankedResults,
-            containerName,
-            customerID,
-          );
-        }
-      },
-      intent,
-      placement,
-    );
+    try {
+      nbamServiceCtrl.getOffers(
+        customerID,
+        Context.settings.pega_marketing.contextName,
+        containerName,
+        '',
+        Context.settings.pega_marketing.channel,
+        previousPage,
+        currentPage,
+        (data) => {
+          data.RankedResults = data.ContainerList[0].RankedResults;
+          if (data.OffersList && data.OffersList.length > 0) {
+            parseResponseData(
+              Context,
+              type,
+              data.OffersList,
+              containerName,
+              customerID,
+            );
+          } else if (data.RankedResults && data.RankedResults.length > 0) {
+            parseResponseData(
+              Context,
+              type,
+              data.RankedResults,
+              containerName,
+              customerID,
+            );
+          } else {
+            Context.errorloading = true;
+          }
+          Context.loading = false;
+        },
+        intent,
+        placement,
+        () => {
+          // on error
+          Context.loading = false;
+          Context.errorloading = true;
+        },
+      );
+    } catch (e) {
+      Context.loading = false;
+      Context.errorloading = true;
+    }
   } else {
     const scriptLoadMkt = document.createElement('script');
     scriptLoadMkt.onload = function onloadPegaMkt() {
@@ -261,7 +273,7 @@ const sendClickStreamEvent = function sendClickStreamEvent(Context, eventtype, p
       PageViewActiveTime: pageViewActiveTime,
       CookieID: cookieID,
     };
-    /* Read the cookie MKTID if present and send it as Customer ID instead */
+      /* Read the cookie MKTID if present and send it as Customer ID instead */
     nbamServiceCtrl.sendClickStreamEvent(eventMsg, null);
   } else {
     const scriptLoadMkt = document.createElement('script');

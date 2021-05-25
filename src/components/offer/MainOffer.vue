@@ -1,6 +1,6 @@
 <template>
   <div v-if="settings.pega_marketing.Host === '' || settings.pega_marketing.offerPage.placement === '' ||
-      settings.pega_marketing.offerPage.containerName === '' || (loading && !settings.pega_marketing.showLoadingIndicator)">
+      settings.pega_marketing.offerPage.containerName === '' || (loading && !settings.pega_marketing.showLoadingIndicator) || errorloading">
     <div class="main-offer primary-card flex flex-nowrap">
       <div class="image" v-bind:style="{ backgroundImage: `url(./img/${app.offer[offerType].main_offer.image})`}"></div>
       <div class="details">
@@ -93,6 +93,7 @@ export default {
   data() {
     return {
       ...mainconfig,
+      errorloading: false,
       loading: true,
       data: [],
       hero_offer: { url: '' },

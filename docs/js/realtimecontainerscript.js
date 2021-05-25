@@ -51,12 +51,9 @@
       * "externalID": For identity matching. It doesn't exist pass null.
       * CustomerID had been modified to "subjectID" corresponds to the customer Id at particular context level. For V2, this field will be mapped to customerID in the container payload.
       */
-		getOffers : function (subjectID, contextName, containerName, externalID, channel, previousPage, currentpage, callback,intent, placement) {
+		getOffers : function (subjectID, contextName, containerName, externalID, channel, previousPage, currentpage, callback,intent, placement, errorcallback) {
 
-			this.checkCallBack(callback);
 			var callbackFunction ;
-		
-			
 			if(callMultiContainer){
 				callbackFunction = function (data){
 				    var responseData = data["ResponseData"];
@@ -73,16 +70,15 @@
 			var jsonObj = this.getV3JSONObj(subjectID, contextName, containerName, externalID, channel, previousPage, currentpage,intent, placement);
 
 			if(serviceClass){
-				this.invokeRemoteService("Container",null,"POST",jsonObj,callbackFunction);
+				this.invokeRemoteService("Container",null,"POST",jsonObj,callbackFunction, errorcallback);
 			} else {
-				this.invokeRemoteService("ExecuteWebContainer",null,"POST",jsonObj,callbackFunction);
+				this.invokeRemoteService("ExecuteWebContainer",null,"POST",jsonObj,callbackFunction, errorcallback);
 			}
 			
 		},
         
-         loadOffers : function (jsonObj, methodType, callback) {
+         loadOffers : function (jsonObj, methodType, callback, errorcallback) {
 
-			this.checkCallBack(callback);
 			if(methodType == "GET"){
 			    var queryParams = function parse(jsonObj) {
 									return '?' + 
@@ -93,10 +89,10 @@
 										}
 									}).join('&');}
           queryParams = queryParams.substring(0, queryParams.length() - 1);
-				  this.invokeRemoteService("Container", queryParams,"GET", null, callback);
+				  this.invokeRemoteService("Container", queryParams,"GET", null, callback, errorcallback);
 			}
 			else {
-				  this.invokeRemoteService("Container", null,"POST", jsonObj, callback);
+				  this.invokeRemoteService("Container", null,"POST", jsonObj, callback, errorcallback);
 			}
 			
 		},
@@ -142,7 +138,7 @@
 
 
 		/* "captureSingleWebImpression " : to capture single web impression, pass following parameters and the impresssion would be captured.*/
-		captureSingleWebImpression : function (ContainerID, CustomerID, OfferID, Issue, Group, InteractionID, campaignID,callback) {
+		captureSingleWebImpression : function (ContainerID, CustomerID, OfferID, Issue, Group, InteractionID, campaignID,callback, errorcallback) {
 			var jsonObj = {
 				"CustomerID" : CustomerID,
 				"ContainerName" : ContainerID,
@@ -156,24 +152,24 @@
 				]
 			};
 
-			this.captureMultipleWebImpression(jsonObj, callback);
+			this.captureMultipleWebImpression(jsonObj, callback, errorcallback);
 		},
 
 		/**
 		* "captureMultipleWebImpression" :
 		* Accepts the JSON Object with the list of offers and then captures the impressions for all the offers
 		**/
-		captureMultipleWebImpression : function (JSONObj, callback) {
+		captureMultipleWebImpression : function (JSONObj, callback, errorcallback) {
 			var jsonString = JSON.stringify(JSONObj);
 			var serviceUrl = this.getServiceURL("CaptureWebImpression",null);
-			var xmlHttpReq = this.createRequest('POST', serviceUrl, callback);
+			var xmlHttpReq = this.createRequest('POST', serviceUrl, callback, errorcallback);
 			if (xmlHttpReq)	xmlHttpReq.send(jsonString);
 		},
 
         /**
 		*"capturePaidClickResponse " : capture paid meida click response 
 		**/
-		capturePaidClickResponse : function (CustomerID, ExternalAudienceId, ReferrerUrl, Utm_medium, callback) {
+		capturePaidClickResponse : function (CustomerID, ExternalAudienceId, ReferrerUrl, Utm_medium, callback, errorcallback) {
 			var jsonObj = {
 				"CustomerID" : CustomerID,
 				"ExternalAudienceId" : ExternalAudienceId,
@@ -181,12 +177,12 @@
 				"Utm_medium" : Utm_medium
 			};
 
-			this.captureMultiplePaidClickResponse(jsonObj, callback);
+			this.captureMultiplePaidClickResponse(jsonObj, callback, errorcallback);
 		},
         /**
 		*"capturePaidClickResponse " : capture paid meida click response with AdSetId and DestinationType
 		**/
-		capturePaidClickResponseExt : function (CustomerID, ExternalAudienceId, AdSetId, DestinationType, ReferrerUrl, Utm_medium, Outcome, callback) {
+		capturePaidClickResponseExt : function (CustomerID, ExternalAudienceId, AdSetId, DestinationType, ReferrerUrl, Utm_medium, Outcome, callback, errorcallback) {
 			var jsonObj = {
 				"CustomerID" : CustomerID,
 				"ExternalAudienceId" : ExternalAudienceId,
@@ -197,7 +193,7 @@
         "Outcome" : Outcome
 			};
 
-			this.captureMultiplePaidClickResponse(jsonObj, callback);
+			this.captureMultiplePaidClickResponse(jsonObj, callback, errorcallback);
 		},
     
     /**
@@ -261,16 +257,17 @@
 		/**
 		* "captureMultiplePaidClickResponse" capture paid meida click response
 		**/
-		captureMultiplePaidClickResponse : function (JSONObj, callback) {
+		captureMultiplePaidClickResponse : function (JSONObj, callback, errorcallback) {
 			var jsonString = JSON.stringify(JSONObj);
 			var serviceUrl = this.getServiceURL("CapturePaidResponse",null);
-			var xmlHttpReq = this.createRequest('POST', serviceUrl, callback);
+			var xmlHttpReq = this.createRequest('POST', serviceUrl, callback, errorcallback);
 			if (xmlHttpReq)	xmlHttpReq.send(jsonString);
 		},
 		// Create the XHR object.
-	 createRequest : function(method, url, callback) {
+	 createRequest : function(method, url, callback, errorcallback) {
 		var xhr = new XMLHttpRequest();
 		if (typeof xhr == "undefined") { return null; }
+        xhr.timeout = 5000; // time in milliseconds
 
 		xhr.onreadystatechange = function () {
 			if (xhr.readyState == 4 && xhr.status == 200) {
@@ -279,87 +276,27 @@
 				if (data && typeof callback == "function") {
 					try {
 						callback(JSON.parse(data));
-					} catch (exception) {}
+					} catch (exception) {
+                        errorcallback();
+                    }
 				}
-			}
+			} else if (xhr.status == 404 || xhr.status >= 500) {
+                if(typeof errorcallback == "function") errorcallback();
+            }
 		};
 		xhr.onerror = function () {
-			//do nothing;
+            if(typeof errorcallback == "function") errorcallback();
+		};
+        xhr.ontimeout = function () {
+            if(typeof errorcallback == "function") errorcallback();
 		};
 		xhr.open(method, url, true);
 		return xhr;
 	},
 
-	checkCallBack : function(callback) {
-
-		if (callback == null  || typeof callback == 'undefined') {
-			callback = this.callDefaultCallBack;
-		}
-	},
-
-	callDefaultCallBack : function (response) {
-		
-		var OffersList;
-	 	if(typeof response.OffersList != "undefined") { 
-			OffersList = response.OffersList;
-		} else if(data.RankedResults && data.RankedResults.length) {
-			OffersList = response.RankedResults;
-		}
-
-
-		for (var i=0; i< OffersList.length; i++) {		      
-		      //Get the src for the img tag...
-		      var ba = document.getElementById("BannerAd" + (offerLength+i));
-		      var tagname = "BannerURL";
-		      if (ba && $(ba).hasClass("smimg")) {
-		         tagname = "BannerURLSmall";
-		      }
-
-			  offerLength = offerLength+i;
-			  
-		      var bannerURL = OffersList[i].ImageURL;
-			  var n = str.indexOf("content/");
-			 var imgURL = str.substring(0, n);
-			  var repoURL = imgURL + "content";
-			  //Get the content for the fragment ...
-			  var contentformat = OffersList[i].ContentFormat;
-	if(contentformat == "HTML")
-	{
-	  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      var str = this.responseText;
-	  alert(this.responseText);
-	  var res = str.replace("/content",repoURL);
-      // Need to update the code for Dynamic Div to support fragmants will be taking care as part of uplus bank code changes
-	  document.getElementById("BannerAd_Frag").innerHTML = res;
-	  alert(res);
-	}
-	else{
-			  
-			  $(function(){
-      $("#includedContent").load(bannerURL+".html"); 
-    });
-		      if (ba) ba.src = bannerURL;
-		      
-		      //Get the href for the anchor/link tag		      
-		      var bannerRef = OffersList[i].ClickThroughURL;
-		      
-		      
-		      var bc = document.getElementById("BannerClick" + i);
-		      if (bc) bc.href = bannerRef;
-	   	}
-  }
-		
-	
-  };
-  xhttp.open("GET", bannerURL, true);
-  xhttp.send();
-}},
-
 	/* captureWebResponse function is implemented as part US-81885 */
 
-	captureWebResponse : function (containerID, customerID, offerID, issue, group, interactionID,outcome,behaviour,channel,direction,campaignID,callback) {
+	captureWebResponse : function (containerID, customerID, offerID, issue, group, interactionID,outcome,behaviour,channel,direction,campaignID,callback, errorcallback) {
 
 		var jsonObj = {
 			"CustomerID" : customerID,
@@ -377,13 +314,13 @@
 
 				}]
 		};
-		this.captureWebResponseWithJSON(jsonObj,callback);
+		this.captureWebResponseWithJSON(jsonObj,callback, errorcallback);
 
 	},
 	captureWebResponseWithJSON : function(jsonObj,callback){
-		this.invokeRemoteService("CaptureWebResponse",null,"POST",jsonObj,callback);
+		this.invokeRemoteService("CaptureWebResponse",null,"POST",jsonObj,callback, errorcallback);
     },
-	captureResponse : function(containerID, customerID, offerID, issue, group, interactionID,outcome,channel,direction,campaignID,rank,treatment,propensity, priority, contextName, initiateOffer, callback){
+	captureResponse : function(containerID, customerID, offerID, issue, group, interactionID,outcome,channel,direction,campaignID,rank,treatment,propensity, priority, contextName, initiateOffer, callback, errorcallback){
 
 
 		if(serviceClass){
@@ -428,24 +365,24 @@
 			};
 		}
 
-		this.captureResponseWithJSON(jsonObj,callback,initiateOffer);
+		this.captureResponseWithJSON(jsonObj,callback,initiateOffer, errorcallback);
 	},
-	captureResponseWithJSON : function(jsonObj,callback,initiateOffer){
+	captureResponseWithJSON : function(jsonObj,callback,initiateOffer, errorcallback){
 		if(serviceClass){
 			if(initiateOffer){
-				this.invokeRemoteService("CaptureResponse/Initiate",null,"POST",jsonObj,callback);
+				this.invokeRemoteService("CaptureResponse/Initiate",null,"POST",jsonObj,callback, errorcallback);
 			} else {
-				this.invokeRemoteService("CaptureResponse",null,"POST",jsonObj,callback);
+				this.invokeRemoteService("CaptureResponse",null,"POST",jsonObj,callback, errorcallback);
 			}
 		} else{
-			this.invokeRemoteService("CaptureResponse",null,"POST",jsonObj,callback);
+			this.invokeRemoteService("CaptureResponse",null,"POST",jsonObj,callback, errorcallback);
 		}
 
     },
 
-	invokeRemoteService: function(serviceName,urlParams,httpVerb,jsonObj,callback){
+	invokeRemoteService: function(serviceName,urlParams,httpVerb,jsonObj,callback, errorcallback){
 		var serviceUrl = this.getServiceURL(serviceName,urlParams); 			
-		var xmlHttpReq = this.createRequest(httpVerb, serviceUrl, callback);
+		var xmlHttpReq = this.createRequest(httpVerb, serviceUrl, callback, errorcallback);
 		if(typeof jsonObj === "string") {
 			if (xmlHttpReq)	xmlHttpReq.send(jsonObj);
 		} else {
@@ -485,17 +422,17 @@
 			return jsonObj;
 	},
 
-   sendRTSEvent : function(customerID, item, callback) {
+   sendRTSEvent : function(customerID, item, callback, errorcallback) {
      console.log("Sending RTS Event ID: " + customerID + " Event: " , item);
      customerID = encodeURI(customerID);
      this.invokeRemoteService("DigitalActivityStream?customer_id="+customerID+"&activity_group="+item.category+
-	 "&activity_value=" + item.name + "&activity=hover",null,"GET",null,callback);
+	 "&activity_value=" + item.name + "&activity=hover",null,"GET",null,callback, errorcallback);
     },
         
-    sendClickStreamEvent : function(event, callback) {
+    sendClickStreamEvent : function(event, callback, errorcallback) {
      console.log("Sending ClickStream Event", event);
      var serviceUrl = this.serviceURLProtocol + "://" + this.hostName + (this.port!="" ? ":" + this.port : "") + "/prweb/api/Clickstream/1.1/Insert"; 			
-	var xmlHttpReq = this.createRequest("POST", serviceUrl, callback);
+	var xmlHttpReq = this.createRequest("POST", serviceUrl, callback, errorcallback);
 	if (xmlHttpReq)	xmlHttpReq.send(JSON.stringify(event));
     },
 
