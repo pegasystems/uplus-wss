@@ -103,7 +103,7 @@ export default {
 
       if (mainconfig.settings.pega_chat.DMMSecret !== '' && mainconfig.userId !== -1 && window.PegaCSWSS.DMMSessionID !== '') {
         const privateData = {
-          authenticated: true,
+          authenticated: mainconfig.userId !== -1,
           ContactID: window.PegaCSWSS.ContactID,
           AccountNumber: window.PegaCSWSS.AccountNumber,
           UserName: window.PegaCSWSS.UserName,
