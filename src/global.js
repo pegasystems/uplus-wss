@@ -738,13 +738,13 @@ if (typeof settings === 'undefined') {
         };
         const jwttoken = generateJWTKey({ iss: sessionId }, mainconfigTmp.settings.pega_chat.DMMSecret);
         const headers = {
-          'Content-Type': 'application/json;charset=UTF-8',
+          'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${jwttoken}`,
         };
         const reqHeaders = {
           method: 'POST',
           headers,
-          mode: 'cors',
+          mode: 'no-cors',
         };
         const chatUrl = new URL(mainconfigTmp.settings.pega_chat.DMMURL);
         const apiurl = `${chatUrl.origin}/private-data`;
@@ -878,13 +878,13 @@ const updatePegaChat = function updatePegaChat(u) {
     };
     const jwttoken = generateJWTKey({ iss: window.PegaCSWSS.DMMSessionID }, mainconfig.settings.pega_chat.DMMSecret);
     const headers = {
-      'Content-Type': 'application/json;charset=UTF-8',
+      'Content-Type': 'multipart/form-data',
       Authorization: `Bearer ${jwttoken}`,
     };
     const reqHeaders = {
       method: 'POST',
       headers,
-      mode: 'cors',
+      mode: 'no-cors',
     };
     const chatUrl = new URL(mainconfig.settings.pega_chat.DMMURL);
     const apiurl = `${chatUrl.origin}/private-data`;
