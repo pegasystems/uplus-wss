@@ -4,7 +4,7 @@
     <nav>
       <ul class="quick-links">
         <li v-for="(item, index) in settings.quicklinks" :key="index">
-          <a v-if="item.hide !== true" v-on:click="selectLink(index)">{{
+          <a v-if="item.hide !== true && showQuickLink(index)" v-on:click="selectLink(index)">{{
             settings.quicklinks[index].title[currentLocale]
           }}</a>
         </li>
@@ -44,6 +44,9 @@ export default {
         if (this.settings.quicklinks[i].hide !== true) return true;
       }
       return false;
+    },
+    showQuickLink(index) {
+      return (this.settings.quicklinks[index].hideusers) ? (!this.settings.quicklinks[index].hideusers.split(',').includes(this.settings.users[mainconfig.userId].username)) : true;
     },
   },
 };
