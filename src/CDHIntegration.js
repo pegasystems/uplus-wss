@@ -240,7 +240,7 @@ const sendRTSEvent = function sendRTSEvent(Context, item) {
 };
 
 const sendClickStreamEvent = function sendClickStreamEvent(Context, eventtype, pagetype, PageViewActiveTime) {
-  if (Context.settings.pega_marketing.Host === '') return;
+  if (Context.settings.pega_marketing.Host === '' || !Context.settings.pega_marketing.enableClickStream) return;
   if (typeof window.getNBAMServiceControl !== 'undefined') {
     const nbamServiceCtrl = window.getNBAMServiceControl(Context.settings.pega_marketing.apiLevel, false);
     nbamServiceCtrl.initialize(
