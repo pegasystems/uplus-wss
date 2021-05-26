@@ -80,6 +80,10 @@
             <label :for="'quicklinks-' + index + '-icon'">Icon (for mobile)</label>
             <input :id="'quicklinks-' + index + '-icon'" type="text" v-model="item.icon" />
           </div>
+          <div class="field-item">
+            <label :for="'quicklinks-' + index + '-hideusers'">Hide for below users (for example User1,User2)</label>
+            <input :id="'quicklinks-' + index + '-hideusers'" type="text" v-model="item.hideusers" />
+          </div>
         </div>
         <div class="layout-labels-top">
           <div class="field-item">
