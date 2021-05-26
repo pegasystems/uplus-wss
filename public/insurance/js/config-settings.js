@@ -53,7 +53,7 @@ window.settings = {
       channelid: '',
       tenantid: '',
       dataretained: true,
-      hideusers:'',
+      hideusers: '',
     },
     {
       title: {
@@ -71,7 +71,7 @@ window.settings = {
       channelid: '',
       tenantid: '',
       dataretained: true,
-      hideusers:'',
+      hideusers: '',
     },
     {
       title: {
@@ -89,7 +89,7 @@ window.settings = {
       channelid: '',
       tenantid: '',
       dataretained: true,
-      hideusers:'',
+      hideusers: '',
     },
     {
       title: {
@@ -107,7 +107,7 @@ window.settings = {
       channelid: '',
       tenantid: '',
       dataretained: true,
-      hideusers:'',
+      hideusers: '',
     },
     {
       title: {
@@ -125,7 +125,7 @@ window.settings = {
       channelid: '',
       tenantid: '',
       dataretained: true,
-      hideusers:'',
+      hideusers: '',
     },
     {
       title: {
@@ -143,7 +143,7 @@ window.settings = {
       channelid: '',
       tenantid: '',
       dataretained: true,
-      hideusers:'',
+      hideusers: '',
     },
     {
       title: {
@@ -161,7 +161,7 @@ window.settings = {
       channelid: '',
       tenantid: '',
       dataretained: true,
-      hideusers:'',
+      hideusers: '',
     },
 
     {
@@ -180,7 +180,7 @@ window.settings = {
       channelid: '',
       tenantid: '',
       dataretained: true,
-      hideusers:'',
+      hideusers: '',
     },
     {
       title: {
@@ -198,7 +198,7 @@ window.settings = {
       channelid: '',
       tenantid: '',
       dataretained: true,
-      hideusers:'',
+      hideusers: '',
     },
     {
       title: {
@@ -216,7 +216,7 @@ window.settings = {
       channelid: '',
       tenantid: '',
       dataretained: true,
-      hideusers:'',
+      hideusers: '',
     },
   ],
   billpay: {

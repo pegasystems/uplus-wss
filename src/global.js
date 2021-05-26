@@ -256,6 +256,9 @@ const upgradeConfig = function upgradeConfig(cfg) {
     if (typeof cfg.settings.quicklinks[i].dataretained === 'undefined') {
       cfg.settings.quicklinks[i].dataretained = true;
     }
+    if (typeof cfg.settings.quicklinks[i].hideusers === 'undefined') {
+      cfg.settings.quicklinks[i].hideusers = '';
+    }
   }
   /* upgrade channelid */
   if (typeof cfg.settings.billpay.channelid === 'undefined') {
