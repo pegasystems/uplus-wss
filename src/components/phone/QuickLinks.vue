@@ -39,7 +39,7 @@ export default {
     visibleQuickLinks() {
       return this.settings.quicklinks.filter((item, index) => {
         item.originalIndex = index;
-        return item.hide !== true;
+        return item.hide !== true && (this.settings.quicklinks[index].hideusers) ? (!this.settings.quicklinks[index].hideusers.split(',').includes(this.settings.users[mainconfig.userId].username)) : true;
       });
     },
   },
