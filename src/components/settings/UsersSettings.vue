@@ -71,6 +71,12 @@
             >Extra parameters (for example 'key1=value1,key2=value2')</label>
             <textarea :id="'user-' + index + '-extraparam'" v-model="item.extraparam" />
           </div>
+          <div class="field-item">
+            <label
+              :for="'user-' + index + '-dmm_context_data'"
+            >Additional context data for Digital Messaging Manager (format: first_name=john,last_name=smith)</label>
+            <textarea :id="'user-' + index + '-dmm_context_data'" v-model="item.dmm_context_data" />
+          </div>
         </div>
       </Container>
     </div>

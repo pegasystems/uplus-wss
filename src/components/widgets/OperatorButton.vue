@@ -96,7 +96,7 @@ export default {
       window.PegaCSWSS.AccountNumber = '';
       window.PegaCSWSS.UserName = '';
       window.PegaCSWSS.ExtraParams = {};
-
+      window.PegaChatTags = {};
       setCookie('ContactID', window.PegaCSWSS.ContactID, 30);
       setCookie('AccountNumber', window.PegaCSWSS.AccountNumber, 30);
       setCookie('UserName', window.PegaCSWSS.UserName, 30);

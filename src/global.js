@@ -161,6 +161,9 @@ const upgradeConfig = function upgradeConfig(cfg) {
     if (typeof cfg.settings.users[i].extraparam === 'undefined') {
       cfg.settings.users[i].extraparam = '';
     }
+    if (typeof cfg.settings.users[i].dmm_context_data === 'undefined') {
+      cfg.settings.users[i].dmm_context_data = '';
+    }
     if (typeof cfg.settings.users[i].billpay === 'undefined') {
       cfg.settings.users[i].billpay = 164.8;
     }
@@ -698,6 +701,13 @@ if (typeof settings === 'undefined') {
         }
       });
     }
+    if (typeof u.dmm_context_data === 'string' && u.dmm_context_data !== '') {
+      window.PegaChatTags = {};
+      u.dmm_context_data.split(',').forEach((item) => {
+        const values = item.split('=');
+        window.PegaChatTags[values[0].trim()] = values[1].trim();
+      });
+    }
   }
   setCookie('ContactID', window.PegaCSWSS.ContactID, 30);
   setCookie('AccountNumber', window.PegaCSWSS.AccountNumber, 30);
@@ -850,6 +860,13 @@ const updatePegaChat = function updatePegaChat(u) {
   window.PegaCSWSS.AccountNumber = u.accountID;
   window.PegaCSWSS.UserName = u.username;
 
+  if (typeof u.dmm_context_data === 'string' && u.dmm_context_data !== '') {
+    window.PegaChatTags = {};
+    u.dmm_context_data.split(',').forEach((item) => {
+      const values = item.split('=');
+      window.PegaChatTags[values[0].trim()] = values[1].trim();
+    });
+  }
   setCookie('ContactID', window.PegaCSWSS.ContactID, 30);
   setCookie('AccountNumber', window.PegaCSWSS.AccountNumber, 30);
   setCookie('UserName', window.PegaCSWSS.UserName, 30);
