@@ -142,6 +142,7 @@ const initNBAM = function initNBAM(
 ) {
   if (typeof window.getNBAMServiceControl !== 'undefined') {
     const nbamServiceCtrl = window.getNBAMServiceControl(Context.settings.pega_marketing.apiLevel, false);
+    window.CDHRequestTimeout = Context.settings.pega_marketing.requestTimeout;
     nbamServiceCtrl.initialize(
       Context.settings.pega_marketing.Host,
       Context.settings.pega_marketing.Port,

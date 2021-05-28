@@ -243,6 +243,9 @@ const upgradeConfig = function upgradeConfig(cfg) {
   if (typeof cfg.settings.pega_marketing.contextName === 'undefined') {
     cfg.settings.pega_marketing.contextName = 'Customer';
   }
+  if (typeof cfg.settings.pega_marketing.requestTimeout === 'undefined') {
+    cfg.settings.pega_marketing.requestTimeout = 10000;
+  }
   for (const i in cfg.settings.quicklinks) {
     if (typeof cfg.settings.quicklinks[i].hide === 'undefined') {
       cfg.settings.quicklinks[i].hide = false;

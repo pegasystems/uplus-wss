@@ -266,9 +266,10 @@
 		// Create the XHR object.
 	 createRequest : function(method, url, callback, errorcallback) {
 		var xhr = new XMLHttpRequest();
-		if (typeof xhr == "undefined") { return null; }
-        xhr.timeout = 5000; // time in milliseconds
-
+        if (typeof xhr == "undefined") { return null; }
+        if( typeof CDHRequestTimeout === "number") {
+            xhr.timeout = CDHRequestTimeout; // time in milliseconds
+        }
 		xhr.onreadystatechange = function () {
 			if (xhr.readyState == 4 && xhr.status == 200) {
 				var data = xhr.responseText;
@@ -284,10 +285,12 @@
                 if(typeof errorcallback == "function") errorcallback();
             }
 		};
-		xhr.onerror = function () {
+		xhr.onerror = function (e) {
+            console.log('CDH XHR error', e);
             if(typeof errorcallback == "function") errorcallback();
 		};
-        xhr.ontimeout = function () {
+        xhr.ontimeout = function (e) {
+            console.log('CDH XHR timeout', e);
             if(typeof errorcallback == "function") errorcallback();
 		};
 		xhr.open(method, url, true);

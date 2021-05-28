@@ -35,6 +35,14 @@
             v-model="settings.pega_marketing.channel"
           />
         </div>
+         <div class="field-item">
+          <label for="NBAM-requestTimeout">Timeout for XHR request (in ms)</label>
+          <input
+            id="NBAM-requestTimeout"
+            type="integer"
+            v-model="settings.pega_marketing.requestTimeout"
+          />
+        </div>
         <div class="field-item">
           <label for="NBAM-APILevel">API level</label>
           <select

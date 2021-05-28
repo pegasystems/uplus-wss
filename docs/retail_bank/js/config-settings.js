@@ -273,6 +273,7 @@ window.settings = {
     Host: '',
     Port: '',
     channel: 'Web',
+    requestTimeout: 10000,
     replaceHomePageHeader: false,
     showAIOverlay: false,
     enableRTS: false,
