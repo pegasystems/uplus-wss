@@ -66,64 +66,64 @@
       </div>
       <div class="layout-labels-left">
         <div v-if="settings.pega_marketing.apiLevel === 'V3'" class="field-item field-checkbox">
-          <label class="width-auto" for="NBAM-useCaptureByChannel"
-            >Enable capturing responses to actions</label
-          >
           <input
             id="NBAM-useCaptureByChannel"
             type="checkbox"
             v-model="settings.pega_marketing.useCaptureByChannel"
           />
+          <label class="width-auto" for="NBAM-useCaptureByChannel"
+            >Enable capturing responses to actions</label
+          >
         </div>
         <div class="field-item field-checkbox">
-          <label class="width-auto" for="NBAM-showAIOverlay"
-            >Show AI overlay</label
-          >
           <input
             id="NBAM-showAIOverlay"
             type="checkbox"
             v-model="settings.pega_marketing.showAIOverlay"
           />
+          <label class="width-auto" for="NBAM-showAIOverlay"
+            >Show AI overlay</label
+          >
         </div>
         <div class="field-item field-checkbox">
-          <label class="width-auto" for="NBAM-enableRTS"
-            >Enable Real-time data streaming</label
-          >
           <input
             id="NBAM-enableRTS"
             type="checkbox"
             v-model="settings.pega_marketing.enableRTS"
           />
+          <label class="width-auto" for="NBAM-enableRTS"
+            >Enable Real-time data streaming</label
+          >
         </div>
         <div class="field-item field-checkbox">
-          <label class="width-auto" for="NBAM-enableClickStream"
-            >Enable Click Stream</label
-          >
           <input
             id="NBAM-enableClickStream"
             type="checkbox"
             v-model="settings.pega_marketing.enableClickStream"
           />
+          <label class="width-auto" for="NBAM-enableClickStream"
+            >Enable Click Stream</label
+          >
         </div>
         <div class="field-item">
-          <label class="width-auto" for="NBAM-replaceHomePageHeader"
-            >Replace Home Page header with Hero placement</label
-          >
           <input
             id="NBAM-replaceHomePageHeader"
             type="checkbox"
             v-model="settings.pega_marketing.replaceHomePageHeader"
           />
+          <label class="width-auto" for="NBAM-replaceHomePageHeader"
+            >Replace Home Page header with Hero placement</label
+          >
         </div>
         <div class="field-item">
-          <label class="width-auto" for="NBAM-showLoadingIndicator"
-            >Display progress indicator while loading the offers</label
-          >
           <input
             id="NBAM-showLoadingIndicator"
             type="checkbox"
             v-model="settings.pega_marketing.showLoadingIndicator"
           />
+          <label class="width-auto" for="NBAM-showLoadingIndicator"
+            >Display progress indicator while loading the offers</label
+          >
         </div>
       </div>
     </Container>

@@ -1,25 +1,30 @@
+:root {
+  --brandColor: #3C8712;
+	--interactiveColor: #0076DE;
+}
+
 header,
 .background-brand,
 .product-icon,
 main .secondary-options .front-option::after,
 .benefits li::after,
 #ChatLauncherminimized, #launcher, #launcherminimized, #servicecaselauncherminimized {
-	background-color: #3C8712;
+	background-color: var(--brandColor);
 }
 
 header .menu-overlay a:hover,
 header .menu-overlay a:active,
 header .menu-overlay a:focus {
-	background-color: #3C8712;
+	background-color: var(--brandColor);
 	color: #FFF;
 }
 
 body .color-brand {
-	color: #3C8712;
+	color: var(--brandColor);
 }
 
 .border-brand {
-	border-color: #3C8712;
+	border-color: var(--brandColor);
 }
 
 /* Home page */

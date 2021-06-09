@@ -360,6 +360,13 @@ const upgradeConfig = function upgradeConfig(cfg) {
       webportal: '',
     };
   }
+  if (typeof cfg.settings.general.theming === 'undefined') {
+    cfg.settings.general.theming = {
+      override: false,
+      interactiveColor: '#0076DE',
+      brandColor: '#3C8712',
+    };
+  }
   return cfg;
 };
 
@@ -797,6 +804,15 @@ if (typeof settings === 'undefined') {
 
 const mainconfig = mainconfigTmp;
 const i18n = i18nTmp;
+
+/* set the styling */
+if (mainconfig.settings.general.theming.override) {
+  const inlineTheming = document.createElement('style');
+  inlineTheming.innerHTML = `:root { --brandColor: ${mainconfig.settings.general.theming.brandColor};
+  --interactiveColor: ${mainconfig.settings.general.theming.interactiveColor};}
+  .front>header, .form>header, .offer header { background-blend-mode: luminosity; }`;
+  document.head.appendChild(inlineTheming);
+}
 
 window.addEventListener('popstate', () => {
   mainconfig.quickLinkId = -1;

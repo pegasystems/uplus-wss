@@ -47,13 +47,6 @@ textarea {
   font-size: 18rem;
 }
 
-textarea:hover,
-textarea:active,
-textarea:focus {
-  outline: 0;
-  border-color: #0062e6;
-}
-
 input[type='radio'],
 input[type='checkbox'] {
   display: inline-block;
@@ -85,7 +78,7 @@ input[type='radio'] + label::before {
 
 input[type='radio']:hover + label::before,
 input[type='radio']:focus + label::before {
-  border-color: #295ed9;
+  border-color: var(--interactiveColor);
 }
 
 input[type='radio'] + label {
@@ -109,7 +102,7 @@ input[type='radio'] + label {
 input[type='radio']:checked + label::before {
   background: #fff;
   border-width: 9px;
-  border-color: #295ed9;
+  border-color: var(--interactiveColor);
 }
 
 .field-radiogroup > div {
@@ -119,7 +112,7 @@ input[type='radio']:checked + label::before {
 
 select {
   background: #fff
-    url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48.06 28.04' width='18' height='9'%3E%3Cpath fill='%23295ED9' d='M47.51.64a1.91 1.91 0 00-2.7 0L24.1 23.25 3.35.65 3.17.47A1.91 1.91 0 10.66 3.35l21.87 23.84a1.69 1.69 0 00.13.31 2.15 2.15 0 002.85 0 1.75 1.75 0 00.13-.32L47.51 3.34a1.91 1.91 0 000-2.7z'/%3E%3C/svg%3E")
+    url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48.06 28.04' width='18' height='9'%3E%3Cpath fill='%23333' d='M47.51.64a1.91 1.91 0 00-2.7 0L24.1 23.25 3.35.65 3.17.47A1.91 1.91 0 10.66 3.35l21.87 23.84a1.69 1.69 0 00.13.31 2.15 2.15 0 002.85 0 1.75 1.75 0 00.13-.32L47.51 3.34a1.91 1.91 0 000-2.7z'/%3E%3C/svg%3E")
     right 15px top 50% no-repeat;
   padding-right: 48px;
   -webkit-appearance: none;
@@ -149,36 +142,19 @@ a:hover {
 input[type='checkbox'] {
   -webkit-appearance: none;
   -moz-appearance: none;
-  width: 25rem;
-  height: 25rem;
-  margin-right: 8rem;
-  background-color: #fff;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 60%;
-  border-radius: 0;
-  border: 1rem solid #d1d2d3;
-  box-sizing: border-box;
+  appearance: none;
 }
 
 input[type='checkbox']:hover,
 input[type='checkbox']:active,
 input[type='checkbox']:checked,
 input[type='checkbox']:indeterminate {
-  border-color: #295ed9;
+  border-color: var(--interactiveColor);
 }
 
 input[type='checkbox']:checked,
 input[type='checkbox']:indeterminate {
   background-color: #eceff8;
-}
-
-input[type='checkbox']:checked {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 26'%3E%3Cpath fill='%23295ED9' d='M12.42 25.99l-12.42-12.42 2.83-2.83 9.32 9.33 16.73-20.07 3.07 2.56-19.53 23.43z'/%3E%3C/svg%3E");
-}
-
-input[type='checkbox']:indeterminate {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 6'%3E%3Cpath fill='%23295ED9' d='M32 .01l-32-.01v6h32v-5.99z'/%3E%3C/svg%3E");
 }
 
 input[type='checkbox']:disabled {
@@ -186,30 +162,49 @@ input[type='checkbox']:disabled {
   cursor: not-allowed;
 }
 
-input[type='checkbox']::-ms-check {
-  color: #fff;
-  background: #fff;
-  border-radius: 0;
-  border: 1rem solid #d1d2d3;
-  box-sizing: border-box;
-  padding: 20%;
+input[type='checkbox'] {
+  position: absolute;
+  opacity: 0;
 }
 
-input[type='checkbox']:focus::-ms-check,
-input[type='checkbox']:hover::-ms-check,
-input[type='checkbox']:active::-ms-check,
-input[type='checkbox']:checked::-ms-check,
-input[type='checkbox']:indeterminate::-ms-check {
-  border-color: #295ed9;
+input[type='checkbox']:checked + label:before {
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIKCSB2aWV3Qm94PSIwIDAgMjIgMjYiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDIyIDI2OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+Cgkuc3Qwe2ZpbGw6I0ZGRkZGRjt9Cjwvc3R5bGU+Cjxwb2x5Z29uIGNsYXNzPSJzdDAiIHBvaW50cz0iMjEuMSw3LjQgMjAuNiw2LjggMjAuMiw2LjUgNy43LDE5IDEuNSwxMi45IDAuMywxNC4yIDcuNywyMS40IDIxLjUsNy44ICIvPgo8L3N2Zz4K')
+    no-repeat 50% 50%;
+  background-color: var(--interactiveColor);
+  background-size: 16px;
+  border-color: var(--interactiveColor);
 }
 
-input[type='checkbox']:checked::-ms-check,
-input[type='checkbox']:indeterminate::-ms-check {
-  color: #295ed9;
-  background-color: #eceff8;
+input[type='checkbox']:focus + label:before,
+input[type='checkbox']:hover + label:before {
+  border-color: var(--interactiveColor);
+}
+
+input[type='checkbox'] + label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 28px;
+  height: 28px;
+  transition: 0.2s ease all;
+  border: 1px solid;
+}
+
+input[type='checkbox'] + label {
+  pointer-events: all;
+  position: relative;
+  padding-left: 40px;
+  padding-top: 4px;
+  cursor: pointer;
+  height: 28rem;
+  width: 100%;
+  margin: 0 8px 0 0;
+  display: block;
 }
 
 input[type='color'] {
+  margin-right: 8px;
   width: 30rem;
   padding: 0;
   height: 30rem;
@@ -269,8 +264,8 @@ input[type='color'] {
 
 button,
 .button {
-  background: #295ed9;
-  border: 1px solid #295ed9;
+  background: var(--interactiveColor);
+  border: 1px solid var(--interactiveColor);
   box-sizing: border-box;
   display: inline-block;
   font-weight: 700;
@@ -298,7 +293,7 @@ button.launch-login:hover,
 button.launch-login:active,
 button.launch-login:focus {
   background: #fff;
-  color: #295ed9;
+  color: var(--interactiveColor);
   border: 1px solid transparent;
 }
 
@@ -313,7 +308,7 @@ button.launch-menu {
 }
 
 button:hover {
-  border-color: #224fb6;
+  border-color: var(--interactiveColor);
 }
 
 button,
@@ -372,13 +367,13 @@ button.tertiary:focus,
 .button.tertiary:focus,
 button.tertiary:active,
 .button.tertiary:active {
-  color: #295ed9;
+  color: var(--interactiveColor);
 }
 
 button.simple {
   background: transparent;
   border: none;
-  color: #295ed9;
+  color: var(--interactiveColor);
   min-width: 0;
   padding: 0;
 }
@@ -388,7 +383,7 @@ button.simple:active,
 button.simple:hover {
   background: transparent;
   border: none;
-  color: #295ed9;
+  color: var(--interactiveColor);
   text-decoration: underline;
 }
 
@@ -531,11 +526,11 @@ td.align-r {
   font-weight: 600;
   padding: 8rem;
   margin-bottom: 0;
-  color: #295ed9;
+  color: var(--interactiveColor);
   border: none;
   cursor: pointer;
   min-height: 40rem;
-  border: 1px solid #295ed9;
+  border: 1px solid var(--interactiveColor);
   border-radius: 3rem;
   transition: all 0.25s ease-out;
 }
@@ -545,12 +540,12 @@ button.file-download:focus,
 .inputfile:hover + label,
 .inputfile:active + label,
 .inputfile:focus + label {
-  outline: 2px solid #295ed9;
+  outline: 2px solid var(--interactiveColor);
   border-radius: 0;
 }
 
 button.file-download {
-  color: #295ed9;
+  color: var(--interactiveColor);
   background: #fff;
   font-weight: 600;
 }

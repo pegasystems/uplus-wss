@@ -6,8 +6,8 @@
       <div class="body">
         <div class="layout-labels-left">
           <div class="field-item">
-            <label class="width-auto" for="bill-pay-hidebillpay">Hide Bill Pay</label>
             <input id="bill-pay-hidebillpay" type="checkbox" v-model="settings.billpay.hidebillpay" />
+            <label class="width-auto" for="bill-pay-hidebillpay">Hide Bill Pay</label>
           </div>
         </div>
         <div class="layout-labels-top layout-inline-grid-double">
@@ -52,8 +52,8 @@
             <input id="bill-pay-tenantid" type="text" v-model="settings.billpay.tenantid" />
           </div>
           <div class="field-item field-checkbox">
-            <label class="width-auto" for="bill-pay-dataretained">Retain state on reload</label>
             <input id="bill-pay-dataretained" type="checkbox" v-model="settings.billpay.dataretained" />
+            <label class="width-auto" for="bill-pay-dataretained">Retain state on reload</label>
           </div>
         </div>
         <div class="layout-labels-top">

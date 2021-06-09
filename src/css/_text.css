@@ -293,7 +293,7 @@ time.fatlist-item {
 
 .cash-projections h4.dropdown {
   margin-top: -25px;
-  color: #295ed9;
+  color: var(--interactiveColor);
 }
 
 .cash-projections span {

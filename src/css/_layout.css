@@ -497,7 +497,6 @@ footer nav > div.flex {
 }
 
 .layout-labels-left > .field-item > label {
-  min-width: 180rem;
   margin: 0 16rem 0 0;
 }
 .layout-labels-left > .field-item > label.width-auto {
@@ -548,12 +547,12 @@ footer nav > div.flex {
 }
 
 .layout-inline-grid-double > div {
-  width: calc(50% - 16rem);
-  margin-right: 16rem;
+  width: calc(50% - 8rem);
+  margin-right: 8rem;
 }
 
 .layout-inline-grid-double > div:nth-child(2n) {
-  margin: 0 0 0 16rem;
+  margin: 0 0 0 8rem;
 }
 
 /* helper classes */
@@ -630,7 +629,7 @@ a[role='tab'] {
   font-size: 20rem;
   text-decoration: none;
   cursor: pointer;
-  color: #295ed9;
+  color: var(--interactiveColor);
   width: 100%;
 }
 
@@ -638,7 +637,7 @@ a[aria-selected='true'],
 a[role='tab']:focus,
 a[role='tab']:hover,
 a[role='tab']:active {
-  background: #c8d5f6;
+  background: rgba(210, 210, 210, 0.7);
   text-decoration: underline;
 }
 

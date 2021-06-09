@@ -4,9 +4,10 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <link rel="icon" href="../favicon.ico" />
+    <!--[if IE]><link rel="icon" href="../favicon.ico"><![endif]-->
     <title>Mashup</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/override.css" />
     <script>
       if (window.frameElement.classList.contains('phone')) {
         document.documentElement.className = 'phone';
@@ -57,7 +58,7 @@
       .top-nav button {
         background: transparent;
         border: none;
-        color: #295ed9;
+        color: var(--interactiveColor);
         min-width: 0;
         padding: 0;
         font-size: 30px;
@@ -91,8 +92,8 @@
       }
 
       button {
-        background: #295ed9;
-        border: 1px solid #295ed9;
+        background: var(--interactiveColor);
+        border: 1px solid var(--interactiveColor);
         box-sizing: border-box;
         display: inline-block;
         font-weight: 700;
@@ -119,7 +120,7 @@
           <g
             fill="grey"
             transform="rotate(90 0 0)
-            translate(0 -23)"
+                  translate(0 -23)"
           >
             <path
               fill="#295ED9"
@@ -161,6 +162,12 @@
           el.innerHTML = title;
         },
       );
+      var color = window.frameElement.getAttribute('data-attr-color');
+      if(color && color !== '') {
+        const inlineBranding = document.createElement('style');
+        inlineBranding.innerHTML = `:root { --interactiveColor: ${color};}`;
+        document.head.appendChild(inlineBranding);
+      }
     </script>
   </body>
 </html>

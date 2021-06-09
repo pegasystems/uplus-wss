@@ -11,12 +11,12 @@ body.offer {
 
 a,
 a:visited {
-  color: #295ed9;
+  color: var(--interactiveColor);
 }
 
 a.decorated,
 a.decorated:visited {
-  border-bottom-color: #295ed9;
+  border-bottom-color: var(--interactiveColor);
 }
 
 a:hover,

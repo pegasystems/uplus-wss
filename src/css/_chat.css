@@ -197,8 +197,8 @@ div#ChatFooter {
 .EndChat {
   float: right;
   background: white;
-  border: 1px solid #295ed9;
-  color: #295ed9;
+  border: 1px solid var(--interactiveColor);
+  color: var(--interactiveColor);
   border-radius: 3px;
   padding: 5px 9px;
   margin-top: -25px;

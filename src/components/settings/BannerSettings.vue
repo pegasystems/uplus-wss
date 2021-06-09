@@ -6,16 +6,16 @@
       <div class="body">
         <div class="layout-labels-left layout-inline-grid-double">
           <div class="field-item">
-            <label for="banner-hidebanner">Hide banner</label>
             <input id="banner-hidebanner" type="checkbox" v-model="settings.banner.hidebanner" />
+            <label for="banner-hidebanner">Hide banner</label>
           </div>
           <div class="field-item">
-            <label for="banner-hidebanner-button">Hide banner button</label>
             <input id="banner-hidebanner-button" type="checkbox" v-model="settings.banner.hidebanner_button" />
+            <label for="banner-hidebanner-button">Hide banner button</label>
           </div>
           <div class="field-item">
-            <label for="banner-background-color">Background color</label>
             <input id="banner-background-color" type="color" v-model="settings.banner.color" />
+            <label for="banner-background-color">Background color</label>
           </div>
         </div>
         <div class="layout-labels-top layout-inline-grid-double">
@@ -60,8 +60,8 @@
             <input id="banner-tenantid" type="text" v-model="settings.banner.tenantid" />
           </div>
           <div class="field-item field-checkbox">
-            <label class="width-auto" for="banner-dataretained">Retain state on reload</label>
             <input id="banner-dataretained" type="checkbox" v-model="settings.banner.dataretained" />
+            <label class="width-auto" for="banner-dataretained">Retain state on reload</label>
           </div>
         </div>
         <div class="layout-labels-top">

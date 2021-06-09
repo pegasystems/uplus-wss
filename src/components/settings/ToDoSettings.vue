@@ -6,18 +6,18 @@
       <div class="body">
         <div class="layout-labels-top layout-inline-grid-double">
           <div class="field-item field-checkbox">
-            <label class="width-auto" for="todo-hideactivity">Hide recent activity</label>
             <input id="todo-hideactivity" type="checkbox" v-model="settings.todo.hideactivity" />
+            <label class="width-auto" for="todo-hideactivity">Hide recent activity</label>
           </div>
           <div class="field-item field-checkbox">
-            <label class="width-auto" for="todo-hideaccount">Hide account details</label>
             <input id="todo-hideaccount" type="checkbox" v-model="settings.todo.hideaccount" />
+            <label class="width-auto" for="todo-hideaccount">Hide account details</label>
           </div>
         </div>
         <div class="layout-labels-top layout-inline-grid-double">
           <div class="field-item field-checkbox" v-if="app.industry  === 'health-pharma' || app.industry  === 'health-care' || app.industry  === 'health-payer'">
-            <label class="width-auto" for="todo-hidekpi">Hide KPI details</label>
             <input id="todo-hidekpi" type="checkbox" v-model="settings.todo.hideKPI" />
+            <label class="width-auto" for="todo-hidekpi">Hide KPI details</label>
           </div>
         </div>
         <div class="layout-labels-top layout-inline-grid-double">
@@ -62,8 +62,8 @@
             <input id="todo-tenantid" type="text" v-model="settings.todo.tenantid" />
           </div>
           <div class="field-item field-checkbox">
-            <label class="width-auto" for="todo-dataretained">Retain state on reload</label>
             <input id="todo-dataretained" type="checkbox" v-model="settings.todo.dataretained" />
+            <label class="width-auto" for="todo-dataretained">Retain state on reload</label>
           </div>
         </div>
         <div class="layout-labels-top">

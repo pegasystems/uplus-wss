@@ -4,14 +4,19 @@
     <p>Configuration of each of the mashup cases that can be accessed through the quick links component.</p>
     <div v-for="(item,index) in settings.quicklinks" v-bind:key="index">
       <Container :title="'Mashup Case ' + (index+1)" :expanded="index===0">
-        <div class="layout-labels-left">
+        <div class="layout-labels-left layout-inline-grid-double">
           <div class="field-item">
+            <input :id="'quicklinks-' + index + '-hideaccount'" type="checkbox" v-model="item.hide" />
             <label
               class="width-auto"
               :for="'quicklinks-' + index + '-hideaccount'"
             >Hide from account page</label>
-            <input :id="'quicklinks-' + index + '-hideaccount'" type="checkbox" v-model="item.hide" />
           </div>
+          <div class="field-item field-checkbox">
+            <input :id="'quicklinks-' + index + '-dataretained'" type="checkbox" v-model="item.dataretained" />
+            <label class="width-auto" :for="'quicklinks-' + index + '-dataretained'">Retain state on reload</label>
+          </div>
+
         </div>
         <div class="layout-inline-grid-double layout-labels-top">
           <div v-for="titlel in settings.i18n.languages" v-bind:key="titlel" class="field-item">
@@ -71,10 +76,6 @@
           <div class="field-item">
             <label :for="'quicklinks-' + index + '-tenantid'">Tenant ID</label>
             <input :id="'quicklinks-' + index + '-tenantid'" type="text" v-model="item.tenantid" />
-          </div>
-          <div class="field-item field-checkbox">
-            <label class="width-auto" :for="'quicklinks-' + index + '-dataretained'">Retain state on reload</label>
-            <input :id="'quicklinks-' + index + '-dataretained'" type="checkbox" v-model="item.dataretained" />
           </div>
           <div class="field-item">
             <label :for="'quicklinks-' + index + '-icon'">Icon (for mobile)</label>

@@ -12,10 +12,14 @@ export default {
   mounted() {
     const mytag = this.$refs.mycomp;
     let objClass = '';
+    let caseTitle = '';
     if (this.quickLinkId !== -1) {
       mytag.action = this.settings.quicklinks[this.quickLinkId].action;
       mytag.url = this.settings.quicklinks[this.quickLinkId].url;
       objClass = this.settings.quicklinks[this.quickLinkId].objclass;
+      caseTitle = this.settings.quicklinks[this.quickLinkId].title[
+        this.currentLocale
+      ];
     } else if (this.viewBill !== -1) {
       mytag.action = this.settings.billpay.action;
       mytag.url = this.settings.billpay.url;
@@ -47,6 +51,22 @@ export default {
     mytag.bShowSave = 'false';
     mytag.bShowAttachments = 'true';
     if (mytag.url === '') {
+      const parent = mytag.parentElement;
+      parent.removeChild(mytag);
+      const embedForm = document.createElement('section');
+      embedForm.className = 'flex flex-col height-100-pct';
+      embedForm.innerHTML = `<iframe
+      class="pega ${this.isMobilePhone ? 'phone' : 'desktop'}"
+      src="form-embed.html"
+      style="overflow: hidden; height: 600px"
+      data-attr-title="${caseTitle}"
+      data-attr-color="${mainconfig.settings.general.theming.override ? mainconfig.settings.general.theming.interactiveColor : ''}"
+      width="100%"
+      height="100%"
+      border="0"
+      frameborder="0"
+    ></iframe>`;
+      parent.appendChild(embedForm);
       return;
     }
     if (mytag.url.indexOf('/prweb/') !== 0) {

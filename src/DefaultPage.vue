@@ -25,7 +25,6 @@ export default {
 <style>
 @import url('./css/normalize.min.css');
 @import url('./css/_init.css');
-@import url('./css/_webcomponent.css');
 @import url('./css/_text.css');
 @import url('./css/_layout.css');
 @import url('./css/_controls.css');
@@ -36,4 +35,5 @@ export default {
 @import url('./css/_landing.css');
 @import url('./css/_phone.css');
 @import url('./css/_responsive.css');
+@import url('./css/_webcomponent.css');
 </style>

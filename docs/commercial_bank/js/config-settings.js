@@ -7,6 +7,11 @@ window.settings = {
     /* set to true to show the language switcher */
   },
   general: {
+    theming: {
+      override: false,
+      interactiveColor: '#0076DE',
+      brandColor: '#3C8712',
+    },
     ga: {
       enabled: true,
       trackingid: 'G-RJ6VT2L72P',

@@ -123,6 +123,7 @@
       class="pega"
       :class="isMobilePhone ? 'phone' : 'desktop'"
       :data-attr-title="caseTitle"
+      :data-attr-color="settings.general.theming.override ? settings.general.theming.interactiveColor : ''"
       src="form-embed.html"
       style="overflow: hidden; height: 600px"
       width="100%"

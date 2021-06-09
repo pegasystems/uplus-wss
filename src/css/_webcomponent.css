@@ -125,6 +125,40 @@
 .layout-content-inline_middle.flex > *:last-child {
   margin-right: 0;
 }
+.flex.field-item.field-table {
+  overflow-x: auto;
+  flex-flow: column nowrap;
+}
+.layout-content-default-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  row-gap: 8px;
+  column-gap: 16px;
+  margin-bottom: 16px;
+}
+.layout-content-default-form-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.layout-content-default-form-2 .field-table,
+.layout-content-default-form-2 .field-richtext,
+.layout-content-default-form-2 .field-textarea,
+.layout-content-default-form-2 .field-checkbox,
+.layout-content-default-form-2 .field-radiogroup {
+  grid-column: 1 / span 2;
+}
+
+.layout-content-default-form-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.layout-content-default-form-3 .field-table,
+.layout-content-default-form-3 .field-richtext,
+.layout-content-default-form-3 .field-textarea,
+.layout-content-default-form-3 .field-checkbox,
+.layout-content-default-form-3 .field-radiogroup {
+  grid-column: 1 / span 3;
+}
+
 .flex.main-header {
   min-height: 50px;
 }
@@ -160,10 +194,61 @@
   align-items: center;
   line-height: 28px;
 }
-.field-checkbox > div {
-  display: flex;
+.field-checkbox {
   flex-flow: row wrap;
+}
+.field-checkbox > label {
+  line-height: 25px;
+}
+.field-checkbox > .field-caption {
+  color: #000;
+  font-size: 16px;
+  flex: 0 0 100%;
+  min-height: 0;
+}
+
+.field-radiogroup > div {
+  flex-flow: row;
   align-items: center;
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.field-phoneinput > div {
+  flex-flow: row;
+  align-items: center;
+  display: flex;
+}
+
+.field-phoneinput > div > input {
+  flex: 1;
+}
+
+.field-attachment .row-item {
+  padding: 4px;
+  border: 1px dashed #ccc;
+  max-width: 480px;
+  margin-top: 0;
+}
+.field-currencyinput > div {
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.field-currencyinput > div > input {
+  padding-inline-start: 2ch;
+  width: 100%;
+}
+
+.currency-symbol {
+  position: absolute;
+  left: 7px;
+  top: 25%;
+}
+.field-attachment .file-upload {
+  background: transparent;
+  border-color: #ccc;
 }
 .rdl .pzhc.pzbutton,
 table .pzhc.pzbutton {
@@ -171,12 +256,12 @@ table .pzhc.pzbutton {
   color: #1d2020;
   min-width: 30px;
   border: none;
-  color: #295ed9;
+  color: var(--interactiveColor);
 }
 table .pzhc.pzbutton:hover,
 table .pzhc.pzbutton:focus,
 table .pzhc.pzbutton:active {
-  color: #0031a8;
+  color: var(--interactiveColor);
 }
 .right-aligned {
   text-align: right;
@@ -232,8 +317,34 @@ table .pzhc.pzbutton:active {
   min-width: auto;
 }
 
+div[readonly],
+input[readonly],
+textarea[readonly] {
+  background-color: #fafafa;
+  border-color: transparent;
+}
+input[readonly],
+select[readonly],
+input[type='checkbox'][readonly] + label,
+input[type='radio'][readonly] + label {
+  pointer-events: none;
+}
+
+input[readonly],
+select[readonly] {
+  opacity: 0.7;
+}
+
 #case-data {
   flex: 1;
+}
+
+.helper-text {
+  color: #000;
+  font-size: 14px;
+  line-height: 1;
+  margin-top: 0.3rem;
+  flex: 0 0 100%;
 }
 
 #case-data > div:first-child {
@@ -466,6 +577,133 @@ table .pzhc.pzbutton:active {
 }
 
 @media only screen and (max-width: 640px) {
+  .rich-text-main {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+  .rich-text-main h1,
+  .rich-text-main h2,
+  .rich-text-main h3 {
+    color: #000;
+  }
+  .rich-text-main .editor-actions {
+    overscroll-behavior: contain;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .rich-text-main .editor-actions::-webkit-scrollbar {
+    display: none;
+  }
+
+  .rich-text-main .editor {
+    border: 1px solid #ccc;
+    overflow: auto;
+    height: 216px;
+    min-height: 216px;
+  }
+  .rich-text-main .toolbar {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+  }
+  .rich-text-main [contenteditable] {
+    outline: 0px solid transparent;
+    min-height: 200px;
+    height: 200px;
+    font-size: 14px;
+    padding: 8px;
+  }
+  .rich-text-main .toolbar > button,
+  .rich-text-main .toolbar > select {
+    margin-right: 2px;
+    height: 30px;
+    font-size: 11px;
+  }
+  .rich-text-main .toolbar button {
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 4px;
+    padding: 2px;
+    min-width: 26px;
+    height: 26px;
+    background: #fff;
+    min-width: 0;
+  }
+  .rich-text-main .toolbar .active {
+    background: #ccc;
+  }
+  .rich-text-main blockquote {
+    border-left: 2px solid #ddd;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 10px;
+    color: #aaa;
+    font-style: italic;
+  }
+
+  .rich-text-main img {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  /* Force table to not be like tables anymore */
+  table.responsive,
+  .responsive thead,
+  .responsive tbody,
+  .responsive th,
+  .responsive td,
+  .responsive tr {
+    display: block;
+  }
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  table.responsive thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  table.responsive tr {
+    border: 1px solid #ccc;
+    margin: 8px 0;
+    padding: 8px;
+  }
+
+  table.responsive td {
+    border: none;
+    position: relative;
+    text-align: left;
+    padding: 4px 0 4px 30%;
+    height: auto;
+  }
+
+  table.responsive td:before {
+    position: absolute;
+    left: 8px;
+    padding-right: 8px;
+    text-align: left;
+    font-weight: bold;
+    max-width: 59%;
+  }
+
+  table.responsive td:before {
+    content: attr(data-title);
+  }
+
+  table.responsive td.hide-collapsed {
+    display: none;
+  }
+
+  table.responsive .pzhc.pzbutton {
+    height: auto;
+    padding-left: 0;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
   .flex.layout-content-inline_grid_70_30,
   .flex.layout-content-inline_grid_30_70,
   .flex.layout-content-inline_grid_double {
@@ -480,5 +718,10 @@ table .pzhc.pzbutton:active {
     width: 100%;
     margin-right: 0;
     margin-left: 0;
+  }
+  .layout-content-default-form-2,
+  .layout-content-default-form-3 {
+    display: flex;
+    flex-flow: column nowrap;
   }
 }

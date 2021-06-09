@@ -74,8 +74,8 @@
             <input id="hero-action-tenantid" type="text" v-model="settings.homeheroaction.tenantid" />
           </div>
           <div class="field-item field-checkbox">
-            <label class="width-auto" for="hero-action-dataretained">Retain state on reload</label>
             <input id="hero-action-dataretained" type="checkbox" v-model="settings.homeheroaction.dataretained" />
+            <label class="width-auto" for="hero-action-dataretained">Retain state on reload</label>
           </div>
         </div>
         <div class="layout-labels-top">

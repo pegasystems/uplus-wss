@@ -8,6 +8,20 @@
       >.</p>
     <div class="container">
       <div class="body">
+        <Container title="Theming" expanded>
+          <div class="layout-labels-left layout-inline-grid-double">
+            <div class="field-item">
+            <input id="theming-override" type="checkbox" v-model="settings.general.theming.override" />
+            <label for="theming-override">Override default theme</label>
+          </div>
+          <div class="field-item" v-if="settings.general.theming.override">
+            <input id="branding-color" type="color" v-model="settings.general.theming.brandColor" />
+            <label for="branding-color">Branding color</label>
+            <input id="interactive-color" type="color" v-model="settings.general.theming.interactiveColor" />
+            <label for="interactive-color">Interactive color</label>
+          </div>
+        </div>
+        </Container>
         <Container title="Pega Platform access" expanded>
           <div class="layout-labels-left">
           <div class="field-item">
@@ -42,8 +56,8 @@
         <Container title="Google Analytics" expanded>
           <div class="layout-labels-left">
           <div class="field-item">
-            <label for="ga-enabled">Enable</label>
             <input id="ga-enabled" type="checkbox" v-model="settings.general.ga.enabled" />
+            <label for="ga-enabled">Enable</label>
           </div>
           <div class="field-item">
             <label for="ga-trackingid">Tracking ID</label>
@@ -54,8 +68,8 @@
         <Container title="Two-factor authentication" expanded>
           <div class="layout-labels-left">
             <div class="field-item">
-              <label for="2fa-enabled">Enable</label>
               <input id="2fa-enabled" type="checkbox" v-model="settings.general.auth_2fa.enabled" />
+              <label for="2fa-enabled">Enable</label>
             </div>
             <div class="field-item">
               <label for="2fa-url">Server Base URL</label>

@@ -70,8 +70,8 @@
             <input id="offer-action-tenantid" type="text" v-model="settings.offeraction.tenantid" />
           </div>
           <div class="field-item field-checkbox">
-            <label class="width-auto" for="offer-action-dataretained">Retain state on reload</label>
             <input id="offer-action-dataretained" type="checkbox" v-model="settings.offeraction.dataretained" />
+            <label class="width-auto" for="offer-action-dataretained">Retain state on reload</label>
           </div>
         </div>
         <div class="layout-labels-top">

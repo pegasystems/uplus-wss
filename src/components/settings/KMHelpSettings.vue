@@ -57,8 +57,8 @@
             <input id="kmhelp-tenantid" type="text" v-model="settings.kmhelp.tenantid" />
           </div>
           <div class="field-item field-checkbox">
-            <label class="width-auto" for="kmhelp-dataretained">Retain state on reload</label>
             <input id="kmhelp-dataretained" type="checkbox" v-model="settings.kmhelp.dataretained" />
+            <label class="width-auto" for="kmhelp-dataretained">Retain state on reload</label>
           </div>
         </div>
         <div class="layout-labels-top">
