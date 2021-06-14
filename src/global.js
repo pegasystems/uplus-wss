@@ -143,7 +143,7 @@ const upgradeConfig = function upgradeConfig(cfg) {
   }
   if (
     typeof cfg.settings.pega_chat.DMMPrivateURL === 'undefined') {
-    cfg.settings.pega_chat.DMMPrivateURL = 'https://5vtgqfsgzb.execute-api.us-east-1.amazonaws.com/Prod/private-data';
+    cfg.settings.pega_chat.DMMPrivateURL = 'https://ksxyk0i2hb.execute-api.us-east-1.amazonaws.com/Prod/private-data';
   }
   if (typeof cfg.settings.pega_chat.TenantID === 'undefined') {
     cfg.settings.pega_chat.TenantID = '';
@@ -692,6 +692,7 @@ if (typeof settings === 'undefined') {
     ContactID: '',
     AccountNumber: '',
     UserName: '',
+    UserID: '',
     DMMSessionID: '',
     ExtraParams: {},
   };
@@ -700,6 +701,7 @@ if (typeof settings === 'undefined') {
     window.PegaCSWSS.ContactID = u.contactID;
     window.PegaCSWSS.AccountNumber = u.accountID;
     window.PegaCSWSS.UserName = u.username;
+    window.PegaCSWSS.UserID = u.pega_userid;
     if (typeof u.extraparam !== 'undefined' && u.extraparam !== '') {
       u.extraparam.split(',').forEach((item) => {
         const values = item.split('=');
@@ -719,6 +721,7 @@ if (typeof settings === 'undefined') {
   setCookie('ContactID', window.PegaCSWSS.ContactID, 30);
   setCookie('AccountNumber', window.PegaCSWSS.AccountNumber, 30);
   setCookie('UserName', window.PegaCSWSS.UserName, 30);
+  setCookie('UserID', window.PegaCSWSS.UserID, 30);
 
   // We don't show chat and CoBrowse on the settings page
   if (
@@ -762,6 +765,7 @@ if (typeof settings === 'undefined') {
           ContactID: window.PegaCSWSS.ContactID,
           AccountNumber: window.PegaCSWSS.AccountNumber,
           UserName: window.PegaCSWSS.UserName,
+          UserID: window.PegaCSWSS.UserID,
         };
         const jwttoken = generateJWTKey({ iss: sessionId }, mainconfigTmp.settings.pega_chat.DMMSecret);
         const request = new XMLHttpRequest();
@@ -875,6 +879,7 @@ const updatePegaChat = function updatePegaChat(u) {
   window.PegaCSWSS.ContactID = u.contactID;
   window.PegaCSWSS.AccountNumber = u.accountID;
   window.PegaCSWSS.UserName = u.username;
+  window.PegaCSWSS.UserID = u.pega_userid;
 
   if (typeof u.dmm_context_data === 'string' && u.dmm_context_data !== '') {
     window.PegaChatTags = {};
@@ -886,6 +891,7 @@ const updatePegaChat = function updatePegaChat(u) {
   setCookie('ContactID', window.PegaCSWSS.ContactID, 30);
   setCookie('AccountNumber', window.PegaCSWSS.AccountNumber, 30);
   setCookie('UserName', window.PegaCSWSS.UserName, 30);
+  setCookie('UserID', window.PegaCSWSS.UserID, 30);
 
   if (mainconfig.settings.pega_chat.DMMSecret !== '' && mainconfig.userId !== -1 && window.PegaCSWSS.DMMSessionID !== '') {
     const privateData = {
@@ -893,6 +899,7 @@ const updatePegaChat = function updatePegaChat(u) {
       ContactID: window.PegaCSWSS.ContactID,
       AccountNumber: window.PegaCSWSS.AccountNumber,
       UserName: window.PegaCSWSS.UserName,
+      UserID: window.PegaCSWSS.UserID,
     };
     const jwttoken = generateJWTKey({ iss: window.PegaCSWSS.DMMSessionID }, mainconfig.settings.pega_chat.DMMSecret);
     const request = new XMLHttpRequest();

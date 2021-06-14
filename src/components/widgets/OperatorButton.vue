@@ -95,18 +95,20 @@ export default {
       window.PegaCSWSS.ContactID = '';
       window.PegaCSWSS.AccountNumber = '';
       window.PegaCSWSS.UserName = '';
+      window.PegaCSWSS.UserID = '';
       window.PegaCSWSS.ExtraParams = {};
       window.PegaChatTags = {};
       setCookie('ContactID', window.PegaCSWSS.ContactID, 30);
       setCookie('AccountNumber', window.PegaCSWSS.AccountNumber, 30);
       setCookie('UserName', window.PegaCSWSS.UserName, 30);
-
+      setCookie('UserID', window.PegaCSWSS.UserID, 30);
       if (mainconfig.settings.pega_chat.DMMSecret !== '' && mainconfig.userId !== -1 && window.PegaCSWSS.DMMSessionID !== '') {
         const privateData = {
           authenticated: mainconfig.userId !== -1,
           ContactID: window.PegaCSWSS.ContactID,
           AccountNumber: window.PegaCSWSS.AccountNumber,
           UserName: window.PegaCSWSS.UserName,
+          UserID: window.PegaCSWSS.UserID,
         };
         const jwttoken = generateJWTKey({ iss: window.PegaCSWSS.DMMSessionID }, mainconfig.settings.pega_chat.DMMSecret);
         const request = new XMLHttpRequest();
