@@ -49,7 +49,7 @@ export default {
         page_path: mainconfig.currentPage,
       });
     }
-    sendClickStreamEvent(mainconfig, 'Device');
+    sendClickStreamEvent(mainconfig, 'Access');
     window.loadPage = new Date();
   },
   components: {
