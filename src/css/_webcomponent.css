@@ -30,7 +30,7 @@
 .pega-mashup button.Simple:focus,
 .pega-mashup button.Simple:hover {
   background: none;
-  color: rgb(0, 0, 0);
+  color: var(--interactiveColor);
   min-width: 0;
   outline: none;
   display: flex;
@@ -48,7 +48,7 @@
   padding: 0;
   height: auto;
   width: fit-content;
-  color: #1d2020;
+  color: var(--interactiveColor);
   border: none;
 }
 
@@ -56,8 +56,8 @@
 .pega-mashup button.action-menu:active,
 .pega-mashup button.action-menu:hover,
 .pega-mashup button.action-menu:focus {
-  color: #1d2020;
-  border: #333 1px solid;
+  color: var(--interactiveColor);
+  border: var(--interactiveColor) 1px solid;
   min-width: auto;
   padding: 0 30px 0 16px;
   background: #fff
@@ -160,10 +160,14 @@
 }
 
 .flex.main-header {
-  min-height: 50px;
+  min-height: 40px;
+  margin-bottom: 8px;
 }
 .flex.main-header > h2 {
   margin-bottom: 0;
+}
+.flex.main-header > h2 > span {
+  white-space: nowrap;
 }
 .flex-col {
   flex-flow: column;
@@ -195,7 +199,9 @@
   line-height: 28px;
 }
 .field-checkbox {
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
+  margin-top: 23px;
+  align-items: center;
 }
 .field-checkbox > label {
   line-height: 25px;
@@ -576,76 +582,73 @@ select[readonly] {
   }
 }
 
-@media only screen and (max-width: 640px) {
-  .rich-text-main {
-    display: flex;
-    flex-flow: column nowrap;
-  }
-  .rich-text-main h1,
-  .rich-text-main h2,
-  .rich-text-main h3 {
-    color: #000;
-  }
-  .rich-text-main .editor-actions {
-    overscroll-behavior: contain;
-    overflow-y: auto;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-  .rich-text-main .editor-actions::-webkit-scrollbar {
-    display: none;
-  }
+.rich-text-main {
+  display: flex;
+  flex-flow: column nowrap;
+}
+.rich-text-main h1,
+.rich-text-main h2,
+.rich-text-main h3 {
+  color: #000;
+}
+.rich-text-main .editor-actions {
+  overscroll-behavior: contain;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.rich-text-main .editor-actions::-webkit-scrollbar {
+  display: none;
+}
 
-  .rich-text-main .editor {
-    border: 1px solid #ccc;
-    overflow: auto;
-    height: 216px;
-    min-height: 216px;
-  }
-  .rich-text-main .toolbar {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-  }
-  .rich-text-main [contenteditable] {
-    outline: 0px solid transparent;
-    min-height: 200px;
-    height: 200px;
-    font-size: 14px;
-    padding: 8px;
-  }
-  .rich-text-main .toolbar > button,
-  .rich-text-main .toolbar > select {
-    margin-right: 2px;
-    height: 30px;
-    font-size: 11px;
-  }
-  .rich-text-main .toolbar button {
-    color: rgb(0, 0, 0);
-    cursor: pointer;
-    border: 1px solid rgb(204, 204, 204);
-    border-radius: 4px;
-    padding: 2px;
-    min-width: 26px;
-    height: 26px;
-    background: #fff;
-    min-width: 0;
-  }
-  .rich-text-main .toolbar .active {
-    background: #ccc;
-  }
-  .rich-text-main blockquote {
-    border-left: 2px solid #ddd;
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 10px;
-    color: #aaa;
-    font-style: italic;
-  }
+.rich-text-main .editor {
+  border: 1px solid #ccc;
+  overflow: auto;
+  height: 216px;
+  min-height: 216px;
+}
+.rich-text-main .toolbar {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+.rich-text-main [contenteditable] {
+  outline: 0px solid transparent;
+  min-height: 200px;
+  height: 200px;
+  font-size: 14px;
+  padding: 8px;
+}
+.rich-text-main .toolbar > button,
+.rich-text-main .toolbar > select {
+  margin-right: 2px;
+  height: 30px;
+  font-size: 11px;
+}
+.rich-text-main .toolbar button {
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  border: 1px solid rgb(204, 204, 204);
+  border-radius: 4px;
+  padding: 2px;
+  min-height: 30px;
+  background: #fff;
+  min-width: 0;
+}
+.rich-text-main .toolbar .active {
+  background: #ccc;
+}
+.rich-text-main blockquote {
+  border-left: 2px solid #ddd;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 10px;
+  color: #aaa;
+  font-style: italic;
+}
 
-  .rich-text-main img {
-    max-width: 100%;
-  }
+.rich-text-main img {
+  max-width: 100%;
 }
 
 @media screen and (max-width: 1400px) {
@@ -723,5 +726,25 @@ select[readonly] {
   .layout-content-default-form-3 {
     display: flex;
     flex-flow: column nowrap;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  table.responsive td {
+    padding: 25px 8px 0;
+  }
+
+  table.responsive td:before {
+    position: absolute;
+    top: -5px;
+    padding: 0;
+    min-width: 0;
+    max-width: none;
+    left: 8px;
+  }
+
+  .flex.main-header {
+    flex-flow: column;
+    align-items: flex-start;
   }
 }
