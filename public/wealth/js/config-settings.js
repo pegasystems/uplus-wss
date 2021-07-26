@@ -44,7 +44,7 @@ window.settings = {
   quicklinks: [
     {
       title: {
-        en: 'Request a service',
+        en: 'Close an account',
       },
       action: 'createNewWork',
       actionparam: '',
@@ -62,7 +62,7 @@ window.settings = {
     },
     {
       title: {
-        en: 'Make a payment',
+        en: 'Transfer funds',
       },
       action: 'createNewWork',
       actionparam: '',
@@ -80,7 +80,7 @@ window.settings = {
     },
     {
       title: {
-        en: 'Update billing',
+        en: 'Transact',
       },
       action: 'createNewWork',
       actionparam: '',
@@ -98,7 +98,7 @@ window.settings = {
     },
     {
       title: {
-        en: 'Proof of insurance',
+        en: 'Virtual assistance',
       },
       action: 'createNewWork',
       actionparam: '',
@@ -116,7 +116,7 @@ window.settings = {
     },
     {
       title: {
-        en: 'Update your profile',
+        en: 'Add beneficiaries',
       },
       action: 'createNewWork',
       actionparam: '',

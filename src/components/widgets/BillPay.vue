@@ -39,7 +39,7 @@
       </div>
       <div class="list-box">
         <h3>{{ $t("message.autopay") }}</h3>
-        <p v-if="settings.users[userId]">{{ $n(settings.users[userId].roi, 'percent') }}</p>
+        <p v-if="settings.users[userId]">{{ settings.users[userId].roi }}%</p>
       </div>
     </div>
   </section>

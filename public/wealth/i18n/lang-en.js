@@ -35,7 +35,7 @@ window.langEN = {
   lang_en: 'English',
   change_language: 'Change language',
   accountpicker1_title: 'Individual Investment',
-  accountpicker2_title: 'Joint Acount',
+  accountpicker2_title: 'Joint Account',
   accountpicker3_title: 'Retirement Account',
   youraccount: 'Accounts',
   billpay: 'Portfolio Summary',
