@@ -1,0 +1,47 @@
+:root {
+  --brandColor: #3C8712;
+	--interactiveColor: #0076DE;
+}
+
+header,
+.background-brand,
+.product-icon,
+main .secondary-options .front-option::after,
+.benefits li::after,
+#ChatLauncherminimized, #launcher, #launcherminimized, #servicecaselauncherminimized {
+	background-color: var(--brandColor);
+}
+
+header .menu-overlay a:hover,
+header .menu-overlay a:active,
+header .menu-overlay a:focus {
+	background-color: var(--brandColor);
+	color: #FFF;
+}
+
+body .color-brand {
+	color: var(--brandColor);
+}
+
+.border-brand {
+	border-color: var(--brandColor);
+}
+
+/* Home page */
+.front>header {
+	background-image: url('../img/hero-1.jpg');
+}
+/* Account page */
+.form>header {
+	background-image: url('../img/hero-2.jpg');
+}
+
+/* Offer page */
+.offer header {
+	background-image: url('../img/hero-1.jpg');
+}
+
+/* Category page */
+.category header {
+	background-image: url('../img/hero-3.jpg');
+}

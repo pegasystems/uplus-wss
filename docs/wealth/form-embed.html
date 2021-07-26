@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if IE]><link rel="icon" href="../favicon.ico"><![endif]-->
+    <title>Mashup</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/override.css" />
+    <script>
+      if (window.frameElement.classList.contains('phone')) {
+        document.documentElement.className = 'phone';
+      } else {
+        document.documentElement.className = 'desktop';
+      }
+    </script>
+    <style>
+      *,
+      :after,
+      :before {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+        font: 16px/1.43 'Open Sans', sans-serif;
+        color: #000;
+        overflow: hidden;
+        margin: 0;
+      }
+
+      h1 {
+        font-size: 30px;
+        color: #fff;
+      }
+
+      .phone h1 {
+        color: #000;
+        font-size: 18px;
+        text-align: center;
+      }
+
+      .top-nav {
+        display: none;
+        padding: 5px 16px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+        background: #fff;
+        width: 100%;
+        height: 40px;
+      }
+
+      .phone .top-nav {
+        display: block;
+      }
+
+      .top-nav button {
+        background: transparent;
+        border: none;
+        color: var(--interactiveColor);
+        min-width: 0;
+        padding: 0;
+        font-size: 30px;
+        font-weight: normal;
+        height: 22px;
+      }
+
+      .content-card {
+        margin: 16px;
+        padding: 35px;
+        background: #fff;
+        display: flex;
+        flex-flow: column nowrap;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+      }
+
+      .field-item {
+        margin-bottom: 16px;
+        width: 100%;
+        display: flex;
+        flex-flow: column nowrap;
+      }
+
+      input {
+        height: 35px;
+      }
+
+      label {
+        color: #646363;
+      }
+
+      button {
+        background: var(--interactiveColor);
+        border: 1px solid var(--interactiveColor);
+        box-sizing: border-box;
+        display: inline-block;
+        font-weight: 700;
+        height: 40px;
+        min-width: 140px;
+        border-radius: 3px;
+        color: #fff;
+        font-size: 18px;
+        margin-left: auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="top-nav">
+      <button onclick="parent.pegaMashupNavigateBack();">
+        <svg
+          viewBox="0 0 30 60"
+          width="22"
+          height="22"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <g
+            fill="grey"
+            transform="rotate(90 0 0)
+                  translate(0 -23)"
+          >
+            <path
+              fill="#295ED9"
+              d="M47.41.55a1.91 1.91 0 0 0-2.7 0l-20.71 22.61-20.75-22.6-.18-.18a1.91 1.91 0 1 0-2.51 2.88l21.87 23.84a1.69 1.69 0 0 0 .13.31 2.15 2.15 0 0 0 2.85 0 1.75 1.75 0 0 0 .13-.32l21.87-23.84a1.91 1.91 0 0 0 0-2.7z"
+            />
+          </g>
+        </svg>
+      </button>
+    </div>
+    <h1></h1>
+    <div class="content-card">
+      <div class="field-item">
+        <label>First name</label>
+        <input />
+      </div>
+      <div class="field-item">
+        <label>Last name</label>
+        <input />
+      </div>
+      <div class="field-item">
+        <label>Address</label>
+        <input />
+      </div>
+      <div class="field-item">
+        <label>Town</label>
+        <input />
+      </div>
+      <div class="field-item">
+        <label>City</label>
+        <input />
+      </div>
+      <button>Submit</button>
+    </div>
+    <script>
+      var title = window.frameElement.getAttribute('data-attr-title');
+      Array.prototype.forEach.call(
+        document.getElementsByTagName('h1'),
+        function(el, i) {
+          el.innerHTML = title;
+        },
+      );
+      var color = window.frameElement.getAttribute('data-attr-color');
+      if(color && color !== '') {
+        const inlineBranding = document.createElement('style');
+        inlineBranding.innerHTML = `:root { --interactiveColor: ${color};}`;
+        document.head.appendChild(inlineBranding);
+      }
+    </script>
+  </body>
+</html>

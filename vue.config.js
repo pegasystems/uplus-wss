@@ -96,5 +96,12 @@ module.exports = {
       title: 'U+ Auto',
       chunks: ['chunk-vendors', 'chunk-common', 'auto'],
     },
+    wealth: {
+      entry: 'src/main.js',
+      template: 'public/wealth/index.html',
+      filename: 'wealth/index.html',
+      title: 'U+ Wealth',
+      chunks: ['chunk-vendors', 'chunk-common', 'auto'],
+    },
   },
 };
