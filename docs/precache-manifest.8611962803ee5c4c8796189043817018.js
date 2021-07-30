@@ -452,11 +452,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./wealth/form-embed.html"
   },
   {
-    "revision": ".df39c19cb02580628571df238dd4f5",
+    "revision": ".321c9d2cf3cad83b34bd2c21af52ad",
     "url": "./wealth/i18n/lang-en.js"
   },
   {
-    "revision": ".d930e6e850492b8527d14ad46f26d1",
+    "revision": ".732fa62f1d833c361159cbae1f1c84",
     "url": "./wealth/img/u+-logo.svg"
   },
   {
