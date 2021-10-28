@@ -25,9 +25,9 @@
     </div>
   </div>
   <div v-else-if="settings.pega_marketing.Host!== '' && loading && settings.pega_marketing.showLoadingIndicator">
-    <div style="height:100rem">
+    <div style="height:100px">
     </div>
-    <div class="offer-cards promo loading-container" style="min-height: 300rem">
+    <div class="offer-cards promo loading-container" style="min-height: 300px">
       <span class="loading">
       <span class="dot"></span>
       <span class="dot"></span>
@@ -44,7 +44,7 @@
         <button v-on:click="applyOfferAction" class="strong">{{ hero_offer.link }}</button>
       </div>
     </div>
-    <div v-else style="height:100rem">
+    <div v-else style="height:100px">
     </div>
     <div class="offer-cards promo">
       <h4>{{ $t('message.' + app.offer[offerType].cards.title)}}</h4>

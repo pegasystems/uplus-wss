@@ -5,24 +5,24 @@ body > #app.form.landing {
 }
 
 .landing > header {
-  height: 600rem;
-  padding-top: 7rem;
+  height: 600px;
+  padding-top: 7px;
 }
 
 .landing > main {
-  margin-top: -500rem;
+  margin-top: -500px;
   color: #414949;
 }
 
 .landing h1 {
-  font-size: 32rem;
-  text-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.1);
+  font-size: 32px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   font-weight: 600;
 }
 
 .landing-intro li {
-  margin-bottom: 16rem;
-  font-size: 18rem;
+  margin-bottom: 16px;
+  font-size: 18px;
   color: #fff;
 }
 
@@ -31,64 +31,64 @@ body > #app.form.landing {
 }
 
 .landing-cards {
-  margin-top: 75rem;
+  margin-top: 75px;
 }
 
 .landing-intro .pi {
-  font-size: 26rem;
+  font-size: 26px;
   background: #fff;
-  width: 50rem;
-  height: 50rem;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   display: inline-block;
 }
 
 .landing-intro .pi:before {
   text-align: center;
-  width: 50rem;
-  line-height: 50rem;
+  width: 50px;
+  line-height: 50px;
 }
 
 .landing-cards .pi {
-  font-size: 40rem;
+  font-size: 40px;
   background: #fff;
-  width: 80rem;
-  height: 80rem;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   display: inline-block;
-  border: 1rem solid #dedede;
+  border: 1px solid #dedede;
 }
 
 .landing-cards p {
-  margin-top: 16rem;
-  font-size: 18rem;
+  margin-top: 16px;
+  font-size: 18px;
   font-weight: 800;
   color: #414949;
 }
 
 .landing-cards .pi:before {
   text-align: center;
-  width: 80rem;
-  line-height: 80rem;
+  width: 80px;
+  line-height: 80px;
 }
 
 .landing-request > div {
-  max-width: 400rem;
-  margin-right: 16rem;
+  max-width: 400px;
+  margin-right: 16px;
 }
 
 .landing .primary-card h3 {
-  font-size: 14rem;
+  font-size: 14px;
   font-weight: 800;
 }
 
 .landing .promo {
   text-align: center;
-  padding: 55rem 16rem;
+  padding: 55px 16px;
 }
 
 .landing .promo h4 {
-  font-size: 28rem;
+  font-size: 28px;
   font-weight: 600;
   margin-top: 0;
 }
@@ -102,7 +102,7 @@ body > #app.form.landing {
 .landing-footer .promo h4 {
   color: #fff;
   font-weight: normal;
-  padding-bottom: 30rem;
+  padding-bottom: 30px;
 }
 
 .category-highlights,
@@ -110,7 +110,7 @@ body > #app.form.landing {
   background: #ececec;
 }
 .category-highlights > .flex {
-  max-width: 1000rem;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
@@ -118,16 +118,16 @@ body > #app.form.landing {
   flex: 1;
   flex-flow: column nowrap;
   align-items: center;
-  padding: 24rem;
+  padding: 24px;
 }
 
 .category-highlights p {
-  margin: 16rem 0 24rem 0;
+  margin: 16px 0 24px 0;
 }
 
 .landing-cards > div,
 .landing-benefits > div {
-  max-width: 780rem;
+  max-width: 780px;
   margin: 0 auto;
   flex-wrap: wrap;
   justify-content: center;
@@ -135,11 +135,11 @@ body > #app.form.landing {
 
 .landing-cards > .flex > div,
 .landing-benefits > .flex > div {
-  width: 260rem;
+  width: 260px;
   display: flex;
   flex-flow: column nowrap;
   align-items: flex-start;
-  padding: 0 18rem;
+  padding: 0 18px;
 }
 
 .landing-cards > .flex > div {
@@ -148,13 +148,13 @@ body > #app.form.landing {
 
 .landing .landing-benefits span {
   text-align: left;
-  margin: 8rem 0 16rem 0;
+  margin: 8px 0 16px 0;
 }
 
 .landing-details > div {
   flex-flow: row nowrap;
   align-items: center;
-  max-width: 1300rem;
+  max-width: 1300px;
   margin: 0 auto;
   width: 100%;
 }
@@ -164,30 +164,30 @@ body > #app.form.landing {
 }
 
 .landing-details > div > .details {
-  padding: 0 30rem;
+  padding: 0 30px;
 }
 
 .landing-details h4 {
-  font-size: 20rem;
+  font-size: 20px;
   font-weight: 800;
   margin: 0;
 }
 
 .landing-details span {
-  font-size: 14rem;
+  font-size: 14px;
 }
 
 .landing-details .line {
-  width: 81rem;
-  height: 5rem;
-  border-radius: 5rem;
+  width: 81px;
+  height: 5px;
+  border-radius: 5px;
   display: block;
-  margin: 8rem 0 21rem 0;
+  margin: 8px 0 21px 0;
 }
 
 .landing-details .image {
   background-position: 25% 50%;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 300rem;
+  height: 300px;
 }

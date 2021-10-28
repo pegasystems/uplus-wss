@@ -1,21 +1,21 @@
 .phone main {
   align-items: center;
   flex: 1;
-  min-height: calc(100vh - 40rem);
+  min-height: calc(100vh - 40px);
 }
 
 .phone select,
 .phone input,
 .phone textarea {
-  font-size: 16rem;
+  font-size: 16px;
 }
 
 .phone .full-height > iframe {
-  min-height: calc(100vh - 40rem);
+  min-height: calc(100vh - 40px);
 }
 
 .phone .kmhelp > div {
-  height: calc(100vh - 40rem);
+  height: calc(100vh - 40px);
 }
 
 .phone aside {
@@ -24,9 +24,9 @@
 
 .phone aside > .panel {
   position: fixed;
-  width: 300rem;
+  width: 300px;
   height: 100%;
-  transform: translateX(-300rem);
+  transform: translateX(-300px);
   animation: all 0.3s ease-in-out;
 }
 
@@ -51,16 +51,16 @@
   text-align: center;
   border-bottom: 1px solid #fff;
   margin-bottom: 0;
-  height: 50rem;
-  padding: 10rem;
+  height: 50px;
+  padding: 10px;
 }
 
 .phone aside header .logo {
-  height: 29rem;
+  height: 29px;
 }
 
 .phone aside nav {
-  padding: 16rem;
+  padding: 16px;
 }
 
 .phone aside nav > li > a,
@@ -69,11 +69,11 @@
 .phone aside nav > li > a:focus,
 .phone aside nav > li > a:active {
   color: #fff;
-  font-size: 18rem;
+  font-size: 18px;
 }
 
 .phone header {
-  height: 40rem;
+  height: 40px;
   display: flex;
   flex-flow: row nowrap;
   margin-bottom: 0;
@@ -81,9 +81,9 @@
 
 .phone header button.nav-button {
   color: #fff;
-  font-size: 21rem;
+  font-size: 21px;
   height: 40px;
-  padding-left: 8rem;
+  padding-left: 8px;
   border: none;
   background: transparent;
   min-width: auto;
@@ -95,9 +95,9 @@
 }
 
 .phone header a > img {
-  margin-right: 16rem;
-  height: 40rem;
-  padding: 5rem 0;
+  margin-right: 16px;
+  height: 40px;
+  padding: 5px 0;
 }
 
 .phone header h1 {
@@ -109,21 +109,21 @@
 }
 
 .phone .home-promo > .details {
-  padding: 0 0 0 16rem;
+  padding: 0 0 0 16px;
 }
 
 .phone .image {
   background-position: 25% 50%;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 200rem;
+  height: 200px;
 }
 
 .phone .primary-card,
 .phone .secondary-card {
-  padding: 30rem;
-  margin: 16rem;
-  width: calc(100% - 32rem);
+  padding: 30px;
+  margin: 16px;
+  width: calc(100% - 32px);
 }
 
 .phone .margin-t-0 {
@@ -131,17 +131,17 @@
 }
 
 .phone h1.small {
-  font-size: 18rem;
+  font-size: 18px;
   font-weight: 700;
 }
 
 .phone h1 {
   text-align: center;
-  font-size: 24rem;
-  margin: 16rem 0;
+  font-size: 24px;
+  margin: 16px 0;
   color: #414949;
   font-weight: 800;
-  margin: 30rem 0;
+  margin: 30px 0;
 }
 
 .phone .home > .hero {
@@ -149,9 +149,9 @@
 }
 
 .phone .home > .hero > h1 {
-  max-width: 247rem;
-  font-size: 24rem;
-  padding: 30rem 0 100rem 0;
+  max-width: 247px;
+  font-size: 24px;
+  padding: 30px 0 100px 0;
   margin: 0 auto;
   color: #fff;
 }
@@ -159,39 +159,39 @@
 .phone .main-actions {
   display: flex;
   flex-flow: row nowrap;
-  margin-top: -70rem;
+  margin-top: -70px;
   padding: 0;
 }
 
 .phone .main-actions > button {
   border: 1px solid #ececec;
-  padding: 0 8rem;
-  height: 140rem;
+  padding: 0 8px;
+  height: 140px;
   flex: 1;
   color: #000;
-  font-size: 18rem;
+  font-size: 18px;
 }
 
 .phone .main-actions > button > i {
   display: block;
   font-size: 1.4em;
-  margin: 0 0 16rem 0;
+  margin: 0 0 16px 0;
 }
 
 .phone .top-nav {
-  padding: 5rem 16rem;
-  box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.2);
+  padding: 5px 16px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
   background: #fff;
   width: 100%;
-  height: 40rem;
+  height: 40px;
 }
 
 .phone .top-nav button {
-  min-height: 30rem;
+  min-height: 30px;
 }
 .phone .top-nav .pi {
   font-weight: 800 !important;
-  font-size: 18rem;
+  font-size: 18px;
 }
 
 .phone footer {
@@ -199,7 +199,7 @@
 }
 
 .phone footer nav > div.flex {
-  margin: 8rem;
+  margin: 8px;
   flex-flow: row;
   justify-content: space-around;
 }
@@ -215,27 +215,27 @@
 }
 
 .phone .avatar {
-  width: 30rem;
-  height: 30rem;
-  margin: 5rem 8rem 0 0;
+  width: 30px;
+  height: 30px;
+  margin: 5px 8px 0 0;
 }
 
 .phone .overlay {
-  right: 8rem;
-  top: 70rem;
+  right: 8px;
+  top: 70px;
   min-width: 0;
 }
 
 .phone .overlay:not(.logout) {
-  left: 8rem;
-  bottom: 8rem;
+  left: 8px;
+  bottom: 8px;
 }
 
 .phone .overlay.logout {
-  right: 8rem;
+  right: 8px;
 }
 .phone .overlay:after {
-  right: 16rem;
+  right: 16px;
 }
 
 .phone .intro-quicklinks {
@@ -244,47 +244,47 @@
 }
 
 .phone .intro-quicklinks p {
-  padding: 16rem;
+  padding: 16px;
   color: #000;
 }
 
 .phone .bottom-banner {
-  padding: 16rem;
+  padding: 16px;
   text-align: center;
   width: 100%;
 }
 .phone .layout-stacked > .field-item > input {
-  height: 46rem;
-  border-radius: 2rem;
+  height: 46px;
+  border-radius: 2px;
   border-bottom: solid 1px #8a8a8a;
   background-color: #e8e8e8;
-  padding: 10rem 8rem 0 8rem;
+  padding: 10px 8px 0 8px;
 }
 
 .phone .top-icon {
-  font-size: 20rem;
+  font-size: 20px;
   text-align: center;
 }
 
 .phone .tabs-details {
-  min-height: calc(100vh - 123rem);
+  min-height: calc(100vh - 123px);
   overflow-y: auto;
 }
 
 .phone .quick-links-account a {
-  font-size: 16rem;
-  margin-bottom: 8rem;
+  font-size: 16px;
+  margin-bottom: 8px;
   display: block;
 }
 
 .phone .quick-links button {
   color: #414949;
   font-weight: normal;
-  font-size: 16rem;
-  padding: 8rem 16rem;
+  font-size: 16px;
+  padding: 8px 16px;
   border: 1px solid #ccc;
-  border-radius: 4rem;
-  margin-bottom: 8rem;
+  border-radius: 4px;
+  margin-bottom: 8px;
   text-align: left;
   display: flex;
   height: auto;
@@ -294,15 +294,15 @@
 
 .phone .quick-links button > i {
   border-radius: 50%;
-  height: 32rem;
-  min-width: 32rem;
-  line-height: 26rem;
-  font-size: 16rem;
+  height: 32px;
+  min-width: 32px;
+  line-height: 26px;
+  font-size: 16px;
   color: #fff;
   display: inline-block;
   text-align: center;
   vertical-align: middle;
-  margin-right: 8rem;
+  margin-right: 8px;
 }
 
 .phone #OnlineHelp,
@@ -312,7 +312,7 @@
 }
 
 .phone .offer-cards {
-  padding: 16rem;
+  padding: 16px;
 }
 .phone .offer-cards .primary-card {
   text-align: center;
@@ -323,7 +323,7 @@
 }
 .phone .offer-cards .primary-card {
   width: auto;
-  margin: 8rem 0;
+  margin: 8px 0;
 }
 
 .phone button.launch-login,

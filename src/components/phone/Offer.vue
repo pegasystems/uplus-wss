@@ -19,7 +19,7 @@
   </div>
   <div
     class="flex home-promo secondary-card loading-container"
-    style="min-height: 300rem"
+    style="min-height: 300px"
     v-else-if="settings.pega_marketing.Host!== '' && loading && settings.pega_marketing.showLoadingIndicator"
   >
     <span class="loading">

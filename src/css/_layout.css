@@ -5,12 +5,12 @@
 
 .form main {
   color: #fff;
-  min-height: calc(100vh - 244rem);
-  margin-top: -300rem;
+  min-height: calc(100vh - 244px);
+  margin-top: -300px;
 }
 
 .kmhelp > div {
-  height: calc(100vh - 244rem);
+  height: calc(100vh - 244px);
 }
 
 .kmhelp > div > iframe {
@@ -21,9 +21,9 @@
   background-position: 50% 25%;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 700rem;
-  padding-top: 7rem;
-  margin-bottom: 70rem;
+  height: 700px;
+  padding-top: 7px;
+  margin-bottom: 70px;
 }
 
 .front > header {
@@ -32,23 +32,23 @@
 }
 
 .front > main {
-  margin-top: -600rem;
+  margin-top: -600px;
 }
 
 .front .hero-wrap {
-  height: 600rem;
+  height: 600px;
 }
 
 .hero-wrap button.more {
-  width: 150rem;
+  width: 150px;
 }
 
 .hero-wrap a {
-  width: 150rem;
+  width: 150px;
   background: #fff;
   text-align: center;
-  border-radius: 3rem;
-  line-height: 40rem;
+  border-radius: 3px;
+  line-height: 40px;
 }
 
 .form > header {
@@ -56,8 +56,8 @@
   background-repeat: no-repeat;
   background-size: cover;
   justify-content: flex-start;
-  padding-top: 7rem;
-  height: 400rem;
+  padding-top: 7px;
+  height: 400px;
 }
 
 .flex {
@@ -65,7 +65,7 @@
 }
 
 .account-picker > .flex > .content-card {
-  margin: 0 8rem 8rem 8rem;
+  margin: 0 8px 8px 8px;
   flex: 1;
 }
 
@@ -81,8 +81,8 @@
 }
 
 .flex-col-3 > div {
-  width: calc((100% / 3) - (32rem / 3));
-  margin: 0 8rem 8rem 8rem;
+  width: calc((100% / 3) - (32px / 3));
+  margin: 0 8px 8px 8px;
 }
 
 .flex-col-3 > div:last-child {
@@ -123,7 +123,7 @@
 }
 
 a.km {
-  margin-right: 21rem;
+  margin-right: 21px;
 }
 
 .cols-reverse .col-1 {
@@ -132,7 +132,7 @@ a.km {
 
 .cols-reverse .col-2 {
   margin-left: 0;
-  margin-right: 35rem;
+  margin-right: 35px;
   padding: 0;
   box-shadow: none;
 }
@@ -143,9 +143,9 @@ body {
 
 .wrap {
   width: 100%;
-  max-width: 1300rem;
-  padding: 0 21rem;
-  margin: 0 auto 16rem auto;
+  max-width: 1300px;
+  padding: 0 21px;
+  margin: 0 auto 16px auto;
 }
 
 footer .wrap {
@@ -154,7 +154,7 @@ footer .wrap {
 }
 
 .category .wrap {
-  max-width: 1000rem;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
@@ -166,22 +166,22 @@ footer .wrap,
 .wrap.header {
   align-items: flex-end;
   margin-bottom: 0;
-  height: 55rem;
+  height: 55px;
 }
 
 header {
-  height: 113rem;
+  height: 113px;
   justify-content: center;
-  margin-bottom: 45rem;
+  margin-bottom: 45px;
 }
 
 .front.logged-in header {
-  padding-top: 29.5rem;
+  padding-top: 29.5px;
 }
 
 header.settings {
   margin-bottom: 0;
-  padding: 0 16rem;
+  padding: 0 16px;
   flex-flow: row wrap;
 }
 
@@ -192,7 +192,7 @@ header.settings > h1 {
 }
 
 header ul.flex li {
-  margin-right: 30rem;
+  margin-right: 30px;
 }
 
 .embedded-content > body {
@@ -207,12 +207,12 @@ header ul.flex li {
   flex-grow: 1;
   text-align: right;
   color: #fff;
-  line-height: 42rem;
+  line-height: 42px;
 }
 
 .embedded-content .col-2 {
-  margin: 0 0 0 35rem;
-  min-width: 200rem;
+  margin: 0 0 0 35px;
+  min-width: 200px;
 }
 
 .embedded-content .col-2 h3 {
@@ -220,10 +220,10 @@ header ul.flex li {
 }
 
 .embedded-content .button-row > button {
-  min-width: 140rem;
-  margin: 0 35rem 14rem 0;
-  width: calc((100% - 118rem) / 4);
-  padding: 0 14rem;
+  min-width: 140px;
+  margin: 0 35px 14px 0;
+  width: calc((100% - 118px) / 4);
+  padding: 0 14px;
 }
 
 .embedded-content .button-row > button:last-child {
@@ -250,24 +250,24 @@ main,
 }
 
 .primary-options > .front-option > .details {
-  margin-top: 20rem;
+  margin-top: 20px;
 }
 
 .options {
   display: flex;
-  max-width: 1230rem;
+  max-width: 1230px;
   justify-content: space-between;
 }
 
 .secondary-options .banner {
-  height: 317rem;
+  height: 317px;
   background: no-repeat 50% 0 transparent;
   background-size: cover;
 }
 
 .secondary-options .front-option {
-  padding-top: 86rem;
-  background-size: 68rem;
+  padding-top: 86px;
+  background-size: 68px;
   position: relative;
 }
 
@@ -277,11 +277,11 @@ main,
 
 .list-box > h3 {
   color: #414949;
-  margin-bottom: 8rem;
+  margin-bottom: 8px;
 }
 
 .list-box > p {
-  font-size: 27rem;
+  font-size: 27px;
   color: #414949;
   margin: 0;
   word-break: break-all;
@@ -290,18 +290,18 @@ main,
 .secondary-options .front-option::after {
   content: '';
   display: block;
-  height: 68rem;
-  width: 68rem;
+  height: 68px;
+  width: 68px;
   border-radius: 50%;
   position: absolute;
   top: 0;
   left: 50%;
-  margin-left: -34rem;
+  margin-left: -34px;
   background: url('../img/contact.svg');
   background-position: 50% 50%;
   background-repeat: no-repeat;
-  background-size: 30rem auto;
-  border: 4rem solid #fff;
+  background-size: 30px auto;
+  border: 4px solid #fff;
 }
 
 .secondary-options .paperless::after {
@@ -309,8 +309,8 @@ main,
 }
 
 .secondary-options .wrap {
-  max-width: 738rem;
-  margin-top: -20rem;
+  max-width: 738px;
+  margin-top: -20px;
 }
 
 .primary-options.wrap {
@@ -318,12 +318,12 @@ main,
 }
 
 .hero-wrap img {
-  max-height: 260rem;
+  max-height: 260px;
   max-width: 100%;
 }
 
 img.option {
-  max-height: 260rem;
+  max-height: 260px;
   max-width: 100%;
 }
 
@@ -337,26 +337,26 @@ img.option {
 
 .front-option {
   text-align: center;
-  min-width: 150rem;
-  padding: 16rem;
+  min-width: 150px;
+  padding: 16px;
   flex: 1;
   display: flex;
   flex-flow: column;
 }
 
 footer {
-  border-top: 1rem solid #d5d5d5;
+  border-top: 1px solid #d5d5d5;
   width: 100%;
 }
 
 footer nav > div.flex > a {
-  margin-right: 35rem;
-  font-size: 18rem;
+  margin-right: 35px;
+  font-size: 18px;
   color: #646363;
 }
 
 footer nav > div.flex {
-  margin: 26rem 0;
+  margin: 26px 0;
   align-items: center;
 }
 
@@ -366,7 +366,7 @@ footer nav > div.flex {
 
 .accounts-list > li,
 .button-row > button {
-  margin: 0 8rem 24rem 8rem;
+  margin: 0 8px 24px 8px;
 }
 
 .accounts-list > li:first-child,
@@ -380,20 +380,20 @@ footer nav > div.flex {
 }
 
 .col-1 {
-  width: calc(75% - 35rem);
+  width: calc(75% - 35px);
 }
 
 .col-2 {
   flex-grow: 1;
   width: 25%;
-  margin-bottom: 24rem;
-  margin-left: 30rem;
+  margin-bottom: 24px;
+  margin-left: 30px;
 }
 
 .col-3 {
   flex: 1;
-  width: calc((100% - 70rem) / 3);
-  margin-left: 35rem;
+  width: calc((100% - 70px) / 3);
+  margin-left: 35px;
 }
 
 .col-3:first-child {
@@ -401,15 +401,15 @@ footer nav > div.flex {
 }
 
 .content-card {
-  padding: 20rem;
+  padding: 20px;
 }
 
 .primary-card {
-  padding: 35rem;
+  padding: 35px;
 }
 
 .primary-card > section {
-  margin-bottom: 16rem;
+  margin-bottom: 16px;
 }
 
 .primary-card > section:last-child {
@@ -417,8 +417,8 @@ footer nav > div.flex {
 }
 
 .secondary-card {
-  padding: 20rem;
-  margin-bottom: 30rem;
+  padding: 20px;
+  margin-bottom: 30px;
 }
 
 .offer .col-2 {
@@ -431,7 +431,7 @@ footer nav > div.flex {
 }
 
 .circle {
-  border-radius: 999rem;
+  border-radius: 999px;
 }
 
 .menu {
@@ -439,24 +439,24 @@ footer nav > div.flex {
 }
 
 #pega-gadget ~ .col-2 {
-  margin-top: 90rem;
+  margin-top: 90px;
 }
 
 /* Implementation of the floating label on the stacked layout */
 .layout-stacked > .field-item {
-  margin: 16rem 0 8rem 0;
+  margin: 16px 0 8px 0;
   position: relative;
 }
 
 .layout-stacked > .field-item > label {
   position: absolute;
   top: 0;
-  left: 8rem;
+  left: 8px;
   transition: all 0.3s ease;
   padding: 0;
-  margin: 10rem 0 0 0;
+  margin: 10px 0 0 0;
   pointer-events: none;
-  font-size: 16rem;
+  font-size: 16px;
   color: #414949;
 }
 
@@ -466,12 +466,12 @@ footer nav > div.flex {
 .layout-stacked > .field-item > input {
   transition: all 0.3s linear;
   border: none;
-  border-bottom: 1rem solid #d1d2d3;
+  border-bottom: 1px solid #d1d2d3;
   outline: none;
   color: #000;
-  line-height: 40rem;
-  padding: 10rem 0 3rem 0;
-  height: 40rem;
+  line-height: 40px;
+  padding: 10px 0 3px 0;
+  height: 40px;
   font-weight: 300;
 }
 
@@ -485,7 +485,7 @@ footer nav > div.flex {
 .layout-stacked > .field-item > input:not(:placeholder-shown) + label {
   font-size: 75%;
   transform: translate3d(0, -100%, 0);
-  margin-top: 16rem;
+  margin-top: 16px;
 }
 
 /* label left layout */
@@ -493,11 +493,12 @@ footer nav > div.flex {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  margin-bottom: 8rem;
+  margin-bottom: 8px;
 }
 
 .layout-labels-left > .field-item > label {
-  margin: 0 16rem 0 0;
+  margin: 0 16px 0 0;
+  width:300px;
 }
 .layout-labels-left > .field-item > label.width-auto {
   width: auto;
@@ -515,7 +516,7 @@ footer nav > div.flex {
 
 /* label top layout */
 .layout-labels-top > .field-item > label {
-  margin: 0 0 4rem 0;
+  margin: 0 0 4px 0;
 }
 
 .layout-labels-top > .field-item > select,
@@ -525,19 +526,19 @@ footer nav > div.flex {
   flex-grow: 1;
   width: 100%;
   min-width: 0;
-  margin-bottom: 16rem;
+  margin-bottom: 16px;
   resize: none;
 }
 
 .layout-labels-top > .field-item.field-checkbox {
   display: flex;
   flex-flow: row nowrap;
-  margin-top: 16rem;
-  margin-bottom: 16rem;
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
 
 .layout-labels-top > .field-item.field-checkbox > label {
-  margin-right: 16rem;
+  margin-right: 16px;
 }
 
 /* inline grid double with responsive behavior */
@@ -547,29 +548,29 @@ footer nav > div.flex {
 }
 
 .layout-inline-grid-double > div {
-  width: calc(50% - 8rem);
-  margin-right: 8rem;
+  width: calc(50% - 8px);
+  margin-right: 8px;
 }
 
 .layout-inline-grid-double > div:nth-child(2n) {
-  margin: 0 0 0 8rem;
+  margin: 0 0 0 8px;
 }
 
 /* helper classes */
 .padding-2x {
-  padding: 16rem;
+  padding: 16px;
 }
 
 .margin-r-2x {
-  margin-right: 16rem;
+  margin-right: 16px;
 }
 
 .margin-t-2x {
-  margin-top: 16rem;
+  margin-top: 16px;
 }
 
 .padding-t-2x {
-  padding-top: 16rem;
+  padding-top: 16px;
 }
 
 .flex-grow-1 {
@@ -601,11 +602,11 @@ footer nav > div.flex {
 }
 
 .full-height > iframe {
-  min-height: calc(100vh - 244rem);
+  min-height: calc(100vh - 244px);
 }
 
 div.inline-middle > button {
-  margin-right: 16rem;
+  margin-right: 16px;
 }
 
 div.inline-middle > button:last-child {
@@ -623,10 +624,10 @@ div[data-pega-gadgetname] {
 }
 
 a[role='tab'] {
-  padding: 12rem 16rem;
+  padding: 12px 16px;
   display: block;
   font-weight: 700;
-  font-size: 20rem;
+  font-size: 20px;
   text-decoration: none;
   cursor: pointer;
   color: var(--interactiveColor);
@@ -646,25 +647,25 @@ a[role='tab']:active {
 }
 
 .bill-pay p {
-  margin-bottom: 16rem;
+  margin-bottom: 16px;
 }
 
 a.kmhelp {
-  margin: auto 16rem auto 0;
+  margin: auto 16px auto 0;
 }
 
 .tab-vertical-menu {
-  max-width: 1300rem;
-  margin: 21rem auto;
+  max-width: 1300px;
+  margin: 21px auto;
 }
 
 .tab-vertical-menu > .tab-interface {
   display: flex;
   flex-flow: column;
-  width: 350rem;
-  margin: 0 24rem;
+  width: 350px;
+  margin: 0 24px;
   position: sticky;
-  top: 21rem;
+  top: 21px;
   float: left;
 }
 
@@ -673,9 +674,9 @@ a.kmhelp {
   display: flex;
   flex-flow: column;
   padding: 0;
-  margin-bottom: 30rem;
+  margin-bottom: 30px;
   background: #fff;
-  border-radius: 8rem;
+  border-radius: 8px;
 }
 
 .tab-vertical-menu > .tab-interface > .container > .header {
@@ -689,17 +690,17 @@ a.kmhelp {
 }
 
 .tab-vertical-menu > .tab-interface > .tab-action {
-  padding: 20rem;
+  padding: 20px;
 }
 
 .tab-vertical-menu > .tabs-details {
   flex: 1;
-  margin-right: 24rem;
-  margin-bottom: 30rem;
+  margin-right: 24px;
+  margin-bottom: 30px;
   background: #fff;
-  border-radius: 8rem;
-  padding: 20rem;
-  margin-left: 396rem;
+  border-radius: 8px;
+  padding: 20px;
+  margin-left: 396px;
 }
 
 .container-transparent h3,
@@ -708,7 +709,7 @@ a.kmhelp {
 }
 
 .container-transparent h3 {
-  margin: 8rem 0;
+  margin: 8px 0;
 }
 
 .container > .header {
@@ -718,7 +719,7 @@ a.kmhelp {
 }
 .container > .body {
   background: #eeeded;
-  padding: 16rem;
+  padding: 16px;
 }
 
 .container > .header > h3 {
@@ -727,7 +728,7 @@ a.kmhelp {
 
 .container > .header > button.simple {
   color: #000;
-  margin-left: 21rem;
+  margin-left: 21px;
   min-height: auto;
   text-align: center;
   padding: 0 8px;

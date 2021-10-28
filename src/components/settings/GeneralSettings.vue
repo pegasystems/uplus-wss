@@ -27,9 +27,10 @@
           <div class="field-item">
             <label for="ga-connection-type">Type</label>
             <select id="ga-connection-type" v-model="settings.general.connection.type">
-                <option value='mashup'>Mashup</option>
-                <option value='dxv1'>DX API v1</option>
-                <option value='dxv2'>DX API v2</option>
+                <option value='mashup'>Web Mashup (Infinity UI with sections)</option>
+                <option value='embedui'>Embed UI (Cosmos React - 8.7)</option>
+                <option value='dxv1'>DX API v1 (Mashup Web component - 8.1+)</option>
+                <option value='dxv2'>DX API v2 (Mashup Web component - 8.5+)</option>
             </select>
           </div>
           <div class="field-item">
@@ -37,9 +38,10 @@
             <select id="ga-connection-authtype" v-model="settings.general.connection.authtype">
               <option value="basic">Basic authentication</option>
               <option value="oauth2password">OAuth 2.0 Password Grant Type</option>
+              <option value="oauth2clientcredentials">OAuth 2.0 Client Credentials Type</option>
             </select>
           </div>
-          <div class="field-item" v-if="settings.general.connection.authtype === 'oauth2password'">
+          <div class="field-item" v-if="settings.general.connection.authtype === 'oauth2password' || settings.general.connection.authtype === 'oauth2clientcredentials'">
             <label for="ga-connection-clientid">Client ID</label>
             <input type='text' id="ga-connection-clientid" v-model="settings.general.connection.clientid" />
           </div>
@@ -50,6 +52,10 @@
           <div class="field-item" v-if="settings.general.connection.type === 'dxv2'">
             <label for="ga-connection-webportal">Web portal</label>
             <input type='text' id="ga-connection-webportal" v-model="settings.general.connection.webportal" />
+          </div>
+          <div class="field-item" v-if="settings.general.connection.type === 'embedui'">
+            <label for="ga-connection-c11nserver">C11n URL (staticContentUrl)</label>
+            <input type='text' id="ga-connection-c11nserver" v-model="settings.general.connection.c11nserver" />
           </div>
         </div>
         </Container>

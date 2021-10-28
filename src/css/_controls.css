@@ -6,14 +6,14 @@
 }
 
 .logo {
-  height: 30rem;
-  margin-right: 35rem;
+  height: 30px;
+  margin-right: 35px;
 }
 
 label {
   margin-top: 0;
   color: #646363;
-  font-size: 15rem;
+  font-size: 15px;
   font-weight: 700;
   display: inline-block;
 }
@@ -24,19 +24,19 @@ input,
 textarea {
   margin-top: 0;
   background: #fff;
-  border: 1rem solid #d1d2d3;
+  border: 1px solid #d1d2d3;
   color: inherit;
   font-family: inherit;
   font-size: inherit;
-  line-height: 24rem;
+  line-height: 24px;
   display: block;
-  padding: 0 14rem;
+  padding: 0 14px;
 }
 
 select,
 input {
-  height: 42rem;
-  font-size: 18rem;
+  height: 42px;
+  font-size: 18px;
 }
 
 textarea {
@@ -44,7 +44,7 @@ textarea {
   overflow: hidden;
   display: block;
   tab-size: 4;
-  font-size: 18rem;
+  font-size: 18px;
 }
 
 input[type='radio'],
@@ -94,7 +94,7 @@ input[type='radio'] + label {
   font-weight: normal;
   text-decoration: inherit;
   text-transform: none;
-  font-size: 16rem;
+  font-size: 16px;
   font-family: OpenSans, sans-serif;
   line-height: 28px;
 }
@@ -131,7 +131,7 @@ select {
 }
 
 textarea {
-  height: 150rem;
+  height: 150px;
 }
 
 a:hover {
@@ -197,7 +197,7 @@ input[type='checkbox'] + label {
   padding-left: 40px;
   padding-top: 4px;
   cursor: pointer;
-  height: 28rem;
+  height: 28px;
   width: 100%;
   margin: 0 8px 0 0;
   display: block;
@@ -205,9 +205,9 @@ input[type='checkbox'] + label {
 
 input[type='color'] {
   margin-right: 8px;
-  width: 30rem;
+  width: 30px;
   padding: 0;
-  height: 30rem;
+  height: 30px;
   border: none;
 }
 
@@ -225,11 +225,11 @@ input[type='color'] {
 .overlay {
   background: #fff;
   position: absolute;
-  padding: 35rem 36rem;
-  right: 28rem;
+  padding: 35px 36px;
+  right: 28px;
   align-items: center;
-  filter: drop-shadow(0 3rem 21rem rgba(0, 0, 0, 0.5));
-  top: 83rem;
+  filter: drop-shadow(0 3px 21px rgba(0, 0, 0, 0.5));
+  top: 83px;
   transition: opacity 0.25s ease-out;
   z-index: 1000;
   max-width: 465px;
@@ -238,24 +238,24 @@ input[type='color'] {
 
 .overlay.logout {
   min-width: 0;
-  right: 4rem;
+  right: 4px;
 }
 
 .overlay::after {
   content: '';
-  width: 28rem;
-  height: 28rem;
+  width: 28px;
+  height: 28px;
   background: #fff;
   position: absolute;
   transform: rotate(45deg);
-  top: -14rem;
-  right: 36rem;
-  margin-left: -14rem;
+  top: -14px;
+  right: 36px;
+  margin-left: -14px;
 }
 
 .overlay > *,
 .field {
-  margin-bottom: 25rem;
+  margin-bottom: 25px;
 }
 
 .overlay > *:last-child {
@@ -269,14 +269,14 @@ button,
   box-sizing: border-box;
   display: inline-block;
   font-weight: 700;
-  min-height: 40rem;
-  min-width: 140rem;
-  border-radius: 3rem;
+  min-height: 40px;
+  min-width: 140px;
+  border-radius: 3px;
   cursor: pointer;
 }
 
 button.more {
-  height: 50rem;
+  height: 50px;
 }
 
 button.launch-login {
@@ -301,10 +301,10 @@ button.launch-menu {
   margin-top: 3px;
   margin-bottom: 3px;
   background: transparent;
-  font-size: 16rem;
+  font-size: 16px;
   border: none;
-  min-width: 100rem;
-  margin-left: 16rem;
+  min-width: 100px;
+  margin-left: 16px;
 }
 
 button:hover {
@@ -331,7 +331,7 @@ button.secondary:hover {
 button.tertiary {
   background: none;
   border-color: rgba(41, 94, 217, 0);
-  min-width: 40rem;
+  min-width: 40px;
   padding: 0;
 }
 
@@ -339,10 +339,10 @@ button.light {
   background: none;
   border: none;
   color: #fff;
-  min-width: 40rem;
-  padding: 5rem;
+  min-width: 40px;
+  padding: 5px;
   opacity: 0.85;
-  font-size: 18rem;
+  font-size: 18px;
 }
 
 button.light:hover,
@@ -398,7 +398,7 @@ button.simple:hover {
 }
 
 .field > * {
-  margin-top: 5rem;
+  margin-top: 5px;
 }
 
 .field :not(label) {
@@ -411,7 +411,7 @@ button.simple:hover {
 
 .field.check * {
   order: 1;
-  margin-right: 15rem;
+  margin-right: 15px;
 }
 
 .field .error,
@@ -433,18 +433,18 @@ button.simple:hover {
 }
 
 .avatar {
-  width: 50rem;
-  height: 50rem;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  border: 4rem solid #fff;
+  border: 4px solid #fff;
 }
 
 .pi.product-icon {
-  min-width: 70rem;
-  height: 70rem;
+  min-width: 70px;
+  height: 70px;
   border-radius: 50%;
-  font-size: 30rem;
-  line-height: 60rem;
+  font-size: 30px;
+  line-height: 60px;
   text-align: center;
   color: #fff;
 }
@@ -453,8 +453,8 @@ button.simple:hover {
   background: #fff;
   position: absolute;
   transition: height 0.25s ease-in-out;
-  filter: drop-shadow(0 3rem 21rem rgba(0, 0, 0, 0.5));
-  right: 16rem;
+  filter: drop-shadow(0 3px 21px rgba(0, 0, 0, 0.5));
+  right: 16px;
   min-width: 200px;
   height: 0;
   overflow: hidden;
@@ -464,18 +464,18 @@ button.simple:hover {
 header .menu-overlay a {
   color: #414949;
   text-transform: none;
-  padding-right: 28rem;
-  line-height: 40rem;
+  padding-right: 28px;
+  line-height: 40px;
   border-bottom: 1px solid #fdfdfd;
   text-align: right;
   display: block;
 }
 
 .fatlist > li {
-  border-bottom: 1rem solid #e6e7e8;
-  padding: 3rem 0;
+  border-bottom: 1px solid #e6e7e8;
+  padding: 3px 0;
   align-items: center;
-  min-height: 28rem;
+  min-height: 28px;
 }
 
 table {
@@ -486,7 +486,7 @@ table {
 
 th,
 td {
-  padding: 4rem;
+  padding: 4px;
   color: #414949;
   text-align: left;
 }
@@ -499,7 +499,7 @@ td.align-r {
 .filter {
   border: none;
   border-bottom: 1px solid #dedede;
-  margin: 0 0 8rem auto;
+  margin: 0 0 8px auto;
   max-width: 50%;
   color: #000;
 }
@@ -522,16 +522,16 @@ td.align-r {
 }
 
 .inputfile + label {
-  font-size: 16rem;
+  font-size: 16px;
   font-weight: 600;
-  padding: 8rem;
+  padding: 8px;
   margin-bottom: 0;
   color: var(--interactiveColor);
   border: none;
   cursor: pointer;
-  min-height: 40rem;
+  min-height: 40px;
   border: 1px solid var(--interactiveColor);
-  border-radius: 3rem;
+  border-radius: 3px;
   transition: all 0.25s ease-out;
 }
 button.file-download:hover,
@@ -552,8 +552,8 @@ button.file-download {
 
 .kpi-item {
   display: flex;
-  flex: 1 1 100rem;
-  padding: 0 8rem;
+  flex: 1 1 100px;
+  padding: 0 8px;
 }
 
 td > input {

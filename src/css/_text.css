@@ -2,7 +2,7 @@
 
 body,
 button {
-  font: 16rem/1.43 'Open Sans', sans-serif;
+  font: 16px/1.43 'Open Sans', sans-serif;
 }
 
 body {
@@ -23,7 +23,7 @@ a.fatlist-item {
   white-space: nowrap;
   margin-left: auto;
   text-align: right;
-  padding-left: 28rem;
+  padding-left: 28px;
 }
 
 p.fatlist-item {
@@ -42,69 +42,69 @@ li {
 
 .quick-links li,
 .benefits li {
-  margin-bottom: 28rem;
+  margin-bottom: 28px;
 }
 
 .benefits li {
-  margin-left: 42rem;
+  margin-left: 42px;
   position: relative;
 }
 
 .benefits li::after {
   content: '';
-  width: 24rem;
-  height: 24rem;
+  width: 24px;
+  height: 24px;
   background: url('../img/checkmark-w.svg');
   background-repeat: no-repeat;
   background-position: 50% 50%;
-  background-size: 14rem auto;
+  background-size: 14px auto;
   top: -0;
-  left: -42rem;
+  left: -42px;
   position: absolute;
   border-radius: 50%;
 }
 
 header a,
 header a:visited {
-  font-size: 16rem;
+  font-size: 16px;
   font-weight: 700;
   color: #fff;
-  letter-spacing: 0.7rem;
+  letter-spacing: 0.7px;
   text-transform: uppercase;
 }
 
 header span {
   color: #fff;
-  font-size: 14rem;
+  font-size: 14px;
   font-weight: 700;
   text-align: right;
 }
 
 h1 {
   font-weight: 300;
-  font-size: 42rem;
+  font-size: 42px;
   color: #fff;
-  margin: 0 0 28rem 0;
+  margin: 0 0 28px 0;
 }
 
 h2,
 .col-2 h3 {
   font-weight: 800;
-  font-size: 20rem;
-  margin: 0 0 16rem 0;
+  font-size: 20px;
+  margin: 0 0 16px 0;
   color: #000;
   line-height: 1.2;
 }
 
 h1.hero {
-  font-size: 90rem;
+  font-size: 90px;
   line-height: 1.1;
   color: #fff;
 }
 
 p {
-  font-size: 18rem;
-  margin: 0 0 8rem 0;
+  font-size: 18px;
+  margin: 0 0 8px 0;
 }
 
 .separator > section {
@@ -115,15 +115,15 @@ p {
 }
 
 .front-option > p {
-  margin-bottom: 8rem;
+  margin-bottom: 8px;
 }
 .category-option p {
-  margin-bottom: 24rem;
+  margin-bottom: 24px;
 }
 
 .category-option button {
   min-width: 0;
-  height: 36rem;
+  height: 36px;
 }
 
 h1.hero span {
@@ -136,13 +136,13 @@ th {
 }
 
 h3 {
-  font-size: 18rem;
-  margin: 0 0 21rem 0;
+  font-size: 18px;
+  margin: 0 0 21px 0;
 }
 
 h4 {
-  font-size: 16rem;
-  margin: 8rem 0;
+  font-size: 16px;
+  margin: 8px 0;
   color: #000;
 }
 
@@ -150,11 +150,11 @@ h4 {
 .quick-links a,
 .col-2 h3,
 .table-heading {
-  font-size: 20rem;
+  font-size: 20px;
 }
 
 .col-2 h3 {
-  margin: 21rem 0 14rem 0;
+  margin: 21px 0 14px 0;
 }
 
 .quick-links li,
@@ -167,12 +167,12 @@ h4 {
 }
 
 .banner h3 {
-  margin: 0 0 7rem 0;
+  margin: 0 0 7px 0;
   text-transform: uppercase;
 }
 
 .banner p {
-  font-size: 14rem;
+  font-size: 14px;
 }
 
 .banner,
@@ -182,23 +182,23 @@ h4 {
 }
 
 .banner button {
-  margin-left: 7rem;
+  margin-left: 7px;
 }
 
 .offer-text p {
-  margin: 14rem 0;
+  margin: 14px 0;
 }
 
 .offer-text h3,
 h3.account-type {
-  margin-bottom: 14rem;
+  margin-bottom: 14px;
 }
 
 .table-heading {
   border-bottom: 1px solid #dedede;
-  border-radius: 3rem;
-  margin: 0 -35rem 21rem -35rem;
-  padding: 0 35rem 21rem 35rem;
+  border-radius: 3px;
+  margin: 0 -35px 21px -35px;
+  padding: 0 35px 21px 35px;
 }
 
 table.align-center th,
@@ -219,29 +219,29 @@ table.color-light td {
 
 table.color-heading {
   border: 1px solid #dedede;
-  border-radius: 3rem;
+  border-radius: 3px;
 }
 
 table.color-heading tr.heading {
   background: #f1f1f1;
-  font-size: 15rem;
-  height: 45rem;
+  font-size: 15px;
+  height: 45px;
   font-weight: bold;
 }
 
 table.color-heading tr.footer {
   background: #f1f1f1;
-  height: 45rem;
+  height: 45px;
 }
 
 table.color-heading .trend {
-  font-size: 10rem;
+  font-size: 10px;
 }
 
 tr.heading {
   background: #f1f1f1;
-  font-size: 12rem;
-  height: 45rem;
+  font-size: 12px;
+  height: 45px;
   font-weight: bold;
 }
 
@@ -255,14 +255,14 @@ p {
 }
 
 p.activity {
-  font-size: 20rem;
+  font-size: 20px;
   margin: 0;
 }
 
 time {
   text-transform: uppercase;
   color: #646363;
-  font-size: 18rem;
+  font-size: 18px;
   font-weight: 600;
 }
 
@@ -271,7 +271,7 @@ time span {
 }
 
 time.fatlist-item {
-  min-width: 158rem;
+  min-width: 158px;
 }
 
 .keyrates h4 {
@@ -280,7 +280,7 @@ time.fatlist-item {
 }
 
 .keyrates h4 ~ table tr {
-  font-size: 20rem;
+  font-size: 20px;
 }
 
 .cash-projections > div {
@@ -297,17 +297,17 @@ time.fatlist-item {
 }
 
 .cash-projections span {
-  font-size: 20rem;
+  font-size: 20px;
   color: #000;
 }
 
 .cash-projections > div > div {
-  margin-left: 20rem;
+  margin-left: 20px;
 }
 
 .cash-projections > svg {
   border: 1px solid #ccc;
-  margin-top: 10rem;
+  margin-top: 10px;
 }
 
 .offer-card-col > .offer-card,
@@ -325,7 +325,7 @@ time.fatlist-item {
 
 .ai-overlay.show {
   display: flex;
-  min-width: 385rem;
+  min-width: 385px;
   z-index: 2;
   opacity: 0.85;
 }
@@ -338,22 +338,22 @@ time.fatlist-item {
 
 .ai-overlay > ul {
   text-align: left;
-  padding: 16rem;
+  padding: 16px;
 }
 
 .ai-overlay > ul > li {
   word-break: break-all;
   display: flex;
-  margin-bottom: 15rem;
+  margin-bottom: 15px;
   align-items: baseline;
 }
 
 .ai-overlay label {
   font-weight: 700;
-  min-width: 165rem;
+  min-width: 165px;
   display: inline-block;
   color: #fff;
-  margin: 0 8rem 0 0;
+  margin: 0 8px 0 0;
 }
 .ai-overlay span {
   word-break: break-all;
@@ -361,11 +361,11 @@ time.fatlist-item {
 }
 
 .ai-toggle {
-  font-size: 24rem;
+  font-size: 24px;
   border-radius: 50%;
-  border: 3rem solid #fff;
+  border: 3px solid #fff;
   min-width: auto;
-  height: 49rem;
+  height: 49px;
   align-self: flex-end;
 }
 
@@ -398,10 +398,10 @@ time.fatlist-item {
 }
 
 .rts-toggle {
-  font-size: 15rem;
+  font-size: 15px;
   border-radius: 50%;
-  border: 3rem solid transparent;
-  width: 40rem;
+  border: 3px solid transparent;
+  width: 40px;
   min-width: auto;
   padding: 0;
 }
@@ -447,5 +447,5 @@ time.fatlist-item {
 }
 
 .scorecard {
-  font-size: 22rem;
+  font-size: 22px;
 }

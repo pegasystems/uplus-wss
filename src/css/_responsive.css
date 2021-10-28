@@ -33,13 +33,13 @@
     border: none;
     position: relative;
     text-align: left;
-    padding: 3rem 0 3rem 60%;
+    padding: 3px 0 3px 60%;
   }
 
   .responsive td:before {
     position: absolute;
-    left: 8rem;
-    padding-right: 8rem;
+    left: 8px;
+    padding-right: 8px;
     text-align: left;
     font-weight: bold;
     max-width: 59%;
@@ -56,41 +56,41 @@
 
 @media screen and (max-width: 1024px) {
   header ul.flex li {
-    margin-right: 16rem;
+    margin-right: 16px;
     text-align: center;
     flex: 1;
   }
 
   h1.hero {
-    font-size: 50rem;
+    font-size: 50px;
   }
 
   .front header {
-    height: 500rem;
+    height: 500px;
   }
 
   .front > main {
-    margin-top: -400rem;
+    margin-top: -400px;
   }
 
   .front .hero-wrap {
-    height: 400rem;
+    height: 400px;
   }
 
   h2,
   .col-2 h3 {
-    font-size: 20rem;
+    font-size: 20px;
   }
 
   p {
-    font-size: 16rem;
+    font-size: 16px;
   }
 
   body,
   button,
   footer nav > div.flex li,
   .inputfile + label {
-    font-size: 14rem;
+    font-size: 14px;
   }
 
   footer nav > div.flex li {
@@ -98,17 +98,17 @@
   }
 
   .pi.product-icon {
-    min-width: 40rem;
-    height: 40rem;
-    font-size: 20rem;
-    line-height: 35rem;
+    min-width: 40px;
+    height: 40px;
+    font-size: 20px;
+    line-height: 35px;
   }
 }
 
 @media screen and (max-width: 950px) {
   .col-1 {
     width: 100%;
-    margin-bottom: 30rem;
+    margin-bottom: 30px;
   }
 
   .col-2 {
@@ -123,15 +123,15 @@
   }
 
   .offer-card-col {
-    margin-right: 8rem;
+    margin-right: 8px;
   }
 
   .secondary-card.container {
-    margin-left: 8rem;
+    margin-left: 8px;
   }
 
   footer nav > div.flex > a {
-    margin-right: 8rem;
+    margin-right: 8px;
   }
 
   .tab-vertical-menu > .tab-interface > .container {
@@ -150,14 +150,14 @@
   }
 
   .tab-vertical-menu > .tab-interface {
-    margin: 0 24rem;
+    margin: 0 24px;
     position: static;
     float: none;
     width: auto;
   }
 
   .tab-vertical-menu > .tabs-details {
-    margin: 0 24rem;
+    margin: 0 24px;
   }
 
   .tab-vertical-menu > .tab-interface > .tab-action {
@@ -173,25 +173,25 @@
 
 @media screen and (max-width: 850px) {
   h1.hero {
-    font-size: 40rem;
+    font-size: 40px;
   }
 
   .front > header {
-    height: 300rem;
+    height: 300px;
   }
 
   .front > main {
-    margin-top: -200rem;
+    margin-top: -200px;
   }
   .front .hero-wrap {
-    height: 200rem;
+    height: 200px;
   }
   .offer > header {
-    padding: 7rem 14rem 0;
+    padding: 7px 14px 0;
   }
   .offer > header h1 {
     margin-top: 0;
-    font-size: 24rem;
+    font-size: 24px;
   }
   .launch-login {
     display: none;
@@ -205,7 +205,7 @@
     display: none;
   }
   .overlay.logout {
-    right: 100rem;
+    right: 100px;
   }
   header > .header,
   header > .wrap.header {
@@ -218,14 +218,14 @@
   }
 
   .account-picker > .flex > div.content-card {
-    margin: 0 0 8rem 0;
+    margin: 0 0 8px 0;
   }
 
   .flex-col-3 > div {
     width: 100%;
     width: 100%;
-    margin: 0 0 8rem 0;
-    padding: 8rem;
+    margin: 0 0 8px 0;
+    padding: 8px;
     display: flex;
     align-items: center;
   }
@@ -251,7 +251,7 @@
   }
 
   .landing-request > .landing-intro {
-    margin: 0 0 16rem 0;
+    margin: 0 0 16px 0;
   }
 
   .landing .landing-cards {
@@ -259,16 +259,16 @@
   }
 
   .landing-cards > div > .flex {
-    margin-bottom: 16rem;
+    margin-bottom: 16px;
   }
 
   .hero-wrap img {
-    max-height: 150rem;
+    max-height: 150px;
   }
   .list-box > h3,
   .list-box > p {
-    font-size: 14rem;
-    margin: 0 8rem 0 0;
+    font-size: 14px;
+    margin: 0 8px 0 0;
   }
 }
 
@@ -296,8 +296,9 @@
   }
 
   .layout-labels-left > .field-item > label {
+    width: auto;
     min-width: auto;
-    margin: 0 0 3rem 0;
+    margin: 0 0 3px 0;
   }
 }
 
@@ -321,7 +322,7 @@
   .primary-options .front-option > .details {
     flex: 1;
     text-align: left;
-    padding-left: 14rem;
+    padding-left: 14px;
   }
 
   .offer > main,
@@ -333,12 +334,12 @@
   .offer > header,
   .front > header {
     margin-bottom: 0;
-    height: 300rem;
+    height: 300px;
   }
 
   .category > header,
   .offer > header {
-    margin-bottom: 14rem;
+    margin-bottom: 14px;
   }
 
   button {
@@ -346,26 +347,26 @@
   }
 
   .secondary-options .front-option::after {
-    height: 40rem;
-    width: 40rem;
-    background-size: 20rem auto;
-    margin-left: -17rem;
+    height: 40px;
+    width: 40px;
+    background-size: 20px auto;
+    margin-left: -17px;
   }
 
   .secondary-options .front-option:first-child::after {
-    top: -20rem;
+    top: -20px;
   }
 
   .secondary-options .wrap {
-    margin-top: -150rem;
+    margin-top: -150px;
     padding: 0 10vw;
-    filter: drop-shadow(0 3rem 7rem rgba(0, 0, 0, 0.5));
-    margin-bottom: 14rem;
+    filter: drop-shadow(0 3px 7px rgba(0, 0, 0, 0.5));
+    margin-bottom: 14px;
   }
 
   .secondary-options .front-option {
     background: #fff;
-    padding-top: 40rem;
+    padding-top: 40px;
   }
 
   .copyright {
@@ -375,18 +376,18 @@
   .fatlist > li {
     flex-wrap: wrap;
     padding: 0;
-    margin-bottom: 8rem;
+    margin-bottom: 8px;
   }
 
   time.fatlist-item {
-    font-size: 14rem;
+    font-size: 14px;
     min-width: 100%;
   }
 
   p.activity {
-    font-size: 14rem;
-    font-size: 14rem;
-    max-width: calc(100% - 85rem);
+    font-size: 14px;
+    font-size: 14px;
+    max-width: calc(100% - 85px);
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -413,21 +414,21 @@
 
   .landing .landing-details > div > .details {
     width: 100%;
-    padding: 21rem 35rem;
+    padding: 21px 35px;
   }
 
   .offer-details > div > div:first-child {
-    padding: 0 50rem 0 44rem;
-    min-width: 244rem;
+    padding: 0 50px 0 44px;
+    min-width: 244px;
   }
 
   .offer-details .image {
-    height: 150rem;
+    height: 150px;
   }
 
   .category .promo,
   .landing .promo {
-    padding: 16rem;
+    padding: 16px;
   }
 
   .offer .promo > .flex {
@@ -437,7 +438,7 @@
   }
 
   .category > main {
-    margin-top: -230rem;
+    margin-top: -230px;
   }
   .category .primary-card {
     padding: 0;
@@ -460,14 +461,14 @@
     flex-flow: row nowrap;
     align-items: center;
     border-bottom: 1px solid #979797;
-    padding: 8rem 24rem;
+    padding: 8px 24px;
   }
 
   .category .primary-card > .separator > section:first-child {
     border-top: 1px solid #979797;
   }
   .category .primary-card > .separator > section > .flex {
-    padding: 0 0 0 24rem;
+    padding: 0 0 0 24px;
   }
 
   .category-highlights > .flex {
@@ -475,7 +476,7 @@
   }
 
   .category-highlights p {
-    margin: 8rem 0;
+    margin: 8px 0;
   }
 }
 

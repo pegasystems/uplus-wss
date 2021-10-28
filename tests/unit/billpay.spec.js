@@ -3,9 +3,9 @@ import '../../public/insurance/js/config-flow';
 import '../../public/insurance/i18n/lang-en';
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
+import { createLocalVue, shallowMount } from '@vue/test-utils';
 import { i18n } from '@/global';
 import BillPay from '@/components/widgets/BillPay.vue';
-import { createLocalVue, shallowMount } from '@vue/test-utils';
 
 const localVue = createLocalVue();
 

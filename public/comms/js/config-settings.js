@@ -22,6 +22,7 @@ window.settings = {
       clientid: '',
       clientsecret: '',
       webportal: '',
+      c11nserver: '',
     },
     auth_2fa: {
       enabled: false,

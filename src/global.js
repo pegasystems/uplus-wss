@@ -360,6 +360,9 @@ const upgradeConfig = function upgradeConfig(cfg) {
       webportal: '',
     };
   }
+  if (typeof cfg.settings.general.connection.c11nserver === 'undefined') {
+    cfg.settings.general.connection.c11nserver = '';
+  }
   if (typeof cfg.settings.general.theming === 'undefined') {
     cfg.settings.general.theming = {
       override: false,
@@ -741,6 +744,15 @@ if (typeof settings === 'undefined') {
     };
     scriptLoad.setAttribute('src', '../js/jquery-min.js');
     document.head.appendChild(scriptLoad);
+  }
+
+  if (
+    mainconfigTmp.settings.general.connection.c11nserver !== '' &&
+    mainconfigTmp.settings.general.connection.type === 'embedui'
+  ) {
+    const mashupScript = document.createElement('script');
+    mashupScript.setAttribute('src', `${mainconfigTmp.settings.general.connection.c11nserver}pega-embed.js`);
+    document.head.appendChild(mashupScript);
   }
 
   if (

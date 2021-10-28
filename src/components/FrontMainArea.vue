@@ -46,7 +46,7 @@
       <div class="flex flex-col">
       </div>
     </div>
-    <div class="wrap options primary-options" style="min-height: 400rem;">
+    <div class="wrap options primary-options" style="min-height: 400px;">
       <section
         v-for="(item, index) in app.primarydetails"
         :key="index"

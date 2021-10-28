@@ -15,10 +15,10 @@
 }
 
 .primary-card > .pega-mashup {
-  padding: 8rem 16rem;
-  margin-bottom: 24rem;
-  border: 1rem solid #d5d5d5;
-  border-radius: 4rem;
+  padding: 8px 16px;
+  margin-bottom: 24px;
+  border: 1px solid #d5d5d5;
+  border-radius: 4px;
 }
 
 .main-header ~ h3 {
@@ -349,7 +349,7 @@ select[readonly] {
   color: #000;
   font-size: 14px;
   line-height: 1;
-  margin-top: 0.3rem;
+  margin-top: 0.3px;
   flex: 0 0 100%;
 }
 
