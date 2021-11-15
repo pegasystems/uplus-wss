@@ -205,7 +205,8 @@ input[type='checkbox'] + label {
 
 input[type='color'] {
   margin-right: 8px;
-  width: 30px;
+  min-width: 30px;
+  width:30px;
   padding: 0;
   height: 30px;
   border: none;

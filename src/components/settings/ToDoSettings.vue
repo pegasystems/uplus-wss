@@ -26,11 +26,10 @@
             <select id="todo-action" v-model="settings.todo.action">
               <option>createNewWork</option>
               <option>display</option>
-              <option>getNextWork</option>
+              <option v-if="settings.general.connection.type==='mashup'">getNextWork</option>
               <option>openAssignment</option>
-              <option>openWorkItem</option>
+              <option v-if="settings.general.connection.type==='mashup'">openWorkItem</option>
               <option>openWorkByHandle</option>
-              <option>createNewWork</option>
             </select>
           </div>
           <div class="field-item">
@@ -45,7 +44,7 @@
             <label for="todo-objclass">Classname</label>
             <input id="todo-objclass" type="text" v-model="settings.todo.objclass" />
           </div>
-          <div class="field-item">
+          <div class="field-item" v-if="settings.general.connection.type==='mashup'">
             <label for="todo-startcase">Start case</label>
             <input id="todo-startcase" type="text" v-model="settings.todo.startcase" />
           </div>
@@ -53,15 +52,15 @@
             <label for="todo-application">Application name</label>
             <input id="todo-application" type="text" v-model="settings.todo.application" />
           </div>
-          <div class="field-item">
+          <div class="field-item" v-if="settings.general.connection.type==='mashup'">
             <label for="todo-channelid">Channel ID</label>
             <input id="todo-channelid" type="text" v-model="settings.todo.channelid" />
           </div>
-          <div class="field-item">
+          <div class="field-item" v-if="settings.general.connection.type==='mashup'">
             <label for="todo-tenantid">Tenant ID</label>
             <input id="todo-tenantid" type="text" v-model="settings.todo.tenantid" />
           </div>
-          <div class="field-item field-checkbox">
+          <div class="field-item field-checkbox" v-if="settings.general.connection.type==='mashup'">
             <input id="todo-dataretained" type="checkbox" v-model="settings.todo.dataretained" />
             <label class="width-auto" for="todo-dataretained">Retain state on reload</label>
           </div>

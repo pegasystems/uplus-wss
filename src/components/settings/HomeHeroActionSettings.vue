@@ -10,11 +10,10 @@
             <select id="hero-action-action" v-model="settings.homeheroaction.action">
               <option>createNewWork</option>
               <option>display</option>
-              <option>getNextWork</option>
+              <option v-if="settings.general.connection.type==='mashup'">getNextWork</option>
               <option>openAssignment</option>
-              <option>openWorkItem</option>
+              <option v-if="settings.general.connection.type==='mashup'">openWorkItem</option>
               <option>openWorkByHandle</option>
-              <option>createNewWork</option>
             </select>
           </div>
           <div class="field-item">
@@ -33,7 +32,7 @@
             <label for="hero-action-objclass">Classname</label>
             <input id="hero-action-objclass" type="text" v-model="settings.homeheroaction.objclass" />
           </div>
-          <div class="field-item">
+          <div class="field-item" v-if="settings.general.connection.type==='mashup'">
             <label for="hero-action-startcase">Start case</label>
             <input
               id="hero-action-startcase"
@@ -65,15 +64,15 @@
               v-model="settings.homeheroaction.pega_pwd"
             />
           </div>
-          <div class="field-item">
+          <div class="field-item" v-if="settings.general.connection.type==='mashup'">
             <label for="hero-action-channelid">Channel ID</label>
             <input id="hero-action-channelid" type="text" v-model="settings.homeheroaction.channelid" />
           </div>
-          <div class="field-item">
+          <div class="field-item" v-if="settings.general.connection.type==='mashup'">
             <label for="hero-action-tenantid">Tenant ID</label>
             <input id="hero-action-tenantid" type="text" v-model="settings.homeheroaction.tenantid" />
           </div>
-          <div class="field-item field-checkbox">
+          <div class="field-item field-checkbox" v-if="settings.general.connection.type==='mashup'">
             <input id="hero-action-dataretained" type="checkbox" v-model="settings.homeheroaction.dataretained" />
             <label class="width-auto" for="hero-action-dataretained">Retain state on reload</label>
           </div>

@@ -14,11 +14,11 @@
     "replace-in-file": "^6.2.0",
     "vue": "^2.6.12",
     "vue-gtag": "^1.11.0",
-    "vue-i18n": "^8.25.0"
+    "vue-i18n": "^8.26.7"
   },
   "devDependencies": {
-    "@babel/core": "^7.14.8",
-    "@babel/preset-env": "^7.14.8",
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
     "@vue/cli-plugin-babel": "^4.5.11",
     "@vue/cli-plugin-eslint": "^4.5.11",
     "@vue/cli-plugin-pwa": "^4.5.11",

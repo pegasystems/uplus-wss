@@ -24,11 +24,10 @@
             <select id="banner-action" v-model="settings.banner.action">
               <option>createNewWork</option>
               <option>display</option>
-              <option>getNextWork</option>
+              <option v-if="settings.general.connection.type==='mashup'">getNextWork</option>
               <option>openAssignment</option>
-              <option>openWorkItem</option>
+              <option v-if="settings.general.connection.type==='mashup'">openWorkItem</option>
               <option>openWorkByHandle</option>
-              <option>createNewWork</option>
             </select>
           </div>
           <div class="field-item">
@@ -43,7 +42,7 @@
             <label for="banner-objclass">Classname</label>
             <input id="banner-objclass" type="text" v-model="settings.banner.objclass" />
           </div>
-          <div class="field-item">
+          <div class="field-item" v-if="settings.general.connection.type==='mashup'">
             <label for="banner-startcase">Start case</label>
             <input id="banner-startcase" type="text" v-model="settings.banner.startcase" />
           </div>
@@ -51,15 +50,15 @@
             <label for="banner-application">Application name</label>
             <input id="banner-application" type="text" v-model="settings.banner.application" />
           </div>
-          <div class="field-item">
+          <div class="field-item" v-if="settings.general.connection.type==='mashup'">
             <label for="banner-channelid">Channel ID</label>
             <input id="banner-channelid" type="text" v-model="settings.banner.channelid" />
           </div>
-          <div class="field-item">
+          <div class="field-item" v-if="settings.general.connection.type==='mashup'">
             <label for="banner-tenantid">Tenant ID</label>
             <input id="banner-tenantid" type="text" v-model="settings.banner.tenantid" />
           </div>
-          <div class="field-item field-checkbox">
+          <div class="field-item field-checkbox" v-if="settings.general.connection.type==='mashup'">
             <input id="banner-dataretained" type="checkbox" v-model="settings.banner.dataretained" />
             <label class="width-auto" for="banner-dataretained">Retain state on reload</label>
           </div>

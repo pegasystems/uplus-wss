@@ -12,7 +12,7 @@
               :for="'quicklinks-' + index + '-hideaccount'"
             >Hide from account page</label>
           </div>
-          <div class="field-item field-checkbox">
+          <div class="field-item field-checkbox" v-if="settings.general.connection.type==='mashup'">
             <input :id="'quicklinks-' + index + '-dataretained'" type="checkbox" v-model="item.dataretained" />
             <label class="width-auto" :for="'quicklinks-' + index + '-dataretained'">Retain state on reload</label>
           </div>
@@ -34,11 +34,10 @@
             <select :id="'quicklinks-' + index + '-action'" v-model="item.action">
               <option>createNewWork</option>
               <option>display</option>
-              <option>getNextWork</option>
+              <option v-if="settings.general.connection.type==='mashup'">getNextWork</option>
               <option>openAssignment</option>
-              <option>openWorkItem</option>
+              <option v-if="settings.general.connection.type==='mashup'">openWorkItem</option>
               <option>openWorkByHandle</option>
-              <option>createNewWork</option>
             </select>
           </div>
           <div class="field-item">
@@ -57,7 +56,7 @@
             <label :for="'quicklinks-' + index + '-objclass'">Classname</label>
             <input :id="'quicklinks-' + index + '-objclass'" type="text" v-model="item.objclass" />
           </div>
-          <div class="field-item">
+          <div class="field-item" v-if="settings.general.connection.type==='mashup'">
             <label :for="'quicklinks-' + index + '-startcase'">Start case</label>
             <input :id="'quicklinks-' + index + '-startcase'" type="text" v-model="item.startcase" />
           </div>
@@ -69,11 +68,11 @@
               v-model="item.application"
             />
           </div>
-          <div class="field-item">
+          <div class="field-item" v-if="settings.general.connection.type==='mashup'">
             <label :for="'quicklinks-' + index + '-channelid'">Channel ID</label>
             <input :id="'quicklinks-' + index + '-channelid'" type="text" v-model="item.channelid" />
           </div>
-          <div class="field-item">
+          <div class="field-item" v-if="settings.general.connection.type==='mashup'">
             <label :for="'quicklinks-' + index + '-tenantid'">Tenant ID</label>
             <input :id="'quicklinks-' + index + '-tenantid'" type="text" v-model="item.tenantid" />
           </div>

@@ -10,11 +10,10 @@
             <select id="offer-action-action" v-model="settings.offeraction.action">
               <option>createNewWork</option>
               <option>display</option>
-              <option>getNextWork</option>
+              <option v-if="settings.general.connection.type==='mashup'">getNextWork</option>
               <option>openAssignment</option>
-              <option>openWorkItem</option>
+              <option v-if="settings.general.connection.type==='mashup'">openWorkItem</option>
               <option>openWorkByHandle</option>
-              <option>createNewWork</option>
             </select>
           </div>
           <div class="field-item">
@@ -33,7 +32,7 @@
             <label for="offer-action-objclass">Classname</label>
             <input id="offer-action-objclass" type="text" v-model="settings.offeraction.objclass" />
           </div>
-          <div class="field-item">
+          <div class="field-item" v-if="settings.general.connection.type==='mashup'">
             <label for="offer-action-startcase">Start case</label>
             <input id="offer-action-startcase" type="text" v-model="settings.offeraction.startcase" />
           </div>
@@ -61,15 +60,15 @@
               v-model="settings.offeraction.pega_pwd"
             />
           </div>
-          <div class="field-item">
+          <div class="field-item" v-if="settings.general.connection.type==='mashup'">
             <label for="offer-action-channelid">Channel ID</label>
             <input id="offer-action-channelid" type="text" v-model="settings.offeraction.channelid" />
           </div>
-          <div class="field-item">
+          <div class="field-item" v-if="settings.general.connection.type==='mashup'">
             <label for="offer-action-tenantid">Tenant ID</label>
             <input id="offer-action-tenantid" type="text" v-model="settings.offeraction.tenantid" />
           </div>
-          <div class="field-item field-checkbox">
+          <div class="field-item field-checkbox" v-if="settings.general.connection.type==='mashup'">
             <input id="offer-action-dataretained" type="checkbox" v-model="settings.offeraction.dataretained" />
             <label class="width-auto" for="offer-action-dataretained">Retain state on reload</label>
           </div>

@@ -16,11 +16,10 @@
             <select id="bill-pay-action" v-model="settings.billpay.action">
               <option>createNewWork</option>
               <option>display</option>
-              <option>getNextWork</option>
+              <option v-if="settings.general.connection.type==='mashup'">getNextWork</option>
               <option>openAssignment</option>
-              <option>openWorkItem</option>
+              <option v-if="settings.general.connection.type==='mashup'">openWorkItem</option>
               <option>openWorkByHandle</option>
-              <option>createNewWork</option>
             </select>
           </div>
           <div class="field-item">
@@ -35,7 +34,7 @@
             <label for="bill-pay-objclass">Classname</label>
             <input id="bill-pay-objclass" type="text" v-model="settings.billpay.objclass" />
           </div>
-          <div class="field-item">
+          <div class="field-item" v-if="settings.general.connection.type==='mashup'">
             <label for="bill-pay-startcase">Start case</label>
             <input id="bill-pay-startcase" type="text" v-model="settings.billpay.startcase" />
           </div>
@@ -43,15 +42,15 @@
             <label for="bill-pay-application">Application name</label>
             <input id="bill-pay-application" type="text" v-model="settings.billpay.application" />
           </div>
-          <div class="field-item">
+          <div class="field-item" v-if="settings.general.connection.type==='mashup'">
             <label for="bill-pay-channelid">Channel ID</label>
             <input id="bill-pay-channelid" type="text" v-model="settings.billpay.channelid" />
           </div>
-          <div class="field-item">
+          <div class="field-item" v-if="settings.general.connection.type==='mashup'">
             <label for="bill-pay-tenantid">Tenant ID</label>
             <input id="bill-pay-tenantid" type="text" v-model="settings.billpay.tenantid" />
           </div>
-          <div class="field-item field-checkbox">
+          <div class="field-item field-checkbox" v-if="settings.general.connection.type==='mashup'">
             <input id="bill-pay-dataretained" type="checkbox" v-model="settings.billpay.dataretained" />
             <label class="width-auto" for="bill-pay-dataretained">Retain state on reload</label>
           </div>

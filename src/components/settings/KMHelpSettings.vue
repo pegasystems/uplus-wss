@@ -13,11 +13,10 @@
             <select id="kmhelp-action" v-model="settings.kmhelp.action">
               <option>createNewWork</option>
               <option>display</option>
-              <option>getNextWork</option>
+              <option v-if="settings.general.connection.type==='mashup'">getNextWork</option>
               <option>openAssignment</option>
-              <option>openWorkItem</option>
+              <option v-if="settings.general.connection.type==='mashup'">openWorkItem</option>
               <option>openWorkByHandle</option>
-              <option>createNewWork</option>
             </select>
           </div>
           <div class="field-item">
@@ -32,7 +31,7 @@
             <label for="kmhelp-objclass">Classname</label>
             <input id="kmhelp-objclass" type="text" v-model="settings.kmhelp.objclass" />
           </div>
-          <div class="field-item">
+          <div class="field-item" v-if="settings.general.connection.type==='mashup'">
             <label for="kmhelp-startcase">Start case</label>
             <input id="kmhelp-startcase" type="text" v-model="settings.kmhelp.startcase" />
           </div>
@@ -48,15 +47,15 @@
             <label for="kmhelp-password">Password (for unauthenticated access)</label>
             <input id="kmhelp-password" type="text" v-model="settings.kmhelp.password" />
           </div>
-          <div class="field-item">
+          <div class="field-item" v-if="settings.general.connection.type==='mashup'">
             <label for="kmhelp-channelid">Channel ID</label>
             <input id="kmhelp-channelid" type="text" v-model="settings.kmhelp.channelid" />
           </div>
-          <div class="field-item">
+          <div class="field-item" v-if="settings.general.connection.type==='mashup'">
             <label for="kmhelp-tenantid">Tenant ID</label>
             <input id="kmhelp-tenantid" type="text" v-model="settings.kmhelp.tenantid" />
           </div>
-          <div class="field-item field-checkbox">
+          <div class="field-item field-checkbox" v-if="settings.general.connection.type==='mashup'">
             <input id="kmhelp-dataretained" type="checkbox" v-model="settings.kmhelp.dataretained" />
             <label class="width-auto" for="kmhelp-dataretained">Retain state on reload</label>
           </div>
