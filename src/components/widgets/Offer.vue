@@ -38,9 +38,7 @@
           v-else
           class="simple"
           v-on:click="showOffer(offer)"
-        >
-          {{ $t('message.' + offer.link) }}
-        </button>
+        >{{ $t('message.' + offer.link) }}</button>
         <AIOverlay
           v-if="settings.pega_marketing.showAIOverlay"
           :offer="offer"
@@ -65,6 +63,9 @@ export default {
   },
   methods: {
     showOffer(offer) {
+      if (mainconfig.isMobilePhone) {
+        mainconfig.phonePageName = 'offer';
+      }
       mainconfig.offerURL = offer.url;
       mainconfig.previousPage = offer.name;
       if (mainconfig.settings.pega_marketing.useCaptureByChannel === true) {

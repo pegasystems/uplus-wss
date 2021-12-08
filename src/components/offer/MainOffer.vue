@@ -137,6 +137,9 @@ export default {
   },
   methods: {
     showOffer(item) {
+      if (mainconfig.isMobilePhone) {
+        mainconfig.phonePageName = 'offer';
+      }
       mainconfig.offerURL = item.url;
       mainconfig.previousPage = item.name;
       if (mainconfig.settings.pega_marketing.useCaptureByChannel === true) {
@@ -147,6 +150,9 @@ export default {
       if (this.hero_offer.url === '') {
         mainconfig.offerAction = 1;
       } else {
+        if (mainconfig.isMobilePhone) {
+          mainconfig.phonePageName = 'offer';
+        }
         mainconfig.offerURL = this.hero_offer.url;
         mainconfig.previousPage = this.hero_offer.name;
       }

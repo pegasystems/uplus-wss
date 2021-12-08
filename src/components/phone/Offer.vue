@@ -66,9 +66,7 @@
           class="simple"
           v-on:click="showOffer(item)"
           :title="$t('message.' + item.link)"
-        >
-          {{ $t('message.' + item.link) }}
-        </button>
+        >{{ $t('message.' + item.link) }}</button>
       </div>
       </div>
     </div>
