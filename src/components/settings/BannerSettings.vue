@@ -31,8 +31,8 @@
             </select>
           </div>
           <div class="field-item">
-            <label for="banner-actionparam">Action parameter</label>
-            <input id="banner-actionparam" type="text" v-model="settings.banner.actionparam" />
+            <label for="banner-actionparam" v-if="settings.banner.action!=='createNewWork'">Action parameter</label>
+            <input id="banner-actionparam" type="text" v-model="settings.banner.actionparam"  v-if="settings.banner.action!=='createNewWork'"/>
           </div>
           <div class="field-item">
             <label for="banner-url">URL</label>

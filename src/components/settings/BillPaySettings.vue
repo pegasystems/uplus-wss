@@ -23,8 +23,8 @@
             </select>
           </div>
           <div class="field-item">
-            <label for="bill-pay-actionparam">Action parameter</label>
-            <input id="bill-pay-actionparam" type="text" v-model="settings.billpay.actionparam" />
+            <label for="bill-pay-actionparam"  v-if="settings.billpay.action!=='createNewWork'">Action parameter</label>
+            <input id="bill-pay-actionparam" type="text" v-model="settings.billpay.actionparam"  v-if="settings.billpay.action!=='createNewWork'"/>
           </div>
           <div class="field-item">
             <label for="bill-pay-url">URL</label>

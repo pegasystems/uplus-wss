@@ -20,8 +20,8 @@
             </select>
           </div>
           <div class="field-item">
-            <label for="kmhelp-actionparam">Action parameter</label>
-            <input id="kmhelp-actionparam" type="text" v-model="settings.kmhelp.actionparam" />
+            <label for="kmhelp-actionparam" v-if="settings.kmhelp.action!=='createNewWork'">Action parameter</label>
+            <input id="kmhelp-actionparam" type="text" v-model="settings.kmhelp.actionparam" v-if="settings.kmhelp.action!=='createNewWork'"/>
           </div>
           <div class="field-item">
             <label for="kmhelp-url">URL</label>

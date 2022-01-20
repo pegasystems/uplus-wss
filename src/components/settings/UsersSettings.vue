@@ -6,12 +6,12 @@
       <Container :title="'User ' + (index+1)" :expanded="index===0">
         <div class="layout-labels-left">
           <div class="field-item">
-            <label class="width-auto" :for="'user-' + index + '-load_by_default'">Loaded by default</label>
             <input
               type="checkbox"
               :id="'user-' + index + '-load_by_default'"
               v-model="item.load_by_default"
             />
+            <label class="width-auto" :for="'user-' + index + '-load_by_default'">Loaded by default</label>
           </div>
         </div>
         <div class="layout-inline-grid-double layout-labels-top">

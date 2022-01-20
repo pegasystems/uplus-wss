@@ -17,8 +17,8 @@
             </select>
           </div>
           <div class="field-item">
-            <label for="hero-action-actionparam">Action parameter</label>
-            <input
+            <label for="hero-action-actionparam" v-if="settings.homeheroaction.action!=='createNewWork'">Action parameter</label>
+            <input v-if="settings.homeheroaction.action!=='createNewWork'"
               id="hero-action-actionparam"
               type="text"
               v-model="settings.homeheroaction.actionparam"

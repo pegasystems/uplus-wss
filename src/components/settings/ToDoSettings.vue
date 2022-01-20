@@ -33,8 +33,8 @@
             </select>
           </div>
           <div class="field-item">
-            <label for="todo-actionparam">Action parameter</label>
-            <input id="todo-actionparam" type="text" v-model="settings.todo.actionparam" />
+            <label for="todo-actionparam" v-if="settings.todo.action!=='createNewWork'">Action parameter</label>
+            <input id="todo-actionparam" type="text" v-model="settings.todo.actionparam" v-if="settings.todo.action!=='createNewWork'"/>
           </div>
           <div class="field-item">
             <label for="todo-url">URL</label>

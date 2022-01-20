@@ -17,11 +17,11 @@
             </select>
           </div>
           <div class="field-item">
-            <label for="offer-action-actionparam">Action parameter</label>
+            <label for="offer-action-actionparam" v-if="settings.offeraction.action!=='createNewWork'">Action parameter</label>
             <input
               id="offer-action-actionparam"
               type="text"
-              v-model="settings.offeraction.actionparam"
+              v-model="settings.offeraction.actionparam" v-if="settings.offeraction.action!=='createNewWork'"
             />
           </div>
           <div class="field-item">

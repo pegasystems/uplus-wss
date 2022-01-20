@@ -41,8 +41,8 @@
             </select>
           </div>
           <div class="field-item">
-            <label :for="'quicklinks-' + index + '-actionparam'">Action parameter</label>
-            <input
+            <label :for="'quicklinks-' + index + '-actionparam'" v-if="item.action!=='createNewWork'">Action parameter</label>
+            <input v-if="item.action!=='createNewWork'"
               :id="'quicklinks-' + index + '-actionparam'"
               type="text"
               v-model="item.actionparam"
