@@ -16,6 +16,39 @@
 import { mainconfig } from '../global';
 import { sendClickStreamEvent } from '../CDHIntegration';
 
+const setObjectFromRef = (content, path, value) => {
+  if (typeof path !== 'string') {
+    return;
+  }
+  const keys = path.split('.');
+  let retObj = content;
+  for (const i in keys) {
+    let el = keys[i];
+    const startParens = el.indexOf('(');
+    if (startParens === -1) {
+      // regular property - just add it to retObj
+      if (i < keys.length - 1) {
+        if (typeof retObj[el] === 'undefined') {
+          retObj[el] = {};
+        }
+      } else {
+        retObj[el] = value;
+      }
+      retObj = retObj[el];
+    } else {
+      const idx = el.substring(startParens + 1, el.length - 1);
+      el = el.substring(0, startParens);
+      if (typeof retObj[el] === 'undefined') {
+        retObj[el] = [];
+      }
+      for (let j = retObj[el].length; j < idx; j++) {
+        retObj[el].push({});
+      }
+      retObj = retObj[el][idx - 1];
+    }
+  }
+};
+
 export default {
   data() {
     return {
@@ -130,10 +163,11 @@ export default {
     if (this.settings.general.theming.override) {
       this.theme = `{"base":{"palette":{"brand-primary":"${this.settings.general.theming.brandColor}","interactive":"${this.settings.general.theming.interactiveColor}","app-background": "#FFFFFF"}}}`;
     }
+    this.extraParamContent = {};
     this.extraParam.split(',').forEach((item) => {
       const values = item.split('=');
       if (values.length === 2) {
-        this.startingFields[values[0].trim()] = values[1].trim();
+        setObjectFromRef(this.extraParamContent, values[0].trim(), values[1].trim());
       }
     });
     if (
@@ -144,17 +178,14 @@ export default {
       this.settings.users[this.userId].extraparam.split(',').forEach((item) => {
         const values = item.split('=');
         if (values.length === 2) {
-          this.startingFields[values[0].trim()] = values[1].trim();
+          setObjectFromRef(this.extraParamContent, values[0].trim(), values[1].trim());
         }
       });
     }
-    this.startingFields = JSON.stringify(this.startingFields);
+    this.startingFields = JSON.stringify(this.extraParamContent);
     this.staticContentUrl = this.settings.general.connection.c11nserver;
     this.clientId = this.settings.general.connection.clientid;
-    /*
-    sessionStorage.removeItem(`peCI_${this.clientId}`);
-    sessionStorage.removeItem(`peTI_${this.clientId}`);
-*/
+
     this.isWebEmbedInitialized = 'true';
   },
   methods: {
