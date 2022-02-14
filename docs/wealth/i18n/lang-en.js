@@ -324,7 +324,7 @@ window.langEN = {
   category_cards_data1_applylabel: 'Apply now',
   category_cards_data1_detailslabel: 'View Details',
   category_cards_data2_title: 'Cash Rewards Card',
-  category_cards_data2_msg: 'Get 4% cash back on dinning, 3% on gas, and 2% on other purchases.',
+  category_cards_data2_msg: 'Get 4% cash back on dining, 3% on gas, and 2% on other purchases.',
   category_cards_data2_applylabel: 'Apply now',
   category_cards_data2_detailslabel: 'View Details',
   category_cards_data3_title: 'Traveler Card',

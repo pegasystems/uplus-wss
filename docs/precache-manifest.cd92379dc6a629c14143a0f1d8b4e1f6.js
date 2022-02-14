@@ -420,7 +420,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./retail_bank/form-embed.html"
   },
   {
-    "revision": ".7efba2f9692ba36e0009ce406b70b3",
+    "revision": ".18e2e684cd735128895152f8d75497",
     "url": "./retail_bank/i18n/lang-en.js"
   },
   {
@@ -452,7 +452,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./wealth/form-embed.html"
   },
   {
-    "revision": ".321c9d2cf3cad83b34bd2c21af52ad",
+    "revision": ".99e4bd69e7f66903604176972e7ce2",
     "url": "./wealth/i18n/lang-en.js"
   },
   {
