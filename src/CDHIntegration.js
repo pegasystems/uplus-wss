@@ -153,6 +153,9 @@ const initNBAM = function initNBAM(
       Context.settings.pega_marketing[type].containerName
     ) {
       containerName = Context.settings.pega_marketing[type].containerName;
+    } else if (type.indexOf('extraOfferPages') === 0 && typeof Context.settings.pega_marketing.extraOfferPages !== 'undefined') {
+      const offerIndex = parseInt(type.replace('extraOfferPages', ''), 10) - 1;
+      containerName = Context.settings.pega_marketing.extraOfferPages[offerIndex].containerName;
     }
     let placement = 'Tile';
     if (

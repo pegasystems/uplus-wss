@@ -253,6 +253,37 @@
         </div>
       </div>
     </Container>
+    <Container :title="'Offer ' + (index+1)" v-for="(item,index) in settings.pega_marketing.extraOfferPages" v-bind:key="index">
+    <div class="layout-labels-top layout-inline-grid-double">
+      <div class="field-item">
+        <label :for="'NBAM-OfferPage-' + index + '-ContainerName'">Container name</label>
+        <input
+          :id="'NBAM-OfferPage-' + index + '-ContainerName'"
+          type="text"
+          v-model="item.containerName"
+        />
+      </div>
+      <div class="field-item">
+        <label :for="'NBAM-OfferPage-' + index + '-Placement'">Placement (Hero or Tile)</label>
+        <input
+          :id="'NBAM-OfferPage-' + index + '-Placement'"
+          type="text"
+          v-model="item.placement"
+        />
+      </div>
+      <div class="field-item">
+        <label :for="'NBAM-OfferPage-' + index + '-ClickAction'">Click action</label>
+        <select
+          :id="'NBAM-OfferPage-' + index + '-ClickAction'"
+          v-model="item.clickaction"
+        >
+          <option>Mashup</option>
+          <option>Popup</option>
+          <option>TopURL</option>
+        </select>
+      </div>
+    </div>
+  </Container>
   </div>
 </template>
 

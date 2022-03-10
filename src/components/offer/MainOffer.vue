@@ -85,6 +85,7 @@
 </template>
 
 <script>
+/* eslint-disable no-underscore-dangle */
 import { mainconfig } from '../../global';
 import { initNBAM, captureResponse } from '../../CDHIntegration';
 
@@ -97,31 +98,22 @@ export default {
       loading: true,
       data: [],
       hero_offer: { url: '' },
+      currentOffer: -1,
     };
   },
   mounted() {
-    if (
-      this.settings.pega_marketing.Host !== '' &&
-      this.settings.pega_marketing.offerPage.placement !== '' &&
-      this.settings.pega_marketing.offerPage.containerName !== ''
+    if (this.currentOffer === -1 || this.currentOffer !== this._props.offerType
     ) {
-      const self = this;
-      let customerID = '';
-      if (this.userId !== -1 && this.settings.users[this.userId].customerID) {
-        customerID = this.settings.users[this.userId].customerID;
-      }
-      setTimeout(() => {
-        initNBAM(
-          self,
-          `offerPage${this.offerIndex > 0 ? this.offerIndex : ''}`,
-          customerID,
-          this.previousPage,
-          this.currentPage,
-        );
-      }, 200);
+      this.currentOffer = this._props.offerType;
+      this.loadOffer();
     }
   },
   updated() {
+    if (this.currentOffer === -1 || this.currentOffer !== this._props.offerType
+    ) {
+      this.currentOffer = this._props.offerType;
+      this.loadOffer();
+    }
     if (window.IntersectionObserver && mainconfig.settings.pega_marketing.useCaptureByChannel === true) {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
@@ -136,6 +128,33 @@ export default {
     }
   },
   methods: {
+    loadOffer() {
+      if (
+        this.settings.pega_marketing.Host !== '' &&
+      this.settings.pega_marketing.offerPage.placement !== '' &&
+      this.settings.pega_marketing.offerPage.containerName !== ''
+      ) {
+        this.data = [];
+        this.hero_offer = { url: '' };
+        const self = this;
+        let customerID = '';
+        if (this.userId !== -1 && this.settings.users[this.userId].customerID) {
+          customerID = this.settings.users[this.userId].customerID;
+        }
+        setTimeout(() => {
+          self.loading = true;
+          self.errorloading = false;
+          initNBAM(
+            self,
+            `${this._props.offerType > 0 ? `extraOfferPages${this._props.offerType}`
+              : 'offerPage'}`,
+            customerID,
+            mainconfig.previousPage,
+            mainconfig.currentPage,
+          );
+        }, 200);
+      }
+    },
     showOffer(item) {
       if (mainconfig.isMobilePhone) {
         mainconfig.phonePageName = 'offer';

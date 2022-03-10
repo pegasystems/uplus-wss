@@ -370,6 +370,30 @@ const upgradeConfig = function upgradeConfig(cfg) {
       brandColor: '#3C8712',
     };
   }
+  if (typeof cfg.settings.pega_marketing.extraOfferPages === 'undefined') {
+    cfg.settings.pega_marketing.extraOfferPages = [
+      {
+        containerName: 'TopOffers',
+        placement: 'Hero,Tile,Tile,Tile',
+        clickaction: 'Mashup',
+      },
+      {
+        containerName: 'TopOffers',
+        placement: 'Hero,Tile,Tile,Tile',
+        clickaction: 'Mashup',
+      },
+      {
+        containerName: 'TopOffers',
+        placement: 'Hero,Tile,Tile,Tile',
+        clickaction: 'Mashup',
+      },
+      {
+        containerName: 'TopOffers',
+        placement: 'Hero,Tile,Tile,Tile',
+        clickaction: 'Mashup',
+      },
+    ];
+  }
   return cfg;
 };
 

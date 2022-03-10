@@ -15,6 +15,7 @@ export default {
   },
   methods: {
     gotoPage(event) {
+      mainconfig.previousPage = mainconfig.currentPage;
       mainconfig.currentPage = this.href;
       if (this.$gtag) {
         this.$gtag.pageview({
@@ -28,7 +29,6 @@ export default {
       window.loadPage = new Date();
       const stateObj = mainconfig.isAuthenticated ? { userId: mainconfig.userId } : {};
       window.history.pushState(stateObj, '', mainconfig.currentPage);
-      // document.title = `${mainconfig.mainTitle}-${i18n.t(`message.${this.title}`)}`;
       window.scrollTo({ top: 0, behavior: 'smooth' });
       event.preventDefault();
     },
