@@ -60,12 +60,12 @@
           ></div>
           <span class="highlight border-brand">
             <a
-              v-if="settings.pega_marketing.offerPage.clickaction === 'TopURL' && item.url!=''"
+              v-if="action === 'TopURL' && item.url!=''"
               :href="item.url"
               :title="$t('message.' + item.link)"
             >{{ $t("message." + item.link)}}</a>
             <a
-              v-else-if="settings.pega_marketing.offerPage.clickaction === 'Popup' && item.url!=''"
+              v-else-if="action === 'Popup' && item.url!=''"
               :href="item.url"
               target="_blank"
               :title="$t('message.' + item.link)"
@@ -96,6 +96,7 @@ export default {
       ...mainconfig,
       errorloading: false,
       loading: true,
+      action: '',
       data: [],
       hero_offer: { url: '' },
       currentOffer: -1,
@@ -130,12 +131,11 @@ export default {
   methods: {
     loadOffer() {
       if (
-        this.settings.pega_marketing.Host !== '' &&
-      this.settings.pega_marketing.offerPage.placement !== '' &&
-      this.settings.pega_marketing.offerPage.containerName !== ''
-      ) {
+        this.settings.pega_marketing.Host !== '') {
         this.data = [];
-        this.hero_offer = { url: '' };
+        this.hero_offer = { url: '', link: 'Apply Now' };
+        this.action = this._props.offerType > 0 ? this.settings.pega_marketing.extraOfferPages[this._props.offerType - 1].clickaction
+          : this.settings.pega_marketing.offerPage.clickaction;
         const self = this;
         let customerID = '';
         if (this.userId !== -1 && this.settings.users[this.userId].customerID) {

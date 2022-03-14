@@ -163,6 +163,9 @@ const initNBAM = function initNBAM(
       Context.settings.pega_marketing[type].placement
     ) {
       placement = Context.settings.pega_marketing[type].placement;
+    } else if (type.indexOf('extraOfferPages') === 0 && typeof Context.settings.pega_marketing.extraOfferPages !== 'undefined') {
+      const offerIndex = parseInt(type.replace('extraOfferPages', ''), 10) - 1;
+      placement = Context.settings.pega_marketing.extraOfferPages[offerIndex].placement;
     }
     const intent = Context.intent.trim();
     try {
