@@ -99,7 +99,7 @@ export default {
         }
       }
     },
-    goHomePage() {
+    goHomePage(skipClickStream) {
       mainconfig.quickLinkId = -1;
       mainconfig.viewBill = -1;
       mainconfig.viewBanner = -1;
@@ -127,11 +127,20 @@ export default {
         }
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
-      sendClickStreamEvent(mainconfig, 'PageView', 'Home', window.loadPage);
       window.loadPage = new Date();
+      if (skipClickStream && skipClickStream === true) return;
+      sendClickStreamEvent(mainconfig, 'PageView', 'Home', window.loadPage);
     },
     showKMHelp() {
-      this.goHomePage();
+      this.goHomePage(true);
+      mainconfig.previousPage = mainconfig.currentPage;
+      mainconfig.currentPage = 'help.html';
+      sendClickStreamEvent(mainconfig, 'PageView', 'Help', window.loadPage);
+      if (this.$gtag) {
+        this.$gtag.pageview({
+          page_path: mainconfig.currentPage,
+        });
+      }
       mainconfig.viewKMHelp = 1;
       mainconfig.logoutURL.kmhelp = `${mainconfig.settings.kmhelp.url}?pyActivity=LogOff`;
       mainconfig.reloadMashup += 1;

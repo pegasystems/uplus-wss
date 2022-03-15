@@ -4,6 +4,7 @@
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
 import generateJWTKey from './JWTToken';
+import { sendClickStreamEvent } from './CDHIntegration';
 
 function setCookie(cname, cvalue, exdays) {
   const d = new Date();
@@ -795,6 +796,8 @@ if (typeof settings === 'undefined') {
       window.PegaCSWSS.DMMSessionID = sessionId;
       // eslint-disable-next-line no-console
       console.log(`PegaUnifiedChatWidget onSessionInitialized=${sessionId}`);
+      sendClickStreamEvent(mainconfigTmp, 'PageView', 'Chat', window.loadPage);
+
       if (mainconfigTmp.settings.pega_chat.DMMSecret !== '' && mainconfigTmp.userId !== -1) {
         const privateData = {
           authenticated: mainconfigTmp.userId !== -1,

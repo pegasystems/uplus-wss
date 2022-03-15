@@ -8,7 +8,7 @@
     </a>
     <a
       class="kmhelp"
-      v-if="isAuthenticated && settings.kmhelp.url !== ''"
+      v-if="(isAuthenticated ||  settings.kmhelp.username !== '') && settings.kmhelp.url !== ''"
       v-on:click="showKMHelp"
     >{{ $t('message.kmhelp') }}</a>
     <OperatorButton v-if="isAuthenticated" />
@@ -20,6 +20,7 @@
 import { mainconfig } from '../../global';
 import OperatorButton from '../widgets/OperatorButton.vue';
 import LoginButton from '../widgets/LoginButton.vue';
+import { sendClickStreamEvent } from '../../CDHIntegration';
 
 export default {
   data() {
@@ -111,6 +112,15 @@ export default {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     },
     showKMHelp() {
+      mainconfig.previousPage = mainconfig.currentPage;
+      mainconfig.currentPage = 'help.html';
+      sendClickStreamEvent(mainconfig, 'PageView', 'Help', window.loadPage);
+      window.loadPage = new Date();
+      if (this.$gtag) {
+        this.$gtag.pageview({
+          page_path: mainconfig.currentPage,
+        });
+      }
       mainconfig.viewKMHelp = 1;
       mainconfig.logoutURL.kmhelp = `${mainconfig.settings.kmhelp.url}?pyActivity=LogOff`;
       mainconfig.reloadMashup += 1;
