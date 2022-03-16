@@ -232,7 +232,7 @@ const sendRTSEvent = function sendRTSEvent(Context, item) {
     );
     let custID = item.customerID;
     /* Read the cookie MKTID if present and send it as Customer ID instead */
-    if (custID === '' && document.cookie.split('MKTID=') > 1) {
+    if (custID === '' && document.cookie.split('MKTID=').length > 1) {
       custID = document.cookie.split('MKTID=')[1].split(';')[0];
     }
     nbamServiceCtrl.sendRTSEvent(custID, item, null);
@@ -263,7 +263,7 @@ const sendClickStreamEvent = function sendClickStreamEvent(Context, eventtype, p
     if (Context.userId !== -1 && Context.settings.users[Context.userId].customerID) {
       customerid = Context.settings.users[Context.userId].customerID;
     }
-    if (customerid === '' && document.cookie.split('MKTID=') > 1) {
+    if (customerid === '' && document.cookie.split('MKTID=').length > 1) {
       cookieID = document.cookie.split('MKTID=')[1].split(';')[0];
     }
     /* If there is no cookie or customerID, just skip sending the event */
