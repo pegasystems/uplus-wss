@@ -9,7 +9,12 @@ const setAuth = function setAuth(username, password) {
   return auth;
 };
 
-const validateOTP = async function validateOTP(settings, referenceid, otp, auth) {
+const validateOTP = async function validateOTP(
+  settings,
+  referenceid,
+  otp,
+  auth,
+) {
   if (otp === 'skip') return true;
   const headers = {
     'Content-Type': 'application/json;charset=UTF-8',
@@ -86,8 +91,4 @@ const requestOTP = async function requestOTP(settings, auth, sendTo) {
   return result;
 };
 
-export {
-  setAuth,
-  validateOTP,
-  requestOTP,
-};
+export { setAuth, validateOTP, requestOTP };

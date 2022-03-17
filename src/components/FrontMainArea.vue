@@ -1,8 +1,13 @@
 <template>
   <div
     class="flex flex-col"
-    v-if="settings.pega_marketing.Host === '' || settings.pega_marketing.homePage.placement === '' ||
-      settings.pega_marketing.homePage.containerName === '' || (loading && !settings.pega_marketing.showLoadingIndicator) || errorloading"
+    v-if="
+      settings.pega_marketing.Host === '' ||
+      settings.pega_marketing.homePage.placement === '' ||
+      settings.pega_marketing.homePage.containerName === '' ||
+      (loading && !settings.pega_marketing.showLoadingIndicator) ||
+      errorloading
+    "
   >
     <div class="wrap hero-wrap flex">
       <div class="flex flex-col">
@@ -15,7 +20,7 @@
         </button>
       </div>
     </div>
-    <div class="wrap options primary-options" >
+    <div class="wrap options primary-options">
       <section
         v-for="(item, index) in app.primarydetails"
         :key="index"
@@ -40,23 +45,26 @@
   </div>
   <div
     class="flex flex-col"
-    v-else-if="settings.pega_marketing.Host!== '' && loading && settings.pega_marketing.showLoadingIndicator"
+    v-else-if="
+      settings.pega_marketing.Host !== '' &&
+      loading &&
+      settings.pega_marketing.showLoadingIndicator
+    "
   >
     <div class="wrap hero-wrap flex">
-      <div class="flex flex-col">
-      </div>
+      <div class="flex flex-col"></div>
     </div>
-    <div class="wrap options primary-options" style="min-height: 400px;">
+    <div class="wrap options primary-options" style="min-height: 400px">
       <section
         v-for="(item, index) in app.primarydetails"
         :key="index"
         class="front-option loading-container"
       >
         <span class="loading">
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-    </span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </span>
       </section>
     </div>
   </div>
@@ -68,7 +76,7 @@
       <button
         v-if="
           settings.pega_marketing.showAIOverlay &&
-            (hero_offer.url !== '' || hero_offer.img !== '')
+          (hero_offer.url !== '' || hero_offer.img !== '')
         "
         class="pi pi-polaris-solid ai-toggle"
         v-on:click="toggleAIOverlay(hero_offer)"
@@ -86,7 +94,7 @@
           <a
             v-if="
               settings.pega_marketing.homePage.clickaction === 'TopURL' &&
-                hero_offer.url !== ''
+              hero_offer.url !== ''
             "
             :href="hero_offer.url"
             >{{ hero_offer.link }}</a
@@ -94,7 +102,7 @@
           <a
             v-else-if="
               settings.pega_marketing.homePage.clickaction === 'Popup' &&
-                hero_offer.url !== ''
+              hero_offer.url !== ''
             "
             :href="hero_offer.url"
             target="_blank"
@@ -138,7 +146,7 @@
             <a
               v-if="
                 settings.pega_marketing.homePage.clickaction === 'TopURL' &&
-                  item.url != ''
+                item.url != ''
               "
               :href="item.url"
               >{{ $t('message.' + item.link) }}</a
@@ -146,7 +154,7 @@
             <a
               v-else-if="
                 settings.pega_marketing.homePage.clickaction === 'Popup' &&
-                  item.url != ''
+                item.url != ''
               "
               :href="item.url"
               target="_blank"
@@ -170,7 +178,10 @@
 <script>
 import { mainconfig } from '../global';
 import {
-  initNBAM, sendRTSEvent, captureResponse, sendClickStreamEvent,
+  initNBAM,
+  sendRTSEvent,
+  captureResponse,
+  sendClickStreamEvent,
 } from '../CDHIntegration';
 import AIOverlay from './controls/AIOverlay.vue';
 
@@ -213,17 +224,25 @@ export default {
     }
   },
   updated() {
-    if (window.IntersectionObserver && mainconfig.settings.pega_marketing.useCaptureByChannel === true) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const idx = entry.target.getAttribute('data-offer-index');
-            captureResponse(this, this.data[idx], 'Impression');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 1 });
-      document.querySelectorAll('.offer-card').forEach((offer) => { observer.observe(offer); });
+    if (
+      window.IntersectionObserver &&
+      mainconfig.settings.pega_marketing.useCaptureByChannel === true
+    ) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const idx = entry.target.getAttribute('data-offer-index');
+              captureResponse(this, this.data[idx], 'Impression');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 1 },
+      );
+      document.querySelectorAll('.offer-card').forEach((offer) => {
+        observer.observe(offer);
+      });
     }
   },
   methods: {
@@ -270,7 +289,12 @@ export default {
         mainconfig.offerURL = this.hero_offer.url;
         mainconfig.previousPage = this.hero_offer.name;
       }
-      sendClickStreamEvent(mainconfig, 'PegaView', 'HeroOffer', window.loadPage);
+      sendClickStreamEvent(
+        mainconfig,
+        'PegaView',
+        'HeroOffer',
+        window.loadPage,
+      );
       window.loadPage = new Date();
     },
     toggleAIOverlay(item) {
@@ -285,7 +309,9 @@ export default {
       }
       sendClickStreamEvent(mainconfig, 'PegaView', 'Offer', window.loadPage);
       window.loadPage = new Date();
-      const stateObj = mainconfig.isAuthenticated ? { userId: mainconfig.userId } : {};
+      const stateObj = mainconfig.isAuthenticated
+        ? { userId: mainconfig.userId }
+        : {};
       window.history.pushState(stateObj, '', 'offer.html');
       mainconfig.offerIndex = 0;
       window.scrollTo({ top: 0, behavior: 'smooth' });

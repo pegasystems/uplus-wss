@@ -20,7 +20,7 @@
         <a
           v-else-if="
             settings.pega_marketing.accountPage.clickaction === 'TopURL' &&
-              offer.url != ''
+            offer.url != ''
           "
           :href="offer.url"
           >{{ $t('message.' + offer.link) }}</a
@@ -28,17 +28,15 @@
         <a
           v-else-if="
             settings.pega_marketing.accountPage.clickaction === 'Popup' &&
-              offer.url != ''
+            offer.url != ''
           "
           :href="offer.url"
           target="_blank"
           >{{ $t('message.' + offer.link) }}</a
         >
-        <button
-          v-else
-          class="simple"
-          v-on:click="showOffer(offer)"
-        >{{ $t('message.' + offer.link) }}</button>
+        <button v-else class="simple" v-on:click="showOffer(offer)">
+          {{ $t('message.' + offer.link) }}
+        </button>
         <AIOverlay
           v-if="settings.pega_marketing.showAIOverlay"
           :offer="offer"
@@ -79,7 +77,9 @@ export default {
       sendClickStreamEvent(mainconfig, 'PageView', 'Offer', window.loadPage);
       window.loadPage = new Date();
       mainconfig.currentPage = 'offer.html';
-      const stateObj = mainconfig.isAuthenticated ? { userId: mainconfig.userId } : {};
+      const stateObj = mainconfig.isAuthenticated
+        ? { userId: mainconfig.userId }
+        : {};
       window.history.pushState(stateObj, '', 'offer.html');
       if (this.$gtag) {
         this.$gtag.pageview({

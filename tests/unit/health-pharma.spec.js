@@ -1,50 +1,64 @@
-import { mount } from '@vue/test-utils';
-import '../../public/health_pharma/js/config-settings';
-import '../../public/health_pharma/js/config-flow';
-import '../../public/health_pharma/i18n/lang-en';
-import { mainconfig } from '@/global';
-import App from '@/DefaultPage.vue';
+import { mount } from "@vue/test-utils";
+import "@/../public/health_pharma/js/config-settings";
+import "@/../public/health_pharma/js/config-flow";
+import "@/../public/health_pharma/i18n/lang-en";
+import DefaultPage from "@/views/DefaultPage.vue";
 
-describe('Health Payer App on Desktop', () => {
-  it('renders home page on load', () => {
-    const wrapper = mount(App, {
-      mocks: {
-        $t: (msg) => msg,
-        $n: (msg) => msg,
-        $d: (msg) => msg,
+describe("Health Pharma App on Desktop", () => {
+  it("renders home page on load", () => {
+    const wrapper = mount(DefaultPage, {
+      global: {
+        mocks: {
+          $t: (msg) => msg,
+          $n: (msg) => msg,
+          $d: (msg) => msg,
+        },
+        directives: {
+          clickoutside: () => {}, // Bar matches v-bar
+        },
       },
     });
-    expect(wrapper.find('h1').text()).toContain('message.hero_text');
+    expect(wrapper.find("h1").text()).toContain("message.hero_text");
   });
 
-  it('renders account page when authenticated', () => {
-    mainconfig.isAuthenticated = true;
-    mainconfig.userId = 0;
-    const wrapper = mount(App, {
-      mocks: {
-        $t: (msg) => msg,
-        $n: (msg) => msg,
-        $d: (msg) => msg,
+  it("renders account page when authenticated", () => {
+    window.mainconfig.isAuthenticated = true;
+    window.mainconfig.userId = 0;
+    const wrapper = mount(DefaultPage, {
+      global: {
+        mocks: {
+          $t: (msg) => msg,
+          $n: (msg) => msg,
+          $d: (msg) => msg,
+        },
+        directives: {
+          clickoutside: () => {}, // Bar matches v-bar
+        },
       },
     });
-    expect(wrapper.find('h1').text()).toContain('message.accountoverview');
+    expect(wrapper.find("h1").text()).toContain("message.accountoverview");
   });
 });
 
-describe('Health Payer App on Mobile', () => {
-  it('renders home page on load', () => {
-    mainconfig.isMobilePhone = true;
-    mainconfig.isAuthenticated = false;
-    mainconfig.userId = -1;
-    const wrapper = mount(App, {
-      mocks: {
-        $t: (msg) => msg,
-        $n: (msg) => msg,
-        $d: (msg) => msg,
+describe("Health Pharma App on Mobile", () => {
+  it("renders home page on load", () => {
+    window.mainconfig.isMobilePhone = true;
+    window.mainconfig.isAuthenticated = false;
+    window.mainconfig.userId = -1;
+    const wrapper = mount(DefaultPage, {
+      global: {
+        mocks: {
+          $t: (msg) => msg,
+          $n: (msg) => msg,
+          $d: (msg) => msg,
+        },
+        directives: {
+          clickoutside: () => {}, // Bar matches v-bar
+        },
       },
     });
-    expect(wrapper.find('h1').text()).toContain(
-      'message.phone_home_page_title',
+    expect(wrapper.find("h1").text()).toContain(
+      "message.phone_home_page_title"
     );
   });
 });

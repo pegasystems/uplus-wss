@@ -1,13 +1,20 @@
 <template>
   <main class="flex flex-col">
     <TopNav previousPhonePage>
-      <button v-if="!isOTP"  v-on:click="signIn" class="sign-in">{{$t('message.signin')}}</button>
+      <button v-if="!isOTP" v-on:click="signIn" class="sign-in">
+        {{ $t('message.signin') }}
+      </button>
     </TopNav>
     <div class="layout-stacked primary-card">
-      <h1 class="small">{{ $t('message.phone_login_title')}}</h1>
+      <h1 class="small">{{ $t('message.phone_login_title') }}</h1>
       <div v-if="!isOTP" class="field-item">
-        <input id="username" type="text" v-model="username" :placeholder="$t('message.username')" />
-        <label for="username">{{$t('message.username')}}</label>
+        <input
+          id="username"
+          type="text"
+          v-model="username"
+          :placeholder="$t('message.username')"
+        />
+        <label for="username">{{ $t('message.username') }}</label>
       </div>
       <div v-if="!isOTP" class="field-item">
         <input
@@ -16,23 +23,31 @@
           v-model="password"
           :placeholder="$t('message.password')"
         />
-        <label for="password">{{$t('message.password')}}</label>
+        <label for="password">{{ $t('message.password') }}</label>
       </div>
       <div v-if="isOTP" class="flex flex-col">
-        <label for="otp">{{$t('message.otp')}}</label>
-        <input id="otp" type="text" name="otp" v-model="otp">
+        <label for="otp">{{ $t('message.otp') }}</label>
+        <input id="otp" type="text" name="otp" v-model="otp" />
       </div>
       <div v-if="isOTP" class="flex flex-col padding-t-2x">
-         <button  v-on:click="signInOtp" class="centered sign-in">{{$t('message.signin')}}</button>
+        <button v-on:click="signInOtp" class="centered sign-in">
+          {{ $t('message.signin') }}
+        </button>
       </div>
-      <span v-if="hasErrorMsg" class="error" >{{$t('message.invalidLogin')}}</span>
-      <span v-if="isOTPInvalid" class="error">{{$t('message.invalidOTP')}}</span>
-      <span v-if="OTPRequestFailed" class="error">{{$t('message.requestOTPFailed')}}</span>
+      <span v-if="hasErrorMsg" class="error">{{
+        $t('message.invalidLogin')
+      }}</span>
+      <span v-if="isOTPInvalid" class="error">{{
+        $t('message.invalidOTP')
+      }}</span>
+      <span v-if="OTPRequestFailed" class="error">{{
+        $t('message.requestOTPFailed')
+      }}</span>
     </div>
     <div class="bottom-banner">
       <a>
         <i class="pi pi-phone-out" />
-        {{ $t("message.phone_login_speak_agent")}}
+        {{ $t('message.phone_login_speak_agent') }}
       </a>
     </div>
   </main>
@@ -125,21 +140,34 @@ export default {
 
     async sendOTPRequest(sendTo) {
       /* Validate the password and OTP */
-      const auth = setAuth(this.settings.users[this.userID].pega_userid, this.settings.users[this.userID].pega_pwd);
-      await requestOTP(this.settings.general.auth_2fa, auth, sendTo).then((result) => {
-        if (result.isSuccess) {
-          this.isOTP = true;
-          this.otpRefId = result.referenceID;
-          this.OTPRequestFailed = false;
-        } else {
-          this.OTPRequestFailed = true;
-        }
-      });
+      const auth = setAuth(
+        this.settings.users[this.userID].pega_userid,
+        this.settings.users[this.userID].pega_pwd,
+      );
+      await requestOTP(this.settings.general.auth_2fa, auth, sendTo).then(
+        (result) => {
+          if (result.isSuccess) {
+            this.isOTP = true;
+            this.otpRefId = result.referenceID;
+            this.OTPRequestFailed = false;
+          } else {
+            this.OTPRequestFailed = true;
+          }
+        },
+      );
     },
 
     async signInOtp() {
-      const auth = setAuth(this.settings.users[this.userID].pega_userid, this.settings.users[this.userID].pega_pwd);
-      await validateOTP(this.settings.general.auth_2fa, this.otpRefId, this.otp, auth).then((result) => {
+      const auth = setAuth(
+        this.settings.users[this.userID].pega_userid,
+        this.settings.users[this.userID].pega_pwd,
+      );
+      await validateOTP(
+        this.settings.general.auth_2fa,
+        this.otpRefId,
+        this.otp,
+        auth,
+      ).then((result) => {
         if (result) {
           this.confirmLogin();
         } else {

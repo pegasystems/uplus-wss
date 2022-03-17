@@ -7,16 +7,14 @@
           <a v-if="!isMobilePhone">{{ $t('message.reviews') }}</a>
           <a v-if="!isMobilePhone">{{ $t('message.privacy') }}</a>
           <a v-on:click="gotoSettingsPage" href="./settings.html">
-            {{
-            $t('message.settings')
-            }}
+            {{ $t('message.settings') }}
           </a>
         </div>
       </nav>
       <LangSwitch v-if="settings.i18n.showLangSwitch" />
-      <p
-        class="flex-align-r copyright"
-      >{{ "© " + new Date().getFullYear() + " " + $t('message.copyright') }}</p>
+      <p class="flex-align-r copyright">
+        {{ '© ' + new Date().getFullYear() + ' ' + $t('message.copyright') }}
+      </p>
     </div>
   </footer>
 </template>

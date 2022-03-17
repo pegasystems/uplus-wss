@@ -1,16 +1,23 @@
 <template>
   <div class="flex flex-col offer-details">
-    <div class="flex flex-nowrap" v-for="(item,index) in app.offer[offerIndex].details" v-bind:key="index">
+    <div
+      class="flex flex-nowrap"
+      v-for="(item, index) in app.offer[offerIndex].details"
+      v-bind:key="index"
+    >
       <div class="details">
         <div
           class="image"
-          v-bind:style="{ backgroundImage: 'url(./img/' + item.image + ')', 'order': '' + (index%2) }"
+          v-bind:style="{
+            backgroundImage: 'url(./img/' + item.image + ')',
+            order: '' + (index % 2),
+          }"
         ></div>
       </div>
       <div class="details">
-        <h2>{{ $t('message.' + item.title)}}</h2>
+        <h2>{{ $t('message.' + item.title) }}</h2>
         <span class="background-brand line"></span>
-        <span>{{ $t('message.' + item.message)}}</span>
+        <span>{{ $t('message.' + item.message) }}</span>
       </div>
     </div>
   </div>

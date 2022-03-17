@@ -1,11 +1,13 @@
 <template>
   <form id="settings" @submit="processForm">
     <TopNav v-if="isMobilePhone" previousPhonePage="index.html">
-      <button v-on:click="clearAll" class="simple margin-r-2x">Reset to default</button>
+      <button v-on:click="clearAll" class="simple margin-r-2x">
+        Reset to default
+      </button>
       <button type="submit">Save</button>
     </TopNav>
-    <Navigation @clearall="clearAll">
-      <tab name="Getting Started" :selected="true">
+    <Navigation v-model="active">
+      <tab name="Getting Started">
         <GettingStarted />
       </tab>
       <tab v-if="typeof settings.general != 'undefined'" name="General">
@@ -20,25 +22,40 @@
       <tab v-if="typeof settings.todo != 'undefined'" name="To Do component">
         <ToDoSettings />
       </tab>
-      <tab v-if="typeof settings.billpay != 'undefined'" name="Bill Pay component">
+      <tab
+        v-if="typeof settings.billpay != 'undefined'"
+        name="Bill Pay component"
+      >
         <BillPaySettings />
       </tab>
       <tab v-if="typeof settings.banner != 'undefined'" name="Banner component">
         <BannerSettings />
       </tab>
-      <tab v-if="typeof settings.pega_chat != 'undefined'" name="Messaging and Co-Browse">
+      <tab
+        v-if="typeof settings.pega_chat != 'undefined'"
+        name="Messaging and Co-Browse"
+      >
         <ChatSettings />
       </tab>
-      <tab v-if="typeof settings.pega_marketing != 'undefined'" name="Customer Decision Hub">
+      <tab
+        v-if="typeof settings.pega_marketing != 'undefined'"
+        name="Customer Decision Hub"
+      >
         <NBAMSettings />
       </tab>
-      <tab v-if="typeof settings.kmhelp != 'undefined'" name="Knowledge Management">
+      <tab
+        v-if="typeof settings.kmhelp != 'undefined'"
+        name="Knowledge Management"
+      >
         <KMHelpSettings />
       </tab>
       <tab name="Home Hero Action">
         <HomeHeroActionSettings />
       </tab>
-      <tab v-if="typeof settings.offeraction != 'undefined'" name="Offer Action">
+      <tab
+        v-if="typeof settings.offeraction != 'undefined'"
+        name="Offer Action"
+      >
         <OfferActionSettings />
       </tab>
     </Navigation>
@@ -62,10 +79,15 @@ import ChatSettings from './ChatSettings.vue';
 import NBAMSettings from './NBAMSettings.vue';
 import OfferActionSettings from './OfferActionSettings.vue';
 import TopNav from '../phone/TopNav.vue';
+import { ref } from 'vue';
 
 export default {
   data() {
     return { ...mainconfig, isClearAll: false };
+  },
+  setup() {
+    const active = ref(0);
+    return { active };
   },
   methods: {
     processForm() {

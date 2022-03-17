@@ -2,8 +2,8 @@
   <div class="container-transparent">
     <h2>Customer Decision Hub</h2>
     <p>
-      Configuration to use Customer Decision Hub to generate offers. Enter an empty
-      'Host' to disable this functionality. For more details, click
+      Configuration to use Customer Decision Hub to generate offers. Enter an
+      empty 'Host' to disable this functionality. For more details, click
       <a
         href="https://github.com/pegasystems/uplus-wss/wiki/Integration-with-the-Customer-Decision-Hub"
         >here</a
@@ -35,8 +35,10 @@
             v-model="settings.pega_marketing.channel"
           />
         </div>
-         <div class="field-item">
-          <label for="NBAM-requestTimeout">Timeout for XHR request (in ms)</label>
+        <div class="field-item">
+          <label for="NBAM-requestTimeout"
+            >Timeout for XHR request (in ms)</label
+          >
           <input
             id="NBAM-requestTimeout"
             type="integer"
@@ -45,15 +47,15 @@
         </div>
         <div class="field-item">
           <label for="NBAM-APILevel">API level</label>
-          <select
-            id="NBAM-APILevel"
-            v-model="settings.pega_marketing.apiLevel"
-          >
+          <select id="NBAM-APILevel" v-model="settings.pega_marketing.apiLevel">
             <option>V2</option>
             <option>V3</option>
           </select>
         </div>
-        <div v-if="settings.pega_marketing.apiLevel === 'V3'" class="field-item">
+        <div
+          v-if="settings.pega_marketing.apiLevel === 'V3'"
+          class="field-item"
+        >
           <label for="NBAM-contextName">Context name</label>
           <select
             id="NBAM-contextName"
@@ -65,7 +67,10 @@
         </div>
       </div>
       <div class="layout-labels-left">
-        <div v-if="settings.pega_marketing.apiLevel === 'V3'" class="field-item field-checkbox">
+        <div
+          v-if="settings.pega_marketing.apiLevel === 'V3'"
+          class="field-item field-checkbox"
+        >
           <input
             id="NBAM-useCaptureByChannel"
             type="checkbox"
@@ -253,37 +258,47 @@
         </div>
       </div>
     </Container>
-    <Container :title="'Offer ' + (index+1)" v-for="(item,index) in settings.pega_marketing.extraOfferPages" v-bind:key="index">
-    <div class="layout-labels-top layout-inline-grid-double">
-      <div class="field-item">
-        <label :for="'NBAM-OfferPage-' + index + '-ContainerName'">Container name</label>
-        <input
-          :id="'NBAM-OfferPage-' + index + '-ContainerName'"
-          type="text"
-          v-model="item.containerName"
-        />
+    <Container
+      :title="'Offer ' + (index + 1)"
+      v-for="(item, index) in settings.pega_marketing.extraOfferPages"
+      v-bind:key="index"
+    >
+      <div class="layout-labels-top layout-inline-grid-double">
+        <div class="field-item">
+          <label :for="'NBAM-OfferPage-' + index + '-ContainerName'"
+            >Container name</label
+          >
+          <input
+            :id="'NBAM-OfferPage-' + index + '-ContainerName'"
+            type="text"
+            v-model="item.containerName"
+          />
+        </div>
+        <div class="field-item">
+          <label :for="'NBAM-OfferPage-' + index + '-Placement'"
+            >Placement (Hero or Tile)</label
+          >
+          <input
+            :id="'NBAM-OfferPage-' + index + '-Placement'"
+            type="text"
+            v-model="item.placement"
+          />
+        </div>
+        <div class="field-item">
+          <label :for="'NBAM-OfferPage-' + index + '-ClickAction'"
+            >Click action</label
+          >
+          <select
+            :id="'NBAM-OfferPage-' + index + '-ClickAction'"
+            v-model="item.clickaction"
+          >
+            <option>Mashup</option>
+            <option>Popup</option>
+            <option>TopURL</option>
+          </select>
+        </div>
       </div>
-      <div class="field-item">
-        <label :for="'NBAM-OfferPage-' + index + '-Placement'">Placement (Hero or Tile)</label>
-        <input
-          :id="'NBAM-OfferPage-' + index + '-Placement'"
-          type="text"
-          v-model="item.placement"
-        />
-      </div>
-      <div class="field-item">
-        <label :for="'NBAM-OfferPage-' + index + '-ClickAction'">Click action</label>
-        <select
-          :id="'NBAM-OfferPage-' + index + '-ClickAction'"
-          v-model="item.clickaction"
-        >
-          <option>Mashup</option>
-          <option>Popup</option>
-          <option>TopURL</option>
-        </select>
-      </div>
-    </div>
-  </Container>
+    </Container>
   </div>
 </template>
 

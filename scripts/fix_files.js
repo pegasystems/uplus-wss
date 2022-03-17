@@ -1,27 +1,28 @@
-const replace = require('replace-in-file');
+const replace = require("replace-in-file");
 
 const optionsFile1 = {
-  files: './docs/service-worker.js',
-  from: /..\/precache-manifest/g,
-  to: './precache-manifest',
+  files: "./docs/*/index.html",
+  from: [
+    /\/auto\//g,
+    /\/commercial_bank\//g,
+    /\/comms\//g,
+    /\/gov\//g,
+    /\/health_care\//g,
+    /\/health_payer\//g,
+    /\/health_pharma\//g,
+    /\/health_provider\//g,
+    /\/insurance\//g,
+    /\/manufacturing\//g,
+    /\/retail_bank\//g,
+    /\/wealth\//g,
+  ],
+  to: "./",
 };
-replace(optionsFile1)
-  .then((results) => {
-    console.log('Replacement results:', results);
-  })
-  .catch((error) => {
-    console.error('Error occurred:', error);
-  });
-
 const optionsFile2 = {
-  files: './docs/precache-manifest.*',
-  from: /: "../g,
-  to: ': ".',
+  files: "./docs/**/index.html",
+  from: /"\/assets\//g,
+  to: '"../assets/',
 };
-replace(optionsFile2)
-  .then((results) => {
-    console.log('Replacement results:', results);
-  })
-  .catch((error) => {
-    console.error('Error occurred:', error);
-  });
+
+replace.sync(optionsFile1);
+replace.sync(optionsFile2);

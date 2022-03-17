@@ -1,23 +1,45 @@
 <template>
   <div class="col col-1 primary-card">
     <Banner
-      v-if="typeof settings.banner !== 'undefined' && settings.banner.hidebanner!=='true' && settings.banner.hidebanner!==true"
+      v-if="
+        typeof settings.banner !== 'undefined' &&
+        settings.banner.hidebanner !== 'true' &&
+        settings.banner.hidebanner !== true
+      "
     />
     <AccountPicker
-      v-if="typeof settings.todo !== 'undefined' && settings.todo.hideaccount!=='true' && settings.todo.hideaccount!==true"
+      v-if="
+        typeof settings.todo !== 'undefined' &&
+        settings.todo.hideaccount !== 'true' &&
+        settings.todo.hideaccount !== true
+      "
     />
     <KPI
-      v-if="(app.industry  === 'health-pharma' || app.industry  === 'health-care' || app.industry  === 'health-payer') && settings.todo.hideKPI!=='true' && settings.todo.hideKPI!==true"
+      v-if="
+        (app.industry === 'health-pharma' ||
+          app.industry === 'health-care' ||
+          app.industry === 'health-payer') &&
+        settings.todo.hideKPI !== 'true' &&
+        settings.todo.hideKPI !== true
+      "
     />
     <MashupMainArea
       v-if="typeof settings.todo !== 'undefined' && settings.todo.url !== ''"
       :key="reloadAccountMashup"
     />
     <BillPay
-      v-if="typeof settings.billpay !== 'undefined' && settings.billpay.hidebillpay!=='true' && settings.billpay.hidebillpay!==true"
+      v-if="
+        typeof settings.billpay !== 'undefined' &&
+        settings.billpay.hidebillpay !== 'true' &&
+        settings.billpay.hidebillpay !== true
+      "
     />
     <RecentActivity
-      v-if="typeof settings.todo !== 'undefined' && settings.todo.hideactivity!=='true' && settings.todo.hideactivity!==true"
+      v-if="
+        typeof settings.todo !== 'undefined' &&
+        settings.todo.hideactivity !== 'true' &&
+        settings.todo.hideactivity !== true
+      "
     />
   </div>
 </template>

@@ -1,6 +1,9 @@
 <template>
   <div class="height-100-pct">
-    <TopNav style="display:none" :previousPhonePage="phonePageName==='heroaction'? '' : 'help'" />
+    <TopNav
+      style="display: none"
+      :previousPhonePage="phonePageName === 'heroaction' ? '' : 'help'"
+    />
     <main>
       <MashupMainArea />
     </main>

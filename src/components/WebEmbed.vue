@@ -1,15 +1,67 @@
 <template>
-<div v-if="isWebEmbedInitialized"><h1>{{caseTitle}}</h1>
-  <pega-embed v-if="action==='openPage'" popupReauth="true" casePage="assignment" :action="action" :pageID="actionparam" :pageClass="objClass" :appAlias="application"
-  :pegaServerUrl="url" :staticContentUrl="staticContentUrl" authService='pega' :clientId="clientId" :userIdentifier="UserIdentifier" :password="Password" :theme="theme"/>
-  <pega-embed v-else-if="action==='createCase'" popupReauth="true" :action="action" :caseTypeID="objClass" :startingFields="startingFields" :appAlias="application"
-  :pegaServerUrl="url" :staticContentUrl="staticContentUrl" authService='pega' :clientId="clientId" :userIdentifier="UserIdentifier" :password="Password" :theme="theme"/>
-  <pega-embed v-else-if="action==='openAssignment'" popupReauth="true" :action="action" :assignmentID="actionparam" :appAlias="application"
-  :pegaServerUrl="url" :staticContentUrl="staticContentUrl" authService='pega' :clientId="clientId" :userIdentifier="UserIdentifier" :password="Password" :theme="theme"/>
-  <pega-embed v-else-if="action==='openCase'" popupReauth="true" :action="action" :caseID="actionparam" :appAlias="application"
-  :pegaServerUrl="url" :staticContentUrl="staticContentUrl" authService='pega' :clientId="clientId" :userIdentifier="UserIdentifier" :password="Password" :theme="theme"/>
-</div>
-<div v-else>Loading....</div>
+  <div v-if="isWebEmbedInitialized">
+    <h1>{{ caseTitle }}</h1>
+    <pega-embed
+      v-if="action === 'openPage'"
+      popupReauth="true"
+      casePage="assignment"
+      :action="action"
+      :pageID="actionparam"
+      :pageClass="objClass"
+      :appAlias="application"
+      :pegaServerUrl="url"
+      :staticContentUrl="staticContentUrl"
+      authService="pega"
+      :clientId="clientId"
+      :userIdentifier="UserIdentifier"
+      :password="Password"
+      :theme="theme"
+    />
+    <pega-embed
+      v-else-if="action === 'createCase'"
+      popupReauth="true"
+      :action="action"
+      :caseTypeID="objClass"
+      :startingFields="startingFields"
+      :appAlias="application"
+      :pegaServerUrl="url"
+      :staticContentUrl="staticContentUrl"
+      authService="pega"
+      :clientId="clientId"
+      :userIdentifier="UserIdentifier"
+      :password="Password"
+      :theme="theme"
+    />
+    <pega-embed
+      v-else-if="action === 'openAssignment'"
+      popupReauth="true"
+      :action="action"
+      :assignmentID="actionparam"
+      :appAlias="application"
+      :pegaServerUrl="url"
+      :staticContentUrl="staticContentUrl"
+      authService="pega"
+      :clientId="clientId"
+      :userIdentifier="UserIdentifier"
+      :password="Password"
+      :theme="theme"
+    />
+    <pega-embed
+      v-else-if="action === 'openCase'"
+      popupReauth="true"
+      :action="action"
+      :caseID="actionparam"
+      :appAlias="application"
+      :pegaServerUrl="url"
+      :staticContentUrl="staticContentUrl"
+      authService="pega"
+      :clientId="clientId"
+      :userIdentifier="UserIdentifier"
+      :password="Password"
+      :theme="theme"
+    />
+  </div>
+  <div v-else>Loading....</div>
 </template>
 
 <script>
@@ -76,7 +128,8 @@ export default {
       this.actionparam = this.settings.quicklinks[this.quickLinkId].actionparam;
       this.application = this.settings.quicklinks[this.quickLinkId].application;
       this.objClass = this.settings.quicklinks[this.quickLinkId].objclass;
-      this.caseTitle = this.settings.quicklinks[this.quickLinkId].title[this.currentLocale];
+      this.caseTitle =
+        this.settings.quicklinks[this.quickLinkId].title[this.currentLocale];
       this.extraParam = this.settings.quicklinks[this.quickLinkId].extraparam;
     } else if (this.viewBill !== -1) {
       this.action = this.settings.billpay.action;
@@ -124,9 +177,7 @@ export default {
       this.action = 'openCase';
     }
     if (this.userId !== -1) {
-      this.UserIdentifier = this.settings.users[
-        this.userId
-      ].pega_userid;
+      this.UserIdentifier = this.settings.users[this.userId].pega_userid;
       this.Password = encodeURI(
         btoa(this.settings.users[this.userId].pega_pwd),
       );
@@ -135,30 +186,32 @@ export default {
       this.Password = encodeURI(btoa(this.settings.kmhelp.password));
     } else if (this.homeHeroAction !== -1) {
       this.UserIdentifier = this.settings.homeheroaction.pega_userid;
-      this.Password = encodeURI(
-        btoa(this.settings.homeheroaction.pega_pwd),
-      );
+      this.Password = encodeURI(btoa(this.settings.homeheroaction.pega_pwd));
     } else if (this.offerAction !== -1) {
       this.UserIdentifier = this.settings.offeraction.pega_userid;
-      this.Password = encodeURI(
-        btoa(this.settings.offeraction.pega_pwd),
-      );
+      this.Password = encodeURI(btoa(this.settings.offeraction.pega_pwd));
     }
     if (this.app.industry === 'comms') {
-      this.theme = '{"base":{"palette":{"brand-primary":"#5F257E","app-background": "#FFFFFF"}}}';
+      this.theme =
+        '{"base":{"palette":{"brand-primary":"#5F257E","app-background": "#FFFFFF"}}}';
     } else if (this.app.industry.indexOf('health') === 0) {
-      this.theme = '{"base":{"palette":{"brand-primary":"#0C8487","app-background": "#FFFFFF"}}}';
+      this.theme =
+        '{"base":{"palette":{"brand-primary":"#0C8487","app-background": "#FFFFFF"}}}';
     } else if (this.app.industry === 'gov') {
-      this.theme = '{"base":{"palette":{"brand-primary":"#0076DE","app-background": "#FFFFFF"}}}';
+      this.theme =
+        '{"base":{"palette":{"brand-primary":"#0076DE","app-background": "#FFFFFF"}}}';
     } else if (
       this.app.industry === 'retail_bank' ||
       this.app.industry === 'commercial_bank'
     ) {
-      this.theme = '{"base":{"palette":{"brand-primary":"#3C8712","app-background": "#FFFFFF"}}}';
+      this.theme =
+        '{"base":{"palette":{"brand-primary":"#3C8712","app-background": "#FFFFFF"}}}';
     } else if (this.app.industry === 'insurance') {
-      this.theme = '{"base":{"palette":{"brand-primary":"#DF3603","app-background": "#FFFFFF"}}}';
+      this.theme =
+        '{"base":{"palette":{"brand-primary":"#DF3603","app-background": "#FFFFFF"}}}';
     } else if (this.app.industry === 'manufacturing') {
-      this.theme = '{"base":{"palette":{"brand-primary":"#D31D36","app-background": "#FFFFFF"}}}';
+      this.theme =
+        '{"base":{"palette":{"brand-primary":"#D31D36","app-background": "#FFFFFF"}}}';
     }
     if (this.settings.general.theming.override) {
       this.theme = `{"base":{"palette":{"brand-primary":"${this.settings.general.theming.brandColor}","interactive":"${this.settings.general.theming.interactiveColor}","app-background": "#FFFFFF"}}}`;
@@ -167,7 +220,11 @@ export default {
     this.extraParam.split(',').forEach((item) => {
       const values = item.split('=');
       if (values.length === 2) {
-        setObjectFromRef(this.extraParamContent, values[0].trim(), values[1].trim());
+        setObjectFromRef(
+          this.extraParamContent,
+          values[0].trim(),
+          values[1].trim(),
+        );
       }
     });
     if (
@@ -178,7 +235,11 @@ export default {
       this.settings.users[this.userId].extraparam.split(',').forEach((item) => {
         const values = item.split('=');
         if (values.length === 2) {
-          setObjectFromRef(this.extraParamContent, values[0].trim(), values[1].trim());
+          setObjectFromRef(
+            this.extraParamContent,
+            values[0].trim(),
+            values[1].trim(),
+          );
         }
       });
     }
@@ -209,11 +270,7 @@ export default {
           );
         } else {
           mainconfig.currentPage = 'index.html';
-          window.history.pushState(
-            {},
-            '',
-            mainconfig.currentPage,
-          );
+          window.history.pushState({}, '', mainconfig.currentPage);
         }
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }

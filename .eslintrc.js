@@ -1,24 +1,24 @@
+/* eslint-env node */
+require("@rushstack/eslint-patch/modern-module-resolution");
+
 module.exports = {
   root: true,
   extends: [
-    'plugin:vue/essential',
-    '@vue/airbnb',
+    "plugin:vue/vue3-essential",
+    "eslint:recommended",
+    "@vue/eslint-config-prettier",
   ],
-  rules: {
-    'operator-linebreak': 'off',
-    'prefer-destructuring': 'off',
-    'guard-for-in': 'off',
-    'no-plusplus': 'off',
-    'no-restricted-syntax': 'off',
-    'max-len': 'off',
-    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-alert': 'off',
-    'no-param-reassign': [2, {
-      props: false,
-    }],
+  env: {
+    "vue/setup-compiler-macros": true,
   },
-  parserOptions: {
-    parser: 'babel-eslint',
+  overrides: [
+    {
+      files: ["cypress/integration/**.spec.{js,ts,jsx,tsx}"],
+      extends: ["plugin:cypress/recommended"],
+    },
+  ],
+  ignorePatterns: ["**/public/js/*.js", "**/*.config.js"],
+  rules: {
+    "vue/multi-word-component-names": "off",
   },
 };

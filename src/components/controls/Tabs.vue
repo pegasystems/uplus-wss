@@ -2,15 +2,16 @@
   <div>
     <div class="tab-interface">
       <ul role="tablist">
-        <li role="presentation" v-for="(tab,index) in tabs" v-bind:key="index">
+        <li role="presentation" v-for="(tab, index) in tabs" v-bind:key="index">
           <a
             role="tab"
-            :tabindex="tab.isActive ? '0': '-1'"
+            :tabindex="tab.isActive ? '0' : '-1'"
             :aria-controls="tab.href"
-            :aria-selected="tab.isActive ? 'true': 'false'"
+            :aria-selected="tab.isActive ? 'true' : 'false'"
             :id="tab.href + '-tab'"
             @click="selectTab(tab)"
-          >{{ tab.name }}</a>
+            >{{ tab.name }}</a
+          >
         </li>
       </ul>
     </div>

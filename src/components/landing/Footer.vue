@@ -1,10 +1,12 @@
 <template>
   <div class="background-brand landing-footer">
     <div class="promo">
-      <h4>{{ $t('message.' + app.landing.footer.title)}}</h4>
-      <button class="secondary">{{ $t('message.' + app.landing.footer.button_label)}}</button>
+      <h4>{{ $t('message.' + app.landing.footer.title) }}</h4>
+      <button class="secondary">
+        {{ $t('message.' + app.landing.footer.button_label) }}
+      </button>
     </div>
-    <MainFooter/>
+    <MainFooter />
   </div>
 </template>
 

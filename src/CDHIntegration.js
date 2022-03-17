@@ -11,8 +11,8 @@ const parseResponseData = (
     Context.settings.pega_marketing[type] &&
     Context.settings.pega_marketing[type].placement
   ) {
-    maxOffers = Context.settings.pega_marketing[type].placement.split(',')
-      .length;
+    maxOffers =
+      Context.settings.pega_marketing[type].placement.split(',').length;
     if (maxOffers > OffersList.length) {
       maxOffers = OffersList.length;
     }
@@ -98,7 +98,10 @@ const parseResponseData = (
 const captureResponse = function captureResponse(Context, item, outcome) {
   if (Context.settings.pega_marketing.apiLevel !== 'V3') return;
   if (typeof window.getNBAMServiceControl !== 'undefined') {
-    const nbamServiceCtrl = window.getNBAMServiceControl(Context.settings.pega_marketing.apiLevel, false);
+    const nbamServiceCtrl = window.getNBAMServiceControl(
+      Context.settings.pega_marketing.apiLevel,
+      false,
+    );
     nbamServiceCtrl.initialize(
       Context.settings.pega_marketing.Host,
       Context.settings.pega_marketing.Port,
@@ -106,11 +109,11 @@ const captureResponse = function captureResponse(Context, item, outcome) {
     nbamServiceCtrl.captureResponse(
       item.container,
       item.customerID,
-      item.name, /* OfferID */
+      item.name /* OfferID */,
       item.issue,
       item.group,
       item.interactionID,
-      outcome, /* outcome could be Clicked or Impression */
+      outcome /* outcome could be Clicked or Impression */,
       item.channel,
       'Inbound',
       item.campaignID,
@@ -121,7 +124,9 @@ const captureResponse = function captureResponse(Context, item, outcome) {
       item.contextName,
       false,
       (data) => {
-        console.log(`send capture information for ${item.name} rank=${item.rank} outcome=${outcome} response:${data.Status}`);
+        console.log(
+          `send capture information for ${item.name} rank=${item.rank} outcome=${outcome} response:${data.Status}`,
+        );
       },
     );
   } else {
@@ -141,7 +146,10 @@ const initNBAM = function initNBAM(
   currentPage,
 ) {
   if (typeof window.getNBAMServiceControl !== 'undefined') {
-    const nbamServiceCtrl = window.getNBAMServiceControl(Context.settings.pega_marketing.apiLevel, false);
+    const nbamServiceCtrl = window.getNBAMServiceControl(
+      Context.settings.pega_marketing.apiLevel,
+      false,
+    );
     window.CDHRequestTimeout = Context.settings.pega_marketing.requestTimeout;
     nbamServiceCtrl.initialize(
       Context.settings.pega_marketing.Host,
@@ -153,9 +161,14 @@ const initNBAM = function initNBAM(
       Context.settings.pega_marketing[type].containerName
     ) {
       containerName = Context.settings.pega_marketing[type].containerName;
-    } else if (type.indexOf('extraOfferPages') === 0 && typeof Context.settings.pega_marketing.extraOfferPages !== 'undefined') {
+    } else if (
+      type.indexOf('extraOfferPages') === 0 &&
+      typeof Context.settings.pega_marketing.extraOfferPages !== 'undefined'
+    ) {
       const offerIndex = parseInt(type.replace('extraOfferPages', ''), 10) - 1;
-      containerName = Context.settings.pega_marketing.extraOfferPages[offerIndex].containerName;
+      containerName =
+        Context.settings.pega_marketing.extraOfferPages[offerIndex]
+          .containerName;
     }
     let placement = 'Tile';
     if (
@@ -163,9 +176,13 @@ const initNBAM = function initNBAM(
       Context.settings.pega_marketing[type].placement
     ) {
       placement = Context.settings.pega_marketing[type].placement;
-    } else if (type.indexOf('extraOfferPages') === 0 && typeof Context.settings.pega_marketing.extraOfferPages !== 'undefined') {
+    } else if (
+      type.indexOf('extraOfferPages') === 0 &&
+      typeof Context.settings.pega_marketing.extraOfferPages !== 'undefined'
+    ) {
       const offerIndex = parseInt(type.replace('extraOfferPages', ''), 10) - 1;
-      placement = Context.settings.pega_marketing.extraOfferPages[offerIndex].placement;
+      placement =
+        Context.settings.pega_marketing.extraOfferPages[offerIndex].placement;
     }
     const intent = Context.intent.trim();
     try {
@@ -225,7 +242,10 @@ const initNBAM = function initNBAM(
 const sendRTSEvent = function sendRTSEvent(Context, item) {
   if (Context.settings.pega_marketing.Host === '') return;
   if (typeof window.getNBAMServiceControl !== 'undefined') {
-    const nbamServiceCtrl = window.getNBAMServiceControl(Context.settings.pega_marketing.apiLevel, false);
+    const nbamServiceCtrl = window.getNBAMServiceControl(
+      Context.settings.pega_marketing.apiLevel,
+      false,
+    );
     nbamServiceCtrl.initialize(
       Context.settings.pega_marketing.Host,
       Context.settings.pega_marketing.Port,
@@ -246,21 +266,39 @@ const sendRTSEvent = function sendRTSEvent(Context, item) {
   }
 };
 
-const sendClickStreamEvent = function sendClickStreamEvent(Context, eventtype, pagetype, PageViewActiveTime) {
-  if (Context.settings.pega_marketing.Host === '' || !Context.settings.pega_marketing.enableClickStream) return;
+const sendClickStreamEvent = function sendClickStreamEvent(
+  Context,
+  eventtype,
+  pagetype,
+  PageViewActiveTime,
+) {
+  if (
+    Context.settings.pega_marketing.Host === '' ||
+    !Context.settings.pega_marketing.enableClickStream
+  )
+    return;
   if (typeof window.getNBAMServiceControl !== 'undefined') {
-    const nbamServiceCtrl = window.getNBAMServiceControl(Context.settings.pega_marketing.apiLevel, false);
+    const nbamServiceCtrl = window.getNBAMServiceControl(
+      Context.settings.pega_marketing.apiLevel,
+      false,
+    );
     nbamServiceCtrl.initialize(
       Context.settings.pega_marketing.Host,
       Context.settings.pega_marketing.Port,
     );
     let pageViewActiveTime = '';
     if (PageViewActiveTime) {
-      pageViewActiveTime = parseInt((new Date() - PageViewActiveTime) / 1000, 10);
+      pageViewActiveTime = parseInt(
+        (new Date() - PageViewActiveTime) / 1000,
+        10,
+      );
     }
     let cookieID = '';
     let customerid = '';
-    if (Context.userId !== -1 && Context.settings.users[Context.userId].customerID) {
+    if (
+      Context.userId !== -1 &&
+      Context.settings.users[Context.userId].customerID
+    ) {
       customerid = Context.settings.users[Context.userId].customerID;
     }
     if (customerid === '' && document.cookie.split('MKTID=').length > 1) {
@@ -280,7 +318,7 @@ const sendClickStreamEvent = function sendClickStreamEvent(Context, eventtype, p
       PageViewActiveTime: pageViewActiveTime,
       CookieID: cookieID,
     };
-      /* Read the cookie MKTID if present and send it as Customer ID instead */
+    /* Read the cookie MKTID if present and send it as Customer ID instead */
     nbamServiceCtrl.sendClickStreamEvent(eventMsg, null);
   } else {
     const scriptLoadMkt = document.createElement('script');
@@ -292,9 +330,4 @@ const sendClickStreamEvent = function sendClickStreamEvent(Context, eventtype, p
   }
 };
 
-export {
-  initNBAM,
-  sendRTSEvent,
-  captureResponse,
-  sendClickStreamEvent,
-};
+export { initNBAM, sendRTSEvent, captureResponse, sendClickStreamEvent };

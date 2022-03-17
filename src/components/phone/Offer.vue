@@ -1,8 +1,13 @@
 <template>
   <div
     class="flex home-promo secondary-card"
-    v-if="settings.pega_marketing.Host === '' || settings.pega_marketing.phonePage.placement === '' ||
-      settings.pega_marketing.phonePage.containerName === '' || (loading && !settings.pega_marketing.showLoadingIndicator) || errorloading"
+    v-if="
+      settings.pega_marketing.Host === '' ||
+      settings.pega_marketing.phonePage.placement === '' ||
+      settings.pega_marketing.phonePage.containerName === '' ||
+      (loading && !settings.pega_marketing.showLoadingIndicator) ||
+      errorloading
+    "
   >
     <div
       class="image"
@@ -20,7 +25,11 @@
   <div
     class="flex home-promo secondary-card loading-container"
     style="min-height: 300px"
-    v-else-if="settings.pega_marketing.Host!== '' && loading && settings.pega_marketing.showLoadingIndicator"
+    v-else-if="
+      settings.pega_marketing.Host !== '' &&
+      loading &&
+      settings.pega_marketing.showLoadingIndicator
+    "
   >
     <span class="loading">
       <span class="dot"></span>
@@ -31,43 +40,45 @@
   <div class="width-100-pct" v-else>
     <div
       class="flex home-promo secondary-card"
-      v-for="(item,index) in data"
+      v-for="(item, index) in data"
       :key="item.title"
     >
-    <div class='offer-container' :data-offer-index="index">
-      <div
-        class="image"
-        v-bind:style="{ backgroundImage: 'url(' + item.img + ')' }"
-      ></div>
-      <div class="details">
-        <h4>{{ item.title }}</h4>
-        <p>{{ item.message }}</p>
-        <a
-          v-if="
-            settings.pega_marketing.phonePage.clickaction === 'TopURL' &&
+      <div class="offer-container" :data-offer-index="index">
+        <div
+          class="image"
+          v-bind:style="{ backgroundImage: 'url(' + item.img + ')' }"
+        ></div>
+        <div class="details">
+          <h4>{{ item.title }}</h4>
+          <p>{{ item.message }}</p>
+          <a
+            v-if="
+              settings.pega_marketing.phonePage.clickaction === 'TopURL' &&
               item.url !== ''
-          "
-          :href="item.url"
-          :title="$t('message.' + item.link)"
-          >{{ $t('message.' + item.link) }}</a
-        >
-        <a
-          v-else-if="
-            settings.pega_marketing.phonePage.clickaction === 'Popup' &&
+            "
+            :href="item.url"
+            :title="$t('message.' + item.link)"
+            >{{ $t('message.' + item.link) }}</a
+          >
+          <a
+            v-else-if="
+              settings.pega_marketing.phonePage.clickaction === 'Popup' &&
               item.url !== ''
-          "
-          :href="item.url"
-          target="_blank"
-          :title="$t('message.' + item.link)"
-          >{{ $t('message.' + item.link) }}</a
-        >
-        <button
-          v-else
-          class="simple"
-          v-on:click="showOffer(item)"
-          :title="$t('message.' + item.link)"
-        >{{ $t('message.' + item.link) }}</button>
-      </div>
+            "
+            :href="item.url"
+            target="_blank"
+            :title="$t('message.' + item.link)"
+            >{{ $t('message.' + item.link) }}</a
+          >
+          <button
+            v-else
+            class="simple"
+            v-on:click="showOffer(item)"
+            :title="$t('message.' + item.link)"
+          >
+            {{ $t('message.' + item.link) }}
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -89,7 +100,9 @@ export default {
   methods: {
     showOfferPage() {
       mainconfig.phonePageName = 'offer';
-      const stateObj = mainconfig.isAuthenticated ? { userId: mainconfig.userId } : {};
+      const stateObj = mainconfig.isAuthenticated
+        ? { userId: mainconfig.userId }
+        : {};
       window.history.pushState(stateObj, '', 'offer.html');
       mainconfig.offerIndex = 0;
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -126,17 +139,25 @@ export default {
     }
   },
   updated() {
-    if (window.IntersectionObserver && mainconfig.settings.pega_marketing.useCaptureByChannel === true) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const idx = entry.target.getAttribute('data-offer-index');
-            captureResponse(this, this.data[idx], 'Impression');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 1 });
-      document.querySelectorAll('.offer-container').forEach((offer) => { observer.observe(offer); });
+    if (
+      window.IntersectionObserver &&
+      mainconfig.settings.pega_marketing.useCaptureByChannel === true
+    ) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const idx = entry.target.getAttribute('data-offer-index');
+              captureResponse(this, this.data[idx], 'Impression');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 1 },
+      );
+      document.querySelectorAll('.offer-container').forEach((offer) => {
+        observer.observe(offer);
+      });
     }
   },
 };

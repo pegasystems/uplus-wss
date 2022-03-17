@@ -1,14 +1,14 @@
 <template>
   <main v-if="offerAction != -1" class="wrap flex flex-col">
-    <MashupMainArea/>
+    <MashupMainArea />
   </main>
   <main v-else-if="offerURL !== ''" class="wrap flex flex-col">
-    <MicroSiteMainArea/>
+    <MicroSiteMainArea />
   </main>
   <main v-else class="wrap flex flex-col static-offer">
-    <MainOffer v-bind:offerType="offerIndex"/>
-    <Details/>
-    <Highlight/>
+    <MainOffer v-bind:offerType="offerIndex" />
+    <Details />
+    <Highlight />
   </main>
 </template>
 

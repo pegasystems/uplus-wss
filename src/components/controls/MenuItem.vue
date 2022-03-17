@@ -1,6 +1,8 @@
 <template>
   <li>
-    <a v-on:click="gotoPage" :href="href !== '' ? href : ''">{{ $t("message." + title) }}</a>
+    <a v-on:click="gotoPage" :href="href !== '' ? href : ''">{{
+      $t('message.' + title)
+    }}</a>
   </li>
 </template>
 
@@ -23,11 +25,21 @@ export default {
         });
       }
       if (mainconfig.currentPage.indexOf('offer') === 0) {
-        mainconfig.offerIndex = parseInt(mainconfig.currentPage.substring(5).replace('.html', ''), 10);
+        mainconfig.offerIndex = parseInt(
+          mainconfig.currentPage.substring(5).replace('.html', ''),
+          10,
+        );
       }
-      sendClickStreamEvent(mainconfig, 'PageView', this.pagetype, window.loadPage);
+      sendClickStreamEvent(
+        mainconfig,
+        'PageView',
+        this.pagetype,
+        window.loadPage,
+      );
       window.loadPage = new Date();
-      const stateObj = mainconfig.isAuthenticated ? { userId: mainconfig.userId } : {};
+      const stateObj = mainconfig.isAuthenticated
+        ? { userId: mainconfig.userId }
+        : {};
       window.history.pushState(stateObj, '', mainconfig.currentPage);
       window.scrollTo({ top: 0, behavior: 'smooth' });
       event.preventDefault();

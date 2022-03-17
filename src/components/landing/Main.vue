@@ -1,8 +1,8 @@
 <template>
   <main class="flex flex-col">
-    <OfferRequest/>
-    <Details/>
-    <Benefits/>
+    <OfferRequest />
+    <Details />
+    <Benefits />
   </main>
 </template>
 

@@ -8,11 +8,14 @@
     <div class="flex">
       <div class="flex flex-1">
         <div class="flex flex-col">
-          <img width="120" src="../../img/pega-logo.png" />
+          <img width="120" src="../../assets/img/pega-logo.png" />
           <span>Real-time data streaming</span>
         </div>
         <button
-          :class="'pi rts-enable rts-toggle' + (isEnabled? ' pi-pause-solid pi-rts-error' : ' pi-play-solid')"
+          :class="
+            'pi rts-enable rts-toggle' +
+            (isEnabled ? ' pi-pause-solid pi-rts-error' : ' pi-play-solid')
+          "
           v-on:click="toggleRTSFeature()"
           title="toggle RTS feature"
         ></button>

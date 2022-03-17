@@ -6,15 +6,27 @@
       <div class="body">
         <div class="layout-labels-left layout-inline-grid-double">
           <div class="field-item">
-            <input id="banner-hidebanner" type="checkbox" v-model="settings.banner.hidebanner" />
+            <input
+              id="banner-hidebanner"
+              type="checkbox"
+              v-model="settings.banner.hidebanner"
+            />
             <label for="banner-hidebanner">Hide banner</label>
           </div>
           <div class="field-item">
-            <input id="banner-hidebanner-button" type="checkbox" v-model="settings.banner.hidebanner_button" />
+            <input
+              id="banner-hidebanner-button"
+              type="checkbox"
+              v-model="settings.banner.hidebanner_button"
+            />
             <label for="banner-hidebanner-button">Hide banner button</label>
           </div>
           <div class="field-item">
-            <input id="banner-background-color" type="color" v-model="settings.banner.color" />
+            <input
+              id="banner-background-color"
+              type="color"
+              v-model="settings.banner.color"
+            />
             <label for="banner-background-color">Background color</label>
           </div>
         </div>
@@ -24,15 +36,28 @@
             <select id="banner-action" v-model="settings.banner.action">
               <option>createNewWork</option>
               <option>display</option>
-              <option v-if="settings.general.connection.type==='mashup'">getNextWork</option>
+              <option v-if="settings.general.connection.type === 'mashup'">
+                getNextWork
+              </option>
               <option>openAssignment</option>
-              <option v-if="settings.general.connection.type==='mashup'">openWorkItem</option>
+              <option v-if="settings.general.connection.type === 'mashup'">
+                openWorkItem
+              </option>
               <option>openWorkByHandle</option>
             </select>
           </div>
           <div class="field-item">
-            <label for="banner-actionparam" v-if="settings.banner.action!=='createNewWork'">Action parameter</label>
-            <input id="banner-actionparam" type="text" v-model="settings.banner.actionparam"  v-if="settings.banner.action!=='createNewWork'"/>
+            <label
+              for="banner-actionparam"
+              v-if="settings.banner.action !== 'createNewWork'"
+              >Action parameter</label
+            >
+            <input
+              id="banner-actionparam"
+              type="text"
+              v-model="settings.banner.actionparam"
+              v-if="settings.banner.action !== 'createNewWork'"
+            />
           </div>
           <div class="field-item">
             <label for="banner-url">URL</label>
@@ -40,35 +65,76 @@
           </div>
           <div class="field-item">
             <label for="banner-objclass">Classname</label>
-            <input id="banner-objclass" type="text" v-model="settings.banner.objclass" />
+            <input
+              id="banner-objclass"
+              type="text"
+              v-model="settings.banner.objclass"
+            />
           </div>
-          <div class="field-item" v-if="settings.general.connection.type==='mashup'">
+          <div
+            class="field-item"
+            v-if="settings.general.connection.type === 'mashup'"
+          >
             <label for="banner-startcase">Start case</label>
-            <input id="banner-startcase" type="text" v-model="settings.banner.startcase" />
+            <input
+              id="banner-startcase"
+              type="text"
+              v-model="settings.banner.startcase"
+            />
           </div>
           <div class="field-item">
             <label for="banner-application">Application name</label>
-            <input id="banner-application" type="text" v-model="settings.banner.application" />
+            <input
+              id="banner-application"
+              type="text"
+              v-model="settings.banner.application"
+            />
           </div>
-          <div class="field-item" v-if="settings.general.connection.type==='mashup'">
+          <div
+            class="field-item"
+            v-if="settings.general.connection.type === 'mashup'"
+          >
             <label for="banner-channelid">Channel ID</label>
-            <input id="banner-channelid" type="text" v-model="settings.banner.channelid" />
+            <input
+              id="banner-channelid"
+              type="text"
+              v-model="settings.banner.channelid"
+            />
           </div>
-          <div class="field-item" v-if="settings.general.connection.type==='mashup'">
+          <div
+            class="field-item"
+            v-if="settings.general.connection.type === 'mashup'"
+          >
             <label for="banner-tenantid">Tenant ID</label>
-            <input id="banner-tenantid" type="text" v-model="settings.banner.tenantid" />
+            <input
+              id="banner-tenantid"
+              type="text"
+              v-model="settings.banner.tenantid"
+            />
           </div>
-          <div class="field-item field-checkbox" v-if="settings.general.connection.type==='mashup'">
-            <input id="banner-dataretained" type="checkbox" v-model="settings.banner.dataretained" />
-            <label class="width-auto" for="banner-dataretained">Retain state on reload</label>
+          <div
+            class="field-item field-checkbox"
+            v-if="settings.general.connection.type === 'mashup'"
+          >
+            <input
+              id="banner-dataretained"
+              type="checkbox"
+              v-model="settings.banner.dataretained"
+            />
+            <label class="width-auto" for="banner-dataretained"
+              >Retain state on reload</label
+            >
           </div>
         </div>
         <div class="layout-labels-top">
           <div class="field-item">
-            <label
-              for="banner-extraparam"
-            >Extra parameters (for example 'key1=value1,key2=value2')</label>
-            <textarea id="banner-extraparam" v-model="settings.banner.extraparam" />
+            <label for="banner-extraparam"
+              >Extra parameters (for example 'key1=value1,key2=value2')</label
+            >
+            <textarea
+              id="banner-extraparam"
+              v-model="settings.banner.extraparam"
+            />
           </div>
         </div>
       </div>

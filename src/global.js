@@ -1,19 +1,43 @@
-/* global settings app pega sendProactiveNotificationReq */
-/* eslint no-eval: 0 */
-/* eslint no-underscore-dangle: 0 */
-import Vue from 'vue';
-import VueI18n from 'vue-i18n';
+/* global sendProactiveNotificationReq */
 import generateJWTKey from './JWTToken';
+import { createI18n } from 'vue-i18n';
+import { reactive } from 'vue';
 import { sendClickStreamEvent } from './CDHIntegration';
 
-function setCookie(cname, cvalue, exdays) {
-  const d = new Date();
-  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-  const expires = `expires=${d.toGMTString()}`;
-  document.cookie = `${cname}=${cvalue};${expires};path=/`;
+const messages = {};
+const datetimeFormats = {};
+const numberFormats = {};
+
+let isDefaultLocaleLoaded = false;
+for (const i in window.settings.i18n.languages) {
+  const lang = window.settings.i18n.languages[i];
+  messages[lang] = {
+    message: eval(`window.lang${lang.toUpperCase()}`),
+  };
+  datetimeFormats[lang] = eval(`window.dateFormat${lang.toUpperCase()}`);
+  numberFormats[lang] = eval(`window.numberFormat${lang.toUpperCase()}`);
+  /* Check if the default locale is available in the list of languages - if not, then select the first one */
+  if (lang === window.settings.i18n.defaultlocale) isDefaultLocaleLoaded = true;
+}
+if (!isDefaultLocaleLoaded) {
+  [window.settings.i18n.defaultlocale] = window.settings.i18n.languages;
 }
 
-function getCookie(cname) {
+export const i18n = createI18n({
+  locale: window.settings.i18n.defaultlocale,
+  messages,
+  datetimeFormats,
+  numberFormats,
+});
+
+export const setCookie = function (cname, cvalue, exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+  const expires = `expires=${d.toGMTString()}`;
+  document.cookie = `${cname}=${cvalue};${expires};path=/`;
+};
+
+export const getCookie = function (cname) {
   const name = `${cname}=`;
   const decodedCookie = decodeURIComponent(document.cookie);
   const ca = decodedCookie.split(';');
@@ -27,9 +51,9 @@ function getCookie(cname) {
     }
   }
   return '';
-}
+};
 
-const upgradeConfig = function upgradeConfig(cfg) {
+export const upgradeConfig = function upgradeConfig(cfg) {
   /* Handle upgrade issues */
   if (
     cfg.settings.todo &&
@@ -43,10 +67,7 @@ const upgradeConfig = function upgradeConfig(cfg) {
   ) {
     cfg.settings.todo.hideaccount = false;
   }
-  if (
-    cfg.settings.todo &&
-    typeof cfg.settings.todo.hideKPI === 'undefined'
-  ) {
+  if (cfg.settings.todo && typeof cfg.settings.todo.hideKPI === 'undefined') {
     cfg.settings.todo.hideKPI = false;
   }
   if (
@@ -124,27 +145,21 @@ const upgradeConfig = function upgradeConfig(cfg) {
   ) {
     cfg.settings.pega_chat.ProActiveNotificationDismissTime = '';
   }
-  if (
-    typeof cfg.settings.pega_chat.UseLegacyWebChat ===
-    'undefined'
-  ) {
+  if (typeof cfg.settings.pega_chat.UseLegacyWebChat === 'undefined') {
     cfg.settings.pega_chat.UseLegacyWebChat = true;
   }
-  if (
-    typeof cfg.settings.pega_chat.DMMURL === 'undefined') {
+  if (typeof cfg.settings.pega_chat.DMMURL === 'undefined') {
     cfg.settings.pega_chat.DMMURL = '';
   }
-  if (
-    typeof cfg.settings.pega_chat.DMMID === 'undefined') {
+  if (typeof cfg.settings.pega_chat.DMMID === 'undefined') {
     cfg.settings.pega_chat.DMMID = 'pega-wm-chat';
   }
-  if (
-    typeof cfg.settings.pega_chat.DMMSecret === 'undefined') {
+  if (typeof cfg.settings.pega_chat.DMMSecret === 'undefined') {
     cfg.settings.pega_chat.DMMSecret = '';
   }
-  if (
-    typeof cfg.settings.pega_chat.DMMPrivateURL === 'undefined') {
-    cfg.settings.pega_chat.DMMPrivateURL = 'https://ksxyk0i2hb.execute-api.us-east-1.amazonaws.com/Prod/private-data';
+  if (typeof cfg.settings.pega_chat.DMMPrivateURL === 'undefined') {
+    cfg.settings.pega_chat.DMMPrivateURL =
+      'https://ksxyk0i2hb.execute-api.us-east-1.amazonaws.com/Prod/private-data';
   }
   if (typeof cfg.settings.pega_chat.TenantID === 'undefined') {
     cfg.settings.pega_chat.TenantID = '';
@@ -221,9 +236,7 @@ const upgradeConfig = function upgradeConfig(cfg) {
   ) {
     cfg.settings.pega_marketing.replaceHomePageHeader = false;
   }
-  if (
-    typeof cfg.settings.pega_marketing.channel === 'undefined'
-  ) {
+  if (typeof cfg.settings.pega_marketing.channel === 'undefined') {
     cfg.settings.pega_marketing.channel = 'Web';
   }
   if (typeof cfg.settings.pega_marketing.showAIOverlay === 'undefined') {
@@ -398,67 +411,11 @@ const upgradeConfig = function upgradeConfig(cfg) {
   return cfg;
 };
 
-// Directive for dealing out with clicking outside of an overlay
-let handleOutsideClick;
-Vue.directive('clickoutside', {
-  bind(el, binding, vnode) {
-    handleOutsideClick = (e) => {
-      e.stopPropagation();
-      const { handler } = binding.value;
-      if (!el.contains(e.target)) {
-        vnode.context[handler](e);
-      }
-    };
-    document.addEventListener('click', handleOutsideClick);
-    document.addEventListener('touchstart', handleOutsideClick);
-  },
-  unbind() {
-    document.removeEventListener('click', handleOutsideClick);
-    document.removeEventListener('touchstart', handleOutsideClick);
-  },
-});
-
-Vue.use(VueI18n);
-
-let userLang = navigator.language || navigator.userLanguage;
-if (userLang.length > 2) userLang = userLang.substring(0, 1);
-
-let i18nTmp;
 let mainconfigTmp;
 
-if (typeof settings === 'undefined') {
+if (typeof window.settings === 'undefined') {
   window.location.href = `${window.location.href}/`;
 } else {
-  if (settings.i18n.defaultlocale === 'browser') {
-    settings.i18n.defaultlocale = userLang;
-  }
-
-  const messages = {};
-  const dateTimeFormats = {};
-  const numberFormats = {};
-
-  let isDefaultLocaleLoaded = false;
-  for (const i in settings.i18n.languages) {
-    const lang = settings.i18n.languages[i];
-    messages[lang] = {
-      message: eval(`lang${lang.toUpperCase()}`),
-    };
-    dateTimeFormats[lang] = eval(`dateFormat${lang.toUpperCase()}`);
-    numberFormats[lang] = eval(`numberFormat${lang.toUpperCase()}`);
-    /* Check if the default locale is available in the list of languages - if not, then select the first one */
-    if (lang === settings.i18n.defaultlocale) isDefaultLocaleLoaded = true;
-  }
-  if (!isDefaultLocaleLoaded) {
-    [settings.i18n.defaultlocale] = settings.i18n.languages;
-  }
-
-  i18nTmp = new VueI18n({
-    locale: settings.i18n.defaultlocale,
-    messages,
-    dateTimeFormats,
-    numberFormats,
-  });
-
   /* Detect if this is a phone */
   let isMobilePhone = false;
   if (
@@ -473,8 +430,8 @@ if (typeof settings === 'undefined') {
   }
 
   mainconfigTmp = {
-    settings,
-    app,
+    settings: window.settings,
+    app: window.app,
     isMobilePhone,
     offerURL: '',
     offerIndex: 0,
@@ -501,7 +458,7 @@ if (typeof settings === 'undefined') {
     homeHeroAction: -1,
     offerAction: -1,
     isRTSEnabled: false,
-    currentLocale: settings.i18n.defaultlocale,
+    currentLocale: window.settings.i18n.defaultlocale,
     mainTitle: document.title,
   };
   // Retrieve the object from storage
@@ -776,7 +733,10 @@ if (typeof settings === 'undefined') {
     mainconfigTmp.settings.general.connection.type === 'embedui'
   ) {
     const mashupScript = document.createElement('script');
-    mashupScript.setAttribute('src', `${mainconfigTmp.settings.general.connection.c11nserver}pega-embed.js`);
+    mashupScript.setAttribute(
+      'src',
+      `${mainconfigTmp.settings.general.connection.c11nserver}pega-embed.js`,
+    );
     document.head.appendChild(mashupScript);
   }
 
@@ -797,8 +757,10 @@ if (typeof settings === 'undefined') {
       // eslint-disable-next-line no-console
       console.log(`PegaUnifiedChatWidget onSessionInitialized=${sessionId}`);
       sendClickStreamEvent(mainconfigTmp, 'PageView', 'Chat', window.loadPage);
-
-      if (mainconfigTmp.settings.pega_chat.DMMSecret !== '' && mainconfigTmp.userId !== -1) {
+      if (
+        mainconfigTmp.settings.pega_chat.DMMSecret !== '' &&
+        mainconfigTmp.userId !== -1
+      ) {
         const privateData = {
           authenticated: mainconfigTmp.userId !== -1,
           ContactID: window.PegaCSWSS.ContactID,
@@ -806,10 +768,20 @@ if (typeof settings === 'undefined') {
           UserName: window.PegaCSWSS.UserName,
           UserID: window.PegaCSWSS.UserID,
         };
-        const jwttoken = generateJWTKey({ iss: sessionId }, mainconfigTmp.settings.pega_chat.DMMSecret);
+        const jwttoken = generateJWTKey(
+          { iss: sessionId },
+          mainconfigTmp.settings.pega_chat.DMMSecret,
+        );
         const request = new XMLHttpRequest();
-        request.open('POST', mainconfigTmp.settings.pega_chat.DMMPrivateURL, true);
-        request.setRequestHeader('Content-type', 'application/json;charset=UTF-8');
+        request.open(
+          'POST',
+          mainconfigTmp.settings.pega_chat.DMMPrivateURL,
+          true,
+        );
+        request.setRequestHeader(
+          'Content-type',
+          'application/json;charset=UTF-8',
+        );
         request.setRequestHeader('authorization', `Bearer ${jwttoken}`);
         request.send(JSON.stringify(privateData));
       }
@@ -821,11 +793,15 @@ if (typeof settings === 'undefined') {
     document.head.appendChild(scriptLoad);
 
     window.fireflyAPI = {};
-    if (mainconfigTmp.settings.pega_chat.CoBrowseServerURL !== '' && mainconfigTmp.settings.pega_chat.CoBrowseToken !== '') {
+    if (
+      mainconfigTmp.settings.pega_chat.CoBrowseServerURL !== '' &&
+      mainconfigTmp.settings.pega_chat.CoBrowseToken !== ''
+    ) {
       const script = document.createElement('script');
       script.type = 'text/javascript';
       window.fireflyAPI.token = mainconfigTmp.settings.pega_chat.CoBrowseToken;
-      window.fireflyAPI.serverHostUrl = mainconfigTmp.settings.pega_chat.CoBrowseServerURL;
+      window.fireflyAPI.serverHostUrl =
+        mainconfigTmp.settings.pega_chat.CoBrowseServerURL;
       script.src = `${mainconfigTmp.settings.pega_chat.CoBrowseServerURL}/cobrowse/loadScripts`;
       script.async = true;
       document.head.appendChild(script);
@@ -845,14 +821,14 @@ if (typeof settings === 'undefined') {
   }
 }
 
-const mainconfig = mainconfigTmp;
-const i18n = i18nTmp;
+export const mainconfig = reactive(mainconfigTmp);
+window.mainconfig = mainconfigTmp;
 
 /* set the styling */
-if (mainconfig.settings.general.theming.override) {
+if (mainconfigTmp.settings.general.theming.override) {
   const inlineTheming = document.createElement('style');
-  inlineTheming.innerHTML = `:root { --brandColor: ${mainconfig.settings.general.theming.brandColor};
-  --interactiveColor: ${mainconfig.settings.general.theming.interactiveColor};}
+  inlineTheming.innerHTML = `:root { --brandColor: ${mainconfigTmp.settings.general.theming.brandColor};
+  --interactiveColor: ${mainconfigTmp.settings.general.theming.interactiveColor};}
   .front>header, .form>header, .offer header { background-blend-mode: luminosity; }`;
   document.head.appendChild(inlineTheming);
 }
@@ -865,10 +841,19 @@ window.addEventListener('popstate', () => {
   if (mainconfig.currentPage === 'heroaction') {
     mainconfig.homeHeroAction = 1;
   }
-  if (mainconfig.currentPage.indexOf('offer') === 0 && mainconfig.currentPage.indexOf('offer.html') !== 0) {
-    mainconfig.offerIndex = parseInt(mainconfig.currentPage.substring(5).replace('.html', ''), 10);
+  if (
+    mainconfig.currentPage.indexOf('offer') === 0 &&
+    mainconfig.currentPage.indexOf('offer.html') !== 0
+  ) {
+    mainconfig.offerIndex = parseInt(
+      mainconfig.currentPage.substring(5).replace('.html', ''),
+      10,
+    );
   }
-  if (mainconfig.currentPage.indexOf('index.html') === 0 || mainconfig.currentPage.indexOf('account') === 0) {
+  if (
+    mainconfig.currentPage.indexOf('index.html') === 0 ||
+    mainconfig.currentPage.indexOf('account') === 0
+  ) {
     mainconfig.viewBill = -1;
     mainconfig.viewBanner = -1;
     mainconfig.homeHeroAction = -1;
@@ -885,7 +870,7 @@ window.addEventListener('popstate', () => {
   }
 });
 
-const updatePegaChat = function updatePegaChat(u) {
+export const updatePegaChat = function updatePegaChat(u) {
   /* Update PegaChat and pass the correct ContactId, AccountNumber and username */
   let el = document.querySelector(
     "[data-pega-gadgetname='OnlineHelp'] > iframe",
@@ -932,7 +917,11 @@ const updatePegaChat = function updatePegaChat(u) {
   setCookie('UserName', window.PegaCSWSS.UserName, 30);
   setCookie('UserID', window.PegaCSWSS.UserID, 30);
 
-  if (mainconfig.settings.pega_chat.DMMSecret !== '' && mainconfig.userId !== -1 && window.PegaCSWSS.DMMSessionID !== '') {
+  if (
+    mainconfig.settings.pega_chat.DMMSecret !== '' &&
+    mainconfig.userId !== -1 &&
+    window.PegaCSWSS.DMMSessionID !== ''
+  ) {
     const privateData = {
       authenticated: mainconfig.userId !== -1,
       ContactID: window.PegaCSWSS.ContactID,
@@ -940,7 +929,10 @@ const updatePegaChat = function updatePegaChat(u) {
       UserName: window.PegaCSWSS.UserName,
       UserID: window.PegaCSWSS.UserID,
     };
-    const jwttoken = generateJWTKey({ iss: window.PegaCSWSS.DMMSessionID }, mainconfig.settings.pega_chat.DMMSecret);
+    const jwttoken = generateJWTKey(
+      { iss: window.PegaCSWSS.DMMSessionID },
+      mainconfig.settings.pega_chat.DMMSecret,
+    );
     const request = new XMLHttpRequest();
     request.open('POST', mainconfig.settings.pega_chat.DMMPrivateURL, true);
     request.setRequestHeader('Content-type', 'application/json;charset=UTF-8');
@@ -958,7 +950,7 @@ const updatePegaChat = function updatePegaChat(u) {
   el = document.querySelector("[data-pega-gadgetname='OnlineHelp']");
   if (el != null) {
     /* We need to set the extra parameters manually */
-    const elOnlineHelp = pega.web.mgr._getGadgetByID('OnlineHelp');
+    const elOnlineHelp = window.pega.web.mgr._getGadgetByID('OnlineHelp');
     if (elOnlineHelp && elOnlineHelp._oDivAttrs) {
       for (const val in window.PegaCSWSS.ExtraParams) {
         elOnlineHelp._oDivAttrs.params[val] = window.PegaCSWSS.ExtraParams[val];
@@ -967,14 +959,7 @@ const updatePegaChat = function updatePegaChat(u) {
   }
   /* We need to call the proactive notification since PegaCSWSS.ContactID has changed */
   if (typeof sendProactiveNotificationReq === 'function') {
-    sendProactiveNotificationReq();
+    window.sendProactiveNotificationReq();
   }
 };
-
-export {
-  mainconfig,
-  i18n,
-  upgradeConfig,
-  updatePegaChat,
-  setCookie,
-};
+export default mainconfig;

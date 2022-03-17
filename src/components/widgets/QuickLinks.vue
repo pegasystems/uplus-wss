@@ -4,9 +4,11 @@
     <nav>
       <ul class="quick-links">
         <li v-for="(item, index) in settings.quicklinks" :key="index">
-          <a v-if="item.hide !== true && showQuickLink(index)" v-on:click="selectLink(index)">{{
-            settings.quicklinks[index].title[currentLocale]
-          }}</a>
+          <a
+            v-if="item.hide !== true && showQuickLink(index)"
+            v-on:click="selectLink(index)"
+            >{{ settings.quicklinks[index].title[currentLocale] }}</a
+          >
         </li>
       </ul>
     </nav>
@@ -36,7 +38,12 @@ export default {
       if (this.$gtag) {
         this.$gtag.pageview({ page_path: `quicklink${index}` });
       }
-      sendClickStreamEvent(mainconfig, 'PageView', `quicklink${index}`, window.loadPage);
+      sendClickStreamEvent(
+        mainconfig,
+        'PageView',
+        `quicklink${index}`,
+        window.loadPage,
+      );
       window.loadPage = new Date();
     },
     hasQuicklinks() {
@@ -46,7 +53,11 @@ export default {
       return false;
     },
     showQuickLink(index) {
-      return (this.settings.quicklinks[index].hideusers) ? (!this.settings.quicklinks[index].hideusers.split(',').includes(this.settings.users[mainconfig.userId].username)) : true;
+      return this.settings.quicklinks[index].hideusers
+        ? !this.settings.quicklinks[index].hideusers
+            .split(',')
+            .includes(this.settings.users[mainconfig.userId].username)
+        : true;
     },
   },
 };

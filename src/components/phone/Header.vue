@@ -4,15 +4,26 @@
       <i class="pi pi-bars"></i>
     </button>
     <a class="logo-link">
-      <img v-on:click="goToHome" class="logo" :src="'./img/u+-logo.svg'" alt="U+" />
+      <img
+        v-on:click="goToHome"
+        class="logo"
+        :src="'./img/u+-logo.svg'"
+        alt="U+"
+      />
     </a>
     <a
       class="kmhelp"
-      v-if="(isAuthenticated ||  settings.kmhelp.username !== '') && settings.kmhelp.url !== ''"
+      v-if="
+        (isAuthenticated || settings.kmhelp.username !== '') &&
+        settings.kmhelp.url !== ''
+      "
       v-on:click="showKMHelp"
-    >{{ $t('message.kmhelp') }}</a>
+      >{{ $t('message.kmhelp') }}</a
+    >
     <OperatorButton v-if="isAuthenticated" />
-    <LoginButton v-else-if="phonePageName === '' || phonePageName === 'index.html'" />
+    <LoginButton
+      v-else-if="phonePageName === '' || phonePageName === 'index.html'"
+    />
   </header>
 </template>
 
@@ -29,7 +40,7 @@ export default {
   mounted() {
     window.addEventListener('message', this.iFrameMessageListener);
   },
-  destroyed() {
+  unmounted() {
     window.removeEventListener('message', this.iFrameMessageListener);
   },
   methods: {
@@ -64,10 +75,21 @@ export default {
         }
       } else if (e.data) {
         let elem = {};
-        try { elem = JSON.parse(e.data); } catch { elem = {}; }
-        if (elem.channelName === 'PWMashup' && elem.message && elem.message.payload && elem.message.payload.name === 'confirm' && elem.message.uid.indexOf('ProactiveChat') === -1) {
+        try {
+          elem = JSON.parse(e.data);
+        } catch {
+          elem = {};
+        }
+        if (
+          elem.channelName === 'PWMashup' &&
+          elem.message &&
+          elem.message.payload &&
+          elem.message.payload.name === 'confirm' &&
+          elem.message.uid.indexOf('ProactiveChat') === -1
+        ) {
           if (mainconfig.quickLinkId !== -1) {
-            const serverUrl = mainconfig.settings.quicklinks[mainconfig.quickLinkId].url;
+            const serverUrl =
+              mainconfig.settings.quicklinks[mainconfig.quickLinkId].url;
             const testiframe = document.createElement('iframe');
             const urllogout = `${serverUrl}?pyActivity=LogOff`;
             testiframe.setAttribute('src', urllogout);

@@ -1,10 +1,10 @@
 <template>
   <div class="flex flex-col wrap">
     <div class="flex landing-request">
-      <Highlight/>
-      <OfferForm/>
+      <Highlight />
+      <OfferForm />
     </div>
-    <Cards/>
+    <Cards />
   </div>
 </template>
 

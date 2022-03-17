@@ -14,8 +14,13 @@
     </div>
     <div
       class="secondary-card"
-      v-if="settings.pega_marketing.Host === '' || settings.pega_marketing.accountPage.placement === '' ||
-     settings.pega_marketing.accountPage.containerName === '' || (loading && !settings.pega_marketing.showLoadingIndicator) || errorloading"
+      v-if="
+        settings.pega_marketing.Host === '' ||
+        settings.pega_marketing.accountPage.placement === '' ||
+        settings.pega_marketing.accountPage.containerName === '' ||
+        (loading && !settings.pega_marketing.showLoadingIndicator) ||
+        errorloading
+      "
     >
       <section
         class="offer-card-col"
@@ -39,13 +44,17 @@
     <div
       class="secondary-card loading-container"
       style="min-height: 300px"
-      v-else-if="settings.pega_marketing.Host!== '' && loading && settings.pega_marketing.showLoadingIndicator"
+      v-else-if="
+        settings.pega_marketing.Host !== '' &&
+        loading &&
+        settings.pega_marketing.showLoadingIndicator
+      "
     >
-    <span class="loading">
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-    </span>
+      <span class="loading">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </span>
     </div>
     <div class="secondary-card" v-else>
       <Offer v-for="item in data" :key="item.title" v-bind:offer="item" />
@@ -108,7 +117,9 @@ export default {
           page_path: mainconfig.phonePageName,
         });
       }
-      const stateObj = mainconfig.isAuthenticated ? { userId: mainconfig.userId } : {};
+      const stateObj = mainconfig.isAuthenticated
+        ? { userId: mainconfig.userId }
+        : {};
       window.history.pushState(stateObj, '', 'offer.html');
       mainconfig.offerIndex = 0;
       window.scrollTo({ top: 0, behavior: 'smooth' });

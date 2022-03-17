@@ -18,7 +18,7 @@
       data-pega-resizetype="stretch"
       :data-pega-channelID="channelID"
       :data-pega-url="serverUrl"
-      :data-pega-tenantid ="tenantID"
+      :data-pega-tenantid="tenantID"
       :data-pega-action-param-parameters="actionParam"
     ></div>
     <div
@@ -35,7 +35,7 @@
       data-pega-resizetype="stretch"
       :data-pega-channelID="channelID"
       :data-pega-url="serverUrl"
-      :data-pega-tenantid ="tenantID"
+      :data-pega-tenantid="tenantID"
       :data-pega-action-param-parameters="actionParam"
     ></div>
     <div
@@ -50,7 +50,7 @@
       data-pega-resizetype="stretch"
       :data-pega-channelID="channelID"
       :data-pega-url="serverUrl"
-      :data-pega-tenantid ="tenantID"
+      :data-pega-tenantid="tenantID"
       :data-pega-action-param-parameters="actionParam"
     ></div>
     <div
@@ -66,7 +66,7 @@
       data-pega-resizetype="stretch"
       :data-pega-channelID="channelID"
       :data-pega-url="serverUrl"
-      :data-pega-tenantid ="tenantID"
+      :data-pega-tenantid="tenantID"
       :data-pega-action-param-parameters="actionParam"
     ></div>
     <div
@@ -82,7 +82,7 @@
       data-pega-resizetype="stretch"
       :data-pega-channelID="channelID"
       :data-pega-url="serverUrl"
-      :data-pega-tenantid ="tenantID"
+      :data-pega-tenantid="tenantID"
       :data-pega-action-param-parameters="actionParam"
     ></div>
     <div
@@ -98,7 +98,7 @@
       data-pega-resizetype="stretch"
       :data-pega-channelID="channelID"
       :data-pega-url="serverUrl"
-      :data-pega-tenantid ="tenantID"
+      :data-pega-tenantid="tenantID"
       :data-pega-action-param-parameters="actionParam"
     ></div>
     <div
@@ -114,7 +114,7 @@
       data-pega-resizetype="stretch"
       :data-pega-channelID="channelID"
       :data-pega-url="serverUrl"
-      :data-pega-tenantid ="tenantID"
+      :data-pega-tenantid="tenantID"
       :data-pega-action-param-parameters="actionParam"
     ></div>
   </section>
@@ -123,7 +123,11 @@
       class="pega"
       :class="isMobilePhone ? 'phone' : 'desktop'"
       :data-attr-title="caseTitle"
-      :data-attr-color="settings.general.theming.override ? settings.general.theming.interactiveColor : ''"
+      :data-attr-color="
+        settings.general.theming.override
+          ? settings.general.theming.interactiveColor
+          : ''
+      "
       src="form-embed.html"
       style="overflow: hidden; height: 600px"
       width="100%"
@@ -166,20 +170,19 @@ export default {
     this.mashupScript = document.createElement('script');
     if (this.quickLinkId !== -1) {
       this.actionName = this.settings.quicklinks[this.quickLinkId].action;
-      this.actionNameParam = this.settings.quicklinks[
-        this.quickLinkId
-      ].actionparam;
+      this.actionNameParam =
+        this.settings.quicklinks[this.quickLinkId].actionparam;
       this.serverUrl = this.settings.quicklinks[this.quickLinkId].url;
       this.objClass = this.settings.quicklinks[this.quickLinkId].objclass;
       this.startCase = this.settings.quicklinks[this.quickLinkId].startcase;
       this.appName = this.settings.quicklinks[this.quickLinkId].application;
       this.channelID = this.settings.quicklinks[this.quickLinkId].channelid;
       this.tenantID = this.settings.quicklinks[this.quickLinkId].tenantid;
-      this.dataretained = this.settings.quicklinks[this.quickLinkId].dataretained;
+      this.dataretained =
+        this.settings.quicklinks[this.quickLinkId].dataretained;
       this.extraParam = this.settings.quicklinks[this.quickLinkId].extraparam;
-      this.caseTitle = this.settings.quicklinks[this.quickLinkId].title[
-        this.currentLocale
-      ];
+      this.caseTitle =
+        this.settings.quicklinks[this.quickLinkId].title[this.currentLocale];
     } else if (this.viewBill !== -1) {
       this.actionName = this.settings.billpay.action;
       this.actionNameParam = this.settings.billpay.actionparam;
@@ -301,16 +304,14 @@ export default {
     }
     tmpActionParam.pyMashupSkeletonName = 'pyDefaultMashupSkeleton';
     if (this.userId !== -1) {
-      tmpActionParam.UserIdentifier = this.settings.users[
-        this.userId
-      ].pega_userid;
+      tmpActionParam.UserIdentifier =
+        this.settings.users[this.userId].pega_userid;
       tmpActionParam.Password = encodeURI(
         btoa(this.settings.users[this.userId].pega_pwd),
       );
       if (this.settings.users[this.userId].accountID) {
-        tmpActionParam.AccountNumber = this.settings.users[
-          this.userId
-        ].accountID;
+        tmpActionParam.AccountNumber =
+          this.settings.users[this.userId].accountID;
       }
       if (this.settings.users[this.userId].customerID) {
         tmpActionParam.customerID = this.settings.users[this.userId].customerID;

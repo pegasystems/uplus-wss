@@ -1,13 +1,25 @@
 <template>
   <section class="recent-activity">
-    <h2>{{ $t("message.recentactivity") }}</h2>
+    <h2>{{ $t('message.recentactivity') }}</h2>
     <ul class="fatlist">
-      <li v-for="(item,index) in app.recentactivity" :key="item.message" class="flex">
-        <time v-if="item.date" class="fatlist-item">{{ $d(new Date(item.date), 'short') }}</time>
-        <time v-else class="fatlist-item">{{ $d(getdate(index), 'short') }}</time>
-        <p class="fatlist-item activity">{{ $t("message." + item.message) }}</p>
-        <p v-if="item.cost" class="fatlist-item flex-align-r">{{ $n(item.cost, 'currency') }}</p>
-        <a v-else class="fatlist-item flex-align-r">{{ $t("message.viewmore") }}</a>
+      <li
+        v-for="(item, index) in app.recentactivity"
+        :key="item.message"
+        class="flex"
+      >
+        <time v-if="item.date" class="fatlist-item">{{
+          $d(new Date(item.date), 'short')
+        }}</time>
+        <time v-else class="fatlist-item">{{
+          $d(getdate(index), 'short')
+        }}</time>
+        <p class="fatlist-item activity">{{ $t('message.' + item.message) }}</p>
+        <p v-if="item.cost" class="fatlist-item flex-align-r">
+          {{ $n(item.cost, 'currency') }}
+        </p>
+        <a v-else class="fatlist-item flex-align-r">{{
+          $t('message.viewmore')
+        }}</a>
       </li>
     </ul>
   </section>

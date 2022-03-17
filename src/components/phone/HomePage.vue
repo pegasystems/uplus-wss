@@ -14,7 +14,7 @@
         {{ $t('message.' + item.title) }}
       </button>
     </div>
-    <Offer :key="reloadOffer" />
+    <Offer />
     <MainFooter />
   </main>
 </template>

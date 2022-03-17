@@ -1,6 +1,10 @@
 <template>
-  <pega-mashup-light-v2 class='pega-mashup' ref="mycomp"  v-if="this.settings.general.connection.type === 'dxv2'" />
-  <pega-mashup-light class='pega-mashup' ref="mycomp" v-else />
+  <pega-mashup-light-v2
+    class="pega-mashup"
+    ref="mycomp"
+    v-if="this.settings.general.connection.type === 'dxv2'"
+  />
+  <pega-mashup-light class="pega-mashup" ref="mycomp" v-else />
 </template>
 
 <script>
@@ -8,7 +12,9 @@ import { mainconfig } from '../global';
 import { sendClickStreamEvent } from '../CDHIntegration';
 
 export default {
-  data() { return mainconfig; },
+  data() {
+    return mainconfig;
+  },
   mounted() {
     const mytag = this.$refs.mycomp;
     let objClass = '';
@@ -17,9 +23,8 @@ export default {
       mytag.action = this.settings.quicklinks[this.quickLinkId].action;
       mytag.url = this.settings.quicklinks[this.quickLinkId].url;
       objClass = this.settings.quicklinks[this.quickLinkId].objclass;
-      caseTitle = this.settings.quicklinks[this.quickLinkId].title[
-        this.currentLocale
-      ];
+      caseTitle =
+        this.settings.quicklinks[this.quickLinkId].title[this.currentLocale];
     } else if (this.viewBill !== -1) {
       mytag.action = this.settings.billpay.action;
       mytag.url = this.settings.billpay.url;
@@ -60,7 +65,11 @@ export default {
       src="form-embed.html"
       style="overflow: hidden; height: 600px"
       data-attr-title="${caseTitle}"
-      data-attr-color="${mainconfig.settings.general.theming.override ? mainconfig.settings.general.theming.interactiveColor : ''}"
+      data-attr-color="${
+        mainconfig.settings.general.theming.override
+          ? mainconfig.settings.general.theming.interactiveColor
+          : ''
+      }"
       width="100%"
       height="100%"
       border="0"
@@ -97,7 +106,10 @@ export default {
     });
     if (typeof litElementVersions === 'undefined') {
       const mashupScript = document.createElement('script');
-      mashupScript.setAttribute('src', '../js/pega-mashup-webcomponent-light-all.js');
+      mashupScript.setAttribute(
+        'src',
+        '../js/pega-mashup-webcomponent-light-all.js',
+      );
       document.head.appendChild(mashupScript);
     }
   },
@@ -122,11 +134,7 @@ export default {
           );
         } else {
           mainconfig.currentPage = 'index.html';
-          window.history.pushState(
-            {},
-            '',
-            mainconfig.currentPage,
-          );
+          window.history.pushState({}, '', mainconfig.currentPage);
         }
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }

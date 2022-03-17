@@ -1,44 +1,52 @@
 <template>
-  <section v-if="app.industry !== 'wealth'"  class="bill-pay">
-    <h2>{{ $t("message.billpay") }}</h2>
+  <section v-if="app.industry !== 'wealth'" class="bill-pay">
+    <h2>{{ $t('message.billpay') }}</h2>
     <div class="content-card flex flex-col-3">
       <div class="list-box">
-        <h3>{{ $t("message.amountdue") }}</h3>
-        <p v-if="settings.users[userId]">{{ $n(settings.users[userId].billpay, 'currency') }}</p>
-        <button v-on:click="openBill()">{{ $t("message.paynow") }}</button>
+        <h3>{{ $t('message.amountdue') }}</h3>
+        <p v-if="settings.users[userId]">
+          {{ $n(settings.users[userId].billpay, 'currency') }}
+        </p>
+        <button v-on:click="openBill()">{{ $t('message.paynow') }}</button>
       </div>
       <div class="list-box">
-        <h3>{{ $t("message.billdue") }}</h3>
+        <h3>{{ $t('message.billdue') }}</h3>
         <p>{{ $d(getDueBillDate(), 'short') }}</p>
-        <button class="simple" v-on:click="openBill()">{{ $t("message.viewbill") }}</button>
+        <button class="simple" v-on:click="openBill()">
+          {{ $t('message.viewbill') }}
+        </button>
       </div>
       <div class="list-box">
-        <h3>{{ $t("message.autopay") }}</h3>
+        <h3>{{ $t('message.autopay') }}</h3>
         <p v-if="isBillPayActive">
           <i class="pi pi-cancel pi-grey"></i>
-          {{ $t("message.off") }}
+          {{ $t('message.off') }}
         </p>
         <p v-else>
           <i class="pi pi-circle-check pi-grey"></i>
-          {{ $t("message.on") }}
+          {{ $t('message.on') }}
         </p>
-        <button class="simple" v-on:click="enrollInBillPay()">{{ $t("message.autopay_enroll") }}</button>
+        <button class="simple" v-on:click="enrollInBillPay()">
+          {{ $t('message.autopay_enroll') }}
+        </button>
       </div>
     </div>
   </section>
-  <section v-else  class="bill-pay">
-    <h2>{{ $t("message.billpay") }}</h2>
+  <section v-else class="bill-pay">
+    <h2>{{ $t('message.billpay') }}</h2>
     <div class="content-card flex flex-col-3">
       <div class="list-box">
-        <h3>{{ $t("message.amountdue") }}</h3>
-        <p v-if="settings.users[userId]">{{ $n(settings.users[userId].billpay, 'currency') }}</p>
+        <h3>{{ $t('message.amountdue') }}</h3>
+        <p v-if="settings.users[userId]">
+          {{ $n(settings.users[userId].billpay, 'currency') }}
+        </p>
       </div>
       <div class="list-box">
-        <h3>{{ $t("message.billdue") }}</h3>
+        <h3>{{ $t('message.billdue') }}</h3>
         <p>{{ $d(getDueBillDate(), 'short') }}</p>
       </div>
       <div class="list-box">
-        <h3>{{ $t("message.autopay") }}</h3>
+        <h3>{{ $t('message.autopay') }}</h3>
         <p v-if="settings.users[userId]">{{ settings.users[userId].roi }}%</p>
       </div>
     </div>

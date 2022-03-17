@@ -1,9 +1,9 @@
 <template>
   <div class="background-brand offer-footer">
     <div class="promo">
-      <h4>{{ $t('message.' + app.category.footer.title)}}</h4>
+      <h4>{{ $t('message.' + app.category.footer.title) }}</h4>
     </div>
-    <MainFooter/>
+    <MainFooter />
   </div>
 </template>
 

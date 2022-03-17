@@ -1,8 +1,8 @@
 <template>
   <div class="flex flex-col">
-    <Aside/>
-    <Header/>
-    <Main/>
+    <Aside />
+    <Header />
+    <Main />
   </div>
 </template>
 

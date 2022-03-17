@@ -72,11 +72,7 @@ export default {
           );
         } else {
           mainconfig.currentPage = 'index.html';
-          window.history.replaceState(
-            {},
-            '',
-            mainconfig.currentPage,
-          );
+          window.history.replaceState({}, '', mainconfig.currentPage);
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }
       }
@@ -102,7 +98,11 @@ export default {
       setCookie('AccountNumber', window.PegaCSWSS.AccountNumber, 30);
       setCookie('UserName', window.PegaCSWSS.UserName, 30);
       setCookie('UserID', window.PegaCSWSS.UserID, 30);
-      if (mainconfig.settings.pega_chat.DMMSecret !== '' && mainconfig.userId !== -1 && window.PegaCSWSS.DMMSessionID !== '') {
+      if (
+        mainconfig.settings.pega_chat.DMMSecret !== '' &&
+        mainconfig.userId !== -1 &&
+        window.PegaCSWSS.DMMSessionID !== ''
+      ) {
         const privateData = {
           authenticated: mainconfig.userId !== -1,
           ContactID: window.PegaCSWSS.ContactID,
@@ -110,10 +110,16 @@ export default {
           UserName: window.PegaCSWSS.UserName,
           UserID: window.PegaCSWSS.UserID,
         };
-        const jwttoken = generateJWTKey({ iss: window.PegaCSWSS.DMMSessionID }, mainconfig.settings.pega_chat.DMMSecret);
+        const jwttoken = generateJWTKey(
+          { iss: window.PegaCSWSS.DMMSessionID },
+          mainconfig.settings.pega_chat.DMMSecret,
+        );
         const request = new XMLHttpRequest();
         request.open('POST', mainconfig.settings.pega_chat.DMMPrivateURL, true);
-        request.setRequestHeader('Content-type', 'application/json;charset=UTF-8');
+        request.setRequestHeader(
+          'Content-type',
+          'application/json;charset=UTF-8',
+        );
         request.setRequestHeader('authorization', `Bearer ${jwttoken}`);
         request.send(JSON.stringify(privateData));
       }

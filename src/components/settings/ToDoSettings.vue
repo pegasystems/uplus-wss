@@ -1,23 +1,51 @@
 <template>
   <div class="container-transparent">
     <h2>To Do component</h2>
-    <p>Configuration of the mashup displayed as the To Do list inside the account page.</p>
+    <p>
+      Configuration of the mashup displayed as the To Do list inside the account
+      page.
+    </p>
     <div class="container">
       <div class="body">
         <div class="layout-labels-top layout-inline-grid-double">
           <div class="field-item field-checkbox">
-            <input id="todo-hideactivity" type="checkbox" v-model="settings.todo.hideactivity" />
-            <label class="width-auto" for="todo-hideactivity">Hide recent activity</label>
+            <input
+              id="todo-hideactivity"
+              type="checkbox"
+              v-model="settings.todo.hideactivity"
+            />
+            <label class="width-auto" for="todo-hideactivity"
+              >Hide recent activity</label
+            >
           </div>
           <div class="field-item field-checkbox">
-            <input id="todo-hideaccount" type="checkbox" v-model="settings.todo.hideaccount" />
-            <label class="width-auto" for="todo-hideaccount">Hide account details</label>
+            <input
+              id="todo-hideaccount"
+              type="checkbox"
+              v-model="settings.todo.hideaccount"
+            />
+            <label class="width-auto" for="todo-hideaccount"
+              >Hide account details</label
+            >
           </div>
         </div>
         <div class="layout-labels-top layout-inline-grid-double">
-          <div class="field-item field-checkbox" v-if="app.industry  === 'health-pharma' || app.industry  === 'health-care' || app.industry  === 'health-payer'">
-            <input id="todo-hidekpi" type="checkbox" v-model="settings.todo.hideKPI" />
-            <label class="width-auto" for="todo-hidekpi">Hide KPI details</label>
+          <div
+            class="field-item field-checkbox"
+            v-if="
+              app.industry === 'health-pharma' ||
+              app.industry === 'health-care' ||
+              app.industry === 'health-payer'
+            "
+          >
+            <input
+              id="todo-hidekpi"
+              type="checkbox"
+              v-model="settings.todo.hideKPI"
+            />
+            <label class="width-auto" for="todo-hidekpi"
+              >Hide KPI details</label
+            >
           </div>
         </div>
         <div class="layout-labels-top layout-inline-grid-double">
@@ -26,15 +54,28 @@
             <select id="todo-action" v-model="settings.todo.action">
               <option>createNewWork</option>
               <option>display</option>
-              <option v-if="settings.general.connection.type==='mashup'">getNextWork</option>
+              <option v-if="settings.general.connection.type === 'mashup'">
+                getNextWork
+              </option>
               <option>openAssignment</option>
-              <option v-if="settings.general.connection.type==='mashup'">openWorkItem</option>
+              <option v-if="settings.general.connection.type === 'mashup'">
+                openWorkItem
+              </option>
               <option>openWorkByHandle</option>
             </select>
           </div>
           <div class="field-item">
-            <label for="todo-actionparam" v-if="settings.todo.action!=='createNewWork'">Action parameter</label>
-            <input id="todo-actionparam" type="text" v-model="settings.todo.actionparam" v-if="settings.todo.action!=='createNewWork'"/>
+            <label
+              for="todo-actionparam"
+              v-if="settings.todo.action !== 'createNewWork'"
+              >Action parameter</label
+            >
+            <input
+              id="todo-actionparam"
+              type="text"
+              v-model="settings.todo.actionparam"
+              v-if="settings.todo.action !== 'createNewWork'"
+            />
           </div>
           <div class="field-item">
             <label for="todo-url">URL</label>
@@ -42,32 +83,72 @@
           </div>
           <div class="field-item">
             <label for="todo-objclass">Classname</label>
-            <input id="todo-objclass" type="text" v-model="settings.todo.objclass" />
+            <input
+              id="todo-objclass"
+              type="text"
+              v-model="settings.todo.objclass"
+            />
           </div>
-          <div class="field-item" v-if="settings.general.connection.type==='mashup'">
+          <div
+            class="field-item"
+            v-if="settings.general.connection.type === 'mashup'"
+          >
             <label for="todo-startcase">Start case</label>
-            <input id="todo-startcase" type="text" v-model="settings.todo.startcase" />
+            <input
+              id="todo-startcase"
+              type="text"
+              v-model="settings.todo.startcase"
+            />
           </div>
           <div class="field-item">
             <label for="todo-application">Application name</label>
-            <input id="todo-application" type="text" v-model="settings.todo.application" />
+            <input
+              id="todo-application"
+              type="text"
+              v-model="settings.todo.application"
+            />
           </div>
-          <div class="field-item" v-if="settings.general.connection.type==='mashup'">
+          <div
+            class="field-item"
+            v-if="settings.general.connection.type === 'mashup'"
+          >
             <label for="todo-channelid">Channel ID</label>
-            <input id="todo-channelid" type="text" v-model="settings.todo.channelid" />
+            <input
+              id="todo-channelid"
+              type="text"
+              v-model="settings.todo.channelid"
+            />
           </div>
-          <div class="field-item" v-if="settings.general.connection.type==='mashup'">
+          <div
+            class="field-item"
+            v-if="settings.general.connection.type === 'mashup'"
+          >
             <label for="todo-tenantid">Tenant ID</label>
-            <input id="todo-tenantid" type="text" v-model="settings.todo.tenantid" />
+            <input
+              id="todo-tenantid"
+              type="text"
+              v-model="settings.todo.tenantid"
+            />
           </div>
-          <div class="field-item field-checkbox" v-if="settings.general.connection.type==='mashup'">
-            <input id="todo-dataretained" type="checkbox" v-model="settings.todo.dataretained" />
-            <label class="width-auto" for="todo-dataretained">Retain state on reload</label>
+          <div
+            class="field-item field-checkbox"
+            v-if="settings.general.connection.type === 'mashup'"
+          >
+            <input
+              id="todo-dataretained"
+              type="checkbox"
+              v-model="settings.todo.dataretained"
+            />
+            <label class="width-auto" for="todo-dataretained"
+              >Retain state on reload</label
+            >
           </div>
         </div>
         <div class="layout-labels-top">
           <div class="field-item">
-            <label for="todo-extraparam">Extra parameters (for example 'key1=value1,key2=value2')</label>
+            <label for="todo-extraparam"
+              >Extra parameters (for example 'key1=value1,key2=value2')</label
+            >
             <textarea id="todo-extraparam" v-model="settings.todo.extraparam" />
           </div>
         </div>

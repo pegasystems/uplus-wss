@@ -1,7 +1,7 @@
 <template>
-  <PegaWebMashup v-if="settings.general.connection.type === 'mashup'"/>
-  <WebEmbed v-else-if="settings.general.connection.type === 'embedui'"/>
-  <WebComponent v-else/>
+  <PegaWebMashup v-if="settings.general.connection.type === 'mashup'" />
+  <WebEmbed v-else-if="settings.general.connection.type === 'embedui'" />
+  <WebComponent v-else />
 </template>
 
 <script>

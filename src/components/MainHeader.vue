@@ -9,18 +9,33 @@
   >
     <div class="wrap header flex">
       <a>
-        <img v-on:click="goHomePage" class="logo" :src="'./img/u+-logo.svg'" alt="U+" />
+        <img
+          v-on:click="goHomePage"
+          class="logo"
+          :src="'./img/u+-logo.svg'"
+          alt="U+"
+        />
       </a>
       <nav class="flex-grow-1">
         <ul class="flex flex-mid-align flex-grow-1">
-          <MenuItem v-for="(item, index) in app.menuitems" v-bind:pagetype="item.pagetype" v-bind:key="index" v-bind:title="item.title" v-bind:href="app.offer.length > 1 ? `offer${index+1}.html` : null"></MenuItem>
+          <MenuItem
+            v-for="(item, index) in app.menuitems"
+            v-bind:pagetype="item.pagetype"
+            v-bind:key="index"
+            v-bind:title="item.title"
+            v-bind:href="app.offer.length > 1 ? `offer${index + 1}.html` : null"
+          ></MenuItem>
         </ul>
       </nav>
       <a
         class="kmhelp"
-        v-if="(isAuthenticated ||  settings.kmhelp.username !== '') && settings.kmhelp.url !== ''"
+        v-if="
+          (isAuthenticated || settings.kmhelp.username !== '') &&
+          settings.kmhelp.url !== ''
+        "
         v-on:click="showKMHelp"
-      >{{ $t('message.kmhelp') }}</a>
+        >{{ $t('message.kmhelp') }}</a
+      >
       <OperatorButton v-if="isAuthenticated" />
       <LoginButton v-else />
       <MainHeaderMenu />
@@ -47,7 +62,7 @@ export default {
   mounted() {
     window.addEventListener('message', this.iFrameMessageListener);
   },
-  destroyed() {
+  unmounted() {
     window.removeEventListener('message', this.iFrameMessageListener);
   },
   methods: {
@@ -83,10 +98,21 @@ export default {
         }
       } else if (e.data) {
         let elem = {};
-        try { elem = JSON.parse(e.data); } catch { elem = {}; }
-        if (elem.channelName === 'PWMashup' && elem.message && elem.message.payload && elem.message.payload.name === 'confirm' && elem.message.uid.indexOf('ProactiveChat') === -1) {
+        try {
+          elem = JSON.parse(e.data);
+        } catch {
+          elem = {};
+        }
+        if (
+          elem.channelName === 'PWMashup' &&
+          elem.message &&
+          elem.message.payload &&
+          elem.message.payload.name === 'confirm' &&
+          elem.message.uid.indexOf('ProactiveChat') === -1
+        ) {
           if (mainconfig.quickLinkId !== -1) {
-            const serverUrl = mainconfig.settings.quicklinks[mainconfig.quickLinkId].url;
+            const serverUrl =
+              mainconfig.settings.quicklinks[mainconfig.quickLinkId].url;
             const testiframe = document.createElement('iframe');
             const urllogout = `${serverUrl}?pyActivity=LogOff`;
             testiframe.setAttribute('src', urllogout);
@@ -119,11 +145,7 @@ export default {
           );
         } else {
           mainconfig.currentPage = 'index.html';
-          window.history.pushState(
-            {},
-            '',
-            mainconfig.currentPage,
-          );
+          window.history.pushState({}, '', mainconfig.currentPage);
         }
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
