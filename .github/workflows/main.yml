@@ -8,15 +8,15 @@ jobs:
       matrix:
         operating-system: [ubuntu-latest]
     steps:
-    - uses: actions/checkout@master
-    
-    - name: Set Node.js 10.x
-      uses: actions/setup-node@master
-      with:
-        node-version: 10.x
+      - uses: actions/checkout@master
 
-    - name: npm install
-      run: npm install
+      - name: Set Node.js 17.x
+        uses: actions/setup-node@master
+        with:
+          node-version: 17.x
 
-    - name: npm test
-      run: npm run test:unit
+      - name: npm install
+        run: npm install
+
+      - name: npm test
+        run: npm run test:unit
