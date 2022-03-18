@@ -1,11 +1,12 @@
-import { mount } from "@vue/test-utils";
-import "@/../public/gov/js/config-settings";
-import "@/../public/gov/js/config-flow";
-import "@/../public/gov/i18n/lang-en";
-import DefaultPage from "@/views/DefaultPage.vue";
+import { describe, test, expect } from 'vitest';
+import { mount } from '@vue/test-utils';
+import '@/../public/gov/js/config-settings';
+import '@/../public/gov/js/config-flow';
+import '@/../public/gov/i18n/lang-en';
+import DefaultPage from '@/views/DefaultPage.vue';
 
-describe("Gov App on Desktop", () => {
-  it("renders home page on load", () => {
+describe('Gov App on Desktop', () => {
+  test('renders home page on load', () => {
     const wrapper = mount(DefaultPage, {
       global: {
         mocks: {
@@ -18,10 +19,10 @@ describe("Gov App on Desktop", () => {
         },
       },
     });
-    expect(wrapper.find("h1").text()).toContain("message.hero_text");
+    expect(wrapper.find('h1').text()).toContain('message.hero_text');
   });
 
-  it("renders account page when authenticated", () => {
+  test('renders account page when authenticated', () => {
     window.mainconfig.isAuthenticated = true;
     window.mainconfig.userId = 0;
     const wrapper = mount(DefaultPage, {
@@ -36,12 +37,12 @@ describe("Gov App on Desktop", () => {
         },
       },
     });
-    expect(wrapper.find("h1").text()).toContain("message.accountoverview");
+    expect(wrapper.find('h1').text()).toContain('message.accountoverview');
   });
 });
 
-describe("Gov App on Mobile", () => {
-  it("renders home page on load", () => {
+describe('Gov App on Mobile', () => {
+  test('renders home page on load', () => {
     window.mainconfig.isMobilePhone = true;
     window.mainconfig.isAuthenticated = false;
     window.mainconfig.userId = -1;
@@ -57,8 +58,8 @@ describe("Gov App on Mobile", () => {
         },
       },
     });
-    expect(wrapper.find("h1").text()).toContain(
-      "message.phone_home_page_title"
+    expect(wrapper.find('h1').text()).toContain(
+      'message.phone_home_page_title',
     );
   });
 });

@@ -8,7 +8,7 @@
     "test:e2e": "start-server-and-test preview http://127.0.0.1:5050/ 'cypress open'",
     "test:e2e:ci": "start-server-and-test preview http://127.0.0.1:5050/ 'cypress run'",
     "lint": "eslint src --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
-    "test:unit": "vue-cli-service test:unit"
+    "test:unit": "vitest run --coverage --environment jsdom"
   },
   "dependencies": {
     "crypto-js": "^4.1.1",
@@ -17,26 +17,21 @@
     "vue-i18n": "^9.1.9"
   },
   "devDependencies": {
-    "@babel/core": "^7.17.7",
-    "@babel/preset-env": "^7.16.11",
     "@rushstack/eslint-patch": "^1.1.0",
     "@vitejs/plugin-vue": "^2.2.2",
     "@vitejs/plugin-vue-jsx": "^1.3.7",
-    "@vue/cli-plugin-unit-jest": "^5.0.3",
-    "@vue/cli-service": "^5.0.3",
     "@vue/eslint-config-prettier": "^7.0.0",
     "@vue/test-utils": "^2.0.0-rc.17",
-    "@vue/vue3-jest": "^27.0.0-alpha.4",
-    "babel-jest": "^27.5.1",
+    "c8": "^7.11.0",
     "cypress": "^9.5.0",
     "eslint": "^8.5.0",
     "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-vue": "^8.2.0",
-    "jest": "^27.5.1",
     "jsdom": "^19.0.0",
     "prettier": "^2.5.1",
     "replace-in-file": "^6.3.2",
     "start-server-and-test": "^1.14.0",
-    "vite": "^2.8.4"
+    "vite": "^2.8.4",
+    "vitest": "^0.7.4"
   }
 }
