@@ -43,7 +43,7 @@
       </li>
     </ul>
     <div class="footer-img">
-      <img src="../../assets/img/pega-logo.png" />
+      <img src="/public/img/pega-logo.png" />
     </div>
   </div>
 </template>

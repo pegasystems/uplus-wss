@@ -8,7 +8,7 @@
     <div class="flex">
       <div class="flex flex-1">
         <div class="flex flex-col">
-          <img width="120" src="../../assets/img/pega-logo.png" />
+          <img width="120" src="/public/img/pega-logo.png" />
           <span>Real-time data streaming</span>
         </div>
         <button
