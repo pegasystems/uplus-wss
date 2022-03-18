@@ -334,6 +334,13 @@ time.fatlist-item {
   margin: auto 0 0 0;
   border-top: 1px solid #fff;
   text-align: right;
+  background: url(../img/pega-logo.png) 0 0 no-repeat;
+  height: 40px;
+}
+
+.rts-logo {
+  background: url(../img/pega-logo.png) 0 0 no-repeat;
+  height: 40px;
 }
 
 .ai-overlay > ul {

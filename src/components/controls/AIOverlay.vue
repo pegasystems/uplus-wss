@@ -42,9 +42,7 @@
         <span>{{ offer.placement }}</span>
       </li>
     </ul>
-    <div class="footer-img">
-      <img src="/public/img/pega-logo.png" />
-    </div>
+    <div class="footer-img"></div>
   </div>
 </template>
 
