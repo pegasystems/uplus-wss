@@ -8,7 +8,9 @@
     "test:e2e": "start-server-and-test preview http://127.0.0.1:5050/ 'cypress open'",
     "test:e2e:ci": "start-server-and-test preview http://127.0.0.1:5050/ 'cypress run'",
     "lint": "eslint src --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
-    "test:unit": "vitest run --coverage --environment jsdom"
+    "test:unit": "vitest run --coverage --environment jsdom",
+    "docker-build": "npx docker build --tag richardmarsot/uplus-wss  -f ./Dockerfile .",
+    "docker-push": "npx docker push richardmarsot/uplus-wss"
   },
   "dependencies": {
     "crypto-js": "^4.1.1",

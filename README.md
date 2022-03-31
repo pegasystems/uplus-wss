@@ -6,6 +6,8 @@ The Uplus application is a typical web application built as a Progressive Web Ap
 
 A complete demo of the application is available at https://pegasystems.github.io/uplus-wss/.
 
+To get a docker image with the latest released version, run 'docker pull richardmarsot/uplus-wss'
+
 Documentation is available at https://github.com/pegasystems/uplus-wss/wiki.
 
 ## For developers
