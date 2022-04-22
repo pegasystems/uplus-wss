@@ -101,6 +101,17 @@ body > #app.form.offer {
   color: #fff;
 }
 
+.offer-card,
+.offer-container,
+.offer-card > .details {
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1;
+}
+.offer-card > .details > p {
+  flex-grow:1;
+}
+
 .offer-cards .image,
 .main-offer .image {
   background-position: 25% 50%;

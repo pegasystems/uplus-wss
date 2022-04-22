@@ -184,7 +184,7 @@ export default {
         this.data = [];
         this.hero_offer = { url: '', link: 'Apply Now' };
         this.action =
-          this._props.offerType > 0
+          this._props && this._props.offerType > 0
             ? this.settings.pega_marketing.extraOfferPages[
                 this._props.offerType - 1
               ].clickaction
@@ -200,7 +200,7 @@ export default {
           initNBAM(
             self,
             `${
-              this._props.offerType > 0
+              this._props && this._props.offerType > 0
                 ? `extraOfferPages${this._props.offerType}`
                 : 'offerPage'
             }`,
