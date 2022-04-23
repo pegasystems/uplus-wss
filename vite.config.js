@@ -7,7 +7,14 @@ import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 
 export default defineConfig({
-  plugins: [vue(), vueJsx()],
+  plugins: [vue({
+    template: {
+      compilerOptions: {
+        // ski pega-embed elements
+        isCustomElement: (tag) => tag.includes('pega-embed')
+      }
+    }
+  }), vueJsx()],
   build: {
     outDir: resolve(__dirname, "docs"),
     rollupOptions: {

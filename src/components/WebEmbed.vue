@@ -4,6 +4,7 @@
     <pega-embed
       v-if="action === 'openPage'"
       popupReauth="true"
+      ref="mycomp"
       casePage="assignment"
       :action="action"
       :pageID="actionparam"
@@ -20,6 +21,7 @@
     <pega-embed
       v-else-if="action === 'createCase'"
       popupReauth="true"
+      ref="mycomp"
       :action="action"
       :caseTypeID="objClass"
       :startingFields="startingFields"
@@ -35,6 +37,7 @@
     <pega-embed
       v-else-if="action === 'openAssignment'"
       popupReauth="true"
+      ref="mycomp"
       :action="action"
       :assignmentID="actionparam"
       :appAlias="application"
@@ -49,6 +52,7 @@
     <pega-embed
       v-else-if="action === 'openCase'"
       popupReauth="true"
+      ref="mycomp"
       :action="action"
       :caseID="actionparam"
       :appAlias="application"
@@ -243,11 +247,22 @@ export default {
         }
       });
     }
-    this.startingFields = JSON.stringify(this.extraParamContent);
+    if (Object.keys(this.extraParamContent).length > 0) {
+      this.startingFields = JSON.stringify(this.extraParamContent);
+    }
     this.staticContentUrl = this.settings.general.connection.c11nserver;
     this.clientId = this.settings.general.connection.clientid;
 
     this.isWebEmbedInitialized = 'true';
+  },
+  updated() {
+    const mytag = this.$refs.mycomp;
+    mytag.addEventListener('embedprocessingend', (event) => {
+      console.log('embedprocessingend', event);
+    });
+    mytag.addEventListener('embedready', (event) => {
+      console.log('embedready', event);
+    });
   },
   methods: {
     goHomePage() {
