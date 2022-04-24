@@ -72,6 +72,9 @@
 import { mainconfig } from '../global';
 import { sendClickStreamEvent } from '../CDHIntegration';
 
+const embedEventFn = (event) => {
+  console.log('Event from pega-embed', event);
+};
 const setObjectFromRef = (content, path, value) => {
   if (typeof path !== 'string') {
     return;
@@ -257,12 +260,13 @@ export default {
   },
   updated() {
     const mytag = this.$refs.mycomp;
-    mytag.addEventListener('embedprocessingend', (event) => {
-      console.log('embedprocessingend', event);
-    });
-    mytag.addEventListener('embedready', (event) => {
-      console.log('embedready', event);
-    });
+    mytag.addEventListener('embedprocessingend', embedEventFn);
+    mytag.addEventListener('embedready', embedEventFn);
+  },
+  beforeUnmount() {
+    const mytag = this.$refs.mycomp;
+    mytag.removeEventListener('embedprocessingend', embedEventFn);
+    mytag.removeEventListener('embedready', embedEventFn);
   },
   methods: {
     goHomePage() {
