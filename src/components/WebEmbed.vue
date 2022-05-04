@@ -291,7 +291,9 @@ export default {
           mainconfig.currentPage = 'index.html';
           window.history.pushState({}, '', mainconfig.currentPage);
         }
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        setTimeout(() => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 0);
       }
       sendClickStreamEvent(mainconfig, 'PageView', 'Home', window.loadPage);
       window.loadPage = new Date();

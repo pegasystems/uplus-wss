@@ -42,7 +42,9 @@ export default {
         });
       }
       window.history.pushState({}, '', 'settings.html');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setTimeout(() => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 0);
       event.preventDefault();
     },
   },

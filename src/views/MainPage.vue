@@ -35,7 +35,9 @@ export default {
         '',
         this.currentPage + window.location.search,
       );
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 0);
     }
     if (this.currentPage === 'heroaction') {
       mainconfig.homeHeroAction = 1;
