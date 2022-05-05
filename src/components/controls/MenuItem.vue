@@ -41,7 +41,9 @@ export default {
         ? { userId: mainconfig.userId }
         : {};
       window.history.pushState(stateObj, '', mainconfig.currentPage);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setTimeout(() => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 0);
       event.preventDefault();
     },
   },

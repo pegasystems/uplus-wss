@@ -105,7 +105,9 @@ export default {
         : {};
       window.history.pushState(stateObj, '', 'offer.html');
       mainconfig.offerIndex = 0;
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 0);
     },
     showOffer(item) {
       mainconfig.phonePageName = 'offer';

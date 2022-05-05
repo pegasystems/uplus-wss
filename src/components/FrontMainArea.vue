@@ -284,7 +284,9 @@ export default {
       if (this.hero_offer.url === '') {
         mainconfig.homeHeroAction = 1;
         window.history.pushState({}, '', 'heroaction');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        setTimeout(() => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 0)
       } else {
         mainconfig.offerURL = this.hero_offer.url;
         mainconfig.previousPage = this.hero_offer.name;
@@ -314,7 +316,9 @@ export default {
         : {};
       window.history.pushState(stateObj, '', 'offer.html');
       mainconfig.offerIndex = 0;
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 0);
       event.preventDefault();
     },
   },

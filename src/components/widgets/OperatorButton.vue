@@ -73,7 +73,9 @@ export default {
         } else {
           mainconfig.currentPage = 'index.html';
           window.history.replaceState({}, '', mainconfig.currentPage);
-          window.scrollTo({ top: 0, behavior: 'smooth' });
+          setTimeout(() => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }, 0);
         }
       }
       // Issue logout request for each url present in the list */

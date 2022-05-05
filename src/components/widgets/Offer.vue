@@ -87,7 +87,9 @@ export default {
         });
       }
       mainconfig.offerIndex = 0;
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 0);
       event.preventDefault();
     },
   },

@@ -33,7 +33,9 @@ export default {
           '',
           `quicklink${index}`,
         );
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        setTimeout(() => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 0);
       }
       if (this.$gtag) {
         this.$gtag.pageview({ page_path: `quicklink${index}` });
