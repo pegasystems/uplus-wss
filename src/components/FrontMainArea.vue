@@ -286,7 +286,7 @@ export default {
         window.history.pushState({}, '', 'heroaction');
         setTimeout(() => {
           window.scrollTo({ top: 0, behavior: 'smooth' });
-        }, 0)
+        }, 0);
       } else {
         mainconfig.offerURL = this.hero_offer.url;
         mainconfig.previousPage = this.hero_offer.name;

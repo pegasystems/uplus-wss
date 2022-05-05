@@ -42,8 +42,8 @@ export default {
         : {};
       window.history.pushState(stateObj, '', mainconfig.currentPage);
       setTimeout(() => {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }, 0);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 0);
       event.preventDefault();
     },
   },
