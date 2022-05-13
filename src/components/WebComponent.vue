@@ -108,7 +108,6 @@ export default {
     }
     mytag.authentication = this.settings.general.connection.authtype;
     let extraParamContent = {};
-    debugger;
     extraParam.split(',').forEach((item) => {
       const values = item.split('=');
       if (values.length === 2) {
