@@ -251,7 +251,7 @@ export default {
       });
     }
     if (Object.keys(this.extraParamContent).length > 0) {
-      this.startingFields = JSON.stringify(this.extraParamContent);
+      this.startingFields = this.extraParamContent;
     }
     this.staticContentUrl = this.settings.general.connection.c11nserver;
     this.clientId = this.settings.general.connection.clientid;
