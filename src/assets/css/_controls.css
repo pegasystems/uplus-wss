@@ -563,18 +563,20 @@ td > input {
 }
 
 @supports (-webkit-appearance: none) {
+  input[type='datetime-local']::-webkit-inner-spin-button,
   input[type='date']::-webkit-inner-spin-button {
     -webkit-appearance: none;
     display: none;
   }
 
+  input[type='datetime-local']::-webkit-calendar-picker-indicator,
   input[type='date']::-webkit-calendar-picker-indicator {
     display: block;
     color: rgba(0, 0, 0, 0);
     opacity: 1;
     background: #fff
       url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNSAyNSIgd2lkdGg9IjE1IiBoZWlnaHQ9IjE1Ij48dGl0bGU+ZXZlbnRzPC90aXRsZT48ZyBpZD0iYnVkaWNvbi1ldmVudHMiPjxwYXRoIGQ9Ik0yNCwySDE5Vi41YS41LjUsMCwwLDAtMSwwVjJIN1YuNWEuNS41LDAsMCwwLTEsMFYySDFBMSwxLDAsMCwwLDAsM1YyM2ExLDEsMCwwLDAsMSwxSDI0YTEsMSwwLDAsMCwxLTFWM0ExLDEsMCwwLDAsMjQsMlptMCwyMUgxVjhIMjRaTTI0LDdIMVYzSDI0Wm0tOSw2SDEzVjExaDJabTUsMEgxOFYxMWgyWk03LDE4SDVWMTZIN1ptNSwwSDEwVjE2aDJaIi8+PC9nPjwvc3ZnPg==')
-      no-repeat calc(100% - 8px) 50%;
+      no-repeat 100% 50%;
   }
 
   .field-combobox > input[type='text']::-webkit-calendar-picker-indicator {
@@ -586,7 +588,7 @@ td > input {
   input[type='date'] {
     background: #fff
       url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNSAyNSIgd2lkdGg9IjE1IiBoZWlnaHQ9IjE1Ij48dGl0bGU+ZXZlbnRzPC90aXRsZT48ZyBpZD0iYnVkaWNvbi1ldmVudHMiPjxwYXRoIGQ9Ik0yNCwySDE5Vi41YS41LjUsMCwwLDAtMSwwVjJIN1YuNWEuNS41LDAsMCwwLTEsMFYySDFBMSwxLDAsMCwwLDAsM1YyM2ExLDEsMCwwLDAsMSwxSDI0YTEsMSwwLDAsMCwxLTFWM0ExLDEsMCwwLDAsMjQsMlptMCwyMUgxVjhIMjRaTTI0LDdIMVYzSDI0Wm0tOSw2SDEzVjExaDJabTUsMEgxOFYxMWgyWk03LDE4SDVWMTZIN1ptNSwwSDEwVjE2aDJaIi8+PC9nPjwvc3ZnPg==')
-      no-repeat calc(100% - 8px) 50%;
+      no-repeat 100% 50%;
     padding-right: 28px;
   }
 }
@@ -595,5 +597,5 @@ td > input {
 button.action-menu {
   background: #fff
     url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA0OC4wNiAyOC4wNCcgIHdpZHRoPScxOCcgaGVpZ2h0PSc5Jz48cGF0aCBmaWxsPSIjMTAxMzJFIiBkPSdNNDcuNDEuNTVhMS45MSAxLjkxIDAgMCAwLTIuNyAwbC0yMC43MSAyMi42MS0yMC43NS0yMi42LS4xOC0uMThhMS45MSAxLjkxIDAgMSAwLTIuNTEgMi44OGwyMS44NyAyMy44NGExLjY5IDEuNjkgMCAwIDAgLjEzLjMxIDIuMTUgMi4xNSAwIDAgMCAyLjg1IDAgMS43NSAxLjc1IDAgMCAwIC4xMy0uMzJsMjEuODctMjMuODRhMS45MSAxLjkxIDAgMCAwIDAtMi43eicgdHJhbnNmb3JtPSd0cmFuc2xhdGUoLjEgLjA5KScvPjwvc3ZnPg==')
-    no-repeat calc(100% - 8px) 50%;
+    no-repeat 100% 50%;
 }

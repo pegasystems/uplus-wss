@@ -10,6 +10,7 @@
 <script>
 import { mainconfig } from '../global';
 import { sendClickStreamEvent } from '../CDHIntegration';
+import setObjectFromRef from '../utils';
 
 export default {
   data() {
@@ -19,32 +20,39 @@ export default {
     const mytag = this.$refs.mycomp;
     let objClass = '';
     let caseTitle = '';
+    let extraParam = '';
     if (this.quickLinkId !== -1) {
       mytag.action = this.settings.quicklinks[this.quickLinkId].action;
       mytag.url = this.settings.quicklinks[this.quickLinkId].url;
       objClass = this.settings.quicklinks[this.quickLinkId].objclass;
       caseTitle =
         this.settings.quicklinks[this.quickLinkId].title[this.currentLocale];
+      extraParam = this.settings.quicklinks[this.quickLinkId].extraparam;
     } else if (this.viewBill !== -1) {
       mytag.action = this.settings.billpay.action;
       mytag.url = this.settings.billpay.url;
       objClass = this.settings.billpay.objclass;
+      extraParam = this.settings.billpay.extraparam;
     } else if (this.viewBanner !== -1) {
       mytag.action = this.settings.banner.action;
       mytag.url = this.settings.banner.url;
       objClass = this.settings.banner.objclass;
+      extraParam = this.settings.banner.extraparam;
     } else if (this.homeHeroAction !== -1) {
       mytag.action = this.settings.homeheroaction.action;
       mytag.url = this.settings.homeheroaction.url;
       objClass = this.settings.homeheroaction.objclass;
+      extraParam = this.settings.homeheroaction.extraparam;
     } else if (this.offerAction !== -1) {
       mytag.action = this.settings.offeraction.action;
       mytag.url = this.settings.offeraction.url;
       objClass = this.settings.offeraction.objclass;
+      extraParam = this.settings.offeraction.extraparam;
     } else {
       mytag.action = this.settings.todo.action;
       mytag.url = this.settings.todo.url;
       objClass = this.settings.todo.objclass;
+      extraParam = this.settings.todo.extraparam;
     }
     if (mytag.action === 'display') {
       mytag.action = 'workList';
@@ -99,6 +107,33 @@ export default {
       mytag.clientsecret = this.settings.general.connection.clientsecret;
     }
     mytag.authentication = this.settings.general.connection.authtype;
+    let extraParamContent = {};
+    debugger;
+    extraParam.split(',').forEach((item) => {
+      const values = item.split('=');
+      if (values.length === 2) {
+        setObjectFromRef(extraParamContent, values[0].trim(), values[1].trim());
+      }
+    });
+    if (
+      this.userId !== -1 &&
+      typeof this.settings.users[this.userId].extraparam !== 'undefined' &&
+      this.settings.users[this.userId].extraparam !== ''
+    ) {
+      this.settings.users[this.userId].extraparam.split(',').forEach((item) => {
+        const values = item.split('=');
+        if (values.length === 2) {
+          setObjectFromRef(
+            extraParamContent,
+            values[0].trim(),
+            values[1].trim(),
+          );
+        }
+      });
+    }
+    if (Object.keys(extraParamContent).length > 0) {
+      mytag.initialContent = extraParamContent;
+    }
     mytag.addEventListener('message', (event) => {
       if (event.detail.type === 'cancel') {
         this.goHomePage();

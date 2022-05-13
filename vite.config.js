@@ -11,7 +11,7 @@ export default defineConfig({
     template: {
       compilerOptions: {
         // ski pega-embed elements
-        isCustomElement: (tag) => tag.includes('pega-embed')
+        isCustomElement: (tag) => tag.includes('pega-embed') || tag.includes('pega-mashup')
       }
     }
   }), vueJsx()],
