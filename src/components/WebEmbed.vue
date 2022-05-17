@@ -75,6 +75,9 @@ import setObjectFromRef from '../utils';
 
 const embedEventFn = (event) => {
   console.log('Event from pega-embed', event);
+  if (event.type === 'embedcloseconfirmview') {
+    top.postMessage('pegaMashupNavigateBack', location.origin);
+  }
 };
 
 export default {
@@ -231,11 +234,13 @@ export default {
     const mytag = this.$refs.mycomp;
     mytag.addEventListener('embedprocessingend', embedEventFn);
     mytag.addEventListener('embedready', embedEventFn);
+    mytag.addEventListener('embedcloseconfirmview', embedEventFn);
   },
   beforeUnmount() {
     const mytag = this.$refs.mycomp;
     mytag.removeEventListener('embedprocessingend', embedEventFn);
     mytag.removeEventListener('embedready', embedEventFn);
+    mytag.removeEventListener('embedcloseconfirmview', embedEventFn);
   },
   methods: {
     goHomePage() {
