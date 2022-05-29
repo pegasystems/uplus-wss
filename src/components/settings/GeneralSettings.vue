@@ -44,6 +44,7 @@
               <select
                 id="ga-connection-type"
                 v-model="settings.general.connection.type"
+                @change="onConnectionTypeChange"
               >
                 <option value="mashup">
                   Web Mashup (Infinity UI with sections)
@@ -57,7 +58,13 @@
                 </option>
               </select>
             </div>
-            <div class="field-item">
+            <div
+              class="field-item"
+              v-if="
+                settings.general.connection.type === 'dxv1' ||
+                settings.general.connection.type === 'dxv2'
+              "
+            >
               <label for="ga-connection-authtype">Authentication</label>
               <select
                 id="ga-connection-authtype"
@@ -67,6 +74,17 @@
                 <option value="oauth2password">
                   OAuth 2.0 Password Grant Type
                 </option>
+              </select>
+            </div>
+            <div
+              class="field-item"
+              v-if="settings.general.connection.type === 'embedui'"
+            >
+              <label for="ga-connection-authtype">Authentication</label>
+              <select
+                id="ga-connection-authtype"
+                v-model="settings.general.connection.authtype"
+              >
                 <option value="oauth2clientcredentials">
                   OAuth 2.0 Client Credentials Type
                 </option>
@@ -263,6 +281,19 @@ export default {
   },
   components: {
     Container,
+  },
+  methods: {
+    onConnectionTypeChange() {
+      if (this.settings.general.connection.type === 'mashup') {
+        this.settings.general.connection.authtype = 'basic';
+      } else if (this.settings.general.connection.type === 'embedui') {
+        this.settings.general.connection.authtype = 'oauth2clientcredentials';
+      } else if (this.settings.general.connection.type === 'dxv1') {
+        this.settings.general.connection.authtype = 'basic';
+      } else if (this.settings.general.connection.type === 'dxv2') {
+        this.settings.general.connection.authtype = 'oauth2password';
+      }
+    },
   },
 };
 </script>
