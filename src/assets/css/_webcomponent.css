@@ -346,11 +346,11 @@ select[readonly] {
 }
 
 .helper-text {
-  color: #000;
-  font-size: 14px;
+  color: rgba(0,0,0,.7 );
+  font-size: 12px;
+  font-style: italic;
   line-height: 1;
-  margin-top: 0.3px;
-  flex: 0 0 100%;
+  margin-top: 4px;
 }
 
 #case-data > div:first-child {
