@@ -588,7 +588,7 @@ td > input {
   input[type='date'] {
     background: #fff
       url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNSAyNSIgd2lkdGg9IjE1IiBoZWlnaHQ9IjE1Ij48dGl0bGU+ZXZlbnRzPC90aXRsZT48ZyBpZD0iYnVkaWNvbi1ldmVudHMiPjxwYXRoIGQ9Ik0yNCwySDE5Vi41YS41LjUsMCwwLDAtMSwwVjJIN1YuNWEuNS41LDAsMCwwLTEsMFYySDFBMSwxLDAsMCwwLDAsM1YyM2ExLDEsMCwwLDAsMSwxSDI0YTEsMSwwLDAsMCwxLTFWM0ExLDEsMCwwLDAsMjQsMlptMCwyMUgxVjhIMjRaTTI0LDdIMVYzSDI0Wm0tOSw2SDEzVjExaDJabTUsMEgxOFYxMWgyWk03LDE4SDVWMTZIN1ptNSwwSDEwVjE2aDJaIi8+PC9nPjwvc3ZnPg==')
-      no-repeat 100% 50%;
+      no-repeat calc(100% - 8px) 50%;
     padding-right: 28px;
   }
 }
