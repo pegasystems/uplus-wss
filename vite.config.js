@@ -39,4 +39,7 @@ export default defineConfig({
       "@": fileURLToPath(new URL("./src", import.meta.url)),
     },
   },
+  e2e: {
+    baseUrl: 'http://localhost:8080'
+  }
 });
