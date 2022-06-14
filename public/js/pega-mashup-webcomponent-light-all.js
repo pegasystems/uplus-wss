@@ -572,8 +572,8 @@ ${t.pxResults.map((t=>T`
           <tbody>
             ${e.map((t=>T`
                 <tr>
-                <td data-title='Case ID'>${t.caseID.split(" ")[1]}</td>
-                <td data-title='Name'>${i18n.t(t.name)}</td>
+                <td data-title='Reference number'>${t.caseID.split(" ")[1]}</td>
+                <td data-title='Description'>${i18n.t(t.name)}</td>
                 <td data-title='Action' class="right-aligned">
                   <button @click="${n}" class="pzhc pzbutton" data-type="assignment" data-id="${t.ID}">
                   ${i18n.t("Open")}</button>
