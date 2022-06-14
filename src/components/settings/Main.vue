@@ -23,6 +23,12 @@
         <ToDoSettings />
       </tab>
       <tab
+        v-if="typeof settings.recentactivity != 'undefined'"
+        name="Recent Activity component"
+      >
+        <RecentActivitySettings />
+      </tab>
+      <tab
         v-if="typeof settings.billpay != 'undefined'"
         name="Bill Pay component"
       >
@@ -73,6 +79,7 @@ import BillPaySettings from './BillPaySettings.vue';
 import BannerSettings from './BannerSettings.vue';
 import KMHelpSettings from './KMHelpSettings.vue';
 import ToDoSettings from './ToDoSettings.vue';
+import RecentActivitySettings from './RecentActivitySettings.vue';
 import HomeHeroActionSettings from './HomeHeroActionSettings.vue';
 import UsersSettings from './UsersSettings.vue';
 import ChatSettings from './ChatSettings.vue';
@@ -119,6 +126,7 @@ export default {
     NBAMSettings,
     OfferActionSettings,
     TopNav,
+    RecentActivitySettings,
   },
 };
 </script>
