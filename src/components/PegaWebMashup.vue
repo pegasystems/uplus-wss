@@ -144,6 +144,9 @@
 import { mainconfig } from '../global';
 
 export default {
+  props: {
+    recentactivitytoggle: Boolean,
+  },
   data() {
     return {
       ...mainconfig,
@@ -264,17 +267,31 @@ export default {
       }
     } else {
       isInAccoutPage = true;
-      this.actionName = this.settings.todo.action;
-      this.actionNameParam = this.settings.todo.actionparam;
-      this.serverUrl = this.settings.todo.url;
-      this.objClass = this.settings.todo.objclass;
-      this.startCase = this.settings.todo.startcase;
-      this.appName = this.settings.todo.application;
-      this.channelID = this.settings.todo.channelid;
-      this.tenantID = this.settings.todo.tenantid;
-      this.dataretained = this.settings.todo.dataretained;
-      this.extraParam = this.settings.todo.extraparam;
-      this.logoutURL.todo = `${this.settings.todo.url}?pyActivity=LogOff`;
+      if (this.recentactivitytoggle === true) {
+        this.actionName = this.settings.recentactivity.action;
+        this.actionNameParam = this.settings.recentactivity.actionparam;
+        this.serverUrl = this.settings.recentactivity.url;
+        this.objClass = this.settings.recentactivity.objclass;
+        this.startCase = this.settings.recentactivity.startcase;
+        this.appName = this.settings.recentactivity.application;
+        this.channelID = this.settings.recentactivity.channelid;
+        this.tenantID = this.settings.recentactivity.tenantid;
+        this.dataretained = this.settings.recentactivity.dataretained;
+        this.extraParam = this.settings.recentactivity.extraparam;
+        this.logoutURL.recentactivity = `${this.settings.recentactivity.url}?pyActivity=LogOff`;
+      } else {
+        this.actionName = this.settings.todo.action;
+        this.actionNameParam = this.settings.todo.actionparam;
+        this.serverUrl = this.settings.todo.url;
+        this.objClass = this.settings.todo.objclass;
+        this.startCase = this.settings.todo.startcase;
+        this.appName = this.settings.todo.application;
+        this.channelID = this.settings.todo.channelid;
+        this.tenantID = this.settings.todo.tenantid;
+        this.dataretained = this.settings.todo.dataretained;
+        this.extraParam = this.settings.todo.extraparam;
+        this.logoutURL.todo = `${this.settings.todo.url}?pyActivity=LogOff`;
+      }
     }
     if (this.serverUrl === '') {
       return;
