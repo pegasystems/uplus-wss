@@ -7,7 +7,7 @@
     </p>
     <div class="container">
       <div class="body">
-        <div class="layout-labels-left">
+        <div class="layout-labels-top layout-inline-grid-double">
           <div class="field-item">
             <input
               id="bill-pay-hidebillpay"
@@ -16,6 +16,20 @@
             />
             <label class="width-auto" for="bill-pay-hidebillpay"
               >Hide Bill Pay</label
+            >
+          </div>
+          <div
+            class="field-item"
+            v-if="settings.general.connection.type === 'dxv1'"
+            field-checkbox
+          >
+            <input
+              id="bill-pay-showattachments"
+              type="checkbox"
+              v-model="settings.billpay.showattachments"
+            />
+            <label class="width-auto" for="bill-pay-showattachments"
+              >Show attachments</label
             >
           </div>
         </div>
