@@ -28,6 +28,19 @@
               >Hide account details</label
             >
           </div>
+          <div
+            class="field-item field-checkbox"
+            v-if="settings.general.connection.type === 'dxv1'"
+          >
+            <input
+              id="todo-showattachments"
+              type="checkbox"
+              v-model="settings.todo.showattachments"
+            />
+            <label class="width-auto" for="todo-showattachments"
+              >Show attachments</label
+            >
+          </div>
         </div>
         <div class="layout-labels-top layout-inline-grid-double">
           <div
