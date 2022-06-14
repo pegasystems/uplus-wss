@@ -4,7 +4,12 @@
     ref="mycomp"
     v-if="this.settings.general.connection.type === 'dxv2'"
   />
-  <pega-mashup-light class="pega-mashup" ref="mycomp" v-else />
+  <pega-mashup-light
+    class="pega-mashup"
+    :class="mashupwidget"
+    ref="mycomp"
+    v-else
+  />
 </template>
 
 <script>
@@ -13,6 +18,9 @@ import { sendClickStreamEvent } from '../CDHIntegration';
 import setObjectFromRef from '../utils';
 
 export default {
+  props: {
+    recentactivitytoggle: Boolean,
+  },
   data() {
     return mainconfig;
   },
@@ -28,41 +36,59 @@ export default {
       caseTitle =
         this.settings.quicklinks[this.quickLinkId].title[this.currentLocale];
       extraParam = this.settings.quicklinks[this.quickLinkId].extraparam;
+      mytag.bShowAttachments =
+        '' + this.settings.quicklinks[this.quickLinkId].showattachments;
     } else if (this.viewBill !== -1) {
       mytag.action = this.settings.billpay.action;
       mytag.url = this.settings.billpay.url;
       objClass = this.settings.billpay.objclass;
       extraParam = this.settings.billpay.extraparam;
+      mytag.bShowAttachments = '' + this.settings.billpay.showattachments;
     } else if (this.viewBanner !== -1) {
       mytag.action = this.settings.banner.action;
       mytag.url = this.settings.banner.url;
       objClass = this.settings.banner.objclass;
       extraParam = this.settings.banner.extraparam;
+      mytag.bShowAttachments = '' + this.settings.banner.showattachments;
     } else if (this.homeHeroAction !== -1) {
       mytag.action = this.settings.homeheroaction.action;
       mytag.url = this.settings.homeheroaction.url;
       objClass = this.settings.homeheroaction.objclass;
       extraParam = this.settings.homeheroaction.extraparam;
+      mytag.bShowAttachments =
+        '' + this.settings.homeheroaction.showattachments;
     } else if (this.offerAction !== -1) {
       mytag.action = this.settings.offeraction.action;
       mytag.url = this.settings.offeraction.url;
       objClass = this.settings.offeraction.objclass;
       extraParam = this.settings.offeraction.extraparam;
+      mytag.bShowAttachments = '' + this.settings.offeraction.showattachments;
+    } else if (this.recentactivitytoggle === true) {
+      mytag.action = this.settings.recentactivity.action;
+      mytag.url = this.settings.recentactivity.url;
+      objClass = this.settings.recentactivity.objclass;
+      extraParam = this.settings.recentactivity.extraparam;
+      mytag.bShowAttachments =
+        '' + this.settings.recentactivity.showattachments;
     } else {
       mytag.action = this.settings.todo.action;
       mytag.url = this.settings.todo.url;
       objClass = this.settings.todo.objclass;
       extraParam = this.settings.todo.extraparam;
+      mytag.bShowAttachments = '' + this.settings.todo.showattachments;
     }
     if (mytag.action === 'display') {
-      mytag.action = 'workList';
+      if (this.recentactivitytoggle === true) {
+        mytag.action = 'recentactivity';
+      } else {
+        mytag.action = 'workList';
+      }
     }
     if (mytag.action === 'createNewWork') {
       mytag.casetype = objClass;
     }
     mytag.bShowCreate = 'false';
     mytag.bShowSave = 'false';
-    mytag.bShowAttachments = 'true';
     if (mytag.url === '') {
       const parent = mytag.parentElement;
       parent.removeChild(mytag);
@@ -176,6 +202,17 @@ export default {
       }
       sendClickStreamEvent(mainconfig, 'PageView', 'Home', window.loadPage);
       window.loadPage = new Date();
+    },
+  },
+  computed: {
+    mashupwidget: function () {
+      return this.quickLinkId === -1 &&
+        this.viewBill === -1 &&
+        this.viewBanner === -1 &&
+        this.homeHeroAction === -1 &&
+        this.offerAction === -1
+        ? 'mashupwidget'
+        : '';
     },
   },
 };
