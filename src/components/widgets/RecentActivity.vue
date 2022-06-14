@@ -1,5 +1,12 @@
 <template>
-  <section class="recent-activity">
+  <section
+    v-if="
+      settings.recentactivity.url === '' ||
+      (settings.general.connection.type !== 'dxv1' &&
+        settings.general.connection.type !== 'mashup')
+    "
+    class="recent-activity"
+  >
     <h2>{{ $t('message.recentactivity') }}</h2>
     <ul class="fatlist">
       <li
@@ -23,14 +30,31 @@
       </li>
     </ul>
   </section>
+  <MashupMainArea
+    v-if="
+      typeof settings.recentactivity !== 'undefined' &&
+      settings.recentactivity.url !== '' &&
+      (settings.general.connection.type === 'dxv1' ||
+        settings.general.connection.type === 'mashup')
+    "
+    :key="reloadAccountMashup"
+    :recentactivitytoggle="recentactivitytoggle"
+  />
 </template>
 
 <script>
 import { mainconfig } from '../../global';
+import MashupMainArea from '../MashupMainArea.vue';
 
 export default {
   data() {
-    return mainconfig;
+    return {
+      ...mainconfig,
+      recentactivitytoggle: true,
+    };
+  },
+  components: {
+    MashupMainArea,
   },
   methods: {
     getdate(index) {
