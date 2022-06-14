@@ -196,7 +196,6 @@
 .field-item {
   display: flex;
   flex-flow: column;
-  margin-top: 6px;
 }
 .field-item .field-caption {
   margin-bottom: 3px;
