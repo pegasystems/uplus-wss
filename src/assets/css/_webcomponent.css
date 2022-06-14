@@ -21,6 +21,17 @@
   border-radius: 4px;
 }
 
+.mashupwidget{
+  border: none !important;
+  padding: 0px !important;
+}
+
+.mashupwidget > .widgetborder{
+  padding: 8px 16px;
+  border: 1px solid #d5d5d5;
+  border-radius: 4px;
+}
+
 .main-header ~ h3 {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
@@ -185,10 +196,10 @@
 .field-item {
   display: flex;
   flex-flow: column;
+  margin-top: 6px;
 }
 .field-item .field-caption {
   margin-bottom: 3px;
-  margin-top: 6px;
   min-height: 20px;
   display: block;
 }
