@@ -7,6 +7,21 @@
     </p>
     <div class="container">
       <div class="body">
+        <div
+          class="layout-labels-top layout-inline-grid-double"
+          v-if="settings.general.connection.type === 'dxv1'"
+        >
+          <div class="field-item field-checkbox">
+            <input
+              id="hero-action-showattachments"
+              type="checkbox"
+              v-model="settings.homeheroaction.showattachments"
+            />
+            <label class="width-auto" for="hero-action-showattachments"
+              >Show attachments</label
+            >
+          </div>
+        </div>
         <div class="layout-labels-top layout-inline-grid-double">
           <div class="field-item">
             <label for="hero-action-action">Action</label>
