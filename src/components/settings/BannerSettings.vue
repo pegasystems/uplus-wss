@@ -13,6 +13,7 @@
             />
             <label for="banner-hidebanner">Hide banner</label>
           </div>
+
           <div class="field-item">
             <input
               id="banner-hidebanner-button"
@@ -28,6 +29,17 @@
               v-model="settings.banner.color"
             />
             <label for="banner-background-color">Background color</label>
+          </div>
+          <div
+            class="field-item"
+            v-if="settings.general.connection.type === 'dxv1'"
+          >
+            <input
+              id="banner-showattachments"
+              type="checkbox"
+              v-model="settings.banner.showattachments"
+            />
+            <label for="banner-showattachments">Show attachments</label>
           </div>
         </div>
         <div class="layout-labels-top layout-inline-grid-double">
