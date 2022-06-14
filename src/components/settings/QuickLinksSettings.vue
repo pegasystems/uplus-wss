@@ -35,6 +35,22 @@
               >Retain state on reload</label
             >
           </div>
+          <div
+            class="field-item"
+            v-if="settings.general.connection.type === 'dxv1'"
+          >
+            <input
+              :id="'quicklinks-' + index + '-showattachments'"
+              type="checkbox"
+              checked
+              v-model="item.showattachments"
+            />
+            <label
+              class="width-auto"
+              :for="'quicklinks-' + index + '-showattachments'"
+              >Show attachments</label
+            >
+          </div>
         </div>
         <div class="layout-inline-grid-double layout-labels-top">
           <div
