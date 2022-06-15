@@ -103,6 +103,19 @@ export const upgradeConfig = function upgradeConfig(cfg) {
       extraparam: '',
     };
   }
+  if (typeof cfg.settings.recentactivity === 'undefined') {
+    cfg.settings.recentactivity = {
+      action: 'createNewWork',
+      actionparam: '',
+      objclass: '',
+      url: '',
+      startcase: 'pyStartCase',
+      application: '',
+      extraparam: '',
+      hidebanner: true,
+      color: '#CE9840',
+    };
+  }
   if (typeof cfg.settings.kmhelp.username === 'undefined') {
     cfg.settings.kmhelp.username = '';
   }
@@ -279,6 +292,9 @@ export const upgradeConfig = function upgradeConfig(cfg) {
     if (typeof cfg.settings.quicklinks[i].hideusers === 'undefined') {
       cfg.settings.quicklinks[i].hideusers = '';
     }
+    if (typeof cfg.settings.quicklinks[i].showattachments === 'undefined') {
+      cfg.settings.quicklinks[i].showattachments = true;
+    }
   }
   /* upgrade channelid */
   if (typeof cfg.settings.billpay.channelid === 'undefined') {
@@ -299,6 +315,9 @@ export const upgradeConfig = function upgradeConfig(cfg) {
   if (typeof cfg.settings.todo.channelid === 'undefined') {
     cfg.settings.todo.channelid = '';
   }
+  if (typeof cfg.settings.recentactivity.channelid === 'undefined') {
+    cfg.settings.recentactivity.channelid = '';
+  }
   /* upgrade tenantid */
   if (typeof cfg.settings.billpay.tenantid === 'undefined') {
     cfg.settings.billpay.tenantid = '';
@@ -318,7 +337,9 @@ export const upgradeConfig = function upgradeConfig(cfg) {
   if (typeof cfg.settings.todo.tenantid === 'undefined') {
     cfg.settings.todo.tenantid = '';
   }
-
+  if (typeof cfg.settings.recentactivity.tenantid === 'undefined') {
+    cfg.settings.recentactivity.tenantid = '';
+  }
   /* upgrade data retained */
   if (typeof cfg.settings.billpay.dataretained === 'undefined') {
     cfg.settings.billpay.dataretained = true;
@@ -337,6 +358,37 @@ export const upgradeConfig = function upgradeConfig(cfg) {
   }
   if (typeof cfg.settings.todo.dataretained === 'undefined') {
     cfg.settings.todo.dataretained = true;
+  }
+  if (typeof cfg.settings.recentactivity.dataretained === 'undefined') {
+    cfg.settings.recentactivity.dataretained = true;
+  }
+  /* upgrade show attachments */
+  if (typeof cfg.settings.homeheroaction.showattachments === 'undefined') {
+    cfg.settings.homeheroaction.showattachments = true;
+  }
+  if (typeof cfg.settings.offeraction.showattachments === 'undefined') {
+    cfg.settings.offeraction.showattachments = true;
+  }
+  if (typeof cfg.settings.banner.showattachments === 'undefined') {
+    cfg.settings.banner.showattachments = true;
+  }
+  if (
+    cfg.settings.billpay &&
+    typeof cfg.settings.billpay.showattachments === 'undefined'
+  ) {
+    cfg.settings.billpay.showattachments = true;
+  }
+  if (
+    cfg.settings.todo &&
+    typeof cfg.settings.todo.showattachments === 'undefined'
+  ) {
+    cfg.settings.todo.showattachments = true;
+  }
+  if (
+    cfg.settings.recentactivity &&
+    typeof cfg.settings.recentactivity.showattachments === 'undefined'
+  ) {
+    cfg.settings.recentactivity.showattachments = true;
   }
 
   if (typeof cfg.settings.general === 'undefined') {
@@ -452,6 +504,7 @@ if (typeof window.settings === 'undefined') {
     viewBill: -1,
     viewBanner: -1,
     toDo: -1,
+    recentactivity: -1,
     viewKMHelp: -1,
     KMArticleID: '',
     logoutURL: {},
@@ -859,6 +912,7 @@ window.addEventListener('popstate', () => {
     mainconfig.homeHeroAction = -1;
     mainconfig.offerAction = -1;
     mainconfig.toDo = -1;
+    mainconfig.recentactivity = -1;
     mainconfig.viewKMHelp = -1;
     mainconfig.offerURL = '';
   }
