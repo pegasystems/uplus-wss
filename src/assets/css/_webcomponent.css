@@ -252,10 +252,34 @@
   left: 7px;
   top: 25%;
 }
+
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 .field-attachment .file-upload {
   background: transparent;
   border-color: #ccc;
 }
+.table-content {
+  overflow-x: auto;
+  overflow-y:hidden;
+  flex-flow: column nowrap;
+  display:flex;
+}
+.table-content td > input,
+.table-content td > select,
+.table-content td > textarea {
+  width: -webkit-fill-available;
+  inline-size: -moz-available;
+}
+
 .rdl .pzhc.pzbutton,
 table .pzhc.pzbutton {
   background: none;
