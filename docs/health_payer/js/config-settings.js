@@ -342,6 +342,7 @@ window.settings = {
     apiLevel: 'V2',
     contextName: 'Customer',
     showLoadingIndicator: false,
+    appID: '',
     homePage: {
       containerName: 'TopOffers',
       placement: 'Hero,Tile,Tile,Tile',

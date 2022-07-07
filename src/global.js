@@ -274,6 +274,9 @@ export const upgradeConfig = function upgradeConfig(cfg) {
   if (typeof cfg.settings.pega_marketing.contextName === 'undefined') {
     cfg.settings.pega_marketing.contextName = 'Customer';
   }
+  if (typeof cfg.settings.pega_marketing.appID === 'undefined') {
+    cfg.settings.pega_marketing.appID = '';
+  }
   if (typeof cfg.settings.pega_marketing.requestTimeout === 'undefined') {
     cfg.settings.pega_marketing.requestTimeout = 10000;
   }

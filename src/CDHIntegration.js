@@ -219,6 +219,7 @@ const initNBAM = function initNBAM(
         },
         intent,
         placement,
+        Context.settings.pega_marketing.appID,
         () => {
           // on error
           Context.loading = false;

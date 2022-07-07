@@ -65,6 +65,13 @@
             <option>Customer</option>
           </select>
         </div>
+        <div
+          v-if="settings.pega_marketing.apiLevel === 'V3'"
+          class="field-item"
+        >
+          <label for="NBAM-appID">App ID (CDH configured for MultiApp)</label>
+          <input id="NBAM-appID" v-model="settings.pega_marketing.appID" />
+        </div>
       </div>
       <div class="layout-labels-left">
         <div

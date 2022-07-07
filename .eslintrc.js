@@ -1,6 +1,4 @@
 /* eslint-env node */
-require('@rushstack/eslint-patch/modern-module-resolution');
-
 module.exports = {
   root: true,
   extends: [
@@ -17,7 +15,7 @@ module.exports = {
       extends: ['plugin:cypress/recommended'],
     },
   ],
-  ignorePatterns: ['**/public/js/*.js', '**/*.config.js'],
+  ignorePatterns: ['**/public/js/*.js', '**/*.config.js', '**/*.cy.js'],
   rules: {
     'vue/multi-word-component-names': 'off',
     'vue/no-reserved-component-names': 'off',
