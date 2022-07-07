@@ -23,6 +23,7 @@ window.settings = {
       clientsecret: "",
       webportal: "",
       c11nserver: "",
+      showAttachments: true,
     },
     auth_2fa: {
       enabled: false,
@@ -194,6 +195,18 @@ window.settings = {
     password: "",
     channelid: "",
     tenantid: "",
+    dataretained: true,
+  },
+  activity: {
+    action: 'createNewWork',
+    actionparam: '',
+    objclass: '',
+    url: '',
+    startcase: 'pyStartCase',
+    application: '',
+    extraparam: '',
+    channelid: '',
+    tenantid: '',
     dataretained: true,
   },
   homeheroaction: {

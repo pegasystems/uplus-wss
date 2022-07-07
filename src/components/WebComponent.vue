@@ -13,18 +13,23 @@ import { sendClickStreamEvent } from '../CDHIntegration';
 import setObjectFromRef from '../utils';
 
 export default {
+  props: {
+    showActivity: Boolean,
+  },
   data() {
     return mainconfig;
   },
   mounted() {
     const mytag = this.$refs.mycomp;
     let objClass = '';
+    let actionParam = '';
     let caseTitle = '';
     let extraParam = '';
     if (this.quickLinkId !== -1) {
       mytag.action = this.settings.quicklinks[this.quickLinkId].action;
       mytag.url = this.settings.quicklinks[this.quickLinkId].url;
       objClass = this.settings.quicklinks[this.quickLinkId].objclass;
+      actionParam = this.settings.quicklinks[this.quickLinkId].actionparam;
       caseTitle =
         this.settings.quicklinks[this.quickLinkId].title[this.currentLocale];
       extraParam = this.settings.quicklinks[this.quickLinkId].extraparam;
@@ -32,37 +37,53 @@ export default {
       mytag.action = this.settings.billpay.action;
       mytag.url = this.settings.billpay.url;
       objClass = this.settings.billpay.objclass;
+      actionParam = this.settings.billpay.actionparam;
       extraParam = this.settings.billpay.extraparam;
     } else if (this.viewBanner !== -1) {
       mytag.action = this.settings.banner.action;
       mytag.url = this.settings.banner.url;
       objClass = this.settings.banner.objclass;
+      actionParam = this.settings.banner.actionparam;
       extraParam = this.settings.banner.extraparam;
     } else if (this.homeHeroAction !== -1) {
       mytag.action = this.settings.homeheroaction.action;
       mytag.url = this.settings.homeheroaction.url;
       objClass = this.settings.homeheroaction.objclass;
+      actionParam = this.settings.homeheroaction.actionparam;
       extraParam = this.settings.homeheroaction.extraparam;
     } else if (this.offerAction !== -1) {
       mytag.action = this.settings.offeraction.action;
       mytag.url = this.settings.offeraction.url;
       objClass = this.settings.offeraction.objclass;
+      actionParam = this.settings.offeraction.actionparam;
       extraParam = this.settings.offeraction.extraparam;
+    } else if (this.showActivity) {
+      mytag.action = this.settings.activity.action;
+      mytag.url = this.settings.activity.url;
+      objClass = this.settings.activity.objclass;
+      actionParam = this.settings.activity.actionparam;
+      extraParam = this.settings.activity.extraparam;
     } else {
       mytag.action = this.settings.todo.action;
       mytag.url = this.settings.todo.url;
       objClass = this.settings.todo.objclass;
+      actionParam = this.settings.todo.actionparam;
       extraParam = this.settings.todo.extraparam;
     }
     if (mytag.action === 'display') {
       mytag.action = 'workList';
-    }
-    if (mytag.action === 'createNewWork') {
+    } else if (mytag.action === 'createNewWork') {
       mytag.casetype = objClass;
+    } else if (mytag.action === 'openAssignment') {
+      mytag.caseID = actionParam;
+    } else if (mytag.action === 'openWorkByHandle') {
+      mytag.caseID = actionParam;
     }
+
     mytag.bShowCreate = 'false';
     mytag.bShowSave = 'false';
-    mytag.bShowAttachments = 'true';
+    mytag.bShowAttachments =
+      '' + mainconfig.settings.general.connection.showAttachments;
     if (mytag.url === '') {
       const parent = mytag.parentElement;
       parent.removeChild(mytag);

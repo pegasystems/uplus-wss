@@ -25,7 +25,7 @@
     />
     <MashupMainArea
       v-if="typeof settings.todo !== 'undefined' && settings.todo.url !== ''"
-      :key="reloadAccountMashup"
+      :key="reloadToDoMashup"
     />
     <BillPay
       v-if="
@@ -40,6 +40,7 @@
         settings.todo.hideactivity !== 'true' &&
         settings.todo.hideactivity !== true
       "
+      :key="reloadActivityMashup"
     />
   </div>
 </template>

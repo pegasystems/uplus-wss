@@ -69,7 +69,8 @@ export default {
     /* Will listen for message from the Mashup iframe to force a reload back of the MashupComponent */
     iFrameMessageListener(e) {
       if (e.data === 'pegaMashupNavigateBack') {
-        mainconfig.reloadAccountMashup += 1;
+        mainconfig.reloadToDoMashup += 1;
+        mainconfig.reloadActivityMashup += 1;
         this.goHomePage();
       } else if (
         typeof e.data === 'object' &&

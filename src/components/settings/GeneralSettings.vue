@@ -141,6 +141,20 @@
               />
             </div>
           </div>
+          <div
+            class="field-item"
+            v-if="
+              settings.general.connection.type === 'dxv1' ||
+              settings.general.connection.type === 'dxv2'
+            "
+          >
+            <input
+              id="ga-connection-bshowattachment"
+              type="checkbox"
+              v-model="settings.general.connection.showAttachments"
+            />
+            <label for="ga-connection-bshowattachment">Show attachments</label>
+          </div>
         </Container>
         <Container title="Google Analytics" expanded>
           <div class="layout-labels-left">

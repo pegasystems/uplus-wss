@@ -1,5 +1,11 @@
 <template>
-  <section class="recent-activity">
+  <MashupMainArea
+    showActivity
+    v-if="
+      typeof settings.activity !== 'undefined' && settings.activity.url !== ''
+    "
+  />
+  <section v-else class="recent-activity">
     <h2>{{ $t('message.recentactivity') }}</h2>
     <ul class="fatlist">
       <li
@@ -27,10 +33,14 @@
 
 <script>
 import { mainconfig } from '../../global';
+import MashupMainArea from '../MashupMainArea.vue';
 
 export default {
   data() {
     return mainconfig;
+  },
+  components: {
+    MashupMainArea,
   },
   methods: {
     getdate(index) {

@@ -21,19 +21,3 @@ export default {
   },
 };
 </script>
-
-<style>
-@import url('../assets/css/normalize.min.css');
-@import url('../assets/css/_init.css');
-@import url('../assets/css/_text.css');
-@import url('../assets/css/_layout.css');
-@import url('../assets/css/_controls.css');
-@import url('../assets/css/_color.css');
-@import url('../assets/css/_icons.css');
-@import url('../assets/css/_chat.css');
-@import url('../assets/css/_offer.css');
-@import url('../assets/css/_landing.css');
-@import url('../assets/css/_phone.css');
-@import url('../assets/css/_responsive.css');
-@import url('../assets/css/_webcomponent.css');
-</style>

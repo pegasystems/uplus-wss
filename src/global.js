@@ -122,6 +122,20 @@ export const upgradeConfig = function upgradeConfig(cfg) {
       extraparam: '',
     };
   }
+  if (typeof cfg.settings.activity === 'undefined') {
+    cfg.settings.activity = {
+      action: 'createNewWork',
+      actionparam: '',
+      objclass: '',
+      url: '',
+      startcase: 'pyStartCase',
+      application: '',
+      extraparam: '',
+      channelid: '',
+      tenantid: '',
+      dataretained: true,
+    };
+  }
   if (typeof cfg.settings.pega_chat.CoBrowseServerURL === 'undefined') {
     cfg.settings.pega_chat.CoBrowseServerURL = '';
   }
@@ -377,6 +391,9 @@ export const upgradeConfig = function upgradeConfig(cfg) {
   if (typeof cfg.settings.general.connection.c11nserver === 'undefined') {
     cfg.settings.general.connection.c11nserver = '';
   }
+  if (typeof cfg.settings.general.connection.showAttachments === 'undefined') {
+    cfg.settings.general.connection.showAttachments = true;
+  }
   if (typeof cfg.settings.general.theming === 'undefined') {
     cfg.settings.general.theming = {
       override: false,
@@ -441,7 +458,8 @@ if (typeof window.settings === 'undefined') {
     intent: '',
     reloadOffer: 1,
     reloadMashup: 1,
-    reloadAccountMashup: 1,
+    reloadToDoMashup: 1,
+    reloadActivityMashup: 1000,
     isAuthenticated: false,
     isSidePanelVisible: false,
     isDeepLink: false,

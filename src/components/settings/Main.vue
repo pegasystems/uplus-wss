@@ -19,6 +19,9 @@
       <tab name="Quick Links">
         <QuickLinksSettings />
       </tab>
+      <tab v-if="typeof settings.banner != 'undefined'" name="Banner component">
+        <BannerSettings />
+      </tab>
       <tab v-if="typeof settings.todo != 'undefined'" name="To Do component">
         <ToDoSettings />
       </tab>
@@ -28,8 +31,11 @@
       >
         <BillPaySettings />
       </tab>
-      <tab v-if="typeof settings.banner != 'undefined'" name="Banner component">
-        <BannerSettings />
+      <tab
+        v-if="typeof settings.activity != 'undefined'"
+        name="Activity component"
+      >
+        <ActivitySettings />
       </tab>
       <tab
         v-if="typeof settings.pega_chat != 'undefined'"
@@ -73,6 +79,7 @@ import BillPaySettings from './BillPaySettings.vue';
 import BannerSettings from './BannerSettings.vue';
 import KMHelpSettings from './KMHelpSettings.vue';
 import ToDoSettings from './ToDoSettings.vue';
+import ActivitySettings from './ActivitySettings.vue';
 import HomeHeroActionSettings from './HomeHeroActionSettings.vue';
 import UsersSettings from './UsersSettings.vue';
 import ChatSettings from './ChatSettings.vue';
@@ -112,6 +119,7 @@ export default {
     BillPaySettings,
     BannerSettings,
     ToDoSettings,
+    ActivitySettings,
     HomeHeroActionSettings,
     UsersSettings,
     KMHelpSettings,

@@ -144,6 +144,9 @@
 import { mainconfig } from '../global';
 
 export default {
+  props: {
+    showActivity: Boolean,
+  },
   data() {
     return {
       ...mainconfig,
@@ -262,6 +265,17 @@ export default {
         },preActivityParams={"ArticleID":"${mainconfig.KMArticleID}"}`;
         mainconfig.KMArticleID = '';
       }
+    } else if (this.showActivity) {
+      this.actionName = this.settings.activity.action;
+      this.actionNameParam = this.settings.activity.actionparam;
+      this.serverUrl = this.settings.activity.url;
+      this.objClass = this.settings.activity.objclass;
+      this.startCase = this.settings.activity.startcase;
+      this.appName = this.settings.activity.application;
+      this.channelID = this.settings.activity.channelid;
+      this.tenantID = this.settings.activity.tenantid;
+      this.dataretained = this.settings.activity.dataretained;
+      this.extraParam = this.settings.activity.extraparam;
     } else {
       isInAccoutPage = true;
       this.actionName = this.settings.todo.action;
@@ -381,7 +395,10 @@ export default {
       pega.Mashup.Communicator.register(pega.Mashup.hostActionsProcessor);
       _initAllPegaObjects();
     };
-    document.head.appendChild(this.mashupScript);
+    if (typeof pega === 'undefined') {
+      document.head.appendChild(this.mashupScript);
+      window.pega = {};
+    }
   },
   mounted() {
     if (

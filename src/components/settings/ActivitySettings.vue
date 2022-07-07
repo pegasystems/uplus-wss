@@ -1,47 +1,30 @@
 <template>
   <div class="container-transparent">
-    <h2>To Do component</h2>
+    <h2>Activity component</h2>
     <p>
-      Configuration of the mashup displayed as the To Do list inside the account
-      page.
+      Configuration of the mashup displayed as the Activity list inside the
+      account page. If the url is not configured, a static set of events is
+      displayed - to hide the activity feed, check the setting hide activity
+      feed below.
     </p>
     <div class="container">
       <div class="body">
         <div class="layout-labels-top layout-inline-grid-double">
           <div class="field-item field-checkbox">
             <input
-              id="todo-hideaccount"
+              id="todo-hideactivity"
               type="checkbox"
-              v-model="settings.todo.hideaccount"
+              v-model="settings.todo.hideactivity"
             />
-            <label class="width-auto" for="todo-hideaccount"
-              >Hide account details</label
-            >
-          </div>
-        </div>
-        <div class="layout-labels-top layout-inline-grid-double">
-          <div
-            class="field-item field-checkbox"
-            v-if="
-              app.industry === 'health-pharma' ||
-              app.industry === 'health-care' ||
-              app.industry === 'health-payer'
-            "
-          >
-            <input
-              id="todo-hidekpi"
-              type="checkbox"
-              v-model="settings.todo.hideKPI"
-            />
-            <label class="width-auto" for="todo-hidekpi"
-              >Hide KPI details</label
+            <label class="width-auto" for="todo-hideactivity"
+              >Hide activity feed</label
             >
           </div>
         </div>
         <div class="layout-labels-top layout-inline-grid-double">
           <div class="field-item">
-            <label for="todo-action">Action</label>
-            <select id="todo-action" v-model="settings.todo.action">
+            <label for="activity-action">Action</label>
+            <select id="activity-action" v-model="settings.activity.action">
               <option>createNewWork</option>
               <option>display</option>
               <option v-if="settings.general.connection.type === 'mashup'">
@@ -56,68 +39,72 @@
           </div>
           <div class="field-item">
             <label
-              for="todo-actionparam"
-              v-if="settings.todo.action !== 'createNewWork'"
+              for="activity-actionparam"
+              v-if="settings.activity.action !== 'createNewWork'"
               >Action parameter</label
             >
             <input
-              id="todo-actionparam"
+              id="activity-actionparam"
               type="text"
-              v-model="settings.todo.actionparam"
-              v-if="settings.todo.action !== 'createNewWork'"
+              v-model="settings.activity.actionparam"
+              v-if="settings.activity.action !== 'createNewWork'"
             />
           </div>
           <div class="field-item">
-            <label for="todo-url">URL</label>
-            <input id="todo-url" type="text" v-model="settings.todo.url" />
+            <label for="activity-url">URL</label>
+            <input
+              id="activity-url"
+              type="text"
+              v-model="settings.activity.url"
+            />
           </div>
           <div class="field-item">
-            <label for="todo-objclass">Classname</label>
+            <label for="activity-objclass">Classname</label>
             <input
-              id="todo-objclass"
+              id="activity-objclass"
               type="text"
-              v-model="settings.todo.objclass"
+              v-model="settings.activity.objclass"
             />
           </div>
           <div
             class="field-item"
             v-if="settings.general.connection.type === 'mashup'"
           >
-            <label for="todo-startcase">Start case</label>
+            <label for="activity-startcase">Start case</label>
             <input
-              id="todo-startcase"
+              id="activity-startcase"
               type="text"
-              v-model="settings.todo.startcase"
+              v-model="settings.activity.startcase"
             />
           </div>
           <div class="field-item">
-            <label for="todo-application">Application name</label>
+            <label for="activity-application">Application name</label>
             <input
-              id="todo-application"
+              id="activity-application"
               type="text"
-              v-model="settings.todo.application"
+              v-model="settings.activity.application"
             />
           </div>
           <div
             class="field-item"
             v-if="settings.general.connection.type === 'mashup'"
           >
-            <label for="todo-channelid">Channel ID</label>
+            <label for="activity-channelid">Channel ID</label>
             <input
-              id="todo-channelid"
+              id="activity-channelid"
               type="text"
-              v-model="settings.todo.channelid"
+              v-model="settings.activity.channelid"
             />
           </div>
           <div
             class="field-item"
             v-if="settings.general.connection.type === 'mashup'"
           >
-            <label for="todo-tenantid">Tenant ID</label>
+            <label for="activity-tenantid">Tenant ID</label>
             <input
-              id="todo-tenantid"
+              id="activity-tenantid"
               type="text"
-              v-model="settings.todo.tenantid"
+              v-model="settings.activity.tenantid"
             />
           </div>
           <div
@@ -125,21 +112,24 @@
             v-if="settings.general.connection.type === 'mashup'"
           >
             <input
-              id="todo-dataretained"
+              id="activity-dataretained"
               type="checkbox"
-              v-model="settings.todo.dataretained"
+              v-model="settings.activity.dataretained"
             />
-            <label class="width-auto" for="todo-dataretained"
+            <label class="width-auto" for="activity-dataretained"
               >Retain state on reload</label
             >
           </div>
         </div>
         <div class="layout-labels-top">
           <div class="field-item">
-            <label for="todo-extraparam"
+            <label for="activity-extraparam"
               >Extra parameters (for example 'key1=value1,key2=value2')</label
             >
-            <textarea id="todo-extraparam" v-model="settings.todo.extraparam" />
+            <textarea
+              id="activity-extraparam"
+              v-model="settings.activity.extraparam"
+            />
           </div>
         </div>
       </div>

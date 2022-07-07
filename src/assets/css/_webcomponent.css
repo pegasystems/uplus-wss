@@ -367,6 +367,8 @@ select[readonly] {
 
 #case-data {
   flex: 1;
+  display: flex;
+  flex-flow: column nowrap;
 }
 
 .helper-text {

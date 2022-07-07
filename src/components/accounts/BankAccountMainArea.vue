@@ -9,7 +9,7 @@
     />
     <MashupMainArea
       v-if="typeof settings.todo !== 'undefined' && settings.todo.url !== ''"
-      :key="reloadAccountMashup"
+      :key="reloadToDoMashup"
     />
     <section class="content cash-projections">
       <div class="flex">
