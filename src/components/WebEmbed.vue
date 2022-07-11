@@ -73,10 +73,21 @@ import { mainconfig } from '../global';
 import { sendClickStreamEvent } from '../CDHIntegration';
 import setObjectFromRef from '../utils';
 
+let resizeObserver;
+
 const embedEventFn = (event) => {
   console.log('Event from pega-embed', event);
   if (event.type === 'embedcloseconfirmview') {
     top.postMessage('pegaMashupNavigateBack', location.origin);
+  } else if (event.type === 'embedprocessingend') {
+    resizeObserver = new ResizeObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.contentRect.height === 0) {
+          top.postMessage('pegaMashupNavigateBack', location.origin);
+        }
+      });
+    });
+    resizeObserver.observe(document.querySelector('pega-embed'));
   }
 };
 
@@ -241,6 +252,9 @@ export default {
     mytag.removeEventListener('embedprocessingend', embedEventFn);
     mytag.removeEventListener('embedready', embedEventFn);
     mytag.removeEventListener('embedcloseconfirmview', embedEventFn);
+    if (resizeObserver) {
+      resizeObserver.unobserve(mytag);
+    }
   },
   methods: {
     goHomePage() {
