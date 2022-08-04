@@ -57,6 +57,7 @@ export default {
       mainconfig.toDo = -1;
       mainconfig.viewKMHelp = -1;
       mainconfig.viewBanner = -1;
+      mainconfig.CDHContainer = {};
       mainconfig.offerURL = '';
       mainconfig.previousPage = '';
       mainconfig.intent = '';

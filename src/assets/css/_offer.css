@@ -120,12 +120,13 @@ body > #app.form.offer {
   min-height: 200px;
 }
 
-.main-offer > div {
-  width: 50%;
+.main-offer > .image {
+  width: 300px;
 }
 
 .main-offer > .details {
   margin-left: 30px;
+  flex:1;
 }
 
 .main-offer p {

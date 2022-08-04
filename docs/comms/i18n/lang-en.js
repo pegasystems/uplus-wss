@@ -135,6 +135,14 @@ window.langEN = {
   offer_highlights_data2_msg: 'For the best gaming experience you need fast download speeds and low latency. 5G home internet gets you both.',
   offer_highlights_data3_title: 'Pricing',
   offer_highlights_data3_msg: 'Get special deals when you combine 5G home internet with any other U+ products such as U+ Mobile plans.',
+  offer_builtin_button_accepted: 'I am interested',
+  offer_builtin_button_rejected: 'No thanks',
+  offer_builtin_button_close: 'Close',
+  offer_builtin_benefits: 'Benefits',
+  offer_builtin_description: 'Description',
+  offer_builtin_response_heading: 'Confirmation',
+  offer_builtin_thankyou: 'Thank you!',
+  offer_builtin_response: 'Your information has been submitted.',
   kmhelp: 'Help',
 };
 

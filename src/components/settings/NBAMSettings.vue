@@ -117,7 +117,7 @@
             >Enable Click Stream</label
           >
         </div>
-        <div class="field-item">
+        <div class="field-item field-checkbox">
           <input
             id="NBAM-replaceHomePageHeader"
             type="checkbox"
@@ -127,7 +127,7 @@
             >Replace Home Page header with Hero placement</label
           >
         </div>
-        <div class="field-item">
+        <div class="field-item field-checkbox">
           <input
             id="NBAM-showLoadingIndicator"
             type="checkbox"
@@ -163,9 +163,10 @@
             id="NBAM-HomePage-ClickAction"
             v-model="settings.pega_marketing.homePage.clickaction"
           >
-            <option>Mashup</option>
-            <option>Popup</option>
-            <option>TopURL</option>
+            <option value="Mashup">Mashup (using microsites)</option>
+            <option value="BuiltIn">Built-in</option>
+            <option value="Popup">Popup</option>
+            <option value="TopURL">TopURL</option>
           </select>
         </div>
       </div>
@@ -196,9 +197,10 @@
             id="NBAM-AccountPage-ClickAction"
             v-model="settings.pega_marketing.accountPage.clickaction"
           >
-            <option>Mashup</option>
-            <option>Popup</option>
-            <option>TopURL</option>
+            <option value="Mashup">Mashup (using microsites)</option>
+            <option value="BuiltIn">Built-in</option>
+            <option value="Popup">Popup</option>
+            <option value="TopURL">TopURL</option>
           </select>
         </div>
       </div>
@@ -227,9 +229,10 @@
             id="NBAM-PhonePage-ClickAction"
             v-model="settings.pega_marketing.phonePage.clickaction"
           >
-            <option>Mashup</option>
-            <option>Popup</option>
-            <option>TopURL</option>
+            <option value="Mashup">Mashup (using microsites)</option>
+            <option value="BuiltIn">Built-in</option>
+            <option value="Popup">Popup</option>
+            <option value="TopURL">TopURL</option>
           </select>
         </div>
       </div>
@@ -258,9 +261,10 @@
             id="NBAM-OfferPage-ClickAction"
             v-model="settings.pega_marketing.offerPage.clickaction"
           >
-            <option>Mashup</option>
-            <option>Popup</option>
-            <option>TopURL</option>
+            <option value="Mashup">Mashup (using microsites)</option>
+            <option value="BuiltIn">Built-in</option>
+            <option value="Popup">Popup</option>
+            <option value="TopURL">TopURL</option>
           </select>
         </div>
       </div>
@@ -299,9 +303,10 @@
             :id="'NBAM-OfferPage-' + index + '-ClickAction'"
             v-model="item.clickaction"
           >
-            <option>Mashup</option>
-            <option>Popup</option>
-            <option>TopURL</option>
+            <option value="Mashup">Mashup (using microsites)</option>
+            <option value="BuiltIn">Built-in</option>
+            <option value="Popup">Popup</option>
+            <option value="TopURL">TopURL</option>
           </select>
         </div>
       </div>

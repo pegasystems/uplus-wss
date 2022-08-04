@@ -144,6 +144,14 @@ window.langEN = {
   offer_highlights_data3_title: 'Pricing',
   offer_highlights_data3_msg:
     'Minimum of $100 to open your account. You can transfer funds with electronic transfer, mail in check, mobile check deposit, or wire. ',
+  offer_builtin_button_accepted: 'I am interested',
+  offer_builtin_button_rejected: 'No thanks',
+  offer_builtin_button_close: 'Close',
+  offer_builtin_benefits: 'Benefits',
+  offer_builtin_description: 'Description',
+  offer_builtin_response_heading: 'Confirmation',
+  offer_builtin_thankyou: 'Thank you!',
+  offer_builtin_response: 'Your information has been submitted.',
   kmhelp: 'Help',
 };
 

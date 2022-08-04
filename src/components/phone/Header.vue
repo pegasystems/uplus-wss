@@ -114,6 +114,7 @@ export default {
       mainconfig.viewBanner = -1;
       mainconfig.offerAction = -1;
       mainconfig.offerURL = '';
+      mainconfig.CDHContainer = {};
       if (mainconfig.isAuthenticated) {
         window.history.pushState(
           { userId: mainconfig.userId },

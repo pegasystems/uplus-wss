@@ -161,6 +161,14 @@ window.langEN = {
   search: "Search...",
   search_past_services: "Search past services",
   cash_projections_dropdown: "Past 5 months",
+  offer_builtin_button_accepted: 'I am interested',
+  offer_builtin_button_rejected: 'No thanks',
+  offer_builtin_button_close: 'Close',
+  offer_builtin_benefits: 'Benefits',
+  offer_builtin_description: 'Description',
+  offer_builtin_response_heading: 'Confirmation',
+  offer_builtin_thankyou: 'Thank you!',
+  offer_builtin_response: 'Your information has been submitted.',
 };
 
 window.dateFormatEN = {

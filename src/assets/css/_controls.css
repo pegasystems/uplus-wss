@@ -331,9 +331,6 @@ button.secondary:hover {
 
 button.tertiary {
   background: none;
-  border-color: rgba(41, 94, 217, 0);
-  min-width: 40px;
-  padding: 0;
 }
 
 button.light {

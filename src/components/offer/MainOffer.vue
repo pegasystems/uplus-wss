@@ -217,6 +217,9 @@ export default {
       }
       mainconfig.offerURL = item.url;
       mainconfig.previousPage = item.name;
+      if (this.action === 'BuiltIn') {
+        mainconfig.CDHContainer = item;
+      }
       if (mainconfig.settings.pega_marketing.useCaptureByChannel === true) {
         captureResponse(this, item, 'Clicked');
       }

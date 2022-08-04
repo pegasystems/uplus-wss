@@ -267,6 +267,7 @@ export default {
       mainconfig.viewKMHelp = -1;
       mainconfig.offerURL = '';
       mainconfig.offerIndex = 0;
+      mainconfig.CDHContainer = {};
       if (window.history) {
         if (mainconfig.isAuthenticated) {
           mainconfig.currentPage = 'account';

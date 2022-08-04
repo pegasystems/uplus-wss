@@ -144,6 +144,14 @@ window.langEN = {
   offer_highlights_data2_msg: 'Submit claims from anywhere in the world, on your favorite devices. Whether voice, website, or mobile app, filing a claim is easy as 1, 2, 3. ',
   offer_highlights_data3_title: 'Personalized travel policies',
   offer_highlights_data3_msg: 'Tailor your policy based on your risk tolerance and travel plans. You only buy the coverage you need. ',
+  offer_builtin_button_accepted: 'I am interested',
+  offer_builtin_button_rejected: 'No thanks',
+  offer_builtin_button_close: 'Close',
+  offer_builtin_benefits: 'Benefits',
+  offer_builtin_description: 'Description',
+  offer_builtin_response_heading: 'Confirmation',
+  offer_builtin_thankyou: 'Thank you!',
+  offer_builtin_response: 'Your information has been submitted.',
   kmhelp: 'Help',
 };
 

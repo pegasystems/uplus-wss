@@ -73,3 +73,8 @@ a:active {
   color: #3c8712;
   font-weight: 700 !important;
 }
+
+.success-text {
+  font-size: 40px;
+  color: #3C8712;
+}

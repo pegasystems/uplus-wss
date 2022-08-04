@@ -113,6 +113,9 @@ export default {
       mainconfig.phonePageName = 'offer';
       mainconfig.offerURL = item.url;
       mainconfig.previousPage = item.name;
+      if (this.settings.pega_marketing.phonePage.clickaction === 'BuiltIn') {
+        mainconfig.CDHContainer = item;
+      }
       if (mainconfig.settings.pega_marketing.useCaptureByChannel === true) {
         captureResponse(this, item, 'Clicked');
       }

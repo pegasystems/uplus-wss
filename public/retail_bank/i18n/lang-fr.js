@@ -335,6 +335,14 @@ window.langFR = {
     "Les cartes bancaires U+ sont désormais acceptées dans plus d'endroits que jamais",
   category_footer_title:
     "Simplifiez vos opérations bancaires et commencez à gagner plus.",
+  offer_builtin_button_accepted: 'Je suis intéressé',
+  offer_builtin_button_rejected: 'Non merci',
+  offer_builtin_button_close: 'Fermer',
+  offer_builtin_benefits: 'Avantages',
+  offer_builtin_description: 'Description',
+  offer_builtin_response_heading: 'Confirmation',
+  offer_builtin_thankyou: 'Merci!',
+  offer_builtin_response: 'Votre requète a été enregistrée.',
 };
 
 window.dateFormatFR = {

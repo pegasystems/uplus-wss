@@ -475,6 +475,7 @@ if (typeof window.settings === 'undefined') {
     toDo: -1,
     viewKMHelp: -1,
     KMArticleID: '',
+    CDHContainer: {},
     logoutURL: {},
     homeHeroAction: -1,
     offerAction: -1,
@@ -882,6 +883,7 @@ window.addEventListener('popstate', () => {
     mainconfig.toDo = -1;
     mainconfig.viewKMHelp = -1;
     mainconfig.offerURL = '';
+    mainconfig.CDHContainer = {};
   }
   if (mainconfig.currentPage.indexOf('index.html') === 0) {
     mainconfig.isAuthenticated = false;

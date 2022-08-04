@@ -27,11 +27,11 @@
       </li>
       <li>
         <label>Propensity</label>
-        <span>{{ $n(offer.propensity, 'score') }}</span>
+        <span>{{ offer.propensity && $n(offer.propensity, 'score') }}</span>
       </li>
       <li>
         <label>Priority (P*C*V*L)</label>
-        <span>{{ $n(offer.priority, 'score') }}</span>
+        <span>{{ offer.priority && $n(offer.priority, 'score') }}</span>
       </li>
       <li>
         <label>Rank</label>

@@ -300,6 +300,18 @@
     min-width: auto;
     margin: 0 0 3px 0;
   }
+  .main-offer {
+    flex-flow: column nowrap;
+  }
+  .main-offer > .image {
+    width:100%;
+  }
+  .main-offer > .details {
+    margin: 14px 0 0 0;
+  }
+  .primary-card {
+    padding:14px;
+  }
 }
 
 @media screen and (max-width: 567px) {
