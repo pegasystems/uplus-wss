@@ -179,6 +179,9 @@
 .flex.margin-l-auto {
   margin-left: auto;
 }
+.flex-paragraph li {
+  list-style: outside disc;
+}
 .align-center {
   align-items: center;
 }
