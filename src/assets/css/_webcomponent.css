@@ -180,7 +180,7 @@
   margin-left: auto;
 }
 .flex-paragraph li {
-  list-style: outside disc;
+  list-style: inside disc;
 }
 .align-center {
   align-items: center;
