@@ -57,13 +57,10 @@
           class="field-item"
         >
           <label for="NBAM-contextName">Context name</label>
-          <select
+          <input
             id="NBAM-contextName"
             v-model="settings.pega_marketing.contextName"
-          >
-            <option>Account</option>
-            <option>Customer</option>
-          </select>
+          />
         </div>
         <div
           v-if="settings.pega_marketing.apiLevel === 'V3'"
