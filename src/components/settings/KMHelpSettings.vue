@@ -11,10 +11,16 @@
         <div class="layout-labels-top layout-inline-grid-double">
           <div class="field-item">
             <label for="kmhelp-action">Action</label>
-            <select id="kmhelp-action" v-model="settings.kmhelp.action">
+            <select
+              id="kmhelp-action"
+              v-model="settings.kmhelp.action"
+              @change="onActionChange"
+            >
               <option>createNewWork</option>
               <option>display</option>
-              <option v-if="settings.general.connection.type === 'mashup'">
+              <option
+                v-if="settings.general.connection.type.indexOf('dx') === -1"
+              >
                 getNextWork
               </option>
               <option>openAssignment</option>
@@ -24,24 +30,41 @@
               <option>openWorkByHandle</option>
             </select>
           </div>
-          <div class="field-item">
-            <label
-              for="kmhelp-actionparam"
-              v-if="settings.kmhelp.action !== 'createNewWork'"
-              >Action parameter</label
-            >
+          <div
+            class="field-item"
+            v-if="
+              settings.kmhelp.action !== 'createNewWork' &&
+              settings.kmhelp.action !== 'getNextWork'
+            "
+          >
+            <label for="kmhelp-actionparam">Action parameter</label>
             <input
               id="kmhelp-actionparam"
               type="text"
               v-model="settings.kmhelp.actionparam"
-              v-if="settings.kmhelp.action !== 'createNewWork'"
+              v-if="
+                settings.general.connection.type.indexOf('dx') === -1 ||
+                settings.kmhelp.action !== 'display'
+              "
             />
+            <select
+              id="kmhelp-action"
+              v-model="settings.kmhelp.actionparam"
+              v-else
+            >
+              <option value="workList" selected>Show the worklist</option>
+              <option value="taskList">Show a tasklist</option>
+              <option value="dataView">Display a data view</option>
+            </select>
           </div>
-          <div class="field-item">
-            <label for="kmhelp-url">URL</label>
-            <input id="kmhelp-url" type="text" v-model="settings.kmhelp.url" />
-          </div>
-          <div class="field-item">
+          <div
+            class="field-item"
+            v-if="
+              settings.kmhelp.action === 'createNewWork' ||
+              (settings.general.connection.type.indexOf('dx') === -1 &&
+                settings.kmhelp.action === 'display')
+            "
+          >
             <label for="kmhelp-objclass">Classname</label>
             <input
               id="kmhelp-objclass"
@@ -51,7 +74,24 @@
           </div>
           <div
             class="field-item"
-            v-if="settings.general.connection.type === 'mashup'"
+            v-if="
+              settings.general.connection.type.indexOf('dx') === 0 &&
+              settings.kmhelp.action === 'display'
+            "
+          >
+            <label for="kmhelp-heading">Heading</label>
+            <input
+              id="kmhelp-heading"
+              type="text"
+              v-model="settings.kmhelp.heading"
+            />
+          </div>
+          <div
+            class="field-item"
+            v-if="
+              settings.general.connection.type === 'mashup' &&
+              settings.kmhelp.action === 'createNewWork'
+            "
           >
             <label for="kmhelp-startcase">Start case</label>
             <input
@@ -59,6 +99,10 @@
               type="text"
               v-model="settings.kmhelp.startcase"
             />
+          </div>
+          <div class="field-item">
+            <label for="kmhelp-url">URL</label>
+            <input id="kmhelp-url" type="text" v-model="settings.kmhelp.url" />
           </div>
           <div class="field-item">
             <label for="kmhelp-application">Application name</label>
@@ -146,6 +190,18 @@ import { mainconfig } from '../../global';
 export default {
   data() {
     return mainconfig;
+  },
+  methods: {
+    onActionChange() {
+      if (
+        this.settings.general.connection.type.indexOf('dx') === -1 ||
+        this.settings.kmhelp.action !== 'display'
+      ) {
+        this.settings.kmhelp.actionparam = '';
+      } else {
+        this.settings.kmhelp.actionparam = 'workList';
+      }
+    },
   },
 };
 </script>

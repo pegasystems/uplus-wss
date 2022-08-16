@@ -9,14 +9,17 @@
       <div class="body">
         <div class="layout-labels-top layout-inline-grid-double">
           <div class="field-item">
-            <label for="offer-action-action">Action</label>
+            <label for="offeraction-action">Action</label>
             <select
-              id="offer-action-action"
+              id="offeraction-action"
               v-model="settings.offeraction.action"
+              @change="onActionChange"
             >
               <option>createNewWork</option>
               <option>display</option>
-              <option v-if="settings.general.connection.type === 'mashup'">
+              <option
+                v-if="settings.general.connection.type.indexOf('dx') === -1"
+              >
                 getNextWork
               </option>
               <option>openAssignment</option>
@@ -26,77 +29,119 @@
               <option>openWorkByHandle</option>
             </select>
           </div>
-          <div class="field-item">
-            <label
-              for="offer-action-actionparam"
-              v-if="settings.offeraction.action !== 'createNewWork'"
-              >Action parameter</label
-            >
+          <div
+            class="field-item"
+            v-if="
+              settings.offeraction.action !== 'createNewWork' &&
+              settings.offeraction.action !== 'getNextWork'
+            "
+          >
+            <label for="offeraction-actionparam">Action parameter</label>
             <input
-              id="offer-action-actionparam"
+              id="offeraction-actionparam"
               type="text"
               v-model="settings.offeraction.actionparam"
-              v-if="settings.offeraction.action !== 'createNewWork'"
+              v-if="
+                settings.general.connection.type.indexOf('dx') === -1 ||
+                settings.offeraction.action !== 'display'
+              "
             />
+            <select
+              id="offeraction-action"
+              v-model="settings.offeraction.actionparam"
+              v-else
+            >
+              <option value="workList" selected>Show the worklist</option>
+              <option value="taskList">Show a tasklist</option>
+              <option value="dataView">Display a data view</option>
+            </select>
           </div>
-          <div class="field-item">
-            <label for="offer-action-url">URL</label>
+          <div
+            class="field-item"
+            v-if="
+              settings.offeraction.action === 'createNewWork' ||
+              (settings.general.connection.type.indexOf('dx') === -1 &&
+                settings.offeraction.action === 'display')
+            "
+          >
+            <label for="offeraction-objclass">Classname</label>
             <input
-              id="offer-action-url"
-              type="text"
-              v-model="settings.offeraction.url"
-            />
-          </div>
-          <div class="field-item">
-            <label for="offer-action-objclass">Classname</label>
-            <input
-              id="offer-action-objclass"
+              id="offeraction-objclass"
               type="text"
               v-model="settings.offeraction.objclass"
             />
           </div>
           <div
             class="field-item"
-            v-if="settings.general.connection.type === 'mashup'"
+            v-if="
+              settings.general.connection.type.indexOf('dx') === 0 &&
+              settings.offeraction.action === 'display'
+            "
           >
-            <label for="offer-action-startcase">Start case</label>
+            <label for="offeraction-heading">Heading</label>
             <input
-              id="offer-action-startcase"
+              id="offeraction-heading"
+              type="text"
+              v-model="settings.offeraction.heading"
+            />
+          </div>
+          <div
+            class="field-item"
+            v-if="
+              settings.general.connection.type === 'mashup' &&
+              settings.offeraction.action === 'createNewWork'
+            "
+          >
+            <label for="offeraction-startcase">Start case</label>
+            <input
+              id="offeraction-startcase"
               type="text"
               v-model="settings.offeraction.startcase"
             />
           </div>
           <div class="field-item">
-            <label for="offer-action-application">Application name</label>
+            <label for="offeraction-url">URL</label>
             <input
-              id="offer-action-application"
+              id="offeraction-url"
+              type="text"
+              v-model="settings.offeraction.url"
+            />
+          </div>
+          <div class="field-item">
+            <label for="offeraction-application">Application name</label>
+            <input
+              id="offeraction-application"
               type="text"
               v-model="settings.offeraction.application"
             />
           </div>
           <div class="field-item">
-            <label for="offer-action-pega_userid">Pega userid</label>
+            <label for="offeraction-username"
+              >Username (for unauthenticated access)</label
+            >
             <input
-              id="offer-action-pega_userid"
+              id="offeraction-username"
               type="text"
-              v-model="settings.offeraction.pega_userid"
+              v-model="settings.offeraction.username"
             />
           </div>
           <div class="field-item">
-            <label for="offer-action-pega_pwd">Pega password</label>
+            <label for="offeraction-password"
+              >Password (for unauthenticated access)</label
+            >
             <input
-              id="offer-action-pega_pwd"
-              type="password"
-              v-model="settings.offeraction.pega_pwd"
+              id="offeraction-password"
+              type="text"
+              v-model="settings.offeraction.password"
             />
           </div>
           <div
             class="field-item"
             v-if="settings.general.connection.type === 'mashup'"
           >
-            <label for="offer-action-channelid">Channel ID</label>
+            <label for="offeraction-channelid">Channel ID</label>
             <input
-              id="offer-action-channelid"
+              id="offeraction-channelid"
               type="text"
               v-model="settings.offeraction.channelid"
             />
@@ -105,9 +150,9 @@
             class="field-item"
             v-if="settings.general.connection.type === 'mashup'"
           >
-            <label for="offer-action-tenantid">Tenant ID</label>
+            <label for="offeraction-tenantid">Tenant ID</label>
             <input
-              id="offer-action-tenantid"
+              id="offeraction-tenantid"
               type="text"
               v-model="settings.offeraction.tenantid"
             />
@@ -117,22 +162,22 @@
             v-if="settings.general.connection.type === 'mashup'"
           >
             <input
-              id="offer-action-dataretained"
+              id="offeraction-dataretained"
               type="checkbox"
               v-model="settings.offeraction.dataretained"
             />
-            <label class="width-auto" for="offer-action-dataretained"
+            <label class="width-auto" for="offeraction-dataretained"
               >Retain state on reload</label
             >
           </div>
         </div>
         <div class="layout-labels-top">
           <div class="field-item">
-            <label for="offer-action-extraparam"
+            <label for="offeraction-extraparam"
               >Extra parameters (for example 'key1=value1,key2=value2')</label
             >
             <textarea
-              id="offer-action-extraparam"
+              id="offeraction-extraparam"
               v-model="settings.offeraction.extraparam"
             />
           </div>
@@ -148,6 +193,18 @@ import { mainconfig } from '../../global';
 export default {
   data() {
     return mainconfig;
+  },
+  methods: {
+    onActionChange() {
+      if (
+        this.settings.general.connection.type.indexOf('dx') === -1 ||
+        this.settings.offeraction.action !== 'display'
+      ) {
+        this.settings.offeraction.actionparam = '';
+      } else {
+        this.settings.offeraction.actionparam = 'workList';
+      }
+    },
   },
 };
 </script>

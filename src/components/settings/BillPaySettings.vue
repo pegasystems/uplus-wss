@@ -21,11 +21,17 @@
         </div>
         <div class="layout-labels-top layout-inline-grid-double">
           <div class="field-item">
-            <label for="bill-pay-action">Action</label>
-            <select id="bill-pay-action" v-model="settings.billpay.action">
+            <label for="billpay-action">Action</label>
+            <select
+              id="billpay-action"
+              v-model="settings.billpay.action"
+              @change="onActionChange"
+            >
               <option>createNewWork</option>
               <option>display</option>
-              <option v-if="settings.general.connection.type === 'mashup'">
+              <option
+                v-if="settings.general.connection.type.indexOf('dx') === -1"
+              >
                 getNextWork
               </option>
               <option>openAssignment</option>
@@ -35,50 +41,88 @@
               <option>openWorkByHandle</option>
             </select>
           </div>
-          <div class="field-item">
-            <label
-              for="bill-pay-actionparam"
-              v-if="settings.billpay.action !== 'createNewWork'"
-              >Action parameter</label
-            >
+          <div
+            class="field-item"
+            v-if="
+              settings.billpay.action !== 'createNewWork' &&
+              settings.billpay.action !== 'getNextWork'
+            "
+          >
+            <label for="billpay-actionparam">Action parameter</label>
             <input
-              id="bill-pay-actionparam"
+              id="billpay-actionparam"
               type="text"
               v-model="settings.billpay.actionparam"
-              v-if="settings.billpay.action !== 'createNewWork'"
+              v-if="
+                settings.general.connection.type.indexOf('dx') === -1 ||
+                settings.billpay.action !== 'display'
+              "
             />
+            <select
+              id="billpay-action"
+              v-model="settings.billpay.actionparam"
+              v-else
+            >
+              <option value="workList" selected>Show the worklist</option>
+              <option value="taskList">Show a tasklist</option>
+              <option value="dataView">Display a data view</option>
+            </select>
           </div>
-          <div class="field-item">
-            <label for="bill-pay-url">URL</label>
+          <div
+            class="field-item"
+            v-if="
+              settings.billpay.action === 'createNewWork' ||
+              (settings.general.connection.type.indexOf('dx') === -1 &&
+                settings.billpay.action === 'display')
+            "
+          >
+            <label for="billpay-objclass">Classname</label>
             <input
-              id="bill-pay-url"
-              type="text"
-              v-model="settings.billpay.url"
-            />
-          </div>
-          <div class="field-item">
-            <label for="bill-pay-objclass">Classname</label>
-            <input
-              id="bill-pay-objclass"
+              id="billpay-objclass"
               type="text"
               v-model="settings.billpay.objclass"
             />
           </div>
           <div
             class="field-item"
-            v-if="settings.general.connection.type === 'mashup'"
+            v-if="
+              settings.general.connection.type.indexOf('dx') === 0 &&
+              settings.billpay.action === 'display'
+            "
           >
-            <label for="bill-pay-startcase">Start case</label>
+            <label for="billpay-heading">Heading</label>
             <input
-              id="bill-pay-startcase"
+              id="billpay-heading"
+              type="text"
+              v-model="settings.billpay.heading"
+            />
+          </div>
+          <div
+            class="field-item"
+            v-if="
+              settings.general.connection.type === 'mashup' &&
+              settings.billpay.action === 'createNewWork'
+            "
+          >
+            <label for="billpay-startcase">Start case</label>
+            <input
+              id="billpay-startcase"
               type="text"
               v-model="settings.billpay.startcase"
             />
           </div>
           <div class="field-item">
-            <label for="bill-pay-application">Application name</label>
+            <label for="billpay-url">URL</label>
             <input
-              id="bill-pay-application"
+              id="billpay-url"
+              type="text"
+              v-model="settings.billpay.url"
+            />
+          </div>
+          <div class="field-item">
+            <label for="billpay-application">Application name</label>
+            <input
+              id="billpay-application"
               type="text"
               v-model="settings.billpay.application"
             />
@@ -87,9 +131,9 @@
             class="field-item"
             v-if="settings.general.connection.type === 'mashup'"
           >
-            <label for="bill-pay-channelid">Channel ID</label>
+            <label for="billpay-channelid">Channel ID</label>
             <input
-              id="bill-pay-channelid"
+              id="billpay-channelid"
               type="text"
               v-model="settings.billpay.channelid"
             />
@@ -98,9 +142,9 @@
             class="field-item"
             v-if="settings.general.connection.type === 'mashup'"
           >
-            <label for="bill-pay-tenantid">Tenant ID</label>
+            <label for="billpay-tenantid">Tenant ID</label>
             <input
-              id="bill-pay-tenantid"
+              id="billpay-tenantid"
               type="text"
               v-model="settings.billpay.tenantid"
             />
@@ -110,22 +154,22 @@
             v-if="settings.general.connection.type === 'mashup'"
           >
             <input
-              id="bill-pay-dataretained"
+              id="billpay-dataretained"
               type="checkbox"
               v-model="settings.billpay.dataretained"
             />
-            <label class="width-auto" for="bill-pay-dataretained"
+            <label class="width-auto" for="billpay-dataretained"
               >Retain state on reload</label
             >
           </div>
         </div>
         <div class="layout-labels-top">
           <div class="field-item">
-            <label for="bill-pay-extraparam"
+            <label for="billpay-extraparam"
               >Extra parameters (for example 'key1=value1,key2=value2')</label
             >
             <textarea
-              id="bill-pay-extraparam"
+              id="billpay-extraparam"
               v-model="settings.billpay.extraparam"
             />
           </div>
@@ -141,6 +185,18 @@ import { mainconfig } from '../../global';
 export default {
   data() {
     return mainconfig;
+  },
+  methods: {
+    onActionChange() {
+      if (
+        this.settings.general.connection.type.indexOf('dx') === -1 ||
+        this.settings.billpay.action !== 'display'
+      ) {
+        this.settings.billpay.actionparam = '';
+      } else {
+        this.settings.billpay.actionparam = 'workList';
+      }
+    },
   },
 };
 </script>

@@ -64,6 +64,20 @@
       :password="Password"
       :theme="theme"
     />
+    <pega-embed
+      v-else-if="action === 'getNextWork'"
+      popupReauth="true"
+      ref="mycomp"
+      :action="action"
+      :appAlias="application"
+      :pegaServerUrl="url"
+      :staticContentUrl="staticContentUrl"
+      authService="pega"
+      :clientId="clientId"
+      :userIdentifier="UserIdentifier"
+      :password="Password"
+      :theme="theme"
+    />
   </div>
   <div v-else>Loading....</div>
 </template>
@@ -165,6 +179,8 @@ export default {
       this.action = 'openAssignment';
     } else if (this.action === 'openWorkByHandle') {
       this.action = 'openCase';
+    } else if (this.action === 'getNextWork') {
+      this.action = 'getNextWork';
     }
     if (this.userId !== -1) {
       this.UserIdentifier = this.settings.users[this.userId].pega_userid;

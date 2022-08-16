@@ -24,10 +24,16 @@
         <div class="layout-labels-top layout-inline-grid-double">
           <div class="field-item">
             <label for="activity-action">Action</label>
-            <select id="activity-action" v-model="settings.activity.action">
+            <select
+              id="activity-action"
+              v-model="settings.activity.action"
+              @change="onActionChange"
+            >
               <option>createNewWork</option>
               <option>display</option>
-              <option v-if="settings.general.connection.type === 'mashup'">
+              <option
+                v-if="settings.general.connection.type.indexOf('dx') === -1"
+              >
                 getNextWork
               </option>
               <option>openAssignment</option>
@@ -37,28 +43,41 @@
               <option>openWorkByHandle</option>
             </select>
           </div>
-          <div class="field-item">
-            <label
-              for="activity-actionparam"
-              v-if="settings.activity.action !== 'createNewWork'"
-              >Action parameter</label
-            >
+          <div
+            class="field-item"
+            v-if="
+              settings.activity.action !== 'createNewWork' &&
+              settings.activity.action !== 'getNextWork'
+            "
+          >
+            <label for="activity-actionparam">Action parameter</label>
             <input
               id="activity-actionparam"
               type="text"
               v-model="settings.activity.actionparam"
-              v-if="settings.activity.action !== 'createNewWork'"
+              v-if="
+                settings.general.connection.type.indexOf('dx') === -1 ||
+                settings.activity.action !== 'display'
+              "
             />
+            <select
+              id="activity-action"
+              v-model="settings.activity.actionparam"
+              v-else
+            >
+              <option value="workList" selected>Show the worklist</option>
+              <option value="taskList">Show a tasklist</option>
+              <option value="dataView">Display a data view</option>
+            </select>
           </div>
-          <div class="field-item">
-            <label for="activity-url">URL</label>
-            <input
-              id="activity-url"
-              type="text"
-              v-model="settings.activity.url"
-            />
-          </div>
-          <div class="field-item">
+          <div
+            class="field-item"
+            v-if="
+              settings.activity.action === 'createNewWork' ||
+              (settings.general.connection.type.indexOf('dx') === -1 &&
+                settings.activity.action === 'display')
+            "
+          >
             <label for="activity-objclass">Classname</label>
             <input
               id="activity-objclass"
@@ -68,13 +87,38 @@
           </div>
           <div
             class="field-item"
-            v-if="settings.general.connection.type === 'mashup'"
+            v-if="
+              settings.general.connection.type.indexOf('dx') === 0 &&
+              settings.activity.action === 'display'
+            "
+          >
+            <label for="activity-heading">Heading</label>
+            <input
+              id="activity-heading"
+              type="text"
+              v-model="settings.activity.heading"
+            />
+          </div>
+          <div
+            class="field-item"
+            v-if="
+              settings.general.connection.type === 'mashup' &&
+              settings.activity.action === 'createNewWork'
+            "
           >
             <label for="activity-startcase">Start case</label>
             <input
               id="activity-startcase"
               type="text"
               v-model="settings.activity.startcase"
+            />
+          </div>
+          <div class="field-item">
+            <label for="activity-url">URL</label>
+            <input
+              id="activity-url"
+              type="text"
+              v-model="settings.activity.url"
             />
           </div>
           <div class="field-item">
@@ -143,6 +187,18 @@ import { mainconfig } from '../../global';
 export default {
   data() {
     return mainconfig;
+  },
+  methods: {
+    onActionChange() {
+      if (
+        this.settings.general.connection.type.indexOf('dx') === -1 ||
+        this.settings.activity.action !== 'display'
+      ) {
+        this.settings.activity.actionparam = '';
+      } else {
+        this.settings.activity.actionparam = 'workList';
+      }
+    },
   },
 };
 </script>

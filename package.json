@@ -24,15 +24,15 @@
     "@vue/eslint-config-prettier": "^7.0.0",
     "@vue/test-utils": "^2.0.2",
     "c8": "^7.12.0",
-    "cypress": "^10.4.0",
-    "eslint": "^8.21.0",
+    "cypress": "^10.5.0",
+    "eslint": "^8.22.0",
     "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-vue": "^9.3.0",
     "jsdom": "^20.0.0",
     "prettier": "^2.7.1",
     "replace-in-file": "^6.3.5",
     "start-server-and-test": "^1.14.0",
-    "vite": "^3.0.7",
-    "vitest": "^0.21.1"
+    "vite": "^3.0.8",
+    "vitest": "^0.22.0"
   }
 }

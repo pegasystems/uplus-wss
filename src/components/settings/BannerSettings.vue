@@ -33,10 +33,16 @@
         <div class="layout-labels-top layout-inline-grid-double">
           <div class="field-item">
             <label for="banner-action">Action</label>
-            <select id="banner-action" v-model="settings.banner.action">
+            <select
+              id="banner-action"
+              v-model="settings.banner.action"
+              @change="onActionChange"
+            >
               <option>createNewWork</option>
               <option>display</option>
-              <option v-if="settings.general.connection.type === 'mashup'">
+              <option
+                v-if="settings.general.connection.type.indexOf('dx') === -1"
+              >
                 getNextWork
               </option>
               <option>openAssignment</option>
@@ -46,24 +52,41 @@
               <option>openWorkByHandle</option>
             </select>
           </div>
-          <div class="field-item">
-            <label
-              for="banner-actionparam"
-              v-if="settings.banner.action !== 'createNewWork'"
-              >Action parameter</label
-            >
+          <div
+            class="field-item"
+            v-if="
+              settings.banner.action !== 'createNewWork' &&
+              settings.banner.action !== 'getNextWork'
+            "
+          >
+            <label for="banner-actionparam">Action parameter</label>
             <input
               id="banner-actionparam"
               type="text"
               v-model="settings.banner.actionparam"
-              v-if="settings.banner.action !== 'createNewWork'"
+              v-if="
+                settings.general.connection.type.indexOf('dx') === -1 ||
+                settings.banner.action !== 'display'
+              "
             />
+            <select
+              id="banner-action"
+              v-model="settings.banner.actionparam"
+              v-else
+            >
+              <option value="workList" selected>Show the worklist</option>
+              <option value="taskList">Show a tasklist</option>
+              <option value="dataView">Display a data view</option>
+            </select>
           </div>
-          <div class="field-item">
-            <label for="banner-url">URL</label>
-            <input id="banner-url" type="text" v-model="settings.banner.url" />
-          </div>
-          <div class="field-item">
+          <div
+            class="field-item"
+            v-if="
+              settings.banner.action === 'createNewWork' ||
+              (settings.general.connection.type.indexOf('dx') === -1 &&
+                settings.banner.action === 'display')
+            "
+          >
             <label for="banner-objclass">Classname</label>
             <input
               id="banner-objclass"
@@ -73,7 +96,24 @@
           </div>
           <div
             class="field-item"
-            v-if="settings.general.connection.type === 'mashup'"
+            v-if="
+              settings.general.connection.type.indexOf('dx') === 0 &&
+              settings.banner.action === 'display'
+            "
+          >
+            <label for="banner-heading">Heading</label>
+            <input
+              id="banner-heading"
+              type="text"
+              v-model="settings.banner.heading"
+            />
+          </div>
+          <div
+            class="field-item"
+            v-if="
+              settings.general.connection.type === 'mashup' &&
+              settings.banner.action === 'createNewWork'
+            "
           >
             <label for="banner-startcase">Start case</label>
             <input
@@ -81,6 +121,10 @@
               type="text"
               v-model="settings.banner.startcase"
             />
+          </div>
+          <div class="field-item">
+            <label for="banner-url">URL</label>
+            <input id="banner-url" type="text" v-model="settings.banner.url" />
           </div>
           <div class="field-item">
             <label for="banner-application">Application name</label>
@@ -148,6 +192,18 @@ import { mainconfig } from '../../global';
 export default {
   data() {
     return mainconfig;
+  },
+  methods: {
+    onActionChange() {
+      if (
+        this.settings.general.connection.type.indexOf('dx') === -1 ||
+        this.settings.banner.action !== 'display'
+      ) {
+        this.settings.banner.actionparam = '';
+      } else {
+        this.settings.banner.actionparam = 'workList';
+      }
+    },
   },
 };
 </script>

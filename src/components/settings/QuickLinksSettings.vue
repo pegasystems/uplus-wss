@@ -58,10 +58,13 @@
             <select
               :id="'quicklinks-' + index + '-action'"
               v-model="item.action"
+              @change="onActionChange(index)"
             >
               <option>createNewWork</option>
               <option>display</option>
-              <option v-if="settings.general.connection.type === 'mashup'">
+              <option
+                v-if="settings.general.connection.type.indexOf('dx') === -1"
+              >
                 getNextWork
               </option>
               <option>openAssignment</option>
@@ -71,28 +74,42 @@
               <option>openWorkByHandle</option>
             </select>
           </div>
-          <div class="field-item">
-            <label
-              :for="'quicklinks-' + index + '-actionparam'"
-              v-if="item.action !== 'createNewWork'"
+          <div
+            class="field-item"
+            v-if="
+              item.action !== 'createNewWork' && item.action !== 'getNextWork'
+            "
+          >
+            <label :for="'quicklinks-' + index + '-actionparam'"
               >Action parameter</label
             >
             <input
-              v-if="item.action !== 'createNewWork'"
               :id="'quicklinks-' + index + '-actionparam'"
               type="text"
               v-model="item.actionparam"
+              v-if="
+                settings.general.connection.type.indexOf('dx') === -1 ||
+                settings.todo.action !== 'display'
+              "
             />
+            <select
+              :id="'quicklinks-' + index + '-actionparam'"
+              v-model="item.actionparam"
+              v-else
+            >
+              <option value="workList" selected>Show the worklist</option>
+              <option value="taskList">Show a tasklist</option>
+              <option value="dataView">Display a data view</option>
+            </select>
           </div>
-          <div class="field-item">
-            <label :for="'quicklinks-' + index + '-url'">URL</label>
-            <input
-              :id="'quicklinks-' + index + '-url'"
-              type="text"
-              v-model="item.url"
-            />
-          </div>
-          <div class="field-item">
+          <div
+            class="field-item"
+            v-if="
+              item.action === 'createNewWork' ||
+              (settings.general.connection.type.indexOf('dx') === -1 &&
+                item.action === 'display')
+            "
+          >
             <label :for="'quicklinks-' + index + '-objclass'">Classname</label>
             <input
               :id="'quicklinks-' + index + '-objclass'"
@@ -102,7 +119,24 @@
           </div>
           <div
             class="field-item"
-            v-if="settings.general.connection.type === 'mashup'"
+            v-if="
+              settings.general.connection.type.indexOf('dx') === 0 &&
+              item.action === 'display'
+            "
+          >
+            <label :for="'quicklinks-' + index + '-heading'">Heading</label>
+            <input
+              :id="'quicklinks-' + index + '-heading'"
+              type="text"
+              v-model="item.heading"
+            />
+          </div>
+          <div
+            class="field-item"
+            v-if="
+              settings.general.connection.type === 'mashup' &&
+              item.action === 'createNewWork'
+            "
           >
             <label :for="'quicklinks-' + index + '-startcase'"
               >Start case</label
@@ -111,6 +145,14 @@
               :id="'quicklinks-' + index + '-startcase'"
               type="text"
               v-model="item.startcase"
+            />
+          </div>
+          <div class="field-item">
+            <label :for="'quicklinks-' + index + '-url'">URL</label>
+            <input
+              :id="'quicklinks-' + index + '-url'"
+              type="text"
+              v-model="item.url"
             />
           </div>
           <div class="field-item">
@@ -191,6 +233,18 @@ import Container from '../controls/Container.vue';
 export default {
   data() {
     return mainconfig;
+  },
+  methods: {
+    onActionChange(index) {
+      if (
+        this.settings.general.connection.type.indexOf('dx') === -1 ||
+        this.settings.quicklinks[index].action !== 'display'
+      ) {
+        this.settings.quicklinks[index].actionparam = '';
+      } else {
+        this.settings.quicklinks[index].actionparam = 'workList';
+      }
+    },
   },
   components: {
     Container,

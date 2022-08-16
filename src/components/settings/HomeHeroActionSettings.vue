@@ -9,14 +9,17 @@
       <div class="body">
         <div class="layout-labels-top layout-inline-grid-double">
           <div class="field-item">
-            <label for="hero-action-action">Action</label>
+            <label for="homeheroaction-action">Action</label>
             <select
-              id="hero-action-action"
+              id="homeheroaction-action"
               v-model="settings.homeheroaction.action"
+              @change="onActionChange"
             >
               <option>createNewWork</option>
               <option>display</option>
-              <option v-if="settings.general.connection.type === 'mashup'">
+              <option
+                v-if="settings.general.connection.type.indexOf('dx') === -1"
+              >
                 getNextWork
               </option>
               <option>openAssignment</option>
@@ -26,66 +29,104 @@
               <option>openWorkByHandle</option>
             </select>
           </div>
-          <div class="field-item">
-            <label
-              for="hero-action-actionparam"
-              v-if="settings.homeheroaction.action !== 'createNewWork'"
-              >Action parameter</label
-            >
+          <div
+            class="field-item"
+            v-if="
+              settings.homeheroaction.action !== 'createNewWork' &&
+              settings.homeheroaction.action !== 'getNextWork'
+            "
+          >
+            <label for="homeheroaction-actionparam">Action parameter</label>
             <input
-              v-if="settings.homeheroaction.action !== 'createNewWork'"
-              id="hero-action-actionparam"
+              id="homeheroaction-actionparam"
               type="text"
               v-model="settings.homeheroaction.actionparam"
+              v-if="
+                settings.general.connection.type.indexOf('dx') === -1 ||
+                settings.homeheroaction.action !== 'display'
+              "
             />
+            <select
+              id="homeheroaction-action"
+              v-model="settings.homeheroaction.actionparam"
+              v-else
+            >
+              <option value="workList" selected>Show the worklist</option>
+              <option value="taskList">Show a tasklist</option>
+              <option value="dataView">Display a data view</option>
+            </select>
           </div>
-          <div class="field-item">
-            <label for="hero-action-url">URL</label>
+          <div
+            class="field-item"
+            v-if="
+              settings.homeheroaction.action === 'createNewWork' ||
+              (settings.general.connection.type.indexOf('dx') === -1 &&
+                settings.homeheroaction.action === 'display')
+            "
+          >
+            <label for="homeheroaction-objclass">Classname</label>
             <input
-              id="hero-action-url"
-              type="text"
-              v-model="settings.homeheroaction.url"
-            />
-          </div>
-          <div class="field-item">
-            <label for="hero-action-objclass">Classname</label>
-            <input
-              id="hero-action-objclass"
+              id="homeheroaction-objclass"
               type="text"
               v-model="settings.homeheroaction.objclass"
             />
           </div>
           <div
             class="field-item"
-            v-if="settings.general.connection.type === 'mashup'"
+            v-if="
+              settings.general.connection.type.indexOf('dx') === 0 &&
+              settings.homeheroaction.action === 'display'
+            "
           >
-            <label for="hero-action-startcase">Start case</label>
+            <label for="homeheroaction-heading">Heading</label>
             <input
-              id="hero-action-startcase"
+              id="homeheroaction-heading"
+              type="text"
+              v-model="settings.homeheroaction.heading"
+            />
+          </div>
+          <div
+            class="field-item"
+            v-if="
+              settings.general.connection.type === 'mashup' &&
+              settings.homeheroaction.action === 'createNewWork'
+            "
+          >
+            <label for="homeheroaction-startcase">Start case</label>
+            <input
+              id="homeheroaction-startcase"
               type="text"
               v-model="settings.homeheroaction.startcase"
             />
           </div>
           <div class="field-item">
-            <label for="hero-action-application">Application name</label>
+            <label for="homeheroaction-url">URL</label>
             <input
-              id="hero-action-application"
+              id="homeheroaction-url"
+              type="text"
+              v-model="settings.homeheroaction.url"
+            />
+          </div>
+          <div class="field-item">
+            <label for="homeheroaction-application">Application name</label>
+            <input
+              id="homeheroaction-application"
               type="text"
               v-model="settings.homeheroaction.application"
             />
           </div>
           <div class="field-item">
-            <label for="hero-action-pega_userid">Pega userid</label>
+            <label for="homeheroaction-pega_userid">Pega userid</label>
             <input
-              id="hero-action-pega_userid"
+              id="homeheroaction-pega_userid"
               type="text"
               v-model="settings.homeheroaction.pega_userid"
             />
           </div>
           <div class="field-item">
-            <label for="hero-action-pega_pwd">Pega password</label>
+            <label for="homeheroaction-pega_pwd">Pega password</label>
             <input
-              id="hero-action-pega_pwd"
+              id="homeheroaction-pega_pwd"
               type="password"
               v-model="settings.homeheroaction.pega_pwd"
             />
@@ -94,9 +135,9 @@
             class="field-item"
             v-if="settings.general.connection.type === 'mashup'"
           >
-            <label for="hero-action-channelid">Channel ID</label>
+            <label for="homeheroaction-channelid">Channel ID</label>
             <input
-              id="hero-action-channelid"
+              id="homeheroaction-channelid"
               type="text"
               v-model="settings.homeheroaction.channelid"
             />
@@ -105,9 +146,9 @@
             class="field-item"
             v-if="settings.general.connection.type === 'mashup'"
           >
-            <label for="hero-action-tenantid">Tenant ID</label>
+            <label for="homeheroaction-tenantid">Tenant ID</label>
             <input
-              id="hero-action-tenantid"
+              id="homeheroaction-tenantid"
               type="text"
               v-model="settings.homeheroaction.tenantid"
             />
@@ -117,22 +158,22 @@
             v-if="settings.general.connection.type === 'mashup'"
           >
             <input
-              id="hero-action-dataretained"
+              id="homeheroaction-dataretained"
               type="checkbox"
               v-model="settings.homeheroaction.dataretained"
             />
-            <label class="width-auto" for="hero-action-dataretained"
+            <label class="width-auto" for="homeheroaction-dataretained"
               >Retain state on reload</label
             >
           </div>
         </div>
         <div class="layout-labels-top">
           <div class="field-item">
-            <label for="hero-action-extraparam"
+            <label for="homeheroaction-extraparam"
               >Extra parameters (for example 'key1=value1,key2=value2')</label
             >
             <textarea
-              id="hero-action-extraparam"
+              id="homeheroaction-extraparam"
               v-model="settings.homeheroaction.extraparam"
             />
           </div>
@@ -148,6 +189,18 @@ import { mainconfig } from '../../global';
 export default {
   data() {
     return mainconfig;
+  },
+  methods: {
+    onActionChange() {
+      if (
+        this.settings.general.connection.type.indexOf('dx') === -1 ||
+        this.settings.homeheroaction.action !== 'display'
+      ) {
+        this.settings.homeheroaction.actionparam = '';
+      } else {
+        this.settings.homeheroaction.actionparam = 'workList';
+      }
+    },
   },
 };
 </script>

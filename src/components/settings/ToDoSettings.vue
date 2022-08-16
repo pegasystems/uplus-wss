@@ -41,10 +41,16 @@
         <div class="layout-labels-top layout-inline-grid-double">
           <div class="field-item">
             <label for="todo-action">Action</label>
-            <select id="todo-action" v-model="settings.todo.action">
+            <select
+              id="todo-action"
+              v-model="settings.todo.action"
+              @change="onActionChange"
+            >
               <option>createNewWork</option>
               <option>display</option>
-              <option v-if="settings.general.connection.type === 'mashup'">
+              <option
+                v-if="settings.general.connection.type.indexOf('dx') === -1"
+              >
                 getNextWork
               </option>
               <option>openAssignment</option>
@@ -54,24 +60,37 @@
               <option>openWorkByHandle</option>
             </select>
           </div>
-          <div class="field-item">
-            <label
-              for="todo-actionparam"
-              v-if="settings.todo.action !== 'createNewWork'"
-              >Action parameter</label
-            >
+          <div
+            class="field-item"
+            v-if="
+              settings.todo.action !== 'createNewWork' &&
+              settings.todo.action !== 'getNextWork'
+            "
+          >
+            <label for="todo-actionparam">Action parameter</label>
             <input
               id="todo-actionparam"
               type="text"
               v-model="settings.todo.actionparam"
-              v-if="settings.todo.action !== 'createNewWork'"
+              v-if="
+                settings.general.connection.type.indexOf('dx') === -1 ||
+                settings.todo.action !== 'display'
+              "
             />
+            <select id="todo-action" v-model="settings.todo.actionparam" v-else>
+              <option value="workList" selected>Show the worklist</option>
+              <option value="taskList">Show a tasklist</option>
+              <option value="dataView">Display a data view</option>
+            </select>
           </div>
-          <div class="field-item">
-            <label for="todo-url">URL</label>
-            <input id="todo-url" type="text" v-model="settings.todo.url" />
-          </div>
-          <div class="field-item">
+          <div
+            class="field-item"
+            v-if="
+              settings.todo.action === 'createNewWork' ||
+              (settings.general.connection.type.indexOf('dx') === -1 &&
+                settings.todo.action === 'display')
+            "
+          >
             <label for="todo-objclass">Classname</label>
             <input
               id="todo-objclass"
@@ -81,7 +100,24 @@
           </div>
           <div
             class="field-item"
-            v-if="settings.general.connection.type === 'mashup'"
+            v-if="
+              settings.general.connection.type.indexOf('dx') === 0 &&
+              settings.todo.action === 'display'
+            "
+          >
+            <label for="todo-heading">Heading</label>
+            <input
+              id="todo-heading"
+              type="text"
+              v-model="settings.todo.heading"
+            />
+          </div>
+          <div
+            class="field-item"
+            v-if="
+              settings.general.connection.type === 'mashup' &&
+              settings.todo.action === 'createNewWork'
+            "
           >
             <label for="todo-startcase">Start case</label>
             <input
@@ -89,6 +125,10 @@
               type="text"
               v-model="settings.todo.startcase"
             />
+          </div>
+          <div class="field-item">
+            <label for="todo-url">URL</label>
+            <input id="todo-url" type="text" v-model="settings.todo.url" />
           </div>
           <div class="field-item">
             <label for="todo-application">Application name</label>
@@ -153,6 +193,18 @@ import { mainconfig } from '../../global';
 export default {
   data() {
     return mainconfig;
+  },
+  methods: {
+    onActionChange() {
+      if (
+        this.settings.general.connection.type.indexOf('dx') === -1 ||
+        this.settings.todo.action !== 'display'
+      ) {
+        this.settings.todo.actionparam = '';
+      } else {
+        this.settings.todo.actionparam = 'workList';
+      }
+    },
   },
 };
 </script>

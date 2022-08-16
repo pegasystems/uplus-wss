@@ -62,6 +62,7 @@ window.settings = {
       tenantid: "",
       dataretained: true,
       hideusers: "",
+      heading: '',
     },
     {
       title: {
@@ -81,6 +82,7 @@ window.settings = {
       tenantid: "",
       dataretained: true,
       hideusers: "",
+      heading: '',
     },
     {
       title: {
@@ -100,6 +102,7 @@ window.settings = {
       tenantid: "",
       dataretained: true,
       hideusers: "",
+      heading: '',
     },
     {
       title: {
@@ -119,6 +122,7 @@ window.settings = {
       tenantid: "",
       dataretained: true,
       hideusers: "",
+      heading: '',
     },
     {
       title: {
@@ -138,6 +142,7 @@ window.settings = {
       tenantid: "",
       dataretained: true,
       hideusers: "",
+      heading: '',
     },
   ],
   billpay: {
@@ -152,6 +157,7 @@ window.settings = {
     channelid: "",
     tenantid: "",
     dataretained: true,
+    heading: '',
   },
   banner: {
     action: "createNewWork",
@@ -167,6 +173,7 @@ window.settings = {
     channelid: "",
     tenantid: "",
     dataretained: true,
+    heading: '',
   },
   todo: {
     action: "createNewWork",
@@ -182,6 +189,7 @@ window.settings = {
     channelid: "",
     tenantid: "",
     dataretained: true,
+    heading: '',
   },
   kmhelp: {
     action: "display",
@@ -196,6 +204,7 @@ window.settings = {
     channelid: "",
     tenantid: "",
     dataretained: true,
+    heading: '',
   },
   activity: {
     action: 'createNewWork',
@@ -208,6 +217,7 @@ window.settings = {
     channelid: '',
     tenantid: '',
     dataretained: true,
+    heading: '',
   },
   homeheroaction: {
     action: "createNewWork",
@@ -222,6 +232,7 @@ window.settings = {
     channelid: "",
     tenantid: "",
     dataretained: true,
+    heading: '',
   },
   offeraction: {
     action: "createNewWork",
@@ -236,6 +247,7 @@ window.settings = {
     channelid: "",
     tenantid: "",
     dataretained: true,
+    heading: '',
   },
   users: [
     {

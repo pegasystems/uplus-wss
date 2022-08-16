@@ -120,6 +120,7 @@ export const upgradeConfig = function upgradeConfig(cfg) {
       pega_userid: '',
       pega_pwd: '',
       extraparam: '',
+      heading: '',
     };
   }
   if (typeof cfg.settings.activity === 'undefined') {
@@ -134,6 +135,7 @@ export const upgradeConfig = function upgradeConfig(cfg) {
       channelid: '',
       tenantid: '',
       dataretained: true,
+      heading: '',
     };
   }
   if (typeof cfg.settings.pega_chat.CoBrowseServerURL === 'undefined') {
@@ -296,6 +298,9 @@ export const upgradeConfig = function upgradeConfig(cfg) {
     if (typeof cfg.settings.quicklinks[i].hideusers === 'undefined') {
       cfg.settings.quicklinks[i].hideusers = '';
     }
+    if (typeof cfg.settings.quicklinks[i].heading === 'undefined') {
+      cfg.settings.quicklinks[i].heading = '';
+    }
   }
   /* upgrade channelid */
   if (typeof cfg.settings.billpay.channelid === 'undefined') {
@@ -354,6 +359,26 @@ export const upgradeConfig = function upgradeConfig(cfg) {
   }
   if (typeof cfg.settings.todo.dataretained === 'undefined') {
     cfg.settings.todo.dataretained = true;
+  }
+
+  /* upgrade heading */
+  if (typeof cfg.settings.billpay.heading === 'undefined') {
+    cfg.settings.billpay.heading = '';
+  }
+  if (typeof cfg.settings.banner.heading === 'undefined') {
+    cfg.settings.banner.heading = '';
+  }
+  if (typeof cfg.settings.homeheroaction.heading === 'undefined') {
+    cfg.settings.homeheroaction.heading = '';
+  }
+  if (typeof cfg.settings.offeraction.heading === 'undefined') {
+    cfg.settings.offeraction.heading = '';
+  }
+  if (typeof cfg.settings.kmhelp.heading === 'undefined') {
+    cfg.settings.kmhelp.heading = '';
+  }
+  if (typeof cfg.settings.todo.heading === 'undefined') {
+    cfg.settings.todo.heading = '';
   }
 
   if (typeof cfg.settings.general === 'undefined') {

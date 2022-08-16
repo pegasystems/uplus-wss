@@ -23,55 +23,72 @@ export default {
     const mytag = this.$refs.mycomp;
     let objClass = '';
     let actionParam = '';
+    let action = '';
     let caseTitle = '';
+    let heading = '';
     let extraParam = '';
     if (this.quickLinkId !== -1) {
-      mytag.action = this.settings.quicklinks[this.quickLinkId].action;
+      action = this.settings.quicklinks[this.quickLinkId].action;
       mytag.url = this.settings.quicklinks[this.quickLinkId].url;
       objClass = this.settings.quicklinks[this.quickLinkId].objclass;
       actionParam = this.settings.quicklinks[this.quickLinkId].actionparam;
       caseTitle =
         this.settings.quicklinks[this.quickLinkId].title[this.currentLocale];
       extraParam = this.settings.quicklinks[this.quickLinkId].extraparam;
+      heading = this.settings.quicklinks[this.quickLinkId].heading;
     } else if (this.viewBill !== -1) {
-      mytag.action = this.settings.billpay.action;
+      action = this.settings.billpay.action;
       mytag.url = this.settings.billpay.url;
       objClass = this.settings.billpay.objclass;
       actionParam = this.settings.billpay.actionparam;
       extraParam = this.settings.billpay.extraparam;
+      heading = this.settings.billpay.heading;
     } else if (this.viewBanner !== -1) {
-      mytag.action = this.settings.banner.action;
+      action = this.settings.banner.action;
       mytag.url = this.settings.banner.url;
       objClass = this.settings.banner.objclass;
       actionParam = this.settings.banner.actionparam;
       extraParam = this.settings.banner.extraparam;
+      heading = this.settings.banner.heading;
     } else if (this.homeHeroAction !== -1) {
-      mytag.action = this.settings.homeheroaction.action;
+      action = this.settings.homeheroaction.action;
       mytag.url = this.settings.homeheroaction.url;
       objClass = this.settings.homeheroaction.objclass;
       actionParam = this.settings.homeheroaction.actionparam;
       extraParam = this.settings.homeheroaction.extraparam;
+      heading = this.settings.homeheroaction.heading;
     } else if (this.offerAction !== -1) {
-      mytag.action = this.settings.offeraction.action;
+      action = this.settings.offeraction.action;
       mytag.url = this.settings.offeraction.url;
       objClass = this.settings.offeraction.objclass;
       actionParam = this.settings.offeraction.actionparam;
       extraParam = this.settings.offeraction.extraparam;
+      heading = this.settings.offeraction.heading;
     } else if (this.showActivity) {
-      mytag.action = this.settings.activity.action;
+      action = this.settings.activity.action;
       mytag.url = this.settings.activity.url;
       objClass = this.settings.activity.objclass;
       actionParam = this.settings.activity.actionparam;
       extraParam = this.settings.activity.extraparam;
+      heading = this.settings.activity.heading;
     } else {
-      mytag.action = this.settings.todo.action;
+      action = this.settings.todo.action;
       mytag.url = this.settings.todo.url;
       objClass = this.settings.todo.objclass;
       actionParam = this.settings.todo.actionparam;
       extraParam = this.settings.todo.extraparam;
+      heading = this.settings.todo.heading;
     }
-    if (mytag.action === 'display') {
-      mytag.action = 'workList';
+    if (action === 'display') {
+      mytag.title = heading === '' ? 'My worklist' : heading;
+      if (actionParam === 'dataView') {
+        mytag.action = 'dataView';
+        mytag.dataviewParams = JSON.parse(extraParam);
+      } else if (actionParam === 'taskList') {
+        mytag.action = 'taskList';
+      } else {
+        mytag.action = 'workList';
+      }
     } else if (mytag.action === 'createNewWork') {
       mytag.casetype = objClass;
     } else if (mytag.action === 'openAssignment') {
