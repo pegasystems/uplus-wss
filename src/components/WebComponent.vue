@@ -83,20 +83,28 @@ export default {
       mytag.title = heading === '' ? 'My worklist' : heading;
       if (actionParam === 'dataView') {
         mytag.action = 'dataView';
+        if (this.userId !== -1) {
+          extraParam = extraParam.replace(
+            '##USERID##',
+            this.settings.users[this.userId].pega_userid,
+          );
+        }
         mytag.dataviewParams = JSON.parse(extraParam);
       } else if (actionParam === 'taskList') {
         mytag.action = 'taskList';
       } else {
         mytag.action = 'workList';
       }
-    } else if (mytag.action === 'createNewWork') {
+    } else if (action === 'createNewWork') {
+      mytag.action = action;
       mytag.casetype = objClass;
-    } else if (mytag.action === 'openAssignment') {
+    } else if (action === 'openAssignment') {
+      mytag.action = action;
       mytag.caseID = actionParam;
-    } else if (mytag.action === 'openWorkByHandle') {
+    } else if (action === 'openWorkByHandle') {
+      mytag.action = action;
       mytag.caseID = actionParam;
     }
-
     mytag.bShowCreate = 'false';
     mytag.bShowSave = 'false';
     mytag.bShowAttachments =
