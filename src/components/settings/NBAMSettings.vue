@@ -160,7 +160,7 @@
             id="NBAM-HomePage-ClickAction"
             v-model="settings.pega_marketing.homePage.clickaction"
           >
-            <option value="Mashup">Mashup (using microsites)</option>
+            <option value="Mashup">Mashup</option>
             <option value="BuiltIn">Built-in</option>
             <option value="Popup">Popup</option>
             <option value="TopURL">TopURL</option>
@@ -194,7 +194,7 @@
             id="NBAM-AccountPage-ClickAction"
             v-model="settings.pega_marketing.accountPage.clickaction"
           >
-            <option value="Mashup">Mashup (using microsites)</option>
+            <option value="Mashup">Mashup</option>
             <option value="BuiltIn">Built-in</option>
             <option value="Popup">Popup</option>
             <option value="TopURL">TopURL</option>
@@ -226,7 +226,7 @@
             id="NBAM-PhonePage-ClickAction"
             v-model="settings.pega_marketing.phonePage.clickaction"
           >
-            <option value="Mashup">Mashup (using microsites)</option>
+            <option value="Mashup">Mashup</option>
             <option value="BuiltIn">Built-in</option>
             <option value="Popup">Popup</option>
             <option value="TopURL">TopURL</option>
@@ -258,7 +258,7 @@
             id="NBAM-OfferPage-ClickAction"
             v-model="settings.pega_marketing.offerPage.clickaction"
           >
-            <option value="Mashup">Mashup (using microsites)</option>
+            <option value="Mashup">Mashup</option>
             <option value="BuiltIn">Built-in</option>
             <option value="Popup">Popup</option>
             <option value="TopURL">TopURL</option>
@@ -300,7 +300,7 @@
             :id="'NBAM-OfferPage-' + index + '-ClickAction'"
             v-model="item.clickaction"
           >
-            <option value="Mashup">Mashup (using microsites)</option>
+            <option value="Mashup">Mashup</option>
             <option value="BuiltIn">Built-in</option>
             <option value="Popup">Popup</option>
             <option value="TopURL">TopURL</option>
