@@ -17,8 +17,9 @@ export default {
   },
   methods: {
     gotoPage(event) {
+      if (!this.$props.href) return;
       mainconfig.previousPage = mainconfig.currentPage;
-      mainconfig.currentPage = this.href;
+      mainconfig.currentPage = this.$props.href;
       if (this.$gtag) {
         this.$gtag.pageview({
           page_path: mainconfig.currentPage,
