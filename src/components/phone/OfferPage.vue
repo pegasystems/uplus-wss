@@ -15,7 +15,10 @@
     <MainOffer v-else v-bind:offerType="offerIndex" />
   </main>
   <main v-else class="home flex flex-col full-height">
-    <section v-if="!isprocessed" class="flex flex-col">
+    <section
+      v-if="!isprocessed && offerURL === '/offer1'"
+      class="flex flex-col"
+    >
       <h1>{{ CDHContainer.title }}</h1>
       <div class="main-offer primary-card flex flex-nowrap">
         <div
@@ -32,6 +35,54 @@
           <div v-if="typeof CDHContainer.benefits !== 'undefined'">
             <label>{{ $t('message.offer_builtin_benefits') }}</label>
             <p>{{ CDHContainer.benefits }}</p>
+          </div>
+          <div class="button-row padding-t-2x">
+            <button v-on:click="processOffer('Rejected')" class="tertiary">
+              {{ $t('message.offer_builtin_button_rejected') }}
+            </button>
+            <button v-on:click="processOffer('Accepted')" class="strong">
+              {{ $t('message.offer_builtin_button_accepted') }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      v-if="!isprocessed && offerURL === '/offer2'"
+      class="flex flex-col"
+    >
+      <h1>{{ CDHContainer.title }}</h1>
+      <div class="primary-card flex flex-nowrap">
+        <div
+          class="image"
+          v-bind:style="{
+            backgroundImage: 'url(./img' + CDHContainer.img + ')',
+          }"
+        ></div>
+        <div class="details">
+          <div v-if="typeof CDHContainer.message !== 'undefined'">
+            <label>{{ $t('message.offer_builtin_description') }}</label>
+            <p>{{ CDHContainer.message }}</p>
+          </div>
+          <div v-if="typeof CDHContainer.benefits !== 'undefined'">
+            <label>{{ $t('message.offer_builtin_benefits') }}</label>
+            <p>{{ CDHContainer.benefits }}</p>
+          </div>
+          <div v-if="typeof CDHContainer.whyRelevant !== 'undefined'">
+            <label>{{ $t('message.offer_builtin_whyRelevant') }}</label>
+            <p>{{ CDHContainer.whyRelevant }}</p>
+          </div>
+          <div v-if="typeof CDHContainer.pricing !== 'undefined'">
+            <label>{{ $t('message.offer_builtin_pricing') }}</label>
+            <p>{{ CDHContainer.pricing }}</p>
+          </div>
+          <div
+            v-if="typeof CDHContainer.eligibilityDescription !== 'undefined'"
+          >
+            <label>{{
+              $t('message.offer_builtin_eligibilityDescription')
+            }}</label>
+            <p>{{ CDHContainer.eligibilityDescription }}</p>
           </div>
           <div class="button-row padding-t-2x">
             <button v-on:click="processOffer('Rejected')" class="tertiary">

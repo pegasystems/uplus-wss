@@ -279,6 +279,10 @@ export default {
       if (
         mainconfig.settings.pega_marketing.homePage.clickaction === 'BuiltIn'
       ) {
+        mainconfig.offerURL = '/offer1'; /* Default built-in offer */
+        mainconfig.CDHContainer = item;
+      } else if (mainconfig.offerURL.indexOf('/') === 0) {
+        /* Built-in offer from ClickThroughURL */
         mainconfig.CDHContainer = item;
       }
       if (mainconfig.settings.pega_marketing.useCaptureByChannel === true) {
