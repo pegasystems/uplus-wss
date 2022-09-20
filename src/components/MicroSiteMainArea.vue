@@ -1,9 +1,10 @@
 <template>
   <section
-    v-if="typeof CDHContainer.title === 'undefined'"
+    v-if="CDHContainer.useURL === true"
     class="flex flex-col full-height"
   >
     <iframe
+      @load="onLoadIframe"
       :src="offerURL"
       style="overflow: hidden"
       width="100%"
@@ -123,6 +124,18 @@ export default {
     },
     closeOffer() {
       top.postMessage('pegaMashupNavigateBack', location.origin);
+    },
+    onLoadIframe(e) {
+      try {
+        var url = e.target.contentWindow.location.pathname;
+        console.log('XXX', url);
+        if (url.indexOf('/offer') === 0) {
+          this.offerURL = url;
+          this.CDHContainer.useURL = false;
+        }
+      } catch (err) {
+        console.log('CDH is not in the same origin as the Uplus app');
+      }
     },
   },
 };

@@ -66,15 +66,14 @@ export default {
       }
       mainconfig.offerURL = offer.url;
       mainconfig.previousPage = offer.name;
+      offer.useURL = true;
       if (
         mainconfig.settings.pega_marketing.accountPage.clickaction === 'BuiltIn'
       ) {
         mainconfig.offerURL = '/offer1';
-        mainconfig.CDHContainer = offer;
-      } else if (mainconfig.offerURL.indexOf('/') === 0) {
-        /* Built-in offer from ClickThroughURL */
-        mainconfig.CDHContainer = offer;
+        offer.useURL = false;
       }
+      mainconfig.CDHContainer = offer;
       if (mainconfig.settings.pega_marketing.useCaptureByChannel === true) {
         captureResponse(this, offer, 'Clicked');
       }
