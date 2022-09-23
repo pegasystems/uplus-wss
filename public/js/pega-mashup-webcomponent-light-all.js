@@ -381,7 +381,7 @@ ${ht(t.value)}</textarea
       <div class="header-bar">
         <div class="header-content"><h3 class="header-title">${t.title}</h3></div>
       </div>
-    `:null,de=(t,e)=>{let a=t.fieldListID;if(void 0!==t.reference&&(a=t.reference),"."===a.charAt(0)&&(a=a.substring(1)),t.newRow&&!0!==e){const e=[];return mt(t.newRow,e),R`
+    `:null,de=(t,e)=>{let a=t.fieldListID;if(void 0!==t.reference&&(a=t.reference),"."===a.charAt(0)&&(a=a.substring(1)),t.newRow&&!0!==e&&!0!==t.readOnly){const e=[];return mt(t.newRow,e),R`
       <div class="table-action-area">
         <button type="button" class="pzhc pzbutton Simple" data-newrow="${qt(e.join())}"
         data-ref=${a} data-action-click="addRow">${at()}Add item</button>
@@ -485,8 +485,7 @@ ${ht(t.value)}</textarea
           </td>
         </tr>`))}
   </tbody>
-  </table>`:null)(a.childCases,o)}
-    <h3>Case information</h3>`;if(""===t||void 0===e.caseID)return"";const h=e.caseID.split(" ")[1];return R`
+  </table>`:null)(a.childCases,o)}`;if(""===t||void 0===e.caseID)return"";const h=e.caseID.split(" ")[1];return R`
   <div class="flex layout-content-inline_middle main-header">
     <h2>${e.name} <span>(${h})</span>
     ${""!==i?R`<span class='badge-bg-info centered'><span class='badge_text'>${i}</span></span>`:""}</h2>
@@ -555,7 +554,6 @@ ${t.pxResults.map((t=>R`
   <div class="flex layout-content-inline_middle success">
     ${i18n.t("Thank you. Your information has been submitted.")}
   </div>
-  <h3>${i18n.t("Case information")}</h3>
   <div id="case-data"></div>`,Ie=(t,e)=>R`
   <div class="error">${t}
   ${null!=e?R`
@@ -1023,8 +1021,7 @@ const Te=(t,e)=>{var a,i;const s=t._$AN;if(void 0===s)return!1;for(const t of s)
           </td>
         </tr>`))}
   </tbody>
-  </table> `:null)(a.assignments,o)}
-    <h3>${i18n.t("Case information")}</h3>`}if(""===t||void 0===e.caseID)return"";const h=e.caseID.split(" ")[1];return R`
+  </table> `:null)(a.assignments,o)}`}if(""===t||void 0===e.caseID)return"";const h=e.caseID.split(" ")[1];return R`
   <div class="flex layout-content-inline_middle main-header">
     <h2>${i18n.t(e.data.caseInfo.name)} <span>(${h})</span>
     ${""!==i?R`<span class='badge-bg-info centered'><span class='badge_text'>${i}</span></span>`:""}</h2>
