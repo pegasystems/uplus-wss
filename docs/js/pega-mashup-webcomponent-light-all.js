@@ -318,6 +318,7 @@ ${ht(t.value)}</textarea
   id="${qt(e)}"
   type="checkbox"
   ?checked=${"true"===t.value}
+  ?disabled="${!0===t.disabled}"
   data-action-change="${qt(Ot(t,"change"))}"
   data-action-click="${qt(Ot(t,"click"))}"
   />
