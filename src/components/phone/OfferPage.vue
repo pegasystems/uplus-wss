@@ -16,7 +16,7 @@
   </main>
   <main v-else class="home flex flex-col full-height">
     <section
-      v-if="!isprocessed && offerURL.indexOf('/offer1') === 0"
+      v-if="!isprocessed && offerURL.indexOf('/Basic') === 0"
       class="flex flex-col"
     >
       <h1>{{ CDHContainer.title }}</h1>
@@ -48,7 +48,7 @@
       </div>
     </section>
     <section
-      v-if="!isprocessed && offerURL.indexOf('/offer2') === 0"
+      v-if="!isprocessed && offerURL.indexOf('/Detailed') === 0"
       class="flex flex-col"
     >
       <h1>{{ CDHContainer.title }}</h1>

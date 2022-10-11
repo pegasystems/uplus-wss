@@ -115,7 +115,7 @@ export default {
       mainconfig.previousPage = item.name;
       item.useURL = true;
       if (this.settings.pega_marketing.phonePage.clickaction === 'BuiltIn') {
-        mainconfig.offerURL = '/offer1';
+        mainconfig.offerURL = '/Basic';
         item.useURL = false;
       }
       mainconfig.CDHContainer = item;

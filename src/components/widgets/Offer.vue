@@ -70,7 +70,7 @@ export default {
       if (
         mainconfig.settings.pega_marketing.accountPage.clickaction === 'BuiltIn'
       ) {
-        mainconfig.offerURL = '/offer1';
+        mainconfig.offerURL = '/Basic';
         offer.useURL = false;
       }
       mainconfig.CDHContainer = offer;

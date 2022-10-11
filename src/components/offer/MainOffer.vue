@@ -184,9 +184,9 @@ export default {
         this.data = [];
         this.hero_offer = { url: '', link: 'Apply Now' };
         this.action =
-          this._props && this._props.offerType > 0
+          this.$props && this.$props.offerType > 0
             ? this.settings.pega_marketing.extraOfferPages[
-                this._props.offerType - 1
+                this.$props.offerType - 1
               ].clickaction
             : this.settings.pega_marketing.offerPage.clickaction;
         const self = this;
@@ -200,8 +200,8 @@ export default {
           initNBAM(
             self,
             `${
-              this._props && this._props.offerType > 0
-                ? `extraOfferPages${this._props.offerType}`
+              this.$props && this.$props.offerType > 0
+                ? `extraOfferPages${this.$props.offerType}`
                 : 'offerPage'
             }`,
             customerID,
@@ -219,7 +219,7 @@ export default {
       mainconfig.previousPage = item.name;
       item.useURL = true;
       if (this.action === 'BuiltIn') {
-        mainconfig.offerURL = '/offer1';
+        mainconfig.offerURL = '/Basic';
         item.useURL = false;
       }
       mainconfig.CDHContainer = item;

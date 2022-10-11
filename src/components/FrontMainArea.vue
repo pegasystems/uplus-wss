@@ -280,7 +280,7 @@ export default {
       if (
         mainconfig.settings.pega_marketing.homePage.clickaction === 'BuiltIn'
       ) {
-        mainconfig.offerURL = '/offer1';
+        mainconfig.offerURL = '/Basic';
         item.useURL = false;
       }
       mainconfig.CDHContainer = item;

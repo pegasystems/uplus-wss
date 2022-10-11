@@ -14,7 +14,7 @@
     ></iframe>
   </section>
   <section
-    v-else-if="!isprocessed && offerURL.indexOf('/offer1') === 0"
+    v-else-if="!isprocessed && offerURL.indexOf('/Basic') === 0"
     class="flex flex-col"
   >
     <h1>{{ CDHContainer.title }}</h1>
@@ -46,7 +46,7 @@
     </div>
   </section>
   <section
-    v-else-if="!isprocessed && offerURL.indexOf('/offer2') === 0"
+    v-else-if="!isprocessed && offerURL.indexOf('/Detailed') === 0"
     class="flex flex-col"
   >
     <h1>{{ CDHContainer.title }}</h1>
