@@ -24,7 +24,7 @@
         <div
           class="image"
           v-bind:style="{
-            backgroundImage: 'url(./img' + CDHContainer.img + ')',
+            backgroundImage: 'url(' + CDHContainer.img + ')',
           }"
         ></div>
         <div class="details">
@@ -56,7 +56,7 @@
         <div
           class="image"
           v-bind:style="{
-            backgroundImage: 'url(./img' + CDHContainer.img + ')',
+            backgroundImage: 'url(' + CDHContainer.img + ')',
           }"
         ></div>
         <div class="details">
