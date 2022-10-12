@@ -128,8 +128,7 @@ export default {
     onLoadIframe(e) {
       try {
         var url = e.target.contentWindow.location.pathname;
-        console.log('XXX', url);
-        if (url.indexOf('/offer') === 0) {
+        if (url.indexOf('/Basic') === 0 || url.indexOf('/Detailed') === 0) {
           this.offerURL = url;
           this.CDHContainer.useURL = false;
         }
