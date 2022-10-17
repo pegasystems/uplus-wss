@@ -711,9 +711,9 @@ select[readonly] {
   max-width: 100%;
 }
 
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1200px) {
   /* Force table to not be like tables anymore */
-  table.responsive,
+  .pega-mashup table.responsive,
   .responsive thead,
   .responsive tbody,
   .responsive th,
@@ -723,44 +723,47 @@ select[readonly] {
   }
 
   /* Hide table headers (but not display: none;, for accessibility) */
-  table.responsive thead tr {
+  .pega-mashup table.responsive thead tr {
     position: absolute;
     top: -9999px;
     left: -9999px;
   }
 
-  table.responsive tr {
+  .pega-mashup table.responsive tr {
     border: 1px solid #ccc;
     margin: 8px 0;
     padding: 8px;
   }
 
-  table.responsive td {
+  .pega-mashup table.responsive td {
     border: none;
     position: relative;
     text-align: left;
-    padding: 4px 0 4px 30%;
+    padding: 4px 0 4px 60%;
     height: auto;
   }
 
-  table.responsive td:before {
+  .pega-mashup table.responsive td:before {
     position: absolute;
     left: 8px;
     padding-right: 8px;
     text-align: left;
     font-weight: bold;
     max-width: 59%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
 
-  table.responsive td:before {
+  .pega-mashup table.responsive td:before {
     content: attr(data-title);
   }
 
-  table.responsive td.hide-collapsed {
+  .pega-mashup table.responsive td.hide-collapsed {
     display: none;
   }
 
-  table.responsive .pzhc.pzbutton {
+  .pega-mashup table.responsive .pzhc.pzbutton {
     height: auto;
     padding-left: 0;
   }
@@ -793,11 +796,11 @@ select[readonly] {
 }
 
 @media only screen and (max-width: 600px) {
-  table.responsive td {
+  .pega-mashup table.responsive td {
     padding: 25px 8px 0;
   }
 
-  table.responsive td:before {
+  .pega-mashup table.responsive td:before {
     position: absolute;
     top: -5px;
     padding: 0;
@@ -806,7 +809,7 @@ select[readonly] {
     left: 8px;
   }
 
-  .flex.main-header {
+  .pega-mashup .flex.main-header {
     flex-flow: column;
     align-items: flex-start;
   }

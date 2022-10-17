@@ -43,6 +43,9 @@
     text-align: left;
     font-weight: bold;
     max-width: 59%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
 
   .responsive td:before {
