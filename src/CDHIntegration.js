@@ -163,7 +163,7 @@ const initNBAM = function initNBAM(
       Context.settings.pega_marketing.Host,
       Context.settings.pega_marketing.Port,
     );
-    let containerName = 'TopOffers';
+    let containerName = '';
     if (
       Context.settings.pega_marketing[type] &&
       Context.settings.pega_marketing[type].containerName
@@ -177,6 +177,10 @@ const initNBAM = function initNBAM(
       containerName =
         Context.settings.pega_marketing.extraOfferPages[offerIndex]
           .containerName;
+    }
+    if (containerName === '') {
+      Context.loading = false;
+      return;
     }
     let placement = 'Tile';
     if (
