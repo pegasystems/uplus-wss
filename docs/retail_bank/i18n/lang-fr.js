@@ -54,6 +54,7 @@ window.langFR = {
     "Besoin d'assistance? Cliquer sur le bouton pour demander de l'aide",
   banner_action: "Besoin d'aide",
   autopay_enroll: "S'abonner au paiement auto",
+  autopay_suspend: "Desabonner au paiement auto",
   recentactivity: "Activités les plus récentes",
   recentactivity1_msg: "Votre compte rendu mensuel est disponible",
   recentactivity2_msg: "Le paiement pour votre carte de credit a été effectué",

@@ -57,6 +57,7 @@ window.langEN = {
   banner_desc: 'Need assistance? Start here to request assistance',
   banner_action: 'Request assistance',
   autopay_enroll: 'Enroll in autopay',
+  autopay_suspend: 'Suspend autopay',
   recentactivity: 'Recent activity',
   recentactivity1_msg: 'Your last town tax bill is ready to view',
   recentactivity2_msg: 'Your tax tax has been processed',

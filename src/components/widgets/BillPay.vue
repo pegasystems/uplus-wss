@@ -16,15 +16,21 @@
           {{ $t('message.viewbill') }}
         </button>
       </div>
-      <div class="list-box">
+      <div v-if="isBillPayActive" class="list-box">
         <h3>{{ $t('message.autopay') }}</h3>
-        <p v-if="isBillPayActive">
+        <p>
           <i class="pi pi-cancel pi-grey"></i>
-          {{ $t('message.off') }}
-        </p>
-        <p v-else>
-          <i class="pi pi-circle-check pi-grey"></i>
           {{ $t('message.on') }}
+        </p>
+        <button class="simple" v-on:click="enrollInBillPay()">
+          {{ $t('message.autopay_suspend') }}
+        </button>
+      </div>
+      <div v-else class="list-box">
+        <h3>{{ $t('message.autopay') }}</h3>
+        <p>
+          <i class="pi pi-circle-check pi-grey"></i>
+          {{ $t('message.off') }}
         </p>
         <button class="simple" v-on:click="enrollInBillPay()">
           {{ $t('message.autopay_enroll') }}
@@ -58,7 +64,10 @@ import { mainconfig } from '../../global';
 
 export default {
   data() {
-    return { ...mainconfig, isBillPayActive: false };
+    return {
+      ...mainconfig,
+      isBillPayActive: false,
+    };
   },
   methods: {
     getDueBillDate() {

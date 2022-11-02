@@ -56,6 +56,7 @@ window.langEN = {
   banner_desc: 'Need assistance? Start here to request assistance',
   banner_action: 'Request assistance',
   autopay_enroll: 'Enroll in autopay',
+  autopay_suspend: 'Suspend autopay',
   recentactivity: 'Recent activity',
   recentactivity1_msg: 'Explanation of benefits available',
   recentactivity2_msg: 'PCP Appointment scheduled',

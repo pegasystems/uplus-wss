@@ -20,10 +20,10 @@ describe('When rendering the BillPay component', () => {
         },
       },
     });
-    expect(wrapper.html()).toContain('message.on');
+    expect(wrapper.html()).toContain('message.off');
     const button = wrapper.findAll('button')[2];
     button.trigger('click');
     await nextTick();
-    expect(wrapper.html()).toContain('message.off');
+    expect(wrapper.html()).toContain('message.on');
   });
 });
