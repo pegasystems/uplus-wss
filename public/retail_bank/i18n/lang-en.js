@@ -311,9 +311,9 @@ window.langEN = {
   offer_builtin_benefits: 'Benefits',
   offer_builtin_description: 'Description',
   offer_builtin_response_heading: 'Confirmation',
-  offer_builtin_whyRelevant: 'Why',
-  offer_builtin_pricing: 'Pricing',
-  offer_builtin_eligibilityDescription: 'Conditions',
+  offer_builtin_WhyRelevant: 'Why',
+  offer_builtin_Pricing: 'Pricing',
+  offer_builtin_EligibilityDescription: 'Conditions',
   offer_builtin_thankyou: 'Thank you!',
   offer_builtin_response: 'Your information has been submitted.',
 };

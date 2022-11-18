@@ -303,12 +303,18 @@
     min-width: auto;
     margin: 0 0 3px 0;
   }
+  .builtin-offer,
   .main-offer {
     flex-flow: column nowrap;
   }
+  .builtin-offer > .offer-img,
+  .main-offer > .offer-img,
   .main-offer > .image {
     width:100%;
+    max-width: none;
+    padding:0;
   }
+  .builtin-offer > .details,
   .main-offer > .details {
     margin: 14px 0 0 0;
   }

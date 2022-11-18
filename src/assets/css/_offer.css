@@ -120,12 +120,20 @@ body > #app.form.offer {
   min-height: 200px;
 }
 
-.main-offer > .image {
-  width: 300px;
+.builtin-offer > .details {
+  display:flex;
+  flex-flow:column nowrap;
+  flex:1;
+  min-height:300px;
+}
+
+.builtin-offer > .details > .button-row {
+  display: flex;
+  align-items: end;
+  flex:1;
 }
 
 .main-offer > .details {
-  margin-left: 30px;
   flex:1;
 }
 

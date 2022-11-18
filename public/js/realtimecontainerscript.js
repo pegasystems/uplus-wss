@@ -323,7 +323,7 @@
 	captureWebResponseWithJSON : function(jsonObj,callback){
 		this.invokeRemoteService("CaptureWebResponse",null,"POST",jsonObj,callback, errorcallback);
     },
-	captureResponse : function(containerID, customerID, offerID, issue, group, interactionID,outcome,channel,direction,campaignID,rank,treatment,propensity, priority, contextName, initiateOffer, callback, errorcallback){
+	captureResponse : function(containerID, customerID, offerID, issue, group, interactionID,outcome,channel,direction,campaignID,rank,treatment,appid, contextName, initiateOffer, callback, errorcallback){
 
 
 		if(serviceClass){
@@ -331,6 +331,7 @@
 				"SubjectID" : customerID,
 				"ContainerName" : containerID,
 				"ContextName": contextName,
+				...( appid && appid !== '' && { "AppID": appid}),
 				"RankedResults" : [{
 						"Name" : offerID,
 						"Issue" : issue,
@@ -340,8 +341,8 @@
 						"Outcome":outcome,
 						"Direction":direction,
 						"Channel":channel,
-                        "Rank": rank,
-                        "Treatment": treatment,
+						"Rank": rank,
+						"Treatment": treatment,
 					"SubjectID": customerID,
 					"ContextName": contextName
 				}]
@@ -351,6 +352,7 @@
 				"SubjectID" : customerID,
 				"ContainerName" : containerID,
 				"ContextName": contextName,
+				...( appid && appid !== '' && { "AppID": appid}),
 				"OffersList" : [{
 						"Name" : offerID,
 						"Issue" : issue,
@@ -360,8 +362,8 @@
 						"Outcome":outcome,
 						"Direction":direction,
 						"Channel":channel,
-                        "Rank": rank,
-                        "Treatment": treatment,
+						"Rank": rank,
+						"Treatment": treatment,
 					"SubjectID": customerID,
 					"ContextName": contextName
 				}]

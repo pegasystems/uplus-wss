@@ -315,21 +315,25 @@ window.settings = {
       containerName: 'TopOffers',
       placement: 'Hero,Tile,Tile,Tile',
       clickaction: 'Mashup',
+      attributes: '',
     },
     accountPage: {
       containerName: 'TopOffers',
       placement: 'Tile',
       clickaction: 'Mashup',
+      attributes: '',
     },
     phonePage: {
       containerName: 'TopOffers',
       placement: 'Tile',
       clickaction: 'Mashup',
+      attributes: '',
     },
     offerPage: {
       containerName: 'TopOffers',
       placement: 'Hero,Tile,Tile,Tile',
       clickaction: 'Mashup',
+      attributes: '',
     },
   },
 };

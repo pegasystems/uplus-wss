@@ -9,12 +9,10 @@
     "
   >
     <div class="main-offer primary-card flex flex-nowrap">
-      <div
-        class="image"
-        v-bind:style="{
-          backgroundImage: `url(./img/${app.offer[offerType].main_offer.image})`,
-        }"
-      ></div>
+      <img
+        class="offer-img"
+        :src="'./img/' + app.offer[offerType].main_offer.image"
+      />
       <div class="details">
         <h3 class="color-brand">
           {{ $t(`message.${app.offer[offerType].main_offer.title}`) }}
@@ -49,7 +47,7 @@
       settings.pega_marketing.showLoadingIndicator
     "
   >
-    <div style="height: 100px"></div>
+    <div style="height: 50px"></div>
     <div class="offer-cards promo loading-container" style="min-height: 300px">
       <span class="loading">
         <span class="dot"></span>
@@ -63,10 +61,7 @@
       class="main-offer primary-card flex flex-nowrap"
       v-if="hero_offer.url !== '' && hero_offer.img !== ''"
     >
-      <div
-        class="image"
-        v-bind:style="{ backgroundImage: 'url(' + hero_offer.img + ')' }"
-      ></div>
+      <img class="offer-img" :src="hero_offer.img" :alt="hero_offer.title" />
       <div class="details">
         <h3 class="color-brand">{{ hero_offer.title }}</h3>
         <p>{{ hero_offer.message }}</p>
@@ -75,7 +70,7 @@
         </button>
       </div>
     </div>
-    <div v-else style="height: 100px"></div>
+    <div v-else style="height: 50px"></div>
     <div class="offer-cards promo">
       <h4>{{ $t('message.' + app.offer[offerType].cards.title) }}</h4>
       <div class="flex">
@@ -87,11 +82,12 @@
           <div class="offer-container" :data-offer-index="index">
             <h3>{{ item.title }}</h3>
             <p class="flex-grow-1">{{ item.message }}</p>
-            <div
+            <img
               v-if="item.img != ''"
-              class="image"
-              v-bind:style="{ backgroundImage: 'url(' + item.img + ')' }"
-            ></div>
+              class="offer-img"
+              :src="item.img"
+              :alt="item.title"
+            />
             <span class="highlight border-brand">
               <a
                 v-if="action === 'TopURL' && item.url != ''"

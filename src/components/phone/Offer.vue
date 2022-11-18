@@ -44,10 +44,7 @@
       :key="item.title"
     >
       <div class="offer-container" :data-offer-index="index">
-        <div
-          class="image"
-          v-bind:style="{ backgroundImage: 'url(' + item.img + ')' }"
-        ></div>
+        <img class="offer-img" :src="item.img" :alt="item.title" />
         <div class="details">
           <h4>{{ item.title }}</h4>
           <p>{{ item.message }}</p>

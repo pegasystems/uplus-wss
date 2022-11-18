@@ -166,6 +166,16 @@
             <option value="TopURL">TopURL</option>
           </select>
         </div>
+        <div class="field-item">
+          <label for="NBAM-HomePage-Attributes"
+            >Custom attributes for Detailed view</label
+          >
+          <input
+            id="NBAM-HomePage-Attributes"
+            type="text"
+            v-model="settings.pega_marketing.homePage.attributes"
+          />
+        </div>
       </div>
     </Container>
     <Container title="Account Page">
@@ -200,6 +210,16 @@
             <option value="TopURL">TopURL</option>
           </select>
         </div>
+        <div class="field-item">
+          <label for="NBAM-AccountPage-Attributes"
+            >Custom attributes for Detailed view</label
+          >
+          <input
+            id="NBAM-AccountPage-Attributes"
+            type="text"
+            v-model="settings.pega_marketing.accountPage.attributes"
+          />
+        </div>
       </div>
     </Container>
     <Container title="Home Page for mobile">
@@ -232,6 +252,16 @@
             <option value="TopURL">TopURL</option>
           </select>
         </div>
+        <div class="field-item">
+          <label for="NBAM-PhonePage-Attributes"
+            >Custom attributes for Detailed view</label
+          >
+          <input
+            id="NBAM-PhonePage-Attributes"
+            type="text"
+            v-model="settings.pega_marketing.phonePage.attributes"
+          />
+        </div>
       </div>
     </Container>
     <Container title="Offer Page">
@@ -263,6 +293,16 @@
             <option value="Popup">Popup</option>
             <option value="TopURL">TopURL</option>
           </select>
+        </div>
+        <div class="field-item">
+          <label for="NBAM-OfferPage-Attributes"
+            >Custom attributes for Detailed view</label
+          >
+          <input
+            id="NBAM-OfferPage-Attributes"
+            type="text"
+            v-model="settings.pega_marketing.offerPage.attributes"
+          />
         </div>
       </div>
     </Container>
@@ -305,6 +345,16 @@
             <option value="Popup">Popup</option>
             <option value="TopURL">TopURL</option>
           </select>
+        </div>
+        <div class="field-item">
+          <label :for="'NBAM-OfferPage-' + index + '-Attributes'"
+            >Custom attributes for Detailed view</label
+          >
+          <input
+            :id="'NBAM-OfferPage-' + index + '-Attributes'"
+            type="text"
+            v-model="item.attributes"
+          />
         </div>
       </div>
     </Container>

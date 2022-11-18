@@ -20,13 +20,12 @@
       class="flex flex-col"
     >
       <h1>{{ CDHContainer.title }}</h1>
-      <div class="main-offer primary-card flex flex-nowrap">
-        <div
-          class="image"
-          v-bind:style="{
-            backgroundImage: 'url(' + CDHContainer.img + ')',
-          }"
-        ></div>
+      <div class="main-offer builtin-offer primary-card flex flex-nowrap">
+        <img
+          class="offer-img"
+          :src="CDHContainer.img"
+          :alt="CDHContainer.title"
+        />
         <div class="details">
           <div v-if="typeof CDHContainer.message !== 'undefined'">
             <label>{{ $t('message.offer_builtin_description') }}</label>
@@ -52,13 +51,12 @@
       class="flex flex-col"
     >
       <h1>{{ CDHContainer.title }}</h1>
-      <div class="primary-card flex flex-nowrap">
-        <div
-          class="image"
-          v-bind:style="{
-            backgroundImage: 'url(' + CDHContainer.img + ')',
-          }"
-        ></div>
+      <div class="primary-card builtin-offer flex flex-nowrap">
+        <img
+          class="offer-img"
+          :src="CDHContainer.img"
+          :alt="CDHContainer.title"
+        />
         <div class="details">
           <div v-if="typeof CDHContainer.message !== 'undefined'">
             <label>{{ $t('message.offer_builtin_description') }}</label>
@@ -68,21 +66,16 @@
             <label>{{ $t('message.offer_builtin_benefits') }}</label>
             <p>{{ CDHContainer.benefits }}</p>
           </div>
-          <div v-if="typeof CDHContainer.whyRelevant !== 'undefined'">
-            <label>{{ $t('message.offer_builtin_whyRelevant') }}</label>
-            <p>{{ CDHContainer.whyRelevant }}</p>
-          </div>
-          <div v-if="typeof CDHContainer.pricing !== 'undefined'">
-            <label>{{ $t('message.offer_builtin_pricing') }}</label>
-            <p>{{ CDHContainer.pricing }}</p>
-          </div>
           <div
-            v-if="typeof CDHContainer.eligibilityDescription !== 'undefined'"
+            v-for="(item, index) in CDHContainer.attributes"
+            v-bind:key="index"
           >
             <label>{{
-              $t('message.offer_builtin_eligibilityDescription')
+              $t(`message.offer_builtin_${item}`) ===
+              `message.offer_builtin_${item}`
+                ? item
+                : $t(`message.offer_builtin_${item}`)
             }}</label>
-            <p>{{ CDHContainer.eligibilityDescription }}</p>
           </div>
           <div class="button-row padding-t-2x">
             <button v-on:click="processOffer('Rejected')" class="tertiary">

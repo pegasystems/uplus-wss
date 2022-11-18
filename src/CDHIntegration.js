@@ -17,6 +17,14 @@ const parseResponseData = (
       maxOffers = OffersList.length;
     }
   }
+  let attributes = [];
+  if (
+    Context.settings.pega_marketing[type] &&
+    Context.settings.pega_marketing[type].attributes &&
+    Context.settings.pega_marketing[type].attributes !== ''
+  ) {
+    attributes = Context.settings.pega_marketing[type].attributes.split(',');
+  }
   let isHeroPlacementFilled = false;
   for (let i = 0; i < maxOffers; i++) {
     let imgurl = OffersList[i].ImageURL.trim();
@@ -61,15 +69,16 @@ const parseResponseData = (
         channel: OffersList[i].Channel,
         subjectID: OffersList[i].SubjectID,
         contextName: OffersList[i].ContextName,
-        whyRelevant: OffersList[i].WhyRelevant,
-        pricing: OffersList[i].Pricing,
-        eligibilityDescription: OffersList[i].EligibilityDescription,
+        attributes,
         container: containerName,
         customerID,
         showAIoverlay: false,
       };
+      for (const attr of attributes) {
+        if (OffersList[i][attr]) Context.hero_offer[attr] = OffersList[i][attr];
+      }
     } else {
-      Context.data.push({
+      const obj = {
         img: imgurl,
         placement: OffersList[i].Placement,
         title: OffersList[i].Label,
@@ -92,13 +101,16 @@ const parseResponseData = (
         channel: OffersList[i].Channel,
         subjectID: OffersList[i].SubjectID,
         contextName: OffersList[i].ContextName,
-        whyRelevant: OffersList[i].WhyRelevant,
-        pricing: OffersList[i].Pricing,
-        eligibilityDescription: OffersList[i].EligibilityDescription,
+        attributes,
+
         container: containerName,
         customerID,
         showAIoverlay: false,
-      });
+      };
+      for (const attr of attributes) {
+        if (OffersList[i][attr]) obj[attr] = OffersList[i][attr];
+      }
+      Context.data.push(obj);
     }
   }
 };
@@ -127,8 +139,7 @@ const captureResponse = function captureResponse(Context, item, outcome) {
       item.campaignID,
       item.rank,
       item.treatment,
-      item.propensity,
-      item.priority,
+      Context.settings.pega_marketing.appID,
       item.contextName,
       false,
       (data) => {

@@ -453,6 +453,29 @@ export const upgradeConfig = function upgradeConfig(cfg) {
       },
     ];
   }
+  /* update cdh attribute */
+  if (typeof cfg.settings.pega_marketing.homePage.attributes === 'undefined') {
+    cfg.settings.pega_marketing.homePage.attributes = '';
+  }
+  if (
+    typeof cfg.settings.pega_marketing.accountPage.attributes === 'undefined'
+  ) {
+    cfg.settings.pega_marketing.accountPage.attributes = '';
+  }
+  if (typeof cfg.settings.pega_marketing.phonePage.attributes === 'undefined') {
+    cfg.settings.pega_marketing.phonePage.attributes = '';
+  }
+  if (typeof cfg.settings.pega_marketing.offerPage.attributes === 'undefined') {
+    cfg.settings.pega_marketing.offerPage.attributes = '';
+  }
+  for (const i in cfg.settings.pega_marketing.extraOfferPages) {
+    if (
+      typeof cfg.settings.pega_marketing.extraOfferPages[i].attributes ===
+      'undefined'
+    ) {
+      cfg.settings.pega_marketing.extraOfferPages[i].attributes = '';
+    }
+  }
   return cfg;
 };
 

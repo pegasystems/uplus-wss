@@ -26,6 +26,8 @@ export default {
         });
       }
       if (mainconfig.currentPage.indexOf('offer') === 0) {
+        mainconfig.offerURL = '';
+        mainconfig.offerAction = -1;
         mainconfig.offerIndex = parseInt(
           mainconfig.currentPage.substring(5).replace('.html', ''),
           10,

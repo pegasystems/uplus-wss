@@ -244,8 +244,7 @@ header ul.flex li {
   text-align: center;
 }
 
-main,
-.button-row button {
+main {
   flex-grow: 1;
 }
 
@@ -272,7 +271,15 @@ main,
 }
 
 .offer-img {
-  max-width: 100%;
+  width: fit-content;
+  max-height: 300px;
+  align-self: flex-start;
+  max-width: 300px;
+  padding-right: 24px;
+}
+
+.offer-container > .offer-img {
+  align-self: center;
 }
 
 .list-box > h3 {
@@ -364,9 +371,16 @@ footer nav > div.flex {
   flex-grow: 1;
 }
 
-.accounts-list > li,
-.button-row > button {
+.button-row {
+  display:flex;
+  flex-flow: row nowrap;
+}
+.accounts-list > li {
   margin: 0 8px 24px 8px;
+}
+
+.button-row > button {
+  margin: 0 8px 0 8px;
 }
 
 .accounts-list > li:first-child,

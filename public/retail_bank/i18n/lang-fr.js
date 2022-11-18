@@ -342,9 +342,9 @@ window.langFR = {
   offer_builtin_benefits: 'Avantages',
   offer_builtin_description: 'Description',
   offer_builtin_response_heading: 'Confirmation',
-  offer_builtin_whyRelevant: 'Pourquoi',
-  offer_builtin_pricing: 'Prix',
-  offer_builtin_eligibilityDescription: 'Conditions',
+  offer_builtin_WhyRelevant: 'Pourquoi',
+  offer_builtin_Pricing: 'Prix',
+  offer_builtin_EligibilityDescription: 'Conditions',
   offer_builtin_thankyou: 'Merci!',
   offer_builtin_response: 'Votre requète a été enregistrée.',
 };
