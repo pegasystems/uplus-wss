@@ -75,7 +75,8 @@ const parseResponseData = (
         showAIoverlay: false,
       };
       for (const attr of attributes) {
-        if (OffersList[i][attr]) Context.hero_offer[attr] = OffersList[i][attr];
+        if (OffersList[i][attr] && OffersList[i][attr] !== '')
+          Context.hero_offer[attr] = OffersList[i][attr];
       }
     } else {
       const obj = {
