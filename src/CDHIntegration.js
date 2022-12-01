@@ -7,23 +7,23 @@ const parseResponseData = (
   customerID,
 ) => {
   let maxOffers = OffersList.length;
+  let mktcfg = Context.settings.pega_marketing[type];
   if (
-    Context.settings.pega_marketing[type] &&
-    Context.settings.pega_marketing[type].placement
+    type.indexOf('extraOfferPages') === 0 &&
+    typeof Context.settings.pega_marketing.extraOfferPages !== 'undefined'
   ) {
-    maxOffers =
-      Context.settings.pega_marketing[type].placement.split(',').length;
+    const offerIndex = parseInt(type.replace('extraOfferPages', ''), 10) - 1;
+    mktcfg = Context.settings.pega_marketing.extraOfferPages[offerIndex];
+  }
+  if (mktcfg && mktcfg.placement) {
+    maxOffers = mktcfg.placement.split(',').length;
     if (maxOffers > OffersList.length) {
       maxOffers = OffersList.length;
     }
   }
   let attributes = [];
-  if (
-    Context.settings.pega_marketing[type] &&
-    Context.settings.pega_marketing[type].attributes &&
-    Context.settings.pega_marketing[type].attributes !== ''
-  ) {
-    attributes = Context.settings.pega_marketing[type].attributes.split(',');
+  if (mktcfg && mktcfg.attributes && mktcfg.attributes !== '') {
+    attributes = mktcfg.attributes.split(',');
   }
   let isHeroPlacementFilled = false;
   for (let i = 0; i < maxOffers; i++) {
@@ -109,7 +109,8 @@ const parseResponseData = (
         showAIoverlay: false,
       };
       for (const attr of attributes) {
-        if (OffersList[i][attr]) obj[attr] = OffersList[i][attr];
+        if (OffersList[i][attr] && OffersList[i][attr] !== '')
+          obj[attr] = OffersList[i][attr];
       }
       Context.data.push(obj);
     }

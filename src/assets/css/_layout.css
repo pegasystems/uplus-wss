@@ -280,6 +280,9 @@ main {
 
 .offer-container > .offer-img {
   align-self: center;
+  width: auto;
+  max-width: unset;
+  padding: 0;
 }
 
 .list-box > h3 {

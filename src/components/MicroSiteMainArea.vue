@@ -68,13 +68,26 @@
           v-for="(item, index) in CDHContainer.attributes"
           v-bind:key="index"
         >
-          <label>{{
-            $t(`message.offer_builtin_${item}`) ===
-            `message.offer_builtin_${item}`
-              ? item
-              : $t(`message.offer_builtin_${item}`)
-          }}</label>
-          <p>{{ CDHContainer[item] }}</p>
+          <label
+            v-if="
+              typeof CDHContainer[item] !== 'undefined' &&
+              CDHContainer[item] !== ''
+            "
+            >{{
+              $t(`message.offer_builtin_${item}`) ===
+              `message.offer_builtin_${item}`
+                ? item
+                : $t(`message.offer_builtin_${item}`)
+            }}</label
+          >
+          <p
+            v-if="
+              typeof CDHContainer[item] !== 'undefined' &&
+              CDHContainer[item] !== ''
+            "
+          >
+            {{ CDHContainer[item] }}
+          </p>
         </div>
         <div class="button-row padding-t-2x">
           <button v-on:click="processOffer('Rejected')" class="tertiary">
