@@ -46,10 +46,10 @@
                 v-model="settings.general.connection.type"
                 @change="onConnectionTypeChange"
               >
-                <option value="mashup">
-                  Web Mashup (Infinity UI with sections)
+                <option value="mashup">Pega Web Mashup (Traditional UI)</option>
+                <option value="embedui">
+                  Pega Web Embed UI (Constellation UI - 8.7+)
                 </option>
-                <option value="embedui">Embed UI (Cosmos React - 8.7)</option>
                 <option value="dxv1">
                   DX API v1 (Mashup Web component - 8.1+)
                 </option>
