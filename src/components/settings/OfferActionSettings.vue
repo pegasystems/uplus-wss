@@ -170,6 +170,19 @@
               >Retain state on reload</label
             >
           </div>
+          <div
+            class="field-item field-checkbox"
+            v-if="settings.general.connection.type === 'embedui'"
+          >
+            <input
+              id="offeraction-hideassignmentheader"
+              type="checkbox"
+              v-model="settings.offeraction.hideassignmentheader"
+            />
+            <label class="width-auto" for="offeraction-hideassignmentheader"
+              >Hide assignment header</label
+            >
+          </div>
         </div>
         <div class="layout-labels-top">
           <div class="field-item">

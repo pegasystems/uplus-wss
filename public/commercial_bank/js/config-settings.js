@@ -61,6 +61,7 @@ window.settings = {
       channelid: "",
       tenantid: "",
       dataretained: true,
+      hideassignmentheader: false,
       hideusers: "",
       heading: '',
     },
@@ -81,6 +82,7 @@ window.settings = {
       channelid: "",
       tenantid: "",
       dataretained: true,
+      hideassignmentheader: false,
       hideusers: "",
       heading: '',
     },
@@ -101,6 +103,7 @@ window.settings = {
       channelid: "",
       tenantid: "",
       dataretained: true,
+      hideassignmentheader: false,
       hideusers: "",
       heading: '',
     },
@@ -121,6 +124,7 @@ window.settings = {
       channelid: "",
       tenantid: "",
       dataretained: true,
+      hideassignmentheader: false,
       hideusers: "",
       heading: '',
     },
@@ -141,6 +145,7 @@ window.settings = {
       channelid: "",
       tenantid: "",
       dataretained: true,
+      hideassignmentheader: false,
       hideusers: "",
       heading: '',
     },
@@ -157,6 +162,7 @@ window.settings = {
     channelid: "",
     tenantid: "",
     dataretained: true,
+    hideassignmentheader: false,
     heading: '',
   },
   banner: {
@@ -173,6 +179,7 @@ window.settings = {
     channelid: "",
     tenantid: "",
     dataretained: true,
+    hideassignmentheader: false,
     heading: '',
   },
   todo: {
@@ -189,6 +196,7 @@ window.settings = {
     channelid: "",
     tenantid: "",
     dataretained: true,
+    hideassignmentheader: false,
     heading: '',
   },
   kmhelp: {
@@ -204,6 +212,7 @@ window.settings = {
     channelid: "",
     tenantid: "",
     dataretained: true,
+    hideassignmentheader: false,
     heading: '',
   },
   activity: {
@@ -217,6 +226,7 @@ window.settings = {
     channelid: '',
     tenantid: '',
     dataretained: true,
+    hideassignmentheader: false,
     heading: '',
   },
   homeheroaction: {
@@ -232,6 +242,7 @@ window.settings = {
     channelid: "",
     tenantid: "",
     dataretained: true,
+    hideassignmentheader: false,
     heading: '',
   },
   offeraction: {
@@ -247,6 +258,7 @@ window.settings = {
     channelid: "",
     tenantid: "",
     dataretained: true,
+    hideassignmentheader: false,
     heading: '',
   },
   users: [

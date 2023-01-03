@@ -167,6 +167,19 @@
               >Retain state on reload</label
             >
           </div>
+          <div
+            class="field-item field-checkbox"
+            v-if="settings.general.connection.type === 'embedui'"
+          >
+            <input
+              id="kmhelp-hideassignmentheader"
+              type="checkbox"
+              v-model="settings.kmhelp.hideassignmentheader"
+            />
+            <label class="width-auto" for="kmhelp-hideassignmentheader"
+              >Hide assignment header</label
+            >
+          </div>
         </div>
         <div class="layout-labels-top">
           <div class="field-item">

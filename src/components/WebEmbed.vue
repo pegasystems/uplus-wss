@@ -6,7 +6,7 @@
       popupReauth="true"
       ref="mycomp"
       casePage="assignment"
-      caseHeader="false"
+      :caseHeader="showAssignmentHeader"
       :action="action"
       :pageID="actionparam"
       :pageClass="objClass"
@@ -23,7 +23,7 @@
       v-else-if="action === 'createCase'"
       popupReauth="true"
       ref="mycomp"
-      caseHeader="false"
+      :caseHeader="showAssignmentHeader"
       :action="action"
       :caseTypeID="objClass"
       :startingFields="startingFields"
@@ -40,7 +40,7 @@
       v-else-if="action === 'openAssignment'"
       popupReauth="true"
       ref="mycomp"
-      caseHeader="false"
+      :caseHeader="showAssignmentHeader"
       :action="action"
       :assignmentID="actionparam"
       :appAlias="application"
@@ -56,7 +56,7 @@
       v-else-if="action === 'openCase'"
       popupReauth="true"
       ref="mycomp"
-      caseHeader="false"
+      :caseHeader="showAssignmentHeader"
       :action="action"
       :caseID="actionparam"
       :appAlias="application"
@@ -72,7 +72,7 @@
       v-else-if="action === 'getNextWork'"
       popupReauth="true"
       ref="mycomp"
-      caseHeader="false"
+      :caseHeader="showAssignmentHeader"
       :action="action"
       :appAlias="application"
       :pegaServerUrl="url"
@@ -120,6 +120,7 @@ export default {
       application: '',
       url: '',
       staticContentUrl: '',
+      showAssignmentHeader: 'true',
       clientId: '',
       caseTitle: '',
       isWebEmbedInitialized: false,
@@ -135,6 +136,8 @@ export default {
       this.action = this.settings.quicklinks[this.quickLinkId].action;
       this.url = this.settings.quicklinks[this.quickLinkId].url;
       this.actionparam = this.settings.quicklinks[this.quickLinkId].actionparam;
+      this.showAssignmentHeader =
+        !this.settings.quicklinks[this.quickLinkId].hideassignmentheader;
       this.application = this.settings.quicklinks[this.quickLinkId].application;
       this.objClass = this.settings.quicklinks[this.quickLinkId].objclass;
       this.caseTitle =
@@ -143,6 +146,7 @@ export default {
     } else if (this.viewBill !== -1) {
       this.action = this.settings.billpay.action;
       this.actionparam = this.settings.billpay.actionparam;
+      this.showAssignmentHeader = !this.settings.billpay.hideassignmentheader;
       this.application = this.settings.billpay.application;
       this.url = this.settings.billpay.url;
       this.objClass = this.settings.billpay.objclass;
@@ -150,6 +154,7 @@ export default {
     } else if (this.viewBanner !== -1) {
       this.action = this.settings.banner.action;
       this.actionparam = this.settings.banner.actionparam;
+      this.showAssignmentHeader = !this.settings.banner.hideassignmentheader;
       this.application = this.settings.banner.application;
       this.url = this.settings.banner.url;
       this.objClass = this.settings.banner.objclass;
@@ -157,6 +162,8 @@ export default {
     } else if (this.homeHeroAction !== -1) {
       this.action = this.settings.homeheroaction.action;
       this.actionparam = this.settings.homeheroaction.actionparam;
+      this.showAssignmentHeader =
+        !this.settings.homeheroaction.hideassignmentheader;
       this.application = this.settings.homeheroaction.application;
       this.url = this.settings.homeheroaction.url;
       this.objClass = this.settings.homeheroaction.objclass;
@@ -164,6 +171,8 @@ export default {
     } else if (this.offerAction !== -1) {
       this.action = this.settings.offeraction.action;
       this.actionparam = this.settings.offeraction.actionparam;
+      this.showAssignmentHeader =
+        !this.settings.offeraction.hideassignmentheader;
       this.application = this.settings.offeraction.application;
       this.url = this.settings.offeraction.url;
       this.objClass = this.settings.offeraction.objclass;
@@ -171,6 +180,7 @@ export default {
     } else {
       this.action = this.settings.todo.action;
       this.actionparam = this.settings.todo.actionparam;
+      this.showAssignmentHeader = !this.settings.todo.hideassignmentheader;
       this.application = this.settings.todo.application;
       this.url = this.settings.todo.url;
       this.objClass = this.settings.todo.objclass;

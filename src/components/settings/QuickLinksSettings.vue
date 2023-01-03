@@ -35,6 +35,21 @@
               >Retain state on reload</label
             >
           </div>
+          <div
+            class="field-item field-checkbox"
+            v-if="settings.general.connection.type === 'embedui'"
+          >
+            <input
+              :id="'quicklinks-' + index + '-hideassignmentheader'"
+              type="checkbox"
+              v-model="item.hideassignmentheader"
+            />
+            <label
+              class="width-auto"
+              :for="'quicklinks-' + index + '-hideassignmentheader'"
+              >Hide assignment header</label
+            >
+          </div>
         </div>
         <div class="layout-inline-grid-double layout-labels-top">
           <div

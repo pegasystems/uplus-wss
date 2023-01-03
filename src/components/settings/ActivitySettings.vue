@@ -164,6 +164,19 @@
               >Retain state on reload</label
             >
           </div>
+          <div
+            class="field-item field-checkbox"
+            v-if="settings.general.connection.type === 'embedui'"
+          >
+            <input
+              id="activity-hideassignmentheader"
+              type="checkbox"
+              v-model="settings.activity.hideassignmentheader"
+            />
+            <label class="width-auto" for="activity-hideassignmentheader"
+              >Hide assignment header</label
+            >
+          </div>
         </div>
         <div class="layout-labels-top">
           <div class="field-item">

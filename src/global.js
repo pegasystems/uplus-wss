@@ -295,6 +295,11 @@ export const upgradeConfig = function upgradeConfig(cfg) {
     if (typeof cfg.settings.quicklinks[i].dataretained === 'undefined') {
       cfg.settings.quicklinks[i].dataretained = true;
     }
+    if (
+      typeof cfg.settings.quicklinks[i].hideassignmentheader === 'undefined'
+    ) {
+      cfg.settings.quicklinks[i].hideassignmentheader = false;
+    }
     if (typeof cfg.settings.quicklinks[i].hideusers === 'undefined') {
       cfg.settings.quicklinks[i].hideusers = '';
     }
@@ -359,6 +364,29 @@ export const upgradeConfig = function upgradeConfig(cfg) {
   }
   if (typeof cfg.settings.todo.dataretained === 'undefined') {
     cfg.settings.todo.dataretained = true;
+  }
+
+  /* upgrade hideassignmentheader */
+  if (typeof cfg.settings.billpay.hideassignmentheader === 'undefined') {
+    cfg.settings.billpay.hideassignmentheader = false;
+  }
+  if (typeof cfg.settings.banner.hideassignmentheader === 'undefined') {
+    cfg.settings.banner.hideassignmentheader = false;
+  }
+  if (typeof cfg.settings.homeheroaction.hideassignmentheader === 'undefined') {
+    cfg.settings.homeheroaction.hideassignmentheader = false;
+  }
+  if (typeof cfg.settings.offeraction.hideassignmentheader === 'undefined') {
+    cfg.settings.offeraction.hideassignmentheader = false;
+  }
+  if (typeof cfg.settings.kmhelp.hideassignmentheader === 'undefined') {
+    cfg.settings.kmhelp.hideassignmentheader = false;
+  }
+  if (typeof cfg.settings.todo.hideassignmentheader === 'undefined') {
+    cfg.settings.todo.hideassignmentheader = false;
+  }
+  if (typeof cfg.settings.activity.hideassignmentheader === 'undefined') {
+    cfg.settings.activity.hideassignmentheader = false;
   }
 
   /* upgrade heading */
