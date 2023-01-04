@@ -80,7 +80,7 @@ export default {
       heading = this.settings.todo.heading;
     }
     if (action === 'display') {
-      mytag.title = heading === '' ? 'My worklist' : heading;
+      mytag.headingLabel = heading === '' ? 'My worklist' : heading;
       if (actionParam === 'dataView') {
         mytag.action = 'dataView';
         if (this.userId !== -1) {

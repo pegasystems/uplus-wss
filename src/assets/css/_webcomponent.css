@@ -181,9 +181,14 @@
 }
 .flex.main-header > h2 {
   margin-bottom: 0;
+  flex:1;
+  display: flex;
+  align-items: center;
 }
 .flex.main-header > h2 > span {
   white-space: nowrap;
+  display: flex;
+  margin-left: 6px;
 }
 .flex-col {
   flex-flow: column;
