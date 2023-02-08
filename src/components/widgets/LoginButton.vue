@@ -86,6 +86,7 @@ export default {
     },
     onClickOutLoginOverlay(event) {
       if (
+        !event.target.classList.contains('sign-in') &&
         !event.target.classList.contains('launch-login') &&
         !event.target.classList.contains('launch-login-overlay')
       ) {
