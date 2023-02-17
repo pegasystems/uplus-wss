@@ -57,6 +57,7 @@
 import { mainconfig, updatePegaChat } from '../../global';
 import TopNav from './TopNav.vue';
 import { setAuth, validateOTP, requestOTP } from '../../OTBAuth';
+import { mergeAccount, sendClickStreamEvent } from '../../CDHIntegration';
 
 export default {
   data() {
@@ -72,7 +73,6 @@ export default {
     }
     return {
       ...mainconfig,
-      isActive: false,
       hasErrorMsg: false,
       username,
       password,
@@ -136,6 +136,9 @@ export default {
           );
         }
       }
+      mergeAccount(mainconfig);
+      sendClickStreamEvent(mainconfig, 'PageView', 'Account', window.loadPage);
+      window.loadPage = new Date();
     },
 
     async sendOTPRequest(sendTo) {

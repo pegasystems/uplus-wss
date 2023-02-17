@@ -264,6 +264,9 @@ export const upgradeConfig = function upgradeConfig(cfg) {
   if (typeof cfg.settings.pega_marketing.enableClickStream === 'undefined') {
     cfg.settings.pega_marketing.enableClickStream = false;
   }
+  if (typeof cfg.settings.pega_marketing.enableMergeAccount === 'undefined') {
+    cfg.settings.pega_marketing.enableMergeAccount = false;
+  }
   if (typeof cfg.settings.pega_marketing.showLoadingIndicator === 'undefined') {
     cfg.settings.pega_marketing.showLoadingIndicator = false;
   }
@@ -571,6 +574,18 @@ if (typeof window.settings === 'undefined') {
   }
 
   mainconfigTmp = upgradeConfig(mainconfigTmp);
+
+  // Retrieve the unique ID for CDH auth
+  mainconfigTmp.ExternalID = '';
+  if (mainconfigTmp.settings.pega_marketing.enableMergeAccount) {
+    let ExternalID = sessionStorage.getItem('ExternalID');
+    if (!ExternalID) {
+      ExternalID = 'uplus-' + Date.now();
+      sessionStorage.setItem('ExternalID', ExternalID);
+    }
+    mainconfigTmp.ExternalID = ExternalID;
+  }
+  mainconfigTmp.initCDH = false;
 
   if (mainconfigTmp.settings.pega_chat.ShowAsButton) {
     document.documentElement.className = `${document.documentElement.className} chat-button`;

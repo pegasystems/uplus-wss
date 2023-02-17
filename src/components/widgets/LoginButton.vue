@@ -46,7 +46,7 @@
 <script>
 import { mainconfig, updatePegaChat } from '../../global';
 import { setAuth, validateOTP, requestOTP } from '../../OTBAuth';
-import { sendClickStreamEvent } from '../../CDHIntegration';
+import { mergeAccount, sendClickStreamEvent } from '../../CDHIntegration';
 
 export default {
   data() {
@@ -115,6 +115,7 @@ export default {
           );
         }
       }
+      mergeAccount(mainconfig);
       sendClickStreamEvent(mainconfig, 'PageView', 'Account', window.loadPage);
       window.loadPage = new Date();
       this.isActive = false;

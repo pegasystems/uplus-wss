@@ -318,6 +318,7 @@ window.settings = {
     showAIOverlay: false,
     enableRTS: false,
     enableClickStream: false,
+    enableMergeAccount: false,
     useCaptureByChannel: true,
     apiLevel: 'V2',
     contextName: 'Customer',

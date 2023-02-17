@@ -1,4 +1,4 @@
-﻿function getNBAMServiceControl(serviceClass,callMultiContainer) {
+function getNBAMServiceControl(serviceClass,callMultiContainer) {
 
 	var serverHostname = "localhost";
 	var serverPort = "";
@@ -441,6 +441,19 @@
 	var xmlHttpReq = this.createRequest("POST", serviceUrl, callback, errorcallback);
 	if (xmlHttpReq)	xmlHttpReq.send(JSON.stringify(event));
     },
+
+    mergeAccount : function(primaryId, secondaryId, ContextId, ApplicationId, callback, errorcallback) {
+     console.log("Merging the account primaryId=" + primaryId + " with secondaryId=" + secondaryId);
+     var serviceUrl = this.serviceURLProtocol + "://" + this.hostName + (this.port!="" ? ":" + this.port : "") + "/prweb/api/PegaCDHIDMerge/v1/IDMerge";
+     var xmlHttpReq = this.createRequest("POST", serviceUrl, callback, errorcallback);
+     if (xmlHttpReq)	xmlHttpReq.send(JSON.stringify({
+        PrimaryID : primaryId,
+        SecondaryID : secondaryId,
+        ContextID : ContextId,
+        ApplicationID : ApplicationId
+     }));
+    },
+
 
   };
 

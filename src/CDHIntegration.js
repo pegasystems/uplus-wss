@@ -151,8 +151,10 @@ const captureResponse = function captureResponse(Context, item, outcome) {
       },
     );
   } else {
+    if (Context.initCDH) return;
     const scriptLoadMkt = document.createElement('script');
     scriptLoadMkt.onload = function onloadPegaMkt() {
+      Context.initCDH = true;
       captureResponse(Context, item, outcome);
     };
     scriptLoadMkt.setAttribute('src', '../js/realtimecontainerscript.js');
@@ -215,7 +217,7 @@ const initNBAM = function initNBAM(
         customerID,
         Context.settings.pega_marketing.contextName,
         containerName,
-        '',
+        Context.ExternalID,
         Context.settings.pega_marketing.channel,
         previousPage,
         currentPage,
@@ -256,9 +258,57 @@ const initNBAM = function initNBAM(
       Context.errorloading = true;
     }
   } else {
+    if (Context.initCDH) return;
     const scriptLoadMkt = document.createElement('script');
     scriptLoadMkt.onload = function onloadPegaMkt() {
+      Context.initCDH = true;
       initNBAM(Context, type, customerID, previousPage, currentPage);
+    };
+    scriptLoadMkt.setAttribute('src', '../js/realtimecontainerscript.js');
+    document.head.appendChild(scriptLoadMkt);
+  }
+};
+
+const mergeAccount = function mergeAccount(Context) {
+  if (
+    Context.settings.pega_marketing.Host === '' ||
+    !Context.settings.pega_marketing.enableMergeAccount
+  )
+    return;
+  if (typeof window.getNBAMServiceControl !== 'undefined') {
+    const nbamServiceCtrl = window.getNBAMServiceControl(
+      Context.settings.pega_marketing.apiLevel,
+      false,
+    );
+    nbamServiceCtrl.initialize(
+      Context.settings.pega_marketing.Host,
+      Context.settings.pega_marketing.Port,
+    );
+    let customerid = '';
+    if (
+      Context.userId !== -1 &&
+      Context.settings.users[Context.userId].customerID
+    ) {
+      customerid = Context.settings.users[Context.userId].customerID;
+    }
+    /* If there is customerID, just skip sending the merge account */
+    if (customerid === '') {
+      console.log('No customerID present - skip mergeAccount');
+      return;
+    }
+    nbamServiceCtrl.mergeAccount(
+      customerid,
+      Context.ExternalID,
+      Context.settings.pega_marketing.contextName,
+      Context.settings.pega_marketing.appID,
+      null,
+    );
+  } else {
+    if (Context.initCDH) return;
+    const scriptLoadMkt = document.createElement('script');
+    scriptLoadMkt.onload = function onloadPegaMkt() {
+      Context.initCDH = true;
+      mergeAccount(Context);
     };
     scriptLoadMkt.setAttribute('src', '../js/realtimecontainerscript.js');
     document.head.appendChild(scriptLoadMkt);
@@ -283,8 +333,10 @@ const sendRTSEvent = function sendRTSEvent(Context, item) {
     }
     nbamServiceCtrl.sendRTSEvent(custID, item, null);
   } else {
+    if (Context.initCDH) return;
     const scriptLoadMkt = document.createElement('script');
     scriptLoadMkt.onload = function onloadPegaMkt() {
+      Context.initCDH = true;
       sendRTSEvent(Context, item);
     };
     scriptLoadMkt.setAttribute('src', '../js/realtimecontainerscript.js');
@@ -347,8 +399,10 @@ const sendClickStreamEvent = function sendClickStreamEvent(
     /* Read the cookie MKTID if present and send it as Customer ID instead */
     nbamServiceCtrl.sendClickStreamEvent(eventMsg, null);
   } else {
+    if (Context.initCDH) return;
     const scriptLoadMkt = document.createElement('script');
     scriptLoadMkt.onload = function onloadPegaMkt() {
+      Context.initCDH = true;
       sendClickStreamEvent(Context, eventtype, PageViewActiveTime);
     };
     scriptLoadMkt.setAttribute('src', '../js/realtimecontainerscript.js');
@@ -356,4 +410,10 @@ const sendClickStreamEvent = function sendClickStreamEvent(
   }
 };
 
-export { initNBAM, sendRTSEvent, captureResponse, sendClickStreamEvent };
+export {
+  initNBAM,
+  mergeAccount,
+  sendRTSEvent,
+  captureResponse,
+  sendClickStreamEvent,
+};
