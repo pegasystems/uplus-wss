@@ -19,7 +19,7 @@
         </ul>
       </Container>
       <div v-if="!isMobilePhone" class="tab-action">
-        <button type="submit" v-on:click="clearAll" class="simple">
+        <button type="submit" data-clear class="simple">
           Reset to default
         </button>
         <button type="submit">Save</button>
@@ -62,11 +62,6 @@ export default {
       active,
       selectTab,
     };
-  },
-  methods: {
-    clearAll() {
-      localStorage.clear();
-    },
   },
   components: {
     Container,

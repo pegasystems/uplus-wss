@@ -1,7 +1,7 @@
 <template>
   <form id="settings" @submit="processForm">
     <TopNav v-if="isMobilePhone" previousPhonePage="index.html">
-      <button v-on:click="clearAll" class="simple margin-r-2x">
+      <button type="submit" data-clear class="simple margin-r-2x">
         Reset to default
       </button>
       <button type="submit">Save</button>
@@ -90,24 +90,22 @@ import { ref } from 'vue';
 
 export default {
   data() {
-    return { ...mainconfig, isClearAll: false };
+    return { ...mainconfig };
   },
   setup() {
     const active = ref(0);
     return { active };
   },
   methods: {
-    processForm() {
-      if (!this.isClearAll) {
+    processForm(e) {
+      if (e.submitter.getAttribute('data-clear') !== null) {
+        localStorage.clear();
+      } else {
         localStorage.setItem(
           `config_${this.app.industry}`,
           JSON.stringify(mainconfig),
         );
       }
-    },
-    clearAll() {
-      localStorage.clear();
-      this.isClearAll = true;
     },
   },
   components: {
