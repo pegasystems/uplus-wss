@@ -65,7 +65,7 @@ export default {
   },
   methods: {
     clearAll() {
-      this.$emit('clearall');
+      localStorage.clear();
     },
   },
   components: {
