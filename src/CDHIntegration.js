@@ -130,7 +130,7 @@ const captureResponse = function captureResponse(Context, item, outcome) {
     );
     nbamServiceCtrl.captureResponse(
       item.container,
-      item.customerID,
+      item.subjectID,
       item.name /* OfferID */,
       item.issue,
       item.group,
