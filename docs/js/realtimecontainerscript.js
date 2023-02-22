@@ -46,8 +46,8 @@ function getNBAMServiceControl(serviceClass,callMultiContainer) {
 		},
 
 		 /*
-      * This method is updated to handle all the versions of the container service calls i.e., V1/V2/V3 based on the serviceClass defined.
-      * Added new parameter "ContextName" (at which context level decisioning should be done) which can be passed for V3 container service. else for other version before V3, null value can be passed.
+      * This method is updated to handle all the versions of the container service calls i.e., V1/V2/V3/V4 based on the serviceClass defined.
+      * Added new parameter "ContextName" (at which context level decisioning should be done) which can be passed for V3 and V4 container service. else for other version before V3, null value can be passed.
       * "externalID": For identity matching. It doesn't exist pass null.
       * CustomerID had been modified to "subjectID" corresponds to the customer Id at particular context level. For V2, this field will be mapped to customerID in the container payload.
       */
@@ -398,7 +398,7 @@ function getNBAMServiceControl(serviceClass,callMultiContainer) {
     /*This function is the overloaded version of the getJSONObj to generate container payload based on the serviceClass*/
     getV3JSONObj : function(subjectID, contextName, containerName, externalID, channel, previousPage, currentpage,intent, placement, appid){
 			let jsonObj;
-			if(serviceClass && serviceClass.toUpperCase() === "V3"){
+			if(serviceClass && serviceClass.toUpperCase() !== "V2"){
 				let jsonStr = '{ '+ (subjectID ? ('"SubjectID":"' + subjectID + '",') : '')
 				  + (contextName ? ('"ContextName":"' + contextName + '",') : '')
 				  + (externalID ? ('"ExternalID":"' + externalID + '",') : '')

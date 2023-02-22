@@ -118,7 +118,7 @@ const parseResponseData = (
 };
 
 const captureResponse = function captureResponse(Context, item, outcome) {
-  if (Context.settings.pega_marketing.apiLevel !== 'V3') return;
+  if (Context.settings.pega_marketing.apiLevel === 'V2') return;
   if (typeof window.getNBAMServiceControl !== 'undefined') {
     const nbamServiceCtrl = window.getNBAMServiceControl(
       Context.settings.pega_marketing.apiLevel,

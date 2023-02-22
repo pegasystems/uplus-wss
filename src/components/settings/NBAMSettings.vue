@@ -50,10 +50,11 @@
           <select id="NBAM-APILevel" v-model="settings.pega_marketing.apiLevel">
             <option>V2</option>
             <option>V3</option>
+            <option>V4</option>
           </select>
         </div>
         <div
-          v-if="settings.pega_marketing.apiLevel === 'V3'"
+          v-if="settings.pega_marketing.apiLevel !== 'V2'"
           class="field-item"
         >
           <label for="NBAM-contextName">Context name</label>
@@ -63,7 +64,7 @@
           />
         </div>
         <div
-          v-if="settings.pega_marketing.apiLevel === 'V3'"
+          v-if="settings.pega_marketing.apiLevel !== 'V2'"
           class="field-item"
         >
           <label for="NBAM-appID">App ID (CDH configured for MultiApp)</label>
@@ -72,7 +73,7 @@
       </div>
       <div class="layout-labels-left">
         <div
-          v-if="settings.pega_marketing.apiLevel === 'V3'"
+          v-if="settings.pega_marketing.apiLevel !== 'V2'"
           class="field-item field-checkbox"
         >
           <input
