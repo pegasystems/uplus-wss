@@ -21,7 +21,7 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",
     "@vitejs/plugin-vue-jsx": "^3.0.0",
-    "@vitest/coverage-c8": "^0.28.3",
+    "@vitest/coverage-c8": "^0.29.2",
     "@vue/eslint-config-prettier": "^7.0.0",
     "@vue/test-utils": "^2.2.7",
     "c8": "^7.12.0",
@@ -32,8 +32,8 @@
     "jsdom": "^21.0.0",
     "prettier": "^2.8.2",
     "replace-in-file": "^6.3.5",
-    "start-server-and-test": "^1.15.2",
+    "start-server-and-test": "^2.0.0",
     "vite": "^4.0.4",
-    "vitest": "^0.28.3"
+    "vitest": "^0.29.2"
   }
 }

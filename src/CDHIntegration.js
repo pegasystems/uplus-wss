@@ -382,6 +382,9 @@ const sendClickStreamEvent = function sendClickStreamEvent(
     if (customerid === '' && document.cookie.split('MKTID=').length > 1) {
       cookieID = document.cookie.split('MKTID=')[1].split(';')[0];
     }
+    if (Context.settings.pega_marketing.enableMergeAccount) {
+      cookieID = Context.ExternalID;
+    }
     /* If there is no cookie or customerID, just skip sending the event */
     if (customerid === '' && cookieID === '') return;
 
