@@ -70,7 +70,11 @@ function getNBAMServiceControl(serviceClass,callMultiContainer) {
 			var jsonObj = this.getV3JSONObj(subjectID, contextName, containerName, externalID, channel, previousPage, currentpage,intent, placement, appid);
 
 			if(serviceClass){
-				this.invokeRemoteService("Container",null,"POST",jsonObj,callbackFunction, errorcallback);
+				if(serviceClass.toUpperCase() === "V2" || serviceClass.toUpperCase() === "V3") {
+					this.invokeRemoteService("Container",null,"POST",jsonObj,callbackFunction, errorcallback);
+				} else {
+					this.invokeRemoteService("container",null,"POST",jsonObj,callbackFunction, errorcallback);
+				}
 			} else {
 				this.invokeRemoteService("ExecuteWebContainer",null,"POST",jsonObj,callbackFunction, errorcallback);
 			}
@@ -373,14 +377,20 @@ function getNBAMServiceControl(serviceClass,callMultiContainer) {
 		this.captureResponseWithJSON(jsonObj,callback,initiateOffer, errorcallback);
 	},
 	captureResponseWithJSON : function(jsonObj,callback,initiateOffer, errorcallback){
+		var apiendpoint = "capture_response";
+		if(serviceClass.toUpperCase() === "V2" || serviceClass.toUpperCase() === "V3") {
+			apiendpoint = "CaptureResponse";
+		}
+
 		if(serviceClass){
 			if(initiateOffer){
-				this.invokeRemoteService("CaptureResponse/Initiate",null,"POST",jsonObj,callback, errorcallback);
+				this.invokeRemoteService(apiendpoint + "/Initiate",null,"POST",jsonObj,callback, errorcallback);
 			} else {
-				this.invokeRemoteService("CaptureResponse",null,"POST",jsonObj,callback, errorcallback);
+				this.invokeRemoteService(apiendpoint,null,"POST",jsonObj,callback, errorcallback);
 			}
 		} else{
-			this.invokeRemoteService("CaptureResponse",null,"POST",jsonObj,callback, errorcallback);
+				this.invokeRemoteService(apiendpoint,null,"POST",jsonObj,callback, errorcallback);
+			
 		}
 
     },
