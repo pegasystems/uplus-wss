@@ -25,6 +25,11 @@ const parseResponseData = (
   if (mktcfg && mktcfg.attributes && mktcfg.attributes !== '') {
     attributes = mktcfg.attributes.split(',');
   }
+  /* For account page - we might want to only show a single offer */
+  if (mktcfg && mktcfg.showSingleOffer) {
+    maxOffers = maxOffers > 1 ? 1 : maxOffers;
+  }
+
   let isHeroPlacementFilled = false;
   for (let i = 0; i < maxOffers; i++) {
     let imgurl = OffersList[i].ImageURL.trim();

@@ -240,6 +240,18 @@
           />
         </div>
       </div>
+      <div class="layout-labels-left">
+        <div class="field-item">
+          <input
+            id="NBAM-AccountPage-showSingleoffer"
+            type="checkbox"
+            v-model="settings.pega_marketing.accountPage.showSingleOffer"
+          />
+          <label class="width-auto" for="NBAM-AccountPage-showSingleoffer"
+            >Show single offer</label
+          >
+        </div>
+      </div>
     </Container>
     <Container title="Home Page for mobile">
       <div class="layout-labels-top layout-inline-grid-double">

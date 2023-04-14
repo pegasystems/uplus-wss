@@ -493,6 +493,12 @@ export const upgradeConfig = function upgradeConfig(cfg) {
   ) {
     cfg.settings.pega_marketing.accountPage.attributes = '';
   }
+  if (
+    typeof cfg.settings.pega_marketing.accountPage.showSingleOffer ===
+    'undefined'
+  ) {
+    cfg.settings.pega_marketing.accountPage.showSingleOffer = false;
+  }
   if (typeof cfg.settings.pega_marketing.phonePage.attributes === 'undefined') {
     cfg.settings.pega_marketing.phonePage.attributes = '';
   }

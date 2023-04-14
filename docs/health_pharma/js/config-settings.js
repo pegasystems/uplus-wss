@@ -359,6 +359,7 @@ window.settings = {
       placement: 'Tile',
       clickaction: 'Mashup',
       attributes: '',
+      showSingleOffer: false,
     },
     phonePage: {
       containerName: 'TopOffers',
