@@ -1,12 +1,15 @@
 <template>
-  <div class="flex">
+  <div class="flex flex-mid-align">
     <div v-if="isNamePresent" class="flex flex-col margin-r-2x">
       <span v-if="settings.users[userId]">{{
         settings.users[userId].name
       }}</span>
-      <span v-if="settings.users[userId]">{{
-        settings.users[userId].company_name
-      }}</span>
+      <span
+        v-if="
+          settings.users[userId] && settings.users[userId].company_name !== ''
+        "
+        >{{ settings.users[userId].company_name }}</span
+      >
     </div>
     <img
       v-if="userId != -1"
@@ -171,7 +174,7 @@ export default {
         mainconfig.isMobilePhone ||
         mainconfig.userId === -1 ||
         mainconfig.settings.users[mainconfig.userId].name === '' ||
-        mainconfig.settings.users[mainconfig.userId].company_name === ''
+        !mainconfig.settings.users[mainconfig.userId].show_opname
       ) {
         return false;
       }

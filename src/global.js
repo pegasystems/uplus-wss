@@ -202,6 +202,9 @@ export const upgradeConfig = function upgradeConfig(cfg) {
     if (typeof cfg.settings.users[i].otp_send_to === 'undefined') {
       cfg.settings.users[i].otp_send_to = '';
     }
+    if (typeof cfg.settings.users[i].show_opname === 'undefined') {
+      cfg.settings.users[i].show_opname = false;
+    }
   }
   if (typeof cfg.settings.pega_marketing.homePage === 'undefined') {
     cfg.settings.pega_marketing.homePage = { containerName: 'TopOffers' };

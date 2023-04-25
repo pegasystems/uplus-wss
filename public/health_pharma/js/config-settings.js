@@ -242,7 +242,7 @@ window.settings = {
       password: 'rules',
       img: 'avatar-1.jpg',
       company_name: '',
-      name: '',
+      name: 'Joe Smith',
       accountID: '',
       contactID: '',
       customerID: '',
@@ -252,6 +252,7 @@ window.settings = {
       pega_pwd: 'rules',
       bill_pay: 164.8,
       load_by_default: true,
+      show_opname: false,
       otp_send_to: '',
       kpi: [
         {
@@ -281,7 +282,7 @@ window.settings = {
       password: 'rules',
       img: 'avatar-2.jpg',
       company_name: '',
-      name: '',
+      name: 'Mary Taylor',
       accountID: '',
       contactID: '',
       customerID: '',
@@ -291,6 +292,7 @@ window.settings = {
       pega_pwd: 'rules',
       bill_pay: 164.8,
       load_by_default: false,
+      show_opname: false,
       otp_send_to: '',
       kpi: [
         {

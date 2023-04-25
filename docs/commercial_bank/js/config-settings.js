@@ -276,6 +276,7 @@ window.settings = {
       pega_userid: "jsmith",
       pega_pwd: "rules",
       load_by_default: true,
+      show_opname: false,
       otp_send_to: "",
       accounts: [
         {
@@ -338,6 +339,7 @@ window.settings = {
       pega_userid: "mtaylor",
       pega_pwd: "rules",
       load_by_default: false,
+      show_opname: false,
       otp_send_to: "",
       accounts: [
         {

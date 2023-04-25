@@ -7,7 +7,7 @@
     </p>
     <div v-for="(item, index) in settings.users" v-bind:key="index">
       <Container :title="'User ' + (index + 1)" :expanded="index === 0">
-        <div class="layout-labels-left">
+        <div class="layout-inline-grid-double layout-labels-left">
           <div class="field-item">
             <input
               type="checkbox"
@@ -18,6 +18,16 @@
               class="width-auto"
               :for="'user-' + index + '-load_by_default'"
               >Loaded by default</label
+            >
+          </div>
+          <div class="field-item">
+            <input
+              type="checkbox"
+              :id="'user-' + index + '-show_opname'"
+              v-model="item.show_opname"
+            />
+            <label class="width-auto" :for="'user-' + index + '-show_opname'"
+              >Show operator name</label
             >
           </div>
         </div>
