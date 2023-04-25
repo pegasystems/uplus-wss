@@ -9,7 +9,7 @@ window.settings = {
   general: {
     theming: {
       override: false,
-      interactiveColor: "#0076DE",
+      interactiveColor: "#076bc9",
       brandColor: "#3C8712",
     },
     ga: {

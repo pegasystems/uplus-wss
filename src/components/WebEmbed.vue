@@ -218,28 +218,28 @@ export default {
     }
     if (this.app.industry === 'comms') {
       this.theme =
-        '{"base":{"palette":{"brand-primary":"#5F257E","app-background": "#FFFFFF"}}}';
+        '{"base":{"palette":{"brand-primary":"#5F257E","app-background": "#FFFFFF","interactive":"#076bc9"}},"components":{"button":{"border-radius":"0.25"}}}';
     } else if (this.app.industry.indexOf('health') === 0) {
       this.theme =
-        '{"base":{"palette":{"brand-primary":"#0C8487","app-background": "#FFFFFF"}}}';
+        '{"base":{"palette":{"brand-primary":"#0C8487","app-background": "#FFFFFF","interactive":"#076bc9"}},"components":{"button":{"border-radius":"0.25"}}}';
     } else if (this.app.industry === 'gov') {
       this.theme =
-        '{"base":{"palette":{"brand-primary":"#0076DE","app-background": "#FFFFFF"}}}';
+        '{"base":{"palette":{"brand-primary":"#076bc9","app-background": "#FFFFFF,"interactive":"#076bc9"}},"components":{"button":{"border-radius":"0.25"}}}';
     } else if (
       this.app.industry === 'retail_bank' ||
       this.app.industry === 'commercial_bank'
     ) {
       this.theme =
-        '{"base":{"palette":{"brand-primary":"#3C8712","app-background": "#FFFFFF"}}}';
+        '{"base":{"palette":{"brand-primary":"#3C8712","app-background": "#FFFFFF","interactive":"#076bc9"}},"components":{"button":{"border-radius":"0.25"}}}';
     } else if (this.app.industry === 'insurance') {
       this.theme =
-        '{"base":{"palette":{"brand-primary":"#DF3603","app-background": "#FFFFFF"}}}';
+        '{"base":{"palette":{"brand-primary":"#DF3603","app-background": "#FFFFFF","interactive":"#076bc9"}},"components":{"button":{"border-radius":"0.25"}}}';
     } else if (this.app.industry === 'manufacturing') {
       this.theme =
-        '{"base":{"palette":{"brand-primary":"#D31D36","app-background": "#FFFFFF"}}}';
+        '{"base":{"palette":{"brand-primary":"#D31D36","app-background": "#FFFFFF","interactive":"#076bc9"}},"components":{"button":{"border-radius":"0.25"}}}';
     }
     if (this.settings.general.theming.override) {
-      this.theme = `{"base":{"palette":{"brand-primary":"${this.settings.general.theming.brandColor}","interactive":"${this.settings.general.theming.interactiveColor}","app-background": "#FFFFFF"}}}`;
+      this.theme = `{"base":{"palette":{"brand-primary":"${this.settings.general.theming.brandColor}","interactive":"${this.settings.general.theming.interactiveColor}","app-background": "#FFFFFF"}},"components":{"button":{"border-radius":"0.25"}}}`;
     }
     this.extraParamContent = {};
     this.extraParam.split(',').forEach((item) => {

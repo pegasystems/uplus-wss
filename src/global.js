@@ -459,7 +459,7 @@ export const upgradeConfig = function upgradeConfig(cfg) {
   if (typeof cfg.settings.general.theming === 'undefined') {
     cfg.settings.general.theming = {
       override: false,
-      interactiveColor: '#0076DE',
+      interactiveColor: '#076bc9',
       brandColor: '#3C8712',
     };
   }
