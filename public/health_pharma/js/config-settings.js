@@ -167,6 +167,7 @@ window.settings = {
     extraparam: '',
     hideactivity: false,
     hideaccount: false,
+    hideaccountdetails: true,
     hideKPI: false,
     channelid: '',
     tenantid: '',

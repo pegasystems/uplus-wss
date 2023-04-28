@@ -233,14 +233,14 @@
         </g>
       </svg>
     </section>
-    <AccountDetails />
+    <AccountList />
   </div>
 </template>
 
 <script>
 import { mainconfig } from '../../global';
 import MashupMainArea from '../MashupMainArea.vue';
-import AccountDetails from '../widgets/AccountDetails.vue';
+import AccountList from '../widgets/AccountList.vue';
 import Banner from '../widgets/Banner.vue';
 
 export default {
@@ -249,7 +249,7 @@ export default {
   },
   components: {
     MashupMainArea,
-    AccountDetails,
+    AccountList,
     Banner,
   },
   methods: {

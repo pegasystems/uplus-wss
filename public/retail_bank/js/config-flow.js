@@ -56,6 +56,32 @@ window.app = {
       id: "***7890",
     },
   ],
+  accountdetails: [[
+    {
+      title: "accountdetails1_title",
+      id: "***0219",
+    },
+    {
+      title: "accountdetails2_title",
+      id: "VISA card",
+    },
+    {
+      title: "accountdetails3_title",
+      id: "Active",
+    }],[
+    {
+      title: "accountdetails1_title",
+      id: "***1875",
+    },
+    {
+      title: "accountdetails2_title",
+      id: "Amex card",
+    },
+    {
+      title: "accountdetails3_title",
+      id: "Active",
+    }],
+  ],
   recentactivity: [
     {
       message: "recentactivity1_msg",

@@ -23,7 +23,13 @@
             v-bind:pagetype="item.pagetype"
             v-bind:key="index"
             v-bind:title="item.title"
-            v-bind:href="app.offer.length > 1 ? `offer${index + 1}.html` : null"
+            v-bind:href="
+              item.url
+                ? item.url
+                : app.offer.length > 1
+                ? `offer${index + 1}.html`
+                : null
+            "
           ></MenuItem>
         </ul>
       </nav>

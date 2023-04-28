@@ -14,6 +14,13 @@
         settings.todo.hideaccount !== true
       "
     />
+    <AccountDetails
+      v-if="
+        typeof settings.todo !== 'undefined' &&
+        settings.todo.hideaccountdetails !== 'true' &&
+        settings.todo.hideaccountdetails !== true
+      "
+    />
     <KPI
       v-if="
         (app.industry === 'health-pharma' ||
@@ -48,6 +55,7 @@
 <script>
 import MashupMainArea from '../MashupMainArea.vue';
 import AccountPicker from '../widgets/AccountPicker.vue';
+import AccountDetails from '../widgets/AccountDetails.vue';
 import KPI from '../widgets/KPI.vue';
 import Banner from '../widgets/Banner.vue';
 import BillPay from '../widgets/BillPay.vue';
@@ -61,6 +69,7 @@ export default {
   components: {
     MashupMainArea,
     AccountPicker,
+    AccountDetails,
     KPI,
     BillPay,
     RecentActivity,

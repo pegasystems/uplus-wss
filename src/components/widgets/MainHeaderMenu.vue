@@ -8,10 +8,17 @@
     >
       <ul>
         <MenuItem
-          v-for="item in app.menuitems"
+          v-for="(item, index) in app.menuitems"
           v-bind:pagetype="item.pagetype"
           v-bind:key="item.title"
           v-bind:title="item.title"
+          v-bind:href="
+            item.url
+              ? item.url
+              : app.offer.length > 1
+              ? `offer${index + 1}.html`
+              : null
+          "
         ></MenuItem>
         <li v-if="!isAuthenticated">
           <a v-on:click="showlogin" class="launch-login-overlay">{{

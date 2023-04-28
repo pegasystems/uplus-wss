@@ -67,6 +67,12 @@ export const upgradeConfig = function upgradeConfig(cfg) {
   ) {
     cfg.settings.todo.hideaccount = false;
   }
+  if (
+    cfg.settings.todo &&
+    typeof cfg.settings.todo.hideaccountdetails === 'undefined'
+  ) {
+    cfg.settings.todo.hideaccountdetails = true;
+  }
   if (cfg.settings.todo && typeof cfg.settings.todo.hideKPI === 'undefined') {
     cfg.settings.todo.hideKPI = false;
   }

@@ -216,26 +216,26 @@
     align-items: center;
   }
 
-  .account-picker > .flex {
+  .grid-col-3 {
     display: block;
   }
 
-  .account-picker > .flex > div.content-card {
+  .grid-col-3 > div.content-card {
     margin: 0 0 8px 0;
   }
 
-  .flex-col-3 > div {
+  .flex-col-all > div {
     width: 100%;
     width: 100%;
-    margin: 0 0 8px 0;
-    padding: 8px;
+    margin: 0 8px;
+    padding: 0;
     display: flex;
     align-items: center;
   }
 
-  .flex-col-3 {
-    flex-wrap: wrap;
+  .flex-col-all {
     padding: 0;
+    display:block
   }
 
   .layout-inline-grid-double > div {

@@ -64,33 +64,18 @@
   display: flex;
 }
 
-.account-picker > .flex > .content-card {
-  margin: 0 8px 8px 8px;
-  flex: 1;
+.account-details > div {
+  border:1px solid #d5d5d5;
+  margin-bottom:8px;
+  padding:12px;
 }
 
-.account-picker > .flex > .content-card:first-child {
-  margin-left: 0;
-}
-.account-picker > .flex > .content-card:last-child {
-  margin-right: 0;
-}
-
-.flex-col-3 {
+.flex-col-all {
   flex-wrap: nowrap;
 }
 
-.flex-col-3 > div {
-  width: calc((100% / 3) - (32px / 3));
-  margin: 0 8px 8px 8px;
-}
-
-.flex-col-3 > div:last-child {
-  margin-right: 0;
-}
-
-.flex-col-3 > div:first-child {
-  margin-left: 0;
+.flex-col-all > div {
+  flex:1
 }
 
 .flex-nowrap {
@@ -116,6 +101,12 @@
 
 .flex-mid-align {
   align-items: center;
+}
+
+.grid-col-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
 }
 
 .space-nowrap {

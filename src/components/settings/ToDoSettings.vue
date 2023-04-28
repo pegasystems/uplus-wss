@@ -15,6 +15,16 @@
               v-model="settings.todo.hideaccount"
             />
             <label class="width-auto" for="todo-hideaccount"
+              >Hide account picker</label
+            >
+          </div>
+          <div class="field-item field-checkbox">
+            <input
+              id="todo-hideaccountdetails"
+              type="checkbox"
+              v-model="settings.todo.hideaccountdetails"
+            />
+            <label class="width-auto" for="todo-hideaccountdetails"
               >Hide account details</label
             >
           </div>

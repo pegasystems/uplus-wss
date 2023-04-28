@@ -1,7 +1,7 @@
 <template>
   <section v-if="app.industry !== 'wealth'" class="bill-pay">
     <h2>{{ $t('message.billpay') }}</h2>
-    <div class="content-card flex flex-col-3">
+    <div class="content-card flex flex-col-all">
       <div class="list-box">
         <h3>{{ $t('message.amountdue') }}</h3>
         <p v-if="settings.users[userId] && settings.users[userId].billpay">
@@ -40,7 +40,7 @@
   </section>
   <section v-else class="bill-pay">
     <h2>{{ $t('message.billpay') }}</h2>
-    <div class="content-card flex flex-col-3">
+    <div class="content-card flex flex-col-all">
       <div class="list-box">
         <h3>{{ $t('message.amountdue') }}</h3>
         <p v-if="settings.users[userId] && settings.users[userId].billpay">
