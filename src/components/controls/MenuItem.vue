@@ -32,6 +32,8 @@ export default {
           mainconfig.currentPage.substring(5).replace('.html', ''),
           10,
         );
+      } else {
+        return;
       }
       sendClickStreamEvent(
         mainconfig,
