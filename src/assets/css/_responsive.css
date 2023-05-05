@@ -303,6 +303,7 @@
     min-width: auto;
     margin: 0 0 3px 0;
   }
+  .offer-cards-list,
   .builtin-offer,
   .main-offer {
     flex-flow: column nowrap;
@@ -317,6 +318,8 @@
   .builtin-offer > .details,
   .main-offer > .details {
     margin: 14px 0 0 0;
+    display: flex;
+    flex-flow: column;
   }
   .primary-card {
     padding:14px;
@@ -454,7 +457,6 @@
 
   .offer .promo > .flex {
     flex-flow: column;
-    max-width: 300px;
     margin: 0 auto;
   }
 

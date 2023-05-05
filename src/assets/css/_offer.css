@@ -55,6 +55,12 @@ body > #app.form.offer {
 }
 
 .offer > main.static-offer {
+  align-items: center;
+}
+
+.offer > main.static-offer > .main-offer,
+.offer > main.static-offer > .offer-details,
+.offer > main.static-offer > .offer-highlights {
   max-width: 710px;
 }
 

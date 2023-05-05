@@ -1,5 +1,5 @@
 <template>
-  <div
+  <template
     v-if="
       settings.pega_marketing.Host === '' ||
       settings.pega_marketing.offerPage.placement === '' ||
@@ -39,8 +39,8 @@
         </div>
       </div>
     </div>
-  </div>
-  <div
+  </template>
+  <template
     v-else-if="
       settings.pega_marketing.Host !== '' &&
       loading &&
@@ -55,8 +55,8 @@
         <span class="dot"></span>
       </span>
     </div>
-  </div>
-  <div v-else>
+  </template>
+  <template v-else>
     <div
       class="main-offer primary-card flex flex-nowrap"
       v-if="hero_offer.url !== '' && hero_offer.img !== ''"
@@ -73,7 +73,7 @@
     <div v-else style="height: 50px"></div>
     <div class="offer-cards promo">
       <h4>{{ $t('message.' + app.offer[offerType].cards.title) }}</h4>
-      <div class="flex">
+      <div class="flex offer-cards-list">
         <div
           class="flex flex-col primary-card"
           v-for="(item, index) in data"
@@ -115,7 +115,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </template>
 </template>
 
 <script>
