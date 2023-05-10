@@ -67,7 +67,7 @@
 .account-details > div {
   border:1px solid #d5d5d5;
   margin-bottom:8px;
-  padding:12px;
+  padding:12px 20px;
 }
 
 .flex-col-all {
@@ -282,7 +282,7 @@ main {
 }
 
 .list-box > p {
-  font-size: 27px;
+  font-size: 22px;
   color: #414949;
   margin: 0;
   word-break: break-all;
