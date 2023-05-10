@@ -279,7 +279,7 @@ window.settings = {
         {
           icon: 'pi-gauge',
           name: 'kpi_wellness_score',
-          value: '90/100',
+          value: '91/100',
         },
         {
           icon: 'pi-chart-donut-solid',
