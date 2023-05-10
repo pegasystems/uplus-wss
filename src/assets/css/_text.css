@@ -453,6 +453,7 @@ time.fatlist-item {
   font-size: 13px;
 }
 
-.scorecard {
+.list-box > span.scorecard {
   font-size: 22px;
+  color: #414949;
 }

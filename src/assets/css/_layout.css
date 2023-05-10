@@ -287,6 +287,9 @@ main {
   margin: 0;
   word-break: break-all;
 }
+.kpi-item > i {
+  padding: 3px 4px 0 0;
+}
 
 .secondary-options .front-option::after {
   content: '';
@@ -663,6 +666,7 @@ a[role='tab']:active {
 
 .bill-pay p {
   margin-bottom: 16px;
+  font-size:22px;
 }
 
 a.kmhelp {
