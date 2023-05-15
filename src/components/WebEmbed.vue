@@ -268,6 +268,14 @@ export default {
         }
       });
     }
+    if (this.isDeepLink === true) {
+      for (const i in this.deepLinkExtraParam) {
+        setObjectFromRef(this.extraParamContent, i, this.deepLinkExtraParam[i]);
+      }
+      /* Reset the state once the deeplink is generated */
+      mainconfig.isDeepLink = false;
+      mainconfig.deepLinkExtraParam = {};
+    }
     if (Object.keys(this.extraParamContent).length > 0) {
       this.startingFields = this.extraParamContent;
     }
