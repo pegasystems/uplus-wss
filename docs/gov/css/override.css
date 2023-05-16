@@ -40,3 +40,7 @@ body .color-brand {
 .offer header {
 	background-image: url('../img/hero-1.jpg');
 }
+
+.offer-card-col a {
+	display:none;
+}
