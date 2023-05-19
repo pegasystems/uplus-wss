@@ -1,12 +1,15 @@
 <template>
   <section
-    v-if="typeof app.accountdetails !== 'undefined'"
+    v-if="
+      userId !== -1 &&
+      typeof settings.users[userId].accountdetails !== 'undefined'
+    "
     class="account-details"
   >
     <h2>{{ $t('message.accountdetails') }}</h2>
     <div
       class="flex flex-col-all"
-      v-for="(items, index) in app.accountdetails"
+      v-for="(items, index) in settings.users[userId].accountdetails"
       :key="index"
     >
       <div v-for="item in items" class="list-box" :key="item.title">

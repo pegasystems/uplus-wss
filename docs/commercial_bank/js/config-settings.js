@@ -278,6 +278,7 @@ window.settings = {
       load_by_default: true,
       show_opname: false,
       otp_send_to: "",
+      accountdetails: [],
       accounts: [
         {
           number: "****0000",
@@ -341,6 +342,7 @@ window.settings = {
       load_by_default: false,
       show_opname: false,
       otp_send_to: "",
+      accountdetails: [],
       accounts: [
         {
           number: 6173782492,

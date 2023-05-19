@@ -130,7 +130,10 @@
             class="field-item"
             v-if="settings.pega_marketing.enableMergeAccount"
           >
-            <button v-on:click="resetExternalID">Reset ExternalID</button>
+            <button class="margin-r-2x" v-on:click="resetExternalID">
+              Reset ExternalID
+            </button>
+            <span>{{ this.ExternalID }}</span>
           </div>
         </div>
         <div class="field-item field-checkbox">
@@ -407,6 +410,7 @@ export default {
     resetExternalID() {
       this.ExternalID = 'uplus-' + Date.now();
       sessionStorage.setItem('ExternalID', this.ExternalID);
+      navigator.clipboard.writeText(this.ExternalID);
     },
   },
 };

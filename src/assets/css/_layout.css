@@ -591,6 +591,10 @@ pega-embed {
   padding-top: 16px;
 }
 
+.padding-b-1x {
+  padding-bottom: 8px;
+}
+
 .flex-grow-1 {
   flex-grow: 1;
 }

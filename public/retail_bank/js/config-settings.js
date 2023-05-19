@@ -279,6 +279,32 @@ window.settings = {
       load_by_default: true,
       show_opname: false,
       otp_send_to: "",
+      accountdetails: [[
+        {
+          title: "accountdetails1_title",
+          id: "***0219",
+        },
+        {
+          title: "accountdetails2_title",
+          id: "VISA card",
+        },
+        {
+          title: "accountdetails3_title",
+          id: "Active",
+        }],[
+        {
+          title: "accountdetails1_title",
+          id: "***1875",
+        },
+        {
+          title: "accountdetails2_title",
+          id: "Amex card",
+        },
+        {
+          title: "accountdetails3_title",
+          id: "Active",
+        }],
+      ],
     },
     {
       username: "mary@pegasystems.com",
@@ -297,6 +323,44 @@ window.settings = {
       load_by_default: false,
       show_opname: false,
       otp_send_to: "",
+      accountdetails: [[
+        {
+          title: "accountdetails1_title",
+          id: "***0444",
+        },
+        {
+          title: "accountdetails2_title",
+          id: "AMEX card",
+        },
+        {
+          title: "accountdetails3_title",
+          id: "Expired",
+        }],[
+        {
+          title: "accountdetails1_title",
+          id: "***56735",
+        },
+        {
+          title: "accountdetails2_title",
+          id: "VISA card",
+        },
+        {
+          title: "accountdetails3_title",
+          id: "Active",
+        }],[
+          {
+            title: "accountdetails1_title",
+            id: "***2223",
+          },
+          {
+            title: "accountdetails2_title",
+            id: "Chase Credit card",
+          },
+          {
+            title: "accountdetails3_title",
+            id: "Active",
+          }],
+      ],
     },
   ],
   pega_chat: {

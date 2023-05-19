@@ -59,7 +59,6 @@ window.app = {
       id: '***7890',
     },
   ],
-  accountdetails: [],
   recentactivity: [
     {
       message: 'recentactivity1_msg',

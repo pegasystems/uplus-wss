@@ -275,6 +275,7 @@ window.settings = {
       load_by_default: true,
       show_opname: false,
       otp_send_to: '',
+      accountdetails: [],
     },
     {
       username: 'mary@pegasystems.com',
@@ -293,6 +294,7 @@ window.settings = {
       load_by_default: false,
       show_opname: false,
       otp_send_to: '',
+      accountdetails: [],
     },
   ],
   pega_chat: {

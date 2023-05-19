@@ -53,7 +53,6 @@ window.app = {
       id: '',
     },
   ],
-  accountdetails: [],
   recentactivity: [
     {
       message: 'recentactivity1_msg',

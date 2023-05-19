@@ -255,6 +255,7 @@ window.settings = {
       load_by_default: true,
       show_opname: false,
       otp_send_to: '',
+      accountdetails: [],
       kpi: [
         {
           icon: 'pi-gauge',
@@ -295,6 +296,7 @@ window.settings = {
       load_by_default: false,
       show_opname: false,
       otp_send_to: '',
+      accountdetails: [],
       kpi: [
         {
           icon: 'pi-gauge',
