@@ -276,9 +276,6 @@ export default {
       mainconfig.isDeepLink = false;
       mainconfig.deepLinkExtraParam = {};
     }
-    if (Object.keys(this.extraParamContent).length > 0) {
-      this.startingFields = JSON.stringify(this.extraParamContent);
-    }
     this.staticContentUrl = this.settings.general.connection.c11nserver;
     this.clientId = this.settings.general.connection.clientid;
 
@@ -286,6 +283,12 @@ export default {
   },
   updated() {
     const mytag = this.$refs.mycomp;
+    if (this.action === 'createCase') {
+      mytag.setAttribute(
+        'startingFields',
+        JSON.stringify(this.extraParamContent),
+      );
+    }
     mytag.addEventListener('embedprocessingend', embedEventFn);
     mytag.addEventListener('embedready', embedEventFn);
     mytag.addEventListener('embedcloseconfirmview', embedEventFn);
