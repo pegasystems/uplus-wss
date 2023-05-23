@@ -407,10 +407,18 @@ export default {
     Container,
   },
   methods: {
-    resetExternalID() {
+    resetExternalID(e) {
+      e.preventDefault();
       this.ExternalID = 'uplus-' + Date.now();
       sessionStorage.setItem('ExternalID', this.ExternalID);
-      navigator.clipboard.writeText(this.ExternalID);
+      navigator.clipboard
+        .writeText(this.ExternalID)
+        .then(() => {
+          alert('successfully copied');
+        })
+        .catch(() => {
+          alert('something went wrong');
+        });
     },
   },
 };
