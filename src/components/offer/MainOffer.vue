@@ -58,7 +58,8 @@
   </template>
   <template v-else>
     <div
-      class="main-offer primary-card flex flex-nowrap"
+      class="main-offer primary-card flex flex-nowrap hero-offer"
+      :data-hero-offer="1"
       v-if="hero_offer.url !== '' && hero_offer.img !== ''"
     >
       <img class="offer-img" :src="hero_offer.img" :alt="hero_offer.title" />
@@ -161,15 +162,26 @@ export default {
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              const idx = entry.target.getAttribute('data-offer-index');
-              captureResponse(this, this.data[idx], 'Impression');
-              observer.unobserve(entry.target);
+              let idx = entry.target.getAttribute('data-offer-index');
+              if (idx !== null) {
+                captureResponse(this, this.data[idx], 'Impression');
+                observer.unobserve(entry.target);
+              } else {
+                idx = entry.target.getAttribute('data-hero-offer');
+                if (idx !== null) {
+                  captureResponse(this, this.hero_offer, 'Impression');
+                  observer.unobserve(entry.target);
+                }
+              }
             }
           });
         },
         { threshold: 1 },
       );
       document.querySelectorAll('.offer-container').forEach((offer) => {
+        observer.observe(offer);
+      });
+      document.querySelectorAll('.hero-offer').forEach((offer) => {
         observer.observe(offer);
       });
     }

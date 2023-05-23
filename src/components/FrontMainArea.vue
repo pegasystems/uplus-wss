@@ -83,7 +83,8 @@
         title="toggle AI"
       ></button>
       <div
-        class="flex hero-wrap"
+        class="flex hero-wrap hero-offer"
+        :data-hero-offer="1"
         :class="hero_offer.img !== '' ? 'hero-with-img' : ''"
       >
         <div class="flex flex-col">
@@ -232,15 +233,26 @@ export default {
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              const idx = entry.target.getAttribute('data-offer-index');
-              captureResponse(this, this.data[idx], 'Impression');
-              observer.unobserve(entry.target);
+              let idx = entry.target.getAttribute('data-offer-index');
+              if (idx !== null) {
+                captureResponse(this, this.data[idx], 'Impression');
+                observer.unobserve(entry.target);
+              } else {
+                idx = entry.target.getAttribute('data-hero-offer');
+                if (idx !== null) {
+                  captureResponse(this, this.hero_offer, 'Impression');
+                  observer.unobserve(entry.target);
+                }
+              }
             }
           });
         },
         { threshold: 1 },
       );
       document.querySelectorAll('.offer-card').forEach((offer) => {
+        observer.observe(offer);
+      });
+      document.querySelectorAll('.hero-offer').forEach((offer) => {
         observer.observe(offer);
       });
     }
