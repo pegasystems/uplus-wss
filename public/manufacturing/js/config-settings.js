@@ -276,6 +276,40 @@ window.settings = {
       show_opname: false,
       otp_send_to: '',
       accountdetails: [],
+      accountpicker: [
+        {
+          icon: 'pi-building-2',
+          title: 'accountpicker1_title',
+          desc: 'accountpicker1_desc',
+          id: '',
+        },
+        {
+          icon: 'pi-temp',
+          title: 'accountpicker2_title',
+          desc: 'accountpicker2_desc',
+          id: '',
+        },
+        {
+          icon: 'pi-gear',
+          title: 'accountpicker3_title',
+          desc: 'accountpicker3_desc',
+          id: '',
+        },
+      ],
+      recentactivity: [
+        {
+          message: 'recentactivity1_msg',
+        },
+        {
+          message: 'recentactivity2_msg',
+        },
+        {
+          message: 'recentactivity3_msg',
+        },
+        {
+          message: 'recentactivity4_msg',
+        },
+      ],
     },
     {
       username: 'mary@pegasystems.com',
@@ -295,6 +329,40 @@ window.settings = {
       show_opname: false,
       otp_send_to: '',
       accountdetails: [],
+      accountpicker: [
+        {
+          icon: 'pi-building-2',
+          title: 'accountpicker1_title',
+          desc: 'accountpicker1_desc',
+          id: '',
+        },
+        {
+          icon: 'pi-temp',
+          title: 'accountpicker2_title',
+          desc: 'accountpicker2_desc',
+          id: '',
+        },
+        {
+          icon: 'pi-gear',
+          title: 'accountpicker3_title',
+          desc: 'accountpicker3_desc',
+          id: '',
+        },
+      ],
+      recentactivity: [
+        {
+          message: 'recentactivity1_msg',
+        },
+        {
+          message: 'recentactivity2_msg',
+        },
+        {
+          message: 'recentactivity3_msg',
+        },
+        {
+          message: 'recentactivity4_msg',
+        },
+      ],
     },
   ],
   pega_chat: {

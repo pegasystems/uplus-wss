@@ -2,7 +2,8 @@
   <section
     v-if="
       userId !== -1 &&
-      typeof settings.users[userId].accountdetails !== 'undefined'
+      typeof settings.users[userId].accountdetails !== 'undefined' &&
+      settings.users[userId].accountdetails.length > 0
     "
     class="account-details"
   >

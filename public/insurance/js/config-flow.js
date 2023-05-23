@@ -39,40 +39,6 @@ window.app = {
       link: 'learnmore',
     },
   ],
-  accountpicker: [
-    {
-      icon: 'pi-life-ring',
-      title: 'accountpicker1_title',
-      desc: '',
-      id: '***4483',
-    },
-    {
-      icon: 'pi-car',
-      title: 'accountpicker2_title',
-      desc: '',
-      id: '***3384',
-    },
-    {
-      icon: 'pi-plane',
-      title: 'accountpicker3_title',
-      desc: '',
-      id: '***7890',
-    },
-  ],
-  recentactivity: [
-    {
-      message: 'recentactivity1_msg',
-    },
-    {
-      message: 'recentactivity2_msg',
-    },
-    {
-      message: 'recentactivity3_msg',
-    },
-    {
-      message: 'recentactivity4_msg',
-    },
-  ],
   offers: [
     {
       img: 'offer-image.jpg',

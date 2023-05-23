@@ -1,9 +1,16 @@
 <template>
-  <section class="account-picker">
+  <section
+    class="account-picker"
+    v-if="
+      userId !== -1 &&
+      typeof settings.users[userId].accountpicker !== 'undefined' &&
+      settings.users[userId].accountpicker.length > 0
+    "
+  >
     <h2>{{ $t('message.youraccount') }}</h2>
     <div class="grid-col-3">
       <div
-        v-for="item in app.accountpicker"
+        v-for="item in settings.users[userId].accountpicker"
         :key="item.title"
         class="content-card flex flex-mid-align"
       >

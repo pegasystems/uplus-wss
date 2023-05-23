@@ -39,34 +39,6 @@ window.app = {
       link: 'learnmore',
     },
   ],
-  accountpicker: [
-    {
-      icon: 'pi-car-solid',
-      title: 'accountpicker1_title',
-      desc: 'accountpicker1_desc',
-      id: '',
-    },
-    {
-      icon: 'pi-car-solid',
-      title: 'accountpicker2_title',
-      desc: 'accountpicker2_desc',
-      id: '',
-    },
-  ],
-  recentactivity: [
-    {
-      message: 'recentactivity1_msg',
-    },
-    {
-      message: 'recentactivity2_msg',
-    },
-    {
-      message: 'recentactivity3_msg',
-    },
-    {
-      message: 'recentactivity4_msg',
-    },
-  ],
   offers: [
     {
       img: 'offer-main.jpg',

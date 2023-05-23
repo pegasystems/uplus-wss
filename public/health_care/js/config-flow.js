@@ -39,34 +39,6 @@ window.app = {
       link: 'seeoptions',
     },
   ],
-  accountpicker: [
-    {
-      icon: 'pi-stethoscope',
-      title: 'accountpicker1_title',
-      desc: 'accountpicker1_desc',
-      id: '',
-    },
-    {
-      icon: 'pi-case-medical',
-      title: 'accountpicker2_title',
-      desc: 'accountpicker2_desc',
-      id: '',
-    },
-    {
-      icon: 'pi-shield',
-      title: 'accountpicker3_title',
-      desc: 'accountpicker3_desc',
-      id: '',
-    },
-  ],
-  recentactivity: [
-    {
-      message: 'recentactivity1_msg',
-    },
-    {
-      message: 'recentactivity2_msg',
-    },
-  ],
   offers: [
     {
       img: 'offer-image.jpg',

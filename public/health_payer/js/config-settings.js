@@ -276,6 +276,40 @@ window.settings = {
       show_opname: false,
       otp_send_to: '',
       accountdetails: [],
+      accountpicker: [
+        {
+          icon: 'pi-stethoscope',
+          title: 'accountpicker1_title',
+          desc: 'accountpicker1_desc',
+          id: '',
+        },
+        {
+          icon: 'pi-case-medical',
+          title: 'accountpicker2_title',
+          desc: 'accountpicker2_desc',
+          id: '',
+        },
+        {
+          icon: 'pi-shield',
+          title: 'accountpicker3_title',
+          desc: 'accountpicker3_desc',
+          id: '',
+        },
+      ],
+      recentactivity: [
+        {
+          message: 'recentactivity1_msg',
+        },
+        {
+          message: 'recentactivity2_msg',
+        },
+        {
+          message: 'recentactivity3_msg',
+        },
+        {
+          message: 'recentactivity4_msg',
+        },
+      ],
       kpi: [
         {
           icon: 'pi-gauge',
@@ -317,6 +351,40 @@ window.settings = {
       show_opname: false,
       otp_send_to: '',
       accountdetails: [],
+      accountpicker: [
+        {
+          icon: 'pi-stethoscope',
+          title: 'accountpicker1_title',
+          desc: 'accountpicker1_desc',
+          id: '',
+        },
+        {
+          icon: 'pi-case-medical',
+          title: 'accountpicker2_title',
+          desc: 'accountpicker2_desc',
+          id: '',
+        },
+        {
+          icon: 'pi-shield',
+          title: 'accountpicker3_title',
+          desc: 'accountpicker3_desc',
+          id: '',
+        },
+      ],
+      recentactivity: [
+        {
+          message: 'recentactivity1_msg',
+        },
+        {
+          message: 'recentactivity2_msg',
+        },
+        {
+          message: 'recentactivity3_msg',
+        },
+        {
+          message: 'recentactivity4_msg',
+        },
+      ],
       kpi: [
         {
           icon: 'pi-gauge',

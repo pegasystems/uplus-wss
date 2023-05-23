@@ -305,6 +305,37 @@ window.settings = {
           id: "Active",
         }],
       ],
+      accountpicker: [
+        {
+          icon: "pi-piggybank",
+          title: "accountpicker1_title",
+          id: "***1234",
+        },
+        {
+          icon: "pi-money",
+          title: "accountpicker2_title",
+          id: "***5678",
+        },
+        {
+          icon: "pi-credit",
+          title: "accountpicker3_title",
+          id: "***7890",
+        },
+      ],
+      recentactivity: [
+        {
+          message: "recentactivity1_msg",
+        },
+        {
+          message: "recentactivity2_msg",
+        },
+        {
+          message: "recentactivity3_msg",
+        },
+        {
+          message: "recentactivity4_msg",
+        },
+      ],
     },
     {
       username: "mary@pegasystems.com",
@@ -360,6 +391,31 @@ window.settings = {
             title: "accountdetails3_title",
             id: "Active",
           }],
+      ],
+      accountpicker: [
+        {
+          icon: "pi-piggybank",
+          title: "accountpicker1_title",
+          id: "***3333",
+        },
+        {
+          icon: "pi-money",
+          title: "accountpicker2_title",
+          id: "***4444",
+        },
+        {
+          icon: "pi-credit",
+          title: "accountpicker3_title",
+          id: "***5555",
+        },
+      ],
+      recentactivity: [
+        {
+          message: "recentactivity1_msg",
+        },
+        {
+          message: "recentactivity2_msg",
+        },
       ],
     },
   ],
