@@ -1,15 +1,19 @@
 <template>
   <div v-if="homeHeroAction == 1 || viewKMHelp == 1" class="form flex flex-col">
     <MainHeader />
-    <main class="wrap flex flex-col">
-      <MashupMainArea />
+    <main class="flex flex-col">
+      <div class="wrap">
+        <MashupMainArea />
+      </div>
     </main>
     <MainFooter />
   </div>
   <div v-else-if="offerURL !== ''" class="form flex flex-col">
     <MainHeader />
-    <main class="wrap flex flex-col">
-      <MicroSiteMainArea />
+    <main class="flex flex-col">
+      <div class="wrap">
+        <MicroSiteMainArea />
+      </div>
     </main>
     <MainFooter />
   </div>

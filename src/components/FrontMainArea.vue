@@ -1,6 +1,5 @@
 <template>
-  <div
-    class="flex flex-col"
+  <template
     v-if="
       settings.pega_marketing.Host === '' ||
       settings.pega_marketing.homePage.placement === '' ||
@@ -9,50 +8,62 @@
       errorloading
     "
   >
-    <div class="wrap hero-wrap flex">
-      <div class="flex flex-col">
-        <h1 class="hero">
-          {{ $t(`message.${app.herotext.title}`) }}
-          <span>{{ $t(`message.${app.herotext.titlespan}`) }}</span>
-        </h1>
-        <button v-on:click="applyHeroAction" class="more">
-          {{ $t(`message.${app.herotext.buttonlabel}`) }}
-        </button>
+    <div class="hero-main">
+      <div class="wrap hero-wrap flex">
+        <div class="flex flex-col hero-heading">
+          <h1 class="hero">
+            {{ $t(`message.${app.herotext.title}`) }}
+            <span v-if="$t(`message.${app.herotext.titlespan}`) !== ''">{{
+              $t(`message.${app.herotext.titlespan}`)
+            }}</span>
+          </h1>
+          <button v-on:click="applyHeroAction" class="more">
+            {{ $t(`message.${app.herotext.buttonlabel}`) }}
+          </button>
+        </div>
+        <div class="flex hero-image">
+          <div class="hero-splash"></div>
+        </div>
       </div>
     </div>
-    <div class="wrap options primary-options">
-      <section
-        v-for="(item, index) in app.primarydetails"
-        :key="index"
-        class="front-option"
-      >
-        <div>
-          <img
-            class="option"
-            :src="item.img"
-            :alt="$t('message.' + item.title)"
-          />
-        </div>
-        <div class="details">
-          <h2 class="option-header">{{ $t('message.' + item.title) }}</h2>
-          <p>{{ $t('message.' + item.message) }}</p>
-          <a v-on:click="gotoOfferPage" href="./offer.html">{{
-            $t('message.' + item.link)
-          }}</a>
-        </div>
-      </section>
+    <div class="ribbon"><div></div></div>
+    <div class="wrap primary-options">
+      <h2>
+        {{ $t(`message.${app.primaryheading}`) }}
+      </h2>
+      <div class="options">
+        <section
+          v-for="(item, index) in app.primarydetails"
+          :key="index"
+          class="front-option"
+        >
+          <div class="details">
+            <img
+              class="option"
+              :src="item.img"
+              :alt="$t('message.' + item.title)"
+            />
+            <h3 class="option-header">{{ $t('message.' + item.title) }}</h3>
+            <p>{{ $t('message.' + item.message) }}</p>
+            <a v-on:click="gotoOfferPage" href="./offer.html">{{
+              $t('message.' + item.link)
+            }}</a>
+          </div>
+        </section>
+      </div>
     </div>
-  </div>
-  <div
-    class="flex flex-col"
+  </template>
+  <template
     v-else-if="
       settings.pega_marketing.Host !== '' &&
       loading &&
       settings.pega_marketing.showLoadingIndicator
     "
   >
-    <div class="wrap hero-wrap flex">
-      <div class="flex flex-col"></div>
+    <div class="hero-main">
+      <div class="wrap hero-wrap flex">
+        <div class="flex flex-col"></div>
+      </div>
     </div>
     <div class="wrap options primary-options" style="min-height: 400px">
       <section
@@ -67,8 +78,8 @@
         </span>
       </section>
     </div>
-  </div>
-  <div class="flex flex-col" v-else>
+  </template>
+  <template v-else>
     <div
       v-if="!isAuthenticated && homeHeroAction != 1 && offerURL === ''"
       class="wrap flex flex-col"
@@ -82,6 +93,8 @@
         v-on:click="toggleAIOverlay(hero_offer)"
         title="toggle AI"
       ></button>
+    </div>
+    <div class="hero-main">
       <div
         class="flex hero-wrap"
         :class="hero_offer.img !== '' ? 'hero-with-img' : ''"
@@ -89,7 +102,13 @@
         <div class="flex flex-col">
           <h1 class="hero">
             {{ hero_offer.title }}
-            <span>{{ hero_offer.message }}</span>
+            <span
+              v-if="
+                typeof hero_offer.message !== 'undefined' &&
+                hero_offer.message !== ''
+              "
+              >{{ hero_offer.message }}</span
+            >
           </h1>
           <a
             v-if="
@@ -137,11 +156,9 @@
           title="toggle AI"
         ></button>
         <div class="offer-card" :data-offer-index="index">
-          <div>
-            <img class="option" :src="item.img" :alt="item.title" />
-          </div>
           <div class="details">
-            <h2 class="option-header">{{ item.title }}</h2>
+            <img class="option" :src="item.img" :alt="item.title" />
+            <h3 class="option-header">{{ item.title }}</h3>
             <p>{{ item.message }}</p>
             <a
               v-if="
@@ -172,7 +189,7 @@
         </div>
       </section>
     </div>
-  </div>
+  </template>
 </template>
 
 <script>

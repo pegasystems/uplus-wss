@@ -37,7 +37,7 @@ describe('Health Payer App on Desktop', () => {
         },
       },
     });
-    expect(wrapper.find('h1').text()).toContain('message.accountoverview');
+    expect(wrapper.find('h1').text()).toContain('message.hello');
   });
 });
 

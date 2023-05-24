@@ -1,6 +1,5 @@
 <template>
   <header
-    class="flex flex-col"
     v-bind:style="
       !isAuthenticated && offerURL == '' && homeHeroImg != ''
         ? { backgroundImage: 'url(' + homeHeroImg + ')' }
@@ -16,8 +15,8 @@
           alt="U+"
         />
       </a>
-      <nav class="flex-grow-1">
-        <ul class="flex flex-mid-align flex-grow-1">
+      <nav class="flex flex-grow-1">
+        <ul class="flex flex-grow-1">
           <MenuItem
             v-for="(item, index) in app.menuitems"
             v-bind:pagetype="item.pagetype"
@@ -45,10 +44,6 @@
       <OperatorButton v-if="isAuthenticated" />
       <LoginButton v-else />
       <MainHeaderMenu />
-    </div>
-    <div v-if="currentPage.indexOf('offer') === 0">
-      <h1>{{ $t('message.' + app.offer[offerIndex].header.title) }}</h1>
-      <p>{{ $t('message.' + app.offer[offerIndex].header.msg) }}</p>
     </div>
   </header>
 </template>

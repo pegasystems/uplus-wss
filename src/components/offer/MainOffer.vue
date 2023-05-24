@@ -1,5 +1,6 @@
 <template>
   <div
+    class="wrap"
     v-if="
       settings.pega_marketing.Host === '' ||
       settings.pega_marketing.offerPage.placement === '' ||
@@ -8,46 +9,33 @@
       errorloading
     "
   >
-    <div class="main-offer primary-card flex flex-nowrap">
-      <img
-        class="offer-img"
-        :src="'./img/' + app.offer[offerType].main_offer.image"
-      />
-      <div class="details">
-        <h3 class="color-brand">
-          {{ $t(`message.${app.offer[offerType].main_offer.title}`) }}
-        </h3>
-        <p>{{ $t(`message.${app.offer[offerType].main_offer.message}`) }}</p>
-        <button v-on:click="applyOfferAction" class="strong">
-          {{ $t(`message.${app.offer[offerType].main_offer.button_label}`) }}
-        </button>
-      </div>
-    </div>
-    <div class="offer-cards promo">
-      <h4>{{ $t('message.' + app.offer[offerType].cards.title) }}</h4>
-      <div class="flex">
-        <div
-          class="flex flex-col primary-card"
-          v-for="(item, index) in app.offer[offerType].cards.data"
-          v-bind:key="index"
-        >
-          <h3>{{ $t('message.' + item.title) }}</h3>
-          <p class="flex-grow-1">{{ $t('message.' + item.message) }}</p>
-          <span class="highlight border-brand color-brand">{{
-            $t('message.' + item.highlight)
-          }}</span>
+    <div class="options">
+      <section
+        v-for="(item, index) in app.offer[offerType].main_offers"
+        :key="index"
+        class="front-option"
+      >
+        <div class="details">
+          <img class="option" :src="'./img/' + item.image" />
+          <h3>
+            {{ $t(`message.${item.title}`) }}
+          </h3>
+          <p>{{ $t(`message.${item.message}`) }}</p>
+          <a v-on:click="applyOfferAction" class="strong">
+            {{ $t(`message.${item.button_label}`) }}
+          </a>
         </div>
-      </div>
+      </section>
     </div>
   </div>
   <div
+    class="wrap"
     v-else-if="
       settings.pega_marketing.Host !== '' &&
       loading &&
       settings.pega_marketing.showLoadingIndicator
     "
   >
-    <div style="height: 50px"></div>
     <div class="offer-cards promo loading-container" style="min-height: 300px">
       <span class="loading">
         <span class="dot"></span>
@@ -56,63 +44,18 @@
       </span>
     </div>
   </div>
-  <div v-else>
+  <div class="wrap" v-else>
     <div
       class="main-offer primary-card flex flex-nowrap"
       v-if="hero_offer.url !== '' && hero_offer.img !== ''"
     >
-      <img class="offer-img" :src="hero_offer.img" :alt="hero_offer.title" />
       <div class="details">
+        <img class="option" :src="hero_offer.img" :alt="hero_offer.title" />
         <h3 class="color-brand">{{ hero_offer.title }}</h3>
         <p>{{ hero_offer.message }}</p>
         <button v-on:click="applyOfferAction" class="strong">
           {{ hero_offer.link }}
         </button>
-      </div>
-    </div>
-    <div v-else style="height: 50px"></div>
-    <div class="offer-cards promo">
-      <h4>{{ $t('message.' + app.offer[offerType].cards.title) }}</h4>
-      <div class="flex">
-        <div
-          class="flex flex-col primary-card"
-          v-for="(item, index) in data"
-          v-bind:key="index"
-        >
-          <div class="offer-container" :data-offer-index="index">
-            <h3>{{ item.title }}</h3>
-            <p class="flex-grow-1">{{ item.message }}</p>
-            <img
-              v-if="item.img != ''"
-              class="offer-img"
-              :src="item.img"
-              :alt="item.title"
-            />
-            <span class="highlight border-brand">
-              <a
-                v-if="action === 'TopURL' && item.url != ''"
-                :href="item.url"
-                :title="$t('message.' + item.link)"
-                >{{ $t('message.' + item.link) }}</a
-              >
-              <a
-                v-else-if="action === 'Popup' && item.url != ''"
-                :href="item.url"
-                target="_blank"
-                :title="$t('message.' + item.link)"
-                >{{ $t('message.' + item.link) }}</a
-              >
-              <button
-                v-else
-                class="simple"
-                v-on:click="showOffer(item)"
-                :title="$t('message.' + item.link)"
-              >
-                {{ $t('message.' + item.link) }}
-              </button>
-            </span>
-          </div>
-        </div>
       </div>
     </div>
   </div>

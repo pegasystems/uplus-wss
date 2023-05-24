@@ -1,18 +1,22 @@
 window.langFR = {
   hero_text: "Définissez des goals, ",
-  hero_span: "Economisez.",
+  hero_span: "Economisez",
   learnmore: "Pour plus d'info",
+  getstarted: "Commencer",
   contactus: "Contactez nous",
-  secondary1_title: "Nous sommes la pour vous aider.",
-  secondary1_msg: "La banque simplifiée.",
-  secondary2_title: "Diminuons le papier",
-  secondary2_msg: "Un moyen simple et efficace de s'organiser.",
+  welcomeBack: 'Bienvenue',
+  forgotPassword: 'Vous avez oubliez votre mot de passe?',
+  notEnrolled: 'Pas encore enregistre?',
+  secondary_heading: "Le compte etudiant offre beaucoup d'avantage sans cout.",
+  primary_heading: "Decouvrez comment U+Bank peux vous aider a aboutir dans vos objectives financiers",
   primary1_title: "Planifiez pour votre future.",
   primary1_msg: "Donnez a vos enfants un bon depart.",
   primary2_title: "Accedez a vos services banquaires en toute simplicité.",
   primary2_msg: "Accès facile a la portée de tous.",
-  primary3_title: "Besoin de conseils.",
+  primary3_title: "Besoin de conseils",
   primary3_msg: "Nous sommes la pour vous aider.",
+  primary4_title: "Besoin de conseils",
+  primary4_msg: "Nous sommes la pour vous aider.",
   menu1: "Services banquaires",
   menu2: "Cartes de crédit",
   menu3: "Emprunts",
@@ -65,51 +69,13 @@ window.langFR = {
   recentactivity3_msg: "Votre demande d'information #4345656 a été complétée",
   recentactivity4_msg: "Votre demande d'information #4345656 a été recue",
   viewmore: "Plus de details",
-  offer1_title: "Compte cheque sans frais",
-  offer1_msg:
-    "Une promotion est disponible pour les clients de plus de 65 ans avec un compte bancaire sans frais mensuel.",
-  offerforyou: "Une offre pour vous",
+  offer1_title: "Planifiez pour votre future.",
+  offer1_msg: "Donnez a vos enfants un bon depart.",
+  offer2_title: "Accedez a vos services banquaires en toute simplicité.",
+  offer2_msg: "Accès facile a la portée de tous.",
+  offer3_title: "Besoin de conseils",
+  offer3_msg: "Nous sommes la pour vous aider.",
   quicklinks: "Racourcis",
-  landing_header_title:
-    "Maximisez votre épargne avec un compte U+ Bank SavingsPLUS.",
-  landing_header_promotion1: "Payer zéro frais de compte",
-  landing_header_promotion2: "Gagnez plus d'intérêts",
-  landing_header_promotion3: "Easy mobile banking",
-  landing_main_form_title: "Apprenez à maximiser vos économies avec Uplus Bank",
-  landing_main_form_button_label: "Demandez plus d'informations",
-  landing_main_form_data1_label: "Nom",
-  landing_main_form_data2_label: "Email",
-  landing_main_form_data3_label: "Numéro de téléphone",
-  landing_cards_title: "Simplifiez vos opérations bancaires et épargnez",
-  landing_cards_data1_title: "Payer zéro frais de compte",
-  landing_cards_data1_message:
-    "Idéal pour ceux qui veulent gagner plus avec leur argent.",
-  landing_cards_data2_title: "Gagnez plus d'intérêts",
-  landing_cards_data2_message:
-    "Un compte courant qui convient à votre style de vie.",
-  landing_cards_data3_title: "Facilité bancaire mobile",
-  landing_cards_data3_message:
-    "Aucun frais de crédit annuel pour les membres de Flex Checking inscrits au paiement automatique",
-  landing_details1_title: "Comment ça marche",
-  landing_details1_message:
-    "Les comptes d'épargne sont limités à un total de cinq (5) virements préautorisés ou automatiques ou avec tirages. Vous pouvez accéder à votre argent à tout moment via les guichets automatiques U + sans frais ou dans les agences U + Bank proches de vous.",
-  landing_details2_title: "Tarification",
-  landing_details2_message:
-    "Un minimum de 100 Euros pour ouvrir votre compte. Vous pouvez virer des fonds par virement électronique, par chèque postal, par virement bancaire ou par virement. Gagnez 1,60% APY sur les soldes de 1 000,00 USD ou plus. Les soldes de moins de 1 000,00 USD super tous les jours ",
-  landing_benefits_title: "Benefit of SavingsPLUS",
-  landing_benefits_data1_message:
-    "Les taux d'intérêt les plus élevés en matière d'épargne dans le pays",
-  landing_benefits_data2_message:
-    "Accès facile et gratuit à votre compte 24 heures sur 24",
-  landing_benefits_data3_message:
-    "Jusqu'à 5 transactions ATM gratuites par mois",
-  landing_benefits_data4_message:
-    "Services bancaires mobiles avec dépôt mobile",
-  landing_benefits_data5_message: "Banque en ligne sécurisée",
-  landing_benefits_data6_message: "Pas de frais annuels",
-  landing_footer_title:
-    "Simplifiez vos opérations bancaires et commencez à gagner plus.",
-  landing_footer_button_label: "Appliquez maintenant",
   phone_home_page_title: "Comment pouvons-nous vous aider aujourd'hui?",
   phone_home_page_actions1_title: "Obtenir un devis",
   phone_home_page_actions2_title: "Déposer une réclamation",
@@ -306,40 +272,6 @@ window.langFR = {
   offer4_highlights_data3_msg:
     "Un minimum de 100 USD pour ouvrir votre compte. Vous pouvez virer des fonds par virement électronique, par courrier, par chèque, par virement mobile ou par virement.",
   kmhelp: "Aide",
-  category_header_title: "Cartes de crédit",
-  category_header_msg: "Une carte pour chaque occasion",
-  category_cards_title: "Cartes proposées",
-  category_cards_data1_title: "Platinum Card",
-  category_cards_data1_msg:
-    "Faites des achats quotidiens et gagnez 4x points sur U+ Bank Platinum.",
-  category_cards_data1_applylabel: "Appliquer maintenant",
-  category_cards_data1_detailslabel: "Voir les détails",
-  category_cards_data2_title: "Carte de récompense en espèces",
-  category_cards_data2_msg:
-    "Obtenez 4% de remise en argent sur les repas, 3% sur le prix de l'essence et 2% sur les autres achats.",
-  category_cards_data2_applylabel: "Appliquer maintenant",
-  category_cards_data2_detailslabel: "Voir les détails",
-  category_cards_data3_title: "Carte de voyageur",
-  category_cards_data3_msg:
-    "Évitez les frais de transaction à l'étranger et gagnez des points sur les achats des compagnies aériennes.",
-  category_cards_data3_applylabel: "Appliquer maintenant",
-  category_cards_data3_detailslabel: "Voir les détails",
-  category_details1_title: "Cash back immediat",
-  category_details1_msg:
-    "La carte U+ Bank Cash Rewards vous permet de récupérer de l'argent sur chaque achat.",
-  category_details1_button_label: "Appliquer maintenant",
-  category_highlights_title: "Pourquoi U+ Bank?",
-  category_highlights_data1_title: "Service de classe mondiale",
-  category_highlights_data1_msg:
-    "Profitez d'un service de classe mondiale et d'une protection contre les retours",
-  category_highlights_data2_title: "Sûreté et sécurité",
-  category_highlights_data2_msg:
-    "Les cartes à puce constituent un niveau de sécurité supplémentaire",
-  category_highlights_data3_title: "Acceptation de la carte",
-  category_highlights_data3_msg:
-    "Les cartes bancaires U+ sont désormais acceptées dans plus d'endroits que jamais",
-  category_footer_title:
-    "Simplifiez vos opérations bancaires et commencez à gagner plus.",
   offer_builtin_button_accepted: 'Je suis intéressé',
   offer_builtin_button_rejected: 'Non merci',
   offer_builtin_button_close: 'Fermer',

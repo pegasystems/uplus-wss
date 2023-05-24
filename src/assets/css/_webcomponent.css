@@ -190,9 +190,6 @@
   display: flex;
   margin-left: 6px;
 }
-.flex-col {
-  flex-flow: column;
-}
 .flex-all {
   flex: 1;
   margin: 0 8px;
@@ -224,7 +221,7 @@
 }
 .field-checkbox {
   flex-flow: row nowrap;
-  margin-top: 23px;
+  margin-top: 15px;
   align-items: center;
 }
 .field-checkbox > label {
@@ -470,7 +467,7 @@ select[readonly] {
 
 .badge_text {
   background-color: #088488;
-  color: #fff;
+  color: #050505;
   font-weight: 700;
   text-transform: uppercase;
   padding: 0px 4px;

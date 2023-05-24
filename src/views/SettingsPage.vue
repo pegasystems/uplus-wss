@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="flex flex-col">
+  <div class="front">
     <Header />
     <main class="flex flex-col">
       <Main />

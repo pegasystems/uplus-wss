@@ -115,24 +115,6 @@
             >Enable Click Stream</label
           >
         </div>
-        <div class="layout-labels-left layout-inline-grid-double">
-          <div class="field-item field-checkbox">
-            <input
-              id="NBAM-enableMergeAccount"
-              type="checkbox"
-              v-model="settings.pega_marketing.enableMergeAccount"
-            />
-            <label class="width-auto" for="NBAM-enableMergeAccount"
-              >Enable Merge Account (Pega '23')</label
-            >
-          </div>
-          <div
-            class="field-item"
-            v-if="settings.pega_marketing.enableMergeAccount"
-          >
-            <button v-on:click="resetExternalID">Reset ExternalID</button>
-          </div>
-        </div>
         <div class="field-item field-checkbox">
           <input
             id="NBAM-replaceHomePageHeader"
@@ -152,6 +134,24 @@
           <label class="width-auto" for="NBAM-showLoadingIndicator"
             >Display progress indicator while loading the offers</label
           >
+        </div>
+        <div class="layout-labels-left layout-inline-grid-double">
+          <div class="field-item field-checkbox">
+            <input
+              id="NBAM-enableMergeAccount"
+              type="checkbox"
+              v-model="settings.pega_marketing.enableMergeAccount"
+            />
+            <label class="width-auto" for="NBAM-enableMergeAccount"
+              >Enable Merge Account (Pega '23')</label
+            >
+          </div>
+          <div
+            class="field-item"
+            v-if="settings.pega_marketing.enableMergeAccount"
+          >
+            <button v-on:click="resetExternalID">Reset ExternalID</button>
+          </div>
         </div>
       </div>
     </Container>

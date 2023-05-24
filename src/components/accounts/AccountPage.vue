@@ -1,8 +1,8 @@
 <template>
   <div class="form flex flex-col">
     <MainHeader />
-    <main v-if="offerURL !== ''" class="wrap">
-      <MicroSiteMainArea />
+    <main v-if="offerURL !== ''" class="flex flex-col">
+      <div class="wrap"><MicroSiteMainArea /></div>
     </main>
     <main
       v-else-if="
@@ -14,26 +14,19 @@
       :class="'flex flex-col' + (isRTSEnabled ? ' rts-enabled' : '')"
     >
       <RTSOverlay v-if="settings.pega_marketing.enableRTS" />
-      <div v-if="app.industry === 'commercial_bank'">
+      <div>
         <h1 v-if="userId != -1" class="wrap">
           {{ $t('message.hello') + showWelcomeMessage() }}
         </h1>
-        <h1 v-else class="wrap">{{ $t('message.hello') }}</h1>
         <div class="wrap cols flex flex-wrap">
-          <BankAccountMainArea />
-          <AccountSecondaryArea :key="reloadOffer" />
-        </div>
-      </div>
-      <div v-else>
-        <h1 class="wrap">{{ $t('message.accountoverview') }}</h1>
-        <div class="wrap cols flex flex-wrap">
-          <AccountMainArea />
+          <AccountMainArea v-if="app.industry !== 'commercial_bank'" />
+          <BankAccountMainArea v-if="app.industry === 'commercial_bank'" />
           <AccountSecondaryArea :key="reloadOffer" />
         </div>
       </div>
     </main>
-    <main v-else class="wrap">
-      <MashupMainArea />
+    <main v-else class="flex flex-col">
+      <div class="wrap"><MashupMainArea /></div>
     </main>
     <MainFooter />
   </div>

@@ -1,13 +1,28 @@
 /*************************************************/
 /* Responsive behavior */
 /*************************************************/
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1432px) {
   :not(.phone)html {
     zoom: 0.8;
+  }
+  main {
+    padding: 0 16px;
+  }
+  .hero-main {
+    background: #FFF;
+  }
+  .ribbon, .ribbon1 {
+    display: none;
+  }
+  .offer-heading {
+    min-height: auto;
+    margin: 0;
+    padding: 16px 0;
   }
 }
 
 @media screen and (max-width: 1200px) {
+
   /* Force table to not be like tables anymore */
   table.responsive,
   .responsive thead,
@@ -68,21 +83,24 @@
     font-size: 50px;
   }
 
-  .front header {
-    height: 500px;
-  }
-
-  .front > main {
-    margin-top: -400px;
-  }
 
   .front .hero-wrap {
-    height: 400px;
+    min-height: 400px;
+  }
+
+  .primary-options h2 {
+    width:auto;
   }
 
   h2,
   .col-2 h3 {
     font-size: 20px;
+    margin-bottom:8px;
+  }
+
+  h3 {
+    font-size: 16px;
+    margin: 8px 0;
   }
 
   p {
@@ -123,6 +141,12 @@
 
   .secondary-card {
     width: 50%;
+  }
+  .secondary-options .banner {
+    height:400px;
+  }
+  .front-option {
+    max-width: 50%;
   }
 
   .offer-card-col {
@@ -178,28 +202,12 @@
   h1.hero {
     font-size: 40px;
   }
-
-  .front > header {
-    height: 300px;
-  }
-
-  .front > main {
-    margin-top: -200px;
-  }
   .front .hero-wrap {
-    height: 200px;
-  }
-  .offer > header {
-    padding: 7px 14px 0;
-  }
-  .offer > header h1 {
-    margin-top: 0;
-    font-size: 24px;
+    min-height: 200px;
   }
   .launch-login {
     display: none;
   }
-
   .menu {
     display: block;
   }
@@ -247,24 +255,6 @@
     margin: 0;
   }
 
-  .landing-cards > div,
-  .landing-request {
-    flex-flow: column;
-    align-items: center;
-  }
-
-  .landing-request > .landing-intro {
-    margin: 0 0 16px 0;
-  }
-
-  .landing .landing-cards {
-    margin-top: 0;
-  }
-
-  .landing-cards > div > .flex {
-    margin-bottom: 16px;
-  }
-
   .hero-wrap img {
     max-height: 150px;
   }
@@ -282,6 +272,19 @@
 
   .col-2 > .secondary-card {
     width: auto;
+  }
+  .highlight-card {
+    padding: 16px;
+  }
+  .options {
+    flex-flow: column nowrap;
+  }
+  .front-option {
+    max-width: initial;
+    padding:0;
+  }
+  .front-option > .details {
+    padding:8px 0;
   }
 
   .chat-button #ChatLauncherminimized > img,
@@ -324,16 +327,14 @@
 }
 
 @media screen and (max-width: 567px) {
-  .primary-options,
-  .secondary-options .wrap {
-    flex-flow: column nowrap;
-  }
 
   .primary-options .front-option {
     flex-flow: row nowrap;
     display: flex;
     border-bottom: 1px solid #dfdfdf;
     align-items: center;
+    max-width: initial;
+    padding:0;
   }
 
   .primary-options .front-option > img {
@@ -343,7 +344,11 @@
   .primary-options .front-option > .details {
     flex: 1;
     text-align: left;
-    padding-left: 14px;
+    padding: 16px 0;
+  }
+
+  main .hero-wrap .hero-image {
+    display:none;
   }
 
   .offer > main,
@@ -351,43 +356,8 @@
     margin: 0;
   }
 
-  .category > header,
-  .offer > header,
-  .front > header {
-    margin-bottom: 0;
-    height: 300px;
-  }
-
-  .category > header,
-  .offer > header {
-    margin-bottom: 14px;
-  }
-
   button {
     min-width: 0;
-  }
-
-  .secondary-options .front-option::after {
-    height: 40px;
-    width: 40px;
-    background-size: 20px auto;
-    margin-left: -17px;
-  }
-
-  .secondary-options .front-option:first-child::after {
-    top: -20px;
-  }
-
-  .secondary-options .wrap {
-    margin-top: -150px;
-    padding: 0 10vw;
-    filter: drop-shadow(0 3px 7px rgba(0, 0, 0, 0.5));
-    margin-bottom: 14px;
-  }
-
-  .secondary-options .front-option {
-    background: #fff;
-    padding-top: 40px;
   }
 
   .copyright {
@@ -429,15 +399,6 @@
     display: block;
   }
 
-  .landing-details .image {
-    display: none;
-  }
-
-  .landing .landing-details > div > .details {
-    width: 100%;
-    padding: 21px 35px;
-  }
-
   .offer-details > div > div:first-child {
     padding: 0 50px 0 44px;
     min-width: 244px;
@@ -447,25 +408,10 @@
     height: 150px;
   }
 
-  .category .promo,
-  .landing .promo {
-    padding: 16px;
-  }
-
   .offer .promo > .flex {
     flex-flow: column;
     max-width: 300px;
     margin: 0 auto;
-  }
-
-  .category > main {
-    margin-top: -230px;
-  }
-  .category .primary-card {
-    padding: 0;
-  }
-  .category .primary-card > .separator {
-    flex-flow: column nowrap;
   }
 
   .banner > div > div {
@@ -475,29 +421,6 @@
 
   .banner i {
     font-size: 2em;
-  }
-
-  .category .primary-card > .separator > section {
-    border-right: none;
-    flex-flow: row nowrap;
-    align-items: center;
-    border-bottom: 1px solid #979797;
-    padding: 8px 24px;
-  }
-
-  .category .primary-card > .separator > section:first-child {
-    border-top: 1px solid #979797;
-  }
-  .category .primary-card > .separator > section > .flex {
-    padding: 0 0 0 24px;
-  }
-
-  .category-highlights > .flex {
-    flex-flow: column nowrap;
-  }
-
-  .category-highlights p {
-    margin: 8px 0;
   }
 }
 

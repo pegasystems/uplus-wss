@@ -2,17 +2,16 @@
 
 body,
 button {
-  font: 16px/1.43 'Open Sans', sans-serif;
+  font: 16px/1.2 'Inter', sans-serif;
 }
 
 body {
-  color: #414949;
+  color: #050505;
 }
 
 a,
 a:visited {
   text-decoration: none;
-  font-weight: 600;
 }
 
 a:not(.decorated):hover {
@@ -64,47 +63,63 @@ li {
   border-radius: 50%;
 }
 
-header a,
-header a:visited {
-  font-size: 16px;
-  font-weight: 700;
-  color: #fff;
-  letter-spacing: 0.7px;
-  text-transform: uppercase;
+header nav a,
+header nav a:visited {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  color: #050505;
 }
 
 header span {
-  color: #fff;
+  color: #050505;
   font-size: 14px;
   font-weight: 700;
   text-align: right;
 }
 
 h1 {
-  font-weight: 300;
+  font-weight: 500;
   font-size: 42px;
-  color: #fff;
+  color: #050505;
   margin: 0 0 28px 0;
 }
 
-h2,
-.col-2 h3 {
-  font-weight: 800;
-  font-size: 20px;
-  margin: 0 0 16px 0;
-  color: #000;
-  line-height: 1.2;
+h1.hero {
+  padding-top:40px;
+  font-size: 90px;
+  line-height:1;
 }
 
-h1.hero {
-  font-size: 90px;
-  line-height: 1.1;
-  color: #fff;
+h2 {
+  font-weight: 500;
+  font-size: 40px;
+  margin: 0 0 21px 0;
+  color: #050505;
+  line-height: 1.2;
 }
+.primary-options h2 {
+  width:50%;
+}
+
+h3 {
+  font-size: 26px;
+  margin: 0 0 16px 0;
+  color: #050505;
+  font-weight: 500;
+}
+
+h4 {
+  font-size: 16px;
+  margin: 8px 0;
+  color: #050505;
+}
+
 
 p {
   font-size: 18px;
   margin: 0 0 8px 0;
+  color: #050505;
 }
 
 .separator > section {
@@ -117,33 +132,13 @@ p {
 .front-option > p {
   margin-bottom: 8px;
 }
-.category-option p {
-  margin-bottom: 24px;
-}
-
-.category-option button {
-  min-width: 0;
-  height: 36px;
-}
 
 h1.hero span {
   display: block;
 }
 
-h3,
 th {
   color: #646363;
-}
-
-h3 {
-  font-size: 18px;
-  margin: 0 0 21px 0;
-}
-
-h4 {
-  font-size: 16px;
-  margin: 8px 0;
-  color: #000;
 }
 
 .quick-links li,
@@ -178,7 +173,7 @@ h4 {
 .banner,
 .banner h3,
 .banner p {
-  color: #fff;
+  color: #050505;
 }
 
 .banner button {
@@ -212,9 +207,9 @@ table.color-light tr {
 }
 
 table.color-light td {
-  border: 1px solid #ffffff;
+  border: 1px solid #000fff;
   padding: 8px;
-  color: #000;
+  color: #050505;
 }
 
 table.color-heading {
@@ -248,10 +243,6 @@ tr.heading {
 .investmentamount {
   min-width: 130px;
   display: inline-block;
-}
-
-p {
-  color: #646363;
 }
 
 p.activity {
@@ -298,7 +289,7 @@ time.fatlist-item {
 
 .cash-projections span {
   font-size: 20px;
-  color: #000;
+  color: #050505;
 }
 
 .cash-projections > div > div {
@@ -318,7 +309,7 @@ time.fatlist-item {
   display: none;
   position: absolute;
   top: 0;
-  color: #fff;
+  color: #050505;
   background-color: rgba(39, 59, 63, 1);
   flex-flow: column nowrap;
 }
@@ -332,7 +323,7 @@ time.fatlist-item {
 
 .ai-overlay > .footer-img {
   margin: auto 0 0 0;
-  border-top: 1px solid #fff;
+  border-top: 1px solid rgba(0,0,0,0.2);
   text-align: right;
   background: url(../img/pega-logo.png) 0 0 no-repeat;
   height: 40px;
@@ -359,7 +350,7 @@ time.fatlist-item {
   font-weight: 700;
   min-width: 165px;
   display: inline-block;
-  color: #fff;
+  color: #050505;
   margin: 0 8px 0 0;
 }
 .ai-overlay span {
@@ -370,7 +361,7 @@ time.fatlist-item {
 .ai-toggle {
   font-size: 24px;
   border-radius: 50%;
-  border: 3px solid #fff;
+  border: 3px solid #000;
   min-width: auto;
   height: 49px;
   align-self: flex-end;
@@ -421,7 +412,7 @@ time.fatlist-item {
 
 .pi.pi-rts-error {
   background: #f7112d;
-  border-color: #fff;
+  border-color: #050505;
 }
 
 .rts-overlay-toggle {
@@ -432,7 +423,7 @@ time.fatlist-item {
 
 .rts-overlay span {
   font-size: 16px;
-  color: #fff;
+  color: #050505;
 }
 
 .rts-overlay .comment {
@@ -440,7 +431,7 @@ time.fatlist-item {
   height: 66px;
   overflow-y: auto;
   font-size: 13px;
-  color: #fff;
+  color: #050505;
   flex: 1;
   padding: 14px 14px 0 14px;
   margin-left: 14px;
@@ -448,7 +439,7 @@ time.fatlist-item {
 }
 
 .rts-overlay .comment > p {
-  color: #fff;
+  color: #050505;
   margin: 0;
   font-size: 13px;
 }

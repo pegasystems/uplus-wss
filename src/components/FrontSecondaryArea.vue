@@ -1,20 +1,16 @@
 <template>
-  <div class="secondary-options">
+  <div class="wrap secondary-options">
     <div
       class="banner"
-      v-bind:style="{ backgroundImage: 'url(img/secondary-options.jpg)' }"
+      v-bind:style="{ backgroundImage: 'url(img/secondary-options.png)' }"
     ></div>
-    <div class="wrap options">
-      <section
-        v-for="item in app.secondarydetails"
-        :key="item.className"
-        :class="item.className"
-        class="front-option"
-      >
-        <h2 class="option-header">{{ $t('message.' + item.title) }}</h2>
-        <p>{{ $t('message.' + item.message) }}</p>
-        <a>{{ $t('message.' + item.link) }}</a>
-      </section>
+    <div class="content-card flex flex-col">
+      <h2>
+        {{ $t(`message.${app.secondarydetails.heading}`) }}
+      </h2>
+      <button class="more">
+        {{ $t(`message.${app.secondarydetails.link}`) }}
+      </button>
     </div>
   </div>
 </template>
