@@ -211,6 +211,15 @@ export const upgradeConfig = function upgradeConfig(cfg) {
     if (typeof cfg.settings.users[i].show_opname === 'undefined') {
       cfg.settings.users[i].show_opname = false;
     }
+    if (typeof cfg.settings.users[i].accountdetails === 'undefined') {
+      cfg.settings.users[i].accountdetails = [];
+    }
+    if (typeof cfg.settings.users[i].accountpicker === 'undefined') {
+      cfg.settings.users[i].accountpicker = [];
+    }
+    if (typeof cfg.settings.users[i].recentactivity === 'undefined') {
+      cfg.settings.users[i].recentactivity = [];
+    }
   }
   if (typeof cfg.settings.pega_marketing.homePage === 'undefined') {
     cfg.settings.pega_marketing.homePage = { containerName: 'TopOffers' };

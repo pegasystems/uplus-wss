@@ -27,9 +27,9 @@ if(PegaCSWSS.MarketingHost !== "") {
 }
 var ProactiveCDHDismiss = "false";
 if(PegaCSWSS.ProActiveNotificationDismissTime.trim() !== "") {
-   ProactiveCDHDismiss = "true"; 
+   ProactiveCDHDismiss = "true";
 }
-          
+
 var PegaChatConfig = {
 	"TenantId": PegaCSWSS.TenantID ,
 	"ChannelId": PegaCSWSS.WebChatBotID ,
@@ -42,7 +42,7 @@ var PegaChatConfig = {
 	"CobrowseToken": PegaCSWSS.Cobrowse.Token,
 	"CoBrowseServerHostURL": PegaCSWSS.Cobrowse.ServerURL,
     "ProactiveCDHEnabled": "" + PegaCSWSS.EnableProActiveNotification,
-    "ProactiveServiceURL": ProactiveServiceProtocol + "://" + ProactiveServiceHostname + (ProactiveServicePort != "" ? ":" + ProactiveServicePort : "") + "/prweb/PRRestService/CSSelfServiceNBA/V1/Container", 
+    "ProactiveServiceURL": ProactiveServiceProtocol + "://" + ProactiveServiceHostname + (ProactiveServicePort != "" ? ":" + ProactiveServicePort : "") + "/prweb/PRRestService/CSSelfServiceNBA/V1/Container",
     "ProactiveCDHDismiss" : ProactiveCDHDismiss,
     "ProactiveCDHDismissTime" : PegaCSWSS.ProActiveNotificationDismissTime
 };
@@ -137,19 +137,19 @@ function postMessageListener(event){
   if (message.command == "showLeftPanel" || message.command == "hideLeftPanel") {
     handleLeftPanel(message.command);
   }
- 
+
   if (message.command == "setAssignmentKey") {
       var isProactiveChatFlag = sessionStorage.getItem('isProactiveChat') == "true";
       !isProactiveChatFlag && sessionStorage.setItem("AssignmentKey", message.pzInsKey);
-  } 
- 
+  }
+
   if(message.command == "clearProactiveTimer") {
     clearProactiveTimer();
   }
-	
+
   if (message.command == "downloadBotTranscript") {
     downloadBotTranscript(message.transcript);
-  }	
+  }
 }
 
 function adjustMessageFieldWidth() {
@@ -432,7 +432,11 @@ function downloadBotTranscript(message) {
 		}
 	}
 	function triggerProactiveChatEvent(eventName, eventData){
-		window.pega.chat.proactiveChat.trigger('proactivechat-'+eventName, eventData || {});
+    if(PegaUnifiedChatWidget) {
+      PegaUnifiedChatWidget.triggerChat( eventName );
+    } else {
+      window.pega.chat.proactiveChat.trigger('proactivechat-'+eventName, eventData || {});
+    }
 	}
 	function pegaUtilInheritClass(newClass, baseClass) {
 		Object.keys(baseClass).forEach(function (classMethod) {

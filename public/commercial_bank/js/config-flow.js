@@ -36,38 +36,6 @@ window.app = {
       link: "learnmore",
     },
   ],
-  accountpicker: [
-    {
-      icon: "pi-piggybank",
-      title: "accountpicker1_title",
-      id: "***1234",
-    },
-    {
-      icon: "pi-money",
-      title: "accountpicker2_title",
-      id: "***5678",
-    },
-    {
-      icon: "pi-credit",
-      title: "accountpicker3_title",
-      id: "***7890",
-    },
-  ],
-  accountdetails: [],
-  recentactivity: [
-    {
-      message: "recentactivity1_msg",
-    },
-    {
-      message: "recentactivity2_msg",
-    },
-    {
-      message: "recentactivity3_msg",
-    },
-    {
-      message: "recentactivity4_msg",
-    },
-  ],
   offers: [
     {
       img: "offer1.jpg",

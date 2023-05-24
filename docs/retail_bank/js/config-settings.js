@@ -279,6 +279,63 @@ window.settings = {
       load_by_default: true,
       show_opname: false,
       otp_send_to: "",
+      accountdetails: [[
+        {
+          title: "accountdetails1_title",
+          id: "***0219",
+        },
+        {
+          title: "accountdetails2_title",
+          id: "VISA card",
+        },
+        {
+          title: "accountdetails3_title",
+          id: "Active",
+        }],[
+        {
+          title: "accountdetails1_title",
+          id: "***1875",
+        },
+        {
+          title: "accountdetails2_title",
+          id: "Amex card",
+        },
+        {
+          title: "accountdetails3_title",
+          id: "Active",
+        }],
+      ],
+      accountpicker: [
+        {
+          icon: "pi-piggybank",
+          title: "accountpicker1_title",
+          id: "***1234",
+        },
+        {
+          icon: "pi-money",
+          title: "accountpicker2_title",
+          id: "***5678",
+        },
+        {
+          icon: "pi-credit",
+          title: "accountpicker3_title",
+          id: "***7890",
+        },
+      ],
+      recentactivity: [
+        {
+          message: "recentactivity1_msg",
+        },
+        {
+          message: "recentactivity2_msg",
+        },
+        {
+          message: "recentactivity3_msg",
+        },
+        {
+          message: "recentactivity4_msg",
+        },
+      ],
     },
     {
       username: "mary@pegasystems.com",
@@ -297,6 +354,69 @@ window.settings = {
       load_by_default: false,
       show_opname: false,
       otp_send_to: "",
+      accountdetails: [[
+        {
+          title: "accountdetails1_title",
+          id: "***0444",
+        },
+        {
+          title: "accountdetails2_title",
+          id: "AMEX card",
+        },
+        {
+          title: "accountdetails3_title",
+          id: "Expired",
+        }],[
+        {
+          title: "accountdetails1_title",
+          id: "***56735",
+        },
+        {
+          title: "accountdetails2_title",
+          id: "VISA card",
+        },
+        {
+          title: "accountdetails3_title",
+          id: "Active",
+        }],[
+          {
+            title: "accountdetails1_title",
+            id: "***2223",
+          },
+          {
+            title: "accountdetails2_title",
+            id: "Chase Credit card",
+          },
+          {
+            title: "accountdetails3_title",
+            id: "Active",
+          }],
+      ],
+      accountpicker: [
+        {
+          icon: "pi-piggybank",
+          title: "accountpicker1_title",
+          id: "***3333",
+        },
+        {
+          icon: "pi-money",
+          title: "accountpicker2_title",
+          id: "***4444",
+        },
+        {
+          icon: "pi-credit",
+          title: "accountpicker3_title",
+          id: "***5555",
+        },
+      ],
+      recentactivity: [
+        {
+          message: "recentactivity1_msg",
+        },
+        {
+          message: "recentactivity2_msg",
+        },
+      ],
     },
   ],
   pega_chat: {

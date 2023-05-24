@@ -115,6 +115,27 @@
             >Enable Click Stream</label
           >
         </div>
+        <div class="layout-labels-left layout-inline-grid-double">
+          <div class="field-item field-checkbox">
+            <input
+              id="NBAM-enableMergeAccount"
+              type="checkbox"
+              v-model="settings.pega_marketing.enableMergeAccount"
+            />
+            <label class="width-auto" for="NBAM-enableMergeAccount"
+              >Enable Merge Account (Pega '23')</label
+            >
+          </div>
+          <div
+            class="field-item"
+            v-if="settings.pega_marketing.enableMergeAccount"
+          >
+            <button class="margin-r-2x" v-on:click="resetExternalID">
+              Reset ExternalID
+            </button>
+            <span>{{ this.ExternalID }}</span>
+          </div>
+        </div>
         <div class="field-item field-checkbox">
           <input
             id="NBAM-replaceHomePageHeader"
@@ -404,9 +425,18 @@ export default {
     Container,
   },
   methods: {
-    resetExternalID() {
+    resetExternalID(e) {
+      e.preventDefault();
       this.ExternalID = 'uplus-' + Date.now();
       sessionStorage.setItem('ExternalID', this.ExternalID);
+      navigator.clipboard
+        .writeText(this.ExternalID)
+        .then(() => {
+          alert('successfully copied');
+        })
+        .catch(() => {
+          alert('something went wrong');
+        });
     },
   },
 };

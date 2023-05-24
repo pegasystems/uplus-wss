@@ -42,7 +42,7 @@ main .hero-wrap > .hero-heading {
 .account-details > div {
   border:1px solid #d5d5d5;
   margin-bottom:8px;
-  padding:12px;
+  padding:12px 20px;
 }
 
 .flex-col-all {
@@ -262,10 +262,13 @@ display: flex;
 }
 
 .list-box > p {
-  font-size: 27px;
+  font-size: 22px;
   color: #414949;
   margin: 0;
   word-break: break-all;
+}
+.kpi-item > i {
+  padding: 3px 4px 0 0;
 }
 
 .secondary-options .front-option::after {
@@ -563,6 +566,10 @@ pega-embed {
   padding-top: 16px;
 }
 
+.padding-b-1x {
+  padding-bottom: 8px;
+}
+
 .flex-grow-1 {
   flex-grow: 1;
 }
@@ -639,6 +646,7 @@ a[role='tab']:active {
 
 .bill-pay p {
   margin-bottom: 16px;
+  font-size:22px;
 }
 
 a.kmhelp {

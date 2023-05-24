@@ -37,63 +37,6 @@ window.app = {
     },
 
   ],
-  accountpicker: [
-    {
-      icon: "pi-piggybank",
-      title: "accountpicker1_title",
-      id: "***1234",
-    },
-    {
-      icon: "pi-money",
-      title: "accountpicker2_title",
-      id: "***5678",
-    },
-    {
-      icon: "pi-credit",
-      title: "accountpicker3_title",
-      id: "***7890",
-    },
-  ],
-  accountdetails: [[
-    {
-      title: "accountdetails1_title",
-      id: "***0219",
-    },
-    {
-      title: "accountdetails2_title",
-      id: "VISA card",
-    },
-    {
-      title: "accountdetails3_title",
-      id: "Active",
-    }],[
-    {
-      title: "accountdetails1_title",
-      id: "***1875",
-    },
-    {
-      title: "accountdetails2_title",
-      id: "Amex card",
-    },
-    {
-      title: "accountdetails3_title",
-      id: "Active",
-    }],
-  ],
-  recentactivity: [
-    {
-      message: "recentactivity1_msg",
-    },
-    {
-      message: "recentactivity2_msg",
-    },
-    {
-      message: "recentactivity3_msg",
-    },
-    {
-      message: "recentactivity4_msg",
-    },
-  ],
   offers: [
     {
       img: "offer1.jpg",

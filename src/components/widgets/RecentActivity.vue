@@ -5,11 +5,18 @@
       typeof settings.activity !== 'undefined' && settings.activity.url !== ''
     "
   />
-  <section v-else class="recent-activity">
+  <section
+    v-else-if="
+      userId !== -1 &&
+      typeof settings.users[userId].recentactivity !== 'undefined' &&
+      settings.users[userId].recentactivity.length > 0
+    "
+    class="recent-activity"
+  >
     <h2>{{ $t('message.recentactivity') }}</h2>
     <ul class="fatlist">
       <li
-        v-for="(item, index) in app.recentactivity"
+        v-for="(item, index) in settings.users[userId].recentactivity"
         :key="item.message"
         class="flex"
       >

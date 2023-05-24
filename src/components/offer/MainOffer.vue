@@ -1,6 +1,5 @@
 <template>
-  <div
-    class="wrap"
+  <template
     v-if="
       settings.pega_marketing.Host === '' ||
       settings.pega_marketing.offerPage.placement === '' ||
@@ -27,9 +26,8 @@
         </div>
       </section>
     </div>
-  </div>
-  <div
-    class="wrap"
+  </template>
+  <template
     v-else-if="
       settings.pega_marketing.Host !== '' &&
       loading &&
@@ -43,10 +41,11 @@
         <span class="dot"></span>
       </span>
     </div>
-  </div>
-  <div class="wrap" v-else>
+  </template>
+  <template v-else>
     <div
-      class="main-offer primary-card flex flex-nowrap"
+      class="main-offer primary-card flex flex-nowrap hero-offer"
+      :data-hero-offer="1"
       v-if="hero_offer.url !== '' && hero_offer.img !== ''"
     >
       <div class="details">
@@ -58,7 +57,7 @@
         </button>
       </div>
     </div>
-  </div>
+  </template>
 </template>
 
 <script>
@@ -104,15 +103,26 @@ export default {
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              const idx = entry.target.getAttribute('data-offer-index');
-              captureResponse(this, this.data[idx], 'Impression');
-              observer.unobserve(entry.target);
+              let idx = entry.target.getAttribute('data-offer-index');
+              if (idx !== null) {
+                captureResponse(this, this.data[idx], 'Impression');
+                observer.unobserve(entry.target);
+              } else {
+                idx = entry.target.getAttribute('data-hero-offer');
+                if (idx !== null) {
+                  captureResponse(this, this.hero_offer, 'Impression');
+                  observer.unobserve(entry.target);
+                }
+              }
             }
           });
         },
         { threshold: 1 },
       );
       document.querySelectorAll('.offer-container').forEach((offer) => {
+        observer.observe(offer);
+      });
+      document.querySelectorAll('.hero-offer').forEach((offer) => {
         observer.observe(offer);
       });
     }

@@ -251,10 +251,7 @@ p.activity {
 }
 
 time {
-  text-transform: uppercase;
   color: #646363;
-  font-size: 18px;
-  font-weight: 600;
 }
 
 time span {
@@ -444,6 +441,7 @@ time.fatlist-item {
   font-size: 13px;
 }
 
-.scorecard {
+.list-box > span.scorecard {
   font-size: 22px;
+  color: #414949;
 }

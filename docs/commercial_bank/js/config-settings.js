@@ -278,6 +278,7 @@ window.settings = {
       load_by_default: true,
       show_opname: false,
       otp_send_to: "",
+      accountdetails: [],
       accounts: [
         {
           number: "****0000",
@@ -296,6 +297,37 @@ window.settings = {
           name: "Customer Payment Account",
           type: "Sweep",
           balance: 43921.82,
+        },
+      ],
+      accountpicker: [
+        {
+          icon: "pi-piggybank",
+          title: "accountpicker1_title",
+          id: "***1234",
+        },
+        {
+          icon: "pi-money",
+          title: "accountpicker2_title",
+          id: "***5678",
+        },
+        {
+          icon: "pi-credit",
+          title: "accountpicker3_title",
+          id: "***7890",
+        },
+      ],
+      recentactivity: [
+        {
+          message: "recentactivity1_msg",
+        },
+        {
+          message: "recentactivity2_msg",
+        },
+        {
+          message: "recentactivity3_msg",
+        },
+        {
+          message: "recentactivity4_msg",
         },
       ],
       investmentaccounts: [
@@ -341,6 +373,7 @@ window.settings = {
       load_by_default: false,
       show_opname: false,
       otp_send_to: "",
+      accountdetails: [],
       accounts: [
         {
           number: 6173782492,
@@ -355,6 +388,37 @@ window.settings = {
           id: 54920,
           previous_balance: 523421.34,
           current_balance: 534561.34,
+        },
+      ],
+      accountpicker: [
+        {
+          icon: "pi-piggybank",
+          title: "accountpicker1_title",
+          id: "***1234",
+        },
+        {
+          icon: "pi-money",
+          title: "accountpicker2_title",
+          id: "***5678",
+        },
+        {
+          icon: "pi-credit",
+          title: "accountpicker3_title",
+          id: "***7890",
+        },
+      ],
+      recentactivity: [
+        {
+          message: "recentactivity1_msg",
+        },
+        {
+          message: "recentactivity2_msg",
+        },
+        {
+          message: "recentactivity3_msg",
+        },
+        {
+          message: "recentactivity4_msg",
         },
       ],
       investmentaccounts: [

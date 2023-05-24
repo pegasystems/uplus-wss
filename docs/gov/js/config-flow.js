@@ -36,41 +36,6 @@ window.app = {
       link: 'learnmore',
     },
   ],
-  accountpicker: [
-    {
-      icon: 'pi-piggybank',
-      title: 'accountpicker1_title',
-      desc: 'accountpicker1_desc',
-      id: '',
-    },
-    {
-      icon: 'pi-money',
-      title: 'accountpicker2_title',
-      desc: 'accountpicker2_desc',
-      id: '',
-    },
-    {
-      icon: 'pi-credit',
-      title: 'accountpicker3_title',
-      desc: 'accountpicker3_desc',
-      id: '',
-    },
-  ],
-  accountdetails: [],
-  recentactivity: [
-    {
-      message: 'recentactivity1_msg',
-    },
-    {
-      message: 'recentactivity2_msg',
-    },
-    {
-      message: 'recentactivity3_msg',
-    },
-    {
-      message: 'recentactivity4_msg',
-    },
-  ],
   offers: [
     {
       img: 'offer1.jpg',
@@ -104,6 +69,7 @@ window.app = {
     {
       pagetype: 'community',
       title: 'menu4',
+      url: 'http://localhost:5173/gov/index.html?pega_userid=JOESULLIVAN&quicklinkclass=PGPGov-GrantsMa-Work-ProgramFinder'
     },
   ],
   offer: [{
