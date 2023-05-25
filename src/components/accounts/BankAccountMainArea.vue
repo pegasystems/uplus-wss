@@ -1,5 +1,5 @@
 <template>
-  <div class="col col-1 primary-card">
+  <div class="col col-1">
     <Banner
       v-if="
         typeof settings.banner !== 'undefined' &&
@@ -11,27 +11,27 @@
       v-if="typeof settings.todo !== 'undefined' && settings.todo.url !== ''"
       :key="reloadToDoMashup"
     />
-    <section class="content cash-projections">
+    <section class="content cash-projections primary-card">
       <div class="flex">
-        <h2>{{ $t('message.cash_projections') }}</h2>
+        <h3>{{ $t('message.cash_projections') }}</h3>
         <div>
-          <h4>{{ $t('message.income') }}</h4>
+          <p>{{ $t('message.income') }}</p>
           <span> <i class="pi pi-arrow-down pi-error"></i>17.4% </span>
         </div>
         <div>
-          <h4>{{ $t('message.cost') }}</h4>
+          <p>{{ $t('message.cost') }}</p>
           <span> <i class="pi pi-arrow-up pi-success"></i>12.2% </span>
         </div>
         <div>
-          <h4>{{ $t('message.balance') }}</h4>
+          <p>{{ $t('message.balance') }}</p>
           <span> <i class="pi pi-arrow-down pi-error"></i>2.1% </span>
         </div>
       </div>
       <div>
-        <h4 class="dropdown">
+        <p class="dropdown">
           {{ $t('message.cash_projections_dropdown') }}
           <i class="pi pi-caret-down"></i>
-        </h4>
+        </p>
       </div>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 305">
         <g transform="translate(80,40)">

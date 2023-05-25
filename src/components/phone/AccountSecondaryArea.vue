@@ -2,15 +2,11 @@
   <div>
     <div class="secondary-card margin-t-0 quick-links-account">
       <h2>{{ $t('message.phone_quick_links_title') }}</h2>
-      <nav>
-        <ul>
-          <li v-for="(item, index) in visibleQuickLinks" :key="index">
-            <a v-on:click="selectLink(item.originalIndex)">{{
-              item.title[currentLocale]
-            }}</a>
-          </li>
-        </ul>
-      </nav>
+      <template v-for="(item, index) in visibleQuickLinks" :key="index">
+        <button v-on:click="selectLink(item.originalIndex)">
+          {{ item.title[currentLocale] }}
+        </button>
+      </template>
     </div>
     <div
       class="secondary-card"

@@ -39,29 +39,7 @@ li {
   margin: 0;
 }
 
-.quick-links li,
-.benefits li {
-  margin-bottom: 28px;
-}
 
-.benefits li {
-  margin-left: 42px;
-  position: relative;
-}
-
-.benefits li::after {
-  content: '';
-  width: 24px;
-  height: 24px;
-  background: url('../img/checkmark-w.svg');
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  background-size: 14px auto;
-  top: -0;
-  left: -42px;
-  position: absolute;
-  border-radius: 50%;
-}
 
 header nav a,
 header nav a:visited {
@@ -141,8 +119,6 @@ th {
   color: #646363;
 }
 
-.quick-links li,
-.quick-links a,
 .col-2 h3,
 .table-heading {
   font-size: 20px;
@@ -152,10 +128,6 @@ th {
   margin: 21px 0 14px 0;
 }
 
-.quick-links li,
-.quick-links a {
-  font-weight: 700;
-}
 
 .banner > div {
   border-color: transparent;
@@ -275,7 +247,7 @@ time.fatlist-item {
   align-items: center;
 }
 
-.cash-projections h2 {
+.cash-projections h3 {
   margin: -23px auto 0 0;
 }
 

@@ -64,13 +64,11 @@
         typeof settings.keyrates !== 'undefined'
       "
     />
-    <QuickLinks />
   </div>
 </template>
 
 <script>
 import Offer from '../widgets/Offer.vue';
-import QuickLinks from '../widgets/QuickLinks.vue';
 import { mainconfig } from '../../global';
 import {
   initNBAM,
@@ -139,7 +137,6 @@ export default {
   },
   components: {
     Offer,
-    QuickLinks,
     KeyRates,
   },
   methods: {

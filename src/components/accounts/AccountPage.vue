@@ -14,8 +14,9 @@
       :class="'flex flex-col' + (isRTSEnabled ? ' rts-enabled' : '')"
     >
       <RTSOverlay v-if="settings.pega_marketing.enableRTS" />
+      <div class="ribbon1"><div></div></div>
       <div>
-        <h1 v-if="userId != -1" class="wrap">
+        <h1 v-if="userId != -1" class="wrap account-msg">
           {{ $t('message.hello') + showWelcomeMessage() }}
         </h1>
         <div class="wrap cols flex flex-wrap">

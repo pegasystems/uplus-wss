@@ -361,8 +361,24 @@ footer nav > div.flex {
   margin-right: 0;
 }
 
-.col-1 {
+.account-msg {
+  padding-top:32px;
+}
+
+.quick-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+.quick-links > button {
+  width: 100%;
+}
+
+
+.col.col-1 {
   width: calc(75% - 35px);
+  margin:0;
 }
 
 .col-2 {
@@ -395,7 +411,7 @@ pega-embed {
 
 .primary-card {
   padding: 16px;
-  margin:0 8px;
+  margin:0 8px 24px;
 }
 
 .primary-card > section {
@@ -409,6 +425,10 @@ pega-embed {
 .secondary-card {
   padding: 20px;
   margin-bottom: 30px;
+}
+
+.secondary-card > section {
+  margin-bottom: 32px;
 }
 
 .offer .col-2 {

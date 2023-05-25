@@ -1,17 +1,13 @@
 <template>
-  <section v-if="hasQuicklinks()" class="secondary-card container">
-    <h3>{{ $t('message.quicklinks') }}</h3>
-    <nav>
-      <ul class="quick-links">
-        <li v-for="(item, index) in settings.quicklinks" :key="index">
-          <a
-            v-if="item.hide !== true && showQuickLink(index)"
-            v-on:click="selectLink(index)"
-            >{{ settings.quicklinks[index].title[currentLocale] }}</a
-          >
-        </li>
-      </ul>
-    </nav>
+  <section v-if="hasQuicklinks()" class="quick-links">
+    <template v-for="(item, index) in settings.quicklinks" :key="index">
+      <button
+        v-if="item.hide !== true && showQuickLink(index)"
+        v-on:click="selectLink(index)"
+      >
+        {{ settings.quicklinks[index].title[currentLocale] }}
+      </button></template
+    >
   </section>
 </template>
 

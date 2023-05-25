@@ -5,16 +5,16 @@
       typeof settings.users[userId].accountdetails !== 'undefined' &&
       settings.users[userId].accountdetails.length > 0
     "
-    class="account-details"
+    class="account-details primary-card"
   >
-    <h2>{{ $t('message.accountdetails') }}</h2>
+    <h3>{{ $t('message.accountdetails') }}</h3>
     <div
       class="flex flex-col-all"
       v-for="(items, index) in settings.users[userId].accountdetails"
       :key="index"
     >
       <div v-for="item in items" class="list-box" :key="item.title">
-        <h3>{{ $t('message.' + item.title) }}</h3>
+        <span>{{ $t('message.' + item.title) }}</span>
         <span v-if="typeof item.desc !== 'undefined' && item.desc !== ''">{{
           $t('message.' + item.desc)
         }}</span>

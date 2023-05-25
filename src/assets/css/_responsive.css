@@ -130,7 +130,7 @@
 }
 
 @media screen and (max-width: 950px) {
-  .col-1 {
+  .col.col-1 {
     width: 100%;
     margin-bottom: 30px;
   }
@@ -336,7 +336,8 @@
     flex-flow: column;
   }
   .primary-card {
-    padding:14px;
+    padding:0;
+    flex-direction: column;
   }
 }
 

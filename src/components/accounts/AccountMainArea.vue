@@ -1,19 +1,22 @@
 <template>
-  <div class="col col-1 primary-card">
-    <Banner
-      v-if="
-        typeof settings.banner !== 'undefined' &&
-        settings.banner.hidebanner !== 'true' &&
-        settings.banner.hidebanner !== true
-      "
-    />
-    <AccountPicker
-      v-if="
-        typeof settings.todo !== 'undefined' &&
-        settings.todo.hideaccount !== 'true' &&
-        settings.todo.hideaccount !== true
-      "
-    />
+  <div class="col col-1">
+    <div class="primary-card">
+      <Banner
+        v-if="
+          typeof settings.banner !== 'undefined' &&
+          settings.banner.hidebanner !== 'true' &&
+          settings.banner.hidebanner !== true
+        "
+      />
+      <AccountPicker
+        v-if="
+          typeof settings.todo !== 'undefined' &&
+          settings.todo.hideaccount !== 'true' &&
+          settings.todo.hideaccount !== true
+        "
+      />
+      <QuickLinks />
+    </div>
     <AccountDetails
       v-if="
         typeof settings.todo !== 'undefined' &&
@@ -56,6 +59,7 @@
 import MashupMainArea from '../MashupMainArea.vue';
 import AccountPicker from '../widgets/AccountPicker.vue';
 import AccountDetails from '../widgets/AccountDetails.vue';
+import QuickLinks from '../widgets/QuickLinks.vue';
 import KPI from '../widgets/KPI.vue';
 import Banner from '../widgets/Banner.vue';
 import BillPay from '../widgets/BillPay.vue';
@@ -74,6 +78,7 @@ export default {
     BillPay,
     RecentActivity,
     Banner,
+    QuickLinks,
   },
 };
 </script>

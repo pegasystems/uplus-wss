@@ -11,9 +11,9 @@
       typeof settings.users[userId].recentactivity !== 'undefined' &&
       settings.users[userId].recentactivity.length > 0
     "
-    class="recent-activity"
+    class="recent-activity primary-card"
   >
-    <h2>{{ $t('message.recentactivity') }}</h2>
+    <h3>{{ $t('message.recentactivity') }}</h3>
     <ul class="fatlist">
       <li
         v-for="(item, index) in settings.users[userId].recentactivity"

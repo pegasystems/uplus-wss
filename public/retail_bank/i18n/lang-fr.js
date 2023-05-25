@@ -5,6 +5,7 @@ window.langFR = {
   getstarted: "Commencer",
   contactus: "Contactez nous",
   welcomeBack: 'Bienvenue',
+  hello: 'Bienvenue, ',
   forgotPassword: 'Vous avez oubliez votre mot de passe?',
   notEnrolled: 'Pas encore enregistre?',
   secondary_heading: "Le compte etudiant offre beaucoup d'avantage sans cout.",

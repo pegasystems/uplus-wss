@@ -7,7 +7,7 @@
       settings.users[userId].accountpicker.length > 0
     "
   >
-    <h2>{{ $t('message.youraccount') }}</h2>
+    <h3>{{ $t('message.youraccount') }}</h3>
     <div class="grid-col-3">
       <div
         v-for="item in settings.users[userId].accountpicker"

@@ -277,7 +277,7 @@ button,
   box-sizing: border-box;
   display: inline-block;
   font-weight: 700;
-  min-height: 40px;
+  min-height: 50px;
   min-width: 140px;
   border-radius: 3px;
   cursor: pointer;
@@ -389,6 +389,19 @@ button.simple:hover {
   border: none;
   color: var(--interactiveColor);
   text-decoration: underline;
+}
+
+.quick-links > button {
+  background: none;
+  color: var(--brandColor);
+  border: 1px solid var(--brandColor);
+}
+.quick-links > button:focus,
+.quick-links > button:hover {
+  outline: 1px solid var(--brandColor);
+}
+.quick-links > button:focus {
+  outline: var(--brandColor);
 }
 
 .overlay button,

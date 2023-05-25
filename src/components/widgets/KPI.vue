@@ -1,6 +1,6 @@
 <template>
-  <section v-if="userId != -1" class="account-kpi">
-    <h2>{{ $t('message.yourkpi') }}</h2>
+  <section v-if="userId != -1" class="account-kpi primary-card">
+    <h3>{{ $t('message.yourkpi') }}</h3>
     <div class="content-card flex flex-wrap">
       <div
         v-for="item in settings.users[userId].kpi"
@@ -9,7 +9,7 @@
       >
         <i class="pi color-brand" :class="item.icon"></i>
         <div class="list-box">
-          <h3>{{ $t('message.' + item.name) }}</h3>
+          <p>{{ $t('message.' + item.name) }}</p>
           <span class="scorecard">{{ item.value }}</span>
         </div>
       </div>
