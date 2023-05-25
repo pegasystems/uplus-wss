@@ -1,12 +1,15 @@
 .offer-heading {
-  min-height: 350px;
+  min-height: 250px;
   display: flex;
   flex-flow: column;
   justify-content: center;
 }
-.offer .primary-card h3 {
-  font-size: 20px;
-  font-weight: 800;
+.offer-heading > p  {
+  width: 50%;
+}
+.offer .primary-card h2 {
+  font-size: 34px;
+  font-weight: 500;
 }
 
 .offer .promo h4 {
@@ -57,7 +60,6 @@
   display:flex;
   flex-flow:column nowrap;
   flex:1;
-  min-height:300px;
 }
 
 .builtin-offer > .details > .button-row {
@@ -147,9 +149,14 @@
   display:flex;
   flex-flow: row nowrap;
 }
+.highlight-card > .flex {
+  flex-basis:35%;
+  padding-right: 16px;
+}
 .offer-highlights {
   border-left: 1px solid rgba(0,0,0,.2);
   padding-left: 16px;
+  flex-basis:65%;
 }
 
 .offer-highlights > div {

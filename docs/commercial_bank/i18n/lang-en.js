@@ -75,6 +75,9 @@ window.langEN = {
   offer_header_title: "Discover how U+Bank can help you achieve your financial goals",
   offer_header_msg:
     "Whether it’s our world class mobile banking app, no-fee ATM use, Free Checking, or simply our excellent customer service, U+Bank will help you get there.",
+  offer_hero_title:'Banking Superhero Package: Your Path to Financial Freedom!',
+  offer_hero__msg:'Introducing our Banking Superhero Package, where we empower you to conquer financial challenges! Enjoy premium banking services, personalized financial guidance, exclusive rewards, and more. Unleash your financial superpowers with our trusted commercial bank!',
+  offer_hero_button_label:'Get started',
   offer_main_offer1_title: "We'll connect the dots for you",
   offer_main_offer1_msg: "No matter how you like to manage your money, we ensure you’ll have all the tools you need.",
   offer_main_offer1_button_label: "Learn more",

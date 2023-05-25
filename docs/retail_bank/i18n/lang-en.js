@@ -95,6 +95,9 @@ window.langEN = {
   offer_header_title: "Earn more with SavingsPLUS",
   offer_header_msg:
     "Enjoy the highest yield in the country with a U+ Bank SavingsPLUS account. This product is ideal for those who want to earn more with their money.",
+  offer_hero_title:'Boost Your Savings with our Exclusive Limited-Time Offer!',
+  offer_hero__msg:"Open a new savings account with us and enjoy a high interest rate of 2.5% for the first 6 months. Start growing your savings today!",
+  offer_hero_button_label:'Get started',
   offer_main_offer1_title: "We'll connect the dots for you",
   offer_main_offer1_msg: "No matter how you like to manage your money, we ensure you’ll have all the tools you need.",
   offer_main_offer1_button_label: "Learn more",
@@ -122,6 +125,9 @@ window.langEN = {
   offer1_header_title: "Open a Regular Savings account and Save!",
   offer1_header_msg:
     "Low minimum deposit, Easy access to funds ,Interest compounded daily and credited to your account monthly.Deposits, withdrawals and transfers with your free U+ Gold or ATM Card, No monthly service charges for minors age 17 and under Free Online Banking ,and Free Mobile Banking and Alerts",
+  offer1_hero_title:'Boost Your Savings with our Exclusive Limited-Time Offer!',
+  offer1_hero__msg:"Open a new savings account with us and enjoy a high interest rate of 2.5% for the first 6 months. Start growing your savings today!",
+  offer1_hero_button_label:'Get started',
   offer1_main_offer1_title: "Get a $200 Bonus for Opening a New Checking Account",
   offer1_main_offer1_msg: "Open a new checking account with our bank and receive a $200 bonus after completing a few simple requirements, such as setting up direct deposit and making a certain number of transactions.",
   offer1_main_offer1_button_label: "Learn more",
@@ -149,6 +155,9 @@ window.langEN = {
   offer2_header_title: "U+ Rewards Credit Card",
   offer2_header_msg:
     "The Rewards Card can reward you at every stage of the journey. Earn Rewards Points on travel purchases. Enjoy benefits on your way to the airport, while you relax in an airport Lounge before your flight, and once you arrive at your hotel.",
+  offer2_hero_title:'Boost Your Savings with our Exclusive Limited-Time Offer!',
+  offer2_hero__msg:"Open a new savings account with us and enjoy a high interest rate of 2.5% for the first 6 months. Start growing your savings today!",
+  offer2_hero_button_label:'Get started',
   offer2_main_offer1_title: "Platinum card",
   offer2_main_offer1_msg: "Transfer your high-interest credit card balances to our card and enjoy 0% introductory APR for 12 months. Plus, enjoy other benefits like cashback rewards and no annual fee.",
   offer2_main_offer1_button_label: "Learn more",
@@ -173,6 +182,9 @@ window.langEN = {
   offer3_header_title: "Finance your new home today!",
   offer3_header_msg:
     "Lock in low payments, With a fixed-rate loan, you never need to worry about your payment changing, which can help you manage cash flow more easily. And you can take advantage of rates that are still near record lows!",
+  offer3_hero_title:'Boost Your Savings with our Exclusive Limited-Time Offer!',
+  offer3_hero__msg:"Open a new savings account with us and enjoy a high interest rate of 2.5% for the first 6 months. Start growing your savings today!",
+  offer3_hero_button_label:'Get started',
   offer3_main_offer1_title: "Personal Loans with No Origination Fees",
   offer3_main_offer1_msg: "Need funds for a personal project? Apply for a loan with us and enjoy no origination fees, plus a fixed interest rate and flexible repayment terms.",
   offer3_main_offer1_button_label: "Learn more",
@@ -200,6 +212,9 @@ window.langEN = {
   offer4_header_title: "Making sense of investing!",
   offer4_header_msg:
     "We believe in long-term investing with an emphsis on quality and diversification",
+  offer4_hero_title:'Boost Your Savings with our Exclusive Limited-Time Offer!',
+  offer4_hero__msg:"Open a new savings account with us and enjoy a high interest rate of 2.5% for the first 6 months. Start growing your savings today!",
+  offer4_hero_button_label:'Get started',
   offer4_main_offer1_title: "Invest in Your Future with a Roth IRA",
   offer4_main_offer1_msg: "Open a Roth IRA with us and enjoy tax-free growth and withdrawals in retirement. Plus, enjoy a variety of investment options to choose from.",
   offer4_main_offer1_button_label: "Learn more",

@@ -19,6 +19,9 @@
     margin: 0;
     padding: 16px 0;
   }
+  .offer-heading > p  {
+    width: auto;
+  }
 }
 
 @media screen and (max-width: 1200px) {
@@ -145,6 +148,11 @@
   .secondary-options .banner {
     height:400px;
   }
+
+  .secondary-options > .content-card {
+    right:16px;
+  }
+
   .front-option {
     max-width: 50%;
   }
@@ -257,7 +265,10 @@
 
   .hero-wrap img {
     max-height: 150px;
+    align-self: end;
+    padding-bottom: 24px;
   }
+
   .list-box > h3,
   .list-box > p {
     font-size: 14px;

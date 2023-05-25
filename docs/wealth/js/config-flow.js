@@ -76,6 +76,12 @@ window.app = {
       title: 'offer_header_title',
       msg: 'offer_header_msg',
     },
+    hero_offer: {
+      title: "offer_hero_title",
+      message: "offer_hero__msg",
+      button_label: "offer_hero_button_label",
+      image: "main-offer.jpg",
+  },
     main_offers: [
       {
         title: "offer_main_offer1_title",
@@ -138,6 +144,12 @@ window.app = {
       title: 'offer1_header_title',
       msg: 'offer1_header_msg',
     },
+    hero_offer: {
+      title: "offer1_hero_title",
+      message: "offer1_hero__msg",
+      button_label: "offer1_hero_button_label",
+      image: "main-offer.jpg",
+  },
     main_offers: [
       {
         title: "offer1_main_offer1_title",
@@ -198,6 +210,12 @@ window.app = {
       title: 'offer2_header_title',
       msg: 'offer2_header_msg',
     },
+    hero_offer: {
+      title: "offer2_hero_title",
+      message: "offer2_hero__msg",
+      button_label: "offer2_hero_button_label",
+      image: "main-offer.jpg",
+  },
     main_offers: [
       {
         title: "offer2_main_offer1_title",
@@ -258,6 +276,12 @@ window.app = {
       title: 'offer3_header_title',
       msg: 'offer3_header_msg',
     },
+    hero_offer: {
+      title: "offer3_hero_title",
+      message: "offer3_hero__msg",
+      button_label: "offer3_hero_button_label",
+      image: "main-offer.jpg",
+  },
     main_offers: [
       {
         title: "offer3_main_offer1_title",
@@ -318,6 +342,12 @@ window.app = {
       title: 'offer4_header_title',
       msg: 'offer4_header_msg',
     },
+    hero_offer: {
+      title: "offer4_hero_title",
+      message: "offer4_hero__msg",
+      button_label: "offer4_hero_button_label",
+      image: "main-offer.jpg",
+  },
     main_offers: [
       {
         title: "offer4_main_offer1_title",

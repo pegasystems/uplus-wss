@@ -96,6 +96,9 @@ window.langFR = {
   offer_header_title: "Gagnez plus avec SavingsPLUS",
   offer_header_msg:
     "Profitez du rendement le plus élevé du pays avec un compte U + Bank SavingsPLUS. Ce produit est idéal pour ceux qui veulent gagner plus avec leur argent.",
+  offer_hero_title:'Offre Spéciale : Épargnez et Gagnez avec notre Compte Bancaire',
+  offer_hero__msg:"Ouvrez un compte bancaire avec nous et bénéficiez d'un taux d'intérêt attractif pour épargner tout en ayant la chance de gagner des récompenses. Profitez de cette offre exclusive dès maintenant !",
+  offer_hero_button_label:'Accepter',
   offer_main_offer_title: "Offre à durée limitée",
   offer_main_offer_msg:
     "Pour un temps limité, regroupez votre compte d'épargne pour gagner 25 000 points bonus sur une carte de crédit CB PLUS",
@@ -132,6 +135,9 @@ window.langFR = {
   offer1_header_title: "Ouvrez un compte d'épargne régulier et économisez!",
   offer1_header_msg:
     "Dépôt minimum faible, accès facile aux fonds, intérêts composés quotidiennement et crédités mensuellement sur votre compte Dépôts, retraits et virements avec votre carte U + Gold ou ATM gratuite, aucuns frais de service mensuels pour les mineurs de 17 ans et moins Banque en ligne gratuite et gratuite Services bancaires mobiles et alertes",
+  offer1_hero_title:'Offre Spéciale : Épargnez et Gagnez avec notre Compte Bancaire',
+  offer1_hero__msg:"Ouvrez un compte bancaire avec nous et bénéficiez d'un taux d'intérêt attractif pour épargner tout en ayant la chance de gagner des récompenses. Profitez de cette offre exclusive dès maintenant !",
+  offer1_hero_button_label:'Accepter',
   offer1_main_offer_title: "Ouvert aujourd'hui",
   offer1_main_offer_msg:
     "Un compte qui permet de commencer facilement à épargner!",
@@ -168,6 +174,9 @@ window.langFR = {
   offer2_header_title: "Carte de crédit U + Rewards",
   offer2_header_msg:
     "La carte de récompenses peut vous récompenser à chaque étape du voyage. Gagnez des points Rewards sur vos achats de voyages. Bénéficiez d'avantages sur le chemin de l'aéroport, pendant que vous vous détendez dans un salon de l'aéroport avant votre vol et une fois arrivé à votre hôtel.",
+  offer2_hero_title:'Offre Spéciale : Épargnez et Gagnez avec notre Compte Bancaire',
+  offer2_hero__msg:"Ouvrez un compte bancaire avec nous et bénéficiez d'un taux d'intérêt attractif pour épargner tout en ayant la chance de gagner des récompenses. Profitez de cette offre exclusive dès maintenant !",
+  offer2_hero_button_label:'Accepter',
   offer2_main_offer_title: "Ouvert aujourd'hui",
   offer2_main_offer_msg:
     "De grands avantages avec l'accès à une ligne de crédit plus élevée",
@@ -204,6 +213,9 @@ window.langFR = {
   offer3_header_title: "Financez votre nouvelle maison aujourd'hui!",
   offer3_header_msg:
     "Verrouillez des paiements bas, avec un prêt à taux fixe, vous n'avez jamais à vous soucier de la modification de votre paiement, ce qui peut vous aider à gérer plus facilement les flux de trésorerie. Et vous pouvez profiter de tarifs toujours proches de tous les records!",
+  offer3_hero_title:'Offre Spéciale : Épargnez et Gagnez avec notre Compte Bancaire',
+  offer3_hero__msg:"Ouvrez un compte bancaire avec nous et bénéficiez d'un taux d'intérêt attractif pour épargner tout en ayant la chance de gagner des récompenses. Profitez de cette offre exclusive dès maintenant !",
+  offer3_hero_button_label:'Accepter',
   offer3_main_offer_title: "Ouvert aujourd'hui",
   offer3_main_offer_msg: "Budget en toute confiance!",
   offer3_main_offer_button_label: "Appliquer maintenant",
@@ -239,6 +251,9 @@ window.langFR = {
   offer4_header_title: "Donner du sens à l'investissement!",
   offer4_header_msg:
     "Nous croyons à l'investissement à long terme avec une emphase sur la qualité et la diversification",
+  offer4_hero_title:'Offre Spéciale : Épargnez et Gagnez avec notre Compte Bancaire',
+  offer4_hero__msg:"Ouvrez un compte bancaire avec nous et bénéficiez d'un taux d'intérêt attractif pour épargner tout en ayant la chance de gagner des récompenses. Profitez de cette offre exclusive dès maintenant !",
+  offer4_hero_button_label:'Accepter',
   offer4_main_offer_title: "Ouvert aujourd'hui",
   offer4_main_offer_msg: "Budget en toute confiance!",
   offer4_main_offer_button_label: "Parler a un conseille financier",

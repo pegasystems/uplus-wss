@@ -2,6 +2,9 @@
 .hero-wrap {
   min-height: 700px;
 }
+.hero-no-img {
+  min-height: 540px;
+}
 
 #app > .front,
 #app > .form,
@@ -218,7 +221,8 @@ main {
   justify-content: center;
 }
 
-.details > a {
+.details > a,
+.details > button {
 flex: 1;
 align-items: end;
 display: flex;
@@ -241,19 +245,10 @@ display: flex;
     right: 50%;
 }
 
-.offer-img {
-  width: fit-content;
-  max-height: 300px;
+.hero-offer-img {
+  max-height: 400px;
   align-self: flex-start;
-  max-width: 300px;
-  padding-right: 24px;
-}
-
-.offer-container > .offer-img {
-  align-self: center;
-  width: auto;
-  max-width: unset;
-  padding: 0;
+  padding-right: 40px;
 }
 
 .list-box > h3 {
@@ -293,8 +288,9 @@ display: flex;
 }
 
 .hero-wrap img {
-  max-height: 260px;
-  max-width: 100%;
+  max-width: fit-content;
+  align-self: center;
+  max-height:300px;
 }
 
 img.option {
@@ -398,7 +394,8 @@ pega-embed {
 }
 
 .primary-card {
-  padding: 35px;
+  padding: 16px;
+  margin:0 8px;
 }
 
 .primary-card > section {
@@ -560,6 +557,10 @@ pega-embed {
 
 .margin-t-2x {
   margin-top: 16px;
+}
+
+.margin-t-auto {
+  margin-top: auto;
 }
 
 .padding-t-2x {

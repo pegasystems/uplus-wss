@@ -76,6 +76,12 @@ window.app = {
       title: 'offer_header_title',
       msg: 'offer_header_msg',
     },
+    hero_offer: {
+        title: "offer_hero_title",
+        message: "offer_hero__msg",
+        button_label: "offer_hero_button_label",
+        image: "main-offer.jpg",
+    },
     main_offers: [
       {
         title: "offer_main_offer1_title",

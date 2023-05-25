@@ -62,46 +62,52 @@
   >
     <div class="hero-main">
       <div class="wrap hero-wrap flex">
-        <div class="flex flex-col"></div>
+        <div class="loading-container">
+          <span class="loading">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </span>
+        </div>
       </div>
     </div>
-    <div class="wrap options primary-options" style="min-height: 400px">
-      <section
-        v-for="(item, index) in app.primarydetails"
-        :key="index"
-        class="front-option loading-container"
-      >
-        <span class="loading">
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-        </span>
-      </section>
+    <div class="ribbon"><div></div></div>
+    <div class="wrap primary-options" style="min-height: 400px">
+      <div class="options">
+        <section
+          v-for="(item, index) in app.primarydetails"
+          :key="index"
+          class="front-option loading-container"
+        >
+          <span class="loading">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </span>
+        </section>
+      </div>
     </div>
   </template>
   <template v-else>
     <div
       v-if="!isAuthenticated && homeHeroAction != 1 && offerURL === ''"
-      class="wrap flex flex-col"
+      class="hero-main"
     >
-      <button
-        v-if="
-          settings.pega_marketing.showAIOverlay &&
-          (hero_offer.url !== '' || hero_offer.img !== '')
-        "
-        class="pi pi-polaris-solid ai-toggle"
-        v-on:click="toggleAIOverlay(hero_offer)"
-        title="toggle AI"
-      ></button>
-    </div>
-    <div class="hero-main">
       <div
-        class="flex hero-wrap hero-offer"
-        :data-hero-offer="1"
-        :class="hero_offer.img !== '' ? 'hero-with-img' : ''"
+        class="wrap hero-wrap flex"
+        :class="hero_offer.img !== '' ? 'hero-with-img' : 'hero-no-img'"
       >
+        <button
+          v-if="
+            settings.pega_marketing.showAIOverlay &&
+            (hero_offer.url !== '' || hero_offer.img !== '')
+          "
+          class="pi pi-polaris-solid ai-toggle"
+          v-on:click="toggleAIOverlay(hero_offer)"
+          title="toggle AI"
+        ></button>
         <div class="flex flex-col">
-          <h1 class="hero">
+          <h1 class="hero hero-offer" :data-hero-offer="1">
             {{ hero_offer.title }}
             <span
               v-if="
@@ -131,10 +137,13 @@
           <button v-else v-on:click="applyHeroAction" class="more">
             {{ hero_offer.link }}
           </button>
+          <img
+            v-if="hero_offer.img !== ''"
+            :src="hero_offer.img"
+            :alt="hero_offer.title"
+          />
         </div>
-        <div v-if="hero_offer.img !== ''">
-          <img :src="hero_offer.img" :alt="hero_offer.title" />
-        </div>
+
         <AIOverlay
           v-if="settings.pega_marketing.showAIOverlay"
           :offer="hero_offer"
@@ -142,22 +151,26 @@
         />
       </div>
     </div>
-    <div class="wrap options primary-options">
-      <section
-        v-for="(item, index) in data"
-        :key="index"
-        class="front-option cdh-offer"
-        @mouseover="checkRTSEventHover(index, item, true)"
-        @mouseleave="checkRTSEventHover(index, item, false)"
-      >
-        <button
-          v-if="settings.pega_marketing.showAIOverlay"
-          class="pi pi-polaris-solid ai-toggle"
-          v-on:click="toggleAIOverlay(item)"
-          title="toggle AI"
-        ></button>
-        <div class="offer-card" :data-offer-index="index">
-          <div class="details">
+    <div class="ribbon"><div></div></div>
+    <div class="wrap primary-options">
+      <h2>
+        {{ $t(`message.${app.primaryheading}`) }}
+      </h2>
+      <div class="options">
+        <section
+          v-for="(item, index) in data"
+          :key="index"
+          class="front-option cdh-offer"
+          @mouseover="checkRTSEventHover(index, item, true)"
+          @mouseleave="checkRTSEventHover(index, item, false)"
+        >
+          <div class="offer-card details" :data-offer-index="index">
+            <button
+              v-if="settings.pega_marketing.showAIOverlay"
+              class="pi pi-polaris-solid ai-toggle"
+              v-on:click="toggleAIOverlay(item)"
+              title="toggle AI"
+            ></button>
             <img class="option" :src="item.img" :alt="item.title" />
             <h3 class="option-header">{{ item.title }}</h3>
             <p>{{ item.message }}</p>
@@ -181,14 +194,14 @@
             <button v-else class="simple" v-on:click="showOffer(item)">
               {{ $t('message.' + item.link) }}
             </button>
+            <AIOverlay
+              v-if="settings.pega_marketing.showAIOverlay"
+              :offer="item"
+              :class="item.showAIoverlay ? 'show' : ''"
+            />
           </div>
-          <AIOverlay
-            v-if="settings.pega_marketing.showAIOverlay"
-            :offer="item"
-            :class="item.showAIoverlay ? 'show' : ''"
-          />
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   </template>
 </template>
