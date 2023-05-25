@@ -5,6 +5,7 @@ window.langEN = {
   getstarted: 'Get started',
   contactus: 'Contact us',
   welcomeBack: 'Welcome back',
+  hello: 'Hi, ',
   forgotPassword: 'Forgot username or password?',
   notEnrolled: 'Not enrolled? Sign up',
   secondary_heading: "Connect with an advisor today",

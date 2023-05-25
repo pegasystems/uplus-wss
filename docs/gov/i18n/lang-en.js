@@ -6,6 +6,7 @@ window.langEN = {
   applynow: 'Apply Now',
   contactus: 'Contact us',
   welcomeBack: 'Welcome back',
+  hello: 'Hi, ',
   forgotPassword: 'Forgot username or password?',
   notEnrolled: 'Not enrolled? Sign up',
   secondary_heading: "Plan for your future with town scholarships",

@@ -6,6 +6,7 @@ window.langEN = {
   personalizenow: 'Personalize now',
   contactus: 'Contact us',
   welcomeBack: 'Welcome back',
+  hello: 'Hi, ',
   forgotPassword: 'Forgot username or password?',
   notEnrolled: 'Not enrolled? Sign up',
   secondary_heading: "Students can get the the new iPhone 14 on us!",

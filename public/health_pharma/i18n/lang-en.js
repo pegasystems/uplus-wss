@@ -7,6 +7,7 @@ window.langEN = {
   findsavings: 'Find savings',
   contactus: 'Contact us',
   welcomeBack: 'Welcome back',
+  hello: 'Hi, ',
   forgotPassword: 'Forgot username or password?',
   notEnrolled: 'Not enrolled? Sign up',
   explorearticles: 'Explore articles',
