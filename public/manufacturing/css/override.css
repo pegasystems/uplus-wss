@@ -24,3 +24,8 @@ main .hero-wrap .hero-splash {
 .secondary-options .banner {
   background-position-y: 0!important;
 }
+.ribbon1 > div > div {
+  background: url(../img/hero-1.svg) 100% 100% no-repeat;
+  height: 266px;
+  opacity:0.3;
+}

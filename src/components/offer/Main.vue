@@ -10,7 +10,9 @@
     </div>
   </main>
   <main v-else class="flex flex-col hero-main">
-    <div class="ribbon1"><div></div></div>
+    <div class="ribbon1">
+      <div><div class="wrap"></div></div>
+    </div>
     <div class="wrap offer-heading">
       <h1>{{ $t('message.' + app.offer[offerIndex].header.title) }}</h1>
       <p>{{ $t('message.' + app.offer[offerIndex].header.msg) }}</p>

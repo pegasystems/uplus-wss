@@ -21,3 +21,8 @@ main .hero-wrap .hero-splash {
   background: url('../img/ribbon1.svg') 100% 100% / cover no-repeat;
   height: 500px;
 }
+.ribbon1 > div > div {
+  background: url(../img/hero-1.svg) 100% 100% no-repeat;
+  height: 266px;
+  opacity:0.3;
+}
