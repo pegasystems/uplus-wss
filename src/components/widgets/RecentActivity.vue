@@ -13,7 +13,7 @@
     "
     class="recent-activity primary-card"
   >
-    <h3>{{ $t('message.recentactivity') }}</h3>
+    <h3>{{ settings.todo.recentactivityheading }}</h3>
     <ul class="fatlist">
       <li
         v-for="(item, index) in settings.users[userId].recentactivity"
@@ -26,7 +26,7 @@
         <time v-else class="fatlist-item">{{
           $d(getdate(index), 'short')
         }}</time>
-        <p class="fatlist-item activity">{{ $t('message.' + item.message) }}</p>
+        <p class="fatlist-item activity">{{ item.message }}</p>
         <p v-if="item.cost" class="fatlist-item flex-align-r">
           {{ $n(item.cost, 'currency') }}
         </p>

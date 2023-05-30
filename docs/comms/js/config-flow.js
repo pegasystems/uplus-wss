@@ -48,9 +48,9 @@ window.app = {
       message: 'offer2_msg',
     },
     {
-      img: 'offer2.jpg',
-      title: 'offer2_title',
-      message: 'offer2_msg',
+      img: 'offer3.jpg',
+      title: 'offer3_title',
+      message: 'offer3_msg',
     },
   ],
   menuitems: [

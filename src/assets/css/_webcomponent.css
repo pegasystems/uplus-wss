@@ -504,7 +504,6 @@ select[readonly] {
   background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 10px;
-  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-flow: column nowrap;
   padding-bottom: 16px;

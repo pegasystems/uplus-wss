@@ -41,6 +41,7 @@ window.langEN = {
   lang_en: "English",
   change_language: "Change language",
   viewmore: "View more",
+  viewdetails: 'View details',
   offer1_title: "We’ll connect the dots for you",
   offer1_msg:
     "No matter how you like to manage your money, we ensure you’ll have all the tools you need.",

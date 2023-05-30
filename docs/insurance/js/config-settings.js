@@ -289,7 +289,9 @@ window.settings = {
     hideactivity: false,
     hideaccount: false,
     hideaccountdetails: true,
-    hideKPI: true,
+    accountdetailsheading: 'Linked accounts',
+    accountpickerheading: 'Your polices',
+    recentactivityheading: 'Recent activity',
     channelid: '',
     tenantid: '',
     dataretained: true,
@@ -379,36 +381,72 @@ window.settings = {
       accountdetails: [],
       accountpicker: [
         {
-          icon: 'pi-life-ring',
-          title: 'accountpicker1_title',
-          desc: '',
-          id: '***4483',
+          title: "Life",
+          showbillpay: true,
+          details: [
+            {
+              label: "ID",
+              value: "3245-655676-3",
+            },
+            {
+              label: "Account balance",
+              type: "currency",
+              value: 164.80,
+            },
+            {
+              label: "Due date",
+              type: "duedate"
+            }]
         },
         {
-          icon: 'pi-car',
-          title: 'accountpicker2_title',
-          desc: '',
-          id: '***3384',
+          title: "Auto",
+          showbillpay: true,
+          details: [
+            {
+              label: "ID",
+              value: "3245-757889",
+            },
+            {
+              label: "Account balance",
+              type: "currency",
+              value: 236.80,
+            },
+            {
+              label: "Due date",
+              type: "duedate"
+            }]
         },
         {
-          icon: 'pi-plane',
-          title: 'accountpicker3_title',
-          desc: '',
-          id: '***7890',
+          title: "Travel",
+          showbillpay: true,
+          details: [
+            {
+              label: "ID",
+              value: "345-999-1",
+            },
+            {
+              label: "Account balance",
+              type: "currency",
+              value: 345.80,
+            },
+            {
+              label: "Due date",
+              type: "duedate"
+            }]
         },
       ],
       recentactivity: [
         {
-          message: 'recentactivity1_msg',
+          message: "Your last statement is ready to view",
         },
         {
-          message: 'recentactivity2_msg',
+          message: "Your auto monthly insurance bill payment has been processed",
         },
         {
-          message: 'recentactivity3_msg',
+          message: "Your claim #4345656 has been processed",
         },
         {
-          message: 'recentactivity4_msg',
+          message: "Your claim #4345656 has been received",
         },
       ],
     },
@@ -432,36 +470,72 @@ window.settings = {
       accountdetails: [],
       accountpicker: [
         {
-          icon: 'pi-life-ring',
-          title: 'accountpicker1_title',
-          desc: '',
-          id: '***4483',
+          title: "Life",
+          showbillpay: true,
+          details: [
+            {
+              label: "ID",
+              value: "3245-655676-3",
+            },
+            {
+              label: "Account balance",
+              type: "currency",
+              value: 164.80,
+            },
+            {
+              label: "Due date",
+              type: "duedate"
+            }]
         },
         {
-          icon: 'pi-car',
-          title: 'accountpicker2_title',
-          desc: '',
-          id: '***3384',
+          title: "Auto",
+          showbillpay: true,
+          details: [
+            {
+              label: "ID",
+              value: "3245-757889",
+            },
+            {
+              label: "Account balance",
+              type: "currency",
+              value: 236.80,
+            },
+            {
+              label: "Due date",
+              type: "duedate"
+            }]
         },
         {
-          icon: 'pi-plane',
-          title: 'accountpicker3_title',
-          desc: '',
-          id: '***7890',
+          title: "Travel",
+          showbillpay: true,
+          details: [
+            {
+              label: "ID",
+              value: "345-999-1",
+            },
+            {
+              label: "Account balance",
+              type: "currency",
+              value: 345.80,
+            },
+            {
+              label: "Due date",
+              type: "duedate"
+            }]
         },
       ],
       recentactivity: [
         {
-          message: 'recentactivity1_msg',
+          message: "Your last statement is ready to view",
         },
         {
-          message: 'recentactivity2_msg',
+          message: "Your auto monthly insurance bill payment has been processed",
         },
         {
-          message: 'recentactivity3_msg',
+          message: "Your claim #4345656 has been processed",
         },
         {
-          message: 'recentactivity4_msg',
+          message: "Your claim #4345656 has been received",
         },
       ],
     },

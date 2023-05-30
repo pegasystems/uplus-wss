@@ -188,7 +188,9 @@ window.settings = {
     hideactivity: false,
     hideaccount: false,
     hideaccountdetails: true,
-    hideKPI: true,
+    accountdetailsheading: 'Asset summary',
+    accountpickerheading: 'Your assets',
+    recentactivityheading: 'Recent activity',
     channelid: '',
     tenantid: '',
     dataretained: true,
@@ -278,36 +280,57 @@ window.settings = {
       accountdetails: [],
       accountpicker: [
         {
-          icon: 'pi-building-2',
-          title: 'accountpicker1_title',
-          desc: 'accountpicker1_desc',
-          id: '',
+          title: "Series X rooftop unit",
+          details: [
+            {
+              label: "Model",
+              value: '123-4565',
+            },
+            {
+              label: "Last service date",
+              type: "date",
+              value: '2023-06-23',
+            },
+            ]
         },
         {
-          icon: 'pi-temp',
-          title: 'accountpicker2_title',
-          desc: 'accountpicker2_desc',
-          id: '',
+          title: "Commercial thermostat",
+          details: [
+            {
+              label: "Model",
+              value: '345-6778',
+            },
+            {
+              label: "Last service date",
+              type: "date",
+              value: '2023-06-23',
+            },
+            ]
         },
         {
-          icon: 'pi-gear',
-          title: 'accountpicker3_title',
-          desc: 'accountpicker3_desc',
-          id: '',
+          title: "Control system",
+          details: [
+            {
+              label: "Model",
+              value: '7677-344',
+            },
+            {
+              label: "Last service date",
+              type: "date",
+              value: '2023-06-23',
+            },
+            ]
         },
       ],
       recentactivity: [
         {
-          message: 'recentactivity1_msg',
+          message: "Phone call with customer care",
         },
         {
-          message: 'recentactivity2_msg',
+          message: "Service request has been resolved",
         },
         {
-          message: 'recentactivity3_msg',
-        },
-        {
-          message: 'recentactivity4_msg',
+          message: "Service request has been created",
         },
       ],
     },
@@ -331,36 +354,57 @@ window.settings = {
       accountdetails: [],
       accountpicker: [
         {
-          icon: 'pi-building-2',
-          title: 'accountpicker1_title',
-          desc: 'accountpicker1_desc',
-          id: '',
+          title: "Series X rooftop unit",
+          details: [
+            {
+              label: "Model",
+              value: '123-4565',
+            },
+            {
+              label: "Last service date",
+              type: "date",
+              value: '2023-06-23',
+            },
+            ]
         },
         {
-          icon: 'pi-temp',
-          title: 'accountpicker2_title',
-          desc: 'accountpicker2_desc',
-          id: '',
+          title: "Commercial thermostat",
+          details: [
+            {
+              label: "Model",
+              value: '345-6778',
+            },
+            {
+              label: "Last service date",
+              type: "date",
+              value: '2023-06-23',
+            },
+            ]
         },
         {
-          icon: 'pi-gear',
-          title: 'accountpicker3_title',
-          desc: 'accountpicker3_desc',
-          id: '',
+          title: "Control system",
+          details: [
+            {
+              label: "Model",
+              value: '7677-344',
+            },
+            {
+              label: "Last service date",
+              type: "date",
+              value: '2023-06-23',
+            },
+            ]
         },
       ],
       recentactivity: [
         {
-          message: 'recentactivity1_msg',
+          message: "Phone call with customer care",
         },
         {
-          message: 'recentactivity2_msg',
+          message: "Service request has been resolved",
         },
         {
-          message: 'recentactivity3_msg',
-        },
-        {
-          message: 'recentactivity4_msg',
+          message: "Service request has been created",
         },
       ],
     },

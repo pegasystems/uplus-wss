@@ -3,10 +3,6 @@
 <mask id="mask0_281_6208" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="1011" y="474" width="200" height="224">
 <path d="M1211 697.449H1011.03V474.993H1211V697.449Z" fill="#00556E"/>
 </mask>
-<g mask="url(#mask0_281_6208)">
-<img width="1211" height="807"  src='./Hero.png'/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M1028.02 679L1196 586.51V586.49L1028.02 494H1028.02L1028 494.011V678.99L1028.02 679Z" fill="#2F613A"/>
-</g>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M789 624L623 715.5L789 807V624Z" fill="#56AC68"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M799.727 366.098L629.456 263.035L633.576 462.025L799.727 366.098Z" fill="#56AC68"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M846.999 541.426L961.918 478.213L846.999 415V541.426Z" fill="#56AC68"/>

@@ -215,6 +215,7 @@ input[type='checkbox'] + label {
   width: 100%;
   margin: 0 8px 0 0;
   display: block;
+  line-height: 19px;
 }
 
 input[type='color'] {
@@ -395,6 +396,7 @@ button.simple:hover {
   background: none;
   color: var(--brandColor);
   border: 1px solid var(--brandColor);
+  font-weight:400;
 }
 .quick-links > button:focus,
 .quick-links > button:hover {
@@ -508,6 +510,7 @@ td {
   text-align: left;
 }
 
+.align-r,
 th.align-r,
 td.align-r {
   text-align: right;
@@ -529,6 +532,10 @@ td.align-r {
   right: 0;
   bottom: 22px;
 }
+.file-upload {
+  height: 50px;
+  margin-top: 24px;
+}
 .inputfile {
   width: 0.1px;
   height: 0.1px;
@@ -541,7 +548,7 @@ td.align-r {
 .inputfile + label {
   font-size: 16px;
   font-weight: 600;
-  padding: 8px;
+  padding:16px 8px;
   margin-bottom: 0;
   color: var(--interactiveColor);
   border: none;
@@ -567,12 +574,6 @@ button.file-download {
   font-weight: 600;
   border: 1px solid var(--interactiveColor);
   border-radius: 0;
-}
-
-.kpi-item {
-  display: flex;
-  flex: 1 1 100px;
-  padding: 0 8px;
 }
 
 td > input {

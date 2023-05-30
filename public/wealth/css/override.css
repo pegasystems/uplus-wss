@@ -11,7 +11,7 @@ main .hero-wrap .hero-image {
 	background: url('../img/hero-1.svg') 100% 100% / contain no-repeat;
 }
 main .hero-wrap .hero-splash {
-	background: url('../img/Hero.png') 100% 100% / contain no-repeat;
+	background: url('../img/Hero.webp') 100% 100% / contain no-repeat;
 }
 .ribbon > div {
   background: url('../img/ribbon.svg') 0 0 / cover no-repeat;
@@ -23,7 +23,7 @@ main .hero-wrap .hero-splash {
   height: 500px;
 }
 .ribbon1 > div > div {
-  background: url(../img/hero-1.svg) 100% 100% no-repeat;
+  background: url('../img/hero-1.svg') 100% 100% no-repeat;
   height: 266px;
   opacity:0.3;
 }

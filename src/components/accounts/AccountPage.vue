@@ -61,7 +61,7 @@ export default {
   methods: {
     showWelcomeMessage() {
       const name = this.settings.users[this.userId].name;
-      return name.substring(0, name.lastIndexOf(' '));
+      return name;
     },
   },
 };

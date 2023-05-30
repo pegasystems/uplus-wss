@@ -2,8 +2,8 @@ window.settings = {
   i18n: {
     defaultlocale: "en",
     /* Set to 'browser' to use browser locale */
-    languages: ["en", "fr"],
-    showLangSwitch: true,
+    languages: ["en"],
+    showLangSwitch: false,
     /* set to true to show the language switcher */
   },
   general: {
@@ -47,7 +47,6 @@ window.settings = {
     {
       title: {
         en: "Request a service",
-        fr: "Demander un service",
       },
       action: "createNewWork",
       actionparam: "",
@@ -68,7 +67,6 @@ window.settings = {
     {
       title: {
         en: "Make a payment",
-        fr: "Faire un paiement",
       },
       action: "createNewWork",
       actionparam: "",
@@ -89,7 +87,6 @@ window.settings = {
     {
       title: {
         en: "Update billing",
-        fr: "Mettre a jour ses informations de paiment",
       },
       action: "createNewWork",
       actionparam: "",
@@ -110,7 +107,6 @@ window.settings = {
     {
       title: {
         en: "Proof of insurance",
-        fr: "Certificat d'assurance",
       },
       action: "createNewWork",
       actionparam: "",
@@ -131,7 +127,6 @@ window.settings = {
     {
       title: {
         en: "Update your profile",
-        fr: "Mettre a jour votre profil",
       },
       action: "createNewWork",
       actionparam: "",
@@ -192,7 +187,9 @@ window.settings = {
     hideactivity: false,
     hideaccount: false,
     hideaccountdetails: false,
-    hideKPI: true,
+    accountdetailsheading: 'Linked Cards',
+    accountpickerheading: 'Accounts overview',
+    recentactivityheading: 'Recent transactions',
     channelid: "",
     tenantid: "",
     dataretained: true,
@@ -281,59 +278,104 @@ window.settings = {
       otp_send_to: "",
       accountdetails: [[
         {
-          title: "accountdetails1_title",
-          id: "***0219",
+          label: "Card number",
+          value: "***0219",
         },
         {
-          title: "accountdetails2_title",
-          id: "VISA card",
+          label: "Card type",
+          value: "VISA card",
         },
         {
-          title: "accountdetails3_title",
-          id: "Active",
+          label: "Card status",
+          value: "Active",
         }],[
         {
-          title: "accountdetails1_title",
-          id: "***1875",
+          label: "Card number",
+          value: "***1875",
         },
         {
-          title: "accountdetails2_title",
-          id: "Amex card",
+          label: "Card type",
+          value: "Amex card",
         },
         {
-          title: "accountdetails3_title",
-          id: "Active",
+          label: "Card status",
+          value: "Active",
         }],
       ],
       accountpicker: [
         {
-          icon: "pi-piggybank",
-          title: "accountpicker1_title",
-          id: "***1234",
+          img: "img/account-picker1.jpg",
+          title: "U+ Rewards Card",
+          showbillpay: true,
+          details: [
+            {
+              label: "Account balance",
+              type: "currency",
+              value: 164.80,
+            },
+            {
+              label: "Statement balance",
+              type: "currency",
+              value: 193.27,
+            },
+            {
+              label: "Minimum due",
+              type: "currency",
+              value: 25.00,
+            },
+            {
+              label: "Due date",
+              type: "duedate"
+            }]
         },
         {
-          icon: "pi-money",
-          title: "accountpicker2_title",
-          id: "***5678",
+          title: "Free Student Checking",
+          details: [
+            {
+              label: "Account number",
+              value: "12456788689",
+            },
+            {
+              label: "Account balance",
+              type: "currency",
+              value: 164.80,
+            }]
         },
         {
-          icon: "pi-credit",
-          title: "accountpicker3_title",
-          id: "***7890",
+          title: "Simply Saving",
+          details: [
+            {
+              label: "Account number",
+              value: "12456788689",
+            },
+            {
+              label: "Account balance",
+              type: "currency",
+              value: 2400.30,
+            },
+            {
+              label: "Interest rate",
+              value: "2.30%",
+            },
+            ]
         },
       ],
       recentactivity: [
         {
-          message: "recentactivity1_msg",
+          message: "Cambridge town taxes",
+          cost: 1230.45
         },
         {
-          message: "recentactivity2_msg",
+          message: "Joe's dinner",
+          cost: 53.10
         },
         {
-          message: "recentactivity3_msg",
+          message: "Randy's Supermarket",
+          cost: 143.12
         },
         {
-          message: "recentactivity4_msg",
+          message: "Urban Garden Supply",
+          cost: 13.12
         },
       ],
     },
@@ -356,65 +398,97 @@ window.settings = {
       otp_send_to: "",
       accountdetails: [[
         {
-          title: "accountdetails1_title",
-          id: "***0444",
+          label: "Card number",
+          value: "***0219",
         },
         {
-          title: "accountdetails2_title",
-          id: "AMEX card",
+          label: "Card type",
+          value: "VISA card",
         },
         {
-          title: "accountdetails3_title",
-          id: "Expired",
+          label: "Card status",
+          value: "Active",
         }],[
         {
-          title: "accountdetails1_title",
-          id: "***56735",
+          label: "Card number",
+          value: "***1875",
         },
         {
-          title: "accountdetails2_title",
-          id: "VISA card",
+          label: "Card type",
+          value: "Amex card",
         },
         {
-          title: "accountdetails3_title",
-          id: "Active",
-        }],[
-          {
-            title: "accountdetails1_title",
-            id: "***2223",
-          },
-          {
-            title: "accountdetails2_title",
-            id: "Chase Credit card",
-          },
-          {
-            title: "accountdetails3_title",
-            id: "Active",
-          }],
+          label: "Card status",
+          value: "Active",
+        }],
       ],
       accountpicker: [
         {
-          icon: "pi-piggybank",
-          title: "accountpicker1_title",
-          id: "***3333",
+          img: "account-picker1.png",
+          title: "U+ Rewards Card",
+          details: [
+            {
+              label: "Account balance",
+              type: "currency",
+              value: 164.80,
+            },
+            {
+              label: "Statement balance",
+              type: "currency",
+              value: 193.27,
+            },
+            {
+              label: "Minimum due",
+              type: "currency",
+              value: 25.00,
+            }]
         },
         {
-          icon: "pi-money",
-          title: "accountpicker2_title",
-          id: "***4444",
+          img: "account-picker1.png",
+          title: "Free Student Checking",
+          details: [
+            {
+              label: "Account number",
+              value: "12456788689",
+            },
+            {
+              label: "Account balance",
+              type: "currency",
+              value: 164.80,
+            }]
         },
         {
-          icon: "pi-credit",
-          title: "accountpicker3_title",
-          id: "***5555",
+          img: "account-picker1.png",
+          title: "Simply Saving",
+          details: [
+            {
+              label: "Account number",
+              value: "12456788689",
+            },
+            {
+              label: "Account balance",
+              type: "currency",
+              value: 164.80,
+            },
+            ]
         },
       ],
       recentactivity: [
         {
-          message: "recentactivity1_msg",
+          message: "Cambridge town taxes",
+          cost: 1230.45
         },
         {
-          message: "recentactivity2_msg",
+          message: "Joe's dinner",
+          cost: 53.10
+        },
+        {
+          message: "Randy's Supermarket",
+          cost: 143.12
+        },
+        {
+          message: "Urban Garden Supply",
+          cost: 13.12
         },
       ],
     },

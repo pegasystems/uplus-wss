@@ -24,25 +24,9 @@
         settings.todo.hideaccountdetails !== true
       "
     />
-    <KPI
-      v-if="
-        (app.industry === 'health-pharma' ||
-          app.industry === 'health-care' ||
-          app.industry === 'health-payer') &&
-        settings.todo.hideKPI !== 'true' &&
-        settings.todo.hideKPI !== true
-      "
-    />
     <MashupMainArea
       v-if="typeof settings.todo !== 'undefined' && settings.todo.url !== ''"
       :key="reloadToDoMashup"
-    />
-    <BillPay
-      v-if="
-        typeof settings.billpay !== 'undefined' &&
-        settings.billpay.hidebillpay !== 'true' &&
-        settings.billpay.hidebillpay !== true
-      "
     />
     <RecentActivity
       v-if="
@@ -60,9 +44,7 @@ import MashupMainArea from '../MashupMainArea.vue';
 import AccountPicker from '../widgets/AccountPicker.vue';
 import AccountDetails from '../widgets/AccountDetails.vue';
 import QuickLinks from '../widgets/QuickLinks.vue';
-import KPI from '../widgets/KPI.vue';
 import Banner from '../widgets/Banner.vue';
-import BillPay from '../widgets/BillPay.vue';
 import RecentActivity from '../widgets/RecentActivity.vue';
 import { mainconfig } from '../../global';
 
@@ -74,8 +56,6 @@ export default {
     MashupMainArea,
     AccountPicker,
     AccountDetails,
-    KPI,
-    BillPay,
     RecentActivity,
     Banner,
     QuickLinks,

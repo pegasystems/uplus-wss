@@ -30,25 +30,6 @@
           </div>
         </div>
         <div class="layout-labels-top layout-inline-grid-double">
-          <div
-            class="field-item field-checkbox"
-            v-if="
-              app.industry === 'health-pharma' ||
-              app.industry === 'health-care' ||
-              app.industry === 'health-payer'
-            "
-          >
-            <input
-              id="todo-hidekpi"
-              type="checkbox"
-              v-model="settings.todo.hideKPI"
-            />
-            <label class="width-auto" for="todo-hidekpi"
-              >Hide KPI details</label
-            >
-          </div>
-        </div>
-        <div class="layout-labels-top layout-inline-grid-double">
           <div class="field-item">
             <label for="todo-action">Action</label>
             <select

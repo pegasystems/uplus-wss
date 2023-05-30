@@ -2,7 +2,7 @@
   <div class="wrap secondary-options">
     <div
       class="banner"
-      v-bind:style="{ backgroundImage: 'url(img/secondary-options.png)' }"
+      v-bind:style="{ backgroundImage: 'url(img/secondary-options.jpg)' }"
     ></div>
     <div class="content-card flex flex-col">
       <h2>

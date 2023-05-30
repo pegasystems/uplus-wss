@@ -212,19 +212,19 @@ window.app = {
           title: "offer2_main_offer1_title",
           message: "offer2_main_offer1_msg",
           button_label: "offer2_main_offer1_button_label",
-          image: "category-card-1.png",
+          image: "category-card-1.jpg",
         },
         {
           title: "offer2_main_offer2_title",
           message: "offer2_main_offer2_msg",
           button_label: "offer2_main_offer2_button_label",
-          image: "category-card-2.png",
+          image: "category-card-2.jpg",
         },
         {
           title: "offer2_main_offer3_title",
           message: "offer2_main_offer3_msg",
           button_label: "offer2_main_offer3_button_label",
-          image: "category-card-3.png",
+          image: "category-card-3.jpg",
         },
       ],
       details: {

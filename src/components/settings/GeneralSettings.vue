@@ -12,7 +12,7 @@
     <div class="container">
       <div class="body">
         <Container title="Theming" expanded>
-          <div class="layout-labels-left layout-inline-grid-double">
+          <div class="layout-labels-top layout-inline-grid-double">
             <div class="field-item">
               <input
                 id="theming-override"
@@ -38,7 +38,7 @@
           </div>
         </Container>
         <Container title="Pega Platform access" expanded>
-          <div class="layout-labels-left">
+          <div class="layout-labels-top">
             <div class="field-item">
               <label for="ga-connection-type">Type</label>
               <select
@@ -157,7 +157,7 @@
           </div>
         </Container>
         <Container title="Google Analytics" expanded>
-          <div class="layout-labels-left">
+          <div class="layout-labels-top">
             <div class="field-item">
               <input
                 id="ga-enabled"
@@ -177,7 +177,7 @@
           </div>
         </Container>
         <Container title="Two-factor authentication" expanded>
-          <div class="layout-labels-left">
+          <div class="layout-labels-top">
             <div class="field-item">
               <input
                 id="2fa-enabled"

@@ -131,6 +131,7 @@
   box-shadow: none;
   padding: 0;
   border:none;
+  background:none;
 }
 
 .phone .margin-t-0 {
@@ -217,8 +218,18 @@
   color: #050505;
 }
 
+.phone .col.col-1 {
+  margin-bottom: 0;
+}
+
+.phone .offer-img {
+  max-width: calc(100% - 32px);
+}
+
 .phone .quick-links {
   text-align: center;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 8px;
 }
 
 .phone .avatar {
@@ -285,12 +296,8 @@
 }
 
 .phone .quick-links button {
-  color: #414949;
-  font-weight: normal;
   font-size: 16px;
   padding: 8px 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
   margin-bottom: 8px;
   text-align: left;
   display: flex;

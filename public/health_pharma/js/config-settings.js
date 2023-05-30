@@ -167,8 +167,10 @@ window.settings = {
     extraparam: '',
     hideactivity: false,
     hideaccount: false,
-    hideaccountdetails: true,
-    hideKPI: false,
+    hideaccountdetails: false,
+    accountdetailsheading: 'Health snapshot',
+    accountpickerheading: 'My Care Team',
+    recentactivityheading: 'Recent activity',
     channelid: '',
     tenantid: '',
     dataretained: true,
@@ -255,61 +257,76 @@ window.settings = {
       load_by_default: true,
       show_opname: false,
       otp_send_to: '',
-      accountdetails: [],
+      accountdetails: [[
+        {
+          label: "Wellness score",
+          value: "90/100",
+        },
+        {
+          label: "Cholesterol",
+          value: 185,
+        },
+        {
+          label: "BMI",
+          value: "22.3",
+        },
+        {
+          label: "Blood pressure",
+          value: "120/76",
+        }]
+      ],
       accountpicker: [
         {
-          icon: 'pi-stethoscope',
-          title: 'accountpicker1_title',
-          desc: 'accountpicker1_desc',
-          id: '',
+          title: "Primary PCP",
+          details: [
+            {
+              label: "Name",
+              value: "Lisa Binder",
+            },
+            {
+              label: "Last visit",
+              type: "date",
+              value: '2022-06-09',
+            }]
         },
         {
-          icon: 'pi-case-medical',
-          title: 'accountpicker2_title',
-          desc: 'accountpicker2_desc',
-          id: '',
-        },
-        {
-          icon: 'pi-shield',
-          title: 'accountpicker3_title',
-          desc: 'accountpicker3_desc',
-          id: '',
+          title: "Health Coach",
+          details: [
+            {
+              label: "Name",
+              value: "Melinda Snapper",
+            },
+            {
+              label: "Last visit",
+              type: "date",
+              value: '2023-02-19',
+            }]
+        },{
+          title: "Family Support",
+          details: [
+            {
+              label: "Name",
+              value: "Michael John",
+            },
+            {
+              label: "Last visit",
+              type: "date",
+              value: '2023-01-02',
+            }]
         },
       ],
       recentactivity: [
         {
-          message: 'recentactivity1_msg',
+          message: "Vitals Update",
         },
         {
-          message: 'recentactivity2_msg',
+          message: "Specialist Appointment",
         },
         {
-          message: 'recentactivity3_msg',
+          message: "Congratulations! You completed your health assessment",
         },
         {
-          message: 'recentactivity4_msg',
-        },
-      ],
-      kpi: [
-        {
-          icon: 'pi-gauge',
-          name: 'kpi_wellness_score',
-          value: '90/100',
-        },
-        {
-          icon: 'pi-chart-donut-solid',
-          name: 'kpi_cholesterol',
-          value: '185',
-        },
-        {
-          icon: 'pi-target',
-          name: 'kpi_bmi',
-          value: '22.3',
-        },
-        {
-          icon: 'pi-heart-pulse',
-          name: 'kpi_blood_pressure',
-          value: '120/76',
+          message: "Initial Risk Assessment",
         },
       ],
     },
@@ -330,61 +347,76 @@ window.settings = {
       load_by_default: false,
       show_opname: false,
       otp_send_to: '',
-      accountdetails: [],
+      accountdetails: [[
+        {
+          label: "Wellness score",
+          value: "90/100",
+        },
+        {
+          label: "Cholesterol",
+          value: 185,
+        },
+        {
+          label: "BMI",
+          value: "22.3",
+        },
+        {
+          label: "Blood pressure",
+          value: "120/76",
+        }]
+      ],
       accountpicker: [
         {
-          icon: 'pi-stethoscope',
-          title: 'accountpicker1_title',
-          desc: 'accountpicker1_desc',
-          id: '',
+          title: "Primary PCP",
+          details: [
+            {
+              label: "Name",
+              value: "Lisa Binder",
+            },
+            {
+              label: "Last visit",
+              type: "date",
+              value: '2022-06-09',
+            }]
         },
         {
-          icon: 'pi-case-medical',
-          title: 'accountpicker2_title',
-          desc: 'accountpicker2_desc',
-          id: '',
-        },
-        {
-          icon: 'pi-shield',
-          title: 'accountpicker3_title',
-          desc: 'accountpicker3_desc',
-          id: '',
+          title: "Health Coach",
+          details: [
+            {
+              label: "Name",
+              value: "Melinda Snapper",
+            },
+            {
+              label: "Last visit",
+              type: "date",
+              value: '2023-02-19',
+            }]
+        },{
+          title: "Family Support",
+          details: [
+            {
+              label: "Name",
+              value: "Michael John",
+            },
+            {
+              label: "Last visit",
+              type: "date",
+              value: '2023-01-02',
+            }]
         },
       ],
       recentactivity: [
         {
-          message: 'recentactivity1_msg',
+          message: "Vitals Update",
         },
         {
-          message: 'recentactivity2_msg',
+          message: "Specialist Appointment",
         },
         {
-          message: 'recentactivity3_msg',
+          message: "Congratulations! You completed your health assessment",
         },
         {
-          message: 'recentactivity4_msg',
-        },
-      ],
-      kpi: [
-        {
-          icon: 'pi-gauge',
-          name: 'kpi_wellness_score',
-          value: '80/100',
-        },
-        {
-          icon: 'pi-chart-donut-solid',
-          name: 'kpi_cholesterol',
-          value: '215',
-        },
-        {
-          icon: 'pi-target',
-          name: 'kpi_bmi',
-          value: '26.3',
-        },
-        {
-          icon: 'pi-heart-pulse',
-          name: 'kpi_blood_pressure',
-          value: '115/86',
+          message: "Initial Risk Assessment",
         },
       ],
     },

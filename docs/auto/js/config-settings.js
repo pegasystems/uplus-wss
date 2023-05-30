@@ -188,7 +188,9 @@ window.settings = {
     hideactivity: false,
     hideaccount: false,
     hideaccountdetails: false,
-    hideKPI: true,
+    accountdetailsheading: 'Your services',
+    accountpickerheading: 'Your vehicles',
+    recentactivityheading: 'Recent activity',
     channelid: '',
     tenantid: '',
     dataretained: true,
@@ -278,30 +280,58 @@ window.settings = {
       accountdetails: [],
       accountpicker: [
         {
-          icon: 'pi-car-solid',
-          title: 'accountpicker1_title',
-          desc: 'accountpicker1_desc',
-          id: '',
+          title: "Vehicle 1",
+          details: [
+            {
+              label: "Make",
+              value: 'Subaru',
+            },
+            {
+              label: "Model",
+              value: 'Outback',
+            },
+            {
+              label: "Mileage",
+              type: "number",
+              value: 34565,
+            },
+            {
+              label: "Next service",
+              type: "number",
+              value: 40000,
+            }]
         },
         {
-          icon: 'pi-car-solid',
-          title: 'accountpicker2_title',
-          desc: 'accountpicker2_desc',
-          id: '',
+          title: "Vehicle 2",
+          details: [
+            {
+              label: "Make",
+              value: 'Ford',
+            },
+            {
+              label: "Model",
+              value: 'Escape',
+            },
+            {
+              label: "Mileage",
+              type: "number",
+              value: 78901,
+            },
+            {
+              label: "Next service",
+              type: "number",
+              value: 90000,
+            }]
         },
       ],
       recentactivity: [
         {
-          message: 'recentactivity1_msg',
+          message: "30,000 miles services on vehicle 1",
+          cost: 123.45
         },
         {
-          message: 'recentactivity2_msg',
-        },
-        {
-          message: 'recentactivity3_msg',
-        },
-        {
-          message: 'recentactivity4_msg',
+          message: "Oil change service on vehicle 2",
+          cost: 53.10
         },
       ],
     },
@@ -325,30 +355,58 @@ window.settings = {
       accountdetails: [],
       accountpicker: [
         {
-          icon: 'pi-car-solid',
-          title: 'accountpicker1_title',
-          desc: 'accountpicker1_desc',
-          id: '',
+          title: "Vehicle 1",
+          details: [
+            {
+              label: "Make",
+              value: 'Subaru',
+            },
+            {
+              label: "Model",
+              value: 'Outback',
+            },
+            {
+              label: "Mileage",
+              type: "number",
+              value: 34565,
+            },
+            {
+              label: "Next service",
+              type: "number",
+              value: 40000,
+            }]
         },
         {
-          icon: 'pi-car-solid',
-          title: 'accountpicker2_title',
-          desc: 'accountpicker2_desc',
-          id: '',
+          title: "Vehicle 2",
+          details: [
+            {
+              label: "Make",
+              value: 'Ford',
+            },
+            {
+              label: "Model",
+              value: 'Escape',
+            },
+            {
+              label: "Mileage",
+              type: "number",
+              value: 78901,
+            },
+            {
+              label: "Next service",
+              type: "number",
+              value: 90000,
+            }]
         },
       ],
       recentactivity: [
         {
-          message: 'recentactivity1_msg',
+          message: "30,000 miles services on vehicle 1",
+          cost: 123.45
         },
         {
-          message: 'recentactivity2_msg',
-        },
-        {
-          message: 'recentactivity3_msg',
-        },
-        {
-          message: 'recentactivity4_msg',
+          message: "Oil change service on vehicle 2",
+          cost: 53.10
         },
       ],
     },
