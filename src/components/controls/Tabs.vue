@@ -1,40 +1,29 @@
+<script setup>
+import { useSlots, ref, provide } from 'vue';
+
+const slots = useSlots();
+const tabTitles = ref(
+  slots.default()[0].children.map((tab) => tab.props.title),
+);
+const selectedTitle = ref(tabTitles.value[0]);
+
+provide('selectedTitle', selectedTitle);
+</script>
+
 <template>
-  <div>
-    <div class="tab-interface">
-      <ul role="tablist">
-        <li role="presentation" v-for="(tab, index) in tabs" v-bind:key="index">
-          <a
-            role="tab"
-            :tabindex="tab.isActive ? '0' : '-1'"
-            :aria-controls="tab.href"
-            :aria-selected="tab.isActive ? 'true' : 'false'"
-            :id="tab.href + '-tab'"
-            @click="selectTab(tab)"
-            >{{ tab.name }}</a
-          >
-        </li>
-      </ul>
-    </div>
-    <div class="tabs-details">
-      <slot></slot>
-    </div>
+  <div class="account-tabs">
+    <ul class="account-tabs-header">
+      <li
+        v-for="title in tabTitles"
+        :key="title"
+        class="account-tabs-item"
+        :class="{ selected: selectedTitle === title }"
+        @click="selectedTitle = title"
+      >
+        {{ title }}
+      </li>
+    </ul>
+
+    <slot />
   </div>
 </template>
-
-<script>
-export default {
-  data() {
-    return { tabs: [] };
-  },
-  created() {
-    this.tabs = this.$children;
-  },
-  methods: {
-    selectTab(selectedTab) {
-      this.tabs.forEach((tab) => {
-        tab.isActive = tab.name === selectedTab.name;
-      });
-    },
-  },
-};
-</script>

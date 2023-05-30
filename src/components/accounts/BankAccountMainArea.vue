@@ -1,5 +1,5 @@
 <template>
-  <div class="col col-1 primary-card">
+  <div class="col col-1">
     <Banner
       v-if="
         typeof settings.banner !== 'undefined' &&
@@ -11,27 +11,27 @@
       v-if="typeof settings.todo !== 'undefined' && settings.todo.url !== ''"
       :key="reloadToDoMashup"
     />
-    <section class="content cash-projections">
+    <section class="content cash-projections primary-card">
       <div class="flex">
-        <h2>{{ $t('message.cash_projections') }}</h2>
+        <h3>{{ $t('message.cash_projections') }}</h3>
         <div>
-          <h4>{{ $t('message.income') }}</h4>
+          <p>{{ $t('message.income') }}</p>
           <span> <i class="pi pi-arrow-down pi-error"></i>17.4% </span>
         </div>
         <div>
-          <h4>{{ $t('message.cost') }}</h4>
+          <p>{{ $t('message.cost') }}</p>
           <span> <i class="pi pi-arrow-up pi-success"></i>12.2% </span>
         </div>
         <div>
-          <h4>{{ $t('message.balance') }}</h4>
+          <p>{{ $t('message.balance') }}</p>
           <span> <i class="pi pi-arrow-down pi-error"></i>2.1% </span>
         </div>
       </div>
       <div>
-        <h4 class="dropdown">
+        <p class="dropdown">
           {{ $t('message.cash_projections_dropdown') }}
           <i class="pi pi-caret-down"></i>
-        </h4>
+        </p>
       </div>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 305">
         <g transform="translate(80,40)">
@@ -40,7 +40,7 @@
             color="#7b7b7b"
             fill="#7b7b7b"
             font-size="18"
-            font-family="Open Sans"
+            font-family="Inter"
             text-anchor="end"
             transform="rotate(270)"
           >
@@ -56,7 +56,7 @@
             transform="translate(0,200)"
             fill="none"
             font-size="14"
-            font-family="Open Sans"
+            font-family="Inter"
             text-anchor="middle"
           >
             <path class="domain" stroke="#e4e7eb" d="M0,0V0.5H700.0V0"></path>
@@ -68,7 +68,7 @@
             transform="translate(0,150)"
             fill="none"
             font-size="14"
-            font-family="Open Sans"
+            font-family="Inter"
             text-anchor="middle"
           >
             <path class="domain" stroke="#e4e7eb" d="M0,0V0.5H700.0V0"></path>
@@ -80,7 +80,7 @@
             transform="translate(0,100)"
             fill="none"
             font-size="14"
-            font-family="Open Sans"
+            font-family="Inter"
             text-anchor="middle"
           >
             <path class="domain" stroke="#e4e7eb" d="M0,0V0.5H700.0V0"></path>
@@ -92,7 +92,7 @@
             transform="translate(0,50)"
             fill="none"
             font-size="14"
-            font-family="Open Sans"
+            font-family="Inter"
             text-anchor="middle"
           >
             <path class="domain" stroke="#e4e7eb" d="M0,0V0.5H700.0V0"></path>
@@ -104,7 +104,7 @@
             transform="translate(0,0)"
             fill="none"
             font-size="14"
-            font-family="Open Sans"
+            font-family="Inter"
             text-anchor="middle"
           >
             <path class="domain" stroke="#e4e7eb" d="M0,0V0.5H700.0V0"></path>
@@ -148,7 +148,7 @@
             transform="translate(0,205)"
             fill="none"
             font-size="16"
-            font-family="Open Sans"
+            font-family="Inter"
             text-anchor="middle"
           >
             <g class="tick" opacity="1" transform="translate(55,0)">
@@ -182,7 +182,7 @@
               </text>
             </g>
           </g>
-          <g font-family="Open Sans" font-size="15" text-anchor="end">
+          <g font-family="Inter" font-size="15" text-anchor="end">
             <g transform="translate(-55,5)">
               <circle cx="170" cy="240" r="5" fill="#67c100"></circle>
               <text fill="#7b7b7b" x="235" y="240" dy="0.32em">
@@ -195,7 +195,7 @@
               <g transform="translate(365,240)">
                 <line stroke="#3171e1" x2="15"></line>
                 <line stroke="#3171e1" x2="-15"></line>
-                <circle r="5" stroke="#3171e1" fill="#fff"></circle>
+                <circle r="5" stroke="#3171e1" fill="#000"></circle>
                 <text fill="#7b7b7b" x="115" dy="0.32em">
                   {{ $t('message.cash_balance') }}
                 </text>
@@ -203,7 +203,7 @@
               <g transform="translate(520,240)">
                 <line stroke="#3171e1" x2="15" stroke-dasharray="3 3"></line>
                 <line stroke="#3171e1" x2="-15" stroke-dasharray="3 3"></line>
-                <circle r="5" stroke="#3171e1" fill="#fff"></circle>
+                <circle r="5" stroke="#3171e1" fill="#000"></circle>
                 <text fill="#7b7b7b" x="135" dy="0.32em">
                   {{ $t('message.cash_predition') }}
                 </text>
@@ -223,12 +223,12 @@
               y2="90"
               stroke-dasharray="3 3"
             ></line>
-            <circle cx="56" cy="132" r="5" fill="#fff"></circle>
-            <circle cx="171" cy="147" r="5" fill="#fff"></circle>
-            <circle cx="286" cy="118" r="5" fill="#fff"></circle>
-            <circle cx="401" cy="110" r="5" fill="#fff"></circle>
-            <circle cx="516" cy="110" r="5" fill="#fff"></circle>
-            <circle cx="631" cy="90" r="5" fill="#fff"></circle>
+            <circle cx="56" cy="132" r="5" fill="#000"></circle>
+            <circle cx="171" cy="147" r="5" fill="#000"></circle>
+            <circle cx="286" cy="118" r="5" fill="#000"></circle>
+            <circle cx="401" cy="110" r="5" fill="#000"></circle>
+            <circle cx="516" cy="110" r="5" fill="#000"></circle>
+            <circle cx="631" cy="90" r="5" fill="#000"></circle>
           </g>
         </g>
       </svg>

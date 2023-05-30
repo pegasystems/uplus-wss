@@ -188,7 +188,9 @@ window.settings = {
     hideactivity: false,
     hideaccount: false,
     hideaccountdetails: true,
-    hideKPI: true,
+    accountdetailsheading: 'Account summary',
+    accountpickerheading: 'Your accounts',
+    recentactivityheading: 'Recent activity',
     channelid: '',
     tenantid: '',
     dataretained: true,
@@ -278,36 +280,60 @@ window.settings = {
       accountdetails: [],
       accountpicker: [
         {
-          icon: 'pi-piggybank',
-          title: 'accountpicker1_title',
-          desc: 'accountpicker1_desc',
-          id: '',
+          title: "Town Taxes",
+          details: [
+            {
+              label: "Due date",
+              type: "duedate"
+            },
+            {
+              label: "Balance",
+              type: "currency",
+              value: 1342.50,
+            },
+            ]
         },
         {
-          icon: 'pi-money',
-          title: 'accountpicker2_title',
-          desc: 'accountpicker2_desc',
-          id: '',
+          title: "Excise Tax",
+          details: [
+            {
+              label: "Make",
+              value: 'Ford',
+            },
+            {
+              label: "Model",
+              value: 'Fiesta',
+            },
+            {
+              label: "Plate",
+              value: '4567VV',
+            },
+            ]
         },
         {
-          icon: 'pi-credit',
-          title: 'accountpicker3_title',
-          desc: 'accountpicker3_desc',
-          id: '',
+          title: "Water bill",
+          details: [
+            {
+              label: "Due date",
+              type: "duedate"
+            },
+            {
+              label: "Balance",
+              type: "currency",
+              value: 43.90,
+            },
+            ]
         },
       ],
       recentactivity: [
         {
-          message: 'recentactivity1_msg',
+          message: "Your last town tax bill is ready to view",
         },
         {
-          message: 'recentactivity2_msg',
+          message: "Your excise bill has been processed",
         },
         {
-          message: 'recentactivity3_msg',
-        },
-        {
-          message: 'recentactivity4_msg',
+          message: "Your water bill #4345656 has been processed",
         },
       ],
     },
@@ -331,36 +357,60 @@ window.settings = {
       accountdetails: [],
       accountpicker: [
         {
-          icon: 'pi-piggybank',
-          title: 'accountpicker1_title',
-          desc: 'accountpicker1_desc',
-          id: '',
+          title: "Town Taxes",
+          details: [
+            {
+              label: "Due date",
+              type: "duedate"
+            },
+            {
+              label: "Balance",
+              type: "currency",
+              value: 1342.50,
+            },
+            ]
         },
         {
-          icon: 'pi-money',
-          title: 'accountpicker2_title',
-          desc: 'accountpicker2_desc',
-          id: '',
+          title: "Excise Tax",
+          details: [
+            {
+              label: "Make",
+              value: 'Ford',
+            },
+            {
+              label: "Model",
+              value: 'Fiesta',
+            },
+            {
+              label: "Plate",
+              value: '4567VV',
+            },
+            ]
         },
         {
-          icon: 'pi-credit',
-          title: 'accountpicker3_title',
-          desc: 'accountpicker3_desc',
-          id: '',
+          title: "Water bill",
+          details: [
+            {
+              label: "Due date",
+              type: "duedate"
+            },
+            {
+              label: "Balance",
+              type: "currency",
+              value: 43.90,
+            },
+            ]
         },
       ],
       recentactivity: [
         {
-          message: 'recentactivity1_msg',
+          message: "Your last town tax bill is ready to view",
         },
         {
-          message: 'recentactivity2_msg',
+          message: "Your excise bill has been processed",
         },
         {
-          message: 'recentactivity3_msg',
-        },
-        {
-          message: 'recentactivity4_msg',
+          message: "Your water bill #4345656 has been processed",
         },
       ],
     },

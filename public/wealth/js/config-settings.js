@@ -187,8 +187,10 @@ window.settings = {
     extraparam: '',
     hideactivity: false,
     hideaccount: false,
-    hideaccountdetails: true,
-    hideKPI: true,
+    hideaccountdetails: false,
+    accountdetailsheading: 'Portfolio Summary',
+    accountpickerheading: 'Accounts overview',
+    recentactivityheading: 'Recent transactions',
     channelid: '',
     tenantid: '',
     dataretained: true,
@@ -276,38 +278,73 @@ window.settings = {
       load_by_default: true,
       show_opname: false,
       otp_send_to: '',
-      accountdetails: [],
+      accountdetails: [[
+        {
+          label: "Current balance",
+          type: 'currency',
+          value: 164.80,
+        },
+        {
+          label: "Statement balance",
+          type: 'duedate',
+        },
+        {
+          label: "Annualized rate of return",
+          value: "8.4%",
+        },
+        ],
+      ],
       accountpicker: [
         {
-          icon: 'pi-folder',
-          title: 'accountpicker1_title',
-          id: '***1234',
+          title: "Individual Investment",
+          details: [
+            {
+              label: "Account number",
+              value: "3456789-345",
+            },
+            {
+              label: "Account balance",
+              type: "currency",
+              value: 10064.80,
+            }]
         },
         {
-          icon: 'pi-money',
-          title: 'accountpicker2_title',
-          id: '***5678',
+          title: "Joint account",
+          details: [
+            {
+              label: "Account number",
+              value: "12456-788689",
+            },
+            {
+              label: "Account balance",
+              type: "currency",
+              value: 164.80,
+            }]
         },
         {
-          icon: 'pi-credit',
-          title: 'accountpicker3_title',
-          id: '***7890',
+          title: "Retirement account",
+          details: [
+            {
+              label: "Account number",
+              value: "124577788689",
+            },
+            {
+              label: "Account balance",
+              type: "currency",
+              value: 2400.30,
+            }]
         },
       ],
       recentactivity: [
         {
-          message: 'recentactivity1_msg',
+          message: "Transfer to your joint account",
+          cost: 1230.45
         },
         {
-          message: 'recentactivity2_msg',
+          message: "Dividend from Uplus",
+          cost: 53.10
         },
-        {
-          message: 'recentactivity3_msg',
-        },
-        {
-          message: 'recentactivity4_msg',
-        },
-      ],
+      ]
     },
     {
       username: 'mary@pegasystems.com',
@@ -327,36 +364,71 @@ window.settings = {
       load_by_default: false,
       show_opname: false,
       otp_send_to: '',
-      accountdetails: [],
+      accountdetails: [[
+        {
+          label: "Current balance",
+          type: 'currency',
+          value: 164.80,
+        },
+        {
+          label: "Statement balance",
+          type: 'duedate',
+        },
+        {
+          label: "Annualized rate of return",
+          value: "8.4%",
+        },
+        ],
+      ],
       accountpicker: [
         {
-          icon: 'pi-folder',
-          title: 'accountpicker1_title',
-          id: '***1234',
+          title: "Individual Investment",
+          details: [
+            {
+              label: "Account number",
+              value: "3456789-345",
+            },
+            {
+              label: "Account balance",
+              type: "currency",
+              value: 10064.80,
+            }]
         },
         {
-          icon: 'pi-money',
-          title: 'accountpicker2_title',
-          id: '***5678',
+          title: "Joint account",
+          details: [
+            {
+              label: "Account number",
+              value: "12456-788689",
+            },
+            {
+              label: "Account balance",
+              type: "currency",
+              value: 164.80,
+            }]
         },
         {
-          icon: 'pi-credit',
-          title: 'accountpicker3_title',
-          id: '***7890',
+          title: "Retirement account",
+          details: [
+            {
+              label: "Account number",
+              value: "124577788689",
+            },
+            {
+              label: "Account balance",
+              type: "currency",
+              value: 2400.30,
+            }]
         },
       ],
       recentactivity: [
         {
-          message: 'recentactivity1_msg',
+          message: "Transfer to your joint account",
+          cost: 1230.45
         },
         {
-          message: 'recentactivity2_msg',
-        },
-        {
-          message: 'recentactivity3_msg',
-        },
-        {
-          message: 'recentactivity4_msg',
+          message: "Dividend from Uplus",
+          cost: 53.10
         },
       ],
     },

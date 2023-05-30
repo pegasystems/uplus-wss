@@ -1,14 +1,11 @@
 /* Color and decoration. */
 body,
-.form {
+.hero-main {
   background: #f7f7f7;
 }
-
-body.front,
-body.offer {
-  background: #fff;
+.highlight-main {
+  background: #FFF;
 }
-
 a,
 a:visited {
   color: var(--interactiveColor);
@@ -26,7 +23,7 @@ a:active {
 }
 
 .content-card {
-  background: #fff;
+  background: #FFF;
   border: 1px solid #d5d5d5;
   border-radius: 4px;
 }
@@ -36,14 +33,13 @@ a:active {
 }
 
 .primary-card {
-  background: #fff;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  background: #FFF;
   border-radius: 8px;
 }
 
 .secondary-card {
-  background: #fff;
-  border: 1px solid #fff;
+  background: #FFF;
+  border: 0.5px solid rgba(0,0,0,0.2);
   border-radius: 8px;
 }
 

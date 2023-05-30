@@ -188,7 +188,9 @@ window.settings = {
     hideactivity: false,
     hideaccount: false,
     hideaccountdetails: true,
-    hideKPI: true,
+    accountdetailsheading: 'Network summary',
+    accountpickerheading: 'My networks',
+    recentactivityheading: 'Recent activity',
     channelid: '',
     tenantid: '',
     dataretained: true,
@@ -263,7 +265,7 @@ window.settings = {
       password: 'rules',
       img: 'avatar-1.jpg',
       company_name: '',
-      name: 'Joe Smith',
+      name: 'Dr Smith',
       accountID: '',
       contactID: '',
       customerID: '',
@@ -278,37 +280,39 @@ window.settings = {
       accountdetails: [],
       accountpicker: [
         {
-          icon: 'pi-piggybank',
-          title: 'accountpicker1_title',
-          desc: 'accountpicker1_desc',
-          id: '',
+          title: "HMO network",
+          details: [
+            {
+              label: "Number of patients",
+              value: 120,
+            },
+            ]
         },
         {
-          icon: 'pi-money',
-          title: 'accountpicker2_title',
-          desc: 'accountpicker2_desc',
-          id: '',
-        },
-        {
-          icon: 'pi-credit',
-          title: 'accountpicker3_title',
-          desc: 'accountpicker3_desc',
-          id: '',
+          title: "PPO network",
+          details: [
+            {
+              label: "Number of patients",
+              value: 450,
+            },
+            ]
+        },{
+          title: "EPO network",
+          details: [
+            {
+              label: "Number of patients",
+              value: 34,
+            },
+           ]
         },
       ],
       recentactivity: [
         {
-          message: 'recentactivity1_msg',
+          message: "Your appeal has been received",
         },
         {
-          message: 'recentactivity2_msg',
-        },
-        {
-          message: 'recentactivity3_msg',
-        },
-        {
-          message: 'recentactivity4_msg',
-        },
+          message: "Your credentials require renewal",
+        }
       ],
     },
     {
@@ -316,7 +320,7 @@ window.settings = {
       password: 'rules',
       img: 'avatar-2.jpg',
       company_name: '',
-      name: 'Mary Taylor',
+      name: 'Dr Taylor',
       accountID: '',
       contactID: '',
       customerID: '',
@@ -331,37 +335,39 @@ window.settings = {
       accountdetails: [],
       accountpicker: [
         {
-          icon: 'pi-piggybank',
-          title: 'accountpicker1_title',
-          desc: 'accountpicker1_desc',
-          id: '',
+          title: "HMO network",
+          details: [
+            {
+              label: "Number of patients",
+              value: 120,
+            },
+            ]
         },
         {
-          icon: 'pi-money',
-          title: 'accountpicker2_title',
-          desc: 'accountpicker2_desc',
-          id: '',
-        },
-        {
-          icon: 'pi-credit',
-          title: 'accountpicker3_title',
-          desc: 'accountpicker3_desc',
-          id: '',
+          title: "PPO network",
+          details: [
+            {
+              label: "Number of patients",
+              value: 450,
+            },
+            ]
+        },{
+          title: "EPO network",
+          details: [
+            {
+              label: "Number of patients",
+              value: 34,
+            },
+           ]
         },
       ],
       recentactivity: [
         {
-          message: 'recentactivity1_msg',
+          message: "Your appeal has been received",
         },
         {
-          message: 'recentactivity2_msg',
-        },
-        {
-          message: 'recentactivity3_msg',
-        },
-        {
-          message: 'recentactivity4_msg',
-        },
+          message: "Your credentials require renewal",
+        }
       ],
     },
   ],

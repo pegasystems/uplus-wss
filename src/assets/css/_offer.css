@@ -1,78 +1,15 @@
-/* Special styling for the offer page */
-body > #app.form.offer {
-  background: #fff;
-  height: auto;
+.offer-heading {
+  min-height: 250px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
 }
-
-.offer > header {
-  height: 400px;
-  padding-top: 7px;
-  text-align: center;
+.offer-heading > p  {
+  width: 50%;
 }
-
-.offer > header h1 {
-  margin-top: 28px;
-}
-
-.category > header {
-  height: 400px;
-  background-position: 0% 0%;
-}
-
-.offer > header p {
-  color: #fff;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.category h1,
-.category h2,
-.category h4 {
-  text-align: center;
-}
-.category h2 {
-  padding-top: 8px;
-  color: #4a4a4a;
-  font-weight: 600;
+.offer .primary-card h2 {
   font-size: 34px;
-}
-
-.category > main {
-  color: #414949;
-}
-
-.category > main > p {
-  color: #fff;
-  text-align: center;
-  padding-bottom: 30px;
-  font-size: 24px;
-}
-
-.offer > main {
-  margin-top: -140px;
-  color: #414949;
-  max-width: 1000px;
-}
-
-.offer > main.static-offer {
-  align-items: center;
-}
-
-.offer > main.static-offer > .main-offer,
-.offer > main.static-offer > .offer-details,
-.offer > main.static-offer > .offer-highlights {
-  max-width: 710px;
-}
-
-.offer .primary-card h3 {
-  font-size: 20px;
-  font-weight: 800;
-}
-
-.category .promo,
-.offer .promo {
-  text-align: center;
-  padding: 55px 16px;
+  font-weight: 500;
 }
 
 .offer .promo h4 {
@@ -84,7 +21,7 @@ body > #app.form.offer {
 .offer-footer .promo h4,
 .offer-footer footer nav > div.flex > a,
 .offer-footer button.simple {
-  color: #fff;
+  color: #050505;
 }
 
 .offer-footer button.simple {
@@ -96,15 +33,8 @@ body > #app.form.offer {
   padding-bottom: 30px;
 }
 
-.form.category .offer-footer .promo h4 {
-  padding-bottom: 0;
-  font-size: 28px;
-  max-width: 360px;
-  margin: 0 auto;
-}
-
 .offer-footer p {
-  color: #fff;
+  color: #050505;
 }
 
 .offer-card,
@@ -130,7 +60,6 @@ body > #app.form.offer {
   display:flex;
   flex-flow:column nowrap;
   flex:1;
-  min-height:300px;
 }
 
 .builtin-offer > .details > .button-row {
@@ -141,6 +70,7 @@ body > #app.form.offer {
 
 .main-offer > .details {
   flex:1;
+  padding-left:32px;
 }
 
 .main-offer p {
@@ -184,10 +114,6 @@ body > #app.form.offer {
 .offer-details {
   margin-bottom: 32px;
 }
-.category .offer-details {
-  max-width: 600px;
-  margin: 40px auto;
-}
 
 .offer-details .line {
   width: 81px;
@@ -219,28 +145,40 @@ body > #app.form.offer {
   padding-left: 8px;
 }
 
+.highlight-card {
+  padding: 60px;
+  display:flex;
+  flex-flow: row nowrap;
+}
+.highlight-card > .flex {
+  flex-basis:35%;
+  padding-right: 16px;
+}
+.offer-highlights {
+  border-left: 1px solid rgba(0,0,0,.2);
+  padding-left: 16px;
+  flex-basis:65%;
+}
+
 .offer-highlights > div {
-  margin-bottom: 25px;
+  margin-bottom: 16px;
 }
 
 .offer-highlights .pi {
-  font-size: 40px;
-  background: #fff;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  display: inline-block;
-  border: 1px solid #dedede;
+  font-size: 20px;
+  width: 30px;
+  height: 30px;
+  margin-right: 32px;
+}
+
+.offer-highlights .pi:before {
+  text-align: center;
+  width: 30px;
+  line-height: 30px;
 }
 
 .offer-highlights p {
   font-size: 18px;
   font-weight: 800;
   color: #414949;
-}
-
-.offer-highlights .pi:before {
-  text-align: center;
-  width: 80px;
-  line-height: 80px;
 }

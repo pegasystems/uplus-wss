@@ -1,21 +1,32 @@
 <template>
-  <main v-if="offerAction != -1" class="wrap flex flex-col">
-    <MashupMainArea />
+  <main v-if="offerAction != -1" class="flex flex-col">
+    <div class="wrap flex">
+      <MashupMainArea />
+    </div>
   </main>
-  <main v-else-if="offerURL !== ''" class="wrap flex flex-col">
-    <MicroSiteMainArea />
+  <main v-else-if="offerURL !== ''" class="flex flex-col">
+    <div class="wrap flex">
+      <MicroSiteMainArea />
+    </div>
   </main>
-  <main v-else class="wrap flex flex-col static-offer">
+  <main v-else class="flex flex-col hero-main">
+    <div class="ribbon1">
+      <div><div class="wrap"></div></div>
+    </div>
+    <div class="wrap offer-heading">
+      <h1>{{ $t('message.' + app.offer[offerIndex].header.title) }}</h1>
+      <p>{{ $t('message.' + app.offer[offerIndex].header.msg) }}</p>
+    </div>
     <MainOffer v-bind:offerType="offerIndex" />
-    <Details />
-    <Highlight />
+    <div class="highlight-main">
+      <Highlight />
+    </div>
   </main>
 </template>
 
 <script>
 import { mainconfig } from '../../global';
 import MainOffer from './MainOffer.vue';
-import Details from './Details.vue';
 import Highlight from './Highlight.vue';
 import MicroSiteMainArea from '../MicroSiteMainArea.vue';
 import MashupMainArea from '../MashupMainArea.vue';
@@ -26,7 +37,6 @@ export default {
   },
   components: {
     MainOffer,
-    Details,
     Highlight,
     MicroSiteMainArea,
     MashupMainArea,

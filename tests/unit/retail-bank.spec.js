@@ -3,7 +3,6 @@ import { mount } from '@vue/test-utils';
 import '@/../public/retail_bank/js/config-settings';
 import '@/../public/retail_bank/js/config-flow';
 import '@/../public/retail_bank/i18n/lang-en';
-import '@/../public/retail_bank/i18n/lang-fr';
 import DefaultPage from '@/views/DefaultPage.vue';
 
 describe('Retail Bank App on Desktop', () => {
@@ -38,7 +37,7 @@ describe('Retail Bank App on Desktop', () => {
         },
       },
     });
-    expect(wrapper.find('h1').text()).toContain('message.accountoverview');
+    expect(wrapper.find('h1').text()).toContain('message.hello');
   });
 });
 

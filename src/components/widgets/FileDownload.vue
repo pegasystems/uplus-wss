@@ -17,7 +17,7 @@ export default {
   },
   methods: {
     downloadFile() {
-      const data = JSON.stringify(mainconfig.settings);
+      const data = JSON.stringify(mainconfig.settings, null, 2);
       const filename = 'config-text.json';
       const blob = new Blob([data], { type: 'text/plain;charset=utf-8;' });
       if (window.navigator.msSaveOrOpenBlob) {

@@ -8,17 +8,22 @@
       class="overlay flex flex-col"
       :class="[isActive ? 'show' : 'hidden']"
     >
+      <h3>{{ $t('message.welcomeBack') }}</h3>
       <div v-if="!isOTP" class="field flex flex-col username">
         <select id="username" v-model="username">
           <option v-for="(item, index) in settings.users" v-bind:key="index">
             {{ item.username }}
           </option>
         </select>
-        <label for="username">{{ $t('message.username') }}</label>
+        <label class="required" for="username">{{
+          $t('message.username')
+        }}</label>
       </div>
       <div v-if="!isOTP" class="field flex flex-col password">
         <input id="password" type="password" v-model="password" />
-        <label for="password">{{ $t('message.password') }}</label>
+        <label class="required" for="password">{{
+          $t('message.password')
+        }}</label>
       </div>
       <div v-if="isOTP" class="field flex flex-col">
         <label for="otp">{{ $t('message.otp') }}</label>
@@ -39,6 +44,8 @@
       <span v-if="OTPRequestFailed" class="error">{{
         $t('message.requestOTPFailed')
       }}</span>
+      <a>{{ $t('message.forgotPassword') }}</a>
+      <a>{{ $t('message.notEnrolled') }}</a>
     </div>
   </div>
 </template>

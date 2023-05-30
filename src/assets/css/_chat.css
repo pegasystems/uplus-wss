@@ -82,7 +82,7 @@
   display: inline-flex;
   width: 100%;
   border-bottom: 1px solid #e0e0e0;
-  color: #fff;
+  color: #050505;
   font-family: Open Sans, sans-serif;
   font-size: 17px;
   font-weight: 300;
@@ -95,7 +95,7 @@
   width: 100%;
   font-size: 17px;
   font-weight: 300;
-  color: #fff;
+  color: #050505;
   font-family: Open Sans, sans-serif;
   margin-right: -87px;
 }
@@ -223,7 +223,7 @@ div#ChatFooter {
   padding: 7px;
   font-size: 20px;
   z-index: 2147483644;
-  color: #fff;
+  color: #050505;
   cursor: pointer;
   border: 1px solid #fff;
 }

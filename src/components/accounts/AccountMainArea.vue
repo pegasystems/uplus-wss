@@ -1,19 +1,22 @@
 <template>
-  <div class="col col-1 primary-card">
-    <Banner
-      v-if="
-        typeof settings.banner !== 'undefined' &&
-        settings.banner.hidebanner !== 'true' &&
-        settings.banner.hidebanner !== true
-      "
-    />
-    <AccountPicker
-      v-if="
-        typeof settings.todo !== 'undefined' &&
-        settings.todo.hideaccount !== 'true' &&
-        settings.todo.hideaccount !== true
-      "
-    />
+  <div class="col col-1">
+    <div class="primary-card">
+      <Banner
+        v-if="
+          typeof settings.banner !== 'undefined' &&
+          settings.banner.hidebanner !== 'true' &&
+          settings.banner.hidebanner !== true
+        "
+      />
+      <AccountPicker
+        v-if="
+          typeof settings.todo !== 'undefined' &&
+          settings.todo.hideaccount !== 'true' &&
+          settings.todo.hideaccount !== true
+        "
+      />
+      <QuickLinks />
+    </div>
     <AccountDetails
       v-if="
         typeof settings.todo !== 'undefined' &&
@@ -21,25 +24,9 @@
         settings.todo.hideaccountdetails !== true
       "
     />
-    <KPI
-      v-if="
-        (app.industry === 'health-pharma' ||
-          app.industry === 'health-care' ||
-          app.industry === 'health-payer') &&
-        settings.todo.hideKPI !== 'true' &&
-        settings.todo.hideKPI !== true
-      "
-    />
     <MashupMainArea
       v-if="typeof settings.todo !== 'undefined' && settings.todo.url !== ''"
       :key="reloadToDoMashup"
-    />
-    <BillPay
-      v-if="
-        typeof settings.billpay !== 'undefined' &&
-        settings.billpay.hidebillpay !== 'true' &&
-        settings.billpay.hidebillpay !== true
-      "
     />
     <RecentActivity
       v-if="
@@ -56,9 +43,8 @@
 import MashupMainArea from '../MashupMainArea.vue';
 import AccountPicker from '../widgets/AccountPicker.vue';
 import AccountDetails from '../widgets/AccountDetails.vue';
-import KPI from '../widgets/KPI.vue';
+import QuickLinks from '../widgets/QuickLinks.vue';
 import Banner from '../widgets/Banner.vue';
-import BillPay from '../widgets/BillPay.vue';
 import RecentActivity from '../widgets/RecentActivity.vue';
 import { mainconfig } from '../../global';
 
@@ -70,10 +56,9 @@ export default {
     MashupMainArea,
     AccountPicker,
     AccountDetails,
-    KPI,
-    BillPay,
     RecentActivity,
     Banner,
+    QuickLinks,
   },
 };
 </script>

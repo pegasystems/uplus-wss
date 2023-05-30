@@ -1,7 +1,7 @@
 @font-face {
   font-family: "UIKitIcons";
   font-display: swap;
-  src: local('uikit-icons'), url(../fonts/uikit-icons.woff2) format('woff2'), url("../fonts/uikit-icons.woff?") format("woff");
+  src: url(../fonts/Icons.woff2) format('woff2');
   font-weight: 400;
   font-style: normal
 }
@@ -113,7 +113,7 @@ i[data-click]:before {
 }
 
 .pi-light {
-  color: #fff;
+  color: #050505;
 }
 
 .pi-grey,
@@ -188,7 +188,7 @@ i[data-click]:before {
 
 #sidebar-region-one #PEGA_TABBED0 .tab-ul li>a:before,
 .screen-layout-header_footer_left>.screen-layout-region>.screen-layout-region-content .nav-toggle-one:before {
-  color: #fff;
+  color: #050505;
   font-size: 16px;
   vertical-align: middle;
 }
@@ -1395,7 +1395,7 @@ div[class*="layout-outline"]>.Collapsed>.header-bar>*>.icon-openclose::before,
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   direction: ltr;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: .35em !important;
   /* Override browser defaults */
   font-weight: 700;
@@ -4417,7 +4417,7 @@ a.iconLocation:hover {
 .pi-completed-process:before {
   background: #20AA50;
   border-radius: 50%;
-  color: #fff;
+  color: #050505;
   font-size: 12px;
   height: 19px;
   width: 19px;

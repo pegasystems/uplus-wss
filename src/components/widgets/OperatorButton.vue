@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-mid-align">
+  <div class="flex flex-mid-align user-area">
     <div v-if="isNamePresent" class="flex flex-col margin-r-2x">
       <span v-if="settings.users[userId]">{{
         settings.users[userId].name

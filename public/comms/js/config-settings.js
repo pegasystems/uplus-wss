@@ -188,7 +188,9 @@ window.settings = {
     hideactivity: false,
     hideaccount: false,
     hideaccountdetails: true,
-    hideKPI: true,
+    accountdetailsheading: 'Add-ons services',
+    accountpickerheading: 'Your services',
+    recentactivityheading: 'Recent activity',
     channelid: '',
     tenantid: '',
     dataretained: true,
@@ -278,36 +280,65 @@ window.settings = {
       accountdetails: [],
       accountpicker: [
         {
-          icon: 'pi-phone',
-          title: 'accountpicker1_title',
-          desc: 'accountpicker1_desc',
-          id: '',
+          title: "Mobile",
+          showbillpay: true,
+          details: [
+            {
+              label: "Name",
+              value: "Family Share",
+            },
+            {
+              label: "Bandwidth",
+              value: "8GB",
+            },
+            {
+              label: "Due date",
+              type: "duedate"
+            }]
         },
         {
-          icon: 'pi-globe',
-          title: 'accountpicker2_title',
-          desc: 'accountpicker2_desc',
-          id: '',
+          title: "Internet",
+          showbillpay: true,
+          details: [
+            {
+              label: "Name",
+              value: "Fiber One",
+            },
+            {
+              label: "Bandwidth",
+              value: "800Mbs",
+            },
+            {
+              label: "Due date",
+              type: "duedate"
+            }]
         },
         {
-          icon: 'pi-tv',
-          title: 'accountpicker3_title',
-          desc: 'accountpicker3_desc',
-          id: '',
+          title: "TV",
+          showbillpay: true,
+          details: [
+            {
+              label: "Name",
+              value: "Ultimate",
+            },
+            {
+              label: "Offer",
+              value: "300+ Channels",
+            }]
         },
       ],
       recentactivity: [
         {
-          message: 'recentactivity1_msg',
+          message: "Your last statement is ready to view",
         },
         {
-          message: 'recentactivity2_msg',
+          message: "Your payment has been processed",
         },
         {
-          message: 'recentactivity3_msg',
+          message: "Started online troubleshooting",
         },
         {
-          message: 'recentactivity4_msg',
+          message: "Reported connectivity issues",
         },
       ],
     },
@@ -331,36 +362,65 @@ window.settings = {
       accountdetails: [],
       accountpicker: [
         {
-          icon: 'pi-phone',
-          title: 'accountpicker1_title',
-          desc: 'accountpicker1_desc',
-          id: '',
+          title: "Mobile",
+          showbillpay: true,
+          details: [
+            {
+              label: "Name",
+              value: "Family Share",
+            },
+            {
+              label: "Bandwidth",
+              value: "8GB",
+            },
+            {
+              label: "Due date",
+              type: "duedate"
+            }]
         },
         {
-          icon: 'pi-globe',
-          title: 'accountpicker2_title',
-          desc: 'accountpicker2_desc',
-          id: '',
+          title: "Internet",
+          showbillpay: true,
+          details: [
+            {
+              label: "Name",
+              value: "Fiber One",
+            },
+            {
+              label: "Bandwidth",
+              value: "800Mbs",
+            },
+            {
+              label: "Due date",
+              type: "duedate"
+            }]
         },
         {
-          icon: 'pi-tv',
-          title: 'accountpicker3_title',
-          desc: 'accountpicker3_desc',
-          id: '',
+          title: "TV",
+          showbillpay: true,
+          details: [
+            {
+              label: "Name",
+              value: "Ultimate",
+            },
+            {
+              label: "Offer",
+              value: "300+ Channels",
+            }]
         },
       ],
       recentactivity: [
         {
-          message: 'recentactivity1_msg',
+          message: "Your last statement is ready to view",
         },
         {
-          message: 'recentactivity2_msg',
+          message: "Your payment has been processed",
         },
         {
-          message: 'recentactivity3_msg',
+          message: "Started online troubleshooting",
         },
         {
-          message: 'recentactivity4_msg',
+          message: "Reported connectivity issues",
         },
       ],
     },

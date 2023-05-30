@@ -190,9 +190,6 @@
   display: flex;
   margin-left: 6px;
 }
-.flex-col {
-  flex-flow: column;
-}
 .flex-all {
   flex: 1;
   margin: 0 8px;
@@ -224,7 +221,7 @@
 }
 .field-checkbox {
   flex-flow: row nowrap;
-  margin-top: 23px;
+  margin-top: 15px;
   align-items: center;
 }
 .field-checkbox > label {
@@ -470,7 +467,7 @@ select[readonly] {
 
 .badge_text {
   background-color: #088488;
-  color: #fff;
+  color: #050505;
   font-weight: 700;
   text-transform: uppercase;
   padding: 0px 4px;
@@ -507,7 +504,6 @@ select[readonly] {
   background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 10px;
-  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-flow: column nowrap;
   padding-bottom: 16px;
@@ -605,6 +601,7 @@ select[readonly] {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 
 .loading {

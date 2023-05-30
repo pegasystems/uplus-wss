@@ -1,7 +1,7 @@
 <template>
-  <section>
+  <section class="primary-card">
     <div class="header flex flex-mid-align search-bar">
-      <h2>{{ $t('message.accounts') }}</h2>
+      <h3>{{ $t('message.accounts') }}</h3>
       <input
         type="text"
         class="filter"

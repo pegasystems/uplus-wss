@@ -414,10 +414,12 @@ export default {
       navigator.clipboard
         .writeText(this.ExternalID)
         .then(() => {
-          alert('successfully copied');
+          alert('ExternalID was successfully copied in the clipboard');
         })
         .catch(() => {
-          alert('something went wrong');
+          alert(
+            'Something went wrong, could not copy ExternalID in the clipboard',
+          );
         });
     },
   },

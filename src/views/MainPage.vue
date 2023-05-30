@@ -2,8 +2,6 @@
   <DefaultPage v-if="currentPage.indexOf('index.html') === 0" />
   <OfferPage v-else-if="currentPage.indexOf('offer') === 0" />
   <SettingsPage v-else-if="currentPage.indexOf('settings.html') === 0" />
-  <LandingPage v-else-if="currentPage.indexOf('landingpage.html') === 0" />
-  <CategoryPage v-else-if="currentPage.indexOf('category.html') === 0" />
   <DefaultPage v-else />
 </template>
 
@@ -13,8 +11,6 @@ import { sendClickStreamEvent } from '@/CDHIntegration';
 import DefaultPage from './DefaultPage.vue';
 import OfferPage from './OfferPage.vue';
 import SettingsPage from './SettingsPage.vue';
-import LandingPage from './LandingPage.vue';
-import CategoryPage from './CategoryPage.vue';
 
 export default {
   data() {
@@ -64,8 +60,6 @@ export default {
     DefaultPage,
     OfferPage,
     SettingsPage,
-    LandingPage,
-    CategoryPage,
   },
 };
 </script>
@@ -80,7 +74,6 @@ export default {
 @import url('../assets/css/_icons.css');
 @import url('../assets/css/_chat.css');
 @import url('../assets/css/_offer.css');
-@import url('../assets/css/_landing.css');
 @import url('../assets/css/_phone.css');
 @import url('../assets/css/_responsive.css');
 @import url('../assets/css/_webcomponent.css');
