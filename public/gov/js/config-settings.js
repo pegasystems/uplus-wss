@@ -61,6 +61,7 @@ window.settings = {
       tenantid: '',
       dataretained: true,
       hideassignmentheader: false,
+      pageTemplate: 'assignment',
       hideusers: '',
       heading: '',
     },
@@ -81,6 +82,7 @@ window.settings = {
       tenantid: '',
       dataretained: true,
       hideassignmentheader: false,
+      pageTemplate: 'assignment',
       hideusers: '',
       heading: '',
     },
@@ -101,6 +103,7 @@ window.settings = {
       tenantid: '',
       dataretained: true,
       hideassignmentheader: false,
+      pageTemplate: 'assignment',
       hideusers: '',
       heading: '',
     },
@@ -121,6 +124,7 @@ window.settings = {
       tenantid: '',
       dataretained: true,
       hideassignmentheader: false,
+      pageTemplate: 'assignment',
       hideusers: '',
       heading: '',
     },
@@ -141,6 +145,7 @@ window.settings = {
       tenantid: '',
       dataretained: true,
       hideassignmentheader: false,
+      pageTemplate: 'assignment',
       hideusers: '',
       heading: '',
     },
@@ -158,6 +163,7 @@ window.settings = {
     tenantid: '',
     dataretained: true,
     hideassignmentheader: false,
+    pageTemplate: 'assignment',
     heading: '',
   },
   banner: {
@@ -175,6 +181,7 @@ window.settings = {
     tenantid: '',
     dataretained: true,
     hideassignmentheader: false,
+    pageTemplate: 'assignment',
     heading: '',
   },
   todo: {
@@ -195,6 +202,7 @@ window.settings = {
     tenantid: '',
     dataretained: true,
     hideassignmentheader: false,
+    pageTemplate: 'assignment',
     heading: '',
   },
   kmhelp: {
@@ -211,6 +219,7 @@ window.settings = {
     tenantid: '',
     dataretained: true,
     hideassignmentheader: false,
+    pageTemplate: 'assignment',
     heading: '',
   },
   activity: {
@@ -225,6 +234,7 @@ window.settings = {
     tenantid: '',
     dataretained: true,
     hideassignmentheader: false,
+    pageTemplate: 'assignment',
     heading: '',
   },
   homeheroaction: {
@@ -241,6 +251,7 @@ window.settings = {
     tenantid: '',
     dataretained: true,
     hideassignmentheader: false,
+    pageTemplate: 'assignment',
     heading: '',
   },
   offeraction: {
@@ -257,6 +268,7 @@ window.settings = {
     tenantid: '',
     dataretained: true,
     hideassignmentheader: false,
+    pageTemplate: 'assignment',
     heading: '',
   },
   users: [

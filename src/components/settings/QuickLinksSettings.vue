@@ -204,6 +204,25 @@
               v-model="item.tenantid"
             />
           </div>
+          <div
+            class="field-item"
+            v-if="settings.general.connection.type === 'embedui'"
+          >
+            <label :for="'quicklinks-' + index + '-pagetemplate'"
+              >Page Template</label
+            >
+            <select
+              :id="'quicklinks-' + index + '-pagetemplate'"
+              v-model="item.pageTemplate"
+            >
+              <option value="full">Full case page</option>
+              <option value="assignment" selected>Assignment only</option>
+              <option value="assignmentWithStages">
+                Assignment with stages
+              </option>
+              <option value="self-service">Self-service</option>
+            </select>
+          </div>
           <div class="field-item">
             <label :for="'quicklinks-' + index + '-icon'"
               >Icon (for mobile)</label

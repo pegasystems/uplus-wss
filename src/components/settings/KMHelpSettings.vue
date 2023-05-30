@@ -155,6 +155,23 @@
             />
           </div>
           <div
+            class="field-item"
+            v-if="settings.general.connection.type === 'embedui'"
+          >
+            <label for="kmhelp-pagetemplate">Page Template</label>
+            <select
+              id="kmhelp-pagetemplate"
+              v-model="settings.kmhelp.pageTemplate"
+            >
+              <option value="full">Full case page</option>
+              <option value="assignment" selected>Assignment only</option>
+              <option value="assignmentWithStages">
+                Assignment with stages
+              </option>
+              <option value="self-service">Self-service</option>
+            </select>
+          </div>
+          <div
             class="field-item field-checkbox"
             v-if="settings.general.connection.type === 'mashup'"
           >

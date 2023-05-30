@@ -5,7 +5,7 @@
       v-if="action === 'openPage'"
       popupReauth="true"
       ref="mycomp"
-      casePage="assignment"
+      :casePage="pageTemplate"
       :assignmentHeader="showAssignmentHeader"
       :action="action"
       :pageID="actionparam"
@@ -23,7 +23,7 @@
       v-else-if="action === 'createCase'"
       popupReauth="true"
       ref="mycomp"
-      casePage="assignment"
+      :casePage="pageTemplate"
       :assignmentHeader="showAssignmentHeader"
       :action="action"
       :caseTypeID="objClass"
@@ -41,7 +41,7 @@
       v-else-if="action === 'openAssignment'"
       popupReauth="true"
       ref="mycomp"
-      casePage="assignment"
+      :casePage="pageTemplate"
       :assignmentHeader="showAssignmentHeader"
       :action="action"
       :assignmentID="actionparam"
@@ -58,7 +58,7 @@
       v-else-if="action === 'openCase'"
       popupReauth="true"
       ref="mycomp"
-      casePage="assignment"
+      :casePage="pageTemplate"
       :assignmentHeader="showAssignmentHeader"
       :action="action"
       :caseID="actionparam"
@@ -75,7 +75,7 @@
       v-else-if="action === 'getNextWork'"
       popupReauth="true"
       ref="mycomp"
-      casePage="assignment"
+      :casePage="pageTemplate"
       :assignmentHeader="showAssignmentHeader"
       :action="action"
       :appAlias="application"
@@ -125,6 +125,7 @@ export default {
       url: '',
       staticContentUrl: '',
       showAssignmentHeader: 'true',
+      pageTemplate: 'assignment',
       clientId: '',
       caseTitle: '',
       isWebEmbedInitialized: false,
@@ -140,6 +141,8 @@ export default {
       this.action = this.settings.quicklinks[this.quickLinkId].action;
       this.url = this.settings.quicklinks[this.quickLinkId].url;
       this.actionparam = this.settings.quicklinks[this.quickLinkId].actionparam;
+      this.pageTemplate =
+        this.settings.quicklinks[this.quickLinkId].pageTemplate;
       this.showAssignmentHeader =
         !this.settings.quicklinks[this.quickLinkId].hideassignmentheader;
       this.application = this.settings.quicklinks[this.quickLinkId].application;
@@ -150,6 +153,7 @@ export default {
     } else if (this.viewBill !== -1) {
       this.action = this.settings.billpay.action;
       this.actionparam = this.settings.billpay.actionparam;
+      this.pageTemplate = this.settings.billpay.pageTemplate;
       this.showAssignmentHeader = !this.settings.billpay.hideassignmentheader;
       this.application = this.settings.billpay.application;
       this.url = this.settings.billpay.url;
@@ -158,6 +162,7 @@ export default {
     } else if (this.viewBanner !== -1) {
       this.action = this.settings.banner.action;
       this.actionparam = this.settings.banner.actionparam;
+      this.pageTemplate = this.settings.banner.pageTemplate;
       this.showAssignmentHeader = !this.settings.banner.hideassignmentheader;
       this.application = this.settings.banner.application;
       this.url = this.settings.banner.url;
@@ -166,6 +171,7 @@ export default {
     } else if (this.homeHeroAction !== -1) {
       this.action = this.settings.homeheroaction.action;
       this.actionparam = this.settings.homeheroaction.actionparam;
+      this.pageTemplate = this.settings.homeheroaction.pageTemplate;
       this.showAssignmentHeader =
         !this.settings.homeheroaction.hideassignmentheader;
       this.application = this.settings.homeheroaction.application;
@@ -175,6 +181,7 @@ export default {
     } else if (this.offerAction !== -1) {
       this.action = this.settings.offeraction.action;
       this.actionparam = this.settings.offeraction.actionparam;
+      this.pageTemplate = this.settings.offeraction.pageTemplate;
       this.showAssignmentHeader =
         !this.settings.offeraction.hideassignmentheader;
       this.application = this.settings.offeraction.application;
@@ -184,6 +191,7 @@ export default {
     } else {
       this.action = this.settings.todo.action;
       this.actionparam = this.settings.todo.actionparam;
+      this.pageTemplate = this.settings.todo.pageTemplate;
       this.showAssignmentHeader = !this.settings.todo.hideassignmentheader;
       this.application = this.settings.todo.application;
       this.url = this.settings.todo.url;
