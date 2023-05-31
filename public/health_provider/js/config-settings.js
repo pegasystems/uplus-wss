@@ -324,6 +324,12 @@ window.settings = {
         },
         {
           message: "Your credentials require renewal",
+        },
+        {
+          message: "Your claim #4345656 has been processed",
+        },
+        {
+          message: "Your claim #4345656 has been received",
         }
       ],
     },
@@ -379,6 +385,12 @@ window.settings = {
         },
         {
           message: "Your credentials require renewal",
+        },
+        {
+          message: "Your claim #4345656 has been processed",
+        },
+        {
+          message: "Your claim #4345656 has been received",
         }
       ],
     },
