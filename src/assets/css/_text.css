@@ -39,8 +39,6 @@ li {
   margin: 0;
 }
 
-
-
 header nav a,
 header nav a:visited {
   font-size: 18px;
@@ -97,7 +95,6 @@ h4 {
 p {
   font-size: 18px;
   margin: 0 0 8px 0;
-  color: #050505;
 }
 
 .separator > section {
@@ -140,12 +137,6 @@ th {
 
 .banner p {
   font-size: 14px;
-}
-
-.banner,
-.banner h3,
-.banner p {
-  color: #050505;
 }
 
 .banner button {
