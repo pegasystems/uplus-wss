@@ -292,16 +292,19 @@ window.settings = {
       accountdetails: [],
       accountpicker: [
         {
-          title: "Mobile",
+          img: "img/account-picker1.jpg",
+          title: "Family Share 8GB",
           showbillpay: true,
           details: [
             {
-              label: "Name",
-              value: "Family Share",
+              label: "Account balance",
+              type: "currency",
+              value: 164.80,
             },
             {
-              label: "Bandwidth",
-              value: "8GB",
+              label: "Statement balance",
+              type: "currency",
+              value: 193.27,
             },
             {
               label: "Due date",
@@ -309,16 +312,18 @@ window.settings = {
             }]
         },
         {
-          title: "Internet",
+          title: "DataMax 800Mbs",
           showbillpay: true,
           details: [
             {
-              label: "Name",
-              value: "Fiber One",
+              label: "Account balance",
+              type: "currency",
+              value: 45.60,
             },
             {
-              label: "Bandwidth",
-              value: "800Mbs",
+              label: "Statement balance",
+              type: "currency",
+              value: 35.27,
             },
             {
               label: "Due date",
@@ -326,16 +331,22 @@ window.settings = {
             }]
         },
         {
-          title: "TV",
+          title: "Ultimate 300+ Channels",
           showbillpay: true,
           details: [
             {
-              label: "Name",
-              value: "Ultimate",
+              label: "Account balance",
+              type: "currency",
+              value: 90.00,
             },
             {
-              label: "Offer",
-              value: "300+ Channels",
+              label: "Statement balance",
+              type: "currency",
+              value: 90.00,
+            },
+            {
+              label: "Due date",
+              type: "duedate"
             }]
         },
       ],
@@ -374,16 +385,19 @@ window.settings = {
       accountdetails: [],
       accountpicker: [
         {
-          title: "Mobile",
+          img: "img/account-picker1.jpg",
+          title: "Family Share 8GB",
           showbillpay: true,
           details: [
             {
-              label: "Name",
-              value: "Family Share",
+              label: "Account balance",
+              type: "currency",
+              value: 164.80,
             },
             {
-              label: "Bandwidth",
-              value: "8GB",
+              label: "Statement balance",
+              type: "currency",
+              value: 193.27,
             },
             {
               label: "Due date",
@@ -391,16 +405,18 @@ window.settings = {
             }]
         },
         {
-          title: "Internet",
+          title: "DataMax 800Mbs",
           showbillpay: true,
           details: [
             {
-              label: "Name",
-              value: "Fiber One",
+              label: "Account balance",
+              type: "currency",
+              value: 45.60,
             },
             {
-              label: "Bandwidth",
-              value: "800Mbs",
+              label: "Statement balance",
+              type: "currency",
+              value: 35.27,
             },
             {
               label: "Due date",
@@ -408,16 +424,22 @@ window.settings = {
             }]
         },
         {
-          title: "TV",
+          title: "Ultimate 300+ Channels",
           showbillpay: true,
           details: [
             {
-              label: "Name",
-              value: "Ultimate",
+              label: "Account balance",
+              type: "currency",
+              value: 90.00,
             },
             {
-              label: "Offer",
-              value: "300+ Channels",
+              label: "Statement balance",
+              type: "currency",
+              value: 90.00,
+            },
+            {
+              label: "Due date",
+              type: "duedate"
             }]
         },
       ],

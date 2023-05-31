@@ -263,46 +263,81 @@ window.settings = {
         {
           label: "Blood pressure",
           value: "120/76",
+        },
+        {
+          label: "Vaccination status",
+          value: "Up to date",
+        },
+        {
+          label: "Last physical",
+          type: "date",
+          value: "2022-05-03",
         }]
       ],
       accountpicker: [
         {
-          title: "Primary PCP",
+          title: "U+ Medical HMO",
+          img: "img/account-picker1.jpg",
           details: [
             {
-              label: "Name",
-              value: "Lisa Binder",
+              label: "Primary care provider",
+              value: "Dr Lisa Binder",
             },
             {
-              label: "Last visit",
-              type: "date",
-              value: '2022-06-09',
+              label: "Member ID",
+              value: "MB2015072422",
+            },
+            {
+              label: "Group Number",
+              value: "9495485683",
             }]
         },
         {
-          title: "Medical Plan",
+          title: "U+ Dental",
+          img: "img/account-picker1.jpg",
           details: [
             {
-              label: "ID",
-              value: "1234-506560",
+              label: "Plan",
+              value: "Basic",
             },
-            ]
-        },{
-          title: "Network",
-          details: [
             {
-              label: "Name",
+              label: "Member ID",
+              value: "45560-233232",
+            },
+            {
+              label: "Network",
               value: "HMO",
+            }]
+        },{
+          title: "U+ Vision",
+          img: "img/account-picker1.jpg",
+          details: [
+            {
+              label: "Plan",
+              value: "Premium",
             },
-           ]
+            {
+              label: "Member ID",
+              value: "6778-454500",
+            },
+            {
+              label: "Network",
+              value: "EyeMed",
+            }]
         },
       ],
       recentactivity: [
         {
-          message: "PCP Appointment",
+          message: "in-person follow-up appointment",
         },
         {
-          message: "Congratulations! You completed your health assessment",
+          message: "In-person appointment",
+        },
+        {
+          message: "Virtual care visit",
+        },
+        {
+          message: "Updated primary care physician",
         },
       ],
     },
@@ -339,46 +374,81 @@ window.settings = {
         {
           label: "Blood pressure",
           value: "120/76",
+        },
+        {
+          label: "Vaccination status",
+          value: "Up to date",
+        },
+        {
+          label: "Last physical",
+          type: "date",
+          value: "2022-05-03",
         }]
       ],
       accountpicker: [
         {
-          title: "Primary PCP",
+          title: "U+ Medical HMO",
+          img: "img/account-picker1.jpg",
           details: [
             {
-              label: "Name",
-              value: "Lisa Binder",
+              label: "Primary care provider",
+              value: "Dr Lisa Binder",
             },
             {
-              label: "Last visit",
-              type: "date",
-              value: '2022-06-09',
+              label: "Member ID",
+              value: "MB2015072422",
+            },
+            {
+              label: "Group Number",
+              value: "9495485683",
             }]
         },
         {
-          title: "Medical Plan",
+          title: "U+ Dental",
+          img: "img/account-picker1.jpg",
           details: [
             {
-              label: "ID",
-              value: "1234-506560",
+              label: "Plan",
+              value: "Basic",
             },
-            ]
-        },{
-          title: "Network",
-          details: [
             {
-              label: "Name",
+              label: "Member ID",
+              value: "45560-233232",
+            },
+            {
+              label: "Network",
               value: "HMO",
+            }]
+        },{
+          title: "U+ Vision",
+          img: "img/account-picker1.jpg",
+          details: [
+            {
+              label: "Plan",
+              value: "Premium",
             },
-           ]
+            {
+              label: "Member ID",
+              value: "6778-454500",
+            },
+            {
+              label: "Network",
+              value: "EyeMed",
+            }]
         },
       ],
       recentactivity: [
         {
-          message: "PCP Appointment",
+          message: "in-person follow-up appointment",
         },
         {
-          message: "Congratulations! You completed your health assessment",
+          message: "In-person appointment",
+        },
+        {
+          message: "Virtual care visit",
+        },
+        {
+          message: "Updated primary care physician",
         },
       ],
     },

@@ -22,6 +22,10 @@ a:active {
   text-decoration: underline;
 }
 
+.mashup-main  {
+  background:#FFF;
+}
+
 .content-card {
   background: #FFF;
   border: 1px solid #d5d5d5;

@@ -4,7 +4,7 @@
       style="display: none"
       :previousPhonePage="phonePageName === 'heroaction' ? '' : 'help'"
     />
-    <main>
+    <main class="mashup-main">
       <MashupMainArea />
     </main>
   </div>

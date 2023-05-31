@@ -398,25 +398,8 @@ window.settings = {
       accountdetails: [],
       accountpicker: [
         {
-          title: "Life",
-          showbillpay: true,
-          details: [
-            {
-              label: "ID",
-              value: "3245-655676-3",
-            },
-            {
-              label: "Account balance",
-              type: "currency",
-              value: 164.80,
-            },
-            {
-              label: "Due date",
-              type: "duedate"
-            }]
-        },
-        {
-          title: "Auto",
+          title: "Personal Auto",
+          img: "img/account-picker1.jpg",
           showbillpay: true,
           details: [
             {
@@ -424,33 +407,76 @@ window.settings = {
               value: "3245-757889",
             },
             {
-              label: "Account balance",
+              label: "Premium",
               type: "currency",
-              value: 236.80,
+              value: 1200.00,
             },
             {
-              label: "Due date",
+              label: "Billing frequency",
+              value: 'Semi-annual',
+            },
+            {
+              label: "Discount total",
+              type: "currency",
+              value: 125.00,
+            },
+            {
+              label: "Policy renewal date",
               type: "duedate"
             }]
         },
         {
-          title: "Travel",
-          showbillpay: true,
+          title: "Term Life",
           details: [
             {
               label: "ID",
-              value: "345-999-1",
+              value: "2345-55555",
             },
             {
-              label: "Account balance",
+              label: "Premium",
               type: "currency",
-              value: 345.80,
+              value: 527.00,
             },
             {
-              label: "Due date",
+              label: "Billing frequency",
+              value: 'Annual',
+            },
+            {
+              label: "Discount total",
+              type: "currency",
+              value: 100.00,
+            },
+            {
+              label: "Policy renewal date",
               type: "duedate"
             }]
         },
+        {
+          title: "Home",
+          details: [
+            {
+              label: "ID",
+              value: "444-334456",
+            },
+            {
+              label: "Premium",
+              type: "currency",
+              value: 2345.00,
+            },
+            {
+              label: "Billing frequency",
+              value: 'Annual',
+            },
+            {
+              label: "Discount total",
+              type: "currency",
+              value: 234.34,
+            },
+            {
+              label: "Policy renewal date",
+              type: "duedate"
+            }]
+        }
       ],
       recentactivity: [
         {
@@ -487,59 +513,75 @@ window.settings = {
       accountdetails: [],
       accountpicker: [
         {
-          title: "Life",
+          title: "Personal Auto",
+          img: "img/account-picker1.jpg",
           showbillpay: true,
           details: [
             {
-              label: "ID",
-              value: "3245-655676-3",
-            },
-            {
-              label: "Account balance",
+              label: "Premium",
               type: "currency",
-              value: 164.80,
+              value: 1200.00,
             },
             {
-              label: "Due date",
+              label: "Billing frequency",
+              value: 'Semi-annual',
+            },
+            {
+              label: "Discount total",
+              type: "currency",
+              value: 125.00,
+            },
+            {
+              label: "Policy renewal date",
               type: "duedate"
             }]
         },
         {
-          title: "Auto",
+          title: "Term Life",
           showbillpay: true,
           details: [
             {
-              label: "ID",
-              value: "3245-757889",
-            },
-            {
-              label: "Account balance",
+              label: "Premium",
               type: "currency",
-              value: 236.80,
+              value: 527.00,
             },
             {
-              label: "Due date",
+              label: "Billing frequency",
+              value: 'Annual',
+            },
+            {
+              label: "Discount total",
+              type: "currency",
+              value: 100.00,
+            },
+            {
+              label: "Policy renewal date",
               type: "duedate"
             }]
         },
         {
-          title: "Travel",
+          title: "Home",
           showbillpay: true,
           details: [
             {
-              label: "ID",
-              value: "345-999-1",
-            },
-            {
-              label: "Account balance",
+              label: "Premium",
               type: "currency",
-              value: 345.80,
+              value: 2345.00,
             },
             {
-              label: "Due date",
+              label: "Billing frequency",
+              value: 'Annual',
+            },
+            {
+              label: "Discount total",
+              type: "currency",
+              value: 234.34,
+            },
+            {
+              label: "Policy renewal date",
               type: "duedate"
             }]
-        },
+        }
       ],
       recentactivity: [
         {

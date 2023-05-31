@@ -284,11 +284,21 @@ window.settings = {
         {
           label: "Blood pressure",
           value: "120/76",
+        },
+        {
+          label: "Vaccination status",
+          value: "Up to date",
+        },
+        {
+          label: "Last physical",
+          type: "date",
+          value: "2022-05-03",
         }]
       ],
       accountpicker: [
         {
           title: "Primary PCP",
+          img: "img/account-picker1.jpg",
           details: [
             {
               label: "Name",
@@ -374,11 +384,21 @@ window.settings = {
         {
           label: "Blood pressure",
           value: "120/76",
+        },
+        {
+          label: "Vaccination status",
+          value: "Up to date",
+        },
+        {
+          label: "Last physical",
+          type: "date",
+          value: "2022-05-03",
         }]
       ],
       accountpicker: [
         {
           title: "Primary PCP",
+          img: "img/account-picker1.jpg",
           details: [
             {
               label: "Name",

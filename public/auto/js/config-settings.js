@@ -292,58 +292,65 @@ window.settings = {
       accountdetails: [],
       accountpicker: [
         {
-          title: "Vehicle 1",
+          title: "2021 Cloud 4-door",
+          img: "img/account-picker1.jpg",
+          showbillpay: true,
           details: [
-            {
-              label: "Make",
-              value: 'Subaru',
-            },
-            {
-              label: "Model",
-              value: 'Outback',
-            },
             {
               label: "Mileage",
               type: "number",
-              value: 34565,
+              value: 54691,
             },
             {
-              label: "Next service",
-              type: "number",
-              value: 40000,
-            }]
+              label: "Next service date",
+              type: "duedate",
+            },
+            {
+              label: "U+Connect",
+              value: '3 years',
+            },
+            {
+              label: "Drive train warranty",
+              value: '8 yr/80,000mi',
+            },
+            ]
         },
         {
-          title: "Vehicle 2",
+          title: "2017 Quartz Plug-in",
+          img: "img/account-picker1.jpg",
+          showbillpay: true,
           details: [
-            {
-              label: "Make",
-              value: 'Ford',
-            },
-            {
-              label: "Model",
-              value: 'Escape',
-            },
             {
               label: "Mileage",
               type: "number",
-              value: 78901,
+              value: 23451,
             },
             {
-              label: "Next service",
-              type: "number",
-              value: 90000,
-            }]
+              label: "Next service date",
+              type: "duedate",
+            },
+            {
+              label: "U+Connect",
+              value: '5 years',
+            },
+            {
+              label: "Drive train warranty",
+              value: '15 yr/100,000mi',
+            },
+            ]
         },
       ],
       recentactivity: [
         {
-          message: "30,000 miles services on vehicle 1",
+          message: "50,000 miles services on 2021 Cloud 4-door",
           cost: 123.45
         },
         {
-          message: "Oil change service on vehicle 2",
+          message: "Oil change service on 2021 Cloud 4-door",
           cost: 53.10
+        },
+        {
+          message: "Service appointment for 2017 Quartz Plug-in",
         },
       ],
     },
@@ -367,58 +374,65 @@ window.settings = {
       accountdetails: [],
       accountpicker: [
         {
-          title: "Vehicle 1",
+          title: "2021 Cloud 4-door",
+          img: "img/account-picker1.jpg",
+          showbillpay: true,
           details: [
-            {
-              label: "Make",
-              value: 'Subaru',
-            },
-            {
-              label: "Model",
-              value: 'Outback',
-            },
             {
               label: "Mileage",
               type: "number",
-              value: 34565,
+              value: 54691,
             },
             {
-              label: "Next service",
-              type: "number",
-              value: 40000,
-            }]
+              label: "Next service date",
+              type: "duedate",
+            },
+            {
+              label: "U+Connect",
+              value: '3 years',
+            },
+            {
+              label: "Drive train warranty",
+              value: '8 yr/80,000mi',
+            },
+            ]
         },
         {
-          title: "Vehicle 2",
+          title: "2017 Quartz Plug-in",
+          img: "img/account-picker1.jpg",
+          showbillpay: true,
           details: [
-            {
-              label: "Make",
-              value: 'Ford',
-            },
-            {
-              label: "Model",
-              value: 'Escape',
-            },
             {
               label: "Mileage",
               type: "number",
-              value: 78901,
+              value: 23451,
             },
             {
-              label: "Next service",
-              type: "number",
-              value: 90000,
-            }]
+              label: "Next service date",
+              type: "duedate",
+            },
+            {
+              label: "U+Connect",
+              value: '5 years',
+            },
+            {
+              label: "Drive train warranty",
+              value: '15 yr/100,000mi',
+            },
+            ]
         },
       ],
       recentactivity: [
         {
-          message: "30,000 miles services on vehicle 1",
+          message: "50,000 miles services on 2021 Cloud 4-door",
           cost: 123.45
         },
         {
-          message: "Oil change service on vehicle 2",
+          message: "Oil change service on 2021 Cloud 4-door",
           cost: 53.10
+        },
+        {
+          message: "Service appointment for 2017 Quartz Plug-in",
         },
       ],
     },

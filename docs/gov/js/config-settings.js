@@ -292,21 +292,8 @@ window.settings = {
       accountdetails: [],
       accountpicker: [
         {
-          title: "Town Taxes",
-          details: [
-            {
-              label: "Due date",
-              type: "duedate"
-            },
-            {
-              label: "Balance",
-              type: "currency",
-              value: 1342.50,
-            },
-            ]
-        },
-        {
           title: "Excise Tax",
+          img: "img/account-picker1.jpg",
           details: [
             {
               label: "Make",
@@ -320,19 +307,44 @@ window.settings = {
               label: "Plate",
               value: '4567VV',
             },
-            ]
-        },
-        {
-          title: "Water bill",
-          details: [
+            {
+              label: "Total due",
+              type: "currency",
+              value: 67.50,
+            },
             {
               label: "Due date",
               type: "duedate"
             },
+            ]
+        },
+        {
+          title: "Town Taxes",
+          img: "img/account-picker1.jpg",
+          details: [
             {
-              label: "Balance",
+              label: "Total due",
+              type: "currency",
+              value: 1342.50,
+            },
+            {
+              label: "Due date",
+              type: "duedate"
+            },
+            ]
+        },
+        {
+          title: "Water bill",
+          img: "img/account-picker1.jpg",
+          details: [
+            {
+              label: "Total due",
               type: "currency",
               value: 43.90,
+            },
+            {
+              label: "Due date",
+              type: "duedate"
             },
             ]
         },
@@ -369,21 +381,8 @@ window.settings = {
       accountdetails: [],
       accountpicker: [
         {
-          title: "Town Taxes",
-          details: [
-            {
-              label: "Due date",
-              type: "duedate"
-            },
-            {
-              label: "Balance",
-              type: "currency",
-              value: 1342.50,
-            },
-            ]
-        },
-        {
           title: "Excise Tax",
+          img: "img/account-picker1.jpg",
           details: [
             {
               label: "Make",
@@ -397,19 +396,44 @@ window.settings = {
               label: "Plate",
               value: '4567VV',
             },
-            ]
-        },
-        {
-          title: "Water bill",
-          details: [
+            {
+              label: "Total due",
+              type: "currency",
+              value: 67.50,
+            },
             {
               label: "Due date",
               type: "duedate"
             },
+            ]
+        },
+        {
+          title: "Town Taxes",
+          img: "img/account-picker1.jpg",
+          details: [
             {
-              label: "Balance",
+              label: "Total due",
+              type: "currency",
+              value: 1342.50,
+            },
+            {
+              label: "Due date",
+              type: "duedate"
+            },
+            ]
+        },
+        {
+          title: "Water bill",
+          img: "img/account-picker1.jpg",
+          details: [
+            {
+              label: "Total due",
               type: "currency",
               value: 43.90,
+            },
+            {
+              label: "Due date",
+              type: "duedate"
             },
             ]
         },

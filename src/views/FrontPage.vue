@@ -1,7 +1,7 @@
 <template>
   <div v-if="homeHeroAction == 1 || viewKMHelp == 1" class="form flex flex-col">
     <MainHeader />
-    <main class="flex flex-col">
+    <main class="mashup-main flex flex-col">
       <div class="wrap">
         <MashupMainArea />
       </div>

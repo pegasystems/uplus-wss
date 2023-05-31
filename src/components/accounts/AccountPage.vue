@@ -26,7 +26,7 @@
         </div>
       </div>
     </main>
-    <main v-else class="flex flex-col">
+    <main v-else class="mashup-main flex flex-col">
       <div class="wrap"><MashupMainArea /></div>
     </main>
     <MainFooter />

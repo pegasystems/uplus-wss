@@ -292,30 +292,58 @@ window.settings = {
       accountdetails: [],
       accountpicker: [
         {
-          title: "HMO network",
+          title: "HMO Network",
+          img: "img/account-picker1.jpg",
           details: [
             {
-              label: "Number of patients",
-              value: 120,
+              label: "NPI",
+              value: "34567-454565",
+            },
+            {
+              label: "Tax ID",
+              value: "45566-7803",
+            },
+            {
+              label: "Practice",
+              value: "Binder Family",
             },
             ]
         },
         {
-          title: "PPO network",
+          title: "PPO Network",
+          img: "img/account-picker1.jpg",
           details: [
             {
-              label: "Number of patients",
-              value: 450,
+              label: "NPI",
+              value: "4533-222",
+            },
+            {
+              label: "Tax ID",
+              value: "5555-3345",
+            },
+            {
+              label: "Practice",
+              value: "Binder Family",
             },
             ]
-        },{
-          title: "EPO network",
+        },
+        {
+          title: "EPO Network",
+          img: "img/account-picker1.jpg",
           details: [
             {
-              label: "Number of patients",
-              value: 34,
+              label: "NPI",
+              value: "554-33456",
             },
-           ]
+            {
+              label: "Tax ID",
+              value: "2234-5567",
+            },
+            {
+              label: "Practice",
+              value: "Binder Family",
+            },
+            ]
         },
       ],
       recentactivity: [
@@ -353,30 +381,58 @@ window.settings = {
       accountdetails: [],
       accountpicker: [
         {
-          title: "HMO network",
+          title: "HMO Network",
+          img: "img/account-picker1.jpg",
           details: [
             {
-              label: "Number of patients",
-              value: 120,
+              label: "NPI",
+              value: "34567-454565",
+            },
+            {
+              label: "Tax ID",
+              value: "45566-7803",
+            },
+            {
+              label: "Practice",
+              value: "Binder Family",
             },
             ]
         },
         {
-          title: "PPO network",
+          title: "PPO Network",
+          img: "img/account-picker1.jpg",
           details: [
             {
-              label: "Number of patients",
-              value: 450,
+              label: "NPI",
+              value: "4533-222",
+            },
+            {
+              label: "Tax ID",
+              value: "5555-3345",
+            },
+            {
+              label: "Practice",
+              value: "Binder Family",
             },
             ]
-        },{
-          title: "EPO network",
+        },
+        {
+          title: "EPO Network",
+          img: "img/account-picker1.jpg",
           details: [
             {
-              label: "Number of patients",
-              value: 34,
+              label: "NPI",
+              value: "554-33456",
             },
-           ]
+            {
+              label: "Tax ID",
+              value: "2234-5567",
+            },
+            {
+              label: "Practice",
+              value: "Binder Family",
+            },
+            ]
         },
       ],
       recentactivity: [

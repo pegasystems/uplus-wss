@@ -295,42 +295,69 @@ window.settings = {
           title: "Series X rooftop unit",
           details: [
             {
-              label: "Model",
-              value: '123-4565',
+              label: "Last service date",
+              type: "date",
+              value: '2022-06-22',
             },
             {
-              label: "Last service date",
+              label: "Next service date",
               type: "date",
               value: '2023-06-23',
             },
+            {
+              label: "Billing",
+              value: 'Monthly',
+            },
+            {
+              label: "Next payment due",
+              type: "duedate"
+            }
             ]
         },
         {
           title: "Commercial thermostat",
           details: [
             {
-              label: "Model",
-              value: '345-6778',
+              label: "Last service date",
+              type: "date",
+              value: '2022-06-22',
             },
             {
-              label: "Last service date",
+              label: "Next service date",
               type: "date",
               value: '2023-06-23',
             },
+            {
+              label: "Billing",
+              value: 'Monthly',
+            },
+            {
+              label: "Next payment due",
+              type: "duedate"
+            }
             ]
         },
         {
           title: "Control system",
           details: [
             {
-              label: "Model",
-              value: '7677-344',
+              label: "Last service date",
+              type: "date",
+              value: '2022-06-22',
             },
             {
-              label: "Last service date",
+              label: "Next service date",
               type: "date",
               value: '2023-06-23',
             },
+            {
+              label: "Billing",
+              value: 'Monthly',
+            },
+            {
+              label: "Next payment due",
+              type: "duedate"
+            }
             ]
         },
       ],
@@ -367,44 +394,74 @@ window.settings = {
       accountpicker: [
         {
           title: "Series X rooftop unit",
+          showbillpay: true,
           details: [
-            {
-              label: "Model",
-              value: '123-4565',
-            },
             {
               label: "Last service date",
               type: "date",
+              value: '2022-06-22',
+            },
+            {
+              label: "Next service date",
+              type: "date",
               value: '2023-06-23',
             },
+            {
+              label: "Billing",
+              value: 'Monthly',
+            },
+            {
+              label: "Next payment due",
+              type: "duedate"
+            }
             ]
         },
         {
           title: "Commercial thermostat",
+          showbillpay: true,
           details: [
-            {
-              label: "Model",
-              value: '345-6778',
-            },
             {
               label: "Last service date",
               type: "date",
+              value: '2022-06-22',
+            },
+            {
+              label: "Next service date",
+              type: "date",
               value: '2023-06-23',
             },
+            {
+              label: "Billing",
+              value: 'Monthly',
+            },
+            {
+              label: "Next payment due",
+              type: "duedate"
+            }
             ]
         },
         {
           title: "Control system",
+          showbillpay: true,
           details: [
-            {
-              label: "Model",
-              value: '7677-344',
-            },
             {
               label: "Last service date",
               type: "date",
+              value: '2022-06-22',
+            },
+            {
+              label: "Next service date",
+              type: "date",
               value: '2023-06-23',
             },
+            {
+              label: "Billing",
+              value: 'Monthly',
+            },
+            {
+              label: "Next payment due",
+              type: "duedate"
+            }
             ]
         },
       ],

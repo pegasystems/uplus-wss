@@ -374,7 +374,6 @@ footer nav > div.flex {
 }
 
 .account-tabs-content {
-  min-height: 150px;
   border-radius: 0 0 8px 8px;
   padding: 16px;
   border: 1px solid #d5d5d5;
