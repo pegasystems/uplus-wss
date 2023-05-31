@@ -36,7 +36,9 @@
 .offer-footer p {
   color: #050505;
 }
-
+.offer-container {
+  position: relative;
+}
 .offer-card,
 .offer-container,
 .offer-card > .details {
@@ -47,7 +49,6 @@
 .offer-card > .details > p {
   flex-grow:1;
 }
-
 .offer-cards .image,
 .main-offer .image {
   background-position: 25% 50%;

@@ -383,6 +383,7 @@ button.pi.ai-toggle {
   width: 40px;
   min-width: auto;
   padding: 0;
+  min-height: 40px;
 }
 
 .rts-enabled .cdh-offer {

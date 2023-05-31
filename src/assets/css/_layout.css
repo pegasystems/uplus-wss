@@ -700,6 +700,14 @@ a.kmhelp {
   margin: auto 16px auto 0;
 }
 
+section.kmhelp > div {
+  height: 100%;
+}
+
+section.kmhelp {
+  height: calc(100vh - 150px);
+}
+
 .tab-vertical-menu {
   max-width: 1400px;
   margin: 21px auto;
