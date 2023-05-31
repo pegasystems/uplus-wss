@@ -50,7 +50,7 @@ window.app = {
     {
       img: 'offer3.jpg',
       title: 'offer3_title',
-      message: 'offer3.msg',
+      message: 'offer3_msg',
     },
   ],
   menuitems: [
