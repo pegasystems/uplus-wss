@@ -97,6 +97,14 @@ export default {
         ) {
           mainconfig.KMArticleID = e.data.articleid;
           this.showKMHelp();
+        } else if (
+          e.data.action === 'showbuiltinoffer' &&
+          typeof e.data.url === 'string'
+        ) {
+          mainconfig.CDHContainer = e.data;
+          mainconfig.CDHContainer.subjectID = mainconfig.ExternalID;
+          mainconfig.CDHContainer.useURL = false;
+          mainconfig.offerURL = e.data.url;
         }
       } else if (e.data) {
         let elem = {};

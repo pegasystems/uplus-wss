@@ -1,6 +1,6 @@
 :root {
   --brandColor: #D31D36;
-	--interactiveColor: #076bc9;
+	--interactiveColor: #D31D36;
 }
 .color-brand {
   color: var(--brandColor);

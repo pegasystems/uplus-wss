@@ -321,22 +321,23 @@ time.fatlist-item {
 }
 .ai-overlay span {
   word-break: break-all;
+  color: #FFF;
   display: inline-block;
 }
 
 button.pi.ai-toggle {
-  font-size: 24px;
-  border-radius: 8px;
-  min-width: 43px;
-  height: 43px;
-  align-self: flex-end;
+  font-size: 20px;
+  border-radius: 8px 0 0 8px;
+  min-width: 45px;
+  min-height: 30px;
   position: absolute;
-  right: 3px;
-  top: 30px;
+  right: 0;
+  top: 14px;
   z-index: 3;
-  text-align: center;
-  align-items: center;
   margin: 0;
+  padding: 3px 0;
+  display: flex;
+  justify-content: center;
 }
 
 .rts-overlay {

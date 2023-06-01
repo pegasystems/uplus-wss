@@ -303,7 +303,7 @@ button.launch-login,
 button.launch-login:hover,
 button.launch-login:active,
 button.launch-login:focus {
-  background: var(--brandColor);
+  background: var(--interactiveColor);
   color: #FFF;
   border: 1px solid transparent;
 }
@@ -321,7 +321,7 @@ button,
 button:hover,
 button:focus,
 button:active {
-  background: var(--brandColor);
+  background: var(--interactiveColor);
   color: #FFF;
   border: 1px solid transparent;
 }
@@ -394,16 +394,16 @@ button.simple:hover {
 
 .quick-links > button {
   background: none;
-  color: var(--brandColor);
-  border: 1px solid var(--brandColor);
+  color: var(--interactiveColor);
+  border: 1px solid var(--interactiveColor);
   font-weight:400;
 }
 .quick-links > button:focus,
 .quick-links > button:hover {
-  outline: 1px solid var(--brandColor);
+  outline: 1px solid var(--interactiveColor);
 }
 .quick-links > button:focus {
-  outline: var(--brandColor);
+  outline: var(--interactiveColor);
 }
 
 .overlay button,
