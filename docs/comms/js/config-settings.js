@@ -297,14 +297,9 @@ window.settings = {
           showbillpay: true,
           details: [
             {
-              label: "Account balance",
+              label: "Payment due",
               type: "currency",
               value: 164.80,
-            },
-            {
-              label: "Statement balance",
-              type: "currency",
-              value: 193.27,
             },
             {
               label: "Due date",
@@ -316,14 +311,9 @@ window.settings = {
           showbillpay: true,
           details: [
             {
-              label: "Account balance",
+              label: "Payment due",
               type: "currency",
               value: 45.60,
-            },
-            {
-              label: "Statement balance",
-              type: "currency",
-              value: 35.27,
             },
             {
               label: "Due date",
@@ -335,12 +325,7 @@ window.settings = {
           showbillpay: true,
           details: [
             {
-              label: "Account balance",
-              type: "currency",
-              value: 90.00,
-            },
-            {
-              label: "Statement balance",
+              label: "Payment due",
               type: "currency",
               value: 90.00,
             },
