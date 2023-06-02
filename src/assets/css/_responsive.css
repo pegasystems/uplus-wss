@@ -9,7 +9,7 @@
     padding: 0 16px;
   }
   .hero-main {
-    background: #FFF;
+    padding-bottom: 16px;
   }
   .ribbon, .ribbon1 {
     display: none;
@@ -203,6 +203,18 @@
   .tab-vertical-menu > .tab-interface > .tab-action > button.simple {
     margin-right: auto;
   }
+
+  .hero-wrap img {
+    max-height: 150px;
+    align-self: end;
+    padding-bottom: 24px;
+  }
+
+  img.hero-offer-img {
+    align-self: start;
+    max-height: 200px;
+    padding-right:16px;
+  }
 }
 
 @media screen and (max-width: 850px) {
@@ -211,6 +223,7 @@
   }
   .front .hero-wrap {
     min-height: 200px;
+    padding-bottom: 16px;
   }
   .launch-login {
     display: none;
@@ -259,12 +272,6 @@
 
   .layout-inline-grid-double > div:nth-child(2n) {
     margin: 0;
-  }
-
-  .hero-wrap img {
-    max-height: 150px;
-    align-self: end;
-    padding-bottom: 24px;
   }
 
   .list-box > h3,

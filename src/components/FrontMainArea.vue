@@ -94,7 +94,7 @@
       class="hero-main"
     >
       <div
-        class="wrap hero-wrap flex"
+        class="wrap flex"
         :class="hero_offer.img !== '' ? 'hero-with-img' : 'hero-no-img'"
       >
         <button
@@ -106,42 +106,45 @@
           v-on:click="toggleAIOverlay(hero_offer)"
           title="toggle AI"
         ></button>
-        <div class="flex flex-col">
-          <h1 class="hero hero-offer" :data-hero-offer="1">
-            {{ hero_offer.title }}
-            <span
-              v-if="
-                typeof hero_offer.message !== 'undefined' &&
-                hero_offer.message !== ''
-              "
-              >{{ hero_offer.message }}</span
-            >
-          </h1>
-          <a
-            v-if="
-              settings.pega_marketing.homePage.clickaction === 'TopURL' &&
-              hero_offer.url !== ''
-            "
-            :href="hero_offer.url"
-            >{{ hero_offer.link }}</a
-          >
-          <a
-            v-else-if="
-              settings.pega_marketing.homePage.clickaction === 'Popup' &&
-              hero_offer.url !== ''
-            "
-            :href="hero_offer.url"
-            target="_blank"
-            >{{ hero_offer.link }}</a
-          >
-          <button v-else v-on:click="applyHeroAction" class="more">
-            {{ hero_offer.link }}
-          </button>
+        <div class="flex flex-nowrap">
           <img
+            class="hero-offer-img"
             v-if="hero_offer.img !== ''"
             :src="hero_offer.img"
             :alt="hero_offer.title"
           />
+          <div class="flex flex-col">
+            <h1 class="hero hero-offer" :data-hero-offer="1">
+              {{ hero_offer.title }}
+              <span
+                v-if="
+                  typeof hero_offer.message !== 'undefined' &&
+                  hero_offer.message !== ''
+                "
+                >{{ hero_offer.message }}</span
+              >
+            </h1>
+            <a
+              v-if="
+                settings.pega_marketing.homePage.clickaction === 'TopURL' &&
+                hero_offer.url !== ''
+              "
+              :href="hero_offer.url"
+              >{{ hero_offer.link }}</a
+            >
+            <a
+              v-else-if="
+                settings.pega_marketing.homePage.clickaction === 'Popup' &&
+                hero_offer.url !== ''
+              "
+              :href="hero_offer.url"
+              target="_blank"
+              >{{ hero_offer.link }}</a
+            >
+            <button v-else v-on:click="applyHeroAction" class="more">
+              {{ hero_offer.link }}
+            </button>
+          </div>
         </div>
 
         <AIOverlay
