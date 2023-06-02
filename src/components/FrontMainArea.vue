@@ -94,7 +94,7 @@
       class="hero-main"
     >
       <div
-        class="wrap flex"
+        class="wrap flex padding-t-2x"
         :class="hero_offer.img !== '' ? 'hero-with-img' : 'hero-no-img'"
       >
         <button
