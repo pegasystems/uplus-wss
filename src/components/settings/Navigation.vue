@@ -22,7 +22,7 @@
         <button type="submit" data-clear class="simple">
           Reset to default
         </button>
-        <button type="submit">Save</button>
+        <button class="strong" type="submit">Save</button>
       </div>
     </div>
     <div class="tabs-details">

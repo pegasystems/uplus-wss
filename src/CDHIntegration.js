@@ -46,7 +46,6 @@ const parseResponseData = (
       typeof Context.hero_offer === 'object'
     ) {
       isHeroPlacementFilled = true;
-      const msg = type === 'homePage' ? '' : OffersList[i].ShortDescription;
       if (Context.settings.pega_marketing.replaceHomePageHeader) {
         window.mainconfig.homeHeroImg = imgurl;
         imgurl = '';
@@ -56,7 +55,7 @@ const parseResponseData = (
         placement: OffersList[i].Placement,
         title: OffersList[i].Label,
         benefits: OffersList[i].Benefits,
-        message: msg,
+        message: OffersList[i].ShortDescription,
         link: Context.hero_offer.link,
         url: OffersList[i].ClickThroughURL,
         name: OffersList[i].Name,
@@ -108,7 +107,6 @@ const parseResponseData = (
         subjectID: OffersList[i].SubjectID,
         contextName: OffersList[i].ContextName,
         attributes,
-
         container: containerName,
         customerID,
         showAIoverlay: false,

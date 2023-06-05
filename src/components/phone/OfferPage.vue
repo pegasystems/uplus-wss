@@ -102,7 +102,7 @@
         </div>
       </div>
     </section>
-    <section v-else class="flex flex-col">
+    <section v-else class="flex flex-col" style="width: 100%">
       <h1>{{ $t('message.offer_builtin_response_heading') }}</h1>
       <div class="primary-card flex-mid-align flex flex-col">
         <i class="product-icon pi pi-check"></i>

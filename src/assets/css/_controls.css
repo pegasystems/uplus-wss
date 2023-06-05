@@ -46,7 +46,6 @@ textarea {
 select,
 input {
   height: 42px;
-  font-size: 18px;
 }
 
 textarea {
@@ -54,7 +53,6 @@ textarea {
   overflow: hidden;
   display: block;
   tab-size: 4;
-  font-size: 18px;
 }
 
 input[type='radio'],
@@ -286,26 +284,34 @@ button,
   color:#FFF;
 }
 
-button.more {
-  height: 50px;
-}
-
 button.launch-login {
   margin-top: 3px;
   margin-bottom: 3px;
 }
 
-button.more,
-button.more:hover,
-button.more:active,
-button.more:focus,
+button.strong,
+button.strong:hover,
+button.strong:active,
+button.strong:focus,
 button.launch-login,
 button.launch-login:hover,
 button.launch-login:active,
 button.launch-login:focus {
+  opacity: 0.9;
   background: var(--interactiveColor);
   color: #FFF;
   border: 1px solid transparent;
+}
+
+button.strong:hover,
+button.strong:active,
+button.strong:focus,
+button.launch-login:hover,
+button.launch-login:active,
+button.launch-login:focus {
+  outline: 1px solid var(--interactiveColor);
+  opacity:1;
+  transition: opacity ease 0.1ms;
 }
 
 button.launch-menu {
@@ -347,7 +353,6 @@ button.light {
   min-width: 40px;
   padding: 5px;
   opacity: 0.85;
-  font-size: 18px;
 }
 
 button.light:hover,
@@ -481,7 +486,7 @@ button.simple:hover {
 }
 
 header .menu-overlay a {
-  color: #414949;
+  color: #050505;
   text-transform: none;
   padding-right: 28px;
   line-height: 40px;
@@ -500,13 +505,11 @@ header .menu-overlay a {
 table {
   width: 100%;
   border-collapse: collapse;
-  color: #646363;
 }
 
 th,
 td {
   padding: 4px;
-  color: #414949;
   text-align: left;
 }
 

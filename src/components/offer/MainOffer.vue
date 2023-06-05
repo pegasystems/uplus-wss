@@ -93,7 +93,24 @@
             {{ hero_offer.title }}
           </h2>
           <p>{{ hero_offer.message }}</p>
-          <button v-on:click="applyOfferAction" class="strong margin-t-auto">
+          <a
+            v-if="action === 'TopURL' && hero_offer.url != ''"
+            :href="hero_offer.url"
+            :title="hero_offer.link"
+            >{{ hero_offer.link }}</a
+          >
+          <a
+            v-else-if="action === 'Popup' && hero_offer.url != ''"
+            :href="hero_offer.url"
+            target="_blank"
+            :title="hero_offer.link"
+            >{{ hero_offer.link }}</a
+          >
+          <button
+            v-else
+            class="strong margin-t-auto"
+            v-on:click="applyOfferAction"
+          >
             {{ hero_offer.link }}
           </button>
         </div>
@@ -120,12 +137,7 @@
             :title="$t('message.' + item.link)"
             >{{ $t('message.' + item.link) }}</a
           >
-          <button
-            v-else
-            class="simple"
-            v-on:click="showOffer(item)"
-            :title="$t('message.' + item.link)"
-          >
+          <button v-else class="simple" v-on:click="showOffer(item)">
             {{ $t('message.' + item.link) }}
           </button>
         </div>
@@ -251,7 +263,7 @@ export default {
       }
     },
     applyOfferAction() {
-      if (this.hero_offer.url === '') {
+      if (this.hero_offer.url === '' && this.action === 'Mashup') {
         mainconfig.offerAction = 1;
       } else {
         if (mainconfig.isMobilePhone) {
@@ -259,6 +271,15 @@ export default {
         }
         mainconfig.offerURL = this.hero_offer.url;
         mainconfig.previousPage = this.hero_offer.name;
+      }
+      this.hero_offer.useURL = true;
+      if (this.action === 'BuiltIn') {
+        mainconfig.offerURL = '/Basic';
+        this.hero_offer.useURL = false;
+      }
+      mainconfig.CDHContainer = this.hero_offer;
+      if (mainconfig.settings.pega_marketing.useCaptureByChannel === true) {
+        captureResponse(this, this.hero_offer, 'Clicked');
       }
     },
   },

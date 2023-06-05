@@ -651,7 +651,7 @@ select[readonly] {
 .rich-text-main h1,
 .rich-text-main h2,
 .rich-text-main h3 {
-  color: #000;
+  color: #050505;
 }
 .rich-text-main .editor-actions {
   overscroll-behavior: contain;

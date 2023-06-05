@@ -56,7 +56,7 @@
                 settings.billpay.hidebillpay !== true &&
                 item.showbillpay === true
               "
-              class="margin-t-2x"
+              class="strong margin-t-2x"
               v-on:click="openBill()"
             >
               {{ $t('message.paynow') }}

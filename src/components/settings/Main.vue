@@ -4,7 +4,7 @@
       <button type="submit" data-clear class="simple margin-r-2x">
         Reset to default
       </button>
-      <button type="submit">Save</button>
+      <button class="strong" type="submit">Save</button>
     </TopNav>
     <Navigation v-model="active">
       <tab name="Getting Started">
@@ -98,6 +98,22 @@ export default {
   },
   methods: {
     processForm(e) {
+      window.loadPage = new Date();
+      mainconfig.isAuthenticated = false;
+      mainconfig.userId = -1;
+      mainconfig.quickLinkId = -1;
+      mainconfig.viewBill = -1;
+      mainconfig.homeHeroAction = -1;
+      mainconfig.offerAction = -1;
+      mainconfig.toDo = -1;
+      mainconfig.viewKMHelp = -1;
+      mainconfig.viewBanner = -1;
+      mainconfig.CDHContainer = {};
+      mainconfig.offerURL = '';
+      mainconfig.previousPage = '';
+      mainconfig.intent = '';
+      mainconfig.isDeepLink = false;
+      mainconfig.deepLinkExtraParam = {};
       if (e.submitter.getAttribute('data-clear') !== null) {
         localStorage.clear();
       } else {
@@ -106,6 +122,12 @@ export default {
           JSON.stringify(mainconfig),
         );
       }
+      sessionStorage.clear();
+      if (mainconfig.ExternalID) {
+        sessionStorage.setItem('ExternalID', mainconfig.ExternalID);
+      }
+      mainconfig.currentPage = 'index.html';
+      window.history.replaceState({}, '', mainconfig.currentPage);
     },
   },
   components: {

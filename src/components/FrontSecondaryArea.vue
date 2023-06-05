@@ -8,7 +8,7 @@
       <h2>
         {{ $t(`message.${app.secondarydetails.heading}`) }}
       </h2>
-      <button class="more">
+      <button class="strong">
         {{ $t(`message.${app.secondarydetails.link}`) }}
       </button>
     </div>

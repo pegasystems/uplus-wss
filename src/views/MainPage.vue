@@ -66,7 +66,6 @@ export default {
 
 <style>
 @import url('../assets/css/normalize.min.css');
-@import url('../assets/css/_init.css');
 @import url('../assets/css/_text.css');
 @import url('../assets/css/_layout.css');
 @import url('../assets/css/_controls.css');

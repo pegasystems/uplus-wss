@@ -17,7 +17,7 @@
               $t(`message.${app.herotext.titlespan}`)
             }}</span>
           </h1>
-          <button v-on:click="applyHeroAction" class="more">
+          <button v-on:click="applyHeroAction" class="strong">
             {{ $t(`message.${app.herotext.buttonlabel}`) }}
           </button>
         </div>
@@ -94,7 +94,7 @@
       class="hero-main"
     >
       <div
-        class="wrap flex padding-t-2x"
+        class="wrap flex"
         :class="hero_offer.img !== '' ? 'hero-with-img' : 'hero-no-img'"
       >
         <button
@@ -116,13 +116,6 @@
           <div class="flex flex-col">
             <h1 class="hero hero-offer" :data-hero-offer="1">
               {{ hero_offer.title }}
-              <span
-                v-if="
-                  typeof hero_offer.message !== 'undefined' &&
-                  hero_offer.message !== ''
-                "
-                >{{ hero_offer.message }}</span
-              >
             </h1>
             <a
               v-if="
@@ -141,7 +134,7 @@
               target="_blank"
               >{{ hero_offer.link }}</a
             >
-            <button v-else v-on:click="applyHeroAction" class="more">
+            <button v-else v-on:click="applyHeroAction" class="strong">
               {{ hero_offer.link }}
             </button>
           </div>
@@ -334,16 +327,6 @@ export default {
       }
     },
     applyHeroAction() {
-      if (this.hero_offer.url === '') {
-        mainconfig.homeHeroAction = 1;
-        window.history.pushState({}, '', 'heroaction');
-        setTimeout(() => {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }, 0);
-      } else {
-        mainconfig.offerURL = this.hero_offer.url;
-        mainconfig.previousPage = this.hero_offer.name;
-      }
       sendClickStreamEvent(
         mainconfig,
         'PegaView',
@@ -351,6 +334,30 @@ export default {
         window.loadPage,
       );
       window.loadPage = new Date();
+      if (
+        this.hero_offer.url === '' &&
+        mainconfig.settings.pega_marketing.homePage.clickaction === 'Mashup'
+      ) {
+        mainconfig.homeHeroAction = 1;
+        window.history.pushState({}, '', 'heroaction');
+      } else {
+        mainconfig.offerURL = this.hero_offer.url;
+        mainconfig.previousPage = this.hero_offer.name;
+      }
+      this.hero_offer.useURL = true;
+      if (
+        mainconfig.settings.pega_marketing.homePage.clickaction === 'BuiltIn'
+      ) {
+        mainconfig.offerURL = '/Basic';
+        this.hero_offer.useURL = false;
+      }
+      mainconfig.CDHContainer = this.hero_offer;
+      if (mainconfig.settings.pega_marketing.useCaptureByChannel === true) {
+        captureResponse(this, this.hero_offer, 'Clicked');
+      }
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 0);
     },
     toggleAIOverlay(item) {
       item.showAIoverlay = !item.showAIoverlay;

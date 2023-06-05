@@ -74,7 +74,6 @@
 .phone aside nav > li > a:focus,
 .phone aside nav > li > a:active {
   color: #050505;
-  font-size: 18px;
 }
 
 .phone header {
@@ -147,7 +146,6 @@
   text-align: center;
   font-size: 24px;
   margin: 16px 0;
-  color: #414949;
   font-weight: 800;
   margin: 30px 0;
 }
@@ -177,7 +175,6 @@
   height: 140px;
   flex: 1;
   color: #050505;
-  font-size: 18px;
 }
 
 .phone .main-actions > button > i {
@@ -280,7 +277,6 @@
 }
 
 .phone .top-icon {
-  font-size: 20px;
   text-align: center;
 }
 

@@ -74,11 +74,6 @@
   padding-left:32px;
 }
 
-.main-offer p {
-  font-size: 18px;
-  color: #4a4a4a;
-}
-
 .offer-cards > .flex > div {
   display: flex;
   flex-flow: column nowrap;
@@ -101,13 +96,12 @@
 
 .offer-cards p {
   font-size: 14px;
-  color: #414949;
   padding: 0 8px;
 }
 
 .offer-cards .primary-card h3 {
   font-size: 18px;
-  color: #414949;
+  color: #050505;
   font-weight: 800;
   padding: 0 8px;
 }
@@ -179,7 +173,10 @@
 }
 
 .offer-highlights p {
-  font-size: 18px;
-  font-weight: 800;
-  color: #414949;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.offer-img {
+  max-height: 400px;
 }

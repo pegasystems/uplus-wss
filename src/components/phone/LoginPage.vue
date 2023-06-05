@@ -1,7 +1,7 @@
 <template>
   <main class="flex flex-col">
     <TopNav previousPhonePage>
-      <button v-if="!isOTP" v-on:click="signIn" class="sign-in">
+      <button v-if="!isOTP" v-on:click="signIn" class="strong sign-in">
         {{ $t('message.signin') }}
       </button>
     </TopNav>
@@ -30,7 +30,7 @@
         <input id="otp" type="text" name="otp" v-model="otp" />
       </div>
       <div v-if="isOTP" class="flex flex-col padding-t-2x">
-        <button v-on:click="signInOtp" class="centered sign-in">
+        <button v-on:click="signInOtp" class="strong centered sign-in">
           {{ $t('message.signin') }}
         </button>
       </div>

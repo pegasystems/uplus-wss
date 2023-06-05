@@ -29,10 +29,10 @@
         <label for="otp">{{ $t('message.otp') }}</label>
         <input id="otp" type="text" name="otp" v-model="otp" />
       </div>
-      <button v-if="isOTP" v-on:click="signInOtp" class="sign-in">
+      <button v-if="isOTP" v-on:click="signInOtp" class="strong sign-in">
         {{ $t('message.signin') }}
       </button>
-      <button v-else v-on:click="signIn" class="sign-in">
+      <button v-else v-on:click="signIn" class="strong sign-in">
         {{ $t('message.signin') }}
       </button>
       <span v-if="hasErrorMsg" class="error">{{
