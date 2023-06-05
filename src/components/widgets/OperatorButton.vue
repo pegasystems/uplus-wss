@@ -66,6 +66,13 @@ export default {
       mainconfig.intent = '';
       mainconfig.isDeepLink = false;
       mainconfig.deepLinkExtraParam = {};
+
+      /* Clear the webEmbed session history */
+      sessionStorage.clear();
+      if (mainconfig.ExternalID) {
+        sessionStorage.setItem('ExternalID', mainconfig.ExternalID);
+      }
+
       if (window.history) {
         if (mainconfig.isMobilePhone) {
           mainconfig.phonePageName = '';

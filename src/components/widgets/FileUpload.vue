@@ -35,6 +35,8 @@ export default {
             `config_${mainconfig.app.industry}`,
             JSON.stringify(response),
           );
+          /* Clear the webEmbed session history */
+          sessionStorage.clear();
           alert('The file was successfully uploaded.');
         } catch (ex) {
           alert(`Error when trying to parse the configuration file - ${e}`);
