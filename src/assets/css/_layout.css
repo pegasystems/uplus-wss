@@ -266,12 +266,16 @@ display: flex;
   max-height:300px;
 }
 
+.hero-with-img h1.hero {
+  font-size:60px;
+}
+
 img.hero-offer-img {
   max-width: fit-content;
   align-self: start;
-  max-height:600px;
-  padding-right:30px;
-  max-width: 500px;
+  max-height:400px;
+  padding-right:60px;
+  max-width: 400px;
 }
 
 img.option {

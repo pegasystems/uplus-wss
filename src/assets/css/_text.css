@@ -275,8 +275,8 @@ time.fatlist-item {
 
 .hero-with-img {
   position: relative;
-  min-height: 600px;
-  padding-top: 32px;
+  min-height: 400px;
+  padding-top: 60px;
 }
 
 .ai-overlay > ul {
