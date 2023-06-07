@@ -251,17 +251,8 @@
     margin: 0 0 8px 0;
   }
 
-  .flex-col-all > div {
-    width: 100%;
-    width: 100%;
-    margin: 0 8px;
-    padding: 0 4px;
-    display: flex;
-  }
-
-  .flex-col-all {
-    padding: 0;
-    display:block
+  .account-details > div > div {
+    min-width: 50%;
   }
 
   .layout-inline-grid-double > div {
@@ -272,17 +263,11 @@
   .layout-inline-grid-double > div:nth-child(2n) {
     margin: 0;
   }
-
-  .list-box > h3,
-  .list-box > p {
-    font-size: 14px;
-    margin: 0 8px 0 0;
-  }
 }
 
 @media only screen and (max-width: 700px) {
   .account-picker-details > div {
-    min-width: 100%;
+    min-width: 50%;
   }
   .col-2 {
     flex-flow: column;

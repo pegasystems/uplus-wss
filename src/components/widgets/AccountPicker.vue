@@ -14,22 +14,17 @@
         :key="item.title"
         :title="item.title"
       >
-        <div class="flex flex-col-all">
-          <span>
-            <img
-              v-if="typeof item.img !== 'undefined' && item.img !== ''"
-              class="account-img"
-              :src="item.img"
-              :alt="item.title"
-            />
-          </span>
-          <div class="flex flex-col">
+        <div class="flex flex-nowrap">
+          <img
+            v-if="typeof item.img !== 'undefined' && item.img !== ''"
+            class="account-img"
+            :src="item.img"
+            :alt="item.title"
+          />
+          <div class="flex flex-col" style="width: 100%">
             <div class="account-picker-details">
-              <div
-                class="list-box"
-                v-for="info in item.details"
-                :key="info.label"
-              >
+              <div v-for="info in item.details" :key="info.label">
+                <label>{{ info.label }}</label>
                 <template v-if="info.value !== ''">
                   <p v-if="info.type === 'currency'">
                     {{ $n(info.value, 'currency') }}
@@ -45,9 +40,7 @@
                   </p>
                   <p v-else>{{ info.value }}</p>
                 </template>
-                <span>{{ info.label }}</span>
               </div>
-              <a>{{ $t('message.viewdetails') }}</a>
             </div>
             <button
               v-if="
@@ -62,6 +55,7 @@
               {{ $t('message.paynow') }}
             </button>
           </div>
+          <a class="account-view-details">{{ $t('message.viewdetails') }}</a>
         </div>
       </TabItem>
     </Tabs>

@@ -42,15 +42,13 @@ main .hero-wrap > .hero-heading {
 .account-details > div {
   border:1px solid #d5d5d5;
   margin-bottom:8px;
-  padding:12px 20px;
+  padding:12px 8px;
+  flex-wrap: wrap;
 }
 
-.flex-col-all {
-  flex-wrap: nowrap;
-}
-
-.flex-col-all > div {
-  flex:1
+.account-details > div > div {
+  margin: 0 8px 8px 0;
+  min-width: calc(25% - 8px);
 }
 
 .flex-nowrap {
@@ -248,18 +246,6 @@ display: flex;
   padding-right: 40px;
 }
 
-.list-box > h3 {
-  color:#050505;
-  margin-bottom: 8px;
-}
-
-.list-box > p {
-  font-size: 22px;
-  color: #050505;
-  margin: 0;
-  word-break: break-all;
-}
-
 .hero-wrap img {
   max-width: fit-content;
   align-self: center;
@@ -390,23 +376,19 @@ footer nav > div.flex {
 .account-img {
   padding-right:24px;
   margin-bottom: 8px;
-  min-width:160px;
+  max-height:107px;
 }
 .account-picker-details {
   display: flex;
   flex-flow:row wrap;
+  flex:1;
 }
 .account-picker-details > div {
-  flex:1;
-  margin-bottom:8px;
-  min-width:160px;
+  margin: 0 8px 8px 0;
+  min-width: calc(33.3333% - 8px);
 }
-.account-picker-details > a {
-  flex: 1;
-  align-self: center;
-  justify-self: center;
-  line-height: 50px;
-  white-space: nowrap;
+.account-view-details {
+  min-width: 105px;
 }
 
 .col.col-1 {

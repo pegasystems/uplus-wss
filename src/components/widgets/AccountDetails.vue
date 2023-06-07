@@ -9,12 +9,12 @@
   >
     <h3>{{ settings.todo.accountdetailsheading }}</h3>
     <div
-      class="flex flex-col-all"
+      class="flex"
       v-for="(items, index) in settings.users[userId].accountdetails"
       :key="index"
     >
-      <div v-for="item in items" class="list-box" :key="item.label">
-        <span>{{ item.label }}</span>
+      <div v-for="item in items" :key="item.label">
+        <label>{{ item.label }}</label>
         <span v-if="typeof item.desc !== 'undefined' && item.desc !== ''">
           {{ item.desc }}
         </span>
