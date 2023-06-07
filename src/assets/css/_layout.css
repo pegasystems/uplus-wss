@@ -389,6 +389,7 @@ footer nav > div.flex {
 }
 .account-view-details {
   min-width: 105px;
+  text-align:end;
 }
 
 .col.col-1 {

@@ -294,6 +294,7 @@ window.settings = {
         {
           title: "Excise Tax",
           img: "img/account-picker1.jpg",
+          showbillpay: true,
           details: [
             {
               label: "Make",
@@ -383,6 +384,7 @@ window.settings = {
         {
           title: "Excise Tax",
           img: "img/account-picker1.jpg",
+          showbillpay: true,
           details: [
             {
               label: "Make",

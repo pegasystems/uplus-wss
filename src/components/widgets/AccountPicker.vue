@@ -21,27 +21,28 @@
             :src="item.img"
             :alt="item.title"
           />
-          <div class="flex flex-col" style="width: 100%">
-            <div class="account-picker-details">
-              <div v-for="info in item.details" :key="info.label">
-                <label>{{ info.label }}</label>
-                <template v-if="info.value !== ''">
-                  <p v-if="info.type === 'currency'">
-                    {{ $n(info.value, 'currency') }}
-                  </p>
-                  <p v-else-if="info.type === 'number'">
-                    {{ $n(info.value) }}
-                  </p>
-                  <p v-else-if="info.type === 'date'">
-                    {{ $d(info.value, 'short') }}
-                  </p>
-                  <p v-else-if="info.type === 'duedate'">
-                    {{ $d(getDueBillDate(), 'short') }}
-                  </p>
-                  <p v-else>{{ info.value }}</p>
-                </template>
-              </div>
+          <div class="account-picker-details">
+            <div v-for="info in item.details" :key="info.label">
+              <label>{{ info.label }}</label>
+              <template v-if="info.value !== ''">
+                <p v-if="info.type === 'currency'">
+                  {{ $n(info.value, 'currency') }}
+                </p>
+                <p v-else-if="info.type === 'number'">
+                  {{ $n(info.value) }}
+                </p>
+                <p v-else-if="info.type === 'date'">
+                  {{ $d(info.value, 'short') }}
+                </p>
+                <p v-else-if="info.type === 'duedate'">
+                  {{ $d(getDueBillDate(), 'short') }}
+                </p>
+                <p v-else>{{ info.value }}</p>
+              </template>
             </div>
+          </div>
+          <div class="flex flex-col account-view-details">
+            <a class="account-view-details">{{ $t('message.viewdetails') }}</a>
             <button
               v-if="
                 typeof settings.billpay !== 'undefined' &&
@@ -55,7 +56,6 @@
               {{ $t('message.paynow') }}
             </button>
           </div>
-          <a class="account-view-details">{{ $t('message.viewdetails') }}</a>
         </div>
       </TabItem>
     </Tabs>
