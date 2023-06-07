@@ -51,6 +51,11 @@ main .hero-wrap > .hero-heading {
   min-width: calc(25% - 8px);
 }
 
+.account-details p,
+.account-picker-details p {
+  font-size: 22px;
+}
+
 .flex-nowrap {
   flex-wrap: nowrap;
 }
