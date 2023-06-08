@@ -3,7 +3,7 @@
     <h1>{{ caseTitle }}</h1>
     <pega-embed
       v-if="action === 'openPage'"
-      popupReauth="true"
+      autoReauth="true"
       ref="mycomp"
       :casePage="pageTemplate"
       :assignmentHeader="showAssignmentHeader"
@@ -21,7 +21,7 @@
     />
     <pega-embed
       v-else-if="action === 'createCase'"
-      popupReauth="true"
+      autoReauth="true"
       ref="mycomp"
       :casePage="pageTemplate"
       :assignmentHeader="showAssignmentHeader"
@@ -39,7 +39,7 @@
     />
     <pega-embed
       v-else-if="action === 'openAssignment'"
-      popupReauth="true"
+      autoReauth="true"
       ref="mycomp"
       :casePage="pageTemplate"
       :assignmentHeader="showAssignmentHeader"
@@ -56,7 +56,7 @@
     />
     <pega-embed
       v-else-if="action === 'openCase'"
-      popupReauth="true"
+      autoReauth="true"
       ref="mycomp"
       :casePage="pageTemplate"
       :assignmentHeader="showAssignmentHeader"
@@ -73,7 +73,7 @@
     />
     <pega-embed
       v-else-if="action === 'getNextWork'"
-      popupReauth="true"
+      autoReauth="true"
       ref="mycomp"
       :casePage="pageTemplate"
       :assignmentHeader="showAssignmentHeader"
