@@ -455,6 +455,14 @@ if (typeof window.settings === 'undefined') {
     const scriptLoad = document.createElement('script');
     scriptLoad.setAttribute('id', mainconfigTmp.settings.pega_chat.DMMID);
     scriptLoad.setAttribute('src', mainconfigTmp.settings.pega_chat.DMMURL);
+    scriptLoad.onload = function onLoadChat() {
+      setTimeout(() => {
+        const el = document.getElementById('pegaChatWidget');
+        if (el) {
+          el.style.zIndex = 1000;
+        }
+      }, 3000);
+    };
     document.head.appendChild(scriptLoad);
 
     window.fireflyAPI = {};
@@ -537,6 +545,10 @@ window.addEventListener('popstate', () => {
 });
 
 export const updatePegaChat = function updatePegaChat(u) {
+  const chatEl = document.getElementById('pegaChatWidget');
+  if (chatEl) {
+    chatEl.style.zIndex = 1000;
+  }
   /* Update PegaChat and pass the correct ContactId, AccountNumber and username */
   let el = document.querySelector(
     "[data-pega-gadgetname='OnlineHelp'] > iframe",
