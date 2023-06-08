@@ -416,6 +416,11 @@ if (typeof window.settings === 'undefined') {
       window.PegaCSWSS.DMMSessionID = sessionId;
       // eslint-disable-next-line no-console
       console.log(`PegaUnifiedChatWidget onSessionInitialized=${sessionId}`);
+      /* bump z-index for the iframe chat widget */
+      const el = document.getElementById('pegaChatWidget');
+      if (el) {
+        el.style.zIndex = 1000;
+      }
       sendClickStreamEvent(mainconfigTmp, 'PageView', 'Chat', window.loadPage);
       if (
         mainconfigTmp.settings.pega_chat.DMMSecret !== '' &&
