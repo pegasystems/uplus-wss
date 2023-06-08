@@ -3,6 +3,7 @@
     <h1>{{ caseTitle }}</h1>
     <pega-embed
       v-if="action === 'openPage'"
+      popupReauth="false"
       autoReauth="true"
       ref="mycomp"
       :casePage="pageTemplate"
@@ -21,6 +22,7 @@
     />
     <pega-embed
       v-else-if="action === 'createCase'"
+      popupReauth="false"
       autoReauth="true"
       ref="mycomp"
       :casePage="pageTemplate"
@@ -39,6 +41,7 @@
     />
     <pega-embed
       v-else-if="action === 'openAssignment'"
+      popupReauth="false"
       autoReauth="true"
       ref="mycomp"
       :casePage="pageTemplate"
@@ -56,6 +59,7 @@
     />
     <pega-embed
       v-else-if="action === 'openCase'"
+      popupReauth="false"
       autoReauth="true"
       ref="mycomp"
       :casePage="pageTemplate"
@@ -73,6 +77,7 @@
     />
     <pega-embed
       v-else-if="action === 'getNextWork'"
+      popupReauth="false"
       autoReauth="true"
       ref="mycomp"
       :casePage="pageTemplate"
@@ -111,6 +116,9 @@ const embedEventFn = (event) => {
       });
     });
     resizeObserver.observe(document.querySelector('pega-embed'));
+  } else if (event.type === 'embedreauth') {
+    const el = document.querySelector('pega-embed');
+    el.login(true);
   }
 };
 
