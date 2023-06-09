@@ -309,12 +309,14 @@ export default {
     mytag.addEventListener('embedprocessingend', embedEventFn);
     mytag.addEventListener('embedready', embedEventFn);
     mytag.addEventListener('embedcloseconfirmview', embedEventFn);
+    mytag.addEventListener('embedreauth', embedEventFn);
   },
   beforeUnmount() {
     const mytag = this.$refs.mycomp;
     mytag.removeEventListener('embedprocessingend', embedEventFn);
     mytag.removeEventListener('embedready', embedEventFn);
     mytag.removeEventListener('embedcloseconfirmview', embedEventFn);
+    mytag.removeEventListener('embedreauth', embedEventFn);
     if (resizeObserver) {
       resizeObserver.unobserve(mytag);
     }
