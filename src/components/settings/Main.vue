@@ -126,8 +126,6 @@ export default {
       if (mainconfig.ExternalID) {
         sessionStorage.setItem('ExternalID', mainconfig.ExternalID);
       }
-      mainconfig.currentPage = 'index.html';
-      window.history.replaceState({}, '', mainconfig.currentPage);
     },
   },
   components: {
