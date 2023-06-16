@@ -1,7 +1,7 @@
-const replace = require("replace-in-file");
+const replace = require('replace-in-file');
 
 const optionsFile1 = {
-  files: "./docs/*/index.html",
+  files: './docs/*/index.html',
   from: [
     /\/auto\//g,
     /\/commercial_bank\//g,
@@ -15,11 +15,12 @@ const optionsFile1 = {
     /\/manufacturing\//g,
     /\/retail_bank\//g,
     /\/wealth\//g,
+    /\/travel\//g,
   ],
-  to: "./",
+  to: './',
 };
 const optionsFile2 = {
-  files: "./docs/**/index.html",
+  files: './docs/**/index.html',
   from: /"\/assets\//g,
   to: '"../assets/',
 };

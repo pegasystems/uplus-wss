@@ -1,7 +1,7 @@
 {
   "name": "U+ WSS Application",
   "short_name": "U+ WSS App",
-  "description": "The U+ WSS application is used to demonstrate how the Pega Platform can integration Mashup for Web Self Service",
+  "description": "The Uplus application showcases how a web application can be integrated with the Pega Platform around Mashup, Web-Embed, Co-Browse, Pega chat and Knowledge Management as well as with Customer Decision Hub for offers and realtime streams.",
   "icons": [{
       "src": "./img/icons/logo-192x192.png",
       "sizes": "192x192",

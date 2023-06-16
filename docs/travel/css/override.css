@@ -1,0 +1,42 @@
+:root {
+  --brandColor: #C44601;
+  ;
+	--interactiveColor: #C44601;
+}
+.color-brand {
+  color: var(--brandColor);
+}
+/* Home page */
+main .hero-wrap .hero-image {
+	background: url('../img/hero-1.svg') 100% 100% no-repeat;
+}
+main .hero-wrap .hero-splash {
+	background: url('../img/Hero.webp') 100% 100% / contain no-repeat;
+}
+.ribbon > div {
+  background: url('../img/ribbon.svg') 0 0 / cover no-repeat;
+  margin-top: -230px;
+  height: 500px;
+}
+.ribbon1 > div {
+  background: url('../img/ribbon1.svg') 100% 100% / cover no-repeat;
+  height: 500px;
+}
+.ribbon1 > div > div {
+  background: url('../img/hero-1.svg') 100% 100% no-repeat;
+  height: 266px;
+  opacity:0.3;
+}
+
+img.option {
+  max-width: 100%;
+  padding-bottom: 0 !important;
+  margin-bottom: 8px;
+  border-radius: 5px;
+}
+
+header nav a, header nav a:visited, header a, header a:visited {
+  font-weight: 400;
+  line-height: 22px;
+  color: #050505;
+}
