@@ -418,7 +418,7 @@ window.settings = {
     enableRTS: false,
     enableClickStream: false,
     enableMergeAccount: false,
-    useCaptureByChannel: true,
+    useCaptureByChannel: false,
     apiLevel: 'V3',
     contextName: 'Customer',
     showLoadingIndicator: false,
