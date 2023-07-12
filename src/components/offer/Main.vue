@@ -5,7 +5,7 @@
     </div>
   </main>
   <main v-else-if="offerURL !== ''" class="flex flex-col">
-    <div class="wrap flex">
+    <div class="wrap flex height-100-pct">
       <MicroSiteMainArea />
     </div>
   </main>

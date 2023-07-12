@@ -2,7 +2,7 @@
   <div class="form flex flex-col">
     <MainHeader />
     <main v-if="offerURL !== ''" class="flex flex-col">
-      <div class="wrap"><MicroSiteMainArea /></div>
+      <div class="flex wrap height-100-pct"><MicroSiteMainArea /></div>
     </main>
     <main
       v-else-if="

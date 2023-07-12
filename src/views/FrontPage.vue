@@ -11,7 +11,7 @@
   <div v-else-if="offerURL !== ''" class="form flex flex-col">
     <MainHeader />
     <main class="flex flex-col">
-      <div class="wrap">
+      <div class="wrap height-100-pct">
         <MicroSiteMainArea />
       </div>
     </main>
