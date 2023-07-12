@@ -94,6 +94,7 @@
       class="hero-main"
     >
       <div
+        v-if="hero_offer.title !== ''"
         class="wrap flex"
         :class="hero_offer.img !== '' ? 'hero-with-img' : 'hero-no-img'"
       >
@@ -145,6 +146,22 @@
           :offer="hero_offer"
           :class="hero_offer.showAIoverlay ? 'show' : ''"
         />
+      </div>
+      <div v-else class="wrap hero-wrap flex">
+        <div class="flex flex-col hero-heading">
+          <h1 class="hero">
+            {{ $t(`message.${app.herotext.title}`) }}
+            <span v-if="$t(`message.${app.herotext.titlespan}`) !== ''">{{
+              $t(`message.${app.herotext.titlespan}`)
+            }}</span>
+          </h1>
+          <button v-on:click="applyHeroAction" class="strong">
+            {{ $t(`message.${app.herotext.buttonlabel}`) }}
+          </button>
+        </div>
+        <div class="flex hero-image">
+          <div class="hero-splash"></div>
+        </div>
       </div>
     </div>
     <div class="ribbon"><div></div></div>
@@ -226,9 +243,9 @@ export default {
       hero_offer: {
         img: '',
         url: '',
-        title: this.$t(`message.${mainconfig.app.herotext.title}`),
-        message: this.$t(`message.${mainconfig.app.herotext.titlespan}`),
-        link: this.$t(`message.${mainconfig.app.herotext.buttonlabel}`),
+        title: '',
+        message: '',
+        link: '',
       },
     };
   },
