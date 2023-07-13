@@ -16,6 +16,7 @@ const optionsFile1 = {
     /\/retail_bank\//g,
     /\/wealth\//g,
     /\/travel\//g,
+    /\/energy\//g,
   ],
   to: './',
 };

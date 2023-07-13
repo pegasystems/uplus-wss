@@ -11,15 +11,13 @@
     "source.fixAll.eslint": true
   },
   "[javascript]": {
-    "editor.formatOnSave": false
+    "editor.formatOnSave": true
   },
   "javascript.preferences.quoteStyle": "single",
   "javascript.format.semicolons": "insert",
   "typescript.preferences.quoteStyle": "single",
   "typescript.format.semicolons": "insert",
-  "eslint.validate": [
-    "javascript"
-  ],
+  "eslint.validate": ["javascript"],
   "vetur.format.defaultFormatter.js": "none",
   "vetur.format.defaultFormatter.less": "none",
   "vetur.format.defaultFormatter.html": "none",
