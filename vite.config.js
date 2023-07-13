@@ -31,7 +31,8 @@ export default defineConfig({
         manufacturing: resolve(__dirname, "manufacturing/index.html"),
         retail_bank: resolve(__dirname, "retail_bank/index.html"),
         wealth: resolve(__dirname, "wealth/index.html"),
-        travel: resolve(__dirname, "travel/index.html")
+        travel: resolve(__dirname, "travel/index.html"),
+        energy: resolve(__dirname, "energy/index.html")
       },
     },
   },
