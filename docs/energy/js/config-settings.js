@@ -524,7 +524,7 @@ window.settings = {
 		requestTimeout: 10000,
 		replaceHomePageHeader: false,
 		showAIOverlay: true,
-		enableRTS: true,
+		enableRTS: false,
 		enableClickStream: true,
 		enableMergeAccount: true,
 		useCaptureByChannel: false,
@@ -533,14 +533,12 @@ window.settings = {
 		showLoadingIndicator: false,
 		appID: '',
 		homePage: {
-
 			containerName: "NextBestAction",
 			placement: "Hero,Tile,Tile,Tile",
 			clickaction: "Mashup",
 			attributes: '',
 		},
 		accountPage: {
-
 			containerName: "NextBestAction",
 			placement: "Tile",
 			clickaction: "Mashup",
@@ -548,14 +546,12 @@ window.settings = {
 			showSingleOffer: false,
 		},
 		phonePage: {
-
 			containerName: "NextBestAction",
 			placement: "Tile",
 			clickaction: "Mashup",
 			attributes: '',
 		},
 		offerPage: {
-
 			containerName: "NextBestAction",
 			placement: "Hero,Tile,Tile,Tile",
 			clickaction: "Mashup",
