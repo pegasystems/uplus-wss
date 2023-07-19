@@ -175,6 +175,7 @@
   height: 140px;
   flex: 1;
   color: #050505;
+  background:#FFF;
 }
 
 .phone .main-actions > button > i {
@@ -189,6 +190,16 @@
   background: #FFF;
   width: 100%;
   height: 40px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.phone .flex-nowrap {
+  flex-direction: column;
+}
+
+.phone .account-view-details {
+  text-align:left;
+  padding: 8px 0;
 }
 
 .phone .top-nav button {
@@ -230,15 +241,14 @@
 }
 
 .phone .avatar {
-  width: 30px;
-  height: 30px;
-  margin: 5px 8px 0 0;
+  width: 38px;
+  height: 38px;
 }
 
 .phone .overlay {
   right: 8px;
   top: 70px;
-  min-width: 0;
+  min-width: 80px;
 }
 
 .phone .overlay:not(.logout) {
@@ -276,8 +286,8 @@
   padding: 10px 8px 0 8px;
 }
 
-.phone .top-icon {
-  text-align: center;
+.phone .content-card {
+  padding: 16px;
 }
 
 .phone .tabs-details {
@@ -300,6 +310,7 @@
   height: auto;
   width: 100%;
   align-items: center;
+  background: #FFF;
 }
 
 .phone .quick-links button > i {
@@ -343,4 +354,5 @@
   background: transparent;
   color: #050505;
   display: inline-block;
+  min-height:38px;
 }

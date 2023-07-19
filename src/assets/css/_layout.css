@@ -382,6 +382,7 @@ footer nav > div.flex {
   padding-right:24px;
   margin-bottom: 8px;
   max-height:107px;
+  width: fit-content;
 }
 .account-picker-details {
   display: flex;

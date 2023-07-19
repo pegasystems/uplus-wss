@@ -137,7 +137,7 @@ window.app = {
     home_page: {
       title: 'phone_home_page_title',
       promo: {
-        image: 'option-2.jpg',
+        image: 'offer2.jpg',
       },
       actions: [
         {
