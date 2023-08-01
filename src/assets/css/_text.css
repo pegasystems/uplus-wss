@@ -359,9 +359,10 @@ time.fatlist-item {
   color: #fff;
   margin: 0 8px 0 0;
 }
-.ai-overlay span {
+.ai-overlay li span {
   word-break: break-all;
   display: inline-block;
+  color:#FFF;
 }
 
 .ai-toggle {
