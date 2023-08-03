@@ -58,12 +58,6 @@
         />
       </div>
     </div>
-    <KeyRates
-      v-if="
-        app.industry === 'commercial_bank' &&
-        typeof settings.keyrates !== 'undefined'
-      "
-    />
   </div>
 </template>
 
@@ -76,7 +70,6 @@ import {
   sendRTSEvent,
   sendClickStreamEvent,
 } from '../../CDHIntegration';
-import KeyRates from '../widgets/KeyRates.vue';
 
 export default {
   data() {
@@ -137,7 +130,6 @@ export default {
   },
   components: {
     Offer,
-    KeyRates,
   },
   methods: {
     gotoOfferPage(event) {

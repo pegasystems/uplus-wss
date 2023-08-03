@@ -158,13 +158,13 @@ table.align-center td {
 }
 
 table.color-light tr {
-  background-color: #f1f1f1;
+  border-top: 1px solid rgba(0,0,0,.2);
 }
 
 table.color-light td {
-  border: 1px solid #000fff;
   padding: 8px;
   color: #050505;
+  font-size: 15px;
 }
 
 table.color-heading {
@@ -188,11 +188,10 @@ table.color-heading .trend {
   font-size: 10px;
 }
 
-tr.heading {
-  background: #f1f1f1;
+table tr.heading {
+  border-top: none;
   font-size: 12px;
   height: 45px;
-  font-weight: bold;
 }
 
 .investmentamount {
@@ -230,7 +229,9 @@ time.fatlist-item {
 }
 
 .cash-projections > div > div {
-  margin-left: 20px;
+  margin-left: 8px;
+  width: 80px;
+  text-align: right;
 }
 
 .cash-projections > svg {
