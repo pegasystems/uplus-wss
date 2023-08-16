@@ -283,18 +283,19 @@ time.fatlist-item {
 .ai-overlay > ul {
   text-align: left;
   padding: 16px;
+  overflow-y:auto;
 }
 
 .ai-overlay > ul > li {
   word-break: break-all;
   display: flex;
-  margin-bottom: 15px;
+  margin-bottom: 8px;
   align-items: baseline;
 }
 
 .ai-overlay label {
   font-weight: 700;
-  min-width: 165px;
+  min-width: 130px;
   display: inline-block;
   color: #FFF;
   margin: 0 8px 0 0;
@@ -303,6 +304,7 @@ time.fatlist-item {
   word-break: break-all;
   color: #FFF;
   display: inline-block;
+  font-size:14px;
 }
 
 button.pi.ai-toggle {
