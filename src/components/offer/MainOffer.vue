@@ -119,6 +119,12 @@
     <div class="wrap options">
       <section v-for="(item, index) in data" :key="index" class="front-option">
         <div class="offer-card details" :data-offer-index="index">
+          <button
+            v-if="settings.pega_marketing.showAIOverlay"
+            class="pi pi-polaris-solid ai-toggle"
+            v-on:click="toggleAIOverlay(item)"
+            title="toggle AI"
+          ></button>
           <img class="option" :src="item.img" :alt="item.title" />
           <h3>
             {{ $t(item.title) }}
@@ -140,6 +146,11 @@
           <button v-else class="simple" v-on:click="showOffer(item)">
             {{ $t('message.' + item.link) }}
           </button>
+          <AIOverlay
+            v-if="settings.pega_marketing.showAIOverlay"
+            :offer="item"
+            :class="item.showAIoverlay ? 'show' : ''"
+          />
         </div>
       </section>
     </div>
@@ -150,6 +161,7 @@
 /* eslint-disable no-underscore-dangle */
 import { mainconfig } from '../../global';
 import { initNBAM, captureResponse } from '../../CDHIntegration';
+import AIOverlay from '../controls/AIOverlay.vue';
 
 export default {
   props: ['offerType'],
@@ -262,6 +274,9 @@ export default {
         captureResponse(this, item, 'Clicked');
       }
     },
+    toggleAIOverlay(item) {
+      item.showAIoverlay = !item.showAIoverlay;
+    },
     applyOfferAction() {
       if (this.hero_offer.url === '' && this.action === 'Mashup') {
         mainconfig.offerAction = 1;
@@ -282,6 +297,9 @@ export default {
         captureResponse(this, this.hero_offer, 'Clicked');
       }
     },
+  },
+  components: {
+    AIOverlay,
   },
 };
 </script>
