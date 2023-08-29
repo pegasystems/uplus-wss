@@ -243,8 +243,8 @@ export default {
       hero_offer: {
         img: '',
         url: '',
-        title: this.$t(`message.${mainconfig.app.herotext.title}`),
-        message: this.$t(`message.${mainconfig.app.herotext.titlespan}`),
+        title: '',
+        message: '',
         link: this.$t(`message.${mainconfig.app.herotext.buttonlabel}`),
       },
     };
