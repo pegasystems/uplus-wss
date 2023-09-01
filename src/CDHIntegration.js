@@ -394,12 +394,16 @@ const sendClickStreamEvent = function sendClickStreamEvent(
     const devicetype = Context.isMobilePhone ? 'Mobile' : 'PC';
     const eventMsg = {
       CustomerID: customerid,
-      interestedIn: '',
-      interestLevel: '',
-      Event: eventtype,
+      EventType: eventtype,
       PageType: pagetype,
+      PageLocation: window.location.href,
       DeviceType: devicetype,
       PageViewActiveTime: pageViewActiveTime,
+      EventTimestamp: new Date()
+        .toISOString()
+        .replaceAll('-', '')
+        .replaceAll(':', '')
+        .replace('Z', ' GMT'),
       CookieID: cookieID,
     };
     /* Read the cookie MKTID if present and send it as Customer ID instead */
