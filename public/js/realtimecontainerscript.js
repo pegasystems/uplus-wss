@@ -447,7 +447,7 @@ function getNBAMServiceControl(serviceClass,callMultiContainer) {
 
     sendClickStreamEvent : function(event, callback, errorcallback) {
      console.log("Sending ClickStream Event", event);
-     var serviceUrl = this.serviceURLProtocol + "://" + this.hostName + (this.port!="" ? ":" + this.port : "") + "/prweb/api/Clickstream/1.1/Insert";
+     var serviceUrl = this.serviceURLProtocol + "://" + this.hostName + (this.port!="" ? ":" + this.port : "") + "/prweb/api/BehavioralData/01.01/Insert";
 	var xmlHttpReq = this.createRequest("POST", serviceUrl, callback, errorcallback);
 	if (xmlHttpReq)	xmlHttpReq.send(JSON.stringify(event));
     },
