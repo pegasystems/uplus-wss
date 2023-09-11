@@ -327,9 +327,7 @@
     flex-flow: column;
   }
   .primary-card {
-    padding:0;
     flex-direction: column;
-    background:none;
   }
 }
 
