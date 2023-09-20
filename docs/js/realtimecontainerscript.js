@@ -459,8 +459,8 @@ function getNBAMServiceControl(serviceClass,callMultiContainer) {
      if (xmlHttpReq)	xmlHttpReq.send(JSON.stringify({
         PrimaryID : primaryId,
         SecondaryID : secondaryId,
-        ContextID : ContextId,
-        ApplicationID : ApplicationId
+        ContextName : ContextId,
+        Application : ApplicationId
      }));
     },
 
