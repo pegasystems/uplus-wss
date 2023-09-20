@@ -71,6 +71,13 @@ export default {
       actionParam = this.settings.activity.actionparam;
       extraParam = this.settings.activity.extraparam;
       heading = this.settings.activity.heading;
+    } else if (this.viewKMHelp !== -1) {
+      action = this.settings.kmhelp.action;
+      mytag.url = this.settings.kmhelp.url;
+      objClass = this.settings.kmhelp.objclass;
+      actionParam = this.settings.kmhelp.actionparam;
+      extraParam = this.settings.kmhelp.extraparam;
+      heading = this.settings.kmhelp.heading;
     } else {
       action = this.settings.todo.action;
       mytag.url = this.settings.todo.url;

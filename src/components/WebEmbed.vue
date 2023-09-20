@@ -196,6 +196,24 @@ export default {
       this.url = this.settings.offeraction.url;
       this.objClass = this.settings.offeraction.objclass;
       this.extraParam = this.settings.offeraction.extraparam;
+    } else if (this.viewKMHelp !== -1) {
+      this.action = this.settings.kmhelp.action;
+      this.actionparam = this.settings.kmhelp.actionparam;
+      this.pageTemplate = this.settings.kmhelp.pageTemplate;
+      this.showAssignmentHeader = !this.settings.kmhelp.hideassignmentheader;
+      this.application = this.settings.kmhelp.application;
+      this.url = this.settings.kmhelp.url;
+      this.objClass = this.settings.kmhelp.objclass;
+      this.extraParam = this.settings.kmhelp.extraparam;
+    } else if (this.showActivity) {
+      this.action = this.settings.activity.action;
+      this.actionparam = this.settings.activity.actionparam;
+      this.pageTemplate = this.settings.activity.pageTemplate;
+      this.showAssignmentHeader = !this.settings.activity.hideassignmentheader;
+      this.application = this.settings.activity.application;
+      this.url = this.settings.activity.url;
+      this.objClass = this.settings.activity.objclass;
+      this.extraParam = this.settings.activity.extraparam;
     } else {
       this.action = this.settings.todo.action;
       this.actionparam = this.settings.todo.actionparam;
