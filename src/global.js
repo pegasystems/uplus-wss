@@ -54,6 +54,9 @@ export const getCookie = function (cname) {
 };
 
 export const upgradeConfig = function upgradeConfig(cfg) {
+  if (typeof cfg.settings.general.connection.PegaURL === 'undefined') {
+    cfg.settings.general.connection.PegaURL = '';
+  }
   return cfg;
 };
 
@@ -396,6 +399,16 @@ if (typeof window.settings === 'undefined') {
     mashupScript.setAttribute(
       'src',
       `${mainconfigTmp.settings.general.connection.c11nserver}pega-embed.js`,
+    );
+    document.head.appendChild(mashupScript);
+  } else if (
+    mainconfigTmp.settings.general.connection.PegaURL !== '' &&
+    mainconfigTmp.settings.general.connection.type === 'embedui2'
+  ) {
+    const mashupScript = document.createElement('script');
+    mashupScript.setAttribute(
+      'src',
+      `${mainconfigTmp.settings.general.connection.PegaURL}/PRRestService/c11nsvc/v1/pega-embed.js`,
     );
     document.head.appendChild(mashupScript);
   }

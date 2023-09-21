@@ -1,6 +1,8 @@
 <template>
   <PegaWebMashup v-if="settings.general.connection.type === 'mashup'" />
-  <WebEmbed v-else-if="settings.general.connection.type === 'embedui'" />
+  <WebEmbed
+    v-else-if="settings.general.connection.type.startsWith('embedui')"
+  />
   <WebComponent v-else />
 </template>
 

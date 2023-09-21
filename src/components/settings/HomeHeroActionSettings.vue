@@ -108,7 +108,9 @@
             />
           </div>
           <div class="field-item">
-            <label for="homeheroaction-application">Application name</label>
+            <label for="homeheroaction-application"
+              >Application name / alias</label
+            >
             <input
               id="homeheroaction-application"
               type="text"

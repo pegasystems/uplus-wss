@@ -48,7 +48,12 @@
               >
                 <option value="mashup">Pega Web Mashup (Traditional UI)</option>
                 <option value="embedui">
-                  Pega Web Embed UI (Constellation UI - 8.7+)
+                  Pega Web Embed UI (Constellation UI - Pega Infinity 8.7, 8.8
+                  or '23)
+                </option>
+                <option value="embedui2">
+                  Pega Web Embed UI (Constellation UI - Pega Infinity '24 or
+                  higher)
                 </option>
                 <option value="dxv1">
                   DX API v1 (Mashup Web component - 8.1+)
@@ -78,7 +83,7 @@
             </div>
             <div
               class="field-item"
-              v-if="settings.general.connection.type === 'embedui'"
+              v-if="settings.general.connection.type.startsWith('embedui')"
             >
               <label for="ga-connection-authtype">Authentication</label>
               <select
@@ -138,6 +143,20 @@
                 type="text"
                 id="ga-connection-c11nserver"
                 v-model="settings.general.connection.c11nserver"
+              />
+            </div>
+            <div
+              class="field-item"
+              v-if="settings.general.connection.type === 'embedui2'"
+            >
+              <label for="ga-connection-PegaURL"
+                >Pega Platform Web Base URL (for example
+                'https://127.0.0.1/prweb')</label
+              >
+              <input
+                type="text"
+                id="ga-connection-PegaURL"
+                v-model="settings.general.connection.PegaURL"
               />
             </div>
           </div>
@@ -300,7 +319,7 @@ export default {
     onConnectionTypeChange() {
       if (this.settings.general.connection.type === 'mashup') {
         this.settings.general.connection.authtype = 'basic';
-      } else if (this.settings.general.connection.type === 'embedui') {
+      } else if (this.settings.general.connection.type.startsWith('embedui')) {
         this.settings.general.connection.authtype = 'oauth2clientcredentials';
       } else if (this.settings.general.connection.type === 'dxv1') {
         this.settings.general.connection.authtype = 'basic';

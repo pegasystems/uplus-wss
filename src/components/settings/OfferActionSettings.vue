@@ -108,7 +108,9 @@
             />
           </div>
           <div class="field-item">
-            <label for="offeraction-application">Application name</label>
+            <label for="offeraction-application"
+              >Application name / alias</label
+            >
             <input
               id="offeraction-application"
               type="text"
@@ -131,7 +133,7 @@
             >
             <input
               id="offeraction-password"
-              type="text"
+              type="password"
               v-model="settings.offeraction.password"
             />
           </div>

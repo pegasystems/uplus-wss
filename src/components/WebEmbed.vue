@@ -123,6 +123,9 @@ const embedEventFn = (event) => {
 };
 
 export default {
+  props: {
+    showActivity: Boolean,
+  },
   data() {
     return {
       ...mainconfig,
@@ -131,7 +134,7 @@ export default {
       objClass: '',
       application: '',
       url: '',
-      staticContentUrl: '',
+      staticContentUrl: undefined,
       showAssignmentHeader: 'true',
       pageTemplate: 'assignment',
       clientId: '',
@@ -311,7 +314,9 @@ export default {
       mainconfig.isDeepLink = false;
       mainconfig.deepLinkExtraParam = {};
     }
-    this.staticContentUrl = this.settings.general.connection.c11nserver;
+    if (this.settings.general.connection.type !== 'embedui2') {
+      this.staticContentUrl = this.settings.general.connection.c11nserver;
+    }
     this.clientId = this.settings.general.connection.clientid;
 
     this.isWebEmbedInitialized = 'true';

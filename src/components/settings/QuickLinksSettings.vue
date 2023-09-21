@@ -2,11 +2,11 @@
   <div class="container-transparent">
     <h2>Quick links</h2>
     <p>
-      Configuration of each of the mashup cases that can be accessed through the
-      quick links component.
+      Configuration of each of the mashup case types that can be accessed
+      through the quick links component.
     </p>
     <div v-for="(item, index) in settings.quicklinks" v-bind:key="index">
-      <Container :title="'Mashup Case ' + (index + 1)" :expanded="index === 0">
+      <Container :title="'Case type ' + (index + 1)" :expanded="index === 0">
         <div class="layout-labels-left layout-inline-grid-double">
           <div class="field-item">
             <input
@@ -172,7 +172,7 @@
           </div>
           <div class="field-item">
             <label :for="'quicklinks-' + index + '-application'"
-              >Application name</label
+              >Application name / alias</label
             >
             <input
               :id="'quicklinks-' + index + '-application'"

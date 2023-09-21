@@ -105,7 +105,7 @@
             <input id="kmhelp-url" type="text" v-model="settings.kmhelp.url" />
           </div>
           <div class="field-item">
-            <label for="kmhelp-application">Application name</label>
+            <label for="kmhelp-application">Application name / alias</label>
             <input
               id="kmhelp-application"
               type="text"
@@ -128,7 +128,7 @@
             >
             <input
               id="kmhelp-password"
-              type="text"
+              type="password"
               v-model="settings.kmhelp.password"
             />
           </div>

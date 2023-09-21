@@ -122,7 +122,7 @@
             />
           </div>
           <div class="field-item">
-            <label for="activity-application">Application name</label>
+            <label for="activity-application">Application name / alias</label>
             <input
               id="activity-application"
               type="text"

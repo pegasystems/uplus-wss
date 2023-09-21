@@ -127,7 +127,7 @@
             <input id="banner-url" type="text" v-model="settings.banner.url" />
           </div>
           <div class="field-item">
-            <label for="banner-application">Application name</label>
+            <label for="banner-application">Application name / alias</label>
             <input
               id="banner-application"
               type="text"

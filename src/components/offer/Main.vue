@@ -1,5 +1,5 @@
 <template>
-  <main v-if="offerAction != -1" class="mashup-main flex flex-col">
+  <main v-if="offerAction !== -1" class="mashup-main flex flex-col">
     <div class="wrap flex">
       <MashupMainArea />
     </div>

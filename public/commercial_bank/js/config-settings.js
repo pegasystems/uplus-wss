@@ -23,6 +23,7 @@ window.settings = {
       clientsecret: "",
       webportal: "",
       c11nserver: "",
+      PegaURL: '',
       showAttachments: true,
     },
     auth_2fa: {

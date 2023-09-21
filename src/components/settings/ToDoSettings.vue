@@ -122,7 +122,7 @@
             <input id="todo-url" type="text" v-model="settings.todo.url" />
           </div>
           <div class="field-item">
-            <label for="todo-application">Application name</label>
+            <label for="todo-application">Application name / alias</label>
             <input
               id="todo-application"
               type="text"
