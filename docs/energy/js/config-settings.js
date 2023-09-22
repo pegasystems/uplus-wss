@@ -24,6 +24,7 @@ window.settings = {
 			webportal: '',
 			c11nserver: '',
 			PegaURL: '',
+			authService: 'pega',
 			showAttachments: true,
 		},
 		auth_2fa: {

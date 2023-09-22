@@ -57,6 +57,9 @@ export const upgradeConfig = function upgradeConfig(cfg) {
   if (typeof cfg.settings.general.connection.PegaURL === 'undefined') {
     cfg.settings.general.connection.PegaURL = '';
   }
+  if (typeof cfg.settings.general.connection.authService === 'undefined') {
+    cfg.settings.general.connection.authService = 'pega';
+  }
   return cfg;
 };
 

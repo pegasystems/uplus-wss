@@ -159,6 +159,19 @@
                 v-model="settings.general.connection.PegaURL"
               />
             </div>
+            <div
+              class="field-item"
+              v-if="settings.general.connection.type.startsWith('embedui')"
+            >
+              <label for="ga-connection-authService"
+                >Authentication service</label
+              >
+              <input
+                type="text"
+                id="ga-connection-authService"
+                v-model="settings.general.connection.authService"
+              />
+            </div>
           </div>
           <div
             class="field-item"

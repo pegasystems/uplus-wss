@@ -14,7 +14,7 @@
       :appAlias="application"
       :pegaServerUrl="url"
       :staticContentUrl="staticContentUrl"
-      authService="pega"
+      :authService="authService"
       :clientId="clientId"
       :userIdentifier="UserIdentifier"
       :password="Password"
@@ -33,7 +33,7 @@
       :appAlias="application"
       :pegaServerUrl="url"
       :staticContentUrl="staticContentUrl"
-      authService="pega"
+      :authService="authService"
       :clientId="clientId"
       :userIdentifier="UserIdentifier"
       :password="Password"
@@ -51,7 +51,7 @@
       :appAlias="application"
       :pegaServerUrl="url"
       :staticContentUrl="staticContentUrl"
-      authService="pega"
+      :authService="authService"
       :clientId="clientId"
       :userIdentifier="UserIdentifier"
       :password="Password"
@@ -69,7 +69,7 @@
       :appAlias="application"
       :pegaServerUrl="url"
       :staticContentUrl="staticContentUrl"
-      authService="pega"
+      :authService="authService"
       :clientId="clientId"
       :userIdentifier="UserIdentifier"
       :password="Password"
@@ -86,7 +86,7 @@
       :appAlias="application"
       :pegaServerUrl="url"
       :staticContentUrl="staticContentUrl"
-      authService="pega"
+      :authService="authService"
       :clientId="clientId"
       :userIdentifier="UserIdentifier"
       :password="Password"
@@ -137,11 +137,12 @@ export default {
       staticContentUrl: undefined,
       showAssignmentHeader: 'true',
       pageTemplate: 'assignment',
+      authService: '',
       clientId: '',
       caseTitle: '',
       isWebEmbedInitialized: false,
-      UserIdentifier: '',
-      Password: '',
+      UserIdentifier: undefined,
+      Password: undefined,
       theme: '',
       startingFields: {},
       extraParam: '',
@@ -253,6 +254,8 @@ export default {
       this.UserIdentifier = this.settings.offeraction.pega_userid;
       this.Password = encodeURI(btoa(this.settings.offeraction.pega_pwd));
     }
+    if (!this.UserIdentifier) this.UserIdentifier = undefined;
+    if (!this.Password) this.Password = undefined;
     if (this.app.industry === 'comms') {
       this.theme =
         '{"base":{"palette":{"brand-primary":"#5F257E","app-background": "#FFFFFF","interactive":"#5F257E"},"shadow":{"low": "none"}},"components":{"button":{"border-radius":"0.25"}}}';
@@ -318,6 +321,7 @@ export default {
       this.staticContentUrl = this.settings.general.connection.c11nserver;
     }
     this.clientId = this.settings.general.connection.clientid;
+    this.authService = this.settings.general.connection.authService;
 
     this.isWebEmbedInitialized = 'true';
   },
