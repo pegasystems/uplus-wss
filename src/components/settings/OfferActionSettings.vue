@@ -161,7 +161,7 @@
           </div>
           <div
             class="field-item"
-            v-if="settings.general.connection.type === 'embedui'"
+            v-if="settings.general.connection.type.startsWith('embedui')"
           >
             <label for="offeraction-pagetemplate">Page Template</label>
             <select
@@ -191,7 +191,7 @@
           </div>
           <div
             class="field-item field-checkbox"
-            v-if="settings.general.connection.type === 'embedui'"
+            v-if="settings.general.connection.type.startsWith('embedui')"
           >
             <input
               id="offeraction-hideassignmentheader"

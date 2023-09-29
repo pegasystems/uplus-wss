@@ -37,7 +37,7 @@
           </div>
           <div
             class="field-item field-checkbox"
-            v-if="settings.general.connection.type === 'embedui'"
+            v-if="settings.general.connection.type.startsWith('embedui')"
           >
             <input
               :id="'quicklinks-' + index + '-hideassignmentheader'"
@@ -206,7 +206,7 @@
           </div>
           <div
             class="field-item"
-            v-if="settings.general.connection.type === 'embedui'"
+            v-if="settings.general.connection.type.startsWith('embedui')"
           >
             <label :for="'quicklinks-' + index + '-pagetemplate'"
               >Page Template</label
