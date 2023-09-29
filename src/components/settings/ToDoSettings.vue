@@ -162,7 +162,12 @@
               <option value="assignmentWithStages">
                 Assignment with stages
               </option>
-              <option value="self-service">Self-service</option>
+              <option
+                value="simplifiedAssignment"
+                v-if="settings.general.connection.type === 'embedui2'"
+              >
+                Simplified Assignment
+              </option>
             </select>
           </div>
           <div
