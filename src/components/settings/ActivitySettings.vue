@@ -169,7 +169,7 @@
                 value="simplifiedAssignment"
                 v-if="settings.general.connection.type === 'embedui2'"
               >
-                Simplified Assignment
+                Simplified assignment
               </option>
             </select>
           </div>
