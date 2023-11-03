@@ -612,11 +612,12 @@ window.settings = {
     ProActiveNotificationDismissTime: '',
     CoBrowseServerURL: '',
     CoBrowseToken: '',
-    UseLegacyWebChat: false,
     DMMURL: '',
     DMMID: 'pega-wm-chat',
     DMMSecret: '',
     DMMPrivateURL: 'https://ksxyk0i2hb.execute-api.us-east-1.amazonaws.com/Prod/private-data',
+    DMMProactiveChatNewSessionTimeout: 0,
+    DMMProactiveChatNewSessionCode: '5sonPage',
   },
   pega_marketing: {
     Host: '',

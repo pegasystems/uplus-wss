@@ -60,6 +60,17 @@ export const upgradeConfig = function upgradeConfig(cfg) {
   if (typeof cfg.settings.general.connection.authService === 'undefined') {
     cfg.settings.general.connection.authService = 'pega';
   }
+  if (
+    typeof cfg.settings.pega_chat.DMMProactiveChatNewSessionTimeout ===
+    'undefined'
+  ) {
+    cfg.settings.pega_chat.DMMProactiveChatNewSessionTimeout = 0;
+  }
+  if (
+    typeof cfg.settings.pega_chat.DMMProactiveChatNewSessionCode === 'undefined'
+  ) {
+    cfg.settings.pega_chat.DMMProactiveChatNewSessionCode = '5sonPage';
+  }
   return cfg;
 };
 
@@ -374,26 +385,6 @@ if (typeof window.settings === 'undefined') {
   setCookie('UserName', window.PegaCSWSS.UserName, 30);
   setCookie('UserID', window.PegaCSWSS.UserID, 30);
 
-  // We don't show chat and CoBrowse on the settings page
-  if (
-    typeof mainconfigTmp.settings.pega_chat !== 'undefined' &&
-    mainconfigTmp.settings.pega_chat.MashupURL !== '' &&
-    mainconfigTmp.settings.pega_chat.UseLegacyWebChat === true &&
-    `${window.location}`.indexOf('/settings.html') === -1
-  ) {
-    const scriptLoad = document.createElement('script');
-    scriptLoad.onload = function onloadJquery() {
-      const scriptLoad2 = document.createElement('script');
-      scriptLoad2.setAttribute('src', '../js/PegaHelper.js');
-      document.head.appendChild(scriptLoad2);
-      const scriptLoad1 = document.createElement('script');
-      scriptLoad1.setAttribute('src', '../js/PegaHelperExtension.js');
-      document.head.appendChild(scriptLoad1);
-    };
-    scriptLoad.setAttribute('src', '../js/jquery-min.js');
-    document.head.appendChild(scriptLoad);
-  }
-
   if (
     mainconfigTmp.settings.general.connection.c11nserver !== '' &&
     mainconfigTmp.settings.general.connection.type === 'embedui'
@@ -420,11 +411,23 @@ if (typeof window.settings === 'undefined') {
     typeof mainconfigTmp.settings.pega_chat !== 'undefined' &&
     mainconfigTmp.settings.pega_chat.DMMURL !== '' &&
     mainconfigTmp.settings.pega_chat.DMMID !== '' &&
-    mainconfigTmp.settings.pega_chat.UseLegacyWebChat === false &&
     `${window.location}`.indexOf('/settings.html') === -1
   ) {
     if (typeof window.PegaUnifiedChatWidget === 'undefined') {
       window.PegaUnifiedChatWidget = {};
+      if (
+        mainconfigTmp.settings.pega_chat.DMMProactiveChatNewSessionTimeout >= 0
+      ) {
+        setTimeout(() => {
+          // eslint-disable-next-line no-console
+          console.log(
+            `PegaUnifiedChatWidget triggetChat '${mainconfigTmp.settings.pega_chat.DMMProactiveChatNewSessionCode}'`,
+          );
+          window.PegaUnifiedChatWidget.triggerChat(
+            mainconfigTmp.settings.pega_chat.DMMProactiveChatNewSessionCode,
+          );
+        }, mainconfigTmp.settings.pega_chat.DMMProactiveChatNewSessionTimeout);
+      }
     }
 
     // This callback will be invoked every time a new chat session is started

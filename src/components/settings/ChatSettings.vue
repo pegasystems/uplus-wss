@@ -10,22 +10,7 @@
       >.
     </p>
     <Container title="Messaging" expanded>
-      <div class="layout-labels-left">
-        <div class="field-item">
-          <label class="width-auto" for="chat-ShowAsButton"
-            >Connect using legacy Web Chat Mashup</label
-          >
-          <input
-            id="chat-ShowAsButton"
-            type="checkbox"
-            v-model="settings.pega_chat.UseLegacyWebChat"
-          />
-        </div>
-      </div>
-      <div
-        class="layout-labels-top"
-        v-if="settings.pega_chat.UseLegacyWebChat === false"
-      >
+      <div class="layout-labels-top">
         <div class="field-item">
           <label for="chat-DMMID">ID of the widget</label>
           <input
@@ -63,95 +48,26 @@
           />
         </div>
       </div>
-      <div v-else>
-        <div class="layout-labels-top layout-inline-grid-double">
-          <div class="field-item">
-            <label for="chat-MashupURL">URL</label>
-            <input
-              id="chat-MashupURL"
-              type="text"
-              v-model="settings.pega_chat.MashupURL"
-            />
-          </div>
-          <div class="field-item">
-            <label for="chat-WCBConfigName">Config name</label>
-            <input
-              id="chat-WCBConfigName"
-              type="text"
-              v-model="settings.pega_chat.WCBConfigName"
-            />
-          </div>
-          <div class="field-item">
-            <label for="chat-WebChatBotID">Bot ID</label>
-            <input
-              id="chat-WebChatBotID"
-              type="text"
-              v-model="settings.pega_chat.WebChatBotID"
-            />
-          </div>
-          <div class="field-item">
-            <label for="chat-ApplicationName">Application name</label>
-            <input
-              id="chat-ApplicationName"
-              type="text"
-              v-model="settings.pega_chat.ApplicationName"
-            />
-          </div>
-          <div class="field-item">
-            <label for="chat-TenantID">Tenant ID</label>
-            <input
-              id="chat-TenantID"
-              type="text"
-              v-model="settings.pega_chat.TenantID"
-            />
-          </div>
+    </Container>
+    <Container title="Proactive chat on page load" expanded>
+      <div class="layout-labels-top layout-inline-grid-double">
+        <div class="field-item">
+          <label for="chat-DMMProactiveChatNewSessionTimeout"
+            >Time to wait (in ms) - use 0 to disable</label
+          >
+          <input
+            id="chat-DMMProactiveChatNewSessionTimeout"
+            type="number"
+            v-model="settings.pega_chat.DMMProactiveChatNewSessionTimeout"
+          />
         </div>
-        <div class="layout-labels-left">
-          <div class="field-item">
-            <label class="width-auto" for="chat-ShowAsButton"
-              >Show the launch icon as button</label
-            >
-            <input
-              id="chat-ShowAsButton"
-              type="checkbox"
-              v-model="settings.pega_chat.ShowAsButton"
-            />
-          </div>
-          <div class="field-item">
-            <label class="width-auto" for="chat-EnableProActiveNotification"
-              >Enable Customer Decision Hub proactive notifications (must be
-              configured)</label
-            >
-            <input
-              id="chat-EnableProActiveNotification"
-              type="checkbox"
-              v-model="settings.pega_chat.EnableProActiveNotification"
-            />
-          </div>
-          <div class="field-item">
-            <label class="width-auto" for="chat-ResetLogout"
-              >Reset chat when user logs out</label
-            >
-            <input
-              id="chat-ResetLogout"
-              type="checkbox"
-              v-model="settings.pega_chat.ResetLogout"
-            />
-          </div>
-        </div>
-        <div class="layout-labels-top layout-inline-grid-double">
-          <div class="field-item">
-            <label
-              class="width-auto"
-              for="chat-ProActiveNotificationDismissTime"
-              >Proactive notifications dismiss time (in ms)</label
-            >
-            <input
-              id="chat-ProActiveNotificationDismissTime"
-              type="text"
-              v-model="settings.pega_chat.ProActiveNotificationDismissTime"
-            />
-          </div>
+        <div class="field-item">
+          <label for="chat-DMMProactiveChatNewSessionCode">Trigger code</label>
+          <input
+            id="chat-DMMProactiveChatNewSessionCode"
+            type="text"
+            v-model="settings.pega_chat.DMMProactiveChatNewSessionCode"
+          />
         </div>
       </div>
     </Container>
