@@ -251,8 +251,8 @@ export default {
       this.UserIdentifier = this.settings.homeheroaction.pega_userid;
       this.Password = encodeURI(btoa(this.settings.homeheroaction.pega_pwd));
     } else if (this.offerAction !== -1) {
-      this.UserIdentifier = this.settings.offeraction.pega_userid;
-      this.Password = encodeURI(btoa(this.settings.offeraction.pega_pwd));
+      this.UserIdentifier = this.settings.offeraction.username;
+      this.Password = encodeURI(btoa(this.settings.offeraction.password));
     }
     if (!this.UserIdentifier) this.UserIdentifier = undefined;
     if (!this.Password) this.Password = undefined;

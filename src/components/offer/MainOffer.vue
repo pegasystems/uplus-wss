@@ -278,23 +278,32 @@ export default {
       item.showAIoverlay = !item.showAIoverlay;
     },
     applyOfferAction() {
-      if (this.hero_offer.url === '' && this.action === 'Mashup') {
+      if (this.settings.pega_marketing.Host === '') {
         mainconfig.offerAction = 1;
-      } else {
         if (mainconfig.isMobilePhone) {
           mainconfig.phonePageName = 'offer';
         }
         mainconfig.offerURL = this.hero_offer.url;
         mainconfig.previousPage = this.hero_offer.name;
-      }
-      this.hero_offer.useURL = true;
-      if (this.action === 'BuiltIn') {
-        mainconfig.offerURL = '/Basic';
-        this.hero_offer.useURL = false;
-      }
-      mainconfig.CDHContainer = this.hero_offer;
-      if (mainconfig.settings.pega_marketing.useCaptureByChannel === true) {
-        captureResponse(this, this.hero_offer, 'Clicked');
+      } else {
+        if (this.hero_offer.url === '' && this.action === 'Mashup') {
+          mainconfig.offerAction = 1;
+        } else {
+          if (mainconfig.isMobilePhone) {
+            mainconfig.phonePageName = 'offer';
+          }
+          mainconfig.offerURL = this.hero_offer.url;
+          mainconfig.previousPage = this.hero_offer.name;
+        }
+        this.hero_offer.useURL = true;
+        if (this.action === 'BuiltIn') {
+          mainconfig.offerURL = '/Basic';
+          this.hero_offer.useURL = false;
+        }
+        mainconfig.CDHContainer = this.hero_offer;
+        if (mainconfig.settings.pega_marketing.useCaptureByChannel === true) {
+          captureResponse(this, this.hero_offer, 'Clicked');
+        }
       }
     },
   },
