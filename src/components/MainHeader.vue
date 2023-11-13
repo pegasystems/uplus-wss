@@ -26,8 +26,8 @@
               item.url
                 ? item.url
                 : app.offer.length > 1
-                ? `offer${index + 1}.html`
-                : null
+                  ? `offer${index + 1}.html`
+                  : null
             "
           ></MenuItem>
         </ul>
