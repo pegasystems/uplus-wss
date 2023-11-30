@@ -153,6 +153,7 @@ export default {
     };
   },
   mounted() {
+    sessionStorage.clear();
     if (this.quickLinkId !== -1) {
       this.action = this.settings.quicklinks[this.quickLinkId].action;
       this.url = this.settings.quicklinks[this.quickLinkId].url;
