@@ -105,7 +105,11 @@ let resizeObserver;
 
 const embedEventFn = (event) => {
   console.log('Event from pega-embed', event);
-  if (event.type === 'embedcloseconfirmview') {
+  if (
+    event.type === 'embedcloseconfirmview' ||
+    event.type === 'embedcaseclosed' ||
+    event.type === 'embedeventcancel'
+  ) {
     top.postMessage('pegaMashupNavigateBack', location.origin);
   } else if (event.type === 'embedprocessingend') {
     resizeObserver = new ResizeObserver((entries) => {
@@ -336,6 +340,8 @@ export default {
     mytag.addEventListener('embedprocessingend', embedEventFn);
     mytag.addEventListener('embedready', embedEventFn);
     mytag.addEventListener('embedcloseconfirmview', embedEventFn);
+    mytag.addEventListener('embedcaseclosed', embedEventFn);
+    mytag.addEventListener('embedeventcancel', embedEventFn);
     mytag.addEventListener('embedreauth', embedEventFn);
   },
   beforeUnmount() {
@@ -343,6 +349,8 @@ export default {
     mytag.removeEventListener('embedprocessingend', embedEventFn);
     mytag.removeEventListener('embedready', embedEventFn);
     mytag.removeEventListener('embedcloseconfirmview', embedEventFn);
+    mytag.removeEventListener('embedcaseclosed', embedEventFn);
+    mytag.removeEventListener('embedeventcancel', embedEventFn);
     mytag.removeEventListener('embedreauth', embedEventFn);
     if (resizeObserver) {
       resizeObserver.unobserve(mytag);
