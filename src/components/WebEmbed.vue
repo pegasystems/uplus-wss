@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isWebEmbedInitialized">
+  <div v-if="isWebEmbedInitialized" class="margin-b-3x">
     <h1>{{ caseTitle }}</h1>
     <pega-embed
       v-if="action === 'openPage'"

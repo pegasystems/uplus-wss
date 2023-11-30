@@ -609,6 +609,10 @@ footer nav > div.flex {
   padding-bottom: 8px;
 }
 
+.margin-b-3x {
+  padding-bottom: 24px;
+}
+
 .flex-grow-1 {
   flex-grow: 1;
 }
