@@ -107,7 +107,7 @@
           v-on:click="toggleAIOverlay(hero_offer)"
           title="toggle AI"
         ></button>
-        <div class="flex flex-nowrap">
+        <div class="flex flex-nowrap flex-row-reverse">
           <img
             class="hero-offer-img"
             v-if="hero_offer.img !== ''"

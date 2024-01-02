@@ -56,6 +56,10 @@ main .hero-wrap > .hero-heading {
   font-size: 22px;
 }
 
+.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+
 .flex-nowrap {
   flex-wrap: nowrap;
 }
@@ -266,11 +270,8 @@ display: flex;
 }
 
 img.hero-offer-img {
-  max-width: fit-content;
-  align-self: start;
-  max-height:400px;
-  padding-right:60px;
-  max-width: 400px;
+  max-height: auto;
+  align-self: end;
 }
 
 img.option {
