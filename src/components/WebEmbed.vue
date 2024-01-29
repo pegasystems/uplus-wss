@@ -282,7 +282,7 @@ export default {
       this.app.industry === 'auto'
     ) {
       this.theme =
-        '{"base":{"palette":{"brand-primary":"#DF3603","app-background": "#FFFFFF","interactive":"#DF3603"},"shadow":{"low": "none"}},"components":{"button":{"border-radius":"0.25"}}}';
+        '{"base":{"palette":{"brand-primary":"#CA0000","app-background": "#FFFFFF","interactive":"#CA0000"},"shadow":{"low": "none"}},"components":{"button":{"border-radius":"0.25"}}}';
     }
     if (this.settings.general.theming.override) {
       this.theme = `{"base":{"palette":{"brand-primary":"${this.settings.general.theming.brandColor}","interactive":"${this.settings.general.theming.interactiveColor}","app-background": "#FFFFFF"},"shadow":{"low": "none"}},"components":{"button":{"border-radius":"0.25"}}}`;
