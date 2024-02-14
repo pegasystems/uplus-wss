@@ -49,6 +49,7 @@ export default {
       }
     },
     logOut() {
+      sendClickStreamEvent(mainconfig, 'Logout', 'Home', window.loadPage);
       sendClickStreamEvent(mainconfig, 'PageView', 'Home', window.loadPage);
       window.loadPage = new Date();
       mainconfig.isAuthenticated = false;

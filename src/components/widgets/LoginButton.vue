@@ -11,7 +11,7 @@
       <h3>{{ $t('message.welcomeBack') }}</h3>
       <div v-if="!isOTP" class="field flex flex-col username">
         <select id="username" v-model="username">
-          <option v-for="(item, index) in settings.users" v-bind:key="index">
+          <option v-for="(item, index) in activeUsers" v-bind:key="index">
             {{ item.username }}
           </option>
         </select>
@@ -72,6 +72,13 @@ export default {
       otpRefId: '',
     };
   },
+  computed: {
+    activeUsers() {
+      return this.settings.users.filter((item) => {
+        return !item.hide_from_dropdown && item;
+      });
+    },
+  },
   methods: {
     showLoginOverlay() {
       this.isActive = !this.isActive;
@@ -123,6 +130,7 @@ export default {
         }
       }
       mergeAccount(mainconfig);
+      sendClickStreamEvent(mainconfig, 'Login', 'Account', window.loadPage);
       sendClickStreamEvent(mainconfig, 'PageView', 'Account', window.loadPage);
       window.loadPage = new Date();
       this.isActive = false;

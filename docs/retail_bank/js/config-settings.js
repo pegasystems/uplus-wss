@@ -288,6 +288,7 @@ window.settings = {
       pega_pwd: "rules",
       bill_pay: 164.8,
       load_by_default: true,
+      hide_from_dropdown: false,
       show_opname: false,
       otp_send_to: "",
       accountdetails: [[
@@ -408,6 +409,7 @@ window.settings = {
       pega_pwd: "rules",
       bill_pay: 164.8,
       load_by_default: false,
+      hide_from_dropdown: false,
       show_opname: false,
       otp_send_to: "",
       accountdetails: [[

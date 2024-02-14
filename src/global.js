@@ -71,6 +71,11 @@ export const upgradeConfig = function upgradeConfig(cfg) {
   ) {
     cfg.settings.pega_chat.DMMProactiveChatNewSessionCode = '5sonPage';
   }
+  for (const i in cfg.settings.users) {
+    if (typeof cfg.settings.users[i].hide_from_dropdown === 'undefined') {
+      cfg.settings.users[i].hide_from_dropdown = false;
+    }
+  }
   return cfg;
 };
 

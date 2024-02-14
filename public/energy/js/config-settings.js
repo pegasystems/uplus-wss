@@ -289,7 +289,8 @@ window.settings = {
 			pega_pwd: "",
 			bill_pay: 164.8,
 			load_by_default: true,
-			show_opname: false,
+			hide_from_dropdown: false,
+      show_opname: false,
 			otp_send_to: "",
 			accountdetails: [[
 				{
@@ -405,7 +406,9 @@ window.settings = {
 			pega_pwd: '',
 			bill_pay: 164.8,
 			load_by_default: true,
-			otp_send_to: '',
+			hide_from_dropdown: false,
+			show_opname: false,
+      otp_send_to: '',
 			accountdetails: [[
 				{
 					label: "Card number",

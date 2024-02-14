@@ -137,6 +137,7 @@ export default {
         }
       }
       mergeAccount(mainconfig);
+      sendClickStreamEvent(mainconfig, 'Login', 'Account', window.loadPage);
       sendClickStreamEvent(mainconfig, 'PageView', 'Account', window.loadPage);
       window.loadPage = new Date();
     },

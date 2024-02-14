@@ -158,6 +158,20 @@
             />
           </div>
         </div>
+        <div class="layout-inline-grid-double layout-labels-left">
+          <div class="field-item">
+            <input
+              type="checkbox"
+              :id="'user-' + index + '-hide_from_dropdown'"
+              v-model="item.hide_from_dropdown"
+            />
+            <label
+              class="width-auto"
+              :for="'user-' + index + '-hide_from_dropdown'"
+              >Hide from login dropdown</label
+            >
+          </div>
+        </div>
       </Container>
     </div>
   </div>
