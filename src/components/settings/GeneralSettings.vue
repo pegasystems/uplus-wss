@@ -52,7 +52,10 @@
                   or '23)
                 </option>
                 <option value="embedui2">
-                  Pega Web Embed UI (Constellation UI - Pega Infinity '24 or
+                  Pega Web Embed UI (Constellation UI - Pega Infinity '24.1)
+                </option>
+                <option value="embedui3">
+                  Pega Web Embed UI (Constellation UI - Pega Infinity '24.2 or
                   higher)
                 </option>
                 <option value="dxv1">
@@ -147,7 +150,10 @@
             </div>
             <div
               class="field-item"
-              v-if="settings.general.connection.type === 'embedui2'"
+              v-if="
+                settings.general.connection.type === 'embedui2' ||
+                settings.general.connection.type === 'embedui3'
+              "
             >
               <label for="ga-connection-PegaURL"
                 >Pega Platform Web Base URL (for example
@@ -157,6 +163,20 @@
                 type="text"
                 id="ga-connection-PegaURL"
                 v-model="settings.general.connection.PegaURL"
+              />
+            </div>
+            <div
+              class="field-item"
+              v-if="settings.general.connection.type === 'embedui3'"
+            >
+              <label for="ga-connection-ThemeID"
+                >Theme ID (leave empty to use auto-generated theme for each
+                industry)</label
+              >
+              <input
+                type="text"
+                id="ga-connection-ThemeID"
+                v-model="settings.general.connection.themeID"
               />
             </div>
             <div

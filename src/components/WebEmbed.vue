@@ -20,6 +20,7 @@
       :userIdentifier="UserIdentifier"
       :password="Password"
       :theme="theme"
+      :themeID="themeID"
     />
     <pega-embed
       v-else-if="action === 'createCase'"
@@ -40,6 +41,7 @@
       :userIdentifier="UserIdentifier"
       :password="Password"
       :theme="theme"
+      :themeID="themeID"
     />
     <pega-embed
       v-else-if="action === 'openAssignment'"
@@ -59,6 +61,7 @@
       :userIdentifier="UserIdentifier"
       :password="Password"
       :theme="theme"
+      :themeID="themeID"
     />
     <pega-embed
       v-else-if="action === 'openCase'"
@@ -78,6 +81,7 @@
       :userIdentifier="UserIdentifier"
       :password="Password"
       :theme="theme"
+      :themeID="themeID"
     />
     <pega-embed
       v-else-if="action === 'getNextWork'"
@@ -96,6 +100,7 @@
       :userIdentifier="UserIdentifier"
       :password="Password"
       :theme="theme"
+      :themeID="themeID"
     />
   </div>
   <div v-else>Loading....</div>
@@ -153,6 +158,7 @@ export default {
       UserIdentifier: undefined,
       Password: undefined,
       theme: '',
+      themeID: '',
       startingFields: {},
       extraParam: '',
     };
@@ -266,31 +272,40 @@ export default {
     }
     if (!this.UserIdentifier) this.UserIdentifier = undefined;
     if (!this.Password) this.Password = undefined;
-    if (this.app.industry === 'comms') {
-      this.theme =
-        '{"base":{"palette":{"brand-primary":"#5F257E","app-background": "#FFFFFF","interactive":"#5F257E"},"shadow":{"low": "none"}},"components":{"button":{"border-radius":"0.25"}}}';
-    } else if (this.app.industry.indexOf('health') === 0) {
-      this.theme =
-        '{"base":{"palette":{"brand-primary":"#0C8487","app-background": "#FFFFFF","interactive":"#0C8487"},"shadow":{"low": "none"}},"components":{"button":{"border-radius":"0.25"}}}';
-    } else if (this.app.industry === 'gov') {
-      this.theme =
-        '{"base":{"palette":{"brand-primary":"#076bc9","app-background": "#FFFFFF,"interactive":"#076bc9"},"shadow":{"low": "none"}},"components":{"button":{"border-radius":"0.25"}}}';
-    } else if (
-      this.app.industry === 'retail_bank' ||
-      this.app.industry === 'commercial_bank'
+
+    /* In 24.2 - the theme can be defined as a general setting - if this is set, then pass themeID - otherwise fallback to old them */
+    if (
+      this.settings.general.connection.type === 'embedui3' &&
+      this.settings.general.connection.themeID
     ) {
-      this.theme =
-        '{"base":{"palette":{"brand-primary":"#005501","app-background": "#FFFFFF","interactive":"#005501"},"shadow":{"low": "none"}},"components":{"button":{"border-radius":"0.25"}}}';
-    } else if (
-      this.app.industry === 'insurance' ||
-      this.app.industry === 'manufacturing' ||
-      this.app.industry === 'auto'
-    ) {
-      this.theme =
-        '{"base":{"palette":{"brand-primary":"#CA0000","app-background": "#FFFFFF","interactive":"#CA0000"},"shadow":{"low": "none"}},"components":{"button":{"border-radius":"0.25"}}}';
-    }
-    if (this.settings.general.theming.override) {
-      this.theme = `{"base":{"palette":{"brand-primary":"${this.settings.general.theming.brandColor}","interactive":"${this.settings.general.theming.interactiveColor}","app-background": "#FFFFFF"},"shadow":{"low": "none"}},"components":{"button":{"border-radius":"0.25"}}}`;
+      this.themeID = this.settings.general.connection.themeID;
+    } else {
+      if (this.app.industry === 'comms') {
+        this.theme =
+          '{"base":{"palette":{"brand-primary":"#5F257E","app-background": "#FFFFFF","interactive":"#5F257E"},"shadow":{"low": "none"}},"components":{"button":{"border-radius":"0.25"}}}';
+      } else if (this.app.industry.indexOf('health') === 0) {
+        this.theme =
+          '{"base":{"palette":{"brand-primary":"#0C8487","app-background": "#FFFFFF","interactive":"#0C8487"},"shadow":{"low": "none"}},"components":{"button":{"border-radius":"0.25"}}}';
+      } else if (this.app.industry === 'gov') {
+        this.theme =
+          '{"base":{"palette":{"brand-primary":"#076bc9","app-background": "#FFFFFF,"interactive":"#076bc9"},"shadow":{"low": "none"}},"components":{"button":{"border-radius":"0.25"}}}';
+      } else if (
+        this.app.industry === 'retail_bank' ||
+        this.app.industry === 'commercial_bank'
+      ) {
+        this.theme =
+          '{"base":{"palette":{"brand-primary":"#005501","app-background": "#FFFFFF","interactive":"#005501"},"shadow":{"low": "none"}},"components":{"button":{"border-radius":"0.25"}}}';
+      } else if (
+        this.app.industry === 'insurance' ||
+        this.app.industry === 'manufacturing' ||
+        this.app.industry === 'auto'
+      ) {
+        this.theme =
+          '{"base":{"palette":{"brand-primary":"#CA0000","app-background": "#FFFFFF","interactive":"#CA0000"},"shadow":{"low": "none"}},"components":{"button":{"border-radius":"0.25"}}}';
+      }
+      if (this.settings.general.theming.override) {
+        this.theme = `{"base":{"palette":{"brand-primary":"${this.settings.general.theming.brandColor}","interactive":"${this.settings.general.theming.interactiveColor}","app-background": "#FFFFFF"},"shadow":{"low": "none"}},"components":{"button":{"border-radius":"0.25"}}}`;
+      }
     }
     this.extraParamContent = {};
     this.extraParam.split(',').forEach((item) => {
@@ -327,7 +342,7 @@ export default {
       mainconfig.isDeepLink = false;
       mainconfig.deepLinkExtraParam = {};
     }
-    if (this.settings.general.connection.type !== 'embedui2') {
+    if (this.settings.general.connection.type === 'embedui1') {
       this.staticContentUrl = this.settings.general.connection.c11nserver;
     }
     this.clientId = this.settings.general.connection.clientid;

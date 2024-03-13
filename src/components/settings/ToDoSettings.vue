@@ -164,7 +164,10 @@
               </option>
               <option
                 value="simplifiedAssignment"
-                v-if="settings.general.connection.type === 'embedui2'"
+                v-if="
+                  settings.general.connection.type === 'embedui2' ||
+                  settings.general.connection.type === 'embedui3'
+                "
               >
                 Simplified assignment
               </option>

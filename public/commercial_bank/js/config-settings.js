@@ -25,6 +25,7 @@ window.settings = {
       c11nserver: "",
       PegaURL: '',
       authService: 'pega',
+      themeID: '',
       showAttachments: true,
     },
     auth_2fa: {
