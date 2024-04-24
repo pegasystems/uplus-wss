@@ -342,7 +342,7 @@ export default {
       mainconfig.isDeepLink = false;
       mainconfig.deepLinkExtraParam = {};
     }
-    if (this.settings.general.connection.type === 'embedui1') {
+    if (this.settings.general.connection.type === 'embedui') {
       this.staticContentUrl = this.settings.general.connection.c11nserver;
     }
     this.clientId = this.settings.general.connection.clientid;

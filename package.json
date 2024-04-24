@@ -7,7 +7,6 @@
     "preview": "vite preview --port 5050",
     "test:e2e": "start-server-and-test preview http://localhost:5050 'cypress open'",
     "test:e2e:ci": "start-server-and-test preview http://localhost:5050 'cypress run'",
-    "lint": "eslint src --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "test:unit": "vitest run --coverage --environment jsdom",
     "docker-build": "npx docker build --tag richardmarsot/uplus-wss  -f ./Dockerfile .",
     "docker-push": "npx docker push richardmarsot/uplus-wss"
@@ -26,8 +25,8 @@
     "@vue/test-utils": "^2.2.7",
     "c8": "^9.1.0",
     "cypress": "^13.1.0",
-    "eslint": "^8.31.0",
-    "eslint-plugin-cypress": "^2.12.1",
+    "eslint": "^9.1.1",
+    "eslint-plugin-cypress": "^2.15.0",
     "eslint-plugin-vue": "^9.8.0",
     "jsdom": "^24.0.0",
     "prettier": "^3.0.0",
