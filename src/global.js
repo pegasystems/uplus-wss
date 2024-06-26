@@ -497,28 +497,23 @@ if (typeof window.settings === 'undefined') {
 
         //Check if event received matches event defined in settings
         if (widgetEvent.name == event?.CustomEventName) {
-          console.log("processing event", event);
+          console.log("Processing Custom Event: ", event);
           //Copy in any data present in event
           let eventData = widgetEvent?.data?.data ? widgetEvent.data.data : "";
           let el;
 
           //Handle Element Highlight
           if (event.CustomEventAction == "HighlightElement") {
-            console.log("Highlight Element", event.ElementName);
-            //const el = document.querySelector(event.ElementName);
             el = findElementByLabel(event.ElementName);
             if (el == undefined) {
               console.log(`unable to locate element that includes text ${event.ElementName}`);
               return;
             }
-            console.log(el);
             el.classList.add('pulse');
           }
 
           //Handle Click Element
           else if (event.CustomEventAction == "ClickElement") {
-            console.log("Click Element", event.ElementName);
-            //const el = document.querySelector(event.ElementName);
             el = findElementByLabel(event.ElementName);
             if (el == undefined) {
               console.log(`unable to locate element that includes text ${event.ElementName}`);
@@ -567,10 +562,6 @@ if (typeof window.settings === 'undefined') {
       // Loop through all the elements and check if their inner text matches the label
       for (let i = 0; i < elements.length; i++) {
         if (elements[i].innerText.toLowerCase() === label.toLowerCase()) {
-          // Find the first parent div element of the matched element
-          let parentDiv = elements[i].closest("a");
-          console.log("Found element:", elements[i]);
-          console.log("First parent div:", parentDiv);
           return elements[i];
         }
       }
@@ -581,7 +572,7 @@ if (typeof window.settings === 'undefined') {
      * @param {string} eventName the event name to acknowledge
      */
     const sendEventAcknowledgement = function (eventName) {
-      console.log("Sending Acknowledgement");
+      console.log("Sending Event Acknowledgement...");
       let sessionId = localStorage.getItem("sessionId");
       //console.log(`sendEventAcknowledgement sessionID=${sessionId}`);
       if (
@@ -599,10 +590,10 @@ if (typeof window.settings === 'undefined') {
           mainconfigTmp.settings.pega_chat.DMMSecret,
         );
 
-        //const baseUrl = mainconfigTmp.settings.pega_chat.DMMURL.split('/').slice(0, 3).join('/');
-        const baseUrl = "https://ksxyk0i2hb.execute-api.us-east-1.amazonaws.com/Dev";
+        const baseUrl = mainconfigTmp.settings.pega_chat.DMMURL.split('/').slice(0, 3).join('/');
+
         const customEventEndpoint = baseUrl + "/custom-event";
-        console.log("customEventEndpoint", customEventEndpoint, mainconfigTmp.settings.pega_chat);
+        //console.log("customEventEndpoint", customEventEndpoint, mainconfigTmp.settings.pega_chat);
         const request = new XMLHttpRequest();
         request.open(
           'POST',
@@ -618,10 +609,9 @@ if (typeof window.settings === 'undefined') {
 
         request.onreadystatechange = () => {
           if (request.readyState === 4) {
-            console.log("response: ", request.response);
+            console.log("Event acknowledgement api response: ", request.response);
           }
         };
-
       }
     };
 

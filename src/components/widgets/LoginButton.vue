@@ -3,8 +3,11 @@
     <button v-on:click="showLoginOverlay" class="launch-login">
       {{ $t('message.login') }}
     </button>
-    <div v-clickoutside="{ handler: 'onClickOutLoginOverlay' }" class="overlay flex flex-col"
-      :class="[isActive ? 'show' : 'hidden']">
+    <div
+      v-clickoutside="{ handler: 'onClickOutLoginOverlay' }"
+      class="overlay flex flex-col"
+      :class="[isActive ? 'show' : 'hidden']"
+    >
       <h3>{{ $t('message.welcomeBack') }}</h3>
       <div v-if="!isOTP" class="field flex flex-col username">
         <select id="username" v-model="username">
@@ -39,7 +42,7 @@
         $t('message.invalidOTP')
       }}</span>
       <span v-if="OTPRequestFailed" class="error">{{
-        $t('message.requestOTPFailed');
+        $t('message.requestOTPFailed')
       }}</span>
       <a>{{ $t('message.forgotPassword') }}</a>
       <a>{{ $t('message.notEnrolled') }}</a>
