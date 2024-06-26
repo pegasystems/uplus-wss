@@ -25,12 +25,14 @@
   height: 135px;
   z-index: 2147483645;
 }
+
 #OnlineHelp,
 #ChatWrapper,
 #ServiceCaseGadget,
 #ChatFooter {
   transition: all 0.5s ease-in-out;
 }
+
 #OnlineHelp.expanded,
 #ServiceCaseGadget.expanded,
 #ChatWrapper.expanded {
@@ -38,44 +40,53 @@
   top: 50%;
   margin: -425px 0 !important;
 }
+
 #OnlineHelp.compacted,
 #ServiceCaseGadget.compacted,
 #ChatWrapper.compacted {
   height: 450px !important;
 }
+
 #OnlineHelp.minimized,
 #ServiceCaseGadget.minimized,
 #ChatWrapper.minimized,
 #ChatFooter.minimized {
   right: -900px;
 }
+
 #OnlineHelp.alerting,
 #ServiceCaseGadget.alerting {
   right: 2px;
   margin: -275px 0;
   top: 50%;
 }
+
 #OnlineHelp.showLeftPanel {
   width: 900px;
 }
+
 #OnlineHelp.hideLeftPanel {
   width: 450px;
 }
+
 #ChatWrapper {
   height: 550px;
   right: 2px;
   display: none;
   overflow: hidden;
 }
+
 #ServiceCaseGadget {
   height: 550px;
   right: 2px;
   display: none;
 }
+
 /* Hide the default chat launcher */
 .chatLauncher {
   display: none;
 }
+
 /* Start of styles required to display chat in the full guide div */
 #LocalChatHeader {
   height: 50px;
@@ -87,6 +98,7 @@
   font-size: 17px;
   font-weight: 300;
 }
+
 #HeaderText {
   padding-top: 16px;
   display: block;
@@ -99,6 +111,7 @@
   font-family: Open Sans, sans-serif;
   margin-right: -87px;
 }
+
 div#chatBox {
   position: inherit !important;
   width: inherit !important;
@@ -107,38 +120,47 @@ div#chatBox {
   color: #000000;
   font-family: Open Sans, sans-serif;
 }
+
 #chatContainer .poweredByPega {
   display: none !important;
 }
+
 div#messageBoxDiv {
   height: calc(850px - 209px) !important;
   width: inherit !important;
   border-bottom: 1px solid #e0e0e0;
 }
+
 @media screen and (max-width: 767px) {
   .chatContainer #messageBoxDiv {
     top: 100px !important;
   }
 }
+
 div#chatFloater {
   display: none !important;
 }
+
 div#chatIcon {
   display: none !important;
 }
+
 .minimizeIcon {
   display: none !important;
 }
+
 a#startChat {
   font-size: 21px !important;
   font-weight: 300 !important;
   color: black !important;
 }
+
 div#chatText {
   padding-top: 11px !important;
   padding-left: 14px !important;
   display: none !important;
 }
+
 .chatContainer #sendMessageField {
   height: 40px !important;
   margin-left: 10px !important;
@@ -146,20 +168,25 @@ div#chatText {
   width: 95% !important;
   border-top: none !important;
 }
+
 .chatContainer #sendMessageField {
   width: calc(100% - 60px) !important;
 }
+
 .chatContainer #sendMessageField:focus {
   box-shadow: none;
   border: none;
   color: black;
 }
+
 input#fileUploadIcon {
   height: 40px;
 }
+
 #chatContainer .sendButton {
   display: none !important;
 }
+
 div#ChatFooter {
   background-color: #f1f1f2;
   width: 450px;
@@ -172,6 +199,7 @@ div#ChatFooter {
   height: 22px;
   padding-top: 8px;
 }
+
 /* End of styles required to display chat in full guide div */
 #MinimizeChat {
   font-family: Open Sans, sans-serif;
@@ -181,6 +209,7 @@ div#ChatFooter {
   margin-right: 10px;
   cursor: pointer;
 }
+
 #LocalChatSubheader {
   font-family: Open Sans, sans-serif;
   font-size: 17px;
@@ -191,9 +220,11 @@ div#ChatFooter {
   margin-left: 14px;
   margin-right: 14px;
 }
+
 #SubHeaderText {
   padding-top: 4px;
 }
+
 .EndChat {
   float: right;
   background: white;
@@ -204,9 +235,11 @@ div#ChatFooter {
   margin-top: -25px;
   cursor: pointer;
 }
+
 .EndChat:hover {
   background: #e5f0ff;
 }
+
 #ChatLauncherminimized,
 #servicecaselauncherminimized,
 #launcherminimized,
@@ -227,6 +260,7 @@ div#ChatFooter {
   cursor: pointer;
   border: 1px solid #fff;
 }
+
 #Preview {
   font-family: Open Sans, sans-serif;
   text-align: left;
@@ -242,9 +276,11 @@ div#ChatFooter {
   cursor: pointer;
   border: none;
 }
+
 #launcher:hover {
   right: 0;
 }
+
 #unreadCounter {
   position: absolute;
   top: -13px;
@@ -284,6 +320,7 @@ div#ChatFooter {
   top: auto;
   bottom: -2000px;
 }
+
 .chat-button #ProactiveChat.alerting {
   top: 70%;
   bottom: auto;
@@ -313,10 +350,10 @@ div#ChatFooter {
   opacity: 1;
 }
 
-.chat-button #ChatLauncherminimized > img,
-.chat-button #servicecaselauncherminimized > img,
-.chat-button #launcherminimized > img,
-.chat-button #launcher > img {
+.chat-button #ChatLauncherminimized>img,
+.chat-button #servicecaselauncherminimized>img,
+.chat-button #launcherminimized>img,
+.chat-button #launcher>img {
   display: block;
   width: 50px;
   height: 50px;
@@ -330,4 +367,35 @@ div#ChatFooter {
 .chat-button #unreadCounter {
   transform: none;
   top: -4px;
+}
+
+.pulse {
+  animation: pulse-animation 1s infinite;
+  border-radius: 5px;
+  z-index: 9999;
+}
+
+.remove-event {
+  position: absolute;
+  right: 0px;
+  top: 5px;
+  cursor: pointer;
+}
+
+.event-header {
+  position: relative;
+}
+
+.event-title {
+  float: left;
+}
+
+@keyframes pulse-animation {
+  0% {
+    box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
+  }
+
+  100% {
+    box-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
+  }
 }

@@ -316,7 +316,7 @@ window.settings = {
               label: "Next payment due",
               type: "duedate"
             }
-            ]
+          ]
         },
         {
           title: "Commercial thermostat",
@@ -339,7 +339,7 @@ window.settings = {
               label: "Next payment due",
               type: "duedate"
             }
-            ]
+          ]
         },
         {
           title: "Control system",
@@ -362,7 +362,7 @@ window.settings = {
               label: "Next payment due",
               type: "duedate"
             }
-            ]
+          ]
         },
       ],
       recentactivity: [
@@ -419,7 +419,7 @@ window.settings = {
               label: "Next payment due",
               type: "duedate"
             }
-            ]
+          ]
         },
         {
           title: "Commercial thermostat",
@@ -443,7 +443,7 @@ window.settings = {
               label: "Next payment due",
               type: "duedate"
             }
-            ]
+          ]
         },
         {
           title: "Control system",
@@ -467,7 +467,7 @@ window.settings = {
               label: "Next payment due",
               type: "duedate"
             }
-            ]
+          ]
         },
       ],
       recentactivity: [
@@ -482,6 +482,29 @@ window.settings = {
         },
       ],
     },
+  ],
+  CustomEvents: [
+    {
+      CustomEventAction: "HighlightElement",
+      CustomEventName: "Custom Event 1",
+      ElementName: "",
+      SendAcknowledgement: false,
+      AcknowledgeOn: "After5Seconds"
+    },
+    {
+      CustomEventAction: "HighlightElement",
+      CustomEventName: "Custom Event 2",
+      ElementName: "",
+      SendAcknowledgement: false,
+      AcknowledgeOn: "After5Seconds"
+    },
+    {
+      CustomEventAction: "HighlightElement",
+      CustomEventName: "Custom Event 3",
+      ElementName: "",
+      SendAcknowledgement: false,
+      AcknowledgeOn: "After5Seconds"
+    }
   ],
   pega_chat: {
     WCBConfigName: '',

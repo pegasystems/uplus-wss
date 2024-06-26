@@ -317,7 +317,7 @@ window.settings = {
               label: "Drive train warranty",
               value: '8 yr/80,000mi',
             },
-            ]
+          ]
         },
         {
           title: "2017 Quartz Plug-in",
@@ -341,7 +341,7 @@ window.settings = {
               label: "Drive train warranty",
               value: '15 yr/100,000mi',
             },
-            ]
+          ]
         },
       ],
       recentactivity: [
@@ -400,7 +400,7 @@ window.settings = {
               label: "Drive train warranty",
               value: '8 yr/80,000mi',
             },
-            ]
+          ]
         },
         {
           title: "2017 Quartz Plug-in",
@@ -424,7 +424,7 @@ window.settings = {
               label: "Drive train warranty",
               value: '15 yr/100,000mi',
             },
-            ]
+          ]
         },
       ],
       recentactivity: [
@@ -441,6 +441,29 @@ window.settings = {
         },
       ],
     },
+  ],
+  CustomEvents: [
+    {
+      CustomEventAction: "HighlightElement",
+      CustomEventName: "Custom Event 1",
+      ElementName: "",
+      SendAcknowledgement: false,
+      AcknowledgeOn: "After5Seconds"
+    },
+    {
+      CustomEventAction: "HighlightElement",
+      CustomEventName: "Custom Event 2",
+      ElementName: "",
+      SendAcknowledgement: false,
+      AcknowledgeOn: "After5Seconds"
+    },
+    {
+      CustomEventAction: "HighlightElement",
+      CustomEventName: "Custom Event 3",
+      ElementName: "",
+      SendAcknowledgement: false,
+      AcknowledgeOn: "After5Seconds"
+    }
   ],
   pega_chat: {
     WCBConfigName: '',

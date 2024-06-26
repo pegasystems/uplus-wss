@@ -250,7 +250,7 @@ if (typeof window.settings === 'undefined') {
       if (
         (typeof queryDict.pega_userid !== 'undefined' &&
           mainconfigTmp.settings.users[i].pega_userid ===
-            queryDict.pega_userid) ||
+          queryDict.pega_userid) ||
         (typeof queryDict.username !== 'undefined' &&
           mainconfigTmp.settings.users[i].username === queryDict.username)
       ) {
@@ -477,6 +477,151 @@ if (typeof window.settings === 'undefined') {
         );
         request.setRequestHeader('authorization', `Bearer ${jwttoken}`);
         request.send(JSON.stringify(privateData));
+      }
+    };
+
+    /**
+    * DM callback method is called anytime a chat event is triggered. It is used here to listen for and handle custom events
+    * @param {widgetEvent} widgetEvent
+    * @returns
+    */
+    PegaUnifiedChatWidget.onChatAPIEvent = function (widgetEvent) {
+      //Check if event is a custom event
+      if (widgetEvent.event != "custom-event") {
+        return;
+      }
+      //Loop through all custom events defined in settings
+      for (let i = 0; i < mainconfigTmp?.settings?.CustomEvents?.length; i++) {
+        //Copy event
+        let event = mainconfigTmp?.settings?.CustomEvents[i];
+
+        //Check if event received matches event defined in settings
+        if (widgetEvent.name == event?.CustomEventName) {
+          console.log("processing event", event);
+          //Copy in any data present in event
+          let eventData = widgetEvent?.data?.data ? widgetEvent.data.data : "";
+          let el;
+
+          //Handle Element Highlight
+          if (event.CustomEventAction == "HighlightElement") {
+            console.log("Highlight Element", event.ElementName);
+            //const el = document.querySelector(event.ElementName);
+            el = findElementByLabel(event.ElementName);
+            if (el == undefined) {
+              console.log(`unable to locate element that includes text ${event.ElementName}`);
+              return;
+            }
+            console.log(el);
+            el.classList.add('pulse');
+          }
+
+          //Handle Click Element
+          else if (event.CustomEventAction == "ClickElement") {
+            console.log("Click Element", event.ElementName);
+            //const el = document.querySelector(event.ElementName);
+            el = findElementByLabel(event.ElementName);
+            if (el == undefined) {
+              console.log(`unable to locate element that includes text ${event.ElementName}`);
+              return;
+            }
+            //add click event
+            el.click();
+          }
+
+          //Handle Acknowledgement
+          if (event.SendAcknowledgement) {
+            if (event.AcknowledgeOn == "After5Seconds") {
+              setTimeout(function () {
+                sendEventAcknowledgement(widgetEvent.name);
+                el.classList.remove('pulse');
+              }, 5000);
+            } else if (event.AcknowledgeOn == "After30Seconds") {
+              setTimeout(function () {
+                sendEventAcknowledgement(widgetEvent.name);
+                el.classList.remove('pulse');
+              }, 30000);
+            } else if (event.AcknowledgeOn == "LoginSuccess") {
+              if (mainconfigTmp.isAuthenticated) {
+                sendEventAcknowledgement(widgetEvent.name);
+                el.classList.remove('pulse');
+              } else {
+                // Listen for the confirmLogin event to fire
+                document.addEventListener("confirmLogin", function () {
+                  sendEventAcknowledgement(widgetEvent.name);
+                  el.classList.remove('pulse');
+                });
+              }
+            }
+          } //End Handle Acknowledgement
+
+        } //End Event Handling
+      } //End Loop
+    }; //End onChatAPIEvent
+
+    /**
+     * @param {string} label the text used to search for an element
+     * @returns element who's innerText contains the argument label's text
+     */
+    const findElementByLabel = function (label) {
+      const elements = document.querySelectorAll("h1, h2, h3, h4, h5, h6, p, a, button");
+      // Loop through all the elements and check if their inner text matches the label
+      for (let i = 0; i < elements.length; i++) {
+        if (elements[i].innerText.toLowerCase() === label.toLowerCase()) {
+          // Find the first parent div element of the matched element
+          let parentDiv = elements[i].closest("a");
+          console.log("Found element:", elements[i]);
+          console.log("First parent div:", parentDiv);
+          return elements[i];
+        }
+      }
+    };
+
+    /**
+     * Makes POST request to DM service to send an event acknowledgement
+     * @param {string} eventName the event name to acknowledge
+     */
+    const sendEventAcknowledgement = function (eventName) {
+      console.log("Sending Acknowledgement");
+      let sessionId = localStorage.getItem("sessionId");
+      //console.log(`sendEventAcknowledgement sessionID=${sessionId}`);
+      if (
+        mainconfigTmp.settings.pega_chat.DMMSecret !== '' &&
+        sessionId !== ''
+      ) {
+        //Request Body
+        const data = {
+          type: 'custom_event_ack',
+          name: eventName,
+        };
+
+        const jwttoken = generateJWTKey(
+          { iss: sessionId },
+          mainconfigTmp.settings.pega_chat.DMMSecret,
+        );
+
+        //const baseUrl = mainconfigTmp.settings.pega_chat.DMMURL.split('/').slice(0, 3).join('/');
+        const baseUrl = "https://ksxyk0i2hb.execute-api.us-east-1.amazonaws.com/Dev";
+        const customEventEndpoint = baseUrl + "/custom-event";
+        console.log("customEventEndpoint", customEventEndpoint, mainconfigTmp.settings.pega_chat);
+        const request = new XMLHttpRequest();
+        request.open(
+          'POST',
+          customEventEndpoint,
+          true,
+        );
+        request.setRequestHeader(
+          'Content-type',
+          'application/json;charset=UTF-8',
+        );
+        request.setRequestHeader('authorization', `Bearer ${jwttoken}`);
+        request.send(JSON.stringify(data));
+
+        request.onreadystatechange = () => {
+          if (request.readyState === 4) {
+            console.log("response: ", request.response);
+          }
+        };
+
       }
     };
 

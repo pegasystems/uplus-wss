@@ -321,7 +321,7 @@ window.settings = {
               label: "Due date",
               type: "duedate"
             },
-            ]
+          ]
         },
         {
           title: "Town Taxes",
@@ -336,7 +336,7 @@ window.settings = {
               label: "Due date",
               type: "duedate"
             },
-            ]
+          ]
         },
         {
           title: "Water bill",
@@ -351,7 +351,7 @@ window.settings = {
               label: "Due date",
               type: "duedate"
             },
-            ]
+          ]
         },
       ],
       recentactivity: [
@@ -412,7 +412,7 @@ window.settings = {
               label: "Due date",
               type: "duedate"
             },
-            ]
+          ]
         },
         {
           title: "Town Taxes",
@@ -427,7 +427,7 @@ window.settings = {
               label: "Due date",
               type: "duedate"
             },
-            ]
+          ]
         },
         {
           title: "Water bill",
@@ -442,7 +442,7 @@ window.settings = {
               label: "Due date",
               type: "duedate"
             },
-            ]
+          ]
         },
       ],
       recentactivity: [
@@ -457,6 +457,29 @@ window.settings = {
         },
       ],
     },
+  ],
+  CustomEvents: [
+    {
+      CustomEventAction: "HighlightElement",
+      CustomEventName: "Custom Event 1",
+      ElementName: "",
+      SendAcknowledgement: false,
+      AcknowledgeOn: "After5Seconds"
+    },
+    {
+      CustomEventAction: "HighlightElement",
+      CustomEventName: "Custom Event 2",
+      ElementName: "",
+      SendAcknowledgement: false,
+      AcknowledgeOn: "After5Seconds"
+    },
+    {
+      CustomEventAction: "HighlightElement",
+      CustomEventName: "Custom Event 3",
+      ElementName: "",
+      SendAcknowledgement: false,
+      AcknowledgeOn: "After5Seconds"
+    }
   ],
   pega_chat: {
     WCBConfigName: '',
