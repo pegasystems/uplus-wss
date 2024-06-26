@@ -304,7 +304,7 @@ window.settings = {
         {
           label: "Card status",
           value: "Active",
-        }],[
+        }], [
         {
           label: "Card number",
           value: "***1875",
@@ -373,7 +373,7 @@ window.settings = {
               label: "Interest rate",
               value: "2.30%",
             },
-            ]
+          ]
         },
       ],
       recentactivity: [
@@ -425,7 +425,7 @@ window.settings = {
         {
           label: "Card status",
           value: "Active",
-        }],[
+        }], [
         {
           label: "Card number",
           value: "***1875",
@@ -487,7 +487,7 @@ window.settings = {
               type: "currency",
               value: 164.80,
             },
-            ]
+          ]
         },
       ],
       recentactivity: [
@@ -510,6 +510,29 @@ window.settings = {
       ],
     },
   ],
+  CustomEvents: [
+    {
+      CustomEventAction: "HighlightElement",
+      CustomEventName: "Custom Event 1",
+      ElementName: "",
+      SendAcknowledgement: false,
+      AcknowledgeOn: "After5Seconds"
+    },
+    {
+      CustomEventAction: "HighlightElement",
+      CustomEventName: "Custom Event 2",
+      ElementName: "",
+      SendAcknowledgement: false,
+      AcknowledgeOn: "After5Seconds"
+    },
+    {
+      CustomEventAction: "HighlightElement",
+      CustomEventName: "Custom Event 3",
+      ElementName: "",
+      SendAcknowledgement: false,
+      AcknowledgeOn: "After5Seconds"
+    }
+  ],
   pega_chat: {
     WCBConfigName: "",
     WebChatBotID: "",
@@ -524,7 +547,7 @@ window.settings = {
     DMMURL: "",
     DMMID: "pega-wm-chat",
     DMMSecret: "",
-    DMMPrivateURL:"https://ksxyk0i2hb.execute-api.us-east-1.amazonaws.com/Prod/private-data",
+    DMMPrivateURL: "https://ksxyk0i2hb.execute-api.us-east-1.amazonaws.com/Prod/private-data",
     DMMProactiveChatNewSessionTimeout: 0,
     DMMProactiveChatNewSessionCode: '5sonPage',
   },

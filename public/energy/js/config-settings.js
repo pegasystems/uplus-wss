@@ -291,7 +291,7 @@ window.settings = {
 			bill_pay: 164.8,
 			load_by_default: true,
 			hide_from_dropdown: false,
-      show_opname: false,
+			show_opname: false,
 			otp_send_to: "",
 			accountdetails: [[
 				{
@@ -306,18 +306,18 @@ window.settings = {
 					label: "Card status",
 					value: "Active",
 				}],
-				[{
-					label: "Card number",
-					value: "***1875",
-				},
-				{
-					label: "Card type",
-					value: "Amex card",
-				},
-				{
-					label: "Card status",
-					value: "Active",
-				}],
+			[{
+				label: "Card number",
+				value: "***1875",
+			},
+			{
+				label: "Card type",
+				value: "Amex card",
+			},
+			{
+				label: "Card status",
+				value: "Active",
+			}],
 			],
 			accountpicker: [
 				{
@@ -409,7 +409,7 @@ window.settings = {
 			load_by_default: true,
 			hide_from_dropdown: false,
 			show_opname: false,
-      otp_send_to: '',
+			otp_send_to: '',
 			accountdetails: [[
 				{
 					label: "Card number",
@@ -423,18 +423,18 @@ window.settings = {
 					label: "Card status",
 					value: "Active",
 				}],
-				[{
-					label: "Card number",
-					value: "***1875",
-				},
-				{
-					label: "Card type",
-					value: "Amex card",
-				},
-				{
-					label: "Card status",
-					value: "Active",
-				}],
+			[{
+				label: "Card number",
+				value: "***1875",
+			},
+			{
+				label: "Card type",
+				value: "Amex card",
+			},
+			{
+				label: "Card status",
+				value: "Active",
+			}],
 			],
 			accountpicker: [
 				{
@@ -505,6 +505,29 @@ window.settings = {
 			],
 		}
 	],
+	CustomEvents: [
+		{
+			CustomEventAction: "HighlightElement",
+			CustomEventName: "Custom Event 1",
+			ElementName: "",
+			SendAcknowledgement: false,
+			AcknowledgeOn: "After5Seconds"
+		},
+		{
+			CustomEventAction: "HighlightElement",
+			CustomEventName: "Custom Event 2",
+			ElementName: "",
+			SendAcknowledgement: false,
+			AcknowledgeOn: "After5Seconds"
+		},
+		{
+			CustomEventAction: "HighlightElement",
+			CustomEventName: "Custom Event 3",
+			ElementName: "",
+			SendAcknowledgement: false,
+			AcknowledgeOn: "After5Seconds"
+		}
+	],
 	pega_chat: {
 		WCBConfigName: '',
 		WebChatBotID: '',
@@ -519,9 +542,9 @@ window.settings = {
 		DMMURL: '',
 		DMMID: "pega-wm-chat",
 		DMMSecret: '',
-		DMMPrivateURL:"https://ksxyk0i2hb.execute-api.us-east-1.amazonaws.com/Prod/private-data",
+		DMMPrivateURL: "https://ksxyk0i2hb.execute-api.us-east-1.amazonaws.com/Prod/private-data",
 		DMMProactiveChatNewSessionTimeout: 0,
-    DMMProactiveChatNewSessionCode: '5sonPage',
+		DMMProactiveChatNewSessionCode: '5sonPage',
 	},
 	pega_marketing: {
 		Host: window.location.origin,

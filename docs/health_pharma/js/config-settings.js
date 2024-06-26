@@ -326,7 +326,7 @@ window.settings = {
               type: "date",
               value: '2023-02-19',
             }]
-        },{
+        }, {
           title: "Family Support",
           details: [
             {
@@ -427,7 +427,7 @@ window.settings = {
               type: "date",
               value: '2023-02-19',
             }]
-        },{
+        }, {
           title: "Family Support",
           details: [
             {
@@ -456,6 +456,29 @@ window.settings = {
         },
       ],
     },
+  ],
+  CustomEvents: [
+    {
+      CustomEventAction: "HighlightElement",
+      CustomEventName: "Custom Event 1",
+      ElementName: "",
+      SendAcknowledgement: false,
+      AcknowledgeOn: "After5Seconds"
+    },
+    {
+      CustomEventAction: "HighlightElement",
+      CustomEventName: "Custom Event 2",
+      ElementName: "",
+      SendAcknowledgement: false,
+      AcknowledgeOn: "After5Seconds"
+    },
+    {
+      CustomEventAction: "HighlightElement",
+      CustomEventName: "Custom Event 3",
+      ElementName: "",
+      SendAcknowledgement: false,
+      AcknowledgeOn: "After5Seconds"
+    }
   ],
   pega_chat: {
     WCBConfigName: '',
