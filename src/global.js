@@ -451,7 +451,7 @@ if (typeof window.settings === 'undefined') {
     if (typeof window.PegaUnifiedChatWidget === 'undefined') {
       window.PegaUnifiedChatWidget = {};
       if (
-        mainconfigTmp.settings.pega_chat.DMMProactiveChatNewSessionTimeout >= 0
+        mainconfigTmp.settings.pega_chat.DMMProactiveChatNewSessionTimeout > 0
       ) {
         setTimeout(() => {
           // eslint-disable-next-line no-console
@@ -491,12 +491,14 @@ if (typeof window.settings === 'undefined') {
           { iss: sessionId },
           mainconfigTmp.settings.pega_chat.DMMSecret,
         );
-        const request = new XMLHttpRequest();
-        request.open(
-          'POST',
+
+        const baseUrl = getBaseURL(
           mainconfigTmp.settings.pega_chat.DMMPrivateURL,
-          true,
         );
+        const privateDataEndpoint = baseUrl + '/Prod/private-data';
+
+        const request = new XMLHttpRequest();
+        request.open('POST', privateDataEndpoint, true);
         request.setRequestHeader(
           'Content-type',
           'application/json;charset=UTF-8',
@@ -523,7 +525,7 @@ if (typeof window.settings === 'undefined') {
 
         //Check if event received matches event defined in settings
         if (widgetEvent.name == event?.CustomEventName) {
-          console.log('Processing Custom Event: ', event);
+          console.log('Processing Custom Event: ', widgetEvent, event);
           let el;
 
           //Handle Element Highlight
@@ -596,14 +598,27 @@ if (typeof window.settings === 'undefined') {
       }
     };
 
+    const getBaseURL = function (url) {
+      try {
+        // Create a new URL object
+        const parsedURL = new URL(url);
+        // Return the origin (base URL)
+        return parsedURL.origin;
+      } catch (error) {
+        console.error('Invalid URL:', error);
+        return null;
+      }
+    };
+
     /**
      * Makes POST request to DM service to send an event acknowledgement
      * @param {string} eventName the event name to acknowledge
      */
     const sendEventAcknowledgement = function (eventName) {
-      console.log('Sending Event Acknowledgement...');
       let sessionId = localStorage.getItem('sessionId');
-      //console.log(`sendEventAcknowledgement sessionID=${sessionId}`);
+      console.log(
+        `Sending event acknowledgement for event: ${eventName} sessionID:${sessionId}`,
+      );
       if (
         mainconfigTmp.settings.pega_chat.DMMSecret !== '' &&
         sessionId !== ''
@@ -619,11 +634,19 @@ if (typeof window.settings === 'undefined') {
           mainconfigTmp.settings.pega_chat.DMMSecret,
         );
 
-        const baseUrl = mainconfigTmp.settings.pega_chat.DMMURL.split('/')
-          .slice(0, 3)
-          .join('/');
+        //Check if DMMPrivateURL is defined.
+        if (!mainconfigTmp.settings.pega_chat.DMMPrivateURL) {
+          console.log(
+            'Unable to send custom event acknowledgement: DMMPrivateURL not defined in settings.',
+          );
+          return;
+        }
 
-        const customEventEndpoint = baseUrl + '/custom-event';
+        const baseUrl = getBaseURL(
+          mainconfigTmp.settings.pega_chat.DMMPrivateURL,
+        );
+        const customEventEndpoint = baseUrl + '/Prod/custom-event';
+
         //console.log("customEventEndpoint", customEventEndpoint, mainconfigTmp.settings.pega_chat);
         const request = new XMLHttpRequest();
         request.open('POST', customEventEndpoint, true);
@@ -633,15 +656,6 @@ if (typeof window.settings === 'undefined') {
         );
         request.setRequestHeader('authorization', `Bearer ${jwttoken}`);
         request.send(JSON.stringify(data));
-
-        request.onreadystatechange = () => {
-          if (request.readyState === 4) {
-            console.log(
-              'Event acknowledgement api response: ',
-              request.response,
-            );
-          }
-        };
       }
     };
 
@@ -804,8 +818,14 @@ export const updatePegaChat = function updatePegaChat(u) {
       { iss: window.PegaCSWSS.DMMSessionID },
       mainconfig.settings.pega_chat.DMMSecret,
     );
+
+    const url = mainconfigTmp.settings.pega_chat.DMMPrivateURL;
+    const parsedURL = new URL(url);
+    const baseUrl = parsedURL.origin;
+    const privateDataEndpoint = baseUrl + '/Prod/private-data';
+
     const request = new XMLHttpRequest();
-    request.open('POST', mainconfig.settings.pega_chat.DMMPrivateURL, true);
+    request.open('POST', privateDataEndpoint, true);
     request.setRequestHeader('Content-type', 'application/json;charset=UTF-8');
     request.setRequestHeader('authorization', `Bearer ${jwttoken}`);
     request.send(JSON.stringify(privateData));
