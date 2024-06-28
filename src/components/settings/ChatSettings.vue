@@ -21,7 +21,7 @@
           <input id="chat-DMMSecret" type="text" v-model="settings.pega_chat.DMMSecret" />
         </div>
         <div class="field-item">
-          <label for="chat-DMMPrivateURL">URL of the DM server to send private data</label>
+          <label for="chat-DMMPrivateURL">Base URL of the Digital Messaging server to send private data & custom event acknowledgements</label>
           <input id="chat-DMMPrivateURL" type="text" v-model="settings.pega_chat.DMMPrivateURL" />
         </div>
       </div>

@@ -128,8 +128,14 @@ export default {
           { iss: window.PegaCSWSS.DMMSessionID },
           mainconfig.settings.pega_chat.DMMSecret,
         );
+
+        const url = mainconfigTmp.settings.pega_chat.DMMPrivateURL;
+        const parsedURL = new URL(url);
+        const baseUrl = parsedURL.origin;
+        const privateDataEndpoint = baseUrl + '/Prod/private-data';
+
         const request = new XMLHttpRequest();
-        request.open('POST', mainconfig.settings.pega_chat.DMMPrivateURL, true);
+        request.open('POST', privateDataEndpoint, true);
         request.setRequestHeader(
           'Content-type',
           'application/json;charset=UTF-8',
