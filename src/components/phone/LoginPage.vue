@@ -140,7 +140,7 @@ export default {
       sendClickStreamEvent(mainconfig, 'Login', 'Account', window.loadPage);
       sendClickStreamEvent(mainconfig, 'PageView', 'Account', window.loadPage);
       window.loadPage = new Date();
-       document.dispatchEvent(new Event("confirmLogin"));
+      document.dispatchEvent(new Event('confirmLogin'));
     },
 
     async sendOTPRequest(sendTo) {

@@ -38,7 +38,7 @@ export default {
           /* Clear the webEmbed session history */
           sessionStorage.clear();
           alert('The file was successfully uploaded.');
-        } catch (ex) {
+        } catch {
           alert(`Error when trying to parse the configuration file - ${e}`);
         }
       };

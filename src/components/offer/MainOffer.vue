@@ -158,7 +158,6 @@
 </template>
 
 <script>
-/* eslint-disable no-underscore-dangle */
 import { mainconfig } from '../../global';
 import { initNBAM, captureResponse } from '../../CDHIntegration';
 import AIOverlay from '../controls/AIOverlay.vue';

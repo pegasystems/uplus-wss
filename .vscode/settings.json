@@ -18,9 +18,19 @@
   "typescript.preferences.quoteStyle": "single",
   "typescript.format.semicolons": "insert",
   "eslint.validate": ["javascript"],
-  "vetur.format.defaultFormatter.js": "none",
-  "vetur.format.defaultFormatter.less": "none",
-  "vetur.format.defaultFormatter.html": "none",
-  "vetur.format.defaultFormatter.css": "none",
-  "vetur.format.defaultFormatter.postcss": "none"
+  "cSpell.words": [
+    "buttonlabel",
+    "clickaction",
+    "errorloading",
+    "heroaction",
+    "herotext",
+    "mainconfig",
+    "NBAM",
+    "pageview",
+    "pega",
+    "Pega",
+    "primarydetails",
+    "primaryheading",
+    "titlespan"
+  ]
 }

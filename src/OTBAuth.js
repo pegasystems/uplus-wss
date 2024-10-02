@@ -32,7 +32,7 @@ const validateOTP = async function validateOTP(
       const res = await response.json();
       if (res.Status === 'SUCCESS') return true;
     }
-  } catch (e) {
+  } catch {
     console.error('Error in validateOTP');
   }
   return false;
@@ -85,7 +85,7 @@ const requestOTP = async function requestOTP(settings, auth, sendTo) {
         result.isSuccess = true;
       }
     }
-  } catch (e) {
+  } catch {
     console.error('Error in requestOTP');
   }
   return result;

@@ -454,7 +454,6 @@ if (typeof window.settings === 'undefined') {
         mainconfigTmp.settings.pega_chat.DMMProactiveChatNewSessionTimeout > 0
       ) {
         setTimeout(() => {
-          // eslint-disable-next-line no-console
           console.log(
             `PegaUnifiedChatWidget triggetChat '${mainconfigTmp.settings.pega_chat.DMMProactiveChatNewSessionCode}'`,
           );
@@ -468,7 +467,7 @@ if (typeof window.settings === 'undefined') {
     // This callback will be invoked every time a new chat session is started
     window.PegaUnifiedChatWidget.onSessionInitialized = (sessionId) => {
       window.PegaCSWSS.DMMSessionID = sessionId;
-      // eslint-disable-next-line no-console
+
       console.log(`PegaUnifiedChatWidget onSessionInitialized=${sessionId}`);
       /* bump z-index for the iframe chat widget */
       const el = document.getElementById('pegaChatWidget');

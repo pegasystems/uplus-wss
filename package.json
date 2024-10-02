@@ -4,7 +4,7 @@
   "scripts": {
     "lint": "eslint src --fix; exit 0",
     "dev": "vite",
-    "build": "vite build && node scripts/fix_files.js",
+    "build": "vite build && node scripts/fix_files.mjs",
     "preview": "vite preview --port 5050",
     "test:e2e": "start-server-and-test preview http://localhost:5050 'cypress open'",
     "test:e2e:ci": "start-server-and-test preview http://localhost:5050 'cypress run'",
@@ -14,26 +14,28 @@
   },
   "dependencies": {
     "crypto-js": "^4.2.0",
-    "vue": "^3.4.31",
+    "vue": "^3.5.10",
     "vue-gtag": "^2.0.1",
-    "vue-i18n": "^9.13.1"
+    "vue-i18n": "^9.14.1"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^5.0.5",
-    "@vitejs/plugin-vue-jsx": "^4.0.0",
-    "@vitest/coverage-v8": "^2.0.3",
+    "@eslint/eslintrc": "^3.1.0",
+    "@eslint/js": "^9.11.1",
+    "@vitejs/plugin-vue": "^5.1.4",
+    "@vitejs/plugin-vue-jsx": "^4.0.1",
+    "@vitest/coverage-v8": "^2.1.2",
     "@vue/eslint-config-prettier": "^9.0.0",
     "@vue/test-utils": "^2.4.6",
     "c8": "^10.1.2",
-    "cypress": "^13.13.0",
-    "eslint": "^8.57.0",
-    "eslint-plugin-cypress": "^2.15.0",
-    "eslint-plugin-vue": "^9.27.0",
-    "jsdom": "^24.1.0",
+    "cypress": "^13.15.0",
+    "eslint": "^9.11.1",
+    "eslint-plugin-cypress": "^3.5.0",
+    "eslint-plugin-vue": "^9.28.0",
+    "jsdom": "^25.0.1",
     "prettier": "^3.3.3",
-    "replace-in-file": "^7.0.1",
-    "start-server-and-test": "^2.0.4",
-    "vite": "^5.3.4",
-    "vitest": "^2.0.3"
+    "replace-in-file": "^8.2.0",
+    "start-server-and-test": "^2.0.8",
+    "vite": "^5.4.8",
+    "vitest": "^2.1.2"
   }
 }

@@ -134,7 +134,7 @@ export default {
       sendClickStreamEvent(mainconfig, 'PageView', 'Account', window.loadPage);
       window.loadPage = new Date();
       this.isActive = false;
-      document.dispatchEvent(new Event("confirmLogin"));
+      document.dispatchEvent(new Event('confirmLogin'));
     },
     signIn() {
       /* Validate the password */

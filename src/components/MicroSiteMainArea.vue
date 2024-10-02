@@ -141,7 +141,7 @@ export default {
           this.offerURL = url;
           this.CDHContainer.useURL = false;
         }
-      } catch (err) {
+      } catch {
         console.log('CDH is not in the same origin as the Uplus app');
       }
     },

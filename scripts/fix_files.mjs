@@ -1,4 +1,4 @@
-const replace = require('replace-in-file');
+import { replaceInFileSync } from 'replace-in-file';
 
 const optionsFile1 = {
   files: './docs/*/index.html',
@@ -20,11 +20,16 @@ const optionsFile1 = {
   ],
   to: './',
 };
+
 const optionsFile2 = {
   files: './docs/**/index.html',
   from: /"\/assets\//g,
   to: '"../assets/',
 };
 
-replace.sync(optionsFile1);
-replace.sync(optionsFile2);
+try {
+  replaceInFileSync(optionsFile1);
+  replaceInFileSync(optionsFile2);
+} catch (error) {
+  console.error('Error occurred:', error);
+}

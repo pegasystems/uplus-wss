@@ -256,7 +256,7 @@ const initNBAM = function initNBAM(
           Context.errorloading = true;
         },
       );
-    } catch (e) {
+    } catch {
       Context.loading = false;
       Context.errorloading = true;
     }

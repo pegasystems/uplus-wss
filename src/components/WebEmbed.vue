@@ -121,15 +121,6 @@ const embedEventFn = (event) => {
     event.type === 'embedeventcancel'
   ) {
     top.postMessage('pegaMashupNavigateBack', location.origin);
-  } else if (event.type === 'embedprocessingend') {
-    resizeObserver = new ResizeObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.contentRect.height === 0) {
-          top.postMessage('pegaMashupNavigateBack', location.origin);
-        }
-      });
-    });
-    resizeObserver.observe(document.querySelector('pega-embed'));
   } else if (event.type === 'embedreauth') {
     const el = document.querySelector('pega-embed');
     el.login(true);
