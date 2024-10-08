@@ -64,6 +64,9 @@ export const upgradeConfig = function upgradeConfig(cfg) {
   if (typeof cfg.settings.general.connection.themeID === 'undefined') {
     cfg.settings.general.connection.themeID = '';
   }
+  if (typeof cfg.settings.general.connection.webEmbedUseFormWidth === 'undefined') {
+    cfg.settings.general.connection.webEmbedUseFormWidth = false;
+  }
   if (
     typeof cfg.settings.pega_chat.DMMProactiveChatNewSessionTimeout ===
     'undefined'

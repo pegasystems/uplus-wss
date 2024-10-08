@@ -2,9 +2,7 @@
   <div v-if="homeHeroAction == 1 || viewKMHelp == 1" class="form flex flex-col">
     <MainHeader />
     <main class="mashup-main flex flex-col">
-      <div class="wrap">
-        <MashupMainArea />
-      </div>
+        <MashupMainArea class="wrap"/>
     </main>
     <MainFooter />
   </div>

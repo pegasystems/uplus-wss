@@ -26,6 +26,7 @@ window.settings = {
       PegaURL: '',
       authService: 'pega',
       themeID: '',
+      webEmbedUseFormWidth: false,
       showAttachments: true,
     },
     auth_2fa: {

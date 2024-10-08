@@ -1,8 +1,6 @@
 <template>
   <main v-if="offerAction !== -1" class="mashup-main flex flex-col">
-    <div class="wrap flex">
-      <MashupMainArea />
-    </div>
+      <MashupMainArea class="wrap" />
   </main>
   <main v-else-if="offerURL !== ''" class="flex flex-col">
     <div class="wrap flex height-100-pct">

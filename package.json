@@ -14,21 +14,21 @@
   },
   "dependencies": {
     "crypto-js": "^4.2.0",
-    "vue": "^3.5.10",
+    "vue": "^3.5.11",
     "vue-gtag": "^2.0.1",
-    "vue-i18n": "^9.14.1"
+    "vue-i18n": "^10.0.4"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.1.0",
-    "@eslint/js": "^9.11.1",
+    "@eslint/js": "^9.12.0",
     "@vitejs/plugin-vue": "^5.1.4",
     "@vitejs/plugin-vue-jsx": "^4.0.1",
     "@vitest/coverage-v8": "^2.1.2",
-    "@vue/eslint-config-prettier": "^9.0.0",
+    "@vue/eslint-config-prettier": "^10.0.0",
     "@vue/test-utils": "^2.4.6",
     "c8": "^10.1.2",
     "cypress": "^13.15.0",
-    "eslint": "^9.11.1",
+    "eslint": "^9.12.0",
     "eslint-plugin-cypress": "^3.5.0",
     "eslint-plugin-vue": "^9.28.0",
     "jsdom": "^25.0.1",

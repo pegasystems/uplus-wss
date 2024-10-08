@@ -180,6 +180,18 @@
               />
             </div>
             <div
+              class="field-item padding-b-1x"
+              v-if="settings.general.connection.type.startsWith('embedui')"
+            >
+            <input
+                type="checkbox"
+                id="ga-connection-webEmbedUseFormWidth"
+                v-model="settings.general.connection.webEmbedUseFormWidth"
+              />
+              <label for="ga-connection-webEmbedUseFormWidth"
+                >Set to true if the web-embed width should be limited to 80ch</label>
+            </div>
+            <div
               class="field-item"
               v-if="settings.general.connection.type.startsWith('embedui')"
             >
@@ -194,7 +206,7 @@
             </div>
           </div>
           <div
-            class="field-item"
+            class="field-item padding-b-1x"
             v-if="
               settings.general.connection.type === 'dxv1' ||
               settings.general.connection.type === 'dxv2'
@@ -210,7 +222,7 @@
         </Container>
         <Container title="Google Analytics" expanded>
           <div class="layout-labels-top">
-            <div class="field-item">
+            <div class="field-item padding-b-1x">
               <input
                 id="ga-enabled"
                 type="checkbox"
@@ -230,7 +242,7 @@
         </Container>
         <Container title="Two-factor authentication" expanded>
           <div class="layout-labels-top">
-            <div class="field-item">
+            <div class="field-item padding-b-1x">
               <input
                 id="2fa-enabled"
                 type="checkbox"

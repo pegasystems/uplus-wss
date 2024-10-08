@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isWebEmbedInitialized" class="margin-b-3x">
+  <div v-if="isWebEmbedInitialized" class="margin-b-3x" :class="settings.general.connection.webEmbedUseFormWidth ? 'form-width' : ''">
     <h1>{{ caseTitle }}</h1>
     <pega-embed
       v-if="action === 'openPage'"
