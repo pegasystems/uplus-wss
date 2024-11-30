@@ -5,6 +5,20 @@ import VueGtag from 'vue-gtag';
 
 const app = createApp(MainPage);
 
+// Resize observer for sending the height of the iframe to the parent
+if(window.parent) {
+  const onResize = () => {
+    // Obviously you can format your data object however you want
+    window.parent.postMessage({
+      type: 'resize',
+      height: document.body.scrollHeight,
+    }, '*');
+  }
+
+  (new ResizeObserver( () =>
+    onResize()
+  )).observe(document.body);
+}
 // Directive for dealing out with clicking outside of an overlay
 let handleOutsideClick;
 app.directive('clickoutside', {
