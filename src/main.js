@@ -7,6 +7,10 @@ const app = createApp(MainPage);
 
 // Resize observer for sending the height of the iframe to the parent
 if(window.parent) {
+  const appEl = document.getElementById('app');
+  if(appEl) {
+    appEl.classList.add('app-iframe');
+  }
   const onResize = () => {
     // Obviously you can format your data object however you want
     window.parent.postMessage({

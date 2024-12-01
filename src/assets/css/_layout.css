@@ -14,6 +14,12 @@
   flex-flow: column;
 }
 
+.app-iframe > .front,
+.app-iframe > .form,
+.app-iframe > .offer {
+  height:auto;
+}
+
 .hero-wrap a {
   width: 150px;
   background: #FFF;
