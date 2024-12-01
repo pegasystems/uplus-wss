@@ -14,9 +14,9 @@
   flex-flow: column;
 }
 
-.app-iframe > .front,
-.app-iframe > .form,
-.app-iframe > .offer {
+#app.app-iframe > .front,
+#app.app-iframe > .form,
+#app.app-iframe > .offer {
   height:auto;
 }
 
