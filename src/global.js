@@ -290,6 +290,22 @@ if (typeof window.settings === 'undefined') {
       }
     }
 
+    /* check if quicklinkid is passed as parameter */
+    if (queryDict.quicklinkid) {
+      mainconfigTmp.quickLinkId = queryDict.quicklinkid;
+      mainconfigTmp.settings.quicklinks[queryDict.quicklinkid].actionparam = queryDict.quickLinkActionparam;
+      mainconfigTmp.deepLinkExtraParam = queryDict;
+      delete mainconfigTmp.deepLinkExtraParam.quicklinkid;
+      delete mainconfigTmp.deepLinkExtraParam.quickLinkActionparam;
+      delete mainconfigTmp.deepLinkExtraParam.username;
+      delete mainconfigTmp.deepLinkExtraParam.pega_userid;
+      window.history.replaceState(
+        { userId: mainconfigTmp.userId },
+        '',
+        `quicklink${mainconfigTmp.quickLinkId}`,
+      );
+    }
+
     /* check if quicklinkclass is passed as parameter */
     if (queryDict.quicklinkclass) {
       for (const i in mainconfigTmp.settings.quicklinks) {
