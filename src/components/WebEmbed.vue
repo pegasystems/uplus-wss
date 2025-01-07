@@ -123,6 +123,15 @@ const embedEventFn = (event) => {
       const el = document.querySelector('pega-embed');
       if (!el || el.clientHeight === 0) {
         top.postMessage('pegaMashupNavigateBack', location.origin);
+      } else {
+        const label = el.getEmbedData(".pyLabel");
+        if(label) {
+          // Replace the h1 with the label
+          const h1Elem = document.querySelector('h1');
+          if(h1Elem) {
+            h1Elem.innerHTML = label;
+          }
+        }
       }
     }, 300);
   } else if (event.type === 'embedreauth') {
