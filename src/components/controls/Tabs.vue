@@ -1,11 +1,16 @@
 <script setup>
 import { useSlots, ref, provide } from 'vue';
 
+const props = defineProps({
+  defaultSelectedIndex: String,
+});
+
+
 const slots = useSlots();
 const tabTitles = ref(
   slots.default()[0].children.map((tab) => tab.props.title),
 );
-const selectedTitle = ref(tabTitles.value[0]);
+const selectedTitle = ref(tabTitles.value[props.defaultSelectedIndex || 0]);
 
 provide('selectedTitle', selectedTitle);
 </script>

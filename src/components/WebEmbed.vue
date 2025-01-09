@@ -111,34 +111,6 @@ import { mainconfig } from '../global';
 import { sendClickStreamEvent } from '../CDHIntegration';
 import setObjectFromRef from '../utils';
 
-const embedEventFn = (event) => {
-  if (
-    event.type === 'embedcloseconfirmview' ||
-    event.type === 'embedcaseclosed' ||
-    event.type === 'embedeventcancel'
-  ) {
-    top.postMessage('pegaMashupNavigateBack', location.origin);
-  } else if (event.type === 'embedprocessingend') {
-    setTimeout(() => {
-      const el = document.querySelector('pega-embed');
-      if (!el || el.clientHeight === 0) {
-        top.postMessage('pegaMashupNavigateBack', location.origin);
-      } else {
-        const label = el.getEmbedData(".pyLabel");
-        if(label) {
-          // Replace the h1 with the label
-          const h1Elem = document.querySelector('h1');
-          if(h1Elem) {
-            h1Elem.innerHTML = label;
-          }
-        }
-      }
-    }, 300);
-  } else if (event.type === 'embedreauth') {
-    const el = document.querySelector('pega-embed');
-    el.login(true);
-  }
-};
 
 export default {
   props: {
@@ -153,7 +125,8 @@ export default {
       application: '',
       url: '',
       staticContentUrl: undefined,
-      showAssignmentHeader: 'true',
+      showAssignmentHeader: true,
+      reloadTitle: false,
       pageTemplate: 'assignment',
       authService: '',
       clientId: '',
@@ -165,7 +138,36 @@ export default {
       themeID: '',
       startingFields: {},
       extraParam: '',
-    };
+      embedEventFn: (event) => {
+  if (
+    event.type === 'embedcloseconfirmview' ||
+    event.type === 'embedcaseclosed' ||
+    event.type === 'embedeventcancel'
+  ) {
+    top.postMessage('pegaMashupNavigateBack', location.origin);
+  } else if (event.type === 'embedprocessingend') {
+    setTimeout(() => {
+      const el = document.querySelector('pega-embed');
+      if (!el || el.clientHeight === 0) {
+        top.postMessage('pegaMashupNavigateBack', location.origin);
+      } else if(this.reloadTitle) {
+          setTimeout( () => {
+          const label = el.getEmbedData(".pyLabel");
+          if(label) {
+            // Replace the h1 with the label
+            const h1Elem = document.querySelector('h1');
+            if(h1Elem) {
+              h1Elem.innerHTML = label;
+            }
+          }},1000);
+      }
+    }, 300);
+  } else if (event.type === 'embedreauth') {
+    const el = document.querySelector('pega-embed');
+    el.login(true);
+  }
+    },
+  };
   },
   mounted() {
     sessionStorage.clear();
@@ -177,6 +179,7 @@ export default {
         this.settings.quicklinks[this.quickLinkId].pageTemplate;
       this.showAssignmentHeader =
         !this.settings.quicklinks[this.quickLinkId].hideassignmentheader;
+      this.reloadTitle = this.settings.quicklinks[this.quickLinkId].reloadtitle;
       this.application = this.settings.quicklinks[this.quickLinkId].application;
       this.objClass = this.settings.quicklinks[this.quickLinkId].objclass;
       this.caseTitle =
@@ -362,21 +365,21 @@ export default {
         JSON.stringify(this.extraParamContent),
       );
     }
-    mytag.addEventListener('embedprocessingend', embedEventFn);
-    mytag.addEventListener('embedready', embedEventFn);
-    mytag.addEventListener('embedcloseconfirmview', embedEventFn);
-    mytag.addEventListener('embedcaseclosed', embedEventFn);
-    mytag.addEventListener('embedeventcancel', embedEventFn);
-    mytag.addEventListener('embedreauth', embedEventFn);
+    mytag.addEventListener('embedprocessingend', this.embedEventFn);
+    mytag.addEventListener('embedready', this.embedEventFn);
+    mytag.addEventListener('embedcloseconfirmview', this.embedEventFn);
+    mytag.addEventListener('embedcaseclosed', this.embedEventFn);
+    mytag.addEventListener('embedeventcancel', this.embedEventFn);
+    mytag.addEventListener('embedreauth', this.embedEventFn);
   },
   beforeUnmount() {
     const mytag = this.$refs.mycomp;
-    mytag.removeEventListener('embedprocessingend', embedEventFn);
-    mytag.removeEventListener('embedready', embedEventFn);
-    mytag.removeEventListener('embedcloseconfirmview', embedEventFn);
-    mytag.removeEventListener('embedcaseclosed', embedEventFn);
-    mytag.removeEventListener('embedeventcancel', embedEventFn);
-    mytag.removeEventListener('embedreauth', embedEventFn);
+    mytag.removeEventListener('embedprocessingend', this.embedEventFn);
+    mytag.removeEventListener('embedready', this.embedEventFn);
+    mytag.removeEventListener('embedcloseconfirmview', this.embedEventFn);
+    mytag.removeEventListener('embedcaseclosed', this.embedEventFn);
+    mytag.removeEventListener('embedeventcancel', this.embedEventFn);
+    mytag.removeEventListener('embedreauth', this.embedEventFn);
   },
   methods: {
     goHomePage() {

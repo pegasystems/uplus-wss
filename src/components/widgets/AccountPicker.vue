@@ -8,11 +8,12 @@
     "
   >
     <h3>{{ settings.todo.accountpickerheading }}</h3>
-    <Tabs>
+    <Tabs :defaultSelectedIndex="settings.users[userId].focustabindex">
       <TabItem
         v-for="item in settings.users[userId].accountpicker"
         :key="item.title"
         :title="item.title"
+
       >
         <div class="flex flex-nowrap">
           <img

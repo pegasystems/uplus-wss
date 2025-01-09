@@ -136,6 +136,16 @@
               v-model="item.customerID"
             />
           </div>
+          <div class="field-item">
+            <label :for="'user-' + index + '-focustabindex'"
+              >Account picker - focused tab index (from 0 to 2) on load</label
+            >
+            <input
+              :id="'user-' + index + '-focustabindex'"
+              type="text"
+              v-model="item.focustabindex"
+            />
+          </div>
         </div>
         <div class="layout-labels-top">
           <div class="field-item">

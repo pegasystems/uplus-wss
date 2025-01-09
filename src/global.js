@@ -78,9 +78,17 @@ export const upgradeConfig = function upgradeConfig(cfg) {
   ) {
     cfg.settings.pega_chat.DMMProactiveChatNewSessionCode = '5sonPage';
   }
+  for (const i in cfg.settings.quicklinks) {
+    if (typeof cfg.settings.quicklinks[i].reloadtitle === 'undefined') {
+      cfg.settings.quicklinks[i].reloadtitle = false;
+    }
+  }
   for (const i in cfg.settings.users) {
     if (typeof cfg.settings.users[i].hide_from_dropdown === 'undefined') {
       cfg.settings.users[i].hide_from_dropdown = false;
+    }
+    if (typeof cfg.settings.users[i].focustabindex === 'undefined') {
+      cfg.settings.users[i].focustabindex = 0;
     }
   }
   if (typeof cfg.settings.CustomEvents === 'undefined') {

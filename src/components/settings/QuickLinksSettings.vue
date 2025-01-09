@@ -251,6 +251,21 @@
               v-model="item.hideusers"
             />
           </div>
+          <div
+            class="field-item field-checkbox"
+            v-if="settings.general.connection.type.startsWith('embedui')"
+          >
+            <input
+              :id="'quicklinks-' + index + '-reloadtitle'"
+              type="checkbox"
+              v-model="item.reloadtitle"
+            />
+            <label
+              class="width-auto"
+              :for="'quicklinks-' + index + '-reloadtitle'"
+              >Update Web-Embed title when case is completed and another case opened</label
+            >
+          </div>
         </div>
         <div class="layout-labels-top">
           <div class="field-item">
