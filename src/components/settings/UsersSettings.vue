@@ -80,7 +80,9 @@
               v-model="item.billpay"
             />
           </div>
-          <div class="field-item">
+          <div class="field-item" v-if="
+              settings.general.connection.type !== 'launchpad'
+            ">
             <label :for="'user-' + index + '-pega_userid'">Pega userid</label>
             <input
               :id="'user-' + index + '-pega_userid'"
@@ -88,7 +90,9 @@
               v-model="item.pega_userid"
             />
           </div>
-          <div class="field-item">
+          <div class="field-item" v-if="
+              settings.general.connection.type !== 'launchpad'
+            ">
             <label :for="'user-' + index + '-pega_pwd'">Pega password</label>
             <input
               :id="'user-' + index + '-pega_pwd'"
@@ -96,7 +100,9 @@
               v-model="item.pega_pwd"
             />
           </div>
-          <div class="field-item">
+          <div class="field-item" v-if="
+              settings.general.connection.type !== 'launchpad'
+            ">
             <label :for="'user-' + index + '-otp_send_to'"
               >OTP send to (email or phone)</label
             >
@@ -106,7 +112,9 @@
               v-model="item.otp_send_to"
             />
           </div>
-          <div class="field-item">
+          <div class="field-item" v-if="
+              settings.general.connection.type !== 'launchpad'
+            ">
             <label :for="'user-' + index + '-accountid'"
               >Account ID (Mashup Chat)</label
             >
@@ -116,7 +124,9 @@
               v-model="item.accountID"
             />
           </div>
-          <div class="field-item">
+          <div class="field-item" v-if="
+              settings.general.connection.type !== 'launchpad'
+            ">
             <label :for="'user-' + index + '-contactid'"
               >Contact ID (Mashup Chat)</label
             >
@@ -126,7 +136,9 @@
               v-model="item.contactID"
             />
           </div>
-          <div class="field-item">
+          <div class="field-item" v-if="
+              settings.general.connection.type !== 'launchpad'
+            ">
             <label :for="'user-' + index + '-customerid'"
               >Customer ID (Customer Decision Hub)</label
             >

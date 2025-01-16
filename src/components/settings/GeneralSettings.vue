@@ -64,6 +64,9 @@
                 <option value="dxv2">
                   DX API v2 (Mashup Web component - 8.5+)
                 </option>
+                <option value="launchpad">
+                  Launchpad
+                </option>
               </select>
             </div>
             <div
@@ -86,7 +89,7 @@
             </div>
             <div
               class="field-item"
-              v-if="settings.general.connection.type.startsWith('embedui')"
+              v-if="settings.general.connection.type.startsWith('embedui') || settings.general.connection.type === 'launchpad'"
             >
               <label for="ga-connection-authtype">Authentication</label>
               <select
@@ -167,6 +170,37 @@
             </div>
             <div
               class="field-item"
+              v-if="
+                settings.general.connection.type === 'launchpad'
+              "
+            >
+              <label for="ga-connection-PegaURL"
+                >Launchpad URL
+                (for example: 'https://xxx.lp.integration.pegaservice.net')</label
+              >
+              <input
+                type="text"
+                id="ga-connection-PegaURL"
+                v-model="settings.general.connection.PegaURL"
+              />
+            </div>
+            <div
+              class="field-item"
+              v-if="
+                settings.general.connection.type === 'launchpad'
+              "
+            >
+              <label for="ga-connection-authorizeUri"
+                >AuthorizeUri endpoint</label
+              >
+              <input
+                type="text"
+                id="ga-connection-authorizeUri"
+                v-model="settings.general.connection.authorizeUri"
+              />
+            </div>
+            <div
+              class="field-item"
               v-if="settings.general.connection.type === 'embedui3'"
             >
               <label for="ga-connection-ThemeID"
@@ -180,8 +214,21 @@
               />
             </div>
             <div
+              class="field-item"
+              v-if="settings.general.connection.type === 'launchpad'"
+            >
+              <label for="ga-connection-ThemeID-lp"
+                >Theme ID (leave empty to use application theme)</label
+              >
+              <input
+                type="text"
+                id="ga-connection-ThemeID-lp"
+                v-model="settings.general.connection.themeID"
+              />
+            </div>
+            <div
               class="field-item padding-b-1x"
-              v-if="settings.general.connection.type.startsWith('embedui')"
+              v-if="settings.general.connection.type.startsWith('embedui') || settings.general.connection.type === 'launchpad'"
             >
             <input
                 type="checkbox"
@@ -240,7 +287,9 @@
             </div>
           </div>
         </Container>
-        <Container title="Two-factor authentication" expanded>
+        <Container  v-if="
+                settings.general.connection.type !== 'launchpad'
+              " title="Two-factor authentication" expanded>
           <div class="layout-labels-top">
             <div class="field-item padding-b-1x">
               <input

@@ -107,7 +107,9 @@
               v-model="settings.homeheroaction.url"
             />
           </div>
-          <div class="field-item">
+          <div class="field-item" v-if="
+              settings.general.connection.type !== 'launchpad'
+            ">
             <label for="homeheroaction-application"
               >Application name / alias</label
             >
@@ -117,7 +119,9 @@
               v-model="settings.homeheroaction.application"
             />
           </div>
-          <div class="field-item">
+          <div class="field-item" v-if="
+              settings.general.connection.type !== 'launchpad'
+            ">
             <label for="homeheroaction-pega_userid">Pega userid</label>
             <input
               id="homeheroaction-pega_userid"
@@ -125,7 +129,9 @@
               v-model="settings.homeheroaction.pega_userid"
             />
           </div>
-          <div class="field-item">
+          <div class="field-item" v-if="
+              settings.general.connection.type !== 'launchpad'
+            ">
             <label for="homeheroaction-pega_pwd">Pega password</label>
             <input
               id="homeheroaction-pega_pwd"

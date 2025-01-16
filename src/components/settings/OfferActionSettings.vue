@@ -107,7 +107,9 @@
               v-model="settings.offeraction.url"
             />
           </div>
-          <div class="field-item">
+          <div class="field-item" v-if="
+              settings.general.connection.type !== 'launchpad'
+            ">
             <label for="offeraction-application"
               >Application name / alias</label
             >
@@ -117,7 +119,9 @@
               v-model="settings.offeraction.application"
             />
           </div>
-          <div class="field-item">
+          <div class="field-item" v-if="
+              settings.general.connection.type !== 'launchpad'
+            ">
             <label for="offeraction-username"
               >Username (for unauthenticated access)</label
             >
@@ -127,7 +131,9 @@
               v-model="settings.offeraction.username"
             />
           </div>
-          <div class="field-item">
+          <div class="field-item" v-if="
+              settings.general.connection.type !== 'launchpad'
+            ">
             <label for="offeraction-password"
               >Password (for unauthenticated access)</label
             >

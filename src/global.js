@@ -67,6 +67,9 @@ export const upgradeConfig = function upgradeConfig(cfg) {
   if (typeof cfg.settings.general.connection.webEmbedUseFormWidth === 'undefined') {
     cfg.settings.general.connection.webEmbedUseFormWidth = false;
   }
+  if (typeof cfg.settings.general.connection.authorizeUri === 'undefined') {
+    cfg.settings.general.connection.authorizeUri = '';
+  }
   if (
     typeof cfg.settings.pega_chat.DMMProactiveChatNewSessionTimeout ===
     'undefined'
@@ -465,6 +468,16 @@ if (typeof window.settings === 'undefined') {
     mashupScript.setAttribute(
       'src',
       `${mainconfigTmp.settings.general.connection.PegaURL}/PRRestService/c11nsvc/v1/pega-embed.js`,
+    );
+    document.head.appendChild(mashupScript);
+  } else if (
+    mainconfigTmp.settings.general.connection.PegaURL !== '' &&
+    mainconfigTmp.settings.general.connection.type === 'launchpad')
+   {
+    const mashupScript = document.createElement('script');
+    mashupScript.setAttribute(
+      'src',
+      `${mainconfigTmp.settings.general.connection.PegaURL}/pega-static/pega-embed.js`,
     );
     document.head.appendChild(mashupScript);
   }

@@ -121,7 +121,9 @@
             <label for="todo-url">URL</label>
             <input id="todo-url" type="text" v-model="settings.todo.url" />
           </div>
-          <div class="field-item">
+          <div class="field-item" v-if="
+              settings.general.connection.type !== 'launchpad'
+            ">
             <label for="todo-application">Application name / alias</label>
             <input
               id="todo-application"

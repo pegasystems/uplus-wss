@@ -104,7 +104,9 @@
             <label for="kmhelp-url">URL</label>
             <input id="kmhelp-url" type="text" v-model="settings.kmhelp.url" />
           </div>
-          <div class="field-item">
+          <div class="field-item" v-if="
+              settings.general.connection.type !== 'launchpad'
+            ">
             <label for="kmhelp-application">Application name / alias</label>
             <input
               id="kmhelp-application"
@@ -112,7 +114,9 @@
               v-model="settings.kmhelp.application"
             />
           </div>
-          <div class="field-item">
+          <div class="field-item" v-if="
+              settings.general.connection.type !== 'launchpad'
+            ">
             <label for="kmhelp-username"
               >Username (for unauthenticated access)</label
             >
@@ -122,7 +126,9 @@
               v-model="settings.kmhelp.username"
             />
           </div>
-          <div class="field-item">
+          <div class="field-item" v-if="
+              settings.general.connection.type !== 'launchpad'
+            ">
             <label for="kmhelp-password"
               >Password (for unauthenticated access)</label
             >

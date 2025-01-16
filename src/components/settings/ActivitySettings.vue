@@ -121,7 +121,9 @@
               v-model="settings.activity.url"
             />
           </div>
-          <div class="field-item">
+          <div class="field-item"  v-if="
+              settings.general.connection.type !== 'launchpad'
+            ">
             <label for="activity-application">Application name / alias</label>
             <input
               id="activity-application"

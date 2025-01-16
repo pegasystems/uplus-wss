@@ -15,6 +15,8 @@
       :appAlias="application"
       :pegaServerUrl="url"
       :staticContentUrl="staticContentUrl"
+      :pegaServerType="pegaServerType"
+      :authorizeUri="authorizeUri"
       :authService="authService"
       :clientId="clientId"
       :userIdentifier="UserIdentifier"
@@ -36,6 +38,8 @@
       :appAlias="application"
       :pegaServerUrl="url"
       :staticContentUrl="staticContentUrl"
+      :pegaServerType="pegaServerType"
+      :authorizeUri="authorizeUri"
       :authService="authService"
       :clientId="clientId"
       :userIdentifier="UserIdentifier"
@@ -56,6 +60,8 @@
       :appAlias="application"
       :pegaServerUrl="url"
       :staticContentUrl="staticContentUrl"
+      :pegaServerType="pegaServerType"
+      :authorizeUri="authorizeUri"
       :authService="authService"
       :clientId="clientId"
       :userIdentifier="UserIdentifier"
@@ -76,6 +82,8 @@
       :appAlias="application"
       :pegaServerUrl="url"
       :staticContentUrl="staticContentUrl"
+      :pegaServerType="pegaServerType"
+      :authorizeUri="authorizeUri"
       :authService="authService"
       :clientId="clientId"
       :userIdentifier="UserIdentifier"
@@ -95,6 +103,8 @@
       :appAlias="application"
       :pegaServerUrl="url"
       :staticContentUrl="staticContentUrl"
+      :pegaServerType="pegaServerType"
+      :authorizeUri="authorizeUri"
       :authService="authService"
       :clientId="clientId"
       :userIdentifier="UserIdentifier"
@@ -122,20 +132,22 @@ export default {
       action: '',
       actionparam: '',
       objClass: '',
-      application: '',
+      application: undefined,
       url: '',
+      pegaServerType: undefined,
+      authorizeUri: undefined,
       staticContentUrl: undefined,
       showAssignmentHeader: true,
       reloadTitle: false,
       pageTemplate: 'assignment',
-      authService: '',
+      authService: undefined,
       clientId: '',
       caseTitle: '',
       isWebEmbedInitialized: false,
       UserIdentifier: undefined,
       Password: undefined,
-      theme: '',
-      themeID: '',
+      theme: undefined,
+      themeID: undefined,
       startingFields: {},
       extraParam: '',
       embedEventFn: (event) => {
@@ -282,11 +294,11 @@ export default {
 
     /* In 24.2 - the theme can be defined as a general setting - if this is set, then pass themeID - otherwise fallback to old them */
     if (
-      this.settings.general.connection.type === 'embedui3' &&
+      (this.settings.general.connection.type === 'embedui3' || this.settings.general.connection.type === 'launchpad') &&
       this.settings.general.connection.themeID
     ) {
       this.themeID = this.settings.general.connection.themeID;
-    } else {
+    } else if(this.settings.general.connection.type !== 'launchpad') {
       if (this.app.industry === 'comms') {
         this.theme =
           '{"base":{"palette":{"brand-primary":"#5F257E","app-background": "#FFFFFF","interactive":"#5F257E"},"shadow":{"low": "none"}},"components":{"button":{"border-radius":"0.25"}}}';
@@ -352,8 +364,16 @@ export default {
     if (this.settings.general.connection.type === 'embedui') {
       this.staticContentUrl = this.settings.general.connection.c11nserver;
     }
+    if (this.settings.general.connection.type === 'launchpad') {
+      this.pegaServerType = 'launchpad';
+      this.authorizeUri = this.settings.general.connection.authorizeUri;
+      this.UserIdentifier = undefined;
+      this.Password = undefined;
+      this.application = undefined;
+    } else {
+      this.authService = this.settings.general.connection.authService;
+    }
     this.clientId = this.settings.general.connection.clientid;
-    this.authService = this.settings.general.connection.authService;
 
     this.isWebEmbedInitialized = 'true';
   },

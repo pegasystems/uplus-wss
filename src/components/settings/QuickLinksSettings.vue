@@ -170,7 +170,9 @@
               v-model="item.url"
             />
           </div>
-          <div class="field-item">
+          <div class="field-item" v-if="
+              settings.general.connection.type !== 'launchpad'
+            ">
             <label :for="'quicklinks-' + index + '-application'"
               >Application name / alias</label
             >

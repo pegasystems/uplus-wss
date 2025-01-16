@@ -119,8 +119,10 @@
               v-model="settings.billpay.url"
             />
           </div>
-          <div class="field-item">
-            <label for="billpay-application">Application name</label>
+          <div class="field-item" v-if="
+              settings.general.connection.type !== 'launchpad'
+            ">
+            <label for="billpay-application">Application name / alias</label>
             <input
               id="billpay-application"
               type="text"
