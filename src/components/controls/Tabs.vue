@@ -2,7 +2,7 @@
 import { useSlots, ref, provide } from 'vue';
 
 const props = defineProps({
-  defaultSelectedIndex: String,
+  defaultSelectedIndex: Number,
 });
 
 
