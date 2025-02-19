@@ -160,7 +160,7 @@ export default {
   } else if (event.type === 'embedprocessingend') {
     setTimeout(() => {
       const el = document.querySelector('pega-embed');
-      if (!el || el.clientHeight === 0) {
+      if (!el || el.parentElement.clientHeight === 0) {
         top.postMessage('pegaMashupNavigateBack', location.origin);
       } else if(this.reloadTitle) {
           setTimeout( () => {

@@ -6,7 +6,7 @@ import VueGtag from 'vue-gtag';
 const app = createApp(MainPage);
 
 // Resize observer for sending the height of the iframe to the parent
-if(window.parent) {
+if(window.self !== window.top) {
   const appEl = document.getElementById('app');
   if(appEl) {
     appEl.classList.add('app-iframe');
