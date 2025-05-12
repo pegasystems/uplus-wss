@@ -1,7 +1,7 @@
 import { createApp } from 'vue';
 import MainPage from '@/views/MainPage.vue';
 import { mainconfig, i18n } from './global';
-import VueGtag from 'vue-gtag';
+import { createGtag } from "vue-gtag";
 
 const app = createApp(MainPage);
 
@@ -42,11 +42,13 @@ app.directive('clickoutside', {
     document.removeEventListener('touchstart', handleOutsideClick);
   },
 });
+
+
 app.use(i18n);
-app.use(VueGtag, {
-  config: { id: mainconfig.settings.general.ga.trackingid },
-  appName: 'Uplus',
-  // eslint-disable-next-line no-undef
-  enabled: process.env.NODE_ENV === 'production',
-});
+if(process.env.NODE_ENV === 'production' && mainconfig.settings.general.ga.enabled) {
+  const gtag = createGtag({
+  tagId: mainconfig.settings.general.ga.trackingid,
+  appName: 'Uplus'})
+  app.use(gtag);
+}
 app.mount('#app');
