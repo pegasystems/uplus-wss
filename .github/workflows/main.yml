@@ -16,7 +16,7 @@ jobs:
           node-version: 18.x
 
       - name: npm install
-        run: npm install
+        run: npm ci
 
       - name: npm test
         run: npm run test:unit
