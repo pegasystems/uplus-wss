@@ -19,16 +19,18 @@ export default [
     ignores: ['**/public/js/*.js', '**/*.config.js', '**/*.cy.js'],
   },
    ...pluginVue.configs['flat/essential'],
-   pluginCypress.configs.recommended,
-  {
-    files: ['cypress/integration/**.spec.{js,ts,jsx,tsx}']
-  },
-  pluginEsLint.configs.recommended,
+   ...compat.extends(
+    'eslint:recommended'
+  ),
   {
     rules: {
-       'no-undef': 'off',
+      'no-undef': 'off',
       'vue/multi-word-component-names': 'off',
       'vue/no-reserved-component-names': 'off',
     },
+  },
+   pluginCypress.configs.recommended,
+  {
+    files: ['cypress/integration/**.spec.{js,ts,jsx,tsx}']
   }
 ];
