@@ -14,6 +14,9 @@
       <LangSwitch v-if="settings.i18n.showLangSwitch" />
       <p class="flex-align-r copyright">
         {{ '© ' + new Date().getFullYear() + ' ' + $t('message.copyright') }}
+        <button v-if="this.ExternalID" class="simple margin-b-1x" v-on:click="copyExternalID">
+              {{ this.ExternalID }}
+            </button>
       </p>
     </div>
   </footer>
@@ -46,6 +49,16 @@ export default {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }, 0);
       event.preventDefault();
+    },
+    copyExternalID(e) {
+      e.preventDefault();
+      navigator.clipboard
+        .writeText(this.ExternalID)
+        .catch(() => {
+          alert(
+            'Something went wrong, could not copy ExternalID in the clipboard',
+          );
+        });
     },
   },
 };

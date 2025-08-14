@@ -401,3 +401,9 @@ button.pi.ai-toggle {
 .scorecard {
   font-size: 22px;
 }
+
+.copyright > button.simple {
+  font-weight: 400;
+  color: #000;
+  font-size:12px;
+}
