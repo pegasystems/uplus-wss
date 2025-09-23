@@ -81,6 +81,11 @@ export const upgradeConfig = function upgradeConfig(cfg) {
   ) {
     cfg.settings.pega_chat.DMMProactiveChatNewSessionCode = '5sonPage';
   }
+  if (
+    typeof cfg.settings.pega_chat.UsePrivateSessionControl === 'undefined'
+  ) {
+    cfg.settings.pega_chat.UsePrivateSessionControl = false;
+  }
   for (const i in cfg.settings.quicklinks) {
     if (typeof cfg.settings.quicklinks[i].reloadtitle === 'undefined') {
       cfg.settings.quicklinks[i].reloadtitle = false;
@@ -504,9 +509,70 @@ if (typeof window.settings === 'undefined') {
       }
     }
 
+    // This callback allows controlling when a chat session is created by requesting it from the backend
+    window.PegaUnifiedChatWidget.onCreateSessionRequest = async () => {
+      try {
+        // Only control initialization when explicitly enabled and required config is present
+        if (
+          mainconfigTmp?.settings?.pega_chat?.UsePrivateSessionControl !== true ||
+          !mainconfigTmp?.settings?.pega_chat?.DMMURL ||
+          !mainconfigTmp?.settings?.pega_chat?.DMMSecret
+        ) {
+          return undefined; // let the widget fall back to its default behavior
+        }
+
+        // Extract widgetId and origin from the widget script URL
+        // Example DMMURL: https://widget.use1.chat.pega.digital/<widgetId>/widget.js
+        const widgetScriptUrl = new URL(mainconfigTmp.settings.pega_chat.DMMURL);
+        const pathParts = widgetScriptUrl.pathname.split('/').filter(Boolean);
+        const widgetId = pathParts[0];
+        const widgetOrigin = widgetScriptUrl.origin; // https://widget.<region>.chat.pega.digital
+
+        // Pick a stable customer identifier if available
+        const customerId =
+          window.PegaCSWSS?.UserName ||
+          window.PegaCSWSS?.UserID ||
+          `guest-${Date.now()}`;
+
+        // JWT for create must use iss = widgetId
+        const jwtForCreate = generateJWTKey(
+          { iss: widgetId },
+          mainconfigTmp.settings.pega_chat.DMMSecret,
+        );
+
+        const createUrl = `${widgetOrigin}/${widgetId}/create`;
+        const res = await fetch(createUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            authorization: `Bearer ${jwtForCreate}`,
+          },
+          body: JSON.stringify({ customerId }),
+        });
+
+        if (!res.ok) {
+          const errText = await res.text().catch(() => '');
+          console.error('Create session failed', res.status, errText);
+          return undefined;
+        }
+
+        const payload = await res.json().catch(() => ({}));
+        const { sessionId } = payload || {};
+        if (sessionId) {
+          try { localStorage.setItem('sessionId', sessionId); } catch (e) {}
+          return sessionId;
+        }
+        return undefined;
+      } catch (e) {
+        console.error('Error in onCreateSessionRequest', e);
+        return undefined;
+      }
+    };
+
     // This callback will be invoked every time a new chat session is started
     window.PegaUnifiedChatWidget.onSessionInitialized = (sessionId) => {
       window.PegaCSWSS.DMMSessionID = sessionId;
+      try { localStorage.setItem('sessionId', sessionId); } catch (e) {}
 
       console.log(`PegaUnifiedChatWidget onSessionInitialized=${sessionId}`);
       /* bump z-index for the iframe chat widget */
@@ -517,6 +583,7 @@ if (typeof window.settings === 'undefined') {
       sendClickStreamEvent(mainconfigTmp, 'PageView', 'Chat', window.loadPage);
       if (
         mainconfigTmp.settings.pega_chat.DMMSecret !== '' &&
+        mainconfigTmp.settings.pega_chat.UsePrivateSessionControl !== false &&
         mainconfigTmp.userId !== -1
       ) {
         const privateData = {
@@ -660,6 +727,7 @@ if (typeof window.settings === 'undefined') {
       );
       if (
         mainconfigTmp.settings.pega_chat.DMMSecret !== '' &&
+        mainconfigTmp.settings.pega_chat.UsePrivateSessionControl !== false &&
         sessionId !== ''
       ) {
         //Request Body
@@ -843,6 +911,7 @@ export const updatePegaChat = function updatePegaChat(u) {
 
   if (
     mainconfig.settings.pega_chat.DMMSecret !== '' &&
+    mainconfig.settings.pega_chat.UsePrivateSessionControl !== false &&
     mainconfig.userId !== -1 &&
     window.PegaCSWSS.DMMSessionID !== ''
   ) {
