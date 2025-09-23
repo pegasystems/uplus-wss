@@ -7,6 +7,7 @@ window.settings = {
     /* set to true to show the language switcher */
   },
   general: {
+    freeformlogin: false,
     theming: {
       override: false,
       interactiveColor: '#076bc9',
@@ -294,6 +295,7 @@ window.settings = {
       roi: 8.4,
       load_by_default: true,
       hide_from_dropdown: false,
+      show_onboarding: false,
       show_opname: false,
       otp_send_to: '',
       accountdetails: [[
@@ -381,6 +383,7 @@ window.settings = {
       roi: 4.4,
       load_by_default: false,
       hide_from_dropdown: false,
+      show_onboarding: false,
       show_opname: false,
       otp_send_to: '',
       accountdetails: [[

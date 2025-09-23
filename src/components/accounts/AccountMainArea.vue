@@ -1,6 +1,6 @@
 <template>
   <div class="col col-1">
-    <div class="primary-card">
+    <div  v-if="settings.users[this.userId].show_onboarding !== true" class="primary-card">
       <Banner
         v-if="
           typeof settings.banner !== 'undefined' &&
@@ -21,18 +21,20 @@
       v-if="
         typeof settings.todo !== 'undefined' &&
         settings.todo.hideaccountdetails !== 'true' &&
-        settings.todo.hideaccountdetails !== true
+        settings.todo.hideaccountdetails !== true &&
+        settings.users[this.userId].show_onboarding !== true
       "
     />
     <MashupMainArea
       v-if="typeof settings.todo !== 'undefined' && settings.todo.url !== ''"
-      :key="reloadToDoMashup"
+          :key="reloadToDoMashup"
     />
     <RecentActivity
       v-if="
         typeof settings.todo !== 'undefined' &&
         settings.todo.hideactivity !== 'true' &&
-        settings.todo.hideactivity !== true
+        settings.todo.hideactivity !== true &&
+        settings.users[this.userId].show_onboarding !== true
       "
       :key="reloadActivityMashup"
     />

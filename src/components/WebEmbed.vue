@@ -177,6 +177,9 @@ export default {
   } else if (event.type === 'embedreauth') {
     const el = document.querySelector('pega-embed');
     el.login(true);
+  } else if( event.type === 'embedready' &&
+            this.settings.users[this.userId].show_onboarding === true) {
+    this.settings.users[this.userId].name = PCore.getEnvironmentInfo().getOperatorName();
   }
     },
   };

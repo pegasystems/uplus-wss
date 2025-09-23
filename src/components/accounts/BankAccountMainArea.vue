@@ -1,6 +1,6 @@
 <template>
   <div class="col col-1">
-    <div class="primary-card">
+    <div v-if="settings.users[this.userId].show_onboarding !== true" class="primary-card">
       <Banner
         v-if="
           typeof settings.banner !== 'undefined' &&
@@ -19,11 +19,12 @@
       v-if="
         typeof settings.todo !== 'undefined' &&
         settings.todo.hideactivity !== 'true' &&
-        settings.todo.hideactivity !== true
+        settings.todo.hideactivity !== true &&
+        settings.users[this.userId].show_onboarding !== true
       "
       :key="reloadActivityMashup"
     />
-    <div class="flex">
+    <div v-if="settings.users[this.userId].show_onboarding !== true"  class="flex">
       <section class="flex-1 cash-projections primary-card">
         <div class="flex">
           <h3>{{ $t('message.cash_projections') }}</h3>

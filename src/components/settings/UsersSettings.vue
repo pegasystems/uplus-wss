@@ -193,6 +193,18 @@
               >Hide from login dropdown</label
             >
           </div>
+          <div class="field-item">
+            <input
+              type="checkbox"
+              :id="'user-' + index + '-show_onboarding'"
+              v-model="item.show_onboarding"
+            />
+            <label
+              class="width-auto"
+              :for="'user-' + index + '-show_onboarding'"
+              >Show Onboarding (will only show Todo)</label
+            >
+          </div>
         </div>
       </Container>
     </div>

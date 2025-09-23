@@ -10,11 +10,12 @@
     >
       <h3>{{ $t('message.welcomeBack') }}</h3>
       <div v-if="!isOTP" class="field flex flex-col username">
-        <select id="username" v-model="username">
+        <select v-if="settings.general.freeformlogin !== true" id="username" v-model="username">
           <option v-for="(item, index) in activeUsers" v-bind:key="index">
             {{ item.username }}
           </option>
         </select>
+        <input v-if="settings.general.freeformlogin === true"  id="username" type="text" v-model="username" />
         <label class="required" for="username">{{
           $t('message.username')
         }}</label>
@@ -150,8 +151,20 @@ export default {
         }
       }
       if (this.userID === -1) {
-        this.hasErrorMsg = true;
-        return;
+        if(this.settings.general.freeformlogin) {
+          this.userID = this.settings.users.push({
+            username: this.username,
+            password: this.password,
+            pega_userid: this.username,
+            pega_pwd: this.password,
+            name: this.username,
+            img:'icons/msapplication-icon-144x144.png',
+            show_onboarding: true,
+          }) -1;
+        } else {
+          this.hasErrorMsg = true;
+          return;
+        }
       }
       if (this.otp_enabled) {
         this.isOTP = true;

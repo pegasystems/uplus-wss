@@ -11,6 +11,16 @@
     </p>
     <div class="container">
       <div class="body">
+        <div class="layout-labels-top">
+            <div class="field-item">
+              <input
+                id="free-form-login"
+                type="checkbox"
+                v-model="settings.general.freeformlogin"
+              />
+              <label for="free-form-login">Allow free form login (if checked, remove dropdown and auto-create user)</label>
+            </div>
+          </div>
         <Container title="Theming" expanded>
           <div class="layout-labels-top layout-inline-grid-double">
             <div class="field-item">

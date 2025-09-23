@@ -55,6 +55,9 @@ export const getCookie = function (cname) {
 };
 
 export const upgradeConfig = function upgradeConfig(cfg) {
+  if (typeof cfg.settings.general.freeformlogin === 'undefined') {
+    cfg.settings.general.freeformlogin = false;
+  }
   if (typeof cfg.settings.general.connection.PegaURL === 'undefined') {
     cfg.settings.general.connection.PegaURL = '';
   }
@@ -94,6 +97,9 @@ export const upgradeConfig = function upgradeConfig(cfg) {
   for (const i in cfg.settings.users) {
     if (typeof cfg.settings.users[i].hide_from_dropdown === 'undefined') {
       cfg.settings.users[i].hide_from_dropdown = false;
+    }
+    if (typeof cfg.settings.users[i].show_onboarding === 'undefined') {
+      cfg.settings.users[i].show_onboarding = false;
     }
     if (typeof cfg.settings.users[i].focustabindex === 'undefined') {
       cfg.settings.users[i].focustabindex = 0;
