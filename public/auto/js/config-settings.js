@@ -482,6 +482,7 @@ window.settings = {
     DMMID: 'pega-wm-chat',
     DMMSecret: '',
     DMMPrivateURL: 'https://5vtgqfsgzb.execute-api.us-east-1.amazonaws.com',
+    UsePrivateSessionControl: false,
     DMMProactiveChatNewSessionTimeout: 0,
     DMMProactiveChatNewSessionCode: '5sonPage',
   },

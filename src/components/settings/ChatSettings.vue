@@ -48,6 +48,14 @@
             v-model="settings.pega_chat.DMMPrivateURL"
           />
         </div>
+        <div class="field-item field-checkbox">
+          <input
+            id="chat-UsePrivateSessionControl"
+            type="checkbox"
+            v-model="settings.pega_chat.UsePrivateSessionControl"
+          />
+          <label for="chat-UsePrivateSessionControl">Use Private Session Control</label>
+        </div>
       </div>
     </Container>
 

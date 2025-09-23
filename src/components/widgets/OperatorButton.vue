@@ -114,6 +114,7 @@ export default {
       setCookie('UserID', window.PegaCSWSS.UserID, 30);
       if (
         mainconfig.settings.pega_chat.DMMSecret !== '' &&
+        mainconfig.settings.pega_chat.UsePrivateSessionControl !== false &&
         mainconfig.userId !== -1 &&
         window.PegaCSWSS.DMMSessionID !== ''
       ) {
