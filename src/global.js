@@ -559,7 +559,9 @@ if (typeof window.settings === 'undefined') {
         const payload = await res.json().catch(() => ({}));
         const { sessionId } = payload || {};
         if (sessionId) {
-          try { localStorage.setItem('sessionId', sessionId); } catch (e) {}
+          try { localStorage.setItem('sessionId', sessionId); } catch {
+            /* ignore */
+          }
           return sessionId;
         }
         return undefined;
@@ -572,7 +574,9 @@ if (typeof window.settings === 'undefined') {
     // This callback will be invoked every time a new chat session is started
     window.PegaUnifiedChatWidget.onSessionInitialized = (sessionId) => {
       window.PegaCSWSS.DMMSessionID = sessionId;
-      try { localStorage.setItem('sessionId', sessionId); } catch (e) {}
+      try { localStorage.setItem('sessionId', sessionId); } catch {
+            /* ignore */
+          }
 
       console.log(`PegaUnifiedChatWidget onSessionInitialized=${sessionId}`);
       /* bump z-index for the iframe chat widget */
