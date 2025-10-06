@@ -17,6 +17,7 @@ const optionsFile1 = {
     /\/wealth\//g,
     /\/travel\//g,
     /\/energy\//g,
+    /\/map\//g,
   ],
   to: './',
 };
