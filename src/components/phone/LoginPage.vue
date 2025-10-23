@@ -114,6 +114,8 @@ export default {
     },
 
     confirmLogin() {
+      mainconfig.homeHeroAction = -1;
+      mainconfig.offerAction = -1;
       mainconfig.isAuthenticated = true;
       mainconfig.userId = this.userID;
       updatePegaChat(this.settings.users[this.userID]);
