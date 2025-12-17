@@ -506,7 +506,7 @@ if (typeof window.settings === 'undefined') {
       ) {
         setTimeout(() => {
           console.log(
-            `PegaUnifiedChatWidget triggetChat '${mainconfigTmp.settings.pega_chat.DMMProactiveChatNewSessionCode}'`,
+            `PegaUnifiedChatWidget triggerChat '${mainconfigTmp.settings.pega_chat.DMMProactiveChatNewSessionCode}'`,
           );
           window.PegaUnifiedChatWidget.triggerChat(
             mainconfigTmp.settings.pega_chat.DMMProactiveChatNewSessionCode,
@@ -514,6 +514,33 @@ if (typeof window.settings === 'undefined') {
         }, mainconfigTmp.settings.pega_chat.DMMProactiveChatNewSessionTimeout);
       }
     }
+
+    const invokePrivateData = async (sessionId) => {
+      const privateData = {
+        authenticated: mainconfigTmp.userId !== -1,
+        ContactID: window.PegaCSWSS.ContactID,
+        AccountNumber: window.PegaCSWSS.AccountNumber,
+        UserName: window.PegaCSWSS.UserName,
+        UserID: window.PegaCSWSS.UserID,
+      };
+      const jwtToken = generateJWTKey(
+        { iss: sessionId },
+        mainconfigTmp.settings.pega_chat.DMMSecret,
+      );
+      const baseUrl = getBaseURL(
+        mainconfigTmp.settings.pega_chat.DMMPrivateURL,
+      );
+      const privateDataEndpoint = baseUrl + '/Prod/private-data';
+      const response = await fetch(privateDataEndpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: `Bearer ${jwtToken}`,
+        },
+        body: JSON.stringify(privateData),
+      });
+      return response;
+    };
 
     // This callback allows controlling when a chat session is created by requesting it from the backend
     window.PegaUnifiedChatWidget.onCreateSessionRequest = async () => {
@@ -538,17 +565,10 @@ if (typeof window.settings === 'undefined') {
         const widgetOrigin = widgetScriptUrl.origin; // https://widget.<region>.chat.pega.digital
 
         // Pick a stable customer identifier if available
-        const privateData = {
-          authenticated: mainconfigTmp.userId !== -1,
-          ContactID: window.PegaCSWSS.ContactID,
-          AccountNumber: window.PegaCSWSS.AccountNumber,
-          UserName: window.PegaCSWSS.UserName,
-          UserID: window.PegaCSWSS.UserID,
-          customerId:
-            window.PegaCSWSS?.UserName ||
-            window.PegaCSWSS?.UserID ||
-            `guest-${Date.now()}`,
-        };
+        const customerId =
+          window.PegaCSWSS?.UserName ||
+          window.PegaCSWSS?.UserID ||
+          `guest-${Date.now()}`;
 
         // JWT for create must use iss = widgetId
         const jwtForCreate = generateJWTKey(
@@ -563,7 +583,7 @@ if (typeof window.settings === 'undefined') {
             'Content-Type': 'application/json',
             authorization: `Bearer ${jwtForCreate}`,
           },
-          body: JSON.stringify(privateData),
+          body: JSON.stringify({ customerId }),
         });
 
         if (!res.ok) {
@@ -574,6 +594,16 @@ if (typeof window.settings === 'undefined') {
 
         const payload = await res.json().catch(() => ({}));
         const { sessionId } = payload || {};
+        if (
+          mainconfigTmp.settings.pega_chat.DMMSecret !== '' &&
+          mainconfigTmp.userId !== -1
+        ) {
+          const response = await invokePrivateData(sessionId);
+          if (response.status !== 200) {
+            console.log('Error occurred with private data invocation');
+            return;
+          }
+        }
         if (sessionId) {
           try {
             localStorage.setItem('sessionId', sessionId);
@@ -590,7 +620,7 @@ if (typeof window.settings === 'undefined') {
     };
 
     // This callback will be invoked every time a new chat session is started
-    window.PegaUnifiedChatWidget.onSessionInitialized = (sessionId) => {
+    window.PegaUnifiedChatWidget.onSessionInitialized = async (sessionId) => {
       window.PegaCSWSS.DMMSessionID = sessionId;
       try {
         localStorage.setItem('sessionId', sessionId);
@@ -607,33 +637,14 @@ if (typeof window.settings === 'undefined') {
       sendClickStreamEvent(mainconfigTmp, 'PageView', 'Chat', window.loadPage);
       if (
         mainconfigTmp.settings.pega_chat.DMMSecret !== '' &&
-        mainconfigTmp.userId !== -1
+        mainconfigTmp.userId !== -1 &&
+        !mainconfigTmp?.settings?.pega_chat?.UsePrivateSessionControl
       ) {
-        const privateData = {
-          authenticated: mainconfigTmp.userId !== -1,
-          ContactID: window.PegaCSWSS.ContactID,
-          AccountNumber: window.PegaCSWSS.AccountNumber,
-          UserName: window.PegaCSWSS.UserName,
-          UserID: window.PegaCSWSS.UserID,
-        };
-        const jwttoken = generateJWTKey(
-          { iss: sessionId },
-          mainconfigTmp.settings.pega_chat.DMMSecret,
-        );
-
-        const baseUrl = getBaseURL(
-          mainconfigTmp.settings.pega_chat.DMMPrivateURL,
-        );
-        const privateDataEndpoint = baseUrl + '/Prod/private-data';
-
-        const request = new XMLHttpRequest();
-        request.open('POST', privateDataEndpoint, true);
-        request.setRequestHeader(
-          'Content-type',
-          'application/json;charset=UTF-8',
-        );
-        request.setRequestHeader('authorization', `Bearer ${jwttoken}`);
-        request.send(JSON.stringify(privateData));
+        const response = await invokePrivateData(sessionId);
+        if (response.status !== 200) {
+          console.log('Error occurred with private data invocation');
+          return;
+        }
       }
     };
 
