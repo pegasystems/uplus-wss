@@ -148,39 +148,47 @@ export default {
       Password: undefined,
       theme: undefined,
       themeID: undefined,
+      CSSOverride: undefined,
       startingFields: {},
       extraParam: '',
       embedEventFn: (event) => {
-  if (
-    event.type === 'embedcloseconfirmview' ||
-    event.type === 'embedcaseclosed' ||
-    event.type === 'embedeventcancel'
-  ) {
-    top.postMessage('pegaMashupNavigateBack', location.origin);
-  } else if (event.type === 'embedprocessingend') {
-    setTimeout(() => {
-      const el = document.querySelector('pega-embed');
-      if (!el || el.parentElement.clientHeight === 0) {
+      if (
+        event.type === 'embedcloseconfirmview' ||
+        event.type === 'embedcaseclosed' ||
+        event.type === 'embedeventcancel'
+      ) {
         top.postMessage('pegaMashupNavigateBack', location.origin);
-      } else if(this.reloadTitle) {
-          setTimeout( () => {
-          const label = el.getEmbedData(".pyLabel");
-          if(label) {
-            // Replace the h1 with the label
-            const h1Elem = document.querySelector('h1');
-            if(h1Elem) {
-              h1Elem.innerHTML = label;
-            }
-          }},1000);
+      } else if (event.type === 'embedprocessingend') {
+        setTimeout(() => {
+          const el = document.querySelector('pega-embed');
+          if (!el || el.parentElement.clientHeight === 0) {
+            top.postMessage('pegaMashupNavigateBack', location.origin);
+          } else if(this.reloadTitle) {
+              setTimeout( () => {
+              const label = el.getEmbedData(".pyLabel");
+              if(label) {
+                // Replace the h1 with the label
+                const h1Elem = document.querySelector('h1');
+                if(h1Elem) {
+                  h1Elem.innerHTML = label;
+                }
+              }},1000);
+          }
+        }, 300);
+      } else if (event.type === 'embedreauth') {
+        const el = document.querySelector('pega-embed');
+        el.login(true);
+      } else if( event.type === 'embedready' ) {
+        if(this.settings.users[this.userId].show_onboarding === true) {
+          this.settings.users[this.userId].name = PCore.getEnvironmentInfo().getOperatorName();
+        }
+        if(this.CSSOverride) {
+          const mytag = this.$refs.mycomp;
+          const styleElem = document.createElement("style")
+          styleElem.innerHTML= this.CSSOverride;
+          mytag.shadowRoot.appendChild(styleElem);
+        }
       }
-    }, 300);
-  } else if (event.type === 'embedreauth') {
-    const el = document.querySelector('pega-embed');
-    el.login(true);
-  } else if( event.type === 'embedready' &&
-            this.settings.users[this.userId].show_onboarding === true) {
-    this.settings.users[this.userId].name = PCore.getEnvironmentInfo().getOperatorName();
-  }
     },
   };
   },
@@ -329,6 +337,7 @@ export default {
         this.theme = `{"base":{"palette":{"brand-primary":"${this.settings.general.theming.brandColor}","interactive":"${this.settings.general.theming.interactiveColor}","app-background": "#FFFFFF"},"shadow":{"low": "none"}},"components":{"button":{"border-radius":"0.25"}}}`;
       }
     }
+    this.CSSOverride = this.settings.general.connection.CSSOverride;
     this.extraParamContent = {};
     this.extraParam.split(',').forEach((item) => {
       const values = item.split('=');
@@ -394,6 +403,7 @@ export default {
     mytag.addEventListener('embedcaseclosed', this.embedEventFn);
     mytag.addEventListener('embedeventcancel', this.embedEventFn);
     mytag.addEventListener('embedreauth', this.embedEventFn);
+
   },
   beforeUnmount() {
     const mytag = this.$refs.mycomp;

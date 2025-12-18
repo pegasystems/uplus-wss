@@ -225,6 +225,19 @@
             </div>
             <div
               class="field-item"
+              v-if="settings.general.connection.type === 'embedui3'"
+            >
+              <label for="ga-connection-CSSOverride"
+                >Override CSS to apply to all web-embed</label
+              >
+              <textarea
+               numRows="4"
+                id="ga-connection-CSSOverride"
+                v-model="settings.general.connection.CSSOverride"
+              />
+            </div>
+            <div
+              class="field-item"
               v-if="settings.general.connection.type === 'launchpad'"
             >
               <label for="ga-connection-ThemeID-lp"

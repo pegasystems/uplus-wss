@@ -27,6 +27,7 @@ window.settings = {
       PegaURL: '',
       authService: 'pega',
       themeID: '',
+      CSSOverride: '',
       webEmbedUseFormWidth: false,
       authorizeUri: '',
       showAttachments: true,
