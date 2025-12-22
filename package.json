@@ -17,7 +17,7 @@
     "crypto-js": "^4.2.0",
     "vue": "^3.5.26",
     "vue-gtag": "^3.6.3",
-    "vue-i18n": "^11.2.2"
+    "vue-i18n": "^11.2.7"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.3",

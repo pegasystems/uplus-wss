@@ -1,0 +1,28 @@
+:root {
+  --brandColor: #5F257E;
+	--interactiveColor: #5F257E;
+}
+.color-brand {
+  color: var(--brandColor);
+}
+/* Home page */
+main .hero-wrap .hero-image {
+	background: url('../img/hero-1.svg') 100% 100% / contain no-repeat;
+}
+main .hero-wrap .hero-splash {
+	background: url('../img/Hero.webp') 100% 100% / contain no-repeat;
+}
+.ribbon > div {
+  background: url('../img/ribbon.svg') 0 0 / cover no-repeat;
+  margin-top: -230px;
+  height: 500px;
+}
+.ribbon1 > div {
+  background: url('../img/ribbon1.svg') 100% 100% / cover no-repeat;
+  height: 500px;
+}
+.ribbon1 > div > div {
+  background: url('../img/hero-1.svg') 100% 100% no-repeat;
+  height: 266px;
+  opacity:0.3;
+}

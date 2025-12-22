@@ -22,6 +22,7 @@ export default defineConfig({
         auto: resolve(__dirname, "auto/index.html"),
         commercial_bank: resolve(__dirname, "commercial_bank/index.html"),
         comms: resolve(__dirname, "comms/index.html"),
+        comms_business: resolve(__dirname, "comms_business/index.html"),
         gov: resolve(__dirname, "gov/index.html"),
         health_care: resolve(__dirname, "health_care/index.html"),
         health_payer: resolve(__dirname, "health_payer/index.html"),

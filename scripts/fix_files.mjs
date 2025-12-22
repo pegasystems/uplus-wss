@@ -6,6 +6,7 @@ const optionsFile1 = {
     /\/auto\//g,
     /\/commercial_bank\//g,
     /\/comms\//g,
+    /\/comms_business\//g,
     /\/gov\//g,
     /\/health_care\//g,
     /\/health_payer\//g,
