@@ -283,7 +283,7 @@ window.settings = {
       username: 'joe@pegasystems.com',
       password: 'rules',
       img: 'avatar-1.jpg',
-      company_name: '',
+      company_name: 'ABC Technologies​',
       name: 'Joe Smith',
       accountID: '',
       contactID: '',
@@ -305,34 +305,19 @@ window.settings = {
           showbillpay: false,
           details: [
             {
-              label: "Plan",
+              label: "Data allocation",
               type: "text",
-              value: "U+ Business Fiber 2Gbps",
-            },
-            {
-              label: "Data limit",
-              type: "text",
-              value: "Unlimited",
+              value: "500 Gb",
             },
             {
               label: "Data used",
               type: "text",
-              value: "800 Gb",
+              value: "401 Gb",
             },
             {
-              label: "Download speed",
+              label: "Active lines",
               type: "text",
-              value: "2 Gbps",
-            },
-            {
-              label: "Upload speed",
-              type: "text",
-              value: "2 Gbps",
-            },
-            {
-              label: "Data throttled",
-              type: "text",
-              value: "No",
+              value: "15",
             },
             ]
         },
@@ -438,7 +423,7 @@ window.settings = {
       username: 'mary@pegasystems.com',
       password: 'rules',
       img: 'avatar-2.jpg',
-      company_name: '',
+      company_name: 'ABC Technologies',
       name: 'Mary Taylor',
       accountID: '',
       contactID: '',
@@ -456,61 +441,107 @@ window.settings = {
       accountdetails: [],
       accountpicker: [
         {
-          title: "Family Share 8GB",
-          showbillpay: true,
+          title: "Mobile",
+          showbillpay: false,
           details: [
             {
-              label: "Account balance",
-              type: "currency",
-              value: 164.80,
+              label: "Data allocation",
+              type: "text",
+              value: "500 Gb",
             },
             {
-              label: "Statement balance",
-              type: "currency",
-              value: 193.27,
+              label: "Data used",
+              type: "text",
+              value: "401 Gb",
             },
             {
-              label: "Due date",
-              type: "duedate"
-            }]
+              label: "Active lines",
+              type: "text",
+              value: "15",
+            },
+            ]
         },
         {
-          title: "DataMax 800Mbs",
-          showbillpay: true,
+          title: "Internet",
+          showbillpay: false,
           details: [
             {
-              label: "Account balance",
-              type: "currency",
-              value: 45.60,
+              label: "Plan",
+              type: "text",
+              value: "U+ Business Fiber 2Gbps",
             },
             {
-              label: "Statement balance",
-              type: "currency",
-              value: 35.27,
+              label: "Data limit",
+              type: "text",
+              value: "Unlimited",
             },
             {
-              label: "Due date",
-              type: "duedate"
-            }]
-        },
-        {
-          title: "Ultimate 300+ Channels",
-          showbillpay: true,
+              label: "Data used",
+              type: "text",
+              value: "800 Gb",
+            },
+            {
+              label: "Download speed",
+              type: "text",
+              value: "2 Gbps",
+            },
+            {
+              label: "Upload speed",
+              type: "text",
+              value: "2 Gbps",
+            },
+            {
+              label: "Data throttled",
+              type: "text",
+              value: "No",
+            },
+            ]
+        },{
+          title: "VoIP",
+          showbillpay: false,
           details: [
             {
-              label: "Account balance",
-              type: "currency",
-              value: 90.00,
+              label: "Plan",
+              type: "text",
+              value: "U+ Office@hand",
             },
             {
-              label: "Statement balance",
-              type: "currency",
-              value: 90.00,
+              label: "Active lines",
+              type: "text",
+              value: "15",
+            },
+            ]
+        },{
+          title: "IoT",
+          showbillpay: false,
+          details: [
+            {
+              label: "Plan",
+              type: "text",
+              value: "U+ Comms Standard SIM",
             },
             {
-              label: "Due date",
-              type: "duedate"
-            }]
+              label: "Quantity",
+              type: "text",
+              value: "2",
+            },
+            ]
+        },{
+          title: "TV",
+          showbillpay: false,
+          details: [
+            {
+              label: "Plan",
+              type: "text",
+              value: "U+ Entertainment package",
+            },
+            {
+              label: "Devices",
+              type: "text",
+              value: "1",
+            },
+
+            ]
         },
       ],
       recentactivity: [

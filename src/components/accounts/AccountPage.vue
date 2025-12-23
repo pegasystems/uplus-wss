@@ -17,7 +17,10 @@
       <div class="ribbon1"><div></div></div>
       <div>
         <h1 v-if="userId != -1" class="wrap account-msg">
-          {{ $t('message.hello') + showWelcomeMessage() }}
+          {{ $t('message.hello') + showUserName() }}
+          <p v-if="app.industry === 'comms-business'" class="margin-t-2x">
+            {{ showCompanyName() }}
+          </p>
         </h1>
         <div class="wrap cols flex flex-wrap">
           <AccountMainArea v-if="app.industry !== 'commercial_bank'" />
@@ -59,8 +62,12 @@ export default {
     RTSOverlay,
   },
   methods: {
-    showWelcomeMessage() {
+    showUserName() {
       const name = this.settings.users[this.userId].name;
+      return name;
+    },
+    showCompanyName() {
+      const name = this.settings.users[this.userId].company_name;
       return name;
     },
   },
