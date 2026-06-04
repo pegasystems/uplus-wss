@@ -57,7 +57,9 @@ export const upgradeConfig = function upgradeConfig(cfg) {
   if (typeof cfg.settings.general.connection.CSSOverride === 'undefined') {
     cfg.settings.general.connection.CSSOverride = '';
   }
-  if (typeof cfg.settings.general.connection.webEmbedUseFormWidth === 'undefined') {
+  if (
+    typeof cfg.settings.general.connection.webEmbedUseFormWidth === 'undefined'
+  ) {
     cfg.settings.general.connection.webEmbedUseFormWidth = false;
   }
   if (typeof cfg.settings.general.connection.authorizeUri === 'undefined') {
@@ -74,9 +76,7 @@ export const upgradeConfig = function upgradeConfig(cfg) {
   ) {
     cfg.settings.pega_chat.DMMProactiveChatNewSessionCode = '5sonPage';
   }
-  if (
-    typeof cfg.settings.pega_chat.UsePrivateSessionControl === 'undefined'
-  ) {
+  if (typeof cfg.settings.pega_chat.UsePrivateSessionControl === 'undefined') {
     cfg.settings.pega_chat.UsePrivateSessionControl = false;
   }
   for (const i in cfg.settings.quicklinks) {
@@ -305,7 +305,8 @@ if (typeof window.settings === 'undefined') {
     /* check if quicklinkid is passed as parameter */
     if (queryDict.quicklinkid) {
       mainconfigTmp.quickLinkId = queryDict.quicklinkid;
-      mainconfigTmp.settings.quicklinks[queryDict.quicklinkid].actionparam = queryDict.quickLinkActionparam;
+      mainconfigTmp.settings.quicklinks[queryDict.quicklinkid].actionparam =
+        queryDict.quickLinkActionparam;
       mainconfigTmp.deepLinkExtraParam = queryDict;
       delete mainconfigTmp.deepLinkExtraParam.quicklinkid;
       delete mainconfigTmp.deepLinkExtraParam.quickLinkActionparam;
@@ -429,6 +430,7 @@ if (typeof window.settings === 'undefined') {
     window.PegaCSWSS.AccountNumber = u.accountID;
     window.PegaCSWSS.UserName = u.username;
     window.PegaCSWSS.UserID = u.pega_userid;
+    window.PegaCSWSS.CustomerID = u.customerID;
     if (typeof u.extraparam !== 'undefined' && u.extraparam !== '') {
       u.extraparam.split(',').forEach((item) => {
         const values = item.split('=');
@@ -473,8 +475,8 @@ if (typeof window.settings === 'undefined') {
     document.head.appendChild(mashupScript);
   } else if (
     mainconfigTmp.settings.general.connection.PegaURL !== '' &&
-    mainconfigTmp.settings.general.connection.type === 'launchpad')
-   {
+    mainconfigTmp.settings.general.connection.type === 'launchpad'
+  ) {
     const mashupScript = document.createElement('script');
     mashupScript.setAttribute(
       'src',
@@ -512,6 +514,7 @@ if (typeof window.settings === 'undefined') {
         AccountNumber: window.PegaCSWSS.AccountNumber,
         UserName: window.PegaCSWSS.UserName,
         UserID: window.PegaCSWSS.UserID,
+        CustomerId: window.PegaCSWSS.CustomerID,
       };
       const jwtToken = await generateJWTToken(
         { iss: sessionId },
@@ -528,6 +531,15 @@ if (typeof window.settings === 'undefined') {
           authorization: `Bearer ${jwtToken}`,
         },
         body: JSON.stringify(privateData),
+      }).catch(() => {
+        console.error('Error invoking private data endpoint');
+        return '';
+      });
+      // Consume the response body to ensure the backend has fully processed the request
+      // before the caller proceeds (fetch resolves on headers alone)
+      await response.text().catch((error) => {
+        console.error('Error consuming private data response body', error);
+        return '';
       });
       return response;
     };
@@ -556,6 +568,7 @@ if (typeof window.settings === 'undefined') {
 
         // Pick a stable customer identifier if available
         const customerId =
+          window.PegaCSWSS?.CustomerID ||
           window.PegaCSWSS?.UserName ||
           window.PegaCSWSS?.UserID ||
           `guest-${Date.now()}`;
@@ -589,7 +602,7 @@ if (typeof window.settings === 'undefined') {
           mainconfigTmp.userId !== -1
         ) {
           const response = await invokePrivateData(sessionId);
-          if (response.status !== 200) {
+          if (response && response.status !== 200) {
             console.log('Error occurred with private data invocation');
             return;
           }
@@ -636,7 +649,7 @@ if (typeof window.settings === 'undefined') {
         !mainconfigTmp?.settings?.pega_chat?.UsePrivateSessionControl
       ) {
         const response = await invokePrivateData(sessionId);
-        if (response.status !== 200) {
+        if (response && response.status !== 200) {
           console.log('Error occurred with private data invocation');
           return;
         }
