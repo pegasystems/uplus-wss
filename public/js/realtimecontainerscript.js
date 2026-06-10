@@ -5,6 +5,11 @@ function getNBAMServiceControl(serviceClass,callMultiContainer) {
 	var serviceClass = serviceClass;
 	var callMultiContainer = callMultiContainer;
 	var offerLength = 0;
+
+	// OAuth2 token cache (shared across all NBAMServiceControl instances within the page)
+	var _oauthToken = null;
+	var _oauthTokenExpiry = 0;
+
 	var NBAMServiceControl = {
 
 		hostName : serverHostname,
@@ -301,6 +306,41 @@ function getNBAMServiceControl(serviceClass,callMultiContainer) {
 		return xhr;
 	},
 
+	// Fetch an OAuth2 access token using the client credentials grant, with in-memory caching.
+	fetchOAuth2Token : function(tokenUrl, clientId, clientSecret, callback) {
+		var now = Date.now();
+		if (_oauthToken && now < _oauthTokenExpiry - 30000) {
+			callback(null, _oauthToken);
+			return;
+		}
+		var xhr = new XMLHttpRequest();
+		var body = 'grant_type=client_credentials'
+			+ '&client_id=' + encodeURIComponent(clientId)
+			+ '&client_secret=' + encodeURIComponent(clientSecret);
+		xhr.open('POST', tokenUrl, true);
+		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState === 4) {
+				if (xhr.status === 200) {
+					try {
+						var data = JSON.parse(xhr.responseText);
+						_oauthToken = data.access_token;
+						_oauthTokenExpiry = Date.now() + (data.expires_in * 1000);
+						callback(null, _oauthToken);
+					} catch (e) {
+						callback(new Error('OAuth2 token parse error: ' + e.message));
+					}
+				} else {
+					callback(new Error('OAuth2 token request failed with status: ' + xhr.status));
+				}
+			}
+		};
+		xhr.onerror = function() {
+			callback(new Error('OAuth2 token request network error'));
+		};
+		xhr.send(body);
+	},
+
 	/* captureWebResponse function is implemented as part US-81885 */
 
 	captureWebResponse : function (containerID, customerID, offerID, issue, group, interactionID,outcome,behaviour,channel,direction,campaignID,callback, errorcallback) {
@@ -447,21 +487,42 @@ function getNBAMServiceControl(serviceClass,callMultiContainer) {
 
     sendClickStreamEvent : function(event, callback, errorcallback) {
      console.log("Sending ClickStream Event", event);
-     var serviceUrl = this.serviceURLProtocol + "://" + this.hostName + (this.port!="" ? ":" + this.port : "") + "/prweb/api/BehavioralData/01.01/Insert";
+     //var serviceUrl = this.serviceURLProtocol + "://" + this.hostName + (this.port!="" ? ":" + this.port : "") + "/prweb/api/BehavioralData/01.01/Insert";
+          var serviceUrl = this.serviceURLProtocol + "://" + this.hostName + (this.port!="" ? ":" + this.port : "") + "/prweb/api/ClickStream/1.1/Insert";
 	var xmlHttpReq = this.createRequest("POST", serviceUrl, callback, errorcallback);
 	if (xmlHttpReq)	xmlHttpReq.send(JSON.stringify(event));
     },
 
-    mergeAccount : function(primaryId, secondaryId, ContextId, ApplicationId, callback, errorcallback) {
+    mergeAccount : function(primaryId, secondaryId, ContextId, ApplicationId, callback, errorcallback, oauth2Config) {
+     var self = this;
      console.log("Merging the account primaryId=" + primaryId + " with secondaryId=" + secondaryId);
      var serviceUrl = this.serviceURLProtocol + "://" + this.hostName + (this.port!="" ? ":" + this.port : "") + "/prweb/api/PegaCDHIDMerge/v1/IDMerge";
-     var xmlHttpReq = this.createRequest("POST", serviceUrl, callback, errorcallback);
-     if (xmlHttpReq)	xmlHttpReq.send(JSON.stringify({
+     var payload = JSON.stringify({
         PrimaryID : primaryId,
         SecondaryID : secondaryId,
         ContextName : ContextId,
         Application : ApplicationId
-     }));
+     });
+     // Fall back to global config if not passed as argument (supports older CDHIntegration bundles)
+     var resolvedOAuth2 = oauth2Config || (window.mainconfig && window.mainconfig.settings && window.mainconfig.settings.pega_marketing && window.mainconfig.settings.pega_marketing.oauth2) || null;
+     if (resolvedOAuth2 && resolvedOAuth2.tokenUrl && resolvedOAuth2.clientId && resolvedOAuth2.clientSecret) {
+        oauth2Config = resolvedOAuth2;
+        this.fetchOAuth2Token(oauth2Config.tokenUrl, oauth2Config.clientId, oauth2Config.clientSecret, function(err, token) {
+           if (err) {
+              console.error('CDH IDMerge: failed to obtain OAuth2 token', err);
+              if (typeof errorcallback === 'function') errorcallback();
+              return;
+           }
+           var xhr = self.createRequest("POST", serviceUrl, callback, errorcallback);
+           if (xhr) {
+              xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+              xhr.send(payload);
+           }
+        });
+     } else {
+        var xmlHttpReq = this.createRequest("POST", serviceUrl, callback, errorcallback);
+        if (xmlHttpReq) xmlHttpReq.send(payload);
+     }
     },
 
 
