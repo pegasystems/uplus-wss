@@ -106,17 +106,25 @@
                 id="ga-connection-authtype"
                 v-model="settings.general.connection.authtype"
               >
+                <option value="oauth2authorizationcode">
+                  OAuth 2.0 Authorization Code Grant Type
+                </option>
+                <option value="oauth2password"
+                v-if="settings.general.connection.type === 'embedui2' || settings.general.connection.type === 'embedui3'"
+                >
+                  OAuth 2.0 Password Grant Type
+                </option>
                 <option value="oauth2clientcredentials">
-                  OAuth 2.0 Client Credentials Type
+                  OAuth 2.0 Client Credentials Grant Type
                 </option>
               </select>
             </div>
             <div
               class="field-item"
               v-if="
+                settings.general.connection.authtype === 'oauth2authorizationcode' ||
                 settings.general.connection.authtype === 'oauth2password' ||
-                settings.general.connection.authtype ===
-                  'oauth2clientcredentials'
+                settings.general.connection.authtype === 'oauth2clientcredentials'
               "
             >
               <label for="ga-connection-clientid">Client ID</label>
@@ -128,7 +136,9 @@
             </div>
             <div
               class="field-item"
-              v-if="settings.general.connection.authtype === 'oauth2password'"
+              v-if="
+                settings.general.connection.authtype === 'oauth2password' ||
+                settings.general.connection.authtype === 'oauth2clientcredentials'"
             >
               <label for="ga-connection-clientsecret">Client secret</label>
               <input

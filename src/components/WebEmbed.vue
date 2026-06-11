@@ -16,9 +16,11 @@
       :pegaServerUrl="url"
       :staticContentUrl="staticContentUrl"
       :pegaServerType="pegaServerType"
+      :grantType="grantType"
       :authorizeUri="authorizeUri"
       :authService="authService"
       :clientId="clientId"
+      :clientSecret="clientSecret"
       :userIdentifier="UserIdentifier"
       :password="Password"
       :theme="theme"
@@ -39,9 +41,11 @@
       :pegaServerUrl="url"
       :staticContentUrl="staticContentUrl"
       :pegaServerType="pegaServerType"
+      :grantType="grantType"
       :authorizeUri="authorizeUri"
       :authService="authService"
       :clientId="clientId"
+      :clientSecret="clientSecret"
       :userIdentifier="UserIdentifier"
       :password="Password"
       :theme="theme"
@@ -61,9 +65,11 @@
       :pegaServerUrl="url"
       :staticContentUrl="staticContentUrl"
       :pegaServerType="pegaServerType"
+      :grantType="grantType"
       :authorizeUri="authorizeUri"
       :authService="authService"
       :clientId="clientId"
+      :clientSecret="clientSecret"
       :userIdentifier="UserIdentifier"
       :password="Password"
       :theme="theme"
@@ -83,9 +89,11 @@
       :pegaServerUrl="url"
       :staticContentUrl="staticContentUrl"
       :pegaServerType="pegaServerType"
+      :grantType="grantType"
       :authorizeUri="authorizeUri"
       :authService="authService"
       :clientId="clientId"
+      :clientSecret="clientSecret"
       :userIdentifier="UserIdentifier"
       :password="Password"
       :theme="theme"
@@ -104,9 +112,11 @@
       :pegaServerUrl="url"
       :staticContentUrl="staticContentUrl"
       :pegaServerType="pegaServerType"
+      :grantType="grantType"
       :authorizeUri="authorizeUri"
       :authService="authService"
       :clientId="clientId"
+      :clientSecret="clientSecret"
       :userIdentifier="UserIdentifier"
       :password="Password"
       :theme="theme"
@@ -141,7 +151,9 @@ export default {
       reloadTitle: false,
       pageTemplate: 'assignment',
       authService: undefined,
+      grantType: 'authCode',
       clientId: '',
+      clientSecret: undefined,
       caseTitle: '',
       isWebEmbedInitialized: false,
       UserIdentifier: undefined,
@@ -385,7 +397,18 @@ export default {
     } else {
       this.authService = this.settings.general.connection.authService;
     }
+    switch(this.settings.general.connection.authtype) {
+      case 'oauth2clientcredentials':
+        this.grantType = 'clientCreds';
+        break;
+      case 'oauth2password':
+        this.grantType = 'passwordCreds';
+        break;
+      default:
+        break;
+    }
     this.clientId = this.settings.general.connection.clientid;
+    this.clientSecret = this.settings.general.connection.clientsecret;
 
     this.isWebEmbedInitialized = 'true';
   },
