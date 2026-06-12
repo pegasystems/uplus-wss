@@ -205,6 +205,12 @@ export default {
   };
   },
   mounted() {
+    const setDefaultUserCreds = () => {
+      if(this.userId === -1 && this.settings.users[0].pega_userid && this.settings.users[0].pega_pwd) {
+        this.UserIdentifier = this.settings.users[0].pega_userid;
+        this.Password = btoa(this.settings.users[0].pega_pwd);
+      }
+    };
     sessionStorage.clear();
     if (this.quickLinkId !== -1) {
       this.action = this.settings.quicklinks[this.quickLinkId].action;
@@ -299,9 +305,7 @@ export default {
     }
     if (this.userId !== -1) {
       this.UserIdentifier = this.settings.users[this.userId].pega_userid;
-      this.Password = encodeURI(
-        btoa(this.settings.users[this.userId].pega_pwd),
-      );
+      this.Password = btoa(this.settings.users[this.userId].pega_pwd);
     } else if (this.viewKMHelp !== -1) {
       this.UserIdentifier = this.settings.kmhelp.username;
       this.Password = encodeURI(btoa(this.settings.kmhelp.password));
@@ -403,6 +407,10 @@ export default {
         break;
       case 'oauth2password':
         this.grantType = 'passwordCreds';
+        setDefaultUserCreds();
+        break;
+      case 'oauth2authorizationcode':
+        setDefaultUserCreds();
         break;
       default:
         break;
