@@ -1,6 +1,6 @@
 <template>
   <div class="form flex flex-col">
-    <MainHeader />
+    <MainHeader v-if="!isInIframe && !isMashupOnly" />
     <main v-if="offerURL !== ''" class="flex flex-col">
       <div class="flex wrap height-100-pct"><MicroSiteMainArea /></div>
     </main>
@@ -32,7 +32,7 @@
     <main v-else class="mashup-main flex flex-col">
       <MashupMainArea class="wrap"/>
     </main>
-    <MainFooter />
+    <MainFooter v-if="!isInIframe && !isMashupOnly" />
   </div>
 </template>
 
@@ -60,6 +60,14 @@ export default {
     MainFooter,
     MicroSiteMainArea,
     RTSOverlay,
+  },
+  computed: {
+    isInIframe() {
+      return window.self !== window.top;
+    },
+    isMashupOnly() {
+      return new URLSearchParams(window.location.search).get('mashupOnly') === 'true';
+    },
   },
   methods: {
     showUserName() {
