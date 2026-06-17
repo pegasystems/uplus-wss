@@ -1,28 +1,28 @@
 <template>
   <div v-if="homeHeroAction == 1 || viewKMHelp == 1" class="form flex flex-col">
-    <MainHeader />
+    <MainHeader v-if="!isInIframe" />
     <main class="mashup-main flex flex-col">
         <MashupMainArea class="wrap"/>
     </main>
-    <MainFooter />
+    <MainFooter v-if="!isInIframe" />
   </div>
   <div v-else-if="offerURL !== ''" class="form flex flex-col">
-    <MainHeader />
+    <MainHeader v-if="!isInIframe" />
     <main class="flex flex-col">
       <div class="wrap height-100-pct">
         <MicroSiteMainArea />
       </div>
     </main>
-    <MainFooter />
+    <MainFooter v-if="!isInIframe" />
   </div>
   <div v-else class="front">
     <RTSOverlay v-if="settings.pega_marketing.enableRTS" />
-    <MainHeader />
+    <MainHeader v-if="!isInIframe" />
     <main :class="'flex flex-col' + (isRTSEnabled ? ' rts-enabled' : '')">
       <FrontMainArea />
       <FrontSecondaryArea />
     </main>
-    <MainFooter />
+    <MainFooter v-if="!isInIframe" />
   </div>
 </template>
 
@@ -39,6 +39,11 @@ import RTSOverlay from '@/components/controls/RTSOverlay.vue';
 export default {
   data() {
     return mainconfig;
+  },
+  computed: {
+    isInIframe() {
+      return window.self !== window.top;
+    },
   },
   components: {
     MainHeader,
