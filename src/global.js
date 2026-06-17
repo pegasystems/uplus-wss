@@ -489,7 +489,8 @@ if (typeof window.settings === 'undefined') {
     typeof mainconfigTmp.settings.pega_chat !== 'undefined' &&
     mainconfigTmp.settings.pega_chat.DMMURL !== '' &&
     mainconfigTmp.settings.pega_chat.DMMID !== '' &&
-    `${window.location}`.indexOf('/settings.html') === -1
+    `${window.location}`.indexOf('/settings.html') === -1 &&
+    window.self === window.top
   ) {
     if (typeof window.PegaUnifiedChatWidget === 'undefined') {
       window.PegaUnifiedChatWidget = {};
