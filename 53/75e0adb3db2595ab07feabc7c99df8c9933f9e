@@ -1,0 +1,19 @@
+.github/workflows/main.yml
+  s_c08253211202e0::t_055a1247e45418 17,20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "5375e0adb3db2595ab07feabc7c99df8c9933f9e",
+  "prompts": {},
+  "sessions": {
+    "s_c08253211202e0": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "6d045e42-ccd1-4931-9677-f2f92eeb5816",
+        "model": "default"
+      },
+      "human_author": "Richard Marsot <richard.marsot@pega.com>"
+    }
+  }
+}
