@@ -60,6 +60,7 @@ export default {
       mainconfig.offerAction = -1;
       mainconfig.toDo = -1;
       mainconfig.viewKMHelp = -1;
+      mainconfig.viewCommunity = -1;
       mainconfig.viewBanner = -1;
       mainconfig.CDHContainer = {};
       mainconfig.offerURL = '';

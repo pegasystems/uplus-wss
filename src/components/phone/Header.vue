@@ -20,6 +20,12 @@
       v-on:click="showKMHelp"
       >{{ $t('message.kmhelp') }}</a
     >
+    <a
+      class="community"
+      v-if="settings.community.url !== ''"
+      v-on:click="showCommunity"
+      >{{ $t('message.community') }}</a
+    >
     <OperatorButton v-if="isAuthenticated" />
     <LoginButton
       v-else-if="phonePageName === '' || phonePageName === 'index.html'"
@@ -53,6 +59,8 @@ export default {
           mainconfig.quickLinkId = -1;
         } else if (mainconfig.viewKMHelp !== -1) {
           mainconfig.viewKMHelp = -1;
+        } else if (mainconfig.viewCommunity !== -1) {
+          mainconfig.viewCommunity = -1;
         } else if (mainconfig.viewBill !== -1) {
           mainconfig.viewBill = -1;
         } else if (mainconfig.viewBanner !== -1) {
@@ -78,7 +86,7 @@ export default {
         try {
           elem = JSON.parse(e.data);
         } catch {
-            // Ignore JSON parse errors; elem stays as the default object.
+          // Ignore JSON parse errors; elem stays as the default object.
         }
         if (
           elem.channelName === 'PWMashup' &&
@@ -110,6 +118,7 @@ export default {
       mainconfig.phonePageName = '';
       mainconfig.quickLinkId = -1;
       mainconfig.viewKMHelp = -1;
+      mainconfig.viewCommunity = -1;
       mainconfig.viewBill = -1;
       mainconfig.viewBanner = -1;
       mainconfig.offerAction = -1;
@@ -149,6 +158,23 @@ export default {
       mainconfig.viewKMHelp = 1;
       mainconfig.logoutURL.kmhelp = `${mainconfig.settings.kmhelp.url}?pyActivity=LogOff`;
       mainconfig.reloadMashup += 1;
+    },
+    showCommunity() {
+      mainconfig.previousPage = mainconfig.currentPage;
+      mainconfig.currentPage = 'community.html';
+      sendClickStreamEvent(
+        mainconfig,
+        'PageView',
+        'Community',
+        window.loadPage,
+      );
+      window.loadPage = new Date();
+      if (this.$gtag) {
+        this.$gtag.pageview({
+          page_path: mainconfig.currentPage,
+        });
+      }
+      mainconfig.viewCommunity = 1;
     },
   },
   components: {

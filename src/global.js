@@ -120,6 +120,13 @@ export const upgradeConfig = function upgradeConfig(cfg) {
       },
     ];
   }
+  if (typeof cfg.settings.community === 'undefined') {
+    cfg.settings.community = {
+      url: '',
+      username: '',
+      password: '',
+    };
+  }
   return cfg;
 };
 
@@ -166,6 +173,7 @@ if (typeof window.settings === 'undefined') {
     viewBanner: -1,
     toDo: -1,
     viewKMHelp: -1,
+    viewCommunity: -1,
     KMArticleID: '',
     CDHContainer: {},
     logoutURL: {},
@@ -890,6 +898,7 @@ window.addEventListener('popstate', () => {
     mainconfig.offerAction = -1;
     mainconfig.toDo = -1;
     mainconfig.viewKMHelp = -1;
+    mainconfig.viewCommunity = -1;
     mainconfig.offerURL = '';
     mainconfig.CDHContainer = {};
   }

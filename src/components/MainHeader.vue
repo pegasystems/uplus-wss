@@ -41,6 +41,12 @@
         v-on:click="showKMHelp"
         >{{ $t('message.kmhelp') }}</a
       >
+      <a
+        class="community"
+        v-if="settings.community.url !== ''"
+        v-on:click="showCommunity"
+        >{{ $t('message.community') }}</a
+      >
       <OperatorButton v-if="isAuthenticated" />
       <LoginButton v-else />
       <MainHeaderMenu />
@@ -111,7 +117,7 @@ export default {
         try {
           elem = JSON.parse(e.data);
         } catch {
-            // Ignore JSON parse errors; elem stays as the default object.
+          // Ignore JSON parse errors; elem stays as the default object.
         }
         if (
           elem.channelName === 'PWMashup' &&
@@ -143,6 +149,7 @@ export default {
       mainconfig.offerAction = -1;
       mainconfig.toDo = -1;
       mainconfig.viewKMHelp = -1;
+      mainconfig.viewCommunity = -1;
       mainconfig.offerURL = '';
       mainconfig.offerIndex = 0;
       mainconfig.CDHContainer = {};
@@ -177,6 +184,23 @@ export default {
       mainconfig.viewKMHelp = 1;
       mainconfig.logoutURL.kmhelp = `${mainconfig.settings.kmhelp.url}?pyActivity=LogOff`;
       mainconfig.reloadMashup += 1;
+    },
+    showCommunity() {
+      this.goHomePage(true);
+      mainconfig.previousPage = mainconfig.currentPage;
+      mainconfig.currentPage = 'community.html';
+      sendClickStreamEvent(
+        mainconfig,
+        'PageView',
+        'Community',
+        window.loadPage,
+      );
+      if (this.$gtag) {
+        this.$gtag.pageview({
+          page_path: mainconfig.currentPage,
+        });
+      }
+      mainconfig.viewCommunity = 1;
     },
   },
   components: {

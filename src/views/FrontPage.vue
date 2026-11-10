@@ -1,8 +1,18 @@
 <template>
-  <div v-if="homeHeroAction == 1 || viewKMHelp == 1" class="form flex flex-col">
+  <div v-if="viewCommunity == 1" class="form flex flex-col">
+    <MainHeader v-if="!isInIframe" />
+    <main class="flex flex-col">
+      <CommunityFrame />
+    </main>
+    <MainFooter v-if="!isInIframe" />
+  </div>
+  <div
+    v-else-if="homeHeroAction == 1 || viewKMHelp == 1"
+    class="form flex flex-col"
+  >
     <MainHeader v-if="!isInIframe" />
     <main class="mashup-main flex flex-col">
-        <MashupMainArea class="wrap"/>
+      <MashupMainArea class="wrap" />
     </main>
     <MainFooter v-if="!isInIframe" />
   </div>
@@ -35,6 +45,7 @@ import FrontSecondaryArea from '@/components/FrontSecondaryArea.vue';
 import MashupMainArea from '@/components/MashupMainArea.vue';
 import MicroSiteMainArea from '@/components/MicroSiteMainArea.vue';
 import RTSOverlay from '@/components/controls/RTSOverlay.vue';
+import CommunityFrame from '@/components/CommunityFrame.vue';
 
 export default {
   data() {
@@ -53,6 +64,7 @@ export default {
     MainFooter,
     MicroSiteMainArea,
     RTSOverlay,
+    CommunityFrame,
   },
 };
 </script>

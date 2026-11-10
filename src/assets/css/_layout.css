@@ -714,6 +714,18 @@ a.kmhelp {
   margin: auto 16px auto 0;
 }
 
+a.community {
+  margin: auto 16px auto 0;
+}
+
+iframe.community-frame {
+  display: block;
+  flex-shrink: 0;
+  width: 100%;
+  border: 0;
+  overflow: hidden;
+}
+
 section.kmhelp > div {
   height: 100%;
 }
