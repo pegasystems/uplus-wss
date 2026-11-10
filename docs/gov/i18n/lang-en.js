@@ -111,6 +111,7 @@ window.langEN = {
   offer_builtin_thankyou: 'Thank you!',
   offer_builtin_response: 'Your information has been submitted.',
   kmhelp: 'Help',
+  community: 'Community',
 };
 
 window.dateFormatEN = {

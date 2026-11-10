@@ -119,6 +119,7 @@ window.langEN = {
   cash_and_balance: "Cash balance",
   cash_projections: "Cash projections",
   kmhelp: "Help",
+  community: "Community",
   accounts_header1: "Account number",
   accounts_header2: "Name",
   accounts_header3: "Type",

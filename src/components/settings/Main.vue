@@ -55,6 +55,9 @@
       >
         <KMHelpSettings />
       </tab>
+      <tab v-if="typeof settings.community != 'undefined'" name="Community">
+        <CommunitySettings />
+      </tab>
       <tab name="Home Hero Action">
         <HomeHeroActionSettings />
       </tab>
@@ -78,6 +81,7 @@ import QuickLinksSettings from './QuickLinksSettings.vue';
 import BillPaySettings from './BillPaySettings.vue';
 import BannerSettings from './BannerSettings.vue';
 import KMHelpSettings from './KMHelpSettings.vue';
+import CommunitySettings from './CommunitySettings.vue';
 import ToDoSettings from './ToDoSettings.vue';
 import ActivitySettings from './ActivitySettings.vue';
 import HomeHeroActionSettings from './HomeHeroActionSettings.vue';
@@ -107,6 +111,7 @@ export default {
       mainconfig.offerAction = -1;
       mainconfig.toDo = -1;
       mainconfig.viewKMHelp = -1;
+      mainconfig.viewCommunity = -1;
       mainconfig.viewBanner = -1;
       mainconfig.CDHContainer = {};
       mainconfig.offerURL = '';
@@ -141,6 +146,7 @@ export default {
     HomeHeroActionSettings,
     UsersSettings,
     KMHelpSettings,
+    CommunitySettings,
     ChatSettings,
     NBAMSettings,
     OfferActionSettings,

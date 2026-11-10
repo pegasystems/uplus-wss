@@ -4,6 +4,9 @@
     <main v-if="offerURL !== ''" class="flex flex-col">
       <div class="flex wrap height-100-pct"><MicroSiteMainArea /></div>
     </main>
+    <main v-else-if="viewCommunity !== -1" class="flex flex-col">
+      <CommunityFrame />
+    </main>
     <main
       v-else-if="
         quickLinkId === -1 &&
@@ -30,7 +33,7 @@
       </div>
     </main>
     <main v-else class="mashup-main flex flex-col">
-      <MashupMainArea class="wrap"/>
+      <MashupMainArea class="wrap" />
     </main>
     <MainFooter v-if="!isInIframe && !isMashupOnly" />
   </div>
@@ -46,6 +49,7 @@ import AccountMainArea from './AccountMainArea.vue';
 import BankAccountMainArea from './BankAccountMainArea.vue';
 import AccountSecondaryArea from './AccountSecondaryArea.vue';
 import RTSOverlay from '../controls/RTSOverlay.vue';
+import CommunityFrame from '../CommunityFrame.vue';
 
 export default {
   data() {
@@ -60,13 +64,16 @@ export default {
     MainFooter,
     MicroSiteMainArea,
     RTSOverlay,
+    CommunityFrame,
   },
   computed: {
     isInIframe() {
       return window.self !== window.top;
     },
     isMashupOnly() {
-      return new URLSearchParams(window.location.search).get('mashupOnly') === 'true';
+      return (
+        new URLSearchParams(window.location.search).get('mashupOnly') === 'true'
+      );
     },
   },
   methods: {

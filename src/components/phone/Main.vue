@@ -9,6 +9,9 @@
       viewBanner !== -1
     "
   />
+  <main v-else-if="viewCommunity !== -1" class="flex flex-col">
+    <CommunityFrame />
+  </main>
   <HomePage
     v-else-if="phonePageName === '' || phonePageName === 'index.html'"
   />
@@ -29,6 +32,7 @@ import QuickLinks from './QuickLinks.vue';
 import IntroQuickLinks from './IntroQuickLinks.vue';
 import Account from './Account.vue';
 import Mashup from './Mashup.vue';
+import CommunityFrame from '../CommunityFrame.vue';
 
 export default {
   data() {
@@ -42,6 +46,7 @@ export default {
     QuickLinks,
     Account,
     Mashup,
+    CommunityFrame,
   },
 };
 </script>

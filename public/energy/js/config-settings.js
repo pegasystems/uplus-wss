@@ -212,6 +212,11 @@ window.settings = {
 		pageTemplate: 'assignment',
 		heading: '',
 	},
+	community: {
+		url: '',
+		username: '',
+		password: '',
+	},
 	kmhelp: {
 		action: "display",
 		actionparam: "KMHelpSitePortal",

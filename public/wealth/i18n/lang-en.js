@@ -300,6 +300,7 @@ offer4_main_offer4_button_label: "Learn more",
       'Advanced trading platforms for both your mobile and tablet devices',
 
   kmhelp: 'Help',
+  community: 'Community',
 };
 
 window.dateFormatEN = {
